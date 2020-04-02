@@ -31,22 +31,6 @@
     .end annotation
 .end method
 
-.method public abstract disableAccessibilityService(Landroid/content/ComponentName;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract enableAccessibilityService(Landroid/content/ComponentName;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getEnabledAccessibilityServiceList(II)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,7 +67,7 @@
     .end annotation
 .end method
 
-.method public abstract getWindowToken(II)Landroid/os/IBinder;
+.method public abstract getWindowToken(I)Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -99,7 +83,7 @@
     .end annotation
 .end method
 
-.method public abstract registerUiTestAutomationService(Landroid/os/IBinder;Landroid/accessibilityservice/IAccessibilityServiceClient;Landroid/accessibilityservice/AccessibilityServiceInfo;I)V
+.method public abstract registerUiTestAutomationService(Landroid/os/IBinder;Landroid/accessibilityservice/IAccessibilityServiceClient;Landroid/accessibilityservice/AccessibilityServiceInfo;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

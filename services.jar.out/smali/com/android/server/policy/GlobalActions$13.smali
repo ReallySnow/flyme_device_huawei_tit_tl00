@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/GlobalActions;->getVoiceAssistAction()Lcom/android/server/policy/GlobalActions$Action;
+    value = Lcom/android/server/policy/GlobalActions;->getSettingsAction()Lcom/android/server/policy/GlobalActions$Action;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,12 +26,12 @@
     .param p3, "$anonymous1"    # I
 
     .prologue
-    .line 680
+    .line 580
     iput-object p1, p0, Lcom/android/server/policy/GlobalActions$13;->this$0:Lcom/android/server/policy/GlobalActions;
 
     invoke-direct {p0, p2, p3}, Lcom/android/server/policy/GlobalActions$SinglePressAction;-><init>(II)V
 
-    .line 681
+    .line 581
     return-void
 .end method
 
@@ -41,20 +41,20 @@
     .locals 2
 
     .prologue
-    .line 684
+    .line 585
     new-instance v0, Landroid/content/Intent;
 
-    const-string/jumbo v1, "android.intent.action.VOICE_ASSIST"
+    const-string/jumbo v1, "android.settings.SETTINGS"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 685
+    .line 586
     .local v0, "intent":Landroid/content/Intent;
     const/high16 v1, 0x14000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 686
+    .line 587
     iget-object v1, p0, Lcom/android/server/policy/GlobalActions$13;->this$0:Lcom/android/server/policy/GlobalActions;
 
     invoke-static {v1}, Lcom/android/server/policy/GlobalActions;->-get5(Lcom/android/server/policy/GlobalActions;)Landroid/content/Context;
@@ -63,7 +63,7 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 683
+    .line 584
     return-void
 .end method
 
@@ -71,7 +71,7 @@
     .locals 1
 
     .prologue
-    .line 696
+    .line 597
     const/4 v0, 0x1
 
     return v0
@@ -81,7 +81,7 @@
     .locals 1
 
     .prologue
-    .line 691
+    .line 592
     const/4 v0, 0x1
 
     return v0

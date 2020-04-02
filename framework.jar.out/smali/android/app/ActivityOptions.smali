@@ -6,8 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/app/ActivityOptions$HideWindowListener;,
-        Landroid/app/ActivityOptions$OnAnimationFinishedListener;,
         Landroid/app/ActivityOptions$OnAnimationStartedListener;
     }
 .end annotation
@@ -42,8 +40,6 @@
 
 .field public static final EXTRA_USAGE_TIME_REPORT_PACKAGES:Ljava/lang/String; = "android.usage_time_packages"
 
-.field private static final KEY_ANIMATION_FINISHED_LISTENER:Ljava/lang/String; = "android:activity.animationFinishedListener"
-
 .field public static final KEY_ANIM_ENTER_RES_ID:Ljava/lang/String; = "android:activity.animEnterRes"
 
 .field public static final KEY_ANIM_EXIT_RES_ID:Ljava/lang/String; = "android:activity.animExitRes"
@@ -51,8 +47,6 @@
 .field public static final KEY_ANIM_HEIGHT:Ljava/lang/String; = "android:activity.animHeight"
 
 .field public static final KEY_ANIM_IN_PLACE_RES_ID:Ljava/lang/String; = "android:activity.animInPlaceRes"
-
-.field private static final KEY_ANIM_SPECS:Ljava/lang/String; = "android:activity.animSpecs"
 
 .field public static final KEY_ANIM_START_LISTENER:Ljava/lang/String; = "android:activity.animStartListener"
 
@@ -66,25 +60,13 @@
 
 .field public static final KEY_ANIM_WIDTH:Ljava/lang/String; = "android:activity.animWidth"
 
-.field private static final KEY_DOCK_CREATE_MODE:Ljava/lang/String; = "android:activity.dockCreateMode"
-
 .field private static final KEY_EXIT_COORDINATOR_INDEX:Ljava/lang/String; = "android:activity.exitCoordinatorIndex"
-
-.field public static final KEY_LAUNCH_BOUNDS:Ljava/lang/String; = "android:activity.launchBounds"
-
-.field private static final KEY_LAUNCH_STACK_ID:Ljava/lang/String; = "android.activity.launchStackId"
-
-.field private static final KEY_LAUNCH_TASK_ID:Ljava/lang/String; = "android.activity.launchTaskId"
 
 .field public static final KEY_PACKAGE_NAME:Ljava/lang/String; = "android:activity.packageName"
 
 .field private static final KEY_RESULT_CODE:Ljava/lang/String; = "android:activity.resultCode"
 
 .field private static final KEY_RESULT_DATA:Ljava/lang/String; = "android:activity.resultData"
-
-.field private static final KEY_ROTATION_ANIMATION_HINT:Ljava/lang/String; = "android:activity.rotationAnimationHint"
-
-.field private static final KEY_TASK_OVERLAY:Ljava/lang/String; = "android.activity.taskOverlay"
 
 .field private static final KEY_TRANSITION_COMPLETE_LISTENER:Ljava/lang/String; = "android:activity.transitionCompleteListener"
 
@@ -98,10 +80,6 @@
 
 
 # instance fields
-.field private mAnimSpecs:[Landroid/view/AppTransitionAnimationSpec;
-
-.field private mAnimationFinishedListener:Landroid/os/IRemoteCallback;
-
 .field private mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
 .field private mAnimationType:I
@@ -112,27 +90,17 @@
 
 .field private mCustomInPlaceResId:I
 
-.field private mDockCreateMode:I
-
 .field private mExitCoordinatorIndex:I
 
 .field private mHeight:I
 
 .field private mIsReturning:Z
 
-.field private mLaunchBounds:Landroid/graphics/Rect;
-
-.field private mLaunchStackId:I
-
-.field private mLaunchTaskId:I
-
 .field private mPackageName:Ljava/lang/String;
 
 .field private mResultCode:I
 
 .field private mResultData:Landroid/content/Intent;
-
-.field private mRotationAnimationHint:I
 
 .field private mSharedElementNames:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -149,8 +117,6 @@
 
 .field private mStartY:I
 
-.field private mTaskOverlay:Z
-
 .field private mThumbnail:Landroid/graphics/Bitmap;
 
 .field private mTransitionReceiver:Landroid/os/ResultReceiver;
@@ -162,467 +128,302 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 2
+    .locals 1
 
     .prologue
-    const/4 v1, 0x0
-
-    const/4 v0, -0x1
-
-    .line 794
+    .line 623
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 225
-    iput v1, p0, Landroid/app/ActivityOptions;->mAnimationType:I
+    .line 166
+    const/4 v0, 0x0
 
-    .line 243
-    iput v0, p0, Landroid/app/ActivityOptions;->mLaunchStackId:I
+    iput v0, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 244
-    iput v0, p0, Landroid/app/ActivityOptions;->mLaunchTaskId:I
-
-    .line 245
-    iput v1, p0, Landroid/app/ActivityOptions;->mDockCreateMode:I
-
-    .line 248
-    iput v0, p0, Landroid/app/ActivityOptions;->mRotationAnimationHint:I
-
-    .line 794
+    .line 623
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Bundle;)V
-    .locals 6
+    .locals 3
     .param p1, "opts"    # Landroid/os/Bundle;
 
     .prologue
-    const/4 v5, -0x1
+    const/4 v2, 0x0
 
-    const/4 v4, 0x0
-
-    .line 798
+    .line 627
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 225
-    iput v4, p0, Landroid/app/ActivityOptions;->mAnimationType:I
+    .line 166
+    iput v2, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 243
-    iput v5, p0, Landroid/app/ActivityOptions;->mLaunchStackId:I
+    .line 628
+    const-string/jumbo v1, "android:activity.packageName"
 
-    .line 244
-    iput v5, p0, Landroid/app/ActivityOptions;->mLaunchTaskId:I
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 245
-    iput v4, p0, Landroid/app/ActivityOptions;->mDockCreateMode:I
+    move-result-object v1
 
-    .line 248
-    iput v5, p0, Landroid/app/ActivityOptions;->mRotationAnimationHint:I
+    iput-object v1, p0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
-    .line 801
-    const/4 v3, 0x1
-
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->setDefusable(Z)V
-
-    .line 803
-    const-string/jumbo v3, "android:activity.packageName"
-
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
-
-    .line 805
+    .line 630
     :try_start_0
-    const-string/jumbo v3, "android:activity.usageTimeReport"
+    const-string/jumbo v1, "android:activity.usageTimeReport"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Landroid/app/PendingIntent;
+    check-cast v1, Landroid/app/PendingIntent;
 
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mUsageTimeReport:Landroid/app/PendingIntent;
+    iput-object v1, p0, Landroid/app/ActivityOptions;->mUsageTimeReport:Landroid/app/PendingIntent;
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 809
+    .line 634
     :goto_0
-    const-string/jumbo v3, "android:activity.launchBounds"
+    const-string/jumbo v1, "android:activity.animType"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result-object v3
+    move-result v1
 
-    check-cast v3, Landroid/graphics/Rect;
+    iput v1, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mLaunchBounds:Landroid/graphics/Rect;
+    .line 635
+    iget v1, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 810
-    const-string/jumbo v3, "android:activity.animType"
+    packed-switch v1, :pswitch_data_0
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v3
-
-    iput v3, p0, Landroid/app/ActivityOptions;->mAnimationType:I
-
-    .line 811
-    iget v3, p0, Landroid/app/ActivityOptions;->mAnimationType:I
-
-    packed-switch v3, :pswitch_data_0
-
-    .line 853
+    .line 627
     :goto_1
     :pswitch_0
-    const-string/jumbo v3, "android.activity.launchStackId"
+    return-void
 
-    invoke-virtual {p1, v3, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result v3
-
-    iput v3, p0, Landroid/app/ActivityOptions;->mLaunchStackId:I
-
-    .line 854
-    const-string/jumbo v3, "android.activity.launchTaskId"
-
-    invoke-virtual {p1, v3, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result v3
-
-    iput v3, p0, Landroid/app/ActivityOptions;->mLaunchTaskId:I
-
-    .line 855
-    const-string/jumbo v3, "android.activity.taskOverlay"
-
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    iput-boolean v3, p0, Landroid/app/ActivityOptions;->mTaskOverlay:Z
-
-    .line 856
-    const-string/jumbo v3, "android:activity.dockCreateMode"
-
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result v3
-
-    iput v3, p0, Landroid/app/ActivityOptions;->mDockCreateMode:I
-
-    .line 857
-    const-string/jumbo v3, "android:activity.animSpecs"
-
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 858
-    const-string/jumbo v3, "android:activity.animSpecs"
-
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
-
-    move-result-object v2
-
-    .line 859
-    .local v2, "specs":[Landroid/os/Parcelable;
-    array-length v3, v2
-
-    new-array v3, v3, [Landroid/view/AppTransitionAnimationSpec;
-
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mAnimSpecs:[Landroid/view/AppTransitionAnimationSpec;
-
-    .line 860
-    array-length v3, v2
-
-    add-int/lit8 v1, v3, -0x1
-
-    .local v1, "i":I
-    :goto_2
-    if-ltz v1, :cond_0
-
-    .line 861
-    iget-object v4, p0, Landroid/app/ActivityOptions;->mAnimSpecs:[Landroid/view/AppTransitionAnimationSpec;
-
-    aget-object v3, v2, v1
-
-    check-cast v3, Landroid/view/AppTransitionAnimationSpec;
-
-    aput-object v3, v4, v1
-
-    .line 860
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_2
-
-    .line 806
-    .end local v1    # "i":I
-    .end local v2    # "specs":[Landroid/os/Parcelable;
+    .line 631
     :catch_0
     move-exception v0
 
-    .line 807
+    .line 632
     .local v0, "e":Ljava/lang/RuntimeException;
-    const-string/jumbo v3, "ActivityOptions"
+    const-string/jumbo v1, "ActivityOptions"
 
-    invoke-static {v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    .line 813
+    .line 637
     .end local v0    # "e":Ljava/lang/RuntimeException;
     :pswitch_1
-    const-string/jumbo v3, "android:activity.animEnterRes"
+    const-string/jumbo v1, "android:activity.animEnterRes"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mCustomEnterResId:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mCustomEnterResId:I
 
-    .line 814
-    const-string/jumbo v3, "android:activity.animExitRes"
+    .line 638
+    const-string/jumbo v1, "android:activity.animExitRes"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mCustomExitResId:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mCustomExitResId:I
 
-    .line 816
-    const-string/jumbo v3, "android:activity.animStartListener"
+    .line 640
+    const-string/jumbo v1, "android:activity.animStartListener"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v3
+    move-result-object v1
 
-    .line 815
-    invoke-static {v3}, Landroid/os/IRemoteCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRemoteCallback;
+    .line 639
+    invoke-static {v1}, Landroid/os/IRemoteCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRemoteCallback;
 
-    move-result-object v3
+    move-result-object v1
 
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
+    iput-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     goto :goto_1
 
-    .line 820
+    .line 644
     :pswitch_2
-    const-string/jumbo v3, "android:activity.animInPlaceRes"
+    const-string/jumbo v1, "android:activity.animInPlaceRes"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mCustomInPlaceResId:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mCustomInPlaceResId:I
 
     goto :goto_1
 
-    .line 825
+    .line 649
     :pswitch_3
-    const-string/jumbo v3, "android:activity.animStartX"
+    const-string/jumbo v1, "android:activity.animStartX"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mStartX:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mStartX:I
 
-    .line 826
-    const-string/jumbo v3, "android:activity.animStartY"
+    .line 650
+    const-string/jumbo v1, "android:activity.animStartY"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mStartY:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mStartY:I
 
-    .line 827
-    const-string/jumbo v3, "android:activity.animWidth"
+    .line 651
+    const-string/jumbo v1, "android:activity.animWidth"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mWidth:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mWidth:I
 
-    .line 828
-    const-string/jumbo v3, "android:activity.animHeight"
+    .line 652
+    const-string/jumbo v1, "android:activity.animHeight"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mHeight:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mHeight:I
 
-    goto/16 :goto_1
+    goto :goto_1
 
-    .line 835
+    .line 659
     :pswitch_4
-    const-string/jumbo v3, "android:activity.animThumbnail"
+    const-string/jumbo v1, "android:activity.animThumbnail"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Landroid/graphics/Bitmap;
+    check-cast v1, Landroid/graphics/Bitmap;
 
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mThumbnail:Landroid/graphics/Bitmap;
+    iput-object v1, p0, Landroid/app/ActivityOptions;->mThumbnail:Landroid/graphics/Bitmap;
 
-    .line 836
-    const-string/jumbo v3, "android:activity.animStartX"
+    .line 660
+    const-string/jumbo v1, "android:activity.animStartX"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mStartX:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mStartX:I
 
-    .line 837
-    const-string/jumbo v3, "android:activity.animStartY"
+    .line 661
+    const-string/jumbo v1, "android:activity.animStartY"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mStartY:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mStartY:I
 
-    .line 838
-    const-string/jumbo v3, "android:activity.animWidth"
+    .line 662
+    const-string/jumbo v1, "android:activity.animWidth"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mWidth:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mWidth:I
 
-    .line 839
-    const-string/jumbo v3, "android:activity.animHeight"
+    .line 663
+    const-string/jumbo v1, "android:activity.animHeight"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mHeight:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mHeight:I
 
-    .line 841
-    const-string/jumbo v3, "android:activity.animStartListener"
+    .line 665
+    const-string/jumbo v1, "android:activity.animStartListener"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v3
+    move-result-object v1
 
-    .line 840
-    invoke-static {v3}, Landroid/os/IRemoteCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRemoteCallback;
+    .line 664
+    invoke-static {v1}, Landroid/os/IRemoteCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRemoteCallback;
 
-    move-result-object v3
+    move-result-object v1
 
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
+    iput-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     goto/16 :goto_1
 
-    .line 845
+    .line 669
     :pswitch_5
-    const-string/jumbo v3, "android:activity.transitionCompleteListener"
+    const-string/jumbo v1, "android:activity.transitionCompleteListener"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Landroid/os/ResultReceiver;
+    check-cast v1, Landroid/os/ResultReceiver;
 
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
+    iput-object v1, p0, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
 
-    .line 846
-    const-string/jumbo v3, "android:activity.transitionIsReturning"
+    .line 670
+    const-string/jumbo v1, "android:activity.transitionIsReturning"
 
-    invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v3
+    move-result v1
 
-    iput-boolean v3, p0, Landroid/app/ActivityOptions;->mIsReturning:Z
+    iput-boolean v1, p0, Landroid/app/ActivityOptions;->mIsReturning:Z
 
-    .line 847
-    const-string/jumbo v3, "android:activity.sharedElementNames"
+    .line 671
+    const-string/jumbo v1, "android:activity.sharedElementNames"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v1
 
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mSharedElementNames:Ljava/util/ArrayList;
+    iput-object v1, p0, Landroid/app/ActivityOptions;->mSharedElementNames:Ljava/util/ArrayList;
 
-    .line 848
-    const-string/jumbo v3, "android:activity.resultData"
+    .line 672
+    const-string/jumbo v1, "android:activity.resultData"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Landroid/content/Intent;
+    check-cast v1, Landroid/content/Intent;
 
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mResultData:Landroid/content/Intent;
+    iput-object v1, p0, Landroid/app/ActivityOptions;->mResultData:Landroid/content/Intent;
 
-    .line 849
-    const-string/jumbo v3, "android:activity.resultCode"
+    .line 673
+    const-string/jumbo v1, "android:activity.resultCode"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mResultCode:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mResultCode:I
 
-    .line 850
-    const-string/jumbo v3, "android:activity.exitCoordinatorIndex"
+    .line 674
+    const-string/jumbo v1, "android:activity.exitCoordinatorIndex"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
+    iput v1, p0, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
 
     goto/16 :goto_1
 
-    .line 864
-    :cond_0
-    const-string/jumbo v3, "android:activity.animationFinishedListener"
-
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    .line 866
-    const-string/jumbo v3, "android:activity.animationFinishedListener"
-
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v3
-
-    .line 865
-    invoke-static {v3}, Landroid/os/IRemoteCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRemoteCallback;
-
-    move-result-object v3
-
-    iput-object v3, p0, Landroid/app/ActivityOptions;->mAnimationFinishedListener:Landroid/os/IRemoteCallback;
-
-    .line 868
-    :cond_1
-    const-string/jumbo v3, "android:activity.rotationAnimationHint"
-
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v3
-
-    iput v3, p0, Landroid/app/ActivityOptions;->mRotationAnimationHint:I
-
-    .line 798
-    return-void
-
-    .line 811
-    nop
-
+    .line 635
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -639,38 +440,24 @@
     .end packed-switch
 .end method
 
-.method public static abort(Landroid/app/ActivityOptions;)V
-    .locals 0
-    .param p0, "options"    # Landroid/app/ActivityOptions;
-
-    .prologue
-    .line 1013
-    if-eqz p0, :cond_0
-
-    .line 1014
-    invoke-virtual {p0}, Landroid/app/ActivityOptions;->abort()V
-
-    .line 1012
-    :cond_0
-    return-void
-.end method
-
-.method public static fromBundle(Landroid/os/Bundle;)Landroid/app/ActivityOptions;
+.method public static abort(Landroid/os/Bundle;)V
     .locals 1
-    .param p0, "bOptions"    # Landroid/os/Bundle;
+    .param p0, "options"    # Landroid/os/Bundle;
 
     .prologue
-    const/4 v0, 0x0
-
-    .line 1008
+    .line 773
     if-eqz p0, :cond_0
 
+    .line 774
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0, p0}, Landroid/app/ActivityOptions;-><init>(Landroid/os/Bundle;)V
 
+    invoke-virtual {v0}, Landroid/app/ActivityOptions;->abort()V
+
+    .line 772
     :cond_0
-    return-object v0
+    return-void
 .end method
 
 .method private static makeAspectScaledThumbnailAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IIIILandroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;Z)Landroid/app/ActivityOptions;
@@ -686,12 +473,12 @@
     .param p8, "scaleUp"    # Z
 
     .prologue
-    .line 572
+    .line 481
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
-    .line 573
+    .line 482
     .local v0, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -703,7 +490,7 @@
 
     iput-object v2, v0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
-    .line 574
+    .line 483
     if-eqz p8, :cond_0
 
     const/16 v2, 0x8
@@ -711,19 +498,19 @@
     :goto_0
     iput v2, v0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 576
+    .line 485
     iput-object p1, v0, Landroid/app/ActivityOptions;->mThumbnail:Landroid/graphics/Bitmap;
 
-    .line 577
+    .line 486
     const/4 v2, 0x2
 
     new-array v1, v2, [I
 
-    .line 578
+    .line 487
     .local v1, "pts":[I
     invoke-virtual {p0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    .line 579
+    .line 488
     const/4 v2, 0x0
 
     aget v2, v1, v2
@@ -732,7 +519,7 @@
 
     iput v2, v0, Landroid/app/ActivityOptions;->mStartX:I
 
-    .line 580
+    .line 489
     const/4 v2, 0x1
 
     aget v2, v1, v2
@@ -741,19 +528,19 @@
 
     iput v2, v0, Landroid/app/ActivityOptions;->mStartY:I
 
-    .line 581
+    .line 490
     iput p4, v0, Landroid/app/ActivityOptions;->mWidth:I
 
-    .line 582
+    .line 491
     iput p5, v0, Landroid/app/ActivityOptions;->mHeight:I
 
-    .line 583
+    .line 492
     invoke-direct {v0, p6, p7}, Landroid/app/ActivityOptions;->setOnAnimationStartedListener(Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
 
-    .line 584
+    .line 493
     return-object v0
 
-    .line 575
+    .line 484
     .end local v1    # "pts":[I
     :cond_0
     const/16 v2, 0x9
@@ -765,12 +552,12 @@
     .locals 1
 
     .prologue
-    .line 785
+    .line 614
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
-    .line 786
+    .line 615
     .local v0, "opts":Landroid/app/ActivityOptions;
     return-object v0
 .end method
@@ -784,27 +571,27 @@
     .param p4, "height"    # I
 
     .prologue
-    .line 422
+    .line 331
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
-    .line 423
+    .line 332
     .local v0, "opts":Landroid/app/ActivityOptions;
     const/16 v2, 0xb
 
     iput v2, v0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 424
+    .line 333
     const/4 v2, 0x2
 
     new-array v1, v2, [I
 
-    .line 425
+    .line 334
     .local v1, "pts":[I
     invoke-virtual {p0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    .line 426
+    .line 335
     const/4 v2, 0x0
 
     aget v2, v1, v2
@@ -813,7 +600,7 @@
 
     iput v2, v0, Landroid/app/ActivityOptions;->mStartX:I
 
-    .line 427
+    .line 336
     const/4 v2, 0x1
 
     aget v2, v1, v2
@@ -822,13 +609,13 @@
 
     iput v2, v0, Landroid/app/ActivityOptions;->mStartY:I
 
-    .line 428
+    .line 337
     iput p3, v0, Landroid/app/ActivityOptions;->mWidth:I
 
-    .line 429
+    .line 338
     iput p4, v0, Landroid/app/ActivityOptions;->mHeight:I
 
-    .line 430
+    .line 339
     return-object v0
 .end method
 
@@ -841,7 +628,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 265
+    .line 199
     invoke-static {p0, p1, p2, v0, v0}, Landroid/app/ActivityOptions;->makeCustomAnimation(Landroid/content/Context;IILandroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/app/ActivityOptions;
 
     move-result-object v0
@@ -858,12 +645,12 @@
     .param p4, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     .prologue
-    .line 289
+    .line 223
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
-    .line 290
+    .line 224
     .local v0, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
@@ -871,21 +658,21 @@
 
     iput-object v1, v0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
-    .line 291
+    .line 225
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 292
+    .line 226
     iput p1, v0, Landroid/app/ActivityOptions;->mCustomEnterResId:I
 
-    .line 293
+    .line 227
     iput p2, v0, Landroid/app/ActivityOptions;->mCustomExitResId:I
 
-    .line 294
+    .line 228
     invoke-direct {v0, p3, p4}, Landroid/app/ActivityOptions;->setOnAnimationStartedListener(Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
 
-    .line 295
+    .line 229
     return-object v0
 .end method
 
@@ -895,10 +682,10 @@
     .param p1, "animId"    # I
 
     .prologue
-    .line 311
+    .line 245
     if-nez p1, :cond_0
 
-    .line 312
+    .line 246
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string/jumbo v2, "You must specify a valid animation."
@@ -907,13 +694,13 @@
 
     throw v1
 
-    .line 315
+    .line 249
     :cond_0
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
-    .line 316
+    .line 250
     .local v0, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
@@ -921,15 +708,15 @@
 
     iput-object v1, v0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
-    .line 317
+    .line 251
     const/16 v1, 0xa
 
     iput v1, v0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 318
+    .line 252
     iput p1, v0, Landroid/app/ActivityOptions;->mCustomInPlaceResId:I
 
-    .line 319
+    .line 253
     return-object v0
 .end method
 
@@ -944,12 +731,12 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 394
+    .line 303
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
-    .line 395
+    .line 304
     .local v0, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -961,17 +748,17 @@
 
     iput-object v2, v0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
-    .line 396
+    .line 305
     iput v3, v0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 397
+    .line 306
     new-array v1, v3, [I
 
-    .line 398
+    .line 307
     .local v1, "pts":[I
     invoke-virtual {p0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    .line 399
+    .line 308
     const/4 v2, 0x0
 
     aget v2, v1, v2
@@ -980,7 +767,7 @@
 
     iput v2, v0, Landroid/app/ActivityOptions;->mStartX:I
 
-    .line 400
+    .line 309
     const/4 v2, 0x1
 
     aget v2, v1, v2
@@ -989,17 +776,17 @@
 
     iput v2, v0, Landroid/app/ActivityOptions;->mStartY:I
 
-    .line 401
+    .line 310
     iput p3, v0, Landroid/app/ActivityOptions;->mWidth:I
 
-    .line 402
+    .line 311
     iput p4, v0, Landroid/app/ActivityOptions;->mHeight:I
 
-    .line 403
+    .line 312
     return-object v0
 .end method
 
-.method static makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/app/ExitTransitionCoordinator;Ljava/util/ArrayList;ILandroid/content/Intent;)Landroid/app/ActivityOptions;
+.method public static makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/app/ExitTransitionCoordinator;Ljava/util/ArrayList;ILandroid/content/Intent;)Landroid/app/ActivityOptions;
     .locals 2
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "exitCoordinator"    # Landroid/app/ExitTransitionCoordinator;
@@ -1021,46 +808,46 @@
     .end annotation
 
     .prologue
-    .line 752
+    .line 581
     .local p2, "sharedElementNames":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
-    .line 753
+    .line 582
     .local v0, "opts":Landroid/app/ActivityOptions;
     const/4 v1, 0x5
 
     iput v1, v0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 754
+    .line 583
     iput-object p2, v0, Landroid/app/ActivityOptions;->mSharedElementNames:Ljava/util/ArrayList;
 
-    .line 755
+    .line 584
     iput-object p1, v0, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
 
-    .line 756
+    .line 585
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Landroid/app/ActivityOptions;->mIsReturning:Z
 
-    .line 757
+    .line 586
     iput p3, v0, Landroid/app/ActivityOptions;->mResultCode:I
 
-    .line 758
+    .line 587
     iput-object p4, v0, Landroid/app/ActivityOptions;->mResultData:Landroid/content/Intent;
 
-    .line 760
+    .line 589
     iget-object v1, p0, Landroid/app/Activity;->mActivityTransitionState:Landroid/app/ActivityTransitionState;
 
     invoke-virtual {v1, p1}, Landroid/app/ActivityTransitionState;->addExitTransitionCoordinator(Landroid/app/ExitTransitionCoordinator;)I
 
     move-result v1
 
-    .line 759
+    .line 588
     iput v1, v0, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
 
-    .line 761
+    .line 590
     return-object v0
 .end method
 
@@ -1071,7 +858,7 @@
     .param p2, "sharedElementName"    # Ljava/lang/String;
 
     .prologue
-    .line 622
+    .line 517
     const/4 v0, 0x1
 
     new-array v0, v0, [Landroid/util/Pair;
@@ -1092,7 +879,7 @@
 .end method
 
 .method public static varargs makeSceneTransitionAnimation(Landroid/app/Activity;[Landroid/util/Pair;)Landroid/app/ActivityOptions;
-    .locals 3
+    .locals 11
     .param p0, "activity"    # Landroid/app/Activity;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1108,250 +895,178 @@
         }
     .end annotation
 
-    .annotation runtime Ljava/lang/SafeVarargs;
-    .end annotation
-
     .prologue
-    .line 647
     .local p1, "sharedElements":[Landroid/util/Pair;, "[Landroid/util/Pair<Landroid/view/View;Ljava/lang/String;>;"
-    new-instance v0, Landroid/app/ActivityOptions;
+    const/4 v5, 0x0
 
-    invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
+    .line 541
+    new-instance v7, Landroid/app/ActivityOptions;
 
-    .line 648
-    .local v0, "opts":Landroid/app/ActivityOptions;
+    invoke-direct {v7}, Landroid/app/ActivityOptions;-><init>()V
+
+    .line 542
+    .local v7, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
-    .line 649
-    iget-object v2, p0, Landroid/app/Activity;->mExitTransitionListener:Landroid/app/SharedElementCallback;
+    const/16 v3, 0xd
 
-    .line 648
-    invoke-static {p0, v1, v0, v2, p1}, Landroid/app/ActivityOptions;->makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/view/Window;Landroid/app/ActivityOptions;Landroid/app/SharedElementCallback;[Landroid/util/Pair;)Landroid/app/ExitTransitionCoordinator;
+    invoke-virtual {v1, v3}, Landroid/view/Window;->hasFeature(I)Z
 
-    .line 650
-    return-object v0
-.end method
+    move-result v1
 
-.method static makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/view/Window;Landroid/app/ActivityOptions;Landroid/app/SharedElementCallback;[Landroid/util/Pair;)Landroid/app/ExitTransitionCoordinator;
-    .locals 13
-    .param p0, "activity"    # Landroid/app/Activity;
-    .param p1, "window"    # Landroid/view/Window;
-    .param p2, "opts"    # Landroid/app/ActivityOptions;
-    .param p3, "callback"    # Landroid/app/SharedElementCallback;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/app/Activity;",
-            "Landroid/view/Window;",
-            "Landroid/app/ActivityOptions;",
-            "Landroid/app/SharedElementCallback;",
-            "[",
-            "Landroid/util/Pair",
-            "<",
-            "Landroid/view/View;",
-            "Ljava/lang/String;",
-            ">;)",
-            "Landroid/app/ExitTransitionCoordinator;"
-        }
-    .end annotation
+    if-nez v1, :cond_0
 
-    .prologue
-    .line 709
-    .local p4, "sharedElements":[Landroid/util/Pair;, "[Landroid/util/Pair<Landroid/view/View;Ljava/lang/String;>;"
-    const/16 v2, 0xd
+    .line 543
+    const/4 v1, 0x6
 
-    invoke-virtual {p1, v2}, Landroid/view/Window;->hasFeature(I)Z
+    iput v1, v7, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    move-result v2
+    .line 544
+    return-object v7
 
-    if-nez v2, :cond_0
-
-    .line 710
-    const/4 v2, 0x6
-
-    iput v2, p2, Landroid/app/ActivityOptions;->mAnimationType:I
-
-    .line 711
-    const/4 v2, 0x0
-
-    return-object v2
-
-    .line 713
+    .line 546
     :cond_0
-    const/4 v2, 0x5
+    const/4 v1, 0x5
 
-    iput v2, p2, Landroid/app/ActivityOptions;->mAnimationType:I
+    iput v1, v7, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 715
-    new-instance v5, Ljava/util/ArrayList;
+    .line 548
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 716
-    .local v5, "names":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
-    new-instance v7, Ljava/util/ArrayList;
+    .line 549
+    .local v2, "names":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    new-instance v4, Ljava/util/ArrayList;
 
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    .line 718
-    .local v7, "views":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
-    if-eqz p4, :cond_3
+    .line 551
+    .local v4, "views":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/View;>;"
+    if-eqz p1, :cond_3
 
-    .line 719
-    const/4 v9, 0x0
+    .line 552
+    const/4 v6, 0x0
 
-    .local v9, "i":I
+    .local v6, "i":I
     :goto_0
-    move-object/from16 v0, p4
+    array-length v1, p1
 
-    array-length v2, v0
+    if-ge v6, v1, :cond_3
 
-    if-ge v9, v2, :cond_3
+    .line 553
+    aget-object v8, p1, v6
 
-    .line 720
-    aget-object v10, p4, v9
+    .line 554
+    .local v8, "sharedElement":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/View;Ljava/lang/String;>;"
+    iget-object v9, v8, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    .line 721
-    .local v10, "sharedElement":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/View;Ljava/lang/String;>;"
-    iget-object v11, v10, Landroid/util/Pair;->second:Ljava/lang/Object;
+    check-cast v9, Ljava/lang/String;
 
-    check-cast v11, Ljava/lang/String;
+    .line 555
+    .local v9, "sharedElementName":Ljava/lang/String;
+    if-nez v9, :cond_1
 
-    .line 722
-    .local v11, "sharedElementName":Ljava/lang/String;
-    if-nez v11, :cond_1
-
-    .line 723
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    .line 556
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "Shared element name must not be null"
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v1
 
-    .line 725
+    .line 558
     :cond_1
-    invoke-virtual {v5, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 726
-    iget-object v12, v10, Landroid/util/Pair;->first:Ljava/lang/Object;
+    .line 559
+    iget-object v10, v8, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v12, Landroid/view/View;
+    check-cast v10, Landroid/view/View;
 
-    .line 727
-    .local v12, "view":Landroid/view/View;
-    if-nez v12, :cond_2
+    .line 560
+    .local v10, "view":Landroid/view/View;
+    if-nez v10, :cond_2
 
-    .line 728
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    .line 561
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "Shared element must not be null"
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v1
 
-    .line 730
+    .line 563
     :cond_2
-    iget-object v2, v10, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v1, v8, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v2, Landroid/view/View;
+    check-cast v1, Landroid/view/View;
 
-    invoke-virtual {v7, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 719
-    add-int/lit8 v9, v9, 0x1
+    .line 552
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    .line 734
-    .end local v9    # "i":I
-    .end local v10    # "sharedElement":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/View;Ljava/lang/String;>;"
-    .end local v11    # "sharedElementName":Ljava/lang/String;
-    .end local v12    # "view":Landroid/view/View;
+    .line 567
+    .end local v6    # "i":I
+    .end local v8    # "sharedElement":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/View;Ljava/lang/String;>;"
+    .end local v9    # "sharedElementName":Ljava/lang/String;
+    .end local v10    # "view":Landroid/view/View;
     :cond_3
-    new-instance v1, Landroid/app/ExitTransitionCoordinator;
+    new-instance v0, Landroid/app/ExitTransitionCoordinator;
 
-    .line 735
-    const/4 v8, 0x0
+    move-object v1, p0
 
-    move-object v2, p0
+    move-object v3, v2
 
-    move-object v3, p1
+    invoke-direct/range {v0 .. v5}, Landroid/app/ExitTransitionCoordinator;-><init>(Landroid/app/Activity;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Z)V
 
-    move-object/from16 v4, p3
+    .line 569
+    .local v0, "exit":Landroid/app/ExitTransitionCoordinator;
+    iput-object v0, v7, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
 
-    move-object v6, v5
+    .line 570
+    iput-object v2, v7, Landroid/app/ActivityOptions;->mSharedElementNames:Ljava/util/ArrayList;
 
-    .line 734
-    invoke-direct/range {v1 .. v8}, Landroid/app/ExitTransitionCoordinator;-><init>(Landroid/app/Activity;Landroid/view/Window;Landroid/app/SharedElementCallback;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;Z)V
+    .line 571
+    iput-boolean v5, v7, Landroid/app/ActivityOptions;->mIsReturning:Z
 
-    .line 736
-    .local v1, "exit":Landroid/app/ExitTransitionCoordinator;
-    iput-object v1, p2, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
+    .line 573
+    iget-object v1, p0, Landroid/app/Activity;->mActivityTransitionState:Landroid/app/ActivityTransitionState;
 
-    .line 737
-    iput-object v5, p2, Landroid/app/ActivityOptions;->mSharedElementNames:Ljava/util/ArrayList;
+    invoke-virtual {v1, v0}, Landroid/app/ActivityTransitionState;->addExitTransitionCoordinator(Landroid/app/ExitTransitionCoordinator;)I
 
-    .line 738
-    if-nez p0, :cond_4
+    move-result v1
 
-    const/4 v2, 0x1
+    .line 572
+    iput v1, v7, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
 
-    :goto_1
-    iput-boolean v2, p2, Landroid/app/ActivityOptions;->mIsReturning:Z
-
-    .line 739
-    if-nez p0, :cond_5
-
-    .line 740
-    const/4 v2, -0x1
-
-    iput v2, p2, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
-
-    .line 745
-    :goto_2
-    return-object v1
-
-    .line 738
-    :cond_4
-    const/4 v2, 0x0
-
-    goto :goto_1
-
-    .line 743
-    :cond_5
-    iget-object v2, p0, Landroid/app/Activity;->mActivityTransitionState:Landroid/app/ActivityTransitionState;
-
-    invoke-virtual {v2, v1}, Landroid/app/ActivityTransitionState;->addExitTransitionCoordinator(Landroid/app/ExitTransitionCoordinator;)I
-
-    move-result v2
-
-    .line 742
-    iput v2, p2, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
-
-    goto :goto_2
+    .line 574
+    return-object v7
 .end method
 
 .method public static makeTaskLaunchBehind()Landroid/app/ActivityOptions;
     .locals 2
 
     .prologue
-    .line 775
+    .line 604
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
-    .line 776
+    .line 605
     .local v0, "opts":Landroid/app/ActivityOptions;
     const/4 v1, 0x7
 
     iput v1, v0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 777
+    .line 606
     return-object v0
 .end method
 
@@ -1365,12 +1080,12 @@
     .param p5, "scaleUp"    # Z
 
     .prologue
-    .line 505
+    .line 414
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
-    .line 506
+    .line 415
     .local v0, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -1382,7 +1097,7 @@
 
     iput-object v2, v0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
-    .line 507
+    .line 416
     if-eqz p5, :cond_0
 
     const/4 v2, 0x3
@@ -1390,19 +1105,19 @@
     :goto_0
     iput v2, v0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 508
+    .line 417
     iput-object p1, v0, Landroid/app/ActivityOptions;->mThumbnail:Landroid/graphics/Bitmap;
 
-    .line 509
+    .line 418
     const/4 v2, 0x2
 
     new-array v1, v2, [I
 
-    .line 510
+    .line 419
     .local v1, "pts":[I
     invoke-virtual {p0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    .line 511
+    .line 420
     const/4 v2, 0x0
 
     aget v2, v1, v2
@@ -1411,7 +1126,7 @@
 
     iput v2, v0, Landroid/app/ActivityOptions;->mStartX:I
 
-    .line 512
+    .line 421
     const/4 v2, 0x1
 
     aget v2, v1, v2
@@ -1420,17 +1135,17 @@
 
     iput v2, v0, Landroid/app/ActivityOptions;->mStartY:I
 
-    .line 513
+    .line 422
     invoke-virtual {p0}, Landroid/view/View;->getHandler()Landroid/os/Handler;
 
     move-result-object v2
 
     invoke-direct {v0, v2, p4}, Landroid/app/ActivityOptions;->setOnAnimationStartedListener(Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
 
-    .line 514
+    .line 423
     return-object v0
 
-    .line 507
+    .line 416
     .end local v1    # "pts":[I
     :cond_0
     const/4 v2, 0x4
@@ -1450,7 +1165,7 @@
     .param p7, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     .prologue
-    .line 566
+    .line 475
     const/4 v8, 0x0
 
     move-object v0, p0
@@ -1469,55 +1184,11 @@
 
     move-object/from16 v7, p7
 
-    .line 565
+    .line 474
     invoke-static/range {v0 .. v8}, Landroid/app/ActivityOptions;->makeAspectScaledThumbnailAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IIIILandroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;Z)Landroid/app/ActivityOptions;
 
     move-result-object v0
 
-    return-object v0
-.end method
-
-.method public static makeThumbnailAspectScaleDownAnimation(Landroid/view/View;[Landroid/view/AppTransitionAnimationSpec;Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;Landroid/app/ActivityOptions$OnAnimationFinishedListener;)Landroid/app/ActivityOptions;
-    .locals 2
-    .param p0, "source"    # Landroid/view/View;
-    .param p1, "specs"    # [Landroid/view/AppTransitionAnimationSpec;
-    .param p2, "handler"    # Landroid/os/Handler;
-    .param p3, "onAnimationStartedListener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
-    .param p4, "onAnimationFinishedListener"    # Landroid/app/ActivityOptions$OnAnimationFinishedListener;
-
-    .prologue
-    .line 592
-    new-instance v0, Landroid/app/ActivityOptions;
-
-    invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
-
-    .line 593
-    .local v0, "opts":Landroid/app/ActivityOptions;
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, v0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
-
-    .line 594
-    const/16 v1, 0x9
-
-    iput v1, v0, Landroid/app/ActivityOptions;->mAnimationType:I
-
-    .line 595
-    iput-object p1, v0, Landroid/app/ActivityOptions;->mAnimSpecs:[Landroid/view/AppTransitionAnimationSpec;
-
-    .line 596
-    invoke-direct {v0, p2, p3}, Landroid/app/ActivityOptions;->setOnAnimationStartedListener(Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
-
-    .line 597
-    invoke-direct {v0, p2, p4}, Landroid/app/ActivityOptions;->setOnAnimationFinishedListener(Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationFinishedListener;)V
-
-    .line 598
     return-object v0
 .end method
 
@@ -1533,7 +1204,7 @@
     .param p7, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     .prologue
-    .line 540
+    .line 449
     const/4 v8, 0x1
 
     move-object v0, p0
@@ -1552,7 +1223,7 @@
 
     move-object/from16 v7, p7
 
-    .line 539
+    .line 448
     invoke-static/range {v0 .. v8}, Landroid/app/ActivityOptions;->makeAspectScaledThumbnailAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IIIILandroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;Z)Landroid/app/ActivityOptions;
 
     move-result-object v0
@@ -1569,7 +1240,7 @@
     .param p4, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     .prologue
-    .line 499
+    .line 408
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -1597,7 +1268,7 @@
     .param p3, "startY"    # I
 
     .prologue
-    .line 454
+    .line 363
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, p3, v0}, Landroid/app/ActivityOptions;->makeThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IILandroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/app/ActivityOptions;
@@ -1616,7 +1287,7 @@
     .param p4, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     .prologue
-    .line 477
+    .line 386
     const/4 v5, 0x1
 
     move-object v0, p0
@@ -1636,178 +1307,34 @@
     return-object v0
 .end method
 
-.method private setOnAnimationFinishedListener(Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationFinishedListener;)V
-    .locals 1
-    .param p1, "handler"    # Landroid/os/Handler;
-    .param p2, "listener"    # Landroid/app/ActivityOptions$OnAnimationFinishedListener;
-
-    .prologue
-    .line 349
-    if-eqz p2, :cond_0
-
-    .line 350
-    new-instance v0, Landroid/app/ActivityOptions$2;
-
-    invoke-direct {v0, p0, p1, p2}, Landroid/app/ActivityOptions$2;-><init>(Landroid/app/ActivityOptions;Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationFinishedListener;)V
-
-    iput-object v0, p0, Landroid/app/ActivityOptions;->mAnimationFinishedListener:Landroid/os/IRemoteCallback;
-
-    .line 348
-    :cond_0
-    return-void
-.end method
-
 .method private setOnAnimationStartedListener(Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
-    .locals 1
+    .locals 3
     .param p1, "handler"    # Landroid/os/Handler;
     .param p2, "listener"    # Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
     .prologue
-    .line 324
+    .line 258
     if-eqz p2, :cond_0
 
-    .line 325
-    new-instance v0, Landroid/app/ActivityOptions$1;
+    .line 259
+    move-object v1, p1
 
-    invoke-direct {v0, p0, p1, p2}, Landroid/app/ActivityOptions$1;-><init>(Landroid/app/ActivityOptions;Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
+    .line 260
+    .local v1, "h":Landroid/os/Handler;
+    move-object v0, p2
 
-    iput-object v0, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
+    .line 261
+    .local v0, "finalListener":Landroid/app/ActivityOptions$OnAnimationStartedListener;
+    new-instance v2, Landroid/app/ActivityOptions$1;
 
-    .line 323
+    invoke-direct {v2, p0, v1, v0}, Landroid/app/ActivityOptions$1;-><init>(Landroid/app/ActivityOptions;Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
+
+    iput-object v2, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
+
+    .line 257
+    .end local v0    # "finalListener":Landroid/app/ActivityOptions$OnAnimationStartedListener;
+    .end local v1    # "h":Landroid/os/Handler;
     :cond_0
-    return-void
-.end method
-
-.method public static varargs startSharedElementAnimation(Landroid/view/Window;[Landroid/util/Pair;)Landroid/app/ActivityOptions;
-    .locals 5
-    .param p0, "window"    # Landroid/view/Window;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/view/Window;",
-            "[",
-            "Landroid/util/Pair",
-            "<",
-            "Landroid/view/View;",
-            "Ljava/lang/String;",
-            ">;)",
-            "Landroid/app/ActivityOptions;"
-        }
-    .end annotation
-
-    .annotation runtime Ljava/lang/SafeVarargs;
-    .end annotation
-
-    .prologue
-    .local p1, "sharedElements":[Landroid/util/Pair;, "[Landroid/util/Pair<Landroid/view/View;Ljava/lang/String;>;"
-    const/4 v4, 0x0
-
-    .line 667
-    new-instance v3, Landroid/app/ActivityOptions;
-
-    invoke-direct {v3}, Landroid/app/ActivityOptions;-><init>()V
-
-    .line 668
-    .local v3, "opts":Landroid/app/ActivityOptions;
-    invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v0
-
-    .line 669
-    .local v0, "decorView":Landroid/view/View;
-    if-nez v0, :cond_0
-
-    .line 670
-    return-object v3
-
-    .line 673
-    :cond_0
-    invoke-static {v4, p0, v3, v4, p1}, Landroid/app/ActivityOptions;->makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/view/Window;Landroid/app/ActivityOptions;Landroid/app/SharedElementCallback;[Landroid/util/Pair;)Landroid/app/ExitTransitionCoordinator;
-
-    move-result-object v1
-
-    .line 674
-    .local v1, "exit":Landroid/app/ExitTransitionCoordinator;
-    if-eqz v1, :cond_1
-
-    .line 675
-    new-instance v2, Landroid/app/ActivityOptions$HideWindowListener;
-
-    invoke-direct {v2, p0, v1}, Landroid/app/ActivityOptions$HideWindowListener;-><init>(Landroid/view/Window;Landroid/app/ExitTransitionCoordinator;)V
-
-    .line 676
-    .local v2, "listener":Landroid/app/ActivityOptions$HideWindowListener;
-    invoke-virtual {v1, v2}, Landroid/app/ExitTransitionCoordinator;->setHideSharedElementsCallback(Landroid/app/ExitTransitionCoordinator$HideSharedElementsCallback;)V
-
-    .line 677
-    invoke-virtual {v1}, Landroid/app/ExitTransitionCoordinator;->startExit()V
-
-    .line 679
-    .end local v2    # "listener":Landroid/app/ActivityOptions$HideWindowListener;
-    :cond_1
-    return-object v3
-.end method
-
-.method public static stopSharedElementAnimation(Landroid/view/Window;)V
-    .locals 4
-    .param p0, "window"    # Landroid/view/Window;
-
-    .prologue
-    const v3, 0x102005d
-
-    const/4 v2, 0x0
-
-    .line 690
-    invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v0
-
-    .line 691
-    .local v0, "decorView":Landroid/view/View;
-    if-nez v0, :cond_0
-
-    .line 692
-    return-void
-
-    .line 695
-    :cond_0
-    invoke-virtual {v0, v3}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 694
-    check-cast v1, Landroid/app/ExitTransitionCoordinator;
-
-    .line 696
-    .local v1, "exit":Landroid/app/ExitTransitionCoordinator;
-    if-eqz v1, :cond_1
-
-    .line 697
-    invoke-virtual {v1}, Landroid/app/ExitTransitionCoordinator;->cancelPendingTransitions()Z
-
-    .line 698
-    invoke-virtual {v0, v3, v2}, Landroid/view/View;->setTagInternal(ILjava/lang/Object;)V
-
-    move-object v2, v0
-
-    .line 699
-    check-cast v2, Landroid/view/ViewGroup;
-
-    invoke-static {v2}, Landroid/transition/TransitionManager;->endTransitions(Landroid/view/ViewGroup;)V
-
-    .line 700
-    invoke-virtual {v1}, Landroid/app/ExitTransitionCoordinator;->resetViews()V
-
-    .line 701
-    invoke-virtual {v1}, Landroid/app/ExitTransitionCoordinator;->clearState()V
-
-    .line 702
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
-
-    .line 689
-    :cond_1
     return-void
 .end method
 
@@ -1817,12 +1344,12 @@
     .locals 3
 
     .prologue
-    .line 961
+    .line 739
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     if-eqz v1, :cond_0
 
-    .line 963
+    .line 741
     :try_start_0
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
@@ -1832,12 +1359,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 960
+    .line 738
     :cond_0
     :goto_0
     return-void
 
-    .line 964
+    .line 742
     :catch_0
     move-exception v0
 
@@ -1849,26 +1376,26 @@
     .locals 3
 
     .prologue
-    .line 1260
+    .line 951
     iget v1, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
     const/4 v2, 0x5
 
     if-ne v1, v2, :cond_0
 
-    .line 1261
+    .line 952
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0}, Landroid/app/ActivityOptions;-><init>()V
 
-    .line 1262
+    .line 953
     .local v0, "result":Landroid/app/ActivityOptions;
     invoke-virtual {v0, p0}, Landroid/app/ActivityOptions;->update(Landroid/app/ActivityOptions;)V
 
-    .line 1263
+    .line 954
     return-object v0
 
-    .line 1266
+    .line 957
     .end local v0    # "result":Landroid/app/ActivityOptions;
     :cond_0
     const/4 v1, 0x0
@@ -1876,31 +1403,11 @@
     return-object v1
 .end method
 
-.method public getAnimSpecs()[Landroid/view/AppTransitionAnimationSpec;
-    .locals 1
-
-    .prologue
-    .line 1004
-    iget-object v0, p0, Landroid/app/ActivityOptions;->mAnimSpecs:[Landroid/view/AppTransitionAnimationSpec;
-
-    return-object v0
-.end method
-
-.method public getAnimationFinishedListener()Landroid/os/IRemoteCallback;
-    .locals 1
-
-    .prologue
-    .line 953
-    iget-object v0, p0, Landroid/app/ActivityOptions;->mAnimationFinishedListener:Landroid/os/IRemoteCallback;
-
-    return-object v0
-.end method
-
 .method public getAnimationType()I
     .locals 1
 
     .prologue
-    .line 903
+    .line 686
     iget v0, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
     return v0
@@ -1910,7 +1417,7 @@
     .locals 1
 
     .prologue
-    .line 908
+    .line 691
     iget v0, p0, Landroid/app/ActivityOptions;->mCustomEnterResId:I
 
     return v0
@@ -1920,7 +1427,7 @@
     .locals 1
 
     .prologue
-    .line 913
+    .line 696
     iget v0, p0, Landroid/app/ActivityOptions;->mCustomExitResId:I
 
     return v0
@@ -1930,18 +1437,8 @@
     .locals 1
 
     .prologue
-    .line 918
+    .line 701
     iget v0, p0, Landroid/app/ActivityOptions;->mCustomInPlaceResId:I
-
-    return v0
-.end method
-
-.method public getDockCreateMode()I
-    .locals 1
-
-    .prologue
-    .line 1063
-    iget v0, p0, Landroid/app/ActivityOptions;->mDockCreateMode:I
 
     return v0
 .end method
@@ -1950,7 +1447,7 @@
     .locals 1
 
     .prologue
-    .line 957
+    .line 735
     iget v0, p0, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
 
     return v0
@@ -1960,28 +1457,8 @@
     .locals 1
 
     .prologue
-    .line 943
+    .line 726
     iget v0, p0, Landroid/app/ActivityOptions;->mHeight:I
-
-    return v0
-.end method
-
-.method public getLaunchBounds()Landroid/graphics/Rect;
-    .locals 1
-
-    .prologue
-    .line 898
-    iget-object v0, p0, Landroid/app/ActivityOptions;->mLaunchBounds:Landroid/graphics/Rect;
-
-    return-object v0
-.end method
-
-.method public getLaunchStackId()I
-    .locals 1
-
-    .prologue
-    .line 1020
-    iget v0, p0, Landroid/app/ActivityOptions;->mLaunchStackId:I
 
     return v0
 .end method
@@ -1990,7 +1467,7 @@
     .locals 2
 
     .prologue
-    .line 791
+    .line 620
     iget v0, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
     const/4 v1, 0x7
@@ -2008,21 +1485,11 @@
     goto :goto_0
 .end method
 
-.method public getLaunchTaskId()I
-    .locals 1
-
-    .prologue
-    .line 1041
-    iget v0, p0, Landroid/app/ActivityOptions;->mLaunchTaskId:I
-
-    return v0
-.end method
-
 .method public getOnAnimationStartListener()Landroid/os/IRemoteCallback;
     .locals 1
 
     .prologue
-    .line 948
+    .line 731
     iget-object v0, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     return-object v0
@@ -2032,7 +1499,7 @@
     .locals 1
 
     .prologue
-    .line 888
+    .line 681
     iget-object v0, p0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
     return-object v0
@@ -2042,7 +1509,7 @@
     .locals 1
 
     .prologue
-    .line 993
+    .line 761
     iget v0, p0, Landroid/app/ActivityOptions;->mResultCode:I
 
     return v0
@@ -2052,7 +1519,7 @@
     .locals 1
 
     .prologue
-    .line 996
+    .line 764
     iget-object v0, p0, Landroid/app/ActivityOptions;->mResultData:Landroid/content/Intent;
 
     return-object v0
@@ -2062,20 +1529,10 @@
     .locals 1
 
     .prologue
-    .line 990
+    .line 758
     iget-object v0, p0, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
 
     return-object v0
-.end method
-
-.method public getRotationAnimationHint()I
-    .locals 1
-
-    .prologue
-    .line 1275
-    iget v0, p0, Landroid/app/ActivityOptions;->mRotationAnimationHint:I
-
-    return v0
 .end method
 
 .method public getSharedElementNames()Ljava/util/ArrayList;
@@ -2091,7 +1548,7 @@
     .end annotation
 
     .prologue
-    .line 986
+    .line 754
     iget-object v0, p0, Landroid/app/ActivityOptions;->mSharedElementNames:Ljava/util/ArrayList;
 
     return-object v0
@@ -2101,7 +1558,7 @@
     .locals 1
 
     .prologue
-    .line 928
+    .line 711
     iget v0, p0, Landroid/app/ActivityOptions;->mStartX:I
 
     return v0
@@ -2111,18 +1568,8 @@
     .locals 1
 
     .prologue
-    .line 933
+    .line 716
     iget v0, p0, Landroid/app/ActivityOptions;->mStartY:I
-
-    return v0
-.end method
-
-.method public getTaskOverlay()Z
-    .locals 1
-
-    .prologue
-    .line 1058
-    iget-boolean v0, p0, Landroid/app/ActivityOptions;->mTaskOverlay:Z
 
     return v0
 .end method
@@ -2131,7 +1578,7 @@
     .locals 1
 
     .prologue
-    .line 923
+    .line 706
     iget-object v0, p0, Landroid/app/ActivityOptions;->mThumbnail:Landroid/graphics/Bitmap;
 
     return-object v0
@@ -2141,7 +1588,7 @@
     .locals 1
 
     .prologue
-    .line 1000
+    .line 768
     iget-object v0, p0, Landroid/app/ActivityOptions;->mUsageTimeReport:Landroid/app/PendingIntent;
 
     return-object v0
@@ -2151,26 +1598,9 @@
     .locals 1
 
     .prologue
-    .line 938
+    .line 721
     iget v0, p0, Landroid/app/ActivityOptions;->mWidth:I
 
-    return v0
-.end method
-
-.method isCrossTask()Z
-    .locals 2
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 981
-    iget v1, p0, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
-
-    if-gez v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
     return v0
 .end method
 
@@ -2178,7 +1608,7 @@
     .locals 1
 
     .prologue
-    .line 971
+    .line 749
     iget-boolean v0, p0, Landroid/app/ActivityOptions;->mIsReturning:Z
 
     return v0
@@ -2189,91 +1619,10 @@
     .param p1, "receiver"    # Landroid/app/PendingIntent;
 
     .prologue
-    .line 1252
+    .line 943
     iput-object p1, p0, Landroid/app/ActivityOptions;->mUsageTimeReport:Landroid/app/PendingIntent;
 
-    .line 1251
-    return-void
-.end method
-
-.method public setDockCreateMode(I)V
-    .locals 0
-    .param p1, "dockCreateMode"    # I
-
-    .prologue
-    .line 1068
-    iput p1, p0, Landroid/app/ActivityOptions;->mDockCreateMode:I
-
-    .line 1067
-    return-void
-.end method
-
-.method public setLaunchBounds(Landroid/graphics/Rect;)Landroid/app/ActivityOptions;
-    .locals 1
-    .param p1, "screenSpacePixelRect"    # Landroid/graphics/Rect;
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 882
-    if-eqz p1, :cond_0
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0, p1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
-
-    :cond_0
-    iput-object v0, p0, Landroid/app/ActivityOptions;->mLaunchBounds:Landroid/graphics/Rect;
-
-    .line 883
-    return-object p0
-.end method
-
-.method public setLaunchStackId(I)V
-    .locals 0
-    .param p1, "launchStackId"    # I
-
-    .prologue
-    .line 1026
-    iput p1, p0, Landroid/app/ActivityOptions;->mLaunchStackId:I
-
-    .line 1025
-    return-void
-.end method
-
-.method public setLaunchTaskId(I)V
-    .locals 0
-    .param p1, "taskId"    # I
-
-    .prologue
-    .line 1034
-    iput p1, p0, Landroid/app/ActivityOptions;->mLaunchTaskId:I
-
-    .line 1033
-    return-void
-.end method
-
-.method public setRotationAnimationHint(I)V
-    .locals 0
-    .param p1, "hint"    # I
-
-    .prologue
-    .line 1287
-    iput p1, p0, Landroid/app/ActivityOptions;->mRotationAnimationHint:I
-
-    .line 1286
-    return-void
-.end method
-
-.method public setTaskOverlay(Z)V
-    .locals 0
-    .param p1, "taskOverlay"    # Z
-
-    .prologue
-    .line 1051
-    iput-boolean p1, p0, Landroid/app/ActivityOptions;->mTaskOverlay:Z
-
-    .line 1050
+    .line 942
     return-void
 .end method
 
@@ -2283,145 +1632,67 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1158
+    .line 863
     iget v2, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
     const/4 v3, 0x6
 
     if-ne v2, v3, :cond_0
 
-    .line 1159
+    .line 864
     return-object v1
 
-    .line 1161
+    .line 866
     :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 1162
+    .line 867
     .local v0, "b":Landroid/os/Bundle;
     iget-object v2, p0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
     if-eqz v2, :cond_1
 
-    .line 1163
+    .line 868
     const-string/jumbo v2, "android:activity.packageName"
 
     iget-object v3, p0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1165
+    .line 870
     :cond_1
-    iget-object v2, p0, Landroid/app/ActivityOptions;->mLaunchBounds:Landroid/graphics/Rect;
-
-    if-eqz v2, :cond_2
-
-    .line 1166
-    const-string/jumbo v2, "android:activity.launchBounds"
-
-    iget-object v3, p0, Landroid/app/ActivityOptions;->mLaunchBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 1168
-    :cond_2
     const-string/jumbo v2, "android:activity.animType"
 
     iget v3, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1169
+    .line 871
     iget-object v2, p0, Landroid/app/ActivityOptions;->mUsageTimeReport:Landroid/app/PendingIntent;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
-    .line 1170
+    .line 872
     const-string/jumbo v2, "android:activity.usageTimeReport"
 
     iget-object v3, p0, Landroid/app/ActivityOptions;->mUsageTimeReport:Landroid/app/PendingIntent;
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 1172
-    :cond_3
+    .line 874
+    :cond_2
     iget v2, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 1212
+    .line 915
     :goto_0
     :pswitch_0
-    const-string/jumbo v1, "android.activity.launchStackId"
-
-    iget v2, p0, Landroid/app/ActivityOptions;->mLaunchStackId:I
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 1213
-    const-string/jumbo v1, "android.activity.launchTaskId"
-
-    iget v2, p0, Landroid/app/ActivityOptions;->mLaunchTaskId:I
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 1214
-    const-string/jumbo v1, "android.activity.taskOverlay"
-
-    iget-boolean v2, p0, Landroid/app/ActivityOptions;->mTaskOverlay:Z
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    .line 1215
-    const-string/jumbo v1, "android:activity.dockCreateMode"
-
-    iget v2, p0, Landroid/app/ActivityOptions;->mDockCreateMode:I
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 1216
-    iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimSpecs:[Landroid/view/AppTransitionAnimationSpec;
-
-    if-eqz v1, :cond_4
-
-    .line 1217
-    const-string/jumbo v1, "android:activity.animSpecs"
-
-    iget-object v2, p0, Landroid/app/ActivityOptions;->mAnimSpecs:[Landroid/view/AppTransitionAnimationSpec;
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelableArray(Ljava/lang/String;[Landroid/os/Parcelable;)V
-
-    .line 1219
-    :cond_4
-    iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationFinishedListener:Landroid/os/IRemoteCallback;
-
-    if-eqz v1, :cond_5
-
-    .line 1220
-    const-string/jumbo v1, "android:activity.animationFinishedListener"
-
-    iget-object v2, p0, Landroid/app/ActivityOptions;->mAnimationFinishedListener:Landroid/os/IRemoteCallback;
-
-    invoke-interface {v2}, Landroid/os/IRemoteCallback;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
-
-    .line 1222
-    :cond_5
-    const-string/jumbo v1, "android:activity.rotationAnimationHint"
-
-    iget v2, p0, Landroid/app/ActivityOptions;->mRotationAnimationHint:I
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 1224
     return-object v0
 
-    .line 1174
+    .line 876
     :pswitch_1
     const-string/jumbo v2, "android:activity.animEnterRes"
 
@@ -2429,34 +1700,34 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1175
+    .line 877
     const-string/jumbo v2, "android:activity.animExitRes"
 
     iget v3, p0, Landroid/app/ActivityOptions;->mCustomExitResId:I
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1176
+    .line 878
     const-string/jumbo v2, "android:activity.animStartListener"
 
     iget-object v3, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_3
 
-    .line 1177
+    .line 879
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     invoke-interface {v1}, Landroid/os/IRemoteCallback;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    .line 1176
-    :cond_6
+    .line 878
+    :cond_3
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
 
     goto :goto_0
 
-    .line 1180
+    .line 882
     :pswitch_2
     const-string/jumbo v1, "android:activity.animInPlaceRes"
 
@@ -2466,7 +1737,7 @@
 
     goto :goto_0
 
-    .line 1184
+    .line 886
     :pswitch_3
     const-string/jumbo v1, "android:activity.animStartX"
 
@@ -2474,30 +1745,30 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1185
+    .line 887
     const-string/jumbo v1, "android:activity.animStartY"
 
     iget v2, p0, Landroid/app/ActivityOptions;->mStartY:I
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1186
+    .line 888
     const-string/jumbo v1, "android:activity.animWidth"
 
     iget v2, p0, Landroid/app/ActivityOptions;->mWidth:I
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1187
+    .line 889
     const-string/jumbo v1, "android:activity.animHeight"
 
     iget v2, p0, Landroid/app/ActivityOptions;->mHeight:I
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 1193
+    .line 895
     :pswitch_4
     const-string/jumbo v2, "android:activity.animThumbnail"
 
@@ -2505,97 +1776,97 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 1194
+    .line 896
     const-string/jumbo v2, "android:activity.animStartX"
 
     iget v3, p0, Landroid/app/ActivityOptions;->mStartX:I
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1195
+    .line 897
     const-string/jumbo v2, "android:activity.animStartY"
 
     iget v3, p0, Landroid/app/ActivityOptions;->mStartY:I
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1196
+    .line 898
     const-string/jumbo v2, "android:activity.animWidth"
 
     iget v3, p0, Landroid/app/ActivityOptions;->mWidth:I
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1197
+    .line 899
     const-string/jumbo v2, "android:activity.animHeight"
 
     iget v3, p0, Landroid/app/ActivityOptions;->mHeight:I
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1198
+    .line 900
     const-string/jumbo v2, "android:activity.animStartListener"
 
     iget-object v3, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_4
 
-    .line 1199
+    .line 901
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     invoke-interface {v1}, Landroid/os/IRemoteCallback;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    .line 1198
-    :cond_7
+    .line 900
+    :cond_4
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
 
     goto/16 :goto_0
 
-    .line 1202
+    .line 904
     :pswitch_5
     iget-object v1, p0, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_5
 
-    .line 1203
+    .line 905
     const-string/jumbo v1, "android:activity.transitionCompleteListener"
 
     iget-object v2, p0, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 1205
-    :cond_8
+    .line 907
+    :cond_5
     const-string/jumbo v1, "android:activity.transitionIsReturning"
 
     iget-boolean v2, p0, Landroid/app/ActivityOptions;->mIsReturning:Z
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 1206
+    .line 908
     const-string/jumbo v1, "android:activity.sharedElementNames"
 
     iget-object v2, p0, Landroid/app/ActivityOptions;->mSharedElementNames:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putStringArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 1207
+    .line 909
     const-string/jumbo v1, "android:activity.resultData"
 
     iget-object v2, p0, Landroid/app/ActivityOptions;->mResultData:Landroid/content/Intent;
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 1208
+    .line 910
     const-string/jumbo v1, "android:activity.resultCode"
 
     iget v2, p0, Landroid/app/ActivityOptions;->mResultCode:I
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1209
+    .line 911
     const-string/jumbo v1, "android:activity.exitCoordinatorIndex"
 
     iget v2, p0, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
@@ -2604,7 +1875,9 @@
 
     goto/16 :goto_0
 
-    .line 1172
+    .line 874
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -2621,128 +1894,6 @@
     .end packed-switch
 .end method
 
-.method public toString()Ljava/lang/String;
-    .locals 2
-
-    .prologue
-    .line 1293
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "ActivityOptions("
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Landroid/app/ActivityOptions;->hashCode()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "), mPackageName="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 1294
-    const-string/jumbo v1, ", mAnimationType="
-
-    .line 1293
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 1294
-    iget v1, p0, Landroid/app/ActivityOptions;->mAnimationType:I
-
-    .line 1293
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 1294
-    const-string/jumbo v1, ", mStartX="
-
-    .line 1293
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 1294
-    iget v1, p0, Landroid/app/ActivityOptions;->mStartX:I
-
-    .line 1293
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 1294
-    const-string/jumbo v1, ", mStartY="
-
-    .line 1293
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 1295
-    iget v1, p0, Landroid/app/ActivityOptions;->mStartY:I
-
-    .line 1293
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 1295
-    const-string/jumbo v1, ", mWidth="
-
-    .line 1293
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 1295
-    iget v1, p0, Landroid/app/ActivityOptions;->mWidth:I
-
-    .line 1293
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 1295
-    const-string/jumbo v1, ", mHeight="
-
-    .line 1293
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 1295
-    iget v1, p0, Landroid/app/ActivityOptions;->mHeight:I
-
-    .line 1293
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public update(Landroid/app/ActivityOptions;)V
     .locals 4
     .param p1, "otherOptions"    # Landroid/app/ActivityOptions;
@@ -2752,85 +1903,75 @@
 
     const/4 v3, 0x0
 
-    .line 1077
+    .line 784
     iget-object v1, p1, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
-    .line 1078
+    .line 785
     iget-object v1, p1, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
     iput-object v1, p0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
-    .line 1080
+    .line 787
     :cond_0
     iget-object v1, p1, Landroid/app/ActivityOptions;->mUsageTimeReport:Landroid/app/PendingIntent;
 
     iput-object v1, p0, Landroid/app/ActivityOptions;->mUsageTimeReport:Landroid/app/PendingIntent;
 
-    .line 1081
+    .line 788
     iput-object v3, p0, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
 
-    .line 1082
+    .line 789
     iput-object v3, p0, Landroid/app/ActivityOptions;->mSharedElementNames:Ljava/util/ArrayList;
 
-    .line 1083
+    .line 790
     iput-boolean v2, p0, Landroid/app/ActivityOptions;->mIsReturning:Z
 
-    .line 1084
+    .line 791
     iput-object v3, p0, Landroid/app/ActivityOptions;->mResultData:Landroid/content/Intent;
 
-    .line 1085
+    .line 792
     iput v2, p0, Landroid/app/ActivityOptions;->mResultCode:I
 
-    .line 1086
+    .line 793
     iput v2, p0, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
 
-    .line 1087
+    .line 794
     iget v1, p1, Landroid/app/ActivityOptions;->mAnimationType:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    .line 1088
+    .line 795
     iget v1, p1, Landroid/app/ActivityOptions;->mAnimationType:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 1145
+    .line 783
     :goto_0
     :pswitch_0
-    iget-object v1, p1, Landroid/app/ActivityOptions;->mAnimSpecs:[Landroid/view/AppTransitionAnimationSpec;
-
-    iput-object v1, p0, Landroid/app/ActivityOptions;->mAnimSpecs:[Landroid/view/AppTransitionAnimationSpec;
-
-    .line 1146
-    iget-object v1, p1, Landroid/app/ActivityOptions;->mAnimationFinishedListener:Landroid/os/IRemoteCallback;
-
-    iput-object v1, p0, Landroid/app/ActivityOptions;->mAnimationFinishedListener:Landroid/os/IRemoteCallback;
-
-    .line 1076
     return-void
 
-    .line 1090
+    .line 797
     :pswitch_1
     iget v1, p1, Landroid/app/ActivityOptions;->mCustomEnterResId:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mCustomEnterResId:I
 
-    .line 1091
+    .line 798
     iget v1, p1, Landroid/app/ActivityOptions;->mCustomExitResId:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mCustomExitResId:I
 
-    .line 1092
+    .line 799
     iput-object v3, p0, Landroid/app/ActivityOptions;->mThumbnail:Landroid/graphics/Bitmap;
 
-    .line 1093
+    .line 800
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     if-eqz v1, :cond_1
 
-    .line 1095
+    .line 802
     :try_start_0
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
@@ -2840,7 +1981,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .line 1099
+    .line 806
     :cond_1
     :goto_1
     iget-object v1, p1, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
@@ -2849,7 +1990,7 @@
 
     goto :goto_0
 
-    .line 1102
+    .line 809
     :pswitch_2
     iget v1, p1, Landroid/app/ActivityOptions;->mCustomInPlaceResId:I
 
@@ -2857,33 +1998,33 @@
 
     goto :goto_0
 
-    .line 1105
+    .line 812
     :pswitch_3
     iget v1, p1, Landroid/app/ActivityOptions;->mStartX:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mStartX:I
 
-    .line 1106
+    .line 813
     iget v1, p1, Landroid/app/ActivityOptions;->mStartY:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mStartY:I
 
-    .line 1107
+    .line 814
     iget v1, p1, Landroid/app/ActivityOptions;->mWidth:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mWidth:I
 
-    .line 1108
+    .line 815
     iget v1, p1, Landroid/app/ActivityOptions;->mHeight:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mHeight:I
 
-    .line 1109
+    .line 816
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     if-eqz v1, :cond_2
 
-    .line 1111
+    .line 818
     :try_start_1
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
@@ -2893,45 +2034,45 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 1115
+    .line 822
     :cond_2
     :goto_2
     iput-object v3, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     goto :goto_0
 
-    .line 1121
+    .line 828
     :pswitch_4
     iget-object v1, p1, Landroid/app/ActivityOptions;->mThumbnail:Landroid/graphics/Bitmap;
 
     iput-object v1, p0, Landroid/app/ActivityOptions;->mThumbnail:Landroid/graphics/Bitmap;
 
-    .line 1122
+    .line 829
     iget v1, p1, Landroid/app/ActivityOptions;->mStartX:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mStartX:I
 
-    .line 1123
+    .line 830
     iget v1, p1, Landroid/app/ActivityOptions;->mStartY:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mStartY:I
 
-    .line 1124
+    .line 831
     iget v1, p1, Landroid/app/ActivityOptions;->mWidth:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mWidth:I
 
-    .line 1125
+    .line 832
     iget v1, p1, Landroid/app/ActivityOptions;->mHeight:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mHeight:I
 
-    .line 1126
+    .line 833
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     if-eqz v1, :cond_3
 
-    .line 1128
+    .line 835
     :try_start_2
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
@@ -2941,7 +2082,7 @@
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 1132
+    .line 839
     :cond_3
     :goto_3
     iget-object v1, p1, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
@@ -2950,53 +2091,53 @@
 
     goto :goto_0
 
-    .line 1135
+    .line 842
     :pswitch_5
     iget-object v1, p1, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
 
     iput-object v1, p0, Landroid/app/ActivityOptions;->mTransitionReceiver:Landroid/os/ResultReceiver;
 
-    .line 1136
+    .line 843
     iget-object v1, p1, Landroid/app/ActivityOptions;->mSharedElementNames:Ljava/util/ArrayList;
 
     iput-object v1, p0, Landroid/app/ActivityOptions;->mSharedElementNames:Ljava/util/ArrayList;
 
-    .line 1137
+    .line 844
     iget-boolean v1, p1, Landroid/app/ActivityOptions;->mIsReturning:Z
 
     iput-boolean v1, p0, Landroid/app/ActivityOptions;->mIsReturning:Z
 
-    .line 1138
+    .line 845
     iput-object v3, p0, Landroid/app/ActivityOptions;->mThumbnail:Landroid/graphics/Bitmap;
 
-    .line 1139
+    .line 846
     iput-object v3, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    .line 1140
+    .line 847
     iget-object v1, p1, Landroid/app/ActivityOptions;->mResultData:Landroid/content/Intent;
 
     iput-object v1, p0, Landroid/app/ActivityOptions;->mResultData:Landroid/content/Intent;
 
-    .line 1141
+    .line 848
     iget v1, p1, Landroid/app/ActivityOptions;->mResultCode:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mResultCode:I
 
-    .line 1142
+    .line 849
     iget v1, p1, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
 
     iput v1, p0, Landroid/app/ActivityOptions;->mExitCoordinatorIndex:I
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 1129
+    .line 836
     :catch_0
     move-exception v0
 
     .local v0, "e":Landroid/os/RemoteException;
     goto :goto_3
 
-    .line 1112
+    .line 819
     .end local v0    # "e":Landroid/os/RemoteException;
     :catch_1
     move-exception v0
@@ -3004,7 +2145,7 @@
     .restart local v0    # "e":Landroid/os/RemoteException;
     goto :goto_2
 
-    .line 1096
+    .line 803
     .end local v0    # "e":Landroid/os/RemoteException;
     :catch_2
     move-exception v0
@@ -3012,7 +2153,9 @@
     .restart local v0    # "e":Landroid/os/RemoteException;
     goto :goto_1
 
-    .line 1088
+    .line 795
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1

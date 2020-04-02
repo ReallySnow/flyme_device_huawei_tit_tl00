@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.media.IRemoteDisplayProvider"
 
-.field static final TRANSACTION_adjustVolume_5:I = 0x6
+.field static final TRANSACTION_adjustVolume:I = 0x6
 
 .field static final TRANSACTION_connect:I = 0x3
 

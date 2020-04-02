@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/media/audiofx/Virtualizer$BaseParameterListener;,
         Landroid/media/audiofx/Virtualizer$OnParameterChangeListener;,
+        Landroid/media/audiofx/Virtualizer$BaseParameterListener;,
         Landroid/media/audiofx/Virtualizer$Settings;
     }
 .end annotation
@@ -201,7 +201,7 @@
 .end method
 
 .method private getAnglesInt(II[I)Z
-    .locals 12
+    .locals 11
     .param p1, "inputChannelMask"    # I
     .param p2, "deviceType"    # I
     .param p3, "angles"    # [I
@@ -214,9 +214,7 @@
     .end annotation
 
     .prologue
-    const/16 v7, 0xc
-
-    const/4 v11, 0x1
+    const/4 v9, 0x1
 
     const/4 v10, 0x0
 
@@ -236,9 +234,10 @@
 
     .line 190
     :cond_0
-    if-ne p1, v11, :cond_1
+    if-ne p1, v9, :cond_1
 
-    move v0, v7
+    .line 191
+    const/16 v0, 0xc
 
     .line 192
     .local v0, "channelMask":I
@@ -251,11 +250,11 @@
     .local v2, "nbChannels":I
     if-eqz p3, :cond_2
 
-    array-length v8, p3
+    array-length v7, p3
 
-    mul-int/lit8 v9, v2, 0x3
+    mul-int/lit8 v8, v2, 0x3
 
-    if-ge v8, v9, :cond_2
+    if-ge v7, v8, :cond_2
 
     .line 194
     const-string/jumbo v7, "Virtualizer"
@@ -333,18 +332,20 @@
 
     throw v7
 
+    .line 191
     .end local v0    # "channelMask":I
     .end local v2    # "nbChannels":I
     :cond_1
     move v0, p1
 
-    .line 191
+    .restart local v0    # "channelMask":I
     goto :goto_0
 
     .line 201
-    .restart local v0    # "channelMask":I
     .restart local v2    # "nbChannels":I
     :cond_2
+    const/16 v7, 0xc
+
     invoke-static {v7}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v3
@@ -482,7 +483,7 @@
     .end local v1    # "i":I
     .end local v5    # "resultConverter":Ljava/nio/ByteBuffer;
     :cond_3
-    return v11
+    return v9
 
     .line 239
     :cond_4

@@ -48,6 +48,8 @@
 
 .field private mCurrentLogicalModemIds:[Ljava/lang/String;
 
+.field private mDctController:Lcom/android/internal/telephony/dataconnection/DctController;
+
 .field private mHandler:Landroid/os/Handler;
 
 .field private mNewLogicalModemIds:[Ljava/lang/String;
@@ -58,9 +60,7 @@
 
 .field private mPhoneSubInfoController:Lcom/android/internal/telephony/PhoneSubInfoController;
 
-.field private mPhoneSwitcher:Lcom/android/internal/telephony/PhoneSwitcher;
-
-.field private mPhones:[Lcom/android/internal/telephony/Phone;
+.field private mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
 .field private mRadioAccessFamilyStatusCounter:I
 
@@ -132,26 +132,25 @@
     return-void
 .end method
 
-.method private constructor <init>(Landroid/content/Context;[Lcom/android/internal/telephony/Phone;Lcom/android/internal/telephony/uicc/UiccController;[Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/PhoneSwitcher;)V
-    .locals 7
+.method private constructor <init>(Landroid/content/Context;[Lcom/android/internal/telephony/PhoneProxy;Lcom/android/internal/telephony/uicc/UiccController;[Lcom/android/internal/telephony/CommandsInterface;)V
+    .locals 6
     .param p1, "context"    # Landroid/content/Context;
-    .param p2, "phone"    # [Lcom/android/internal/telephony/Phone;
+    .param p2, "phoneProxy"    # [Lcom/android/internal/telephony/PhoneProxy;
     .param p3, "uiccController"    # Lcom/android/internal/telephony/uicc/UiccController;
     .param p4, "ci"    # [Lcom/android/internal/telephony/CommandsInterface;
-    .param p5, "phoneSwitcher"    # Lcom/android/internal/telephony/PhoneSwitcher;
 
     .prologue
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    .line 121
+    .line 127
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 90
-    iput-boolean v5, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
-
     .line 96
+    iput-boolean v4, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
+
+    .line 102
     new-instance v2, Ljava/util/concurrent/atomic/AtomicInteger;
 
     new-instance v3, Ljava/util/Random;
@@ -166,64 +165,70 @@
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mUniqueIdGenerator:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 304
+    .line 326
     new-instance v2, Lcom/android/internal/telephony/ProxyController$1;
 
     invoke-direct {v2, p0}, Lcom/android/internal/telephony/ProxyController$1;-><init>(Lcom/android/internal/telephony/ProxyController;)V
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mHandler:Landroid/os/Handler;
 
-    .line 123
+    .line 129
     const-string/jumbo v2, "Constructor - Enter"
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 125
+    .line 131
     iput-object p1, p0, Lcom/android/internal/telephony/ProxyController;->mContext:Landroid/content/Context;
 
-    .line 126
-    iput-object p2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 132
+    iput-object p2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    .line 127
+    .line 133
     iput-object p3, p0, Lcom/android/internal/telephony/ProxyController;->mUiccController:Lcom/android/internal/telephony/uicc/UiccController;
 
-    .line 128
+    .line 134
     iput-object p4, p0, Lcom/android/internal/telephony/ProxyController;->mCi:[Lcom/android/internal/telephony/CommandsInterface;
 
-    .line 129
-    iput-object p5, p0, Lcom/android/internal/telephony/ProxyController;->mPhoneSwitcher:Lcom/android/internal/telephony/PhoneSwitcher;
+    .line 136
+    invoke-static {}, Lcom/android/internal/telephony/TelephonyPluginDelegate;->getInstance()Lcom/android/internal/telephony/TelephonyPluginDelegate;
 
-    .line 131
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Lcom/android/internal/telephony/TelephonyPluginDelegate;->makeDctController([Lcom/android/internal/telephony/PhoneProxy;)Lcom/android/internal/telephony/dataconnection/DctController;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mDctController:Lcom/android/internal/telephony/dataconnection/DctController;
+
+    .line 138
     new-instance v2, Lcom/android/internal/telephony/UiccPhoneBookController;
 
-    iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     invoke-direct {v2, v3}, Lcom/android/internal/telephony/UiccPhoneBookController;-><init>([Lcom/android/internal/telephony/Phone;)V
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mUiccPhoneBookController:Lcom/android/internal/telephony/UiccPhoneBookController;
 
-    .line 132
+    .line 139
     new-instance v2, Lcom/android/internal/telephony/PhoneSubInfoController;
 
-    iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
-
-    invoke-direct {v2, v3, v4}, Lcom/android/internal/telephony/PhoneSubInfoController;-><init>(Landroid/content/Context;[Lcom/android/internal/telephony/Phone;)V
+    invoke-direct {v2, v3}, Lcom/android/internal/telephony/PhoneSubInfoController;-><init>([Lcom/android/internal/telephony/Phone;)V
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhoneSubInfoController:Lcom/android/internal/telephony/PhoneSubInfoController;
 
-    .line 133
+    .line 140
     new-instance v2, Lcom/android/internal/telephony/UiccSmsController;
 
-    iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     invoke-direct {v2, v3}, Lcom/android/internal/telephony/UiccSmsController;-><init>([Lcom/android/internal/telephony/Phone;)V
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mUiccSmsController:Lcom/android/internal/telephony/UiccSmsController;
 
-    .line 134
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 141
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v2, v2
 
@@ -231,8 +236,8 @@
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
-    .line 135
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 142
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v2, v2
 
@@ -240,8 +245,8 @@
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mNewRadioAccessFamily:[I
 
-    .line 136
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 143
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v2, v2
 
@@ -249,8 +254,8 @@
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mOldRadioAccessFamily:[I
 
-    .line 137
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 144
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v2, v2
 
@@ -258,8 +263,8 @@
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mCurrentLogicalModemIds:[Ljava/lang/String;
 
-    .line 138
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 145
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v2, v2
 
@@ -267,7 +272,7 @@
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mNewLogicalModemIds:[Ljava/lang/String;
 
-    .line 141
+    .line 148
     const-string/jumbo v2, "power"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -276,60 +281,60 @@
 
     check-cast v1, Landroid/os/PowerManager;
 
-    .line 142
+    .line 149
     .local v1, "pm":Landroid/os/PowerManager;
     const-string/jumbo v2, "ProxyController"
 
-    invoke-virtual {v1, v6, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {v1, v5, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 143
+    .line 150
     iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual {v2, v5}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
+    invoke-virtual {v2, v4}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
-    .line 146
+    .line 153
     invoke-direct {p0}, Lcom/android/internal/telephony/ProxyController;->clearTransaction()V
 
-    .line 147
+    .line 154
     const/4 v0, 0x0
 
     .local v0, "i":I
     :goto_0
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v2, v2
 
     if-ge v0, v2, :cond_0
 
-    .line 148
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 155
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v2, v2, v0
 
-    .line 149
+    .line 156
     iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mHandler:Landroid/os/Handler;
 
     const/4 v4, 0x0
 
-    .line 148
-    invoke-virtual {v2, v3, v6, v4}, Lcom/android/internal/telephony/Phone;->registerForRadioCapabilityChanged(Landroid/os/Handler;ILjava/lang/Object;)V
+    .line 155
+    invoke-virtual {v2, v3, v5, v4}, Lcom/android/internal/telephony/PhoneProxy;->registerForRadioCapabilityChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 147
+    .line 154
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 151
+    .line 158
     :cond_0
     const-string/jumbo v2, "Constructor - Exit"
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 122
+    .line 128
     return-void
 .end method
 
@@ -337,29 +342,29 @@
     .locals 4
 
     .prologue
-    .line 587
+    .line 606
     const-string/jumbo v1, "clearTransaction"
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 588
+    .line 607
     iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     monitor-enter v2
 
-    .line 589
+    .line 608
     const/4 v0, 0x0
 
     .local v0, "i":I
     :goto_0
     :try_start_0
-    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v1, v1
 
     if-ge v0, v1, :cond_0
 
-    .line 590
+    .line 609
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -386,38 +391,38 @@
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 591
+    .line 610
     iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     const/4 v3, 0x0
 
     aput v3, v1, v0
 
-    .line 592
+    .line 611
     iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mOldRadioAccessFamily:[I
 
     const/4 v3, 0x0
 
     aput v3, v1, v0
 
-    .line 593
+    .line 612
     iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mNewRadioAccessFamily:[I
 
     const/4 v3, 0x0
 
     aput v3, v1, v0
 
-    .line 594
+    .line 613
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
-    .line 589
+    .line 608
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 597
+    .line 616
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -427,7 +432,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 598
+    .line 617
     iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
@@ -437,10 +442,10 @@
     :cond_1
     monitor-exit v2
 
-    .line 586
+    .line 605
     return-void
 
-    .line 588
+    .line 607
     :catchall_0
     move-exception v1
 
@@ -455,7 +460,7 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 551
+    .line 570
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -483,38 +488,38 @@
 
     invoke-direct {p0, v7}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 552
+    .line 571
     iget-boolean v7, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
     if-nez v7, :cond_2
 
-    .line 553
+    .line 572
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 554
+    .line 573
     .local v3, "phoneRAFList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/telephony/RadioAccessFamily;>;"
     const/4 v0, 0x0
 
     .local v0, "i":I
     :goto_1
-    iget-object v7, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v7, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v7, v7
 
     if-ge v0, v7, :cond_1
 
-    .line 555
-    iget-object v7, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 574
+    iget-object v7, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v7, v7, v0
 
-    invoke-virtual {v7}, Lcom/android/internal/telephony/Phone;->getRadioAccessFamily()I
+    invoke-virtual {v7}, Lcom/android/internal/telephony/PhoneProxy;->getRadioAccessFamily()I
 
     move-result v5
 
-    .line 556
+    .line 575
     .local v5, "raf":I
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -546,21 +551,21 @@
 
     invoke-direct {p0, v7}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 557
+    .line 576
     new-instance v4, Landroid/telephony/RadioAccessFamily;
 
     invoke-direct {v4, v0, v5}, Landroid/telephony/RadioAccessFamily;-><init>(II)V
 
-    .line 558
+    .line 577
     .local v4, "phoneRC":Landroid/telephony/RadioAccessFamily;
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 554
+    .line 573
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 551
+    .line 570
     .end local v0    # "i":I
     .end local v3    # "phoneRAFList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/telephony/RadioAccessFamily;>;"
     .end local v4    # "phoneRC":Landroid/telephony/RadioAccessFamily;
@@ -570,7 +575,7 @@
 
     goto :goto_0
 
-    .line 560
+    .line 579
     .restart local v0    # "i":I
     .restart local v3    # "phoneRAFList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/telephony/RadioAccessFamily;>;"
     :cond_1
@@ -580,13 +585,13 @@
 
     invoke-direct {v1, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 561
+    .line 580
     .local v1, "intent":Landroid/content/Intent;
     const-string/jumbo v7, "rafs"
 
     invoke-virtual {v1, v7, v3}, Landroid/content/Intent;->putParcelableArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
-    .line 565
+    .line 584
     iget-object v7, p0, Lcom/android/internal/telephony/ProxyController;->mUniqueIdGenerator:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v7}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -595,23 +600,21 @@
 
     iput v7, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
 
-    .line 568
+    .line 587
     invoke-direct {p0}, Lcom/android/internal/telephony/ProxyController;->clearTransaction()V
 
-    .line 582
+    .line 601
     .end local v0    # "i":I
     .end local v3    # "phoneRAFList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/telephony/RadioAccessFamily;>;"
     :goto_2
     iget-object v7, p0, Lcom/android/internal/telephony/ProxyController;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v8, "android.permission.READ_PHONE_STATE"
+    invoke-virtual {v7, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    invoke-virtual {v7, v1, v8}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
-
-    .line 548
+    .line 567
     return-void
 
-    .line 570
+    .line 589
     .end local v1    # "intent":Landroid/content/Intent;
     :cond_2
     new-instance v1, Landroid/content/Intent;
@@ -620,30 +623,30 @@
 
     invoke-direct {v1, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 573
+    .line 592
     .restart local v1    # "intent":Landroid/content/Intent;
     iput-boolean v8, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
-    .line 574
-    iget-object v7, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 593
+    iget-object v7, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v7, v7
 
     new-array v6, v7, [Landroid/telephony/RadioAccessFamily;
 
-    .line 575
+    .line 594
     .local v6, "rafs":[Landroid/telephony/RadioAccessFamily;
     const/4 v2, 0x0
 
     .local v2, "phoneId":I
     :goto_3
-    iget-object v7, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v7, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v7, v7
 
     if-ge v2, v7, :cond_3
 
-    .line 576
+    .line 595
     new-instance v7, Landroid/telephony/RadioAccessFamily;
 
     iget-object v8, p0, Lcom/android/internal/telephony/ProxyController;->mOldRadioAccessFamily:[I
@@ -654,12 +657,12 @@
 
     aput-object v7, v6, v2
 
-    .line 575
+    .line 594
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
-    .line 578
+    .line 597
     :cond_3
     invoke-direct {p0, v6}, Lcom/android/internal/telephony/ProxyController;->doSetRadioCapabilities([Landroid/telephony/RadioAccessFamily;)Z
 
@@ -675,7 +678,7 @@
 
     const/4 v12, 0x1
 
-    .line 261
+    .line 283
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mUniqueIdGenerator:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -684,7 +687,7 @@
 
     iput v0, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
 
-    .line 265
+    .line 287
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mHandler:Landroid/os/Handler;
 
     iget v2, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
@@ -695,7 +698,7 @@
 
     move-result-object v9
 
-    .line 266
+    .line 288
     .local v9, "msg":Landroid/os/Message;
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mHandler:Landroid/os/Handler;
 
@@ -703,12 +706,12 @@
 
     invoke-virtual {v0, v9, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 268
+    .line 290
     iget-object v11, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     monitor-enter v11
 
-    .line 269
+    .line 291
     :try_start_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -732,10 +735,10 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 270
+    .line 292
     invoke-direct {p0}, Lcom/android/internal/telephony/ProxyController;->resetRadioAccessFamilyStatusCounter()V
 
-    .line 271
+    .line 293
     const/4 v8, 0x0
 
     .local v8, "i":I
@@ -744,14 +747,14 @@
 
     if-ge v8, v0, :cond_0
 
-    .line 272
+    .line 294
     aget-object v0, p1, v8
 
     invoke-virtual {v0}, Landroid/telephony/RadioAccessFamily;->getPhoneId()I
 
     move-result v1
 
-    .line 273
+    .line 295
     .local v1, "phoneId":I
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -779,53 +782,53 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 274
+    .line 296
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     const/4 v2, 0x1
 
     aput v2, v0, v1
 
-    .line 275
+    .line 297
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mOldRadioAccessFamily:[I
 
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v2, v2, v1
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/Phone;->getRadioAccessFamily()I
+    invoke-virtual {v2}, Lcom/android/internal/telephony/PhoneProxy;->getRadioAccessFamily()I
 
     move-result v2
 
     aput v2, v0, v1
 
-    .line 276
+    .line 298
     aget-object v0, p1, v8
 
     invoke-virtual {v0}, Landroid/telephony/RadioAccessFamily;->getRadioAccessFamily()I
 
     move-result v10
 
-    .line 280
+    .line 302
     .local v10, "requestedRaf":I
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mNewRadioAccessFamily:[I
 
     aput v10, v0, v1
 
-    .line 282
+    .line 304
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mCurrentLogicalModemIds:[Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v2, v2, v1
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/Phone;->getModemUuId()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/PhoneProxy;->getModemUuId()Ljava/lang/String;
 
     move-result-object v2
 
     aput-object v2, v0, v1
 
-    .line 285
+    .line 307
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mNewLogicalModemIds:[Ljava/lang/String;
 
     invoke-direct {p0, v10}, Lcom/android/internal/telephony/ProxyController;->getLogicalModemIdFromRaf(I)Ljava/lang/String;
@@ -834,7 +837,7 @@
 
     aput-object v2, v0, v1
 
-    .line 286
+    .line 308
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -855,12 +858,12 @@
 
     move-result-object v0
 
-    .line 287
+    .line 309
     iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mOldRadioAccessFamily:[I
 
     aget v2, v2, v1
 
-    .line 286
+    .line 308
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -871,7 +874,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 288
+    .line 310
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -892,12 +895,12 @@
 
     move-result-object v0
 
-    .line 289
+    .line 311
     iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mNewRadioAccessFamily:[I
 
     aget v2, v2, v1
 
-    .line 288
+    .line 310
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -908,36 +911,36 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 292
+    .line 314
     iget v2, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
 
-    .line 294
+    .line 316
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mOldRadioAccessFamily:[I
 
     aget v4, v0, v1
 
-    .line 295
+    .line 317
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mCurrentLogicalModemIds:[Ljava/lang/String;
 
     aget-object v5, v0, v1
 
-    .line 293
+    .line 315
     const/4 v3, 0x1
 
-    .line 296
+    .line 318
     const/4 v6, 0x0
 
-    .line 297
+    .line 319
     const/4 v7, 0x2
 
     move-object v0, p0
 
-    .line 290
+    .line 312
     invoke-direct/range {v0 .. v7}, Lcom/android/internal/telephony/ProxyController;->sendRadioCapabilityRequest(IIIILjava/lang/String;II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 271
+    .line 293
     add-int/lit8 v8, v8, 0x1
 
     goto/16 :goto_0
@@ -947,10 +950,10 @@
     :cond_0
     monitor-exit v11
 
-    .line 301
+    .line 323
     return v12
 
-    .line 268
+    .line 290
     .end local v8    # "i":I
     :catchall_0
     move-exception v0
@@ -964,44 +967,33 @@
     .locals 1
 
     .prologue
-    .line 118
+    .line 124
     sget-object v0, Lcom/android/internal/telephony/ProxyController;->sProxyController:Lcom/android/internal/telephony/ProxyController;
 
     return-object v0
 .end method
 
-.method public static getInstance(Landroid/content/Context;[Lcom/android/internal/telephony/Phone;Lcom/android/internal/telephony/uicc/UiccController;[Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/PhoneSwitcher;)Lcom/android/internal/telephony/ProxyController;
-    .locals 6
+.method public static getInstance(Landroid/content/Context;[Lcom/android/internal/telephony/PhoneProxy;Lcom/android/internal/telephony/uicc/UiccController;[Lcom/android/internal/telephony/CommandsInterface;)Lcom/android/internal/telephony/ProxyController;
+    .locals 1
     .param p0, "context"    # Landroid/content/Context;
-    .param p1, "phone"    # [Lcom/android/internal/telephony/Phone;
+    .param p1, "phoneProxy"    # [Lcom/android/internal/telephony/PhoneProxy;
     .param p2, "uiccController"    # Lcom/android/internal/telephony/uicc/UiccController;
     .param p3, "ci"    # [Lcom/android/internal/telephony/CommandsInterface;
-    .param p4, "ps"    # Lcom/android/internal/telephony/PhoneSwitcher;
 
     .prologue
-    .line 111
+    .line 117
     sget-object v0, Lcom/android/internal/telephony/ProxyController;->sProxyController:Lcom/android/internal/telephony/ProxyController;
 
     if-nez v0, :cond_0
 
-    .line 112
+    .line 118
     new-instance v0, Lcom/android/internal/telephony/ProxyController;
 
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/internal/telephony/ProxyController;-><init>(Landroid/content/Context;[Lcom/android/internal/telephony/Phone;Lcom/android/internal/telephony/uicc/UiccController;[Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/PhoneSwitcher;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/internal/telephony/ProxyController;-><init>(Landroid/content/Context;[Lcom/android/internal/telephony/PhoneProxy;Lcom/android/internal/telephony/uicc/UiccController;[Lcom/android/internal/telephony/CommandsInterface;)V
 
     sput-object v0, Lcom/android/internal/telephony/ProxyController;->sProxyController:Lcom/android/internal/telephony/ProxyController;
 
-    .line 114
+    .line 120
     :cond_0
     sget-object v0, Lcom/android/internal/telephony/ProxyController;->sProxyController:Lcom/android/internal/telephony/ProxyController;
 
@@ -1013,47 +1005,47 @@
     .param p1, "raf"    # I
 
     .prologue
-    .line 653
+    .line 672
     const/4 v0, 0x0
 
-    .line 655
+    .line 674
     .local v0, "modemUuid":Ljava/lang/String;
     const/4 v1, 0x0
 
     .local v1, "phoneId":I
     :goto_0
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v2, v2
 
     if-ge v1, v2, :cond_0
 
-    .line 656
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 675
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v2, v2, v1
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/Phone;->getRadioAccessFamily()I
+    invoke-virtual {v2}, Lcom/android/internal/telephony/PhoneProxy;->getRadioAccessFamily()I
 
     move-result v2
 
     if-ne v2, p1, :cond_1
 
-    .line 657
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 676
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v2, v2, v1
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/Phone;->getModemUuId()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/PhoneProxy;->getModemUuId()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 661
+    .line 680
     .end local v0    # "modemUuid":Ljava/lang/String;
     :cond_0
     return-object v0
 
-    .line 655
+    .line 674
     .restart local v0    # "modemUuid":Ljava/lang/String;
     :cond_1
     add-int/lit8 v1, v1, 0x1
@@ -1066,24 +1058,24 @@
     .param p1, "sessionId"    # I
 
     .prologue
-    .line 523
+    .line 542
     iget-object v8, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     monitor-enter v8
 
-    .line 524
+    .line 543
     const/4 v1, 0x0
 
     .local v1, "i":I
     :goto_0
     :try_start_0
-    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v0, v0
 
     if-ge v1, v0, :cond_4
 
-    .line 525
+    .line 544
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1108,18 +1100,18 @@
 
     move-result-object v0
 
-    .line 526
+    .line 545
     const-string/jumbo v2, " mTransactionFailed="
 
-    .line 525
+    .line 544
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 526
+    .line 545
     iget-boolean v2, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
-    .line 525
+    .line 544
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -1130,14 +1122,14 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 527
+    .line 546
     iget v0, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
-    .line 532
+    .line 551
     iget-boolean v0, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
     if-eqz v0, :cond_1
@@ -1146,7 +1138,7 @@
 
     aget v4, v0, v1
 
-    .line 534
+    .line 553
     :goto_1
     iget-boolean v0, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
@@ -1156,7 +1148,7 @@
 
     aget-object v5, v0, v1
 
-    .line 536
+    .line 555
     :goto_2
     iget-boolean v0, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
@@ -1164,26 +1156,26 @@
 
     const/4 v6, 0x2
 
-    .line 531
+    .line 550
     :goto_3
     const/4 v3, 0x4
 
-    .line 538
+    .line 557
     const/4 v7, 0x4
 
     move-object v0, p0
 
     move v2, p1
 
-    .line 528
+    .line 547
     invoke-direct/range {v0 .. v7}, Lcom/android/internal/telephony/ProxyController;->sendRadioCapabilityRequest(IIIILjava/lang/String;II)V
 
-    .line 539
+    .line 558
     iget-boolean v0, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
     if-eqz v0, :cond_0
 
-    .line 540
+    .line 559
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1210,20 +1202,20 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 542
+    .line 561
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     const/4 v2, 0x5
 
     aput v2, v0, v1
 
-    .line 524
+    .line 543
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 533
+    .line 552
     :cond_1
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mNewRadioAccessFamily:[I
 
@@ -1231,7 +1223,7 @@
 
     goto :goto_1
 
-    .line 535
+    .line 554
     :cond_2
     iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mNewLogicalModemIds:[Ljava/lang/String;
 
@@ -1241,7 +1233,7 @@
 
     goto :goto_2
 
-    .line 537
+    .line 556
     :cond_3
     const/4 v6, 0x1
 
@@ -1250,10 +1242,10 @@
     :cond_4
     monitor-exit v8
 
-    .line 521
+    .line 540
     return-void
 
-    .line 523
+    .line 542
     :catchall_0
     move-exception v0
 
@@ -1267,12 +1259,12 @@
     .param p1, "string"    # Ljava/lang/String;
 
     .prologue
-    .line 665
+    .line 684
     const-string/jumbo v0, "ProxyController"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 664
+    .line 683
     return-void
 .end method
 
@@ -1281,12 +1273,12 @@
     .param p1, "string"    # Ljava/lang/String;
 
     .prologue
-    .line 669
+    .line 688
     const-string/jumbo v0, "ProxyController"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 668
+    .line 687
     return-void
 .end method
 
@@ -1295,7 +1287,7 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 411
+    .line 433
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/os/AsyncResult;
@@ -1304,7 +1296,7 @@
 
     check-cast v1, Lcom/android/internal/telephony/RadioCapability;
 
-    .line 412
+    .line 434
     .local v1, "rc":Lcom/android/internal/telephony/RadioCapability;
     if-eqz v1, :cond_0
 
@@ -1316,7 +1308,7 @@
 
     if-eq v2, v3, :cond_1
 
-    .line 413
+    .line 435
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1334,10 +1326,10 @@
 
     move-result-object v2
 
-    .line 414
+    .line 436
     const-string/jumbo v3, " rc="
 
-    .line 413
+    .line 435
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -1352,10 +1344,10 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 415
+    .line 437
     return-void
 
-    .line 417
+    .line 439
     :cond_1
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1377,7 +1369,7 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 418
+    .line 440
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/os/AsyncResult;
@@ -1386,12 +1378,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 419
+    .line 441
     iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     monitor-enter v3
 
-    .line 420
+    .line 442
     :try_start_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1417,12 +1409,12 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 421
+    .line 443
     invoke-virtual {v1}, Lcom/android/internal/telephony/RadioCapability;->getPhoneId()I
 
     move-result v0
 
-    .line 422
+    .line 444
     .local v0, "id":I
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1450,14 +1442,14 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 423
+    .line 445
     iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     const/4 v4, 0x5
 
     aput v4, v2, v0
 
-    .line 424
+    .line 446
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
@@ -1466,12 +1458,12 @@
 
     monitor-exit v3
 
-    .line 410
+    .line 432
     .end local v0    # "id":I
     :goto_0
     return-void
 
-    .line 419
+    .line 441
     :catchall_0
     move-exception v2
 
@@ -1479,7 +1471,7 @@
 
     throw v2
 
-    .line 427
+    .line 449
     :cond_2
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1509,7 +1501,7 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 436
+    .line 458
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/os/AsyncResult;
@@ -1518,7 +1510,7 @@
 
     check-cast v1, Lcom/android/internal/telephony/RadioCapability;
 
-    .line 437
+    .line 459
     .local v1, "rc":Lcom/android/internal/telephony/RadioCapability;
     if-eqz v1, :cond_0
 
@@ -1530,7 +1522,7 @@
 
     if-eq v2, v3, :cond_1
 
-    .line 438
+    .line 460
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1548,10 +1540,10 @@
 
     move-result-object v2
 
-    .line 439
+    .line 461
     const-string/jumbo v3, " rc="
 
-    .line 438
+    .line 460
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -1566,16 +1558,16 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 440
+    .line 462
     return-void
 
-    .line 442
+    .line 464
     :cond_1
     iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     monitor-enter v3
 
-    .line 443
+    .line 465
     :try_start_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1597,7 +1589,7 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 445
+    .line 467
     invoke-virtual {v1}, Lcom/android/internal/telephony/RadioCapability;->getSession()I
 
     move-result v2
@@ -1606,7 +1598,7 @@
 
     if-eq v2, v4, :cond_2
 
-    .line 446
+    .line 468
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1617,18 +1609,18 @@
 
     move-result-object v2
 
-    .line 447
+    .line 469
     iget v4, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
 
-    .line 446
+    .line 468
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 447
+    .line 469
     const-string/jumbo v4, " rc="
 
-    .line 446
+    .line 468
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -1647,17 +1639,17 @@
 
     monitor-exit v3
 
-    .line 448
+    .line 470
     return-void
 
-    .line 451
+    .line 473
     :cond_2
     :try_start_1
     invoke-virtual {v1}, Lcom/android/internal/telephony/RadioCapability;->getPhoneId()I
 
     move-result v0
 
-    .line 452
+    .line 474
     .local v0, "id":I
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -1667,7 +1659,7 @@
 
     if-nez v2, :cond_3
 
-    .line 453
+    .line 475
     invoke-virtual {v1}, Lcom/android/internal/telephony/RadioCapability;->getStatus()I
 
     move-result v2
@@ -1676,7 +1668,7 @@
 
     if-ne v2, v4, :cond_5
 
-    .line 454
+    .line 476
     :cond_3
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1704,19 +1696,19 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 455
+    .line 477
     iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     const/4 v4, 0x5
 
     aput v4, v2, v0
 
-    .line 456
+    .line 478
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
-    .line 465
+    .line 487
     :goto_0
     iget v2, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
@@ -1724,12 +1716,12 @@
 
     iput v2, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
-    .line 466
+    .line 488
     iget v2, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
     if-nez v2, :cond_4
 
-    .line 467
+    .line 489
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1740,10 +1732,10 @@
 
     move-result-object v2
 
-    .line 468
+    .line 490
     iget-boolean v4, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
-    .line 467
+    .line 489
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -1754,7 +1746,7 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 469
+    .line 491
     iget v2, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->issueFinish(I)V
@@ -1764,10 +1756,10 @@
     :cond_4
     monitor-exit v3
 
-    .line 435
+    .line 457
     return-void
 
-    .line 458
+    .line 480
     :cond_5
     :try_start_2
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1796,30 +1788,30 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 459
+    .line 481
     iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     const/4 v4, 0x4
 
     aput v4, v2, v0
 
-    .line 461
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhoneSwitcher:Lcom/android/internal/telephony/PhoneSwitcher;
+    .line 483
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mDctController:Lcom/android/internal/telephony/dataconnection/DctController;
 
-    invoke-virtual {v2, v0}, Lcom/android/internal/telephony/PhoneSwitcher;->resendDataAllowed(I)V
+    invoke-virtual {v2, v0}, Lcom/android/internal/telephony/dataconnection/DctController;->retryAttach(I)V
 
-    .line 462
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 484
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v2, v2, v0
 
-    invoke-virtual {v2, v1}, Lcom/android/internal/telephony/Phone;->radioCapabilityUpdated(Lcom/android/internal/telephony/RadioCapability;)V
+    invoke-virtual {v2, v1}, Lcom/android/internal/telephony/PhoneProxy;->radioCapabilityUpdated(Lcom/android/internal/telephony/RadioCapability;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
-    .line 442
+    .line 464
     .end local v0    # "id":I
     :catchall_0
     move-exception v2
@@ -1834,14 +1826,14 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 340
+    .line 362
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     monitor-enter v15
 
-    .line 341
+    .line 363
     :try_start_0
     move-object/from16 v0, p1
 
@@ -1849,7 +1841,7 @@
 
     check-cast v9, Landroid/os/AsyncResult;
 
-    .line 345
+    .line 367
     .local v9, "ar":Landroid/os/AsyncResult;
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
@@ -1867,7 +1859,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 347
+    .line 369
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1892,7 +1884,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 348
+    .line 370
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/telephony/ProxyController;->mUniqueIdGenerator:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -1905,14 +1897,14 @@
 
     iput v1, v0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
 
-    .line 349
+    .line 371
     new-instance v11, Landroid/content/Intent;
 
     const-string/jumbo v1, "android.intent.action.ACTION_SET_RADIO_CAPABILITY_FAILED"
 
     invoke-direct {v11, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 350
+    .line 372
     .local v11, "intent":Landroid/content/Intent;
     move-object/from16 v0, p0
 
@@ -1920,17 +1912,17 @@
 
     invoke-virtual {v1, v11}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 351
+    .line 373
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/ProxyController;->clearTransaction()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v15
 
-    .line 352
+    .line 374
     return-void
 
-    .line 354
+    .line 376
     .end local v11    # "intent":Landroid/content/Intent;
     :cond_0
     :try_start_1
@@ -1944,7 +1936,7 @@
 
     check-cast v14, Lcom/android/internal/telephony/RadioCapability;
 
-    .line 355
+    .line 377
     .local v14, "rc":Lcom/android/internal/telephony/RadioCapability;
     if-eqz v14, :cond_1
 
@@ -1958,7 +1950,7 @@
 
     if-eq v1, v3, :cond_2
 
-    .line 356
+    .line 378
     :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1978,10 +1970,10 @@
 
     move-result-object v1
 
-    .line 357
+    .line 379
     const-string/jumbo v3, " rc="
 
-    .line 356
+    .line 378
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -2002,10 +1994,10 @@
 
     monitor-exit v15
 
-    .line 358
+    .line 380
     return-void
 
-    .line 360
+    .line 382
     :cond_2
     :try_start_2
     move-object/from16 v0, p0
@@ -2018,12 +2010,12 @@
 
     iput v1, v0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
-    .line 361
+    .line 383
     invoke-virtual {v14}, Lcom/android/internal/telephony/RadioCapability;->getPhoneId()I
 
     move-result v10
 
-    .line 362
+    .line 384
     .local v10, "id":I
     move-object/from16 v0, p1
 
@@ -2035,7 +2027,7 @@
 
     if-eqz v1, :cond_4
 
-    .line 363
+    .line 385
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2062,7 +2054,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 364
+    .line 386
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2091,7 +2083,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 365
+    .line 387
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
@@ -2100,14 +2092,14 @@
 
     aput v3, v1, v10
 
-    .line 366
+    .line 388
     const/4 v1, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v1, v0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
-    .line 372
+    .line 394
     :goto_0
     move-object/from16 v0, p0
 
@@ -2115,7 +2107,7 @@
 
     if-nez v1, :cond_6
 
-    .line 373
+    .line 395
     new-instance v13, Ljava/util/HashSet;
 
     move-object/from16 v0, p0
@@ -2126,7 +2118,7 @@
 
     invoke-direct {v13, v1}, Ljava/util/HashSet;-><init>(I)V
 
-    .line 374
+    .line 396
     .local v13, "modemsInUse":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     move-object/from16 v0, p0
 
@@ -2141,7 +2133,7 @@
 
     aget-object v12, v3, v1
 
-    .line 375
+    .line 397
     .local v12, "modemId":Ljava/lang/String;
     invoke-virtual {v13, v12}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -2149,27 +2141,27 @@
 
     if-nez v5, :cond_3
 
-    .line 376
+    .line 398
     const/4 v5, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v5, v0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
-    .line 377
+    .line 399
     const-string/jumbo v5, "ProxyController"
 
     const-string/jumbo v6, "ERROR: sending down the same id for different phones"
 
     invoke-static {v5, v6}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 374
+    .line 396
     :cond_3
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 368
+    .line 390
     .end local v12    # "modemId":Ljava/lang/String;
     .end local v13    # "modemsInUse":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     :cond_4
@@ -2201,7 +2193,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 369
+    .line 391
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
@@ -2214,7 +2206,7 @@
 
     goto :goto_0
 
-    .line 340
+    .line 362
     .end local v9    # "ar":Landroid/os/AsyncResult;
     .end local v10    # "id":I
     .end local v14    # "rc":Lcom/android/internal/telephony/RadioCapability;
@@ -2225,7 +2217,7 @@
 
     throw v1
 
-    .line 380
+    .line 402
     .restart local v9    # "ar":Landroid/os/AsyncResult;
     .restart local v10    # "id":I
     .restart local v13    # "modemsInUse":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
@@ -2263,14 +2255,14 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 381
+    .line 403
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
     if-eqz v1, :cond_8
 
-    .line 384
+    .line 406
     move-object/from16 v0, p0
 
     iget v1, v0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
@@ -2285,68 +2277,68 @@
     :cond_6
     monitor-exit v15
 
-    .line 339
+    .line 361
     return-void
 
-    .line 380
+    .line 402
     .restart local v13    # "modemsInUse":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     :cond_7
     const/4 v1, 0x1
 
     goto :goto_2
 
-    .line 387
+    .line 409
     :cond_8
     :try_start_4
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/ProxyController;->resetRadioAccessFamilyStatusCounter()V
 
-    .line 388
+    .line 410
     const/4 v2, 0x0
 
     .local v2, "i":I
     :goto_3
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v1, v0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v1, v1
 
     if-ge v2, v1, :cond_6
 
-    .line 391
+    .line 413
     move-object/from16 v0, p0
 
     iget v3, v0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
 
-    .line 393
+    .line 415
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/telephony/ProxyController;->mNewRadioAccessFamily:[I
 
     aget v5, v1, v2
 
-    .line 394
+    .line 416
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/telephony/ProxyController;->mNewLogicalModemIds:[Ljava/lang/String;
 
     aget-object v6, v1, v2
 
-    .line 392
+    .line 414
     const/4 v4, 0x2
 
-    .line 395
+    .line 417
     const/4 v7, 0x0
 
-    .line 396
+    .line 418
     const/4 v8, 0x3
 
     move-object/from16 v1, p0
 
-    .line 389
+    .line 411
     invoke-direct/range {v1 .. v8}, Lcom/android/internal/telephony/ProxyController;->sendRadioCapabilityRequest(IIIILjava/lang/String;II)V
 
-    .line 398
+    .line 420
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2375,7 +2367,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 399
+    .line 421
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
@@ -2386,179 +2378,172 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 388
+    .line 410
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 .end method
 
 .method private onTimeoutRadioCapability(Landroid/os/Message;)V
-    .locals 4
+    .locals 5
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 496
-    iget v1, p1, Landroid/os/Message;->arg1:I
-
-    iget v2, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
-
-    if-eq v1, v2, :cond_0
-
-    .line 497
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "RadioCapability timeout: Ignore msg.arg1="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
+    .line 518
     iget v2, p1, Landroid/os/Message;->arg1:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v3, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
 
-    move-result-object v1
+    if-eq v2, v3, :cond_0
 
-    .line 498
-    const-string/jumbo v2, "!= mRadioCapabilitySessionId="
+    .line 519
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    .line 497
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v1
+    const-string/jumbo v3, "RadioCapability timeout: Ignore msg.arg1="
 
-    .line 498
-    iget v2, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 497
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v1
+    iget v3, p1, Landroid/os/Message;->arg1:I
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
+    .line 520
+    const-string/jumbo v3, "!= mRadioCapabilitySessionId="
 
-    .line 499
+    .line 519
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    .line 520
+    iget v3, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
+
+    .line 519
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
+
+    .line 521
     return-void
 
-    .line 502
+    .line 524
     :cond_0
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
+    iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
-    monitor-enter v2
+    monitor-enter v3
 
-    .line 504
+    .line 526
     const/4 v0, 0x0
 
     .local v0, "i":I
     :goto_0
     :try_start_0
-    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    array-length v1, v1
+    array-length v2, v2
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v2, :cond_1
 
-    .line 505
-    new-instance v1, Ljava/lang/StringBuilder;
+    .line 527
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "RadioCapability timeout: mSetRadioAccessFamilyStatus["
+    const-string/jumbo v4, "RadioCapability timeout: mSetRadioAccessFamilyStatus["
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v3, "]="
+    const-string/jumbo v4, "]="
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    .line 506
-    iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
+    .line 528
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
-    aget v3, v3, v0
+    aget v4, v4, v0
 
-    .line 505
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    .line 527
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
+    invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 504
+    .line 526
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 511
+    .line 533
     :cond_1
-    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mUniqueIdGenerator:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mUniqueIdGenerator:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
+    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
 
     move-result v1
 
-    iput v1, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
+    .line 535
+    .local v1, "uniqueDifferentId":I
+    const/4 v2, 0x1
 
-    .line 514
-    const/4 v1, 0x0
+    iput-boolean v2, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
 
-    iput v1, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
-
-    .line 516
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Lcom/android/internal/telephony/ProxyController;->mTransactionFailed:Z
-
-    .line 517
-    iget v1, p0, Lcom/android/internal/telephony/ProxyController;->mRadioCapabilitySessionId:I
-
+    .line 536
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/ProxyController;->issueFinish(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v2
+    monitor-exit v3
 
-    .line 495
+    .line 517
     return-void
 
-    .line 502
+    .line 524
+    .end local v1    # "uniqueDifferentId":I
     :catchall_0
-    move-exception v1
+    move-exception v2
 
-    monitor-exit v2
+    monitor-exit v3
 
-    throw v1
+    throw v2
 .end method
 
 .method private resetRadioAccessFamilyStatusCounter()V
     .locals 1
 
     .prologue
-    .line 604
-    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 623
+    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v0, v0
 
     iput v0, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
-    .line 603
+    .line 622
     return-void
 .end method
 
@@ -2573,7 +2558,7 @@
     .param p7, "eventId"    # I
 
     .prologue
-    .line 609
+    .line 628
     new-instance v0, Lcom/android/internal/telephony/RadioCapability;
 
     move v1, p1
@@ -2590,23 +2575,23 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/android/internal/telephony/RadioCapability;-><init>(IIIILjava/lang/String;I)V
 
-    .line 611
+    .line 630
     .local v0, "requestRC":Lcom/android/internal/telephony/RadioCapability;
-    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v1, v1, p1
 
-    .line 612
+    .line 631
     iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, p7}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
 
-    .line 611
-    invoke-virtual {v1, v0, v2}, Lcom/android/internal/telephony/Phone;->setRadioCapability(Lcom/android/internal/telephony/RadioCapability;Landroid/os/Message;)V
+    .line 630
+    invoke-virtual {v1, v0, v2}, Lcom/android/internal/telephony/PhoneProxy;->setRadioCapability(Lcom/android/internal/telephony/RadioCapability;Landroid/os/Message;)V
 
-    .line 608
+    .line 627
     return-void
 .end method
 
@@ -2618,36 +2603,64 @@
     .param p2, "dataCleanedUpMsg"    # Landroid/os/Message;
 
     .prologue
-    .line 164
-    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 171
+    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v0, v0, p1
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1, p2}, Lcom/android/internal/telephony/Phone;->setInternalDataEnabled(ZLandroid/os/Message;)V
+    invoke-virtual {v0, v1, p2}, Lcom/android/internal/telephony/PhoneProxy;->setInternalDataEnabled(ZLandroid/os/Message;)V
 
-    .line 163
+    .line 170
     return-void
 .end method
 
+.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 2
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
+
+    .prologue
+    .line 693
+    :try_start_0
+    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mDctController:Lcom/android/internal/telephony/dataconnection/DctController;
+
+    invoke-virtual {v1, p1, p2, p3}, Lcom/android/internal/telephony/dataconnection/DctController;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 691
+    :goto_0
+    return-void
+
+    .line 694
+    :catch_0
+    move-exception v0
+
+    .line 695
+    .local v0, "e":Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
 .method public enableDataConnectivity(I)V
-    .locals 3
+    .locals 2
     .param p1, "sub"    # I
 
     .prologue
-    .line 159
-    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 166
+    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v0, v0, p1
 
     const/4 v1, 0x1
 
-    const/4 v2, 0x0
+    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/PhoneProxy;->setInternalDataEnabled(Z)V
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/Phone;->setInternalDataEnabled(ZLandroid/os/Message;)V
-
-    .line 158
+    .line 165
     return-void
 .end method
 
@@ -2655,39 +2668,39 @@
     .locals 5
 
     .prologue
-    .line 618
-    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 637
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v4, v4
 
     new-array v3, v4, [I
 
-    .line 619
+    .line 638
     .local v3, "numRafSupported":[I
     const/4 v1, 0x0
 
-    .line 620
+    .line 639
     .local v1, "maxNumRafBit":I
     const/4 v2, 0x1
 
-    .line 622
+    .line 641
     .local v2, "maxRaf":I
     const/4 v0, 0x0
 
     .local v0, "len":I
     :goto_0
-    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v4, v4
 
     if-ge v0, v4, :cond_1
 
-    .line 623
-    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 642
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v4, v4, v0
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/Phone;->getRadioAccessFamily()I
+    invoke-virtual {v4}, Lcom/android/internal/telephony/PhoneProxy;->getRadioAccessFamily()I
 
     move-result v4
 
@@ -2697,30 +2710,30 @@
 
     aput v4, v3, v0
 
-    .line 624
+    .line 643
     aget v4, v3, v0
 
     if-ge v1, v4, :cond_0
 
-    .line 625
+    .line 644
     aget v1, v3, v0
 
-    .line 626
-    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 645
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v4, v4, v0
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/Phone;->getRadioAccessFamily()I
+    invoke-virtual {v4}, Lcom/android/internal/telephony/PhoneProxy;->getRadioAccessFamily()I
 
     move-result v2
 
-    .line 622
+    .line 641
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 630
+    .line 649
     :cond_1
     return v2
 .end method
@@ -2729,39 +2742,39 @@
     .locals 5
 
     .prologue
-    .line 636
-    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 655
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v4, v4
 
     new-array v3, v4, [I
 
-    .line 637
+    .line 656
     .local v3, "numRafSupported":[I
     const/4 v1, 0x0
 
-    .line 638
+    .line 657
     .local v1, "minNumRafBit":I
     const/4 v2, 0x1
 
-    .line 640
+    .line 659
     .local v2, "minRaf":I
     const/4 v0, 0x0
 
     .local v0, "len":I
     :goto_0
-    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v4, v4
 
     if-ge v0, v4, :cond_2
 
-    .line 641
-    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 660
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v4, v4, v0
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/Phone;->getRadioAccessFamily()I
+    invoke-virtual {v4}, Lcom/android/internal/telephony/PhoneProxy;->getRadioAccessFamily()I
 
     move-result v4
 
@@ -2771,33 +2784,33 @@
 
     aput v4, v3, v0
 
-    .line 642
+    .line 661
     if-eqz v1, :cond_0
 
     aget v4, v3, v0
 
     if-le v1, v4, :cond_1
 
-    .line 643
+    .line 662
     :cond_0
     aget v1, v3, v0
 
-    .line 644
-    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 663
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v4, v4, v0
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/Phone;->getRadioAccessFamily()I
+    invoke-virtual {v4}, Lcom/android/internal/telephony/PhoneProxy;->getRadioAccessFamily()I
 
     move-result v2
 
-    .line 640
+    .line 659
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 647
+    .line 666
     :cond_2
     return v2
 .end method
@@ -2807,25 +2820,25 @@
     .param p1, "phoneId"    # I
 
     .prologue
-    .line 205
-    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 213
+    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     array-length v0, v0
 
     if-lt p1, v0, :cond_0
 
-    .line 206
+    .line 214
     const/4 v0, 0x1
 
     return v0
 
-    .line 208
+    .line 216
     :cond_0
-    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v0, v0, p1
 
-    invoke-virtual {v0}, Lcom/android/internal/telephony/Phone;->getRadioAccessFamily()I
+    invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneProxy;->getRadioAccessFamily()I
 
     move-result v0
 
@@ -2833,51 +2846,60 @@
 .end method
 
 .method public isDataDisconnected(I)Z
-    .locals 2
+    .locals 3
     .param p1, "subId"    # I
 
     .prologue
-    .line 188
+    .line 195
     invoke-static {}, Lcom/android/internal/telephony/SubscriptionController;->getInstance()Lcom/android/internal/telephony/SubscriptionController;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Lcom/android/internal/telephony/SubscriptionController;->getPhoneId(I)I
+    invoke-virtual {v2, p1}, Lcom/android/internal/telephony/SubscriptionController;->getPhoneId(I)I
 
-    move-result v0
+    move-result v1
 
-    .line 190
-    .local v0, "phoneId":I
-    if-ltz v0, :cond_0
+    .line 197
+    .local v1, "phoneId":I
+    if-ltz v1, :cond_0
 
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
 
-    move-result v1
+    move-result v2
 
-    if-ge v0, v1, :cond_0
+    if-ge v1, v2, :cond_0
 
-    .line 191
-    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 198
+    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    aget-object v1, v1, v0
+    aget-object v2, v2, v1
 
-    iget-object v1, v1, Lcom/android/internal/telephony/Phone;->mDcTracker:Lcom/android/internal/telephony/dataconnection/DcTracker;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/PhoneProxy;->getActivePhone()Lcom/android/internal/telephony/Phone;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/dataconnection/DcTracker;->isDisconnected()Z
+    move-result-object v0
 
-    move-result v1
+    .line 199
+    .local v0, "activePhone":Lcom/android/internal/telephony/Phone;
+    check-cast v0, Lcom/android/internal/telephony/PhoneBase;
 
-    return v1
+    .end local v0    # "activePhone":Lcom/android/internal/telephony/Phone;
+    iget-object v2, v0, Lcom/android/internal/telephony/PhoneBase;->mDcTracker:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
-    .line 194
+    invoke-virtual {v2}, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->isDisconnected()Z
+
+    move-result v2
+
+    return v2
+
+    .line 202
     :cond_0
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    return v1
+    return v2
 .end method
 
 .method onFinishRadioCapabilityResponse(Landroid/os/Message;)V
@@ -2885,7 +2907,7 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 479
+    .line 501
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
@@ -2894,7 +2916,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/RadioCapability;
 
-    .line 480
+    .line 502
     .local v0, "rc":Lcom/android/internal/telephony/RadioCapability;
     if-eqz v0, :cond_0
 
@@ -2906,7 +2928,7 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 481
+    .line 503
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2923,10 +2945,10 @@
 
     move-result-object v1
 
-    .line 482
+    .line 504
     const-string/jumbo v2, " rc="
 
-    .line 481
+    .line 503
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -2941,16 +2963,16 @@
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 483
+    .line 505
     return-void
 
-    .line 485
+    .line 507
     :cond_0
     iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
     monitor-enter v2
 
-    .line 486
+    .line 508
     :try_start_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2962,10 +2984,10 @@
 
     move-result-object v1
 
-    .line 487
+    .line 509
     iget v3, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
-    .line 486
+    .line 508
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -2976,19 +2998,19 @@
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
 
-    .line 488
+    .line 510
     iget v1, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
     add-int/lit8 v1, v1, -0x1
 
     iput v1, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
-    .line 489
+    .line 511
     iget v1, p0, Lcom/android/internal/telephony/ProxyController;->mRadioAccessFamilyStatusCounter:I
 
     if-nez v1, :cond_1
 
-    .line 490
+    .line 512
     invoke-direct {p0}, Lcom/android/internal/telephony/ProxyController;->completeRadioCapabilityTransaction()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -2996,10 +3018,10 @@
     :cond_1
     monitor-exit v2
 
-    .line 478
+    .line 500
     return-void
 
-    .line 485
+    .line 507
     :catchall_0
     move-exception v1
 
@@ -3016,7 +3038,7 @@
     .param p4, "obj"    # Ljava/lang/Object;
 
     .prologue
-    .line 172
+    .line 179
     invoke-static {}, Lcom/android/internal/telephony/SubscriptionController;->getInstance()Lcom/android/internal/telephony/SubscriptionController;
 
     move-result-object v1
@@ -3025,7 +3047,7 @@
 
     move-result v0
 
-    .line 174
+    .line 181
     .local v0, "phoneId":I
     if-ltz v0, :cond_0
 
@@ -3039,190 +3061,289 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 175
-    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 182
+    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v1, v1, v0
 
-    invoke-virtual {v1, p2, p3, p4}, Lcom/android/internal/telephony/Phone;->registerForAllDataDisconnected(Landroid/os/Handler;ILjava/lang/Object;)V
+    invoke-virtual {v1, p2, p3, p4}, Lcom/android/internal/telephony/PhoneProxy;->registerForAllDataDisconnected(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 171
+    .line 178
     :cond_0
     return-void
 .end method
 
 .method public setRadioCapability([Landroid/telephony/RadioAccessFamily;)Z
-    .locals 6
+    .locals 8
     .param p1, "rafs"    # [Landroid/telephony/RadioAccessFamily;
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v6, 0x1
 
-    .line 221
-    array-length v2, p1
+    const/4 v7, 0x0
 
-    iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 229
+    array-length v4, p1
 
-    array-length v3, v3
+    iget-object v5, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    if-eq v2, v3, :cond_0
+    array-length v5, v5
 
-    .line 222
-    new-instance v2, Ljava/lang/RuntimeException;
+    if-eq v4, v5, :cond_0
 
-    const-string/jumbo v3, "Length of input rafs must equal to total phone count"
+    .line 230
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v5, "Length of input rafs must equal to total phone count"
 
-    throw v2
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 226
+    throw v4
+
+    .line 234
     :cond_0
-    iget-object v3, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
+    iget-object v5, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
-    monitor-enter v3
+    monitor-enter v5
 
-    .line 227
+    .line 235
     const/4 v0, 0x0
 
     .local v0, "i":I
     :goto_0
     :try_start_0
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    array-length v2, v2
+    array-length v4, v4
 
-    if-ge v0, v2, :cond_2
+    if-ge v0, v4, :cond_2
 
-    .line 228
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
+    .line 236
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mSetRadioAccessFamilyStatus:[I
 
-    aget v2, v2, v0
+    aget v4, v4, v0
 
-    if-eqz v2, :cond_1
+    if-eqz v4, :cond_1
 
-    .line 230
-    new-instance v2, Ljava/lang/StringBuilder;
+    .line 238
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "setRadioCapability: Phone["
+    const-string/jumbo v6, "setRadioCapability: Phone["
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string/jumbo v4, "] is not idle. Rejecting request."
+    const-string/jumbo v6, "] is not idle. Rejecting request."
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->loge(Ljava/lang/String;)V
+    invoke-direct {p0, v4}, Lcom/android/internal/telephony/ProxyController;->loge(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v3
+    monitor-exit v5
 
-    .line 231
-    return v5
+    .line 239
+    return v7
 
-    .line 227
+    .line 235
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_2
-    monitor-exit v3
+    monitor-exit v5
 
-    .line 237
-    const/4 v1, 0x1
+    .line 245
+    const/4 v3, 0x1
 
-    .line 238
-    .local v1, "same":Z
+    .line 246
+    .local v3, "same":Z
     const/4 v0, 0x0
 
     :goto_1
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    array-length v2, v2
+    array-length v4, v4
 
-    if-ge v0, v2, :cond_4
+    if-ge v0, v4, :cond_4
 
-    .line 239
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 247
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    aget-object v2, v2, v0
+    aget-object v4, v4, v0
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/Phone;->getRadioAccessFamily()I
+    invoke-virtual {v4}, Lcom/android/internal/telephony/PhoneProxy;->getRadioAccessFamily()I
 
-    move-result v2
+    move-result v4
 
-    aget-object v3, p1, v0
+    aget-object v5, p1, v0
 
-    invoke-virtual {v3}, Landroid/telephony/RadioAccessFamily;->getRadioAccessFamily()I
+    invoke-virtual {v5}, Landroid/telephony/RadioAccessFamily;->getRadioAccessFamily()I
 
-    move-result v3
+    move-result v5
 
-    if-eq v2, v3, :cond_3
+    if-eq v4, v5, :cond_3
 
-    .line 240
-    const/4 v1, 0x0
+    .line 248
+    const/4 v3, 0x0
 
-    .line 238
+    .line 246
     :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 226
-    .end local v1    # "same":Z
+    .line 234
+    .end local v3    # "same":Z
     :catchall_0
-    move-exception v2
+    move-exception v4
 
-    monitor-exit v3
+    monitor-exit v5
 
-    throw v2
-
-    .line 243
-    .restart local v1    # "same":Z
-    :cond_4
-    if-eqz v1, :cond_5
-
-    .line 245
-    const-string/jumbo v2, "setRadioCapability: Already in requested configuration, nothing to do."
-
-    invoke-direct {p0, v2}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
-
-    .line 247
-    const/4 v2, 0x1
-
-    return v2
+    throw v4
 
     .line 251
+    .restart local v3    # "same":Z
+    :cond_4
+    if-eqz v3, :cond_5
+
+    .line 253
+    const-string/jumbo v4, "setRadioCapability: Already in requested configuration, nothing to do."
+
+    invoke-direct {p0, v4}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
+
+    .line 255
+    return v6
+
+    .line 261
     :cond_5
-    invoke-direct {p0}, Lcom/android/internal/telephony/ProxyController;->clearTransaction()V
+    const/4 v0, 0x0
 
-    .line 254
-    iget-object v2, p0, Lcom/android/internal/telephony/ProxyController;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    :goto_2
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    array-length v4, v4
 
-    .line 256
-    invoke-direct {p0, p1}, Lcom/android/internal/telephony/ProxyController;->doSetRadioCapabilities([Landroid/telephony/RadioAccessFamily;)Z
+    if-ge v0, v4, :cond_8
+
+    .line 262
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
+
+    aget-object v4, v4, v0
+
+    invoke-virtual {v4}, Lcom/android/internal/telephony/PhoneProxy;->getRadioAccessFamily()I
 
     move-result v2
 
-    return v2
+    .line 263
+    .local v2, "raf":I
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
+
+    aget-object v4, v4, v0
+
+    invoke-virtual {v4}, Lcom/android/internal/telephony/PhoneProxy;->getModemUuId()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 264
+    .local v1, "modemUuid":Ljava/lang/String;
+    if-eq v2, v6, :cond_6
+
+    .line 265
+    if-nez v1, :cond_7
+
+    .line 266
+    :cond_6
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "setRadioCapability: invalid RAF = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " or modemUuid = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    .line 267
+    const-string/jumbo v5, " for phone = "
+
+    .line 266
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {p0, v4}, Lcom/android/internal/telephony/ProxyController;->logd(Ljava/lang/String;)V
+
+    .line 268
+    return v7
+
+    .line 265
+    :cond_7
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    .line 261
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_2
+
+    .line 273
+    .end local v1    # "modemUuid":Ljava/lang/String;
+    .end local v2    # "raf":I
+    :cond_8
+    invoke-direct {p0}, Lcom/android/internal/telephony/ProxyController;->clearTransaction()V
+
+    .line 276
+    iget-object v4, p0, Lcom/android/internal/telephony/ProxyController;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v4}, Landroid/os/PowerManager$WakeLock;->acquire()V
+
+    .line 278
+    invoke-direct {p0, p1}, Lcom/android/internal/telephony/ProxyController;->doSetRadioCapabilities([Landroid/telephony/RadioAccessFamily;)Z
+
+    move-result v4
+
+    return v4
 .end method
 
 .method public unregisterForAllDataDisconnected(ILandroid/os/Handler;)V
@@ -3231,7 +3352,7 @@
     .param p2, "h"    # Landroid/os/Handler;
 
     .prologue
-    .line 180
+    .line 187
     invoke-static {}, Lcom/android/internal/telephony/SubscriptionController;->getInstance()Lcom/android/internal/telephony/SubscriptionController;
 
     move-result-object v1
@@ -3240,7 +3361,7 @@
 
     move-result v0
 
-    .line 182
+    .line 189
     .local v0, "phoneId":I
     if-ltz v0, :cond_0
 
@@ -3254,14 +3375,14 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 183
-    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 190
+    iget-object v1, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v1, v1, v0
 
-    invoke-virtual {v1, p2}, Lcom/android/internal/telephony/Phone;->unregisterForAllDataDisconnected(Landroid/os/Handler;)V
+    invoke-virtual {v1, p2}, Lcom/android/internal/telephony/PhoneProxy;->unregisterForAllDataDisconnected(Landroid/os/Handler;)V
 
-    .line 179
+    .line 186
     :cond_0
     return-void
 .end method
@@ -3271,14 +3392,14 @@
     .param p1, "sub"    # I
 
     .prologue
-    .line 168
-    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 175
+    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v0, v0, p1
 
-    invoke-virtual {v0}, Lcom/android/internal/telephony/Phone;->updateCurrentCarrierInProvider()Z
+    invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneProxy;->updateCurrentCarrierInProvider()Z
 
-    .line 167
+    .line 174
     return-void
 .end method
 
@@ -3287,13 +3408,13 @@
     .param p1, "sub"    # I
 
     .prologue
-    .line 155
-    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mPhones:[Lcom/android/internal/telephony/Phone;
+    .line 162
+    iget-object v0, p0, Lcom/android/internal/telephony/ProxyController;->mProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
     aget-object v0, v0, p1
 
-    invoke-virtual {v0}, Lcom/android/internal/telephony/Phone;->updateDataConnectionTracker()V
+    invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneProxy;->updateDataConnectionTracker()V
 
-    .line 154
+    .line 161
     return-void
 .end method

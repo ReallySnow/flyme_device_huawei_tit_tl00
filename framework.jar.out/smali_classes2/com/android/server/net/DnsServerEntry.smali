@@ -36,16 +36,16 @@
     .end annotation
 
     .prologue
-    .line 221
+    .line 208
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 222
+    .line 209
     iput-object p1, p0, Lcom/android/server/net/DnsServerEntry;->address:Ljava/net/InetAddress;
 
-    .line 223
+    .line 210
     iput-wide p2, p0, Lcom/android/server/net/DnsServerEntry;->expiry:J
 
-    .line 221
+    .line 208
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .param p1, "other"    # Lcom/android/server/net/DnsServerEntry;
 
     .prologue
-    .line 227
+    .line 214
     iget-wide v0, p1, Lcom/android/server/net/DnsServerEntry;->expiry:J
 
     iget-wide v2, p0, Lcom/android/server/net/DnsServerEntry;->expiry:J
@@ -73,7 +73,7 @@
     .param p1, "other"    # Ljava/lang/Object;
 
     .prologue
-    .line 226
+    .line 213
     check-cast p1, Lcom/android/server/net/DnsServerEntry;
 
     .end local p1    # "other":Ljava/lang/Object;

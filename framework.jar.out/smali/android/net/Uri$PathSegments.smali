@@ -42,7 +42,7 @@
     .locals 3
 
     .prologue
-    .line 985
+    .line 977
     new-instance v0, Landroid/net/Uri$PathSegments;
 
     const/4 v1, 0x0
@@ -53,7 +53,7 @@
 
     sput-object v0, Landroid/net/Uri$PathSegments;->EMPTY:Landroid/net/Uri$PathSegments;
 
-    .line 982
+    .line 974
     return-void
 .end method
 
@@ -63,16 +63,16 @@
     .param p2, "size"    # I
 
     .prologue
-    .line 990
+    .line 982
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
 
-    .line 991
+    .line 983
     iput-object p1, p0, Landroid/net/Uri$PathSegments;->segments:[Ljava/lang/String;
 
-    .line 992
+    .line 984
     iput p2, p0, Landroid/net/Uri$PathSegments;->size:I
 
-    .line 990
+    .line 982
     return-void
 .end method
 
@@ -83,7 +83,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 995
+    .line 987
     invoke-virtual {p0, p1}, Landroid/net/Uri$PathSegments;->get(I)Ljava/lang/String;
 
     move-result-object v0
@@ -96,19 +96,19 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 996
+    .line 988
     iget v0, p0, Landroid/net/Uri$PathSegments;->size:I
 
     if-lt p1, v0, :cond_0
 
-    .line 997
+    .line 989
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
 
     throw v0
 
-    .line 1000
+    .line 992
     :cond_0
     iget-object v0, p0, Landroid/net/Uri$PathSegments;->segments:[Ljava/lang/String;
 
@@ -121,7 +121,7 @@
     .locals 1
 
     .prologue
-    .line 1004
+    .line 996
     iget v0, p0, Landroid/net/Uri$PathSegments;->size:I
 
     return v0

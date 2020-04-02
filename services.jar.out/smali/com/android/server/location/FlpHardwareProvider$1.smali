@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/location/FlpHardwareProvider;
 
     .prologue
-    .line 347
+    .line 344
     iput-object p1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-direct {p0}, Landroid/hardware/location/IFusedLocationHardware$Stub;-><init>()V
@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 398
+    .line 395
     invoke-virtual {p0}, Lcom/android/server/location/FlpHardwareProvider$1;->getVersion()I
 
     move-result v0
@@ -47,23 +47,23 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 399
+    .line 396
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap7(Lcom/android/server/location/FlpHardwareProvider;)V
 
-    .line 397
+    .line 394
     :goto_0
     return-void
 
-    .line 401
+    .line 398
     :cond_0
     const-string/jumbo v0, "FlpHardwareProvider"
 
-    .line 402
+    .line 399
     const-string/jumbo v1, "Tried to call flushBatchedLocations on an unsupported implementation"
 
-    .line 401
+    .line 398
     invoke-static {v0, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
@@ -73,7 +73,7 @@
     .locals 1
 
     .prologue
-    .line 373
+    .line 370
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap4(Lcom/android/server/location/FlpHardwareProvider;)I
@@ -87,7 +87,7 @@
     .locals 1
 
     .prologue
-    .line 428
+    .line 425
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap3(Lcom/android/server/location/FlpHardwareProvider;)I
@@ -102,12 +102,12 @@
     .param p1, "deviceEnabledContext"    # I
 
     .prologue
-    .line 423
+    .line 420
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap8(Lcom/android/server/location/FlpHardwareProvider;I)V
 
-    .line 422
+    .line 419
     return-void
 .end method
 
@@ -116,12 +116,12 @@
     .param p1, "data"    # Ljava/lang/String;
 
     .prologue
-    .line 413
+    .line 410
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap9(Lcom/android/server/location/FlpHardwareProvider;Ljava/lang/String;)V
 
-    .line 412
+    .line 409
     return-void
 .end method
 
@@ -130,7 +130,7 @@
     .param p1, "eventSink"    # Landroid/hardware/location/IFusedLocationHardwareSink;
 
     .prologue
-    .line 350
+    .line 347
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-get1(Lcom/android/server/location/FlpHardwareProvider;)Ljava/lang/Object;
@@ -139,7 +139,7 @@
 
     monitor-enter v1
 
-    .line 352
+    .line 349
     :try_start_0
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
@@ -149,14 +149,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 353
+    .line 350
     const-string/jumbo v0, "FlpHardwareProvider"
 
     const-string/jumbo v2, "Replacing an existing IFusedLocationHardware sink"
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 356
+    .line 353
     :cond_0
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
@@ -166,15 +166,15 @@
 
     monitor-exit v1
 
-    .line 358
+    .line 355
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap5(Lcom/android/server/location/FlpHardwareProvider;)V
 
-    .line 349
+    .line 346
     return-void
 
-    .line 350
+    .line 347
     :catchall_0
     move-exception v0
 
@@ -188,12 +188,12 @@
     .param p1, "batchSizeRequested"    # I
 
     .prologue
-    .line 393
+    .line 390
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap14(Lcom/android/server/location/FlpHardwareProvider;I)V
 
-    .line 392
+    .line 389
     return-void
 .end method
 
@@ -203,12 +203,12 @@
     .param p2, "options"    # Landroid/location/FusedBatchOptions;
 
     .prologue
-    .line 378
+    .line 375
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap16(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
 
-    .line 377
+    .line 374
     return-void
 .end method
 
@@ -217,12 +217,12 @@
     .param p1, "requestId"    # I
 
     .prologue
-    .line 383
+    .line 380
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap17(Lcom/android/server/location/FlpHardwareProvider;I)V
 
-    .line 382
+    .line 379
     return-void
 .end method
 
@@ -230,7 +230,7 @@
     .locals 1
 
     .prologue
-    .line 418
+    .line 415
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap0(Lcom/android/server/location/FlpHardwareProvider;)Z
@@ -244,7 +244,7 @@
     .locals 1
 
     .prologue
-    .line 408
+    .line 405
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap1(Lcom/android/server/location/FlpHardwareProvider;)Z
@@ -259,7 +259,7 @@
     .param p1, "eventSink"    # Landroid/hardware/location/IFusedLocationHardwareSink;
 
     .prologue
-    .line 363
+    .line 360
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-get1(Lcom/android/server/location/FlpHardwareProvider;)Ljava/lang/Object;
@@ -268,7 +268,7 @@
 
     monitor-enter v1
 
-    .line 365
+    .line 362
     :try_start_0
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
@@ -278,7 +278,7 @@
 
     if-ne v0, p1, :cond_0
 
-    .line 366
+    .line 363
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     const/4 v2, 0x0
@@ -290,10 +290,10 @@
     :cond_0
     monitor-exit v1
 
-    .line 362
+    .line 359
     return-void
 
-    .line 363
+    .line 360
     :catchall_0
     move-exception v0
 
@@ -308,11 +308,11 @@
     .param p2, "options"    # Landroid/location/FusedBatchOptions;
 
     .prologue
-    .line 388
+    .line 385
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap18(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
 
-    .line 387
+    .line 384
     return-void
 .end method

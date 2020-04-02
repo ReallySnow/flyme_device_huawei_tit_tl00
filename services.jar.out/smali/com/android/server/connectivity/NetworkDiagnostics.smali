@@ -7,10 +7,10 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/connectivity/NetworkDiagnostics$DnsResponseCode;,
-        Lcom/android/server/connectivity/NetworkDiagnostics$DnsUdpCheck;,
-        Lcom/android/server/connectivity/NetworkDiagnostics$IcmpCheck;,
         Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;,
-        Lcom/android/server/connectivity/NetworkDiagnostics$SimpleSocketCheck;
+        Lcom/android/server/connectivity/NetworkDiagnostics$SimpleSocketCheck;,
+        Lcom/android/server/connectivity/NetworkDiagnostics$IcmpCheck;,
+        Lcom/android/server/connectivity/NetworkDiagnostics$DnsUdpCheck;
     }
 .end annotation
 
@@ -128,7 +128,7 @@
     .locals 1
 
     .prologue
-    .line 87
+    .line 85
     const-string/jumbo v0, "8.8.8.8"
 
     invoke-static {v0}, Landroid/net/NetworkUtils;->numericToInetAddress(Ljava/lang/String;)Ljava/net/InetAddress;
@@ -137,17 +137,17 @@
 
     sput-object v0, Lcom/android/server/connectivity/NetworkDiagnostics;->TEST_DNS4:Ljava/net/InetAddress;
 
-    .line 89
+    .line 87
     const-string/jumbo v0, "2001:4860:4860::8888"
 
-    .line 88
+    .line 86
     invoke-static {v0}, Landroid/net/NetworkUtils;->numericToInetAddress(Ljava/lang/String;)Ljava/net/InetAddress;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/server/connectivity/NetworkDiagnostics;->TEST_DNS6:Ljava/net/InetAddress;
 
-    .line 84
+    .line 82
     return-void
 .end method
 
@@ -158,38 +158,38 @@
     .param p3, "timeoutMs"    # J
 
     .prologue
-    .line 168
+    .line 160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 161
+    .line 153
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
     iput-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mIcmpChecks:Ljava/util/Map;
 
-    .line 163
+    .line 155
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
-    .line 162
+    .line 154
     iput-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mExplicitSourceIcmpChecks:Ljava/util/Map;
 
-    .line 164
+    .line 156
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
     iput-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mDnsUdpChecks:Ljava/util/Map;
 
-    .line 169
+    .line 161
     iput-object p1, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mNetwork:Landroid/net/Network;
 
-    .line 170
+    .line 162
     iput-object p2, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mLinkProperties:Landroid/net/LinkProperties;
 
-    .line 171
+    .line 163
     iget-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mLinkProperties:Landroid/net/LinkProperties;
 
     invoke-virtual {v5}, Landroid/net/LinkProperties;->getInterfaceName()Ljava/lang/String;
@@ -202,17 +202,17 @@
 
     iput-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mInterfaceIndex:Ljava/lang/Integer;
 
-    .line 172
+    .line 164
     iput-wide p3, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mTimeoutMs:J
 
-    .line 173
+    .line 165
     invoke-static {}, Lcom/android/server/connectivity/NetworkDiagnostics;->now()J
 
     move-result-wide v6
 
     iput-wide v6, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mStartTime:J
 
-    .line 174
+    .line 166
     iget-wide v6, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mStartTime:J
 
     iget-wide v8, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mTimeoutMs:J
@@ -221,7 +221,7 @@
 
     iput-wide v6, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mDeadlineTime:J
 
-    .line 181
+    .line 173
     iget-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mLinkProperties:Landroid/net/LinkProperties;
 
     sget-object v6, Lcom/android/server/connectivity/NetworkDiagnostics;->TEST_DNS4:Ljava/net/InetAddress;
@@ -232,14 +232,14 @@
 
     if-eqz v5, :cond_0
 
-    .line 182
+    .line 174
     iget-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mLinkProperties:Landroid/net/LinkProperties;
 
     sget-object v6, Lcom/android/server/connectivity/NetworkDiagnostics;->TEST_DNS4:Ljava/net/InetAddress;
 
     invoke-virtual {v5, v6}, Landroid/net/LinkProperties;->addDnsServer(Ljava/net/InetAddress;)Z
 
-    .line 187
+    .line 179
     :cond_0
     iget-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mLinkProperties:Landroid/net/LinkProperties;
 
@@ -257,7 +257,7 @@
 
     if-eqz v5, :cond_2
 
-    .line 188
+    .line 180
     :cond_1
     iget-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mLinkProperties:Landroid/net/LinkProperties;
 
@@ -265,7 +265,7 @@
 
     invoke-virtual {v5, v6}, Landroid/net/LinkProperties;->addDnsServer(Ljava/net/InetAddress;)Z
 
-    .line 191
+    .line 183
     :cond_2
     iget-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mLinkProperties:Landroid/net/LinkProperties;
 
@@ -292,7 +292,7 @@
 
     check-cast v3, Landroid/net/RouteInfo;
 
-    .line 192
+    .line 184
     .local v3, "route":Landroid/net/RouteInfo;
     invoke-virtual {v3}, Landroid/net/RouteInfo;->hasGateway()Z
 
@@ -300,28 +300,28 @@
 
     if-eqz v5, :cond_3
 
-    .line 193
+    .line 185
     invoke-virtual {v3}, Landroid/net/RouteInfo;->getGateway()Ljava/net/InetAddress;
 
     move-result-object v0
 
-    .line 194
+    .line 186
     .local v0, "gateway":Ljava/net/InetAddress;
     invoke-direct {p0, v0}, Lcom/android/server/connectivity/NetworkDiagnostics;->prepareIcmpMeasurement(Ljava/net/InetAddress;)V
 
-    .line 195
+    .line 187
     invoke-virtual {v3}, Landroid/net/RouteInfo;->isIPv6Default()Z
 
     move-result v5
 
     if-eqz v5, :cond_3
 
-    .line 196
+    .line 188
     invoke-direct {p0, v0}, Lcom/android/server/connectivity/NetworkDiagnostics;->prepareExplicitSourceIcmpMeasurements(Ljava/net/InetAddress;)V
 
     goto :goto_0
 
-    .line 200
+    .line 192
     .end local v0    # "gateway":Ljava/net/InetAddress;
     .end local v3    # "route":Landroid/net/RouteInfo;
     :cond_4
@@ -349,16 +349,16 @@
 
     check-cast v1, Ljava/net/InetAddress;
 
-    .line 201
+    .line 193
     .local v1, "nameserver":Ljava/net/InetAddress;
     invoke-direct {p0, v1}, Lcom/android/server/connectivity/NetworkDiagnostics;->prepareIcmpMeasurement(Ljava/net/InetAddress;)V
 
-    .line 202
+    .line 194
     invoke-direct {p0, v1}, Lcom/android/server/connectivity/NetworkDiagnostics;->prepareDnsMeasurement(Ljava/net/InetAddress;)V
 
     goto :goto_1
 
-    .line 205
+    .line 197
     .end local v1    # "nameserver":Ljava/net/InetAddress;
     :cond_5
     new-instance v5, Ljava/util/concurrent/CountDownLatch;
@@ -371,10 +371,10 @@
 
     iput-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mCountDownLatch:Ljava/util/concurrent/CountDownLatch;
 
-    .line 207
+    .line 199
     invoke-direct {p0}, Lcom/android/server/connectivity/NetworkDiagnostics;->startMeasurements()V
 
-    .line 209
+    .line 201
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -407,78 +407,78 @@
 
     move-result-object v5
 
-    .line 210
+    .line 202
     const-string/jumbo v6, " index{"
 
-    .line 209
+    .line 201
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 210
+    .line 202
     iget-object v6, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mInterfaceIndex:Ljava/lang/Integer;
 
-    .line 209
+    .line 201
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 210
+    .line 202
     const-string/jumbo v6, "}"
 
-    .line 209
+    .line 201
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 211
+    .line 203
     const-string/jumbo v6, " network{"
 
-    .line 209
+    .line 201
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 211
+    .line 203
     iget-object v6, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mNetwork:Landroid/net/Network;
 
-    .line 209
+    .line 201
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 211
+    .line 203
     const-string/jumbo v6, "}"
 
-    .line 209
+    .line 201
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 212
+    .line 204
     const-string/jumbo v6, " nethandle{"
 
-    .line 209
+    .line 201
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 212
+    .line 204
     iget-object v6, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mNetwork:Landroid/net/Network;
 
     invoke-virtual {v6}, Landroid/net/Network;->getNetworkHandle()J
 
     move-result-wide v6
 
-    .line 209
+    .line 201
     invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 212
+    .line 204
     const-string/jumbo v6, "}"
 
-    .line 209
+    .line 201
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -489,7 +489,7 @@
 
     iput-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mDescription:Ljava/lang/String;
 
-    .line 168
+    .line 160
     return-void
 .end method
 
@@ -498,13 +498,13 @@
     .param p0, "ifname"    # Ljava/lang/String;
 
     .prologue
-    .line 217
+    .line 209
     :try_start_0
     invoke-static {p0}, Ljava/net/NetworkInterface;->getByName(Ljava/lang/String;)Ljava/net/NetworkInterface;
 
     move-result-object v1
 
-    .line 218
+    .line 210
     .local v1, "ni":Ljava/net/NetworkInterface;
     invoke-virtual {v1}, Ljava/net/NetworkInterface;->getIndex()I
 
@@ -519,12 +519,12 @@
 
     return-object v2
 
-    .line 219
+    .line 211
     .end local v1    # "ni":Ljava/net/NetworkInterface;
     :catch_0
     move-exception v0
 
-    .line 220
+    .line 212
     .local v0, "e":Ljava/lang/Exception;
     const/4 v2, 0x0
 
@@ -535,7 +535,7 @@
     .locals 2
 
     .prologue
-    .line 93
+    .line 91
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -548,7 +548,7 @@
     .param p1, "target"    # Ljava/net/InetAddress;
 
     .prologue
-    .line 247
+    .line 239
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mDnsUdpChecks:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -557,12 +557,14 @@
 
     if-nez v1, :cond_0
 
-    .line 248
+    .line 240
     new-instance v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
 
-    invoke-direct {v0, p0}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;-><init>(Lcom/android/server/connectivity/NetworkDiagnostics;)V
+    const/4 v1, 0x0
 
-    .line 249
+    invoke-direct {v0, p0, v1}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;-><init>(Lcom/android/server/connectivity/NetworkDiagnostics;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;)V
+
+    .line 241
     .local v0, "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     new-instance v1, Ljava/lang/Thread;
 
@@ -574,12 +576,12 @@
 
     iput-object v1, v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->thread:Ljava/lang/Thread;
 
-    .line 250
+    .line 242
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mDnsUdpChecks:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 246
+    .line 238
     .end local v0    # "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     :cond_0
     return-void
@@ -590,7 +592,7 @@
     .param p1, "target"    # Ljava/net/InetAddress;
 
     .prologue
-    .line 233
+    .line 225
     iget-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mLinkProperties:Landroid/net/LinkProperties;
 
     invoke-virtual {v5}, Landroid/net/LinkProperties;->getLinkAddresses()Ljava/util/List;
@@ -616,13 +618,13 @@
 
     check-cast v0, Landroid/net/LinkAddress;
 
-    .line 234
+    .line 226
     .local v0, "l":Landroid/net/LinkAddress;
     invoke-virtual {v0}, Landroid/net/LinkAddress;->getAddress()Ljava/net/InetAddress;
 
     move-result-object v3
 
-    .line 235
+    .line 227
     .local v3, "source":Ljava/net/InetAddress;
     instance-of v5, v3, Ljava/net/Inet6Address;
 
@@ -634,12 +636,12 @@
 
     if-eqz v5, :cond_0
 
-    .line 236
+    .line 228
     new-instance v4, Landroid/util/Pair;
 
     invoke-direct {v4, v3, p1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 237
+    .line 229
     .local v4, "srcTarget":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/net/InetAddress;Ljava/net/InetAddress;>;"
     iget-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mExplicitSourceIcmpChecks:Ljava/util/Map;
 
@@ -649,12 +651,14 @@
 
     if-nez v5, :cond_0
 
-    .line 238
+    .line 230
     new-instance v2, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
 
-    invoke-direct {v2, p0}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;-><init>(Lcom/android/server/connectivity/NetworkDiagnostics;)V
+    const/4 v5, 0x0
 
-    .line 239
+    invoke-direct {v2, p0, v5}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;-><init>(Lcom/android/server/connectivity/NetworkDiagnostics;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;)V
+
+    .line 231
     .local v2, "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     new-instance v5, Ljava/lang/Thread;
 
@@ -666,14 +670,14 @@
 
     iput-object v5, v2, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->thread:Ljava/lang/Thread;
 
-    .line 240
+    .line 232
     iget-object v5, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mExplicitSourceIcmpChecks:Ljava/util/Map;
 
     invoke-interface {v5, v4, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 232
+    .line 224
     .end local v0    # "l":Landroid/net/LinkAddress;
     .end local v2    # "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     .end local v3    # "source":Ljava/net/InetAddress;
@@ -687,7 +691,7 @@
     .param p1, "target"    # Ljava/net/InetAddress;
 
     .prologue
-    .line 225
+    .line 217
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mIcmpChecks:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -696,12 +700,14 @@
 
     if-nez v1, :cond_0
 
-    .line 226
+    .line 218
     new-instance v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
 
-    invoke-direct {v0, p0}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;-><init>(Lcom/android/server/connectivity/NetworkDiagnostics;)V
+    const/4 v1, 0x0
 
-    .line 227
+    invoke-direct {v0, p0, v1}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;-><init>(Lcom/android/server/connectivity/NetworkDiagnostics;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;)V
+
+    .line 219
     .local v0, "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     new-instance v1, Ljava/lang/Thread;
 
@@ -713,12 +719,12 @@
 
     iput-object v1, v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->thread:Ljava/lang/Thread;
 
-    .line 228
+    .line 220
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mIcmpChecks:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 224
+    .line 216
     .end local v0    # "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     :cond_0
     return-void
@@ -728,7 +734,7 @@
     .locals 3
 
     .prologue
-    .line 259
+    .line 251
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mIcmpChecks:Ljava/util/Map;
 
     invoke-interface {v2}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -753,7 +759,7 @@
 
     check-cast v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
 
-    .line 260
+    .line 252
     .local v0, "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     iget-object v2, v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->thread:Ljava/lang/Thread;
 
@@ -761,7 +767,7 @@
 
     goto :goto_0
 
-    .line 262
+    .line 254
     .end local v0    # "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     :cond_0
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mExplicitSourceIcmpChecks:Ljava/util/Map;
@@ -787,7 +793,7 @@
 
     check-cast v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
 
-    .line 263
+    .line 255
     .restart local v0    # "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     iget-object v2, v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->thread:Ljava/lang/Thread;
 
@@ -795,7 +801,7 @@
 
     goto :goto_1
 
-    .line 265
+    .line 257
     .end local v0    # "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     :cond_1
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mDnsUdpChecks:Ljava/util/Map;
@@ -821,7 +827,7 @@
 
     check-cast v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
 
-    .line 266
+    .line 258
     .restart local v0    # "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     iget-object v2, v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->thread:Ljava/lang/Thread;
 
@@ -829,7 +835,7 @@
 
     goto :goto_2
 
-    .line 258
+    .line 250
     .end local v0    # "measurement":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
     :cond_2
     return-void
@@ -839,7 +845,7 @@
     .locals 2
 
     .prologue
-    .line 255
+    .line 247
     iget-object v0, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mIcmpChecks:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
@@ -872,7 +878,7 @@
     .param p1, "pw"    # Lcom/android/internal/util/IndentingPrintWriter;
 
     .prologue
-    .line 322
+    .line 269
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -895,14 +901,14 @@
 
     invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 323
+    .line 270
     iget-object v3, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mCountDownLatch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v3}, Ljava/util/concurrent/CountDownLatch;->getCount()J
 
     move-result-wide v4
 
-    .line 324
+    .line 271
     .local v4, "unfinished":J
     const-wide/16 v6, 0x0
 
@@ -910,7 +916,7 @@
 
     if-lez v3, :cond_0
 
-    .line 327
+    .line 274
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -925,10 +931,10 @@
 
     move-result-object v3
 
-    .line 328
+    .line 275
     const-string/jumbo v6, " unfinished measurements"
 
-    .line 327
+    .line 274
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -939,136 +945,29 @@
 
     invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 331
+    .line 278
     :cond_0
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    .line 334
-    invoke-virtual {p0}, Lcom/android/server/connectivity/NetworkDiagnostics;->getMeasurements()Ljava/util/List;
+    .line 279
+    iget-object v3, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mIcmpChecks:Ljava/util/Map;
+
+    invoke-interface {v3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v3
 
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v2
 
-    .local v1, "m$iterator":Ljava/util/Iterator;
+    .local v2, "entry$iterator":Ljava/util/Iterator;
+    :cond_1
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_2
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
-
-    .line 335
-    .local v0, "m":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
-    invoke-virtual {v0}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->checkSucceeded()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    const-string/jumbo v2, "."
-
-    .line 336
-    .local v2, "prefix":Ljava/lang/String;
-    :goto_1
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v6, "  "
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 335
-    .end local v2    # "prefix":Ljava/lang/String;
-    :cond_1
-    const-string/jumbo v2, "F"
-
-    .restart local v2    # "prefix":Ljava/lang/String;
-    goto :goto_1
-
-    .line 339
-    .end local v0    # "m":Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
-    .end local v2    # "prefix":Ljava/lang/String;
-    :cond_2
-    invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
-
-    .line 321
-    return-void
-.end method
-
-.method public getMeasurements()Ljava/util/List;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 280
-    new-instance v3, Ljava/util/ArrayList;
-
-    invoke-direct {p0}, Lcom/android/server/connectivity/NetworkDiagnostics;->totalMeasurementCount()I
-
-    move-result v4
-
-    invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(I)V
-
-    .line 283
-    .local v3, "measurements":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
-    iget-object v4, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mIcmpChecks:Ljava/util/Map;
-
-    invoke-interface {v4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    .local v2, "entry$iterator":Ljava/util/Iterator;
-    :cond_0
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1076,48 +975,103 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 284
+    .line 280
     .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/net/InetAddress;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    instance-of v4, v4, Ljava/net/Inet4Address;
+    instance-of v3, v3, Ljava/net/Inet4Address;
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_1
 
-    .line 285
+    .line 281
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
+    check-cast v3, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 289
+    .line 284
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/net/InetAddress;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
-    :cond_1
-    iget-object v4, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mExplicitSourceIcmpChecks:Ljava/util/Map;
+    :cond_2
+    iget-object v3, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mIcmpChecks:Ljava/util/Map;
 
-    invoke-interface {v4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {v3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v4
+    move-result-object v3
 
-    .line 288
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_2
+    :cond_3
     :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_3
+    if-eqz v3, :cond_4
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Map$Entry;
+
+    .line 285
+    .restart local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/net/InetAddress;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v3
+
+    instance-of v3, v3, Ljava/net/Inet6Address;
+
+    if-eqz v3, :cond_3
+
+    .line 286
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
+
+    invoke-virtual {v3}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    .line 290
+    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/net/InetAddress;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
+    :cond_4
+    iget-object v3, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mExplicitSourceIcmpChecks:Ljava/util/Map;
+
+    invoke-interface {v3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v3
+
+    .line 289
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_2
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1125,89 +1079,32 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 290
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/util/Pair<Ljava/net/InetAddress;Ljava/net/InetAddress;>;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/util/Pair;
-
-    iget-object v4, v4, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    instance-of v4, v4, Ljava/net/Inet4Address;
-
-    if-eqz v4, :cond_2
-
     .line 291
+    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/util/Pair<Ljava/net/InetAddress;Ljava/net/InetAddress;>;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
+    check-cast v3, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->toString()Ljava/lang/String;
 
-    goto :goto_1
+    move-result-object v3
 
-    .line 294
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/util/Pair<Ljava/net/InetAddress;Ljava/net/InetAddress;>;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
-    :cond_3
-    iget-object v4, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mDnsUdpChecks:Ljava/util/Map;
-
-    invoke-interface {v4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_4
-    :goto_2
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_5
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/Map$Entry;
-
-    .line 295
-    .restart local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/net/InetAddress;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v4
-
-    instance-of v4, v4, Ljava/net/Inet4Address;
-
-    if-eqz v4, :cond_4
-
-    .line 296
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
-
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_2
 
-    .line 301
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/net/InetAddress;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
+    .line 293
+    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/util/Pair<Ljava/net/InetAddress;Ljava/net/InetAddress;>;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
     :cond_5
-    iget-object v4, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mIcmpChecks:Ljava/util/Map;
+    iget-object v3, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mDnsUdpChecks:Ljava/util/Map;
 
-    invoke-interface {v4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {v3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -1215,9 +1112,9 @@
     :goto_3
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_7
+    if-eqz v3, :cond_7
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1225,38 +1122,41 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 302
+    .line 294
     .restart local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/net/InetAddress;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    instance-of v4, v4, Ljava/net/Inet6Address;
+    instance-of v3, v3, Ljava/net/Inet4Address;
 
-    if-eqz v4, :cond_6
+    if-eqz v3, :cond_6
 
-    .line 303
+    .line 295
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
+    check-cast v3, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_3
 
-    .line 307
+    .line 298
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/net/InetAddress;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
     :cond_7
-    iget-object v4, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mExplicitSourceIcmpChecks:Ljava/util/Map;
+    iget-object v3, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mDnsUdpChecks:Ljava/util/Map;
 
-    invoke-interface {v4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {v3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v4
+    move-result-object v3
 
-    .line 306
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -1264,61 +1164,9 @@
     :goto_4
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_9
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map$Entry;
-
-    .line 308
-    .restart local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/util/Pair<Ljava/net/InetAddress;Ljava/net/InetAddress;>;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/util/Pair;
-
-    iget-object v4, v4, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    instance-of v4, v4, Ljava/net/Inet6Address;
-
-    if-eqz v4, :cond_8
-
-    .line 309
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
-
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_4
-
-    .line 312
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/util/Pair<Ljava/net/InetAddress;Ljava/net/InetAddress;>;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
-    :cond_9
-    iget-object v4, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mDnsUdpChecks:Ljava/util/Map;
-
-    invoke-interface {v4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_a
-    :goto_5
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_b
+    if-eqz v3, :cond_9
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1326,38 +1174,45 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 313
+    .line 299
     .restart local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/net/InetAddress;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    instance-of v4, v4, Ljava/net/Inet6Address;
+    instance-of v3, v3, Ljava/net/Inet6Address;
 
-    if-eqz v4, :cond_a
+    if-eqz v3, :cond_8
 
-    .line 314
+    .line 300
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
+    check-cast v3, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3}, Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;->toString()Ljava/lang/String;
 
-    goto :goto_5
+    move-result-object v3
 
-    .line 318
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_4
+
+    .line 303
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/net/InetAddress;Lcom/android/server/connectivity/NetworkDiagnostics$Measurement;>;"
-    :cond_b
-    return-object v3
+    :cond_9
+    invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
+
+    .line 268
+    return-void
 .end method
 
 .method public waitForMeasurements()V
     .locals 6
 
     .prologue
-    .line 272
+    .line 264
     :try_start_0
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkDiagnostics;->mCountDownLatch:Ljava/util/concurrent/CountDownLatch;
 
@@ -1375,11 +1230,11 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 270
+    .line 262
     :goto_0
     return-void
 
-    .line 273
+    .line 265
     :catch_0
     move-exception v0
 

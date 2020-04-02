@@ -19,53 +19,65 @@
     .locals 0
 
     .prologue
-    .line 1515
+    .line 1278
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method private static addFlymeAccessService(Lcom/android/server/SystemServer;)V
+.method private static addFlymeAccessService(Lcom/android/server/SystemServer;Lcom/android/server/wm/WindowManagerService;)V
     .locals 5
     .param p0, "dst"    # Lcom/android/server/SystemServer;
+    .param p1, "wm"    # Lcom/android/server/wm/WindowManagerService;
 
     .prologue
-    .line 1528
+    .line 1290
     invoke-virtual {p0}, Lcom/android/server/SystemServer;->flymeGetFieldSystemContext()Landroid/content/Context;
 
     move-result-object v1
 
-    .line 1529
+    .line 1291
     .local v1, "context":Landroid/content/Context;
     new-instance v0, Lcom/meizu/server/AccessControlService;
 
-    invoke-direct {v0, v1}, Lcom/meizu/server/AccessControlService;-><init>(Landroid/content/Context;)V
+    invoke-virtual {p1}, Lcom/android/server/wm/WindowManagerService;->getWindowManagerPolicy()Landroid/view/WindowManagerPolicy;
 
-    .line 1530
+    move-result-object v3
+
+    invoke-direct {v0, v1, v3}, Lcom/meizu/server/AccessControlService;-><init>(Landroid/content/Context;Landroid/view/WindowManagerPolicy;)V
+
+    .line 1292
     .local v0, "acs":Lcom/meizu/server/AccessControlService;
     const-string/jumbo v3, "access_control"
 
     invoke-static {v3, v0}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    .line 1531
+    .line 1293
     if-eqz v0, :cond_0
 
-    .line 1533
+    .line 1295
     :try_start_0
     invoke-virtual {v0}, Lcom/meizu/server/AccessControlService;->systemReady()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1527
+    .line 1301
     :cond_0
     :goto_0
+    invoke-virtual {p0}, Lcom/android/server/SystemServer;->flymeGetFieldPackageManagerService()Lcom/android/server/pm/PackageManagerService;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->setPackageManagerService(Lcom/android/server/pm/PackageManagerService;)V
+
+    .line 1289
     return-void
 
-    .line 1534
+    .line 1296
     :catch_0
     move-exception v2
 
-    .line 1535
+    .line 1297
     .local v2, "e":Ljava/lang/Throwable;
     const-string/jumbo v3, "SystemServer"
 
@@ -82,24 +94,24 @@
     .param p1, "wm"    # Lcom/android/server/wm/WindowManagerService;
 
     .prologue
-    .line 1584
+    .line 1348
     invoke-virtual {p0}, Lcom/android/server/SystemServer;->flymeGetFieldSystemContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 1585
+    .line 1349
     .local v0, "context":Landroid/content/Context;
     invoke-virtual {p1, v0}, Lcom/android/server/wm/WindowManagerService;->startMoveWindowService(Landroid/content/Context;)Lcom/android/server/wm/MoveWindowService;
 
     move-result-object v1
 
-    .line 1586
+    .line 1350
     .local v1, "mws":Lcom/android/server/wm/MoveWindowService;
     const-string/jumbo v2, "move_window"
 
     invoke-static {v2, v1}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    .line 1583
+    .line 1347
     return-void
 .end method
 
@@ -108,62 +120,53 @@
     .param p0, "dst"    # Lcom/android/server/SystemServer;
 
     .prologue
-    .line 1576
+    .line 1340
     invoke-virtual {p0}, Lcom/android/server/SystemServer;->flymeGetFieldSystemContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 1577
+    .line 1341
     .local v0, "context":Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/pm/PackageManagerService$FlymePackageManagerServiceInjector;->startFlymePackageManagerService(Landroid/content/Context;)Lcom/android/server/pm/FlymePackageManagerService;
 
     move-result-object v1
 
-    .line 1578
+    .line 1342
     .local v1, "service":Lcom/android/server/pm/FlymePackageManagerService;
     const-string/jumbo v2, "flyme_packagemanager"
 
     invoke-static {v2, v1}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    .line 1575
+    .line 1339
     return-void
 .end method
 
-.method static addFlymeServices(Lcom/android/server/SystemServer;Lcom/android/server/wm/WindowManagerService;)V
-    .locals 2
+.method static addFlymeServices(Lcom/android/server/SystemServer;Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wallpaper/WallpaperManagerService;)V
+    .locals 0
     .param p0, "dst"    # Lcom/android/server/SystemServer;
     .param p1, "windowManagerService"    # Lcom/android/server/wm/WindowManagerService;
+    .param p2, "wallpaperManagerService"    # Lcom/android/server/wallpaper/WallpaperManagerService;
 
     .prologue
-    .line 1518
+    .line 1281
     invoke-static {p0, p1}, Lcom/android/server/SystemServer$FlymeInjector;->addFlymeMoveWindowService(Lcom/android/server/SystemServer;Lcom/android/server/wm/WindowManagerService;)V
 
-    .line 1519
-    invoke-static {p0}, Lcom/android/server/SystemServer$FlymeInjector;->addFlymeAccessService(Lcom/android/server/SystemServer;)V
+    .line 1282
+    invoke-static {p0, p1}, Lcom/android/server/SystemServer$FlymeInjector;->addFlymeAccessService(Lcom/android/server/SystemServer;Lcom/android/server/wm/WindowManagerService;)V
 
-    .line 1520
+    .line 1283
     invoke-static {p0}, Lcom/android/server/SystemServer$FlymeInjector;->addFlymeThemeService(Lcom/android/server/SystemServer;)V
 
-    .line 1521
-    iget-object v0, p0, Lcom/android/server/SystemServer;->mFlymeWallpaperLifeService:Lcom/android/server/SystemService;
+    .line 1284
+    invoke-static {p0, p2}, Lcom/android/server/SystemServer$FlymeInjector;->addFlymeWallpaperService(Lcom/android/server/SystemServer;Lcom/android/server/wallpaper/WallpaperManagerService;)V
 
-    check-cast v0, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;
-
-    .line 1522
-    .local v0, "wmsl":Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;
-    invoke-virtual {v0}, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->getService()Lcom/android/server/wallpaper/WallpaperManagerService;
-
-    move-result-object v1
-
-    invoke-static {p0, v1}, Lcom/android/server/SystemServer$FlymeInjector;->addFlymeWallpaperService(Lcom/android/server/SystemServer;Lcom/android/server/wallpaper/WallpaperManagerService;)V
-
-    .line 1523
+    .line 1285
     invoke-static {p0}, Lcom/android/server/SystemServer$FlymeInjector;->addPermissionControlService(Lcom/android/server/SystemServer;)V
 
-    .line 1524
+    .line 1286
     invoke-static {p0}, Lcom/android/server/SystemServer$FlymeInjector;->addFlymePackageManagerService(Lcom/android/server/SystemServer;)V
 
-    .line 1517
+    .line 1280
     return-void
 .end method
 
@@ -171,10 +174,10 @@
     .locals 4
 
     .prologue
-    .line 1592
+    .line 1356
     const/4 v1, 0x0
 
-    .line 1594
+    .line 1358
     .local v1, "statusbar":Lmeizu/statusbar/FlymeStatusBarManagerService;
     :try_start_0
     new-instance v2, Lmeizu/statusbar/FlymeStatusBarManagerService;
@@ -183,7 +186,7 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1595
+    .line 1359
     .local v2, "statusbar":Lmeizu/statusbar/FlymeStatusBarManagerService;
     :try_start_1
     const-string/jumbo v3, "flyme_statusbar"
@@ -195,19 +198,19 @@
 
     move-object v1, v2
 
-    .line 1591
+    .line 1355
     .end local v2    # "statusbar":Lmeizu/statusbar/FlymeStatusBarManagerService;
     .local v0, "e":Ljava/lang/Throwable;
     :goto_0
     return-void
 
-    .line 1596
+    .line 1360
     .end local v0    # "e":Ljava/lang/Throwable;
     .restart local v1    # "statusbar":Lmeizu/statusbar/FlymeStatusBarManagerService;
     :catch_0
     move-exception v0
 
-    .line 1597
+    .line 1361
     .end local v1    # "statusbar":Lmeizu/statusbar/FlymeStatusBarManagerService;
     .restart local v0    # "e":Ljava/lang/Throwable;
     :goto_1
@@ -217,7 +220,7 @@
 
     goto :goto_0
 
-    .line 1596
+    .line 1360
     .end local v0    # "e":Ljava/lang/Throwable;
     .restart local v2    # "statusbar":Lmeizu/statusbar/FlymeStatusBarManagerService;
     :catch_1
@@ -236,42 +239,42 @@
     .param p0, "dst"    # Lcom/android/server/SystemServer;
 
     .prologue
-    .line 1542
+    .line 1306
     invoke-virtual {p0}, Lcom/android/server/SystemServer;->flymeGetFieldSystemContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 1543
+    .line 1307
     .local v0, "context":Landroid/content/Context;
     new-instance v2, Landroid/content/res/flymetheme/FlymeThemeService;
 
     invoke-direct {v2, v0}, Landroid/content/res/flymetheme/FlymeThemeService;-><init>(Landroid/content/Context;)V
 
-    .line 1544
+    .line 1308
     .local v2, "flymeThemeService":Landroid/content/res/flymetheme/FlymeThemeService;
     const-string/jumbo v3, "flyme_theme_service"
 
     invoke-static {v3, v2}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    .line 1545
+    .line 1309
     if-eqz v2, :cond_0
 
-    .line 1547
+    .line 1311
     :try_start_0
     invoke-virtual {v2}, Landroid/content/res/flymetheme/FlymeThemeService;->systemReady()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1541
+    .line 1305
     :cond_0
     :goto_0
     return-void
 
-    .line 1548
+    .line 1312
     :catch_0
     move-exception v1
 
-    .line 1549
+    .line 1313
     .local v1, "e":Ljava/lang/Throwable;
     const-string/jumbo v3, "SystemServer"
 
@@ -288,24 +291,24 @@
     .param p1, "wm"    # Lcom/android/server/wallpaper/WallpaperManagerService;
 
     .prologue
-    .line 1557
+    .line 1321
     invoke-virtual {p0}, Lcom/android/server/SystemServer;->flymeGetFieldSystemContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 1558
+    .line 1322
     .local v0, "context":Landroid/content/Context;
     invoke-virtual {p1, v0}, Lcom/android/server/wallpaper/WallpaperManagerService;->startFlymeWallpaperService(Landroid/content/Context;)Lcom/android/server/wallpaper/FlymeWallpaperService;
 
     move-result-object v1
 
-    .line 1559
+    .line 1323
     .local v1, "fws":Lcom/android/server/wallpaper/FlymeWallpaperService;
     const-string/jumbo v2, "flyme_wallpaper"
 
     invoke-static {v2, v1}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    .line 1556
+    .line 1320
     return-void
 .end method
 
@@ -314,24 +317,24 @@
     .param p0, "dst"    # Lcom/android/server/SystemServer;
 
     .prologue
-    .line 1604
+    .line 1368
     invoke-virtual {p0}, Lcom/android/server/SystemServer;->flymeGetFieldSystemContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 1605
+    .line 1369
     .local v0, "context":Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/NetworkManagementServiceFlyme;->create(Landroid/content/Context;)Lcom/android/server/NetworkManagementServiceFlyme;
 
     move-result-object v1
 
-    .line 1606
+    .line 1370
     .local v1, "networkManagementService":Lcom/android/server/NetworkManagementServiceFlyme;
     const-string/jumbo v2, "networkmanagement_service_flyme"
 
     invoke-static {v2, v1}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    .line 1603
+    .line 1367
     return-void
 .end method
 
@@ -340,13 +343,13 @@
     .param p0, "dst"    # Lcom/android/server/SystemServer;
 
     .prologue
-    .line 1566
+    .line 1330
     :try_start_0
     invoke-virtual {p0}, Lcom/android/server/SystemServer;->flymeGetFieldSystemContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 1567
+    .line 1331
     .local v0, "context":Landroid/content/Context;
     const-string/jumbo v2, "flyme_permission"
 
@@ -358,16 +361,16 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1564
+    .line 1328
     .end local v0    # "context":Landroid/content/Context;
     :goto_0
     return-void
 
-    .line 1568
+    .line 1332
     :catch_0
     move-exception v1
 
-    .line 1569
+    .line 1333
     .local v1, "e":Ljava/lang/Throwable;
     const-string/jumbo v2, "SystemServer"
 

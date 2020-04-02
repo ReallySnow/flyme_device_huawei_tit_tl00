@@ -80,124 +80,124 @@
 
     const/4 v3, 0x1
 
-    .line 1030
+    .line 999
     const/16 v0, 0x11
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 1031
+    .line 1000
     const-string/jumbo v1, "auto"
 
     aput-object v1, v0, v7
 
-    .line 1032
+    .line 1001
     const-string/jumbo v1, "action"
 
     aput-object v1, v0, v3
 
-    .line 1033
+    .line 1002
     const-string/jumbo v1, "portrait"
 
     aput-object v1, v0, v4
 
-    .line 1034
+    .line 1003
     const-string/jumbo v1, "landscape"
 
     aput-object v1, v0, v5
 
-    .line 1035
+    .line 1004
     const-string/jumbo v1, "night"
 
     const/4 v2, 0x4
 
     aput-object v1, v0, v2
 
-    .line 1036
+    .line 1005
     const-string/jumbo v1, "night-portrait"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    .line 1037
+    .line 1006
     const-string/jumbo v1, "theatre"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    .line 1038
+    .line 1007
     const-string/jumbo v1, "beach"
 
     const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
-    .line 1039
+    .line 1008
     const-string/jumbo v1, "snow"
 
     const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
-    .line 1040
+    .line 1009
     const-string/jumbo v1, "sunset"
 
     aput-object v1, v0, v6
 
-    .line 1041
+    .line 1010
     const-string/jumbo v1, "steadyphoto"
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    .line 1042
+    .line 1011
     const-string/jumbo v1, "fireworks"
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    .line 1043
+    .line 1012
     const-string/jumbo v1, "sports"
 
     const/16 v2, 0xc
 
     aput-object v1, v0, v2
 
-    .line 1044
+    .line 1013
     const-string/jumbo v1, "party"
 
     const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
-    .line 1045
+    .line 1014
     const-string/jumbo v1, "candlelight"
 
     const/16 v2, 0xe
 
     aput-object v1, v0, v2
 
-    .line 1046
+    .line 1015
     const-string/jumbo v1, "barcode"
 
     const/16 v2, 0xf
 
     aput-object v1, v0, v2
 
-    .line 1047
+    .line 1016
     const-string/jumbo v1, "hdr"
 
     const/16 v2, 0x10
 
     aput-object v1, v0, v2
 
-    .line 1030
+    .line 999
     sput-object v0, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sLegacySceneModes:[Ljava/lang/String;
 
-    .line 1050
+    .line 1019
     const/16 v0, 0x11
 
     new-array v0, v0, [I
@@ -206,75 +206,75 @@
 
     sput-object v0, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sSceneModes:[I
 
-    .line 1094
+    .line 1063
     new-array v0, v6, [Ljava/lang/String;
 
-    .line 1095
+    .line 1064
     const-string/jumbo v1, "none"
 
     aput-object v1, v0, v7
 
-    .line 1096
+    .line 1065
     const-string/jumbo v1, "mono"
 
     aput-object v1, v0, v3
 
-    .line 1097
+    .line 1066
     const-string/jumbo v1, "negative"
 
     aput-object v1, v0, v4
 
-    .line 1098
+    .line 1067
     const-string/jumbo v1, "solarize"
 
     aput-object v1, v0, v5
 
-    .line 1099
+    .line 1068
     const-string/jumbo v1, "sepia"
 
     const/4 v2, 0x4
 
     aput-object v1, v0, v2
 
-    .line 1100
+    .line 1069
     const-string/jumbo v1, "posterize"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    .line 1101
+    .line 1070
     const-string/jumbo v1, "whiteboard"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    .line 1102
+    .line 1071
     const-string/jumbo v1, "blackboard"
 
     const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
-    .line 1103
+    .line 1072
     const-string/jumbo v1, "aqua"
 
     const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
-    .line 1094
+    .line 1063
     sput-object v0, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sLegacyEffectMode:[Ljava/lang/String;
 
-    .line 1106
+    .line 1075
     new-array v0, v6, [I
 
     fill-array-data v0, :array_1
 
     sput-object v0, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sEffectModes:[I
 
-    .line 1217
+    .line 1186
     filled-new-array {v3, v4, v5}, [I
 
     move-result-object v0
@@ -284,7 +284,7 @@
     .line 56
     return-void
 
-    .line 1050
+    .line 1019
     nop
 
     :array_0
@@ -308,7 +308,7 @@
         0x12
     .end array-data
 
-    .line 1106
+    .line 1075
     :array_1
     .array-data 4
         0x0
@@ -351,7 +351,7 @@
     .end annotation
 
     .prologue
-    .line 1023
+    .line 992
     .local p0, "configs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/camera2/params/StreamConfiguration;>;"
     .local p2, "sizes":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/Camera$Size;>;"
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -372,7 +372,7 @@
 
     check-cast v1, Landroid/hardware/Camera$Size;
 
-    .line 1025
+    .line 994
     .local v1, "size":Landroid/hardware/Camera$Size;
     new-instance v0, Landroid/hardware/camera2/params/StreamConfiguration;
 
@@ -384,13 +384,13 @@
 
     invoke-direct {v0, p1, v3, v4, v5}, Landroid/hardware/camera2/params/StreamConfiguration;-><init>(IIIZ)V
 
-    .line 1026
+    .line 995
     .local v0, "config":Landroid/hardware/camera2/params/StreamConfiguration;
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 1022
+    .line 991
     .end local v0    # "config":Landroid/hardware/camera2/params/StreamConfiguration;
     .end local v1    # "size":Landroid/hardware/Camera$Size;
     :cond_0
@@ -402,7 +402,7 @@
     .param p0, "size"    # Landroid/hardware/Camera$Size;
 
     .prologue
-    .line 1199
+    .line 1168
     iget v2, p0, Landroid/hardware/Camera$Size;->width:I
 
     int-to-long v2, v2
@@ -413,17 +413,17 @@
 
     mul-long v0, v2, v4
 
-    .line 1200
+    .line 1169
     .local v0, "area":J
     const-wide/16 v2, 0x47
 
-    .line 1202
+    .line 1171
     mul-long/2addr v2, v0
 
-    .line 1198
+    .line 1167
     const-wide/32 v4, 0xbebc200
 
-    .line 1202
+    .line 1171
     add-long/2addr v2, v4
 
     return-wide v2
@@ -442,13 +442,13 @@
     .end annotation
 
     .prologue
-    .line 1186
+    .line 1155
     .local p0, "fpsRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     const/4 v1, 0x2
 
     new-array v0, v1, [I
 
-    .line 1187
+    .line 1156
     .local v0, "legacyFps":[I
     invoke-virtual {p0}, Landroid/util/Range;->getLower()Ljava/lang/Comparable;
 
@@ -464,7 +464,7 @@
 
     aput v1, v0, v2
 
-    .line 1188
+    .line 1157
     invoke-virtual {p0}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
 
     move-result-object v1
@@ -479,7 +479,7 @@
 
     aput v1, v0, v2
 
-    .line 1189
+    .line 1158
     return-object v0
 .end method
 
@@ -503,7 +503,7 @@
 
     const/4 v6, 0x0
 
-    .line 1469
+    .line 1423
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
@@ -512,7 +512,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 1470
+    .line 1424
     :cond_0
     const-string/jumbo v2, "LegacyMetadataMapper"
 
@@ -520,18 +520,18 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1471
+    .line 1425
     return-object v4
 
-    .line 1474
+    .line 1428
     :cond_1
     const/4 v1, 0x0
 
-    .line 1475
+    .line 1429
     .local v1, "param":Ljava/lang/String;
     packed-switch p0, :pswitch_data_0
 
-    .line 1499
+    .line 1453
     .end local v1    # "param":Ljava/lang/String;
     :goto_0
     invoke-interface {p1, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -540,26 +540,26 @@
 
     if-nez v2, :cond_2
 
-    .line 1501
+    .line 1455
     invoke-interface {p1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
-    .line 1502
+    .line 1456
     .local v0, "defaultMode":Ljava/lang/String;
     const-string/jumbo v2, "LegacyMetadataMapper"
 
-    .line 1504
+    .line 1458
     const-string/jumbo v3, "convertAfModeToLegacy - ignoring unsupported mode %d, defaulting to %s"
 
-    .line 1503
+    .line 1457
     const/4 v4, 0x2
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    .line 1505
+    .line 1459
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
@@ -570,23 +570,23 @@
 
     aput-object v0, v4, v5
 
-    .line 1503
+    .line 1457
     invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 1502
+    .line 1456
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1506
+    .line 1460
     move-object v1, v0
 
-    .line 1509
+    .line 1463
     .end local v0    # "defaultMode":Ljava/lang/String;
     :cond_2
     return-object v1
 
-    .line 1477
+    .line 1431
     .restart local v1    # "param":Ljava/lang/String;
     :pswitch_0
     const-string/jumbo v1, "auto"
@@ -594,7 +594,7 @@
     .local v1, "param":Ljava/lang/String;
     goto :goto_0
 
-    .line 1480
+    .line 1434
     .local v1, "param":Ljava/lang/String;
     :pswitch_1
     const-string/jumbo v1, "continuous-picture"
@@ -602,7 +602,7 @@
     .local v1, "param":Ljava/lang/String;
     goto :goto_0
 
-    .line 1483
+    .line 1437
     .local v1, "param":Ljava/lang/String;
     :pswitch_2
     const-string/jumbo v1, "continuous-video"
@@ -610,7 +610,7 @@
     .local v1, "param":Ljava/lang/String;
     goto :goto_0
 
-    .line 1486
+    .line 1440
     .local v1, "param":Ljava/lang/String;
     :pswitch_3
     const-string/jumbo v1, "edof"
@@ -618,7 +618,7 @@
     .local v1, "param":Ljava/lang/String;
     goto :goto_0
 
-    .line 1489
+    .line 1443
     .local v1, "param":Ljava/lang/String;
     :pswitch_4
     const-string/jumbo v1, "macro"
@@ -626,7 +626,7 @@
     .local v1, "param":Ljava/lang/String;
     goto :goto_0
 
-    .line 1492
+    .line 1446
     .local v1, "param":Ljava/lang/String;
     :pswitch_5
     const-string/jumbo v2, "fixed"
@@ -637,13 +637,13 @@
 
     if-eqz v2, :cond_3
 
-    .line 1493
+    .line 1447
     const-string/jumbo v1, "fixed"
 
     .local v1, "param":Ljava/lang/String;
     goto :goto_0
 
-    .line 1495
+    .line 1449
     .local v1, "param":Ljava/lang/String;
     :cond_3
     const-string/jumbo v1, "infinity"
@@ -651,7 +651,7 @@
     .local v1, "param":Ljava/lang/String;
     goto :goto_0
 
-    .line 1475
+    .line 1429
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_5
@@ -670,13 +670,13 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 1145
+    .line 1114
     if-nez p0, :cond_0
 
-    .line 1146
+    .line 1115
     return v3
 
-    .line 1149
+    .line 1118
     :cond_0
     const-string/jumbo v0, "off"
 
@@ -686,12 +686,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 1151
+    .line 1120
     const/4 v0, 0x0
 
     return v0
 
-    .line 1149
+    .line 1118
     :cond_1
     const-string/jumbo v0, "50hz"
 
@@ -701,12 +701,12 @@
 
     if-eqz v0, :cond_2
 
-    .line 1154
+    .line 1123
     const/4 v0, 0x1
 
     return v0
 
-    .line 1149
+    .line 1118
     :cond_2
     const-string/jumbo v0, "60hz"
 
@@ -716,12 +716,12 @@
 
     if-eqz v0, :cond_3
 
-    .line 1157
+    .line 1126
     const/4 v0, 0x2
 
     return v0
 
-    .line 1149
+    .line 1118
     :cond_3
     const-string/jumbo v0, "auto"
 
@@ -731,12 +731,12 @@
 
     if-eqz v0, :cond_4
 
-    .line 1160
+    .line 1129
     const/4 v0, 0x3
 
     return v0
 
-    .line 1163
+    .line 1132
     :cond_4
     const-string/jumbo v0, "LegacyMetadataMapper"
 
@@ -760,7 +760,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1164
+    .line 1133
     return v3
 .end method
 
@@ -769,23 +769,23 @@
     .param p0, "mode"    # Ljava/lang/String;
 
     .prologue
-    .line 1177
+    .line 1146
     invoke-static {p0}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->convertAntiBandingMode(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 1178
+    .line 1147
     .local v0, "antiBandingMode":I
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 1179
+    .line 1148
     const/4 v1, 0x0
 
     return v1
 
-    .line 1182
+    .line 1151
     :cond_0
     return v0
 .end method
@@ -797,13 +797,13 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1119
+    .line 1088
     if-nez p0, :cond_0
 
-    .line 1120
+    .line 1089
     return v1
 
-    .line 1122
+    .line 1091
     :cond_0
     sget-object v1, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sLegacyEffectMode:[Ljava/lang/String;
 
@@ -811,16 +811,16 @@
 
     move-result v0
 
-    .line 1123
+    .line 1092
     .local v0, "index":I
     if-gez v0, :cond_1
 
-    .line 1124
+    .line 1093
     const/4 v1, -0x1
 
     return v1
 
-    .line 1126
+    .line 1095
     :cond_1
     sget-object v1, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sEffectModes:[I
 
@@ -834,23 +834,23 @@
     .param p0, "mode"    # I
 
     .prologue
-    .line 1130
+    .line 1099
     sget-object v1, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sEffectModes:[I
 
     invoke-static {v1, p0}, Landroid/hardware/camera2/utils/ArrayUtils;->getArrayIndex([II)I
 
     move-result v0
 
-    .line 1131
+    .line 1100
     .local v0, "index":I
     if-gez v0, :cond_0
 
-    .line 1132
+    .line 1101
     const/4 v1, 0x0
 
     return-object v1
 
-    .line 1134
+    .line 1103
     :cond_0
     sget-object v1, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sLegacyEffectMode:[Ljava/lang/String;
 
@@ -864,10 +864,10 @@
     .param p0, "request"    # Landroid/hardware/camera2/legacy/LegacyRequest;
 
     .prologue
-    .line 1214
+    .line 1183
     invoke-static {p0}, Landroid/hardware/camera2/legacy/LegacyRequestMapper;->convertRequestMetadata(Landroid/hardware/camera2/legacy/LegacyRequest;)V
 
-    .line 1213
+    .line 1182
     return-void
 .end method
 
@@ -878,13 +878,13 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1071
+    .line 1040
     if-nez p0, :cond_0
 
-    .line 1072
+    .line 1041
     return v1
 
-    .line 1074
+    .line 1043
     :cond_0
     sget-object v1, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sLegacySceneModes:[Ljava/lang/String;
 
@@ -892,16 +892,16 @@
 
     move-result v0
 
-    .line 1075
+    .line 1044
     .local v0, "index":I
     if-gez v0, :cond_1
 
-    .line 1076
+    .line 1045
     const/4 v1, -0x1
 
     return v1
 
-    .line 1078
+    .line 1047
     :cond_1
     sget-object v1, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sSceneModes:[I
 
@@ -915,17 +915,17 @@
     .param p0, "mode"    # I
 
     .prologue
-    .line 1082
+    .line 1051
     const/4 v1, 0x1
 
     if-ne p0, v1, :cond_0
 
-    .line 1084
+    .line 1053
     const-string/jumbo v1, "auto"
 
     return-object v1
 
-    .line 1087
+    .line 1056
     :cond_0
     sget-object v1, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sSceneModes:[I
 
@@ -933,16 +933,16 @@
 
     move-result v0
 
-    .line 1088
+    .line 1057
     .local v0, "index":I
     if-gez v0, :cond_1
 
-    .line 1089
+    .line 1058
     const/4 v1, 0x0
 
     return-object v1
 
-    .line 1091
+    .line 1060
     :cond_1
     sget-object v1, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sLegacySceneModes:[Ljava/lang/String;
 
@@ -1050,7 +1050,7 @@
     .param p1, "templateId"    # I
 
     .prologue
-    .line 1241
+    .line 1210
     sget-object v1, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sAllowedTemplates:[I
 
     move/from16 v0, p1
@@ -1061,7 +1061,7 @@
 
     if-nez v1, :cond_0
 
-    .line 1242
+    .line 1211
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "templateId out of range"
@@ -1070,13 +1070,13 @@
 
     throw v1
 
-    .line 1245
+    .line 1214
     :cond_0
     new-instance v13, Landroid/hardware/camera2/impl/CameraMetadataNative;
 
     invoke-direct {v13}, Landroid/hardware/camera2/impl/CameraMetadataNative;-><init>()V
 
-    .line 1258
+    .line 1227
     .local v13, "m":Landroid/hardware/camera2/impl/CameraMetadataNative;
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AWB_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
@@ -1088,7 +1088,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1262
+    .line 1231
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_ANTIBANDING_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x3
@@ -1099,7 +1099,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1265
+    .line 1234
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_EXPOSURE_COMPENSATION:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x0
@@ -1110,7 +1110,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1268
+    .line 1237
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_LOCK:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x0
@@ -1121,7 +1121,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1271
+    .line 1240
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_PRECAPTURE_TRIGGER:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x0
@@ -1132,7 +1132,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1274
+    .line 1243
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AF_TRIGGER:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x0
@@ -1143,7 +1143,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1277
+    .line 1246
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AWB_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x1
@@ -1154,7 +1154,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1280
+    .line 1249
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AWB_LOCK:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x0
@@ -1165,7 +1165,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1284
+    .line 1253
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_ACTIVE_ARRAY_SIZE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     move-object/from16 v0, p0
@@ -1176,13 +1176,13 @@
 
     check-cast v7, Landroid/graphics/Rect;
 
-    .line 1285
+    .line 1254
     .local v7, "activeArray":Landroid/graphics/Rect;
     const/4 v1, 0x1
 
     new-array v8, v1, [Landroid/hardware/camera2/params/MeteringRectangle;
 
-    .line 1286
+    .line 1255
     new-instance v1, Landroid/hardware/camera2/params/MeteringRectangle;
 
     invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
@@ -1191,48 +1191,48 @@
 
     add-int/lit8 v4, v2, -0x1
 
-    .line 1287
+    .line 1256
     invoke-virtual {v7}, Landroid/graphics/Rect;->height()I
 
     move-result v2
 
     add-int/lit8 v5, v2, -0x1
 
-    .line 1286
+    .line 1255
     const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    .line 1287
+    .line 1256
     const/4 v6, 0x0
 
-    .line 1286
+    .line 1255
     invoke-direct/range {v1 .. v6}, Landroid/hardware/camera2/params/MeteringRectangle;-><init>(IIIII)V
 
     const/4 v2, 0x0
 
     aput-object v1, v8, v2
 
-    .line 1288
+    .line 1257
     .local v8, "activeRegions":[Landroid/hardware/camera2/params/MeteringRectangle;
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_REGIONS:Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-virtual {v13, v1, v8}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1289
+    .line 1258
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AWB_REGIONS:Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-virtual {v13, v1, v8}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1290
+    .line 1259
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AF_REGIONS:Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-virtual {v13, v1, v8}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1296
+    .line 1265
     packed-switch p1, :pswitch_data_0
 
-    .line 1308
+    .line 1277
     new-instance v1, Ljava/lang/AssertionError;
 
     const-string/jumbo v2, "Impossible; keep in sync with sAllowedTemplates"
@@ -1241,11 +1241,11 @@
 
     throw v1
 
-    .line 1298
+    .line 1267
     :pswitch_0
     const/4 v12, 0x1
 
-    .line 1310
+    .line 1279
     .local v12, "captureIntent":I
     :goto_0
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_CAPTURE_INTENT:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -1256,7 +1256,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1314
+    .line 1283
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x1
@@ -1267,7 +1267,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1318
+    .line 1287
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x1
@@ -1278,7 +1278,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1322
+    .line 1291
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->LENS_INFO_MINIMUM_FOCUS_DISTANCE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     move-object/from16 v0, p0
@@ -1289,11 +1289,11 @@
 
     check-cast v14, Ljava/lang/Float;
 
-    .line 1325
+    .line 1294
     .local v14, "minimumFocusDistance":Ljava/lang/Float;
     if-eqz v14, :cond_3
 
-    .line 1326
+    .line 1295
     invoke-virtual {v14}, Ljava/lang/Float;->floatValue()F
 
     move-result v1
@@ -1304,10 +1304,10 @@
 
     if-nez v1, :cond_3
 
-    .line 1328
+    .line 1297
     const/4 v9, 0x0
 
-    .line 1353
+    .line 1322
     .local v9, "afMode":I
     :cond_1
     :goto_1
@@ -1319,10 +1319,10 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1359
+    .line 1328
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    .line 1358
+    .line 1327
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v1}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
@@ -1331,13 +1331,13 @@
 
     check-cast v10, [Landroid/util/Range;
 
-    .line 1362
+    .line 1331
     .local v10, "availableFpsRange":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
     const/4 v1, 0x0
 
     aget-object v11, v10, v1
 
-    .line 1363
+    .line 1332
     .local v11, "bestRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     const/4 v1, 0x0
 
@@ -1350,7 +1350,7 @@
 
     aget-object v15, v10, v2
 
-    .line 1364
+    .line 1333
     .local v15, "r":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     invoke-virtual {v11}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
 
@@ -1374,10 +1374,10 @@
 
     if-ge v4, v1, :cond_7
 
-    .line 1365
+    .line 1334
     move-object v11, v15
 
-    .line 1363
+    .line 1332
     :cond_2
     :goto_3
     add-int/lit8 v1, v2, 0x1
@@ -1386,7 +1386,7 @@
 
     goto :goto_2
 
-    .line 1301
+    .line 1270
     .end local v9    # "afMode":I
     .end local v10    # "availableFpsRange":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
     .end local v11    # "bestRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
@@ -1396,25 +1396,25 @@
     :pswitch_1
     const/4 v12, 0x2
 
-    .line 1302
+    .line 1271
     .restart local v12    # "captureIntent":I
     goto :goto_0
 
-    .line 1304
+    .line 1273
     .end local v12    # "captureIntent":I
     :pswitch_2
     const/4 v12, 0x3
 
-    .line 1305
+    .line 1274
     .restart local v12    # "captureIntent":I
     goto :goto_0
 
-    .line 1331
+    .line 1300
     .restart local v14    # "minimumFocusDistance":Ljava/lang/Float;
     :cond_3
     const/4 v9, 0x1
 
-    .line 1333
+    .line 1302
     .restart local v9    # "afMode":I
     const/4 v1, 0x3
 
@@ -1422,14 +1422,14 @@
 
     if-eq v0, v1, :cond_4
 
-    .line 1334
+    .line 1303
     const/4 v1, 0x4
 
     move/from16 v0, p1
 
     if-ne v0, v1, :cond_5
 
-    .line 1335
+    .line 1304
     :cond_4
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AF_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
@@ -1441,22 +1441,22 @@
 
     check-cast v1, [I
 
-    .line 1336
+    .line 1305
     const/4 v2, 0x3
 
-    .line 1335
+    .line 1304
     invoke-static {v1, v2}, Landroid/hardware/camera2/utils/ArrayUtils;->contains([II)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 1337
+    .line 1306
     const/4 v9, 0x3
 
     goto :goto_1
 
-    .line 1339
+    .line 1308
     :cond_5
     const/4 v1, 0x1
 
@@ -1464,14 +1464,14 @@
 
     if-eq v0, v1, :cond_6
 
-    .line 1340
+    .line 1309
     const/4 v1, 0x2
 
     move/from16 v0, p1
 
     if-ne v0, v1, :cond_1
 
-    .line 1341
+    .line 1310
     :cond_6
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AF_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
@@ -1483,22 +1483,22 @@
 
     check-cast v1, [I
 
-    .line 1342
+    .line 1311
     const/4 v2, 0x4
 
-    .line 1341
+    .line 1310
     invoke-static {v1, v2}, Landroid/hardware/camera2/utils/ArrayUtils;->contains([II)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 1343
+    .line 1312
     const/4 v9, 0x4
 
     goto :goto_1
 
-    .line 1366
+    .line 1335
     .restart local v10    # "availableFpsRange":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
     .restart local v11    # "bestRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     .restart local v15    # "r":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
@@ -1513,7 +1513,7 @@
 
     if-ne v1, v4, :cond_2
 
-    .line 1367
+    .line 1336
     invoke-virtual {v11}, Landroid/util/Range;->getLower()Ljava/lang/Comparable;
 
     move-result-object v1
@@ -1536,19 +1536,19 @@
 
     if-ge v4, v1, :cond_2
 
-    .line 1368
+    .line 1337
     move-object v11, v15
 
     goto :goto_3
 
-    .line 1371
+    .line 1340
     .end local v15    # "r":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     :cond_8
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_TARGET_FPS_RANGE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-virtual {v13, v1, v11}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1375
+    .line 1344
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_SCENE_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x0
@@ -1559,7 +1559,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1382
+    .line 1351
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->STATISTICS_FACE_DETECT_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x0
@@ -1570,7 +1570,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1389
+    .line 1358
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->FLASH_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v2, 0x0
@@ -1581,17 +1581,10 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1394
-    const/4 v1, 0x2
-
-    move/from16 v0, p1
-
-    if-ne v0, v1, :cond_9
-
-    .line 1395
+    .line 1363
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->NOISE_REDUCTION_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
-    const/4 v2, 0x2
+    const/4 v2, 0x1
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1599,32 +1592,10 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1403
-    :goto_4
-    const/4 v1, 0x2
-
-    move/from16 v0, p1
-
-    if-ne v0, v1, :cond_a
-
-    .line 1404
-    sget-object v1, Landroid/hardware/camera2/CaptureRequest;->COLOR_CORRECTION_ABERRATION_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    .line 1405
-    const/4 v2, 0x2
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    .line 1404
-    invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    .line 1416
-    :goto_5
+    .line 1370
     sget-object v2, Landroid/hardware/camera2/CaptureRequest;->LENS_FOCAL_LENGTH:Landroid/hardware/camera2/CaptureRequest$Key;
 
-    .line 1417
+    .line 1371
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->LENS_INFO_AVAILABLE_FOCAL_LENGTHS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     move-object/from16 v0, p0
@@ -1643,10 +1614,10 @@
 
     move-result-object v1
 
-    .line 1416
+    .line 1370
     invoke-virtual {v13, v2, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1424
+    .line 1378
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->JPEG_AVAILABLE_THUMBNAIL_SIZES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     move-object/from16 v0, p0
@@ -1657,7 +1628,7 @@
 
     check-cast v16, [Landroid/util/Size;
 
-    .line 1425
+    .line 1379
     .local v16, "sizes":[Landroid/util/Size;
     sget-object v2, Landroid/hardware/camera2/CaptureRequest;->JPEG_THUMBNAIL_SIZE:Landroid/hardware/camera2/CaptureRequest$Key;
 
@@ -1667,59 +1638,27 @@
 
     const/4 v3, 0x1
 
-    if-le v1, v3, :cond_b
+    if-le v1, v3, :cond_9
 
     const/4 v1, 0x1
 
     aget-object v1, v16, v1
 
-    :goto_6
+    :goto_4
     invoke-virtual {v13, v2, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    .line 1428
+    .line 1382
     return-object v13
 
-    .line 1397
-    .end local v16    # "sizes":[Landroid/util/Size;
+    .line 1379
     :cond_9
-    sget-object v1, Landroid/hardware/camera2/CaptureRequest;->NOISE_REDUCTION_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    const/4 v2, 0x1
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    goto :goto_4
-
-    .line 1407
-    :cond_a
-    sget-object v1, Landroid/hardware/camera2/CaptureRequest;->COLOR_CORRECTION_ABERRATION_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    .line 1408
-    const/4 v2, 0x1
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    .line 1407
-    invoke-virtual {v13, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    goto :goto_5
-
-    .line 1425
-    .restart local v16    # "sizes":[Landroid/util/Size;
-    :cond_b
     const/4 v1, 0x0
 
     aget-object v1, v16, v1
 
-    goto :goto_6
+    goto :goto_4
 
-    .line 1296
+    .line 1265
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1739,13 +1678,13 @@
     .end annotation
 
     .prologue
-    .line 1432
+    .line 1386
     .local p0, "keys":[Landroid/hardware/camera2/CameraCharacteristics$Key;, "[Landroid/hardware/camera2/CameraCharacteristics$Key<*>;"
     array-length v2, p0
 
     new-array v1, v2, [I
 
-    .line 1434
+    .line 1388
     .local v1, "tags":[I
     const/4 v0, 0x0
 
@@ -1755,7 +1694,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 1435
+    .line 1389
     aget-object v2, p0, v0
 
     invoke-virtual {v2}, Landroid/hardware/camera2/CameraCharacteristics$Key;->getNativeKey()Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
@@ -1768,12 +1707,12 @@
 
     aput v2, v1, v0
 
-    .line 1434
+    .line 1388
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1438
+    .line 1392
     :cond_0
     return-object v1
 .end method
@@ -1789,13 +1728,13 @@
     .end annotation
 
     .prologue
-    .line 1442
+    .line 1396
     .local p0, "keys":[Landroid/hardware/camera2/CaptureRequest$Key;, "[Landroid/hardware/camera2/CaptureRequest$Key<*>;"
     array-length v2, p0
 
     new-array v1, v2, [I
 
-    .line 1444
+    .line 1398
     .local v1, "tags":[I
     const/4 v0, 0x0
 
@@ -1805,7 +1744,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 1445
+    .line 1399
     aget-object v2, p0, v0
 
     invoke-virtual {v2}, Landroid/hardware/camera2/CaptureRequest$Key;->getNativeKey()Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
@@ -1818,12 +1757,12 @@
 
     aput v2, v1, v0
 
-    .line 1444
+    .line 1398
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1448
+    .line 1402
     :cond_0
     return-object v1
 .end method
@@ -1839,13 +1778,13 @@
     .end annotation
 
     .prologue
-    .line 1452
+    .line 1406
     .local p0, "keys":[Landroid/hardware/camera2/CaptureResult$Key;, "[Landroid/hardware/camera2/CaptureResult$Key<*>;"
     array-length v2, p0
 
     new-array v1, v2, [I
 
-    .line 1454
+    .line 1408
     .local v1, "tags":[I
     const/4 v0, 0x0
 
@@ -1855,7 +1794,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 1455
+    .line 1409
     aget-object v2, p0, v0
 
     invoke-virtual {v2}, Landroid/hardware/camera2/CaptureResult$Key;->getNativeKey()Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
@@ -1868,12 +1807,12 @@
 
     aput v2, v1, v0
 
-    .line 1454
+    .line 1408
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1458
+    .line 1412
     :cond_0
     return-object v1
 .end method
@@ -1925,78 +1864,80 @@
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
-    const/4 v2, 0x2
+    const/4 v2, 0x1
 
     .line 177
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->COLOR_CORRECTION_AVAILABLE_ABERRATION_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     .line 178
-    filled-new-array {v3, v2}, [I
+    new-array v1, v2, [I
 
-    move-result-object v1
+    aput v2, v1, v3
 
     .line 177
     invoke-virtual {p0, v0, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 183
+    .line 182
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapControlAe(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 187
+    .line 186
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapControlAf(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 191
+    .line 190
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapControlAwb(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 196
+    .line 195
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapControlOther(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 200
+    .line 199
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapLens(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 204
+    .line 203
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapFlash(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 208
+    .line 207
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapJpeg(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 213
+    .line 212
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->NOISE_REDUCTION_AVAILABLE_NOISE_REDUCTION_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    .line 214
-    filled-new-array {v3, v2}, [I
-
-    move-result-object v1
-
     .line 213
+    new-array v1, v2, [I
+
+    aput v2, v1, v3
+
+    .line 212
     invoke-virtual {p0, v0, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 220
+    .line 218
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapScaler(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 225
+    .line 223
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapSensor(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 230
+    .line 228
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapStatistics(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 235
+    .line 233
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapSync(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 240
+    .line 238
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->INFO_SUPPORTED_HARDWARE_LEVEL:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v1, 0x2
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
     invoke-virtual {p0, v0, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 245
+    .line 243
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapScalerStreamConfigs(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
-    .line 252
+    .line 250
     invoke-static {p0, p1}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->mapRequest(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
 
     .line 172
@@ -2004,210 +1945,210 @@
 .end method
 
 .method private static mapControlAe(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
-    .locals 32
+    .locals 30
     .param p0, "m"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    .line 387
+    .line 385
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedAntibanding()Ljava/util/List;
 
-    move-result-object v6
+    move-result-object v5
+
+    .line 386
+    .local v5, "antiBandingModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    if-eqz v5, :cond_1
+
+    invoke-interface {v5}, Ljava/util/List;->size()I
+
+    move-result v25
+
+    if-lez v25, :cond_1
+
+    .line 387
+    invoke-interface {v5}, Ljava/util/List;->size()I
+
+    move-result v25
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [I
+
+    move-object/from16 v19, v0
 
     .line 388
-    .local v6, "antiBandingModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    if-eqz v6, :cond_1
-
-    invoke-interface {v6}, Ljava/util/List;->size()I
-
-    move-result v26
-
-    if-lez v26, :cond_1
+    .local v19, "modes":[I
+    const/4 v13, 0x0
 
     .line 389
-    invoke-interface {v6}, Ljava/util/List;->size()I
+    .local v13, "j":I
+    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result v26
+    move-result-object v18
+
+    .local v18, "mode$iterator":Ljava/util/Iterator;
+    :goto_0
+    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v25
+
+    if-eqz v25, :cond_0
+
+    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Ljava/lang/String;
+
+    .line 390
+    .local v17, "mode":Ljava/lang/String;
+    invoke-static/range {v17 .. v17}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->convertAntiBandingMode(Ljava/lang/String;)I
+
+    move-result v6
+
+    .line 395
+    .local v6, "convertedMode":I
+    add-int/lit8 v14, v13, 0x1
+
+    .end local v13    # "j":I
+    .local v14, "j":I
+    aput v6, v19, v13
+
+    move v13, v14
+
+    .end local v14    # "j":I
+    .restart local v13    # "j":I
+    goto :goto_0
+
+    .line 398
+    .end local v6    # "convertedMode":I
+    .end local v17    # "mode":Ljava/lang/String;
+    :cond_0
+    sget-object v25, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_ANTIBANDING_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+
+    move-object/from16 v0, v19
+
+    invoke-static {v0, v13}, Ljava/util/Arrays;->copyOf([II)[I
+
+    move-result-object v26
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v25
+
+    move-object/from16 v2, v26
+
+    invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
+
+    .line 407
+    .end local v13    # "j":I
+    .end local v18    # "mode$iterator":Ljava/util/Iterator;
+    .end local v19    # "modes":[I
+    :goto_1
+    invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedPreviewFpsRange()Ljava/util/List;
+
+    move-result-object v10
+
+    .line 408
+    .local v10, "fpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
+    if-nez v10, :cond_2
+
+    .line 409
+    new-instance v25, Ljava/lang/AssertionError;
+
+    const-string/jumbo v26, "Supported FPS ranges cannot be null."
+
+    invoke-direct/range {v25 .. v26}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+
+    throw v25
+
+    .line 400
+    .end local v10    # "fpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
+    :cond_1
+    sget-object v25, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_ANTIBANDING_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+
+    const/16 v26, 0x0
 
     move/from16 v0, v26
 
     new-array v0, v0, [I
 
-    move-object/from16 v20, v0
-
-    .line 390
-    .local v20, "modes":[I
-    const/4 v14, 0x0
-
-    .line 391
-    .local v14, "j":I
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v19
-
-    .local v19, "mode$iterator":Ljava/util/Iterator;
-    :goto_0
-    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v26
-
-    if-eqz v26, :cond_0
-
-    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v18
-
-    check-cast v18, Ljava/lang/String;
-
-    .line 392
-    .local v18, "mode":Ljava/lang/String;
-    invoke-static/range {v18 .. v18}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->convertAntiBandingMode(Ljava/lang/String;)I
-
-    move-result v7
-
-    .line 397
-    .local v7, "convertedMode":I
-    add-int/lit8 v15, v14, 0x1
-
-    .end local v14    # "j":I
-    .local v15, "j":I
-    aput v7, v20, v14
-
-    move v14, v15
-
-    .end local v15    # "j":I
-    .restart local v14    # "j":I
-    goto :goto_0
-
-    .line 400
-    .end local v7    # "convertedMode":I
-    .end local v18    # "mode":Ljava/lang/String;
-    :cond_0
-    sget-object v26, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_ANTIBANDING_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
-
-    move-object/from16 v0, v20
-
-    invoke-static {v0, v14}, Ljava/util/Arrays;->copyOf([II)[I
-
-    move-result-object v27
+    move-object/from16 v26, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
-    move-object/from16 v2, v27
-
-    invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
-
-    .line 409
-    .end local v14    # "j":I
-    .end local v19    # "mode$iterator":Ljava/util/Iterator;
-    .end local v20    # "modes":[I
-    :goto_1
-    invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedPreviewFpsRange()Ljava/util/List;
-
-    move-result-object v11
-
-    .line 410
-    .local v11, "fpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
-    if-nez v11, :cond_2
-
-    .line 411
-    new-instance v26, Ljava/lang/AssertionError;
-
-    const-string/jumbo v27, "Supported FPS ranges cannot be null."
-
-    invoke-direct/range {v26 .. v27}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
-
-    throw v26
-
-    .line 402
-    .end local v11    # "fpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
-    :cond_1
-    sget-object v26, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_ANTIBANDING_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
-
-    const/16 v27, 0x0
-
-    move/from16 v0, v27
-
-    new-array v0, v0, [I
-
-    move-object/from16 v27, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v26
-
-    move-object/from16 v2, v27
+    move-object/from16 v2, v26
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
     goto :goto_1
 
-    .line 413
-    .restart local v11    # "fpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
+    .line 411
+    .restart local v10    # "fpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
     :cond_2
-    invoke-interface {v11}, Ljava/util/List;->size()I
+    invoke-interface {v10}, Ljava/util/List;->size()I
 
-    move-result v24
+    move-result v23
 
-    .line 414
-    .local v24, "rangesSize":I
-    if-gtz v24, :cond_3
+    .line 412
+    .local v23, "rangesSize":I
+    if-gtz v23, :cond_3
+
+    .line 413
+    new-instance v25, Ljava/lang/AssertionError;
+
+    const-string/jumbo v26, "At least one FPS range must be supported."
+
+    invoke-direct/range {v25 .. v26}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+
+    throw v25
 
     .line 415
-    new-instance v26, Ljava/lang/AssertionError;
-
-    const-string/jumbo v27, "At least one FPS range must be supported."
-
-    invoke-direct/range {v26 .. v27}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
-
-    throw v26
-
-    .line 417
     :cond_3
-    move/from16 v0, v24
+    move/from16 v0, v23
 
     new-array v0, v0, [Landroid/util/Range;
 
-    move-object/from16 v23, v0
+    move-object/from16 v22, v0
 
-    .line 418
-    .local v23, "ranges":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
-    const/4 v12, 0x0
+    .line 416
+    .local v22, "ranges":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
+    const/4 v11, 0x0
 
-    .line 419
-    .local v12, "i":I
-    invoke-interface {v11}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v22
-
-    .local v22, "r$iterator":Ljava/util/Iterator;
-    :goto_2
-    invoke-interface/range {v22 .. v22}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v26
-
-    if-eqz v26, :cond_4
-
-    invoke-interface/range {v22 .. v22}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 417
+    .local v11, "i":I
+    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v21
 
-    check-cast v21, [I
+    .local v21, "r$iterator":Ljava/util/Iterator;
+    :goto_2
+    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->hasNext()Z
 
-    .line 420
-    .local v21, "r":[I
-    add-int/lit8 v13, v12, 0x1
+    move-result v25
 
-    .line 421
-    .end local v12    # "i":I
-    .local v13, "i":I
-    const/16 v26, 0x0
+    if-eqz v25, :cond_4
 
-    aget v26, v21, v26
+    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move/from16 v0, v26
+    move-result-object v20
+
+    check-cast v20, [I
+
+    .line 418
+    .local v20, "r":[I
+    add-int/lit8 v12, v11, 0x1
+
+    .line 419
+    .end local v11    # "i":I
+    .local v12, "i":I
+    const/16 v25, 0x0
+
+    aget v25, v20, v25
+
+    move/from16 v0, v25
 
     int-to-double v0, v0
 
@@ -2225,254 +2166,233 @@
 
     double-to-int v0, v0
 
+    move/from16 v25, v0
+
+    invoke-static/range {v25 .. v25}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v25
+
+    .line 420
+    const/16 v26, 0x1
+
+    aget v26, v20, v26
+
+    move/from16 v0, v26
+
+    int-to-double v0, v0
+
+    move-wide/from16 v26, v0
+
+    const-wide v28, 0x408f400000000000L    # 1000.0
+
+    div-double v26, v26, v28
+
+    invoke-static/range {v26 .. v27}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v26
+
+    move-wide/from16 v0, v26
+
+    double-to-int v0, v0
+
     move/from16 v26, v0
 
     invoke-static/range {v26 .. v26}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v26
 
-    .line 422
-    const/16 v27, 0x1
+    .line 418
+    invoke-static/range {v25 .. v26}, Landroid/util/Range;->create(Ljava/lang/Comparable;Ljava/lang/Comparable;)Landroid/util/Range;
 
-    aget v27, v21, v27
+    move-result-object v25
 
-    move/from16 v0, v27
+    aput-object v25, v22, v11
 
-    int-to-double v0, v0
+    move v11, v12
 
-    move-wide/from16 v28, v0
-
-    const-wide v30, 0x408f400000000000L    # 1000.0
-
-    div-double v28, v28, v30
-
-    invoke-static/range {v28 .. v29}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v28
-
-    move-wide/from16 v0, v28
-
-    double-to-int v0, v0
-
-    move/from16 v27, v0
-
-    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v27
-
-    .line 420
-    invoke-static/range {v26 .. v27}, Landroid/util/Range;->create(Ljava/lang/Comparable;Ljava/lang/Comparable;)Landroid/util/Range;
-
-    move-result-object v26
-
-    aput-object v26, v23, v12
-
-    move v12, v13
-
-    .end local v13    # "i":I
-    .restart local v12    # "i":I
+    .end local v12    # "i":I
+    .restart local v11    # "i":I
     goto :goto_2
 
-    .line 424
-    .end local v21    # "r":[I
+    .line 422
+    .end local v20    # "r":[I
     :cond_4
-    sget-object v26, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    sget-object v25, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
-    move-object/from16 v2, v23
+    move-object/from16 v2, v22
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 431
+    .line 429
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedFlashModes()Ljava/util/List;
 
-    move-result-object v10
+    move-result-object v9
+
+    .line 431
+    .local v9, "flashModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    const/16 v25, 0x5
+
+    move/from16 v0, v25
+
+    new-array v8, v0, [Ljava/lang/String;
+
+    .line 432
+    const-string/jumbo v25, "off"
+
+    const/16 v26, 0x0
+
+    aput-object v25, v8, v26
 
     .line 433
-    .local v10, "flashModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    const/16 v26, 0x5
+    const-string/jumbo v25, "auto"
 
-    move/from16 v0, v26
-
-    new-array v9, v0, [Ljava/lang/String;
-
-    .line 434
-    const-string/jumbo v26, "off"
-
-    const/16 v27, 0x0
-
-    aput-object v26, v9, v27
-
-    .line 435
-    const-string/jumbo v26, "auto"
-
-    const/16 v27, 0x1
-
-    aput-object v26, v9, v27
-
-    .line 436
-    const-string/jumbo v26, "on"
-
-    const/16 v27, 0x2
-
-    aput-object v26, v9, v27
-
-    .line 437
-    const-string/jumbo v26, "red-eye"
-
-    const/16 v27, 0x3
-
-    aput-object v26, v9, v27
-
-    .line 439
-    const-string/jumbo v26, "torch"
-
-    const/16 v27, 0x4
-
-    aput-object v26, v9, v27
-
-    .line 442
-    .local v9, "flashModeStrings":[Ljava/lang/String;
     const/16 v26, 0x1
 
-    .line 443
-    const/16 v27, 0x2
+    aput-object v25, v8, v26
 
-    .line 444
-    const/16 v28, 0x3
+    .line 434
+    const-string/jumbo v25, "on"
 
-    .line 445
-    const/16 v29, 0x4
+    const/16 v26, 0x2
+
+    aput-object v25, v8, v26
+
+    .line 435
+    const-string/jumbo v25, "red-eye"
+
+    const/16 v26, 0x3
+
+    aput-object v25, v8, v26
+
+    .line 437
+    const-string/jumbo v25, "torch"
+
+    const/16 v26, 0x4
+
+    aput-object v25, v8, v26
+
+    .line 440
+    .local v8, "flashModeStrings":[Ljava/lang/String;
+    const/16 v25, 0x1
 
     .line 441
-    filled-new-array/range {v26 .. v29}, [I
+    const/16 v26, 0x2
 
-    move-result-object v8
+    .line 442
+    const/16 v27, 0x3
 
-    .line 447
-    .local v8, "flashModeInts":[I
-    invoke-static {v10, v9, v8}, Landroid/hardware/camera2/utils/ArrayUtils;->convertStringListToIntArray(Ljava/util/List;[Ljava/lang/String;[I)[I
+    .line 443
+    const/16 v28, 0x4
+
+    .line 439
+    filled-new-array/range {v25 .. v28}, [I
+
+    move-result-object v7
+
+    .line 445
+    .local v7, "flashModeInts":[I
+    invoke-static {v9, v8, v7}, Landroid/hardware/camera2/utils/ArrayUtils;->convertStringListToIntArray(Ljava/util/List;[Ljava/lang/String;[I)[I
 
     move-result-object v4
 
-    .line 451
+    .line 449
     .local v4, "aeAvail":[I
     if-eqz v4, :cond_5
 
     array-length v0, v4
 
-    move/from16 v26, v0
+    move/from16 v25, v0
 
-    if-nez v26, :cond_6
+    if-nez v25, :cond_6
 
-    .line 452
+    .line 450
     :cond_5
-    const/16 v26, 0x1
+    const/16 v25, 0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v25
 
     new-array v4, v0, [I
 
-    .line 453
+    .line 451
     .end local v4    # "aeAvail":[I
-    const/16 v26, 0x1
+    const/16 v25, 0x1
 
-    const/16 v27, 0x0
+    const/16 v26, 0x0
 
-    aput v26, v4, v27
+    aput v25, v4, v26
 
-    .line 458
+    .line 456
     .restart local v4    # "aeAvail":[I
     :cond_6
-    sget-object v26, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    sget-object v25, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1, v4}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 465
+    .line 463
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getMinExposureCompensation()I
-
-    move-result v17
-
-    .line 466
-    .local v17, "min":I
-    invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getMaxExposureCompensation()I
 
     move-result v16
 
-    .line 468
-    .local v16, "max":I
-    sget-object v26, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_COMPENSATION_RANGE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 464
+    .local v16, "min":I
+    invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getMaxExposureCompensation()I
 
-    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v15
 
-    move-result-object v27
+    .line 466
+    .local v15, "max":I
+    sget-object v25, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_COMPENSATION_RANGE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v28
+    move-result-object v26
 
-    invoke-static/range {v27 .. v28}, Landroid/util/Range;->create(Ljava/lang/Comparable;Ljava/lang/Comparable;)Landroid/util/Range;
+    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v27
 
+    invoke-static/range {v26 .. v27}, Landroid/util/Range;->create(Ljava/lang/Comparable;Ljava/lang/Comparable;)Landroid/util/Range;
+
+    move-result-object v26
+
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
-    move-object/from16 v2, v27
+    move-object/from16 v2, v26
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 475
+    .line 473
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getExposureCompensationStep()F
 
-    move-result v25
+    move-result v24
 
-    .line 477
-    .local v25, "step":F
-    sget-object v26, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_COMPENSATION_STEP:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 475
+    .local v24, "step":F
+    sget-object v25, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_COMPENSATION_STEP:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    invoke-static/range {v25 .. v25}, Landroid/hardware/camera2/utils/ParamsUtils;->createRational(F)Landroid/util/Rational;
+    invoke-static/range {v24 .. v24}, Landroid/hardware/camera2/utils/ParamsUtils;->createRational(F)Landroid/util/Rational;
 
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v26
-
-    move-object/from16 v2, v27
-
-    invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
-
-    .line 484
-    invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->isAutoExposureLockSupported()Z
-
-    move-result v5
-
-    .line 486
-    .local v5, "aeLockAvailable":Z
-    sget-object v26, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_LOCK_AVAILABLE:Landroid/hardware/camera2/CameraCharacteristics$Key;
-
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v27
+    move-result-object v26
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
-    move-object/from16 v2, v27
+    move-object/from16 v2, v26
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 383
+    .line 381
     return-void
 .end method
 
@@ -2488,73 +2408,73 @@
 
     const/4 v6, 0x0
 
-    .line 497
+    .line 486
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getSupportedFocusModes()Ljava/util/List;
 
     move-result-object v3
 
-    .line 499
+    .line 488
     .local v3, "focusModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-array v2, v8, [Ljava/lang/String;
 
-    .line 500
+    .line 489
     const-string/jumbo v4, "auto"
 
     aput-object v4, v2, v6
 
-    .line 501
+    .line 490
     const-string/jumbo v4, "continuous-picture"
 
     aput-object v4, v2, v7
 
-    .line 502
+    .line 491
     const-string/jumbo v4, "continuous-video"
 
     const/4 v5, 0x2
 
     aput-object v4, v2, v5
 
-    .line 503
+    .line 492
     const-string/jumbo v4, "edof"
 
     const/4 v5, 0x3
 
     aput-object v4, v2, v5
 
-    .line 504
+    .line 493
     const-string/jumbo v4, "infinity"
 
     const/4 v5, 0x4
 
     aput-object v4, v2, v5
 
-    .line 505
+    .line 494
     const-string/jumbo v4, "macro"
 
     const/4 v5, 0x5
 
     aput-object v4, v2, v5
 
-    .line 506
+    .line 495
     const-string/jumbo v4, "fixed"
 
     const/4 v5, 0x6
 
     aput-object v4, v2, v5
 
-    .line 509
+    .line 498
     .local v2, "focusModeStrings":[Ljava/lang/String;
     new-array v1, v8, [I
 
     .local v1, "focusModeInts":[I
     fill-array-data v1, :array_0
 
-    .line 519
+    .line 508
     invoke-static {v3, v2, v1}, Landroid/hardware/camera2/utils/ArrayUtils;->convertStringListToIntList(Ljava/util/List;[Ljava/lang/String;[I)Ljava/util/List;
 
     move-result-object v0
 
-    .line 523
+    .line 512
     .local v0, "afAvail":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     if-eqz v0, :cond_0
 
@@ -2564,7 +2484,7 @@
 
     if-nez v4, :cond_1
 
-    .line 524
+    .line 513
     :cond_0
     const-string/jumbo v4, "LegacyMetadataMapper"
 
@@ -2572,13 +2492,13 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 525
+    .line 514
     new-instance v0, Ljava/util/ArrayList;
 
     .end local v0    # "afAvail":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     invoke-direct {v0, v7}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 526
+    .line 515
     .restart local v0    # "afAvail":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -2586,7 +2506,7 @@
 
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 529
+    .line 518
     :cond_1
     sget-object v4, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AF_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
@@ -2596,10 +2516,10 @@
 
     invoke-virtual {p0, v4, v5}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 492
+    .line 481
     return-void
 
-    .line 509
+    .line 498
     nop
 
     :array_0
@@ -2615,153 +2535,136 @@
 .end method
 
 .method private static mapControlAwb(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
-    .locals 9
+    .locals 8
     .param p0, "m"    # Landroid/hardware/camera2/impl/CameraMetadataNative;
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    const/16 v8, 0x8
+    const/16 v7, 0x8
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    .line 544
+    .line 533
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getSupportedWhiteBalance()Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v3
+
+    .line 535
+    .local v3, "wbModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    new-array v2, v7, [Ljava/lang/String;
+
+    .line 536
+    const-string/jumbo v4, "auto"
+
+    aput-object v4, v2, v5
+
+    .line 537
+    const-string/jumbo v4, "incandescent"
+
+    aput-object v4, v2, v6
+
+    .line 538
+    const-string/jumbo v4, "fluorescent"
+
+    const/4 v5, 0x2
+
+    aput-object v4, v2, v5
+
+    .line 539
+    const-string/jumbo v4, "warm-fluorescent"
+
+    const/4 v5, 0x3
+
+    aput-object v4, v2, v5
+
+    .line 540
+    const-string/jumbo v4, "daylight"
+
+    const/4 v5, 0x4
+
+    aput-object v4, v2, v5
+
+    .line 541
+    const-string/jumbo v4, "cloudy-daylight"
+
+    const/4 v5, 0x5
+
+    aput-object v4, v2, v5
+
+    .line 542
+    const-string/jumbo v4, "twilight"
+
+    const/4 v5, 0x6
+
+    aput-object v4, v2, v5
+
+    .line 543
+    const-string/jumbo v4, "shade"
+
+    const/4 v5, 0x7
+
+    aput-object v4, v2, v5
 
     .line 546
-    .local v4, "wbModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    new-array v3, v8, [Ljava/lang/String;
+    .local v2, "wbModeStrings":[Ljava/lang/String;
+    new-array v1, v7, [I
 
-    .line 547
-    const-string/jumbo v5, "auto"
+    .local v1, "wbModeInts":[I
+    fill-array-data v1, :array_0
 
-    aput-object v5, v3, v6
-
-    .line 548
-    const-string/jumbo v5, "incandescent"
-
-    aput-object v5, v3, v7
-
-    .line 549
-    const-string/jumbo v5, "fluorescent"
-
-    const/4 v6, 0x2
-
-    aput-object v5, v3, v6
-
-    .line 550
-    const-string/jumbo v5, "warm-fluorescent"
-
-    const/4 v6, 0x3
-
-    aput-object v5, v3, v6
-
-    .line 551
-    const-string/jumbo v5, "daylight"
-
-    const/4 v6, 0x4
-
-    aput-object v5, v3, v6
-
-    .line 552
-    const-string/jumbo v5, "cloudy-daylight"
-
-    const/4 v6, 0x5
-
-    aput-object v5, v3, v6
-
-    .line 553
-    const-string/jumbo v5, "twilight"
-
-    const/4 v6, 0x6
-
-    aput-object v5, v3, v6
-
-    .line 554
-    const-string/jumbo v5, "shade"
-
-    const/4 v6, 0x7
-
-    aput-object v5, v3, v6
-
-    .line 557
-    .local v3, "wbModeStrings":[Ljava/lang/String;
-    new-array v2, v8, [I
-
-    .local v2, "wbModeInts":[I
-    fill-array-data v2, :array_0
-
-    .line 569
-    invoke-static {v4, v3, v2}, Landroid/hardware/camera2/utils/ArrayUtils;->convertStringListToIntList(Ljava/util/List;[Ljava/lang/String;[I)Ljava/util/List;
+    .line 558
+    invoke-static {v3, v2, v1}, Landroid/hardware/camera2/utils/ArrayUtils;->convertStringListToIntList(Ljava/util/List;[Ljava/lang/String;[I)Ljava/util/List;
 
     move-result-object v0
 
-    .line 573
+    .line 562
     .local v0, "awbAvail":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     if-eqz v0, :cond_0
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v4
 
-    if-nez v5, :cond_1
+    if-nez v4, :cond_1
 
-    .line 574
+    .line 563
     :cond_0
-    const-string/jumbo v5, "LegacyMetadataMapper"
+    const-string/jumbo v4, "LegacyMetadataMapper"
 
-    const-string/jumbo v6, "No AWB modes supported (HAL bug); defaulting to AWB_MODE_AUTO only"
+    const-string/jumbo v5, "No AWB modes supported (HAL bug); defaulting to AWB_MODE_AUTO only"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 575
+    .line 564
     new-instance v0, Ljava/util/ArrayList;
 
     .end local v0    # "awbAvail":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
-    invoke-direct {v0, v7}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v0, v6}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 576
+    .line 565
     .restart local v0    # "awbAvail":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 579
+    .line 568
     :cond_1
-    sget-object v5, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AWB_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    sget-object v4, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AWB_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-static {v0}, Landroid/hardware/camera2/utils/ArrayUtils;->toIntArray(Ljava/util/List;)[I
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {p0, v5, v6}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v5}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 591
-    invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->isAutoWhiteBalanceLockSupported()Z
-
-    move-result v1
-
-    .line 593
-    .local v1, "awbLockAvailable":Z
-    sget-object v5, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AWB_LOCK_AVAILABLE:Landroid/hardware/camera2/CameraCharacteristics$Key;
-
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v6
-
-    invoke-virtual {p0, v5, v6}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
-
-    .line 538
+    .line 527
     return-void
 
-    .line 557
-    nop
-
+    .line 546
     :array_0
     .array-data 4
         0x1
@@ -2781,32 +2684,32 @@
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    .line 603
+    .line 582
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->isVideoStabilizationSupported()Z
 
     move-result v11
 
     if-eqz v11, :cond_6
 
-    .line 604
+    .line 583
     const/4 v11, 0x0
 
-    .line 605
+    .line 584
     const/4 v12, 0x1
 
-    .line 604
+    .line 583
     filled-new-array {v11, v12}, [I
 
     move-result-object v8
 
-    .line 608
+    .line 587
     .local v8, "stabModes":[I
     :goto_0
     sget-object v11, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_VIDEO_STABILIZATION_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v11, v8}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 614
+    .line 593
     const/4 v0, 0x0
 
     .local v0, "AE":I
@@ -2815,13 +2718,13 @@
     .local v2, "AWB":I
     const/4 v1, 0x2
 
-    .line 616
+    .line 595
     .local v1, "AF":I
     const/4 v11, 0x3
 
     new-array v5, v11, [I
 
-    .line 617
+    .line 596
     .local v5, "maxRegions":[I
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getMaxNumMeteringAreas()I
 
@@ -2831,14 +2734,14 @@
 
     aput v11, v5, v12
 
-    .line 618
+    .line 597
     const/4 v11, 0x0
 
     const/4 v12, 0x1
 
     aput v11, v5, v12
 
-    .line 619
+    .line 598
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getMaxNumFocusAreas()I
 
     move-result v11
@@ -2847,17 +2750,17 @@
 
     aput v11, v5, v12
 
-    .line 628
+    .line 607
     sget-object v11, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_MAX_REGIONS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v11, v5}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 633
+    .line 612
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedColorEffects()Ljava/util/List;
 
     move-result-object v3
 
-    .line 634
+    .line 613
     .local v3, "effectModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     if-nez v3, :cond_7
 
@@ -2865,25 +2768,25 @@
 
     new-array v9, v11, [I
 
-    .line 637
+    .line 616
     .local v9, "supportedEffectModes":[I
     :goto_1
     sget-object v11, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_EFFECTS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v11, v9}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 642
+    .line 621
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getMaxNumDetectedFaces()I
 
     move-result v4
 
-    .line 643
+    .line 622
     .local v4, "maxNumDetectedFaces":I
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedSceneModes()Ljava/util/List;
 
     move-result-object v7
 
-    .line 645
+    .line 624
     .local v7, "sceneModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     sget-object v11, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sLegacySceneModes:[Ljava/lang/String;
 
@@ -2893,7 +2796,7 @@
 
     move-result-object v10
 
-    .line 648
+    .line 627
     .local v10, "supportedSceneModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     if-eqz v7, :cond_0
 
@@ -2905,7 +2808,7 @@
 
     if-ne v11, v12, :cond_0
 
-    .line 649
+    .line 628
     const/4 v11, 0x0
 
     invoke-interface {v7, v11}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -2916,40 +2819,40 @@
 
     if-ne v11, v12, :cond_0
 
-    .line 650
+    .line 629
     const/4 v10, 0x0
 
-    .line 653
+    .line 632
     .end local v10    # "supportedSceneModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     :cond_0
     const/4 v6, 0x1
 
-    .line 654
+    .line 633
     .local v6, "sceneModeSupported":Z
     if-nez v10, :cond_1
 
     if-nez v4, :cond_1
 
-    .line 655
+    .line 634
     const/4 v6, 0x0
 
-    .line 658
+    .line 637
     :cond_1
     if-eqz v6, :cond_8
 
-    .line 659
+    .line 638
     if-nez v10, :cond_2
 
-    .line 660
+    .line 639
     new-instance v10, Ljava/util/ArrayList;
 
     invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
 
-    .line 662
+    .line 641
     :cond_2
     if-lez v4, :cond_3
 
-    .line 663
+    .line 642
     const/4 v11, 0x1
 
     invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2958,7 +2861,7 @@
 
     invoke-interface {v10, v11}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 666
+    .line 645
     :cond_3
     const/4 v11, 0x0
 
@@ -2972,7 +2875,7 @@
 
     if-eqz v11, :cond_5
 
-    .line 667
+    .line 646
     :cond_4
     new-instance v11, Ljava/lang/Integer;
 
@@ -2986,7 +2889,7 @@
 
     if-nez v11, :cond_4
 
-    .line 669
+    .line 648
     :cond_5
     sget-object v11, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_SCENE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
@@ -2996,29 +2899,11 @@
 
     invoke-virtual {p0, v11, v12}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 677
+    .line 577
     :goto_2
-    sget-object v12, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
-
-    if-eqz v6, :cond_9
-
-    .line 678
-    const/4 v11, 0x1
-
-    const/4 v13, 0x2
-
-    filled-new-array {v11, v13}, [I
-
-    move-result-object v11
-
-    .line 677
-    :goto_3
-    invoke-virtual {p0, v12, v11}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
-
-    .line 598
     return-void
 
-    .line 606
+    .line 585
     .end local v0    # "AE":I
     .end local v1    # "AF":I
     .end local v2    # "AWB":I
@@ -3043,7 +2928,7 @@
     .restart local v8    # "stabModes":[I
     goto/16 :goto_0
 
-    .line 635
+    .line 614
     .restart local v0    # "AE":I
     .restart local v1    # "AF":I
     .restart local v2    # "AWB":I
@@ -3052,18 +2937,18 @@
     :cond_7
     sget-object v11, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sLegacyEffectMode:[Ljava/lang/String;
 
-    .line 636
+    .line 615
     sget-object v12, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->sEffectModes:[I
 
-    .line 635
+    .line 614
     invoke-static {v3, v11, v12}, Landroid/hardware/camera2/utils/ArrayUtils;->convertStringListToIntArray(Ljava/util/List;[Ljava/lang/String;[I)[I
 
     move-result-object v9
 
     .restart local v9    # "supportedEffectModes":[I
-    goto/16 :goto_1
+    goto :goto_1
 
-    .line 671
+    .line 650
     .restart local v4    # "maxNumDetectedFaces":I
     .restart local v6    # "sceneModeSupported":Z
     .restart local v7    # "sceneModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
@@ -3083,20 +2968,6 @@
     invoke-virtual {p0, v11, v12}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
     goto :goto_2
-
-    .line 679
-    :cond_9
-    const/4 v11, 0x1
-
-    new-array v11, v11, [I
-
-    const/4 v13, 0x1
-
-    const/4 v14, 0x0
-
-    aput v13, v11, v14
-
-    goto :goto_3
 .end method
 
 .method private static mapFlash(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V
@@ -3105,23 +2976,23 @@
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    .line 711
+    .line 683
     const/4 v0, 0x0
 
-    .line 712
+    .line 684
     .local v0, "flashAvailable":Z
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getSupportedFlashModes()Ljava/util/List;
 
     move-result-object v1
 
-    .line 714
+    .line 686
     .local v1, "supportedFlashModes":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     if-eqz v1, :cond_0
 
-    .line 717
+    .line 689
     const-string/jumbo v2, "off"
 
-    .line 716
+    .line 688
     invoke-static {v1, v2}, Landroid/hardware/camera2/utils/ListUtils;->listElementsEqualTo(Ljava/util/List;Ljava/lang/Object;)Z
 
     move-result v2
@@ -3130,7 +3001,7 @@
 
     const/4 v0, 0x0
 
-    .line 723
+    .line 695
     :cond_0
     :goto_0
     sget-object v2, Landroid/hardware/camera2/CameraCharacteristics;->FLASH_INFO_AVAILABLE:Landroid/hardware/camera2/CameraCharacteristics$Key;
@@ -3141,10 +3012,10 @@
 
     invoke-virtual {p0, v2, v3}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 710
+    .line 682
     return-void
 
-    .line 716
+    .line 688
     :cond_1
     const/4 v0, 0x1
 
@@ -3157,21 +3028,21 @@
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    .line 727
+    .line 699
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getSupportedJpegThumbnailSizes()Ljava/util/List;
 
     move-result-object v1
 
-    .line 729
+    .line 701
     .local v1, "thumbnailSizes":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/Camera$Size;>;"
     if-eqz v1, :cond_0
 
-    .line 730
+    .line 702
     invoke-static {v1}, Landroid/hardware/camera2/legacy/ParameterUtils;->convertSizeListToArray(Ljava/util/List;)[Landroid/util/Size;
 
     move-result-object v0
 
-    .line 731
+    .line 703
     .local v0, "sizes":[Landroid/util/Size;
     new-instance v2, Landroid/hardware/camera2/utils/SizeAreaComparator;
 
@@ -3179,12 +3050,12 @@
 
     invoke-static {v0, v2}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
 
-    .line 732
+    .line 704
     sget-object v2, Landroid/hardware/camera2/CameraCharacteristics;->JPEG_AVAILABLE_THUMBNAIL_SIZES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v2, v0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 726
+    .line 698
     .end local v0    # "sizes":[Landroid/util/Size;
     :cond_0
     return-void
@@ -3196,7 +3067,7 @@
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    .line 691
+    .line 663
     const-string/jumbo v1, "fixed"
 
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getFocusMode()Ljava/lang/String;
@@ -3209,7 +3080,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 695
+    .line 667
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->LENS_INFO_MINIMUM_FOCUS_DISTANCE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v2, 0x0
@@ -3220,7 +3091,7 @@
 
     invoke-virtual {p0, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 706
+    .line 678
     :cond_0
     const/4 v1, 0x1
 
@@ -3234,13 +3105,13 @@
 
     aput v1, v0, v2
 
-    .line 707
+    .line 679
     .local v0, "focalLengths":[F
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->LENS_INFO_AVAILABLE_FOCAL_LENGTHS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v1, v0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 682
+    .line 654
     return-void
 .end method
 
@@ -3250,7 +3121,7 @@
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    .line 740
+    .line 712
     const/4 v10, 0x1
 
     new-array v5, v10, [I
@@ -3261,270 +3132,249 @@
 
     aput v10, v5, v11
 
-    .line 741
+    .line 713
     .local v5, "capabilities":[I
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_AVAILABLE_CAPABILITIES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v10, v5}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 751
-    const/16 v10, 0x24
+    .line 723
+    const/16 v10, 0x21
 
     new-array v2, v10, [Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    .line 752
+    .line 724
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->COLOR_CORRECTION_AVAILABLE_ABERRATION_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v11, 0x0
 
     aput-object v10, v2, v11
 
-    .line 753
+    .line 725
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_ANTIBANDING_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v11, 0x1
 
     aput-object v10, v2, v11
 
-    .line 754
+    .line 726
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v11, 0x2
 
     aput-object v10, v2, v11
 
-    .line 755
+    .line 727
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v11, 0x3
 
     aput-object v10, v2, v11
 
-    .line 756
+    .line 728
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_COMPENSATION_RANGE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v11, 0x4
 
     aput-object v10, v2, v11
 
-    .line 757
+    .line 729
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_COMPENSATION_STEP:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v11, 0x5
 
     aput-object v10, v2, v11
 
-    .line 758
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_LOCK_AVAILABLE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 730
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AF_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v11, 0x6
 
     aput-object v10, v2, v11
 
-    .line 759
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AF_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 731
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_EFFECTS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v11, 0x7
 
     aput-object v10, v2, v11
 
-    .line 760
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_EFFECTS:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 732
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_SCENE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x8
 
     aput-object v10, v2, v11
 
-    .line 761
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 733
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_VIDEO_STABILIZATION_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x9
 
     aput-object v10, v2, v11
 
-    .line 762
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_SCENE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 734
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AWB_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0xa
 
     aput-object v10, v2, v11
 
-    .line 763
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AVAILABLE_VIDEO_STABILIZATION_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 735
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_MAX_REGIONS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0xb
 
     aput-object v10, v2, v11
 
-    .line 764
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AWB_AVAILABLE_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 736
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->FLASH_INFO_AVAILABLE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0xc
 
     aput-object v10, v2, v11
 
-    .line 765
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AWB_LOCK_AVAILABLE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 737
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->INFO_SUPPORTED_HARDWARE_LEVEL:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0xd
 
     aput-object v10, v2, v11
 
-    .line 766
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_MAX_REGIONS:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 738
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->JPEG_AVAILABLE_THUMBNAIL_SIZES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0xe
 
     aput-object v10, v2, v11
 
-    .line 767
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->FLASH_INFO_AVAILABLE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 739
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->LENS_FACING:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0xf
 
     aput-object v10, v2, v11
 
-    .line 768
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->INFO_SUPPORTED_HARDWARE_LEVEL:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 740
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->LENS_INFO_AVAILABLE_FOCAL_LENGTHS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x10
 
     aput-object v10, v2, v11
 
-    .line 769
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->JPEG_AVAILABLE_THUMBNAIL_SIZES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 741
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->NOISE_REDUCTION_AVAILABLE_NOISE_REDUCTION_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x11
 
     aput-object v10, v2, v11
 
-    .line 770
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->LENS_FACING:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 742
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_AVAILABLE_CAPABILITIES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x12
 
     aput-object v10, v2, v11
 
-    .line 771
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->LENS_INFO_AVAILABLE_FOCAL_LENGTHS:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 743
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_MAX_NUM_OUTPUT_STREAMS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x13
 
     aput-object v10, v2, v11
 
-    .line 772
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->NOISE_REDUCTION_AVAILABLE_NOISE_REDUCTION_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 744
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_PARTIAL_RESULT_COUNT:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x14
 
     aput-object v10, v2, v11
 
-    .line 773
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_AVAILABLE_CAPABILITIES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 745
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_PIPELINE_MAX_DEPTH:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x15
 
     aput-object v10, v2, v11
 
-    .line 774
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_MAX_NUM_OUTPUT_STREAMS:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 746
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SCALER_AVAILABLE_MAX_DIGITAL_ZOOM:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x16
 
     aput-object v10, v2, v11
 
-    .line 775
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_PARTIAL_RESULT_COUNT:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 748
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SCALER_CROPPING_TYPE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x17
 
     aput-object v10, v2, v11
 
-    .line 776
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_PIPELINE_MAX_DEPTH:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 749
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_AVAILABLE_TEST_PATTERN_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x18
 
     aput-object v10, v2, v11
 
-    .line 777
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SCALER_AVAILABLE_MAX_DIGITAL_ZOOM:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 750
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_ACTIVE_ARRAY_SIZE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x19
 
     aput-object v10, v2, v11
 
-    .line 779
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SCALER_CROPPING_TYPE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 751
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_PHYSICAL_SIZE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x1a
 
     aput-object v10, v2, v11
 
-    .line 780
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_AVAILABLE_TEST_PATTERN_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 752
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_PIXEL_ARRAY_SIZE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x1b
 
     aput-object v10, v2, v11
 
-    .line 781
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_ACTIVE_ARRAY_SIZE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 753
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_TIMESTAMP_SOURCE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x1c
 
     aput-object v10, v2, v11
 
-    .line 782
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_PHYSICAL_SIZE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 754
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_ORIENTATION:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x1d
 
     aput-object v10, v2, v11
 
-    .line 783
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_PIXEL_ARRAY_SIZE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 755
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->STATISTICS_INFO_AVAILABLE_FACE_DETECT_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x1e
 
     aput-object v10, v2, v11
 
-    .line 784
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_TIMESTAMP_SOURCE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 756
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->STATISTICS_INFO_MAX_FACE_COUNT:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x1f
 
     aput-object v10, v2, v11
 
-    .line 785
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_ORIENTATION:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    .line 757
+    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SYNC_MAX_LATENCY:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/16 v11, 0x20
 
     aput-object v10, v2, v11
 
-    .line 786
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->STATISTICS_INFO_AVAILABLE_FACE_DETECT_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
-
-    const/16 v11, 0x21
-
-    aput-object v10, v2, v11
-
-    .line 787
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->STATISTICS_INFO_MAX_FACE_COUNT:Landroid/hardware/camera2/CameraCharacteristics$Key;
-
-    const/16 v11, 0x22
-
-    aput-object v10, v2, v11
-
-    .line 788
-    sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->SYNC_MAX_LATENCY:Landroid/hardware/camera2/CameraCharacteristics$Key;
-
-    const/16 v11, 0x23
-
-    aput-object v10, v2, v11
-
-    .line 790
+    .line 759
     .local v2, "availableKeys":[Landroid/hardware/camera2/CameraCharacteristics$Key;, "[Landroid/hardware/camera2/CameraCharacteristics$Key<*>;"
     new-instance v6, Ljava/util/ArrayList;
 
@@ -3534,7 +3384,7 @@
 
     invoke-direct {v6, v10}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 795
+    .line 764
     .local v6, "characteristicsKeys":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CameraCharacteristics$Key<*>;>;"
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->LENS_INFO_MINIMUM_FOCUS_DISTANCE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
@@ -3544,16 +3394,16 @@
 
     if-eqz v10, :cond_0
 
-    .line 796
+    .line 765
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->LENS_INFO_MINIMUM_FOCUS_DISTANCE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-interface {v6, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 799
+    .line 768
     :cond_0
     sget-object v11, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_AVAILABLE_CHARACTERISTICS_KEYS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    .line 800
+    .line 769
     const/4 v10, 0x0
 
     new-array v10, v10, [Landroid/hardware/camera2/CameraCharacteristics$Key;
@@ -3568,204 +3418,204 @@
 
     move-result-object v10
 
-    .line 799
+    .line 768
     invoke-virtual {p0, v11, v10}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 807
+    .line 776
     const/16 v10, 0x1b
 
     new-array v7, v10, [Landroid/hardware/camera2/CaptureRequest$Key;
 
-    .line 808
+    .line 777
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->COLOR_CORRECTION_ABERRATION_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v11, 0x0
 
     aput-object v10, v7, v11
 
-    .line 809
+    .line 778
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_ANTIBANDING_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v11, 0x1
 
     aput-object v10, v7, v11
 
-    .line 810
+    .line 779
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_EXPOSURE_COMPENSATION:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v11, 0x2
 
     aput-object v10, v7, v11
 
-    .line 811
+    .line 780
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_LOCK:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v11, 0x3
 
     aput-object v10, v7, v11
 
-    .line 812
+    .line 781
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v11, 0x4
 
     aput-object v10, v7, v11
 
-    .line 813
+    .line 782
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_TARGET_FPS_RANGE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v11, 0x5
 
     aput-object v10, v7, v11
 
-    .line 814
+    .line 783
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AF_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v11, 0x6
 
     aput-object v10, v7, v11
 
-    .line 815
+    .line 784
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AF_TRIGGER:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v11, 0x7
 
     aput-object v10, v7, v11
 
-    .line 816
+    .line 785
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AWB_LOCK:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x8
 
     aput-object v10, v7, v11
 
-    .line 817
+    .line 786
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AWB_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x9
 
     aput-object v10, v7, v11
 
-    .line 818
+    .line 787
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_CAPTURE_INTENT:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0xa
 
     aput-object v10, v7, v11
 
-    .line 819
+    .line 788
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_EFFECT_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0xb
 
     aput-object v10, v7, v11
 
-    .line 820
+    .line 789
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0xc
 
     aput-object v10, v7, v11
 
-    .line 821
+    .line 790
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_SCENE_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0xd
 
     aput-object v10, v7, v11
 
-    .line 822
+    .line 791
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_VIDEO_STABILIZATION_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0xe
 
     aput-object v10, v7, v11
 
-    .line 823
+    .line 792
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->FLASH_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0xf
 
     aput-object v10, v7, v11
 
-    .line 824
+    .line 793
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->JPEG_GPS_COORDINATES:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x10
 
     aput-object v10, v7, v11
 
-    .line 825
+    .line 794
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->JPEG_GPS_PROCESSING_METHOD:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x11
 
     aput-object v10, v7, v11
 
-    .line 826
+    .line 795
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->JPEG_GPS_TIMESTAMP:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x12
 
     aput-object v10, v7, v11
 
-    .line 827
+    .line 796
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->JPEG_ORIENTATION:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x13
 
     aput-object v10, v7, v11
 
-    .line 828
+    .line 797
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->JPEG_QUALITY:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x14
 
     aput-object v10, v7, v11
 
-    .line 829
+    .line 798
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->JPEG_THUMBNAIL_QUALITY:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x15
 
     aput-object v10, v7, v11
 
-    .line 830
+    .line 799
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->JPEG_THUMBNAIL_SIZE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x16
 
     aput-object v10, v7, v11
 
-    .line 831
+    .line 800
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->LENS_FOCAL_LENGTH:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x17
 
     aput-object v10, v7, v11
 
-    .line 832
+    .line 801
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->NOISE_REDUCTION_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x18
 
     aput-object v10, v7, v11
 
-    .line 833
+    .line 802
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->SCALER_CROP_REGION:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x19
 
     aput-object v10, v7, v11
 
-    .line 834
+    .line 803
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->STATISTICS_FACE_DETECT_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/16 v11, 0x1a
 
     aput-object v10, v7, v11
 
-    .line 837
+    .line 806
     .local v7, "defaultAvailableKeys":[Landroid/hardware/camera2/CaptureRequest$Key;, "[Landroid/hardware/camera2/CaptureRequest$Key<*>;"
     new-instance v0, Ljava/util/ArrayList;
 
@@ -3775,7 +3625,7 @@
 
     invoke-direct {v0, v10}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 839
+    .line 808
     .local v0, "availableKeys":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/camera2/CaptureRequest$Key<*>;>;"
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getMaxNumMeteringAreas()I
 
@@ -3783,12 +3633,12 @@
 
     if-lez v10, :cond_1
 
-    .line 840
+    .line 809
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_REGIONS:Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-virtual {v0, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 842
+    .line 811
     :cond_1
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getMaxNumFocusAreas()I
 
@@ -3796,12 +3646,12 @@
 
     if-lez v10, :cond_2
 
-    .line 843
+    .line 812
     sget-object v10, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AF_REGIONS:Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-virtual {v0, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 847
+    .line 816
     :cond_2
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -3809,11 +3659,11 @@
 
     new-array v3, v10, [Landroid/hardware/camera2/CaptureRequest$Key;
 
-    .line 848
+    .line 817
     .local v3, "availableRequestKeys":[Landroid/hardware/camera2/CaptureRequest$Key;, "[Landroid/hardware/camera2/CaptureRequest$Key<*>;"
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    .line 849
+    .line 818
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_AVAILABLE_REQUEST_KEYS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-static {v3}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->getTagsForKeys([Landroid/hardware/camera2/CaptureRequest$Key;)[I
@@ -3822,173 +3672,173 @@
 
     invoke-virtual {p0, v10, v11}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 856
+    .line 825
     const/16 v10, 0x17
 
     new-array v8, v10, [Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 857
+    .line 826
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->COLOR_CORRECTION_ABERRATION_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/4 v11, 0x0
 
     aput-object v10, v8, v11
 
-    .line 858
+    .line 827
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_AE_ANTIBANDING_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/4 v11, 0x1
 
     aput-object v10, v8, v11
 
-    .line 859
+    .line 828
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_AE_EXPOSURE_COMPENSATION:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/4 v11, 0x2
 
     aput-object v10, v8, v11
 
-    .line 860
+    .line 829
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_AE_LOCK:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/4 v11, 0x3
 
     aput-object v10, v8, v11
 
-    .line 861
+    .line 830
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_AE_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/4 v11, 0x4
 
     aput-object v10, v8, v11
 
-    .line 862
+    .line 831
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_AF_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/4 v11, 0x5
 
     aput-object v10, v8, v11
 
-    .line 863
+    .line 832
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_AF_STATE:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/4 v11, 0x6
 
     aput-object v10, v8, v11
 
-    .line 864
+    .line 833
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_AWB_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/4 v11, 0x7
 
     aput-object v10, v8, v11
 
-    .line 865
+    .line 834
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_AWB_LOCK:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0x8
 
     aput-object v10, v8, v11
 
-    .line 866
+    .line 835
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0x9
 
     aput-object v10, v8, v11
 
-    .line 867
+    .line 836
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->FLASH_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0xa
 
     aput-object v10, v8, v11
 
-    .line 868
+    .line 837
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->JPEG_GPS_COORDINATES:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0xb
 
     aput-object v10, v8, v11
 
-    .line 869
+    .line 838
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->JPEG_GPS_PROCESSING_METHOD:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0xc
 
     aput-object v10, v8, v11
 
-    .line 870
+    .line 839
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->JPEG_GPS_TIMESTAMP:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0xd
 
     aput-object v10, v8, v11
 
-    .line 871
+    .line 840
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->JPEG_ORIENTATION:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0xe
 
     aput-object v10, v8, v11
 
-    .line 872
+    .line 841
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->JPEG_QUALITY:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0xf
 
     aput-object v10, v8, v11
 
-    .line 873
+    .line 842
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->JPEG_THUMBNAIL_QUALITY:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0x10
 
     aput-object v10, v8, v11
 
-    .line 874
+    .line 843
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->LENS_FOCAL_LENGTH:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0x11
 
     aput-object v10, v8, v11
 
-    .line 875
+    .line 844
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->NOISE_REDUCTION_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0x12
 
     aput-object v10, v8, v11
 
-    .line 876
+    .line 845
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->REQUEST_PIPELINE_DEPTH:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0x13
 
     aput-object v10, v8, v11
 
-    .line 877
+    .line 846
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->SCALER_CROP_REGION:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0x14
 
     aput-object v10, v8, v11
 
-    .line 878
+    .line 847
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->SENSOR_TIMESTAMP:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0x15
 
     aput-object v10, v8, v11
 
-    .line 879
+    .line 848
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_DETECT_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
     const/16 v11, 0x16
 
     aput-object v10, v8, v11
 
-    .line 883
+    .line 852
     .local v8, "defaultAvailableKeys":[Landroid/hardware/camera2/CaptureResult$Key;, "[Landroid/hardware/camera2/CaptureResult$Key<*>;"
     new-instance v1, Ljava/util/ArrayList;
 
@@ -3998,7 +3848,7 @@
 
     invoke-direct {v1, v10}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 885
+    .line 854
     .local v1, "availableKeys":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CaptureResult$Key<*>;>;"
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getMaxNumMeteringAreas()I
 
@@ -4006,12 +3856,12 @@
 
     if-lez v10, :cond_3
 
-    .line 886
+    .line 855
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_AE_REGIONS:Landroid/hardware/camera2/CaptureResult$Key;
 
     invoke-interface {v1, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 888
+    .line 857
     :cond_3
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getMaxNumFocusAreas()I
 
@@ -4019,12 +3869,12 @@
 
     if-lez v10, :cond_4
 
-    .line 889
+    .line 858
     sget-object v10, Landroid/hardware/camera2/CaptureResult;->CONTROL_AF_REGIONS:Landroid/hardware/camera2/CaptureResult$Key;
 
     invoke-interface {v1, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 893
+    .line 862
     :cond_4
     invoke-interface {v1}, Ljava/util/List;->size()I
 
@@ -4032,11 +3882,11 @@
 
     new-array v4, v10, [Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 894
+    .line 863
     .local v4, "availableResultKeys":[Landroid/hardware/camera2/CaptureResult$Key;, "[Landroid/hardware/camera2/CaptureResult$Key<*>;"
     invoke-interface {v1, v4}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    .line 895
+    .line 864
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_AVAILABLE_RESULT_KEYS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-static {v4}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->getTagsForKeys([Landroid/hardware/camera2/CaptureResult$Key;)[I
@@ -4045,27 +3895,27 @@
 
     invoke-virtual {p0, v10, v11}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 903
+    .line 872
     const/4 v10, 0x0
 
-    .line 905
+    .line 874
     const/4 v11, 0x3
 
-    .line 907
+    .line 876
     const/4 v12, 0x1
 
-    .line 901
+    .line 870
     filled-new-array {v10, v11, v12}, [I
 
     move-result-object v9
 
-    .line 909
+    .line 878
     .local v9, "outputStreams":[I
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_MAX_NUM_OUTPUT_STREAMS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v10, v9}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 914
+    .line 883
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_MAX_NUM_INPUT_STREAMS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v11, 0x0
@@ -4076,7 +3926,7 @@
 
     invoke-virtual {p0, v10, v11}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 919
+    .line 888
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_PARTIAL_RESULT_COUNT:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v11, 0x1
@@ -4087,20 +3937,20 @@
 
     invoke-virtual {p0, v10, v11}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 924
+    .line 893
     sget-object v10, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_PIPELINE_MAX_DEPTH:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    .line 925
+    .line 894
     const/4 v11, 0x6
 
     invoke-static {v11}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
     move-result-object v11
 
-    .line 924
+    .line 893
     invoke-virtual {p0, v10, v11}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 736
+    .line 708
     return-void
 .end method
 
@@ -4110,7 +3960,7 @@
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    .line 932
+    .line 901
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->SCALER_AVAILABLE_MAX_DIGITAL_ZOOM:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-static {p1}, Landroid/hardware/camera2/legacy/ParameterUtils;->getMaxZoomRatio(Landroid/hardware/Camera$Parameters;)F
@@ -4123,7 +3973,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 937
+    .line 906
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->SCALER_CROPPING_TYPE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v1, 0x0
@@ -4134,7 +3984,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 928
+    .line 897
     return-void
 .end method
 
@@ -4144,41 +3994,41 @@
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    .line 258
+    .line 256
     new-instance v9, Ljava/util/ArrayList;
 
     invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
 
-    .line 268
+    .line 266
     .local v9, "availableStreamConfigs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/camera2/params/StreamConfiguration;>;"
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedPreviewSizes()Ljava/util/List;
 
     move-result-object v22
 
-    .line 269
+    .line 267
     .local v22, "previewSizes":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/Camera$Size;>;"
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedPictureSizes()Ljava/util/List;
 
     move-result-object v16
 
-    .line 281
+    .line 279
     .local v16, "jpegSizes":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/Camera$Size;>;"
     new-instance v8, Landroid/hardware/camera2/legacy/SizeAreaComparator;
 
     invoke-direct {v8}, Landroid/hardware/camera2/legacy/SizeAreaComparator;-><init>()V
 
-    .line 284
+    .line 282
     .local v8, "areaComparator":Landroid/hardware/camera2/legacy/SizeAreaComparator;
     move-object/from16 v0, v22
 
     invoke-static {v0, v8}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 286
+    .line 284
     invoke-static/range {v16 .. v16}, Landroid/hardware/camera2/legacy/SizeAreaComparator;->findLargestByArea(Ljava/util/List;)Landroid/hardware/Camera$Size;
 
     move-result-object v20
 
-    .line 287
+    .line 285
     .local v20, "maxJpegSize":Landroid/hardware/Camera$Size;
     move-object/from16 v0, v20
 
@@ -4198,7 +4048,7 @@
 
     div-float v15, v2, v3
 
-    .line 295
+    .line 293
     .local v15, "jpegAspectRatio":F
     :goto_0
     invoke-interface/range {v22 .. v22}, Ljava/util/List;->isEmpty()Z
@@ -4207,14 +4057,14 @@
 
     if-nez v2, :cond_0
 
-    .line 296
+    .line 294
     invoke-interface/range {v22 .. v22}, Ljava/util/List;->size()I
 
     move-result v2
 
     add-int/lit8 v14, v2, -0x1
 
-    .line 297
+    .line 295
     .local v14, "index":I
     move-object/from16 v0, v22
 
@@ -4224,7 +4074,7 @@
 
     check-cast v25, Landroid/hardware/Camera$Size;
 
-    .line 299
+    .line 297
     .local v25, "size":Landroid/hardware/Camera$Size;
     move-object/from16 v0, v25
 
@@ -4244,7 +4094,7 @@
 
     div-float v21, v2, v3
 
-    .line 301
+    .line 299
     .local v21, "previewAspectRatio":F
     sub-float v2, v15, v21
 
@@ -4252,22 +4102,22 @@
 
     move-result v2
 
-    .line 302
+    .line 300
     const v3, 0x3c23d70a    # 0.01f
 
-    .line 301
+    .line 299
     cmpl-float v2, v2, v3
 
     if-ltz v2, :cond_0
 
-    .line 303
+    .line 301
     move-object/from16 v0, v22
 
     invoke-interface {v0, v14}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 316
+    .line 314
     .end local v14    # "index":I
     .end local v21    # "previewAspectRatio":F
     .end local v25    # "size":Landroid/hardware/Camera$Size;
@@ -4278,7 +4128,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 318
+    .line 316
     const-string/jumbo v2, "LegacyMetadataMapper"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -4301,12 +4151,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 320
+    .line 318
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedPreviewSizes()Ljava/util/List;
 
     move-result-object v22
 
-    .line 324
+    .line 322
     :cond_1
     invoke-static {v8}, Ljava/util/Collections;->reverseOrder(Ljava/util/Comparator;)Ljava/util/Comparator;
 
@@ -4316,23 +4166,23 @@
 
     invoke-static {v0, v2}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 328
+    .line 326
     const/16 v2, 0x22
+
+    .line 325
+    move-object/from16 v0, v22
+
+    invoke-static {v9, v2, v0}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->appendStreamConfig(Ljava/util/ArrayList;ILjava/util/List;)V
+
+    .line 328
+    const/16 v2, 0x23
 
     .line 327
     move-object/from16 v0, v22
 
     invoke-static {v9, v2, v0}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->appendStreamConfig(Ljava/util/ArrayList;ILjava/util/List;)V
 
-    .line 330
-    const/16 v2, 0x23
-
     .line 329
-    move-object/from16 v0, v22
-
-    invoke-static {v9, v2, v0}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->appendStreamConfig(Ljava/util/ArrayList;ILjava/util/List;)V
-
-    .line 331
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedPreviewFormats()Ljava/util/List;
 
     move-result-object v2
@@ -4360,7 +4210,7 @@
 
     move-result v10
 
-    .line 332
+    .line 330
     .local v10, "format":I
     invoke-static {v10}, Landroid/graphics/ImageFormat;->isPublicFormat(I)Z
 
@@ -4372,14 +4222,14 @@
 
     if-eq v10, v2, :cond_2
 
-    .line 333
+    .line 331
     move-object/from16 v0, v22
 
     invoke-static {v9, v10, v0}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->appendStreamConfig(Ljava/util/ArrayList;ILjava/util/List;)V
 
     goto :goto_1
 
-    .line 345
+    .line 343
     .end local v10    # "format":I
     :cond_3
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/Camera$Parameters;->getSupportedPictureSizes()Ljava/util/List;
@@ -4388,13 +4238,13 @@
 
     const/16 v3, 0x21
 
-    .line 344
+    .line 342
     invoke-static {v9, v3, v2}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->appendStreamConfig(Ljava/util/ArrayList;ILjava/util/List;)V
 
-    .line 349
+    .line 347
     sget-object v3, Landroid/hardware/camera2/CameraCharacteristics;->SCALER_AVAILABLE_STREAM_CONFIGURATIONS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    .line 350
+    .line 348
     const/4 v2, 0x0
 
     new-array v2, v2, [Landroid/hardware/camera2/params/StreamConfiguration;
@@ -4405,12 +4255,12 @@
 
     check-cast v2, [Landroid/hardware/camera2/params/StreamConfiguration;
 
-    .line 349
+    .line 347
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 356
+    .line 354
     sget-object v2, Landroid/hardware/camera2/CameraCharacteristics;->SCALER_AVAILABLE_MIN_FRAME_DURATIONS:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v3, 0x0
@@ -4421,7 +4271,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 359
+    .line 357
     invoke-interface/range {v16 .. v16}, Ljava/util/List;->size()I
 
     move-result v2
@@ -4430,15 +4280,15 @@
 
     move-object/from16 v17, v0
 
-    .line 360
+    .line 358
     .local v17, "jpegStalls":[Landroid/hardware/camera2/params/StreamConfigurationDuration;
     const/4 v12, 0x0
 
-    .line 361
+    .line 359
     .local v12, "i":I
     const-wide/16 v18, -0x1
 
-    .line 362
+    .line 360
     .local v18, "longestStallDuration":J
     invoke-interface/range {v16 .. v16}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -4458,13 +4308,13 @@
 
     check-cast v23, Landroid/hardware/Camera$Size;
 
-    .line 363
+    .line 361
     .local v23, "s":Landroid/hardware/Camera$Size;
     invoke-static/range {v23 .. v23}, Landroid/hardware/camera2/legacy/LegacyMetadataMapper;->calculateJpegStallDuration(Landroid/hardware/Camera$Size;)J
 
     move-result-wide v6
 
-    .line 364
+    .line 362
     .local v6, "stallDuration":J
     add-int/lit8 v13, v12, 0x1
 
@@ -4476,24 +4326,24 @@
 
     iget v4, v0, Landroid/hardware/Camera$Size;->width:I
 
-    .line 365
+    .line 363
     move-object/from16 v0, v23
 
     iget v5, v0, Landroid/hardware/Camera$Size;->height:I
 
-    .line 364
+    .line 362
     const/16 v3, 0x21
 
     invoke-direct/range {v2 .. v7}, Landroid/hardware/camera2/params/StreamConfigurationDuration;-><init>(IIIJ)V
 
     aput-object v2, v17, v12
 
-    .line 366
+    .line 364
     cmp-long v2, v18, v6
 
     if-gez v2, :cond_4
 
-    .line 367
+    .line 365
     move-wide/from16 v18, v6
 
     :cond_4
@@ -4503,7 +4353,7 @@
     .restart local v12    # "i":I
     goto :goto_2
 
-    .line 374
+    .line 372
     .end local v6    # "stallDuration":J
     .end local v23    # "s":Landroid/hardware/Camera$Size;
     :cond_5
@@ -4515,7 +4365,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 379
+    .line 377
     sget-object v2, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_MAX_FRAME_DURATION:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-static/range {v18 .. v19}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -4526,7 +4376,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 256
+    .line 254
     return-void
 .end method
 
@@ -4536,24 +4386,24 @@
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    .line 942
+    .line 911
     invoke-static {p1}, Landroid/hardware/camera2/legacy/ParameterUtils;->getLargestSupportedJpegSizeByArea(Landroid/hardware/Camera$Parameters;)Landroid/util/Size;
 
     move-result-object v7
 
-    .line 947
+    .line 916
     .local v7, "largestJpegSize":Landroid/util/Size;
     invoke-static {v7}, Landroid/hardware/camera2/utils/ParamsUtils;->createRect(Landroid/util/Size;)Landroid/graphics/Rect;
 
     move-result-object v0
 
-    .line 948
+    .line 917
     .local v0, "activeArrayRect":Landroid/graphics/Rect;
     sget-object v9, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_ACTIVE_ARRAY_SIZE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v9, v0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 956
+    .line 925
     sget-object v9, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_AVAILABLE_TEST_PATTERN_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v10, 0x1
@@ -4568,17 +4418,17 @@
 
     invoke-virtual {p0, v9, v10}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 962
+    .line 931
     sget-object v9, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_PIXEL_ARRAY_SIZE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v9, v7}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 971
+    .line 940
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getFocalLength()F
 
     move-result v1
 
-    .line 972
+    .line 941
     .local v1, "focalLength":F
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getHorizontalViewAngle()F
 
@@ -4594,7 +4444,7 @@
 
     div-double v2, v10, v12
 
-    .line 973
+    .line 942
     .local v2, "angleHor":D
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getVerticalViewAngle()F
 
@@ -4610,7 +4460,7 @@
 
     div-double v4, v10, v12
 
-    .line 975
+    .line 944
     .local v4, "angleVer":D
     const/high16 v9, 0x40000000    # 2.0f
 
@@ -4634,7 +4484,7 @@
 
     double-to-float v6, v10
 
-    .line 976
+    .line 945
     .local v6, "height":F
     const/high16 v9, 0x40000000    # 2.0f
 
@@ -4658,7 +4508,7 @@
 
     double-to-float v8, v10
 
-    .line 978
+    .line 947
     .local v8, "width":F
     sget-object v9, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_PHYSICAL_SIZE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
@@ -4668,7 +4518,7 @@
 
     invoke-virtual {p0, v9, v10}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 985
+    .line 954
     sget-object v9, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_TIMESTAMP_SOURCE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v10, 0x0
@@ -4679,7 +4529,7 @@
 
     invoke-virtual {p0, v9, v10}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 940
+    .line 909
     return-void
 .end method
 
@@ -4693,26 +4543,26 @@
 
     const/4 v2, 0x0
 
-    .line 995
+    .line 964
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getMaxNumDetectedFaces()I
 
     move-result v1
 
     if-lez v1, :cond_0
 
-    .line 996
+    .line 965
     filled-new-array {v2, v3}, [I
 
     move-result-object v0
 
-    .line 1006
+    .line 975
     .local v0, "fdModes":[I
     :goto_0
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->STATISTICS_INFO_AVAILABLE_FACE_DETECT_MODES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v1, v0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 1011
+    .line 980
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->STATISTICS_INFO_MAX_FACE_COUNT:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getMaxNumDetectedFaces()I
@@ -4725,18 +4575,18 @@
 
     invoke-virtual {p0, v1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 989
+    .line 958
     return-void
 
-    .line 1002
+    .line 971
     .end local v0    # "fdModes":[I
     :cond_0
     new-array v0, v3, [I
 
-    .line 1003
+    .line 972
     aput v2, v0, v2
 
-    .line 1002
+    .line 971
     .restart local v0    # "fdModes":[I
     goto :goto_0
 .end method
@@ -4747,7 +4597,7 @@
     .param p1, "p"    # Landroid/hardware/Camera$Parameters;
 
     .prologue
-    .line 1018
+    .line 987
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->SYNC_MAX_LATENCY:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     const/4 v1, -0x1
@@ -4758,6 +4608,6 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
-    .line 1014
+    .line 983
     return-void
 .end method

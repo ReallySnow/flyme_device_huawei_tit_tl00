@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract onTwilightStateChanged(Lcom/android/server/twilight/TwilightState;)V
+.method public abstract onTwilightStateChanged()V
 .end method

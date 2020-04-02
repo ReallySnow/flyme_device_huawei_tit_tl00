@@ -19,7 +19,7 @@
         "<",
         "Landroid/util/Range",
         "<",
-        "Ljava/lang/Integer;",
+        "Ljava/lang/Long;",
         ">;>;"
     }
 .end annotation
@@ -30,7 +30,7 @@
     .locals 0
 
     .prologue
-    .line 2083
+    .line 2111
     invoke-direct {p0}, Landroid/hardware/camera2/utils/TypeReference;-><init>()V
 
     return-void

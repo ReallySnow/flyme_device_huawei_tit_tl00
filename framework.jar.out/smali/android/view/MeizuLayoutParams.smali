@@ -4,6 +4,8 @@
 
 
 # static fields
+.field public static final MEIZU_FLAG_AOD_Display:I = 0x400
+
 .field public static final MEIZU_FLAG_DISABLE_HIDING_ON_FULL_SCREEN:I = 0x800
 
 .field public static final MEIZU_FLAG_INTERCEPT_HOME_KEY:I = 0x20
@@ -11,6 +13,8 @@
 .field public static final MEIZU_FLAG_SHOW_HOLSTER_MODE:I = 0x200
 
 .field public static final MEIZU_FLAG_SHOW_NORMAL_TOAST:I = 0x40
+
+.field public static final TYPE_AOD_DISPLAY:I = 0x7fd
 
 .field public static final TYPE_GESTURE_PANEL:I = 0x7f9
 

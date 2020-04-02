@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/am/ProcessStatsService;
 
     .prologue
-    .line 87
+    .line 84
     iput-object p1, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,41 +41,39 @@
     .locals 4
 
     .prologue
-    .line 89
+    .line 86
     iget-object v0, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
 
     iget-object v1, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v1
 
+    .line 87
     :try_start_0
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
-
-    .line 90
     iget-object v0, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
 
-    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/procstats/ProcessStats;
+    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v2}, Lcom/android/internal/app/procstats/ProcessStats;->evaluateSystemProperties(Z)Z
+    invoke-virtual {v0, v2}, Lcom/android/internal/app/ProcessStats;->evaluateSystemProperties(Z)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 91
+    .line 88
     iget-object v0, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
 
-    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/procstats/ProcessStats;
+    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
 
-    iget v2, v0, Lcom/android/internal/app/procstats/ProcessStats;->mFlags:I
+    iget v2, v0, Lcom/android/internal/app/ProcessStats;->mFlags:I
 
     or-int/lit8 v2, v2, 0x4
 
-    iput v2, v0, Lcom/android/internal/app/procstats/ProcessStats;->mFlags:I
+    iput v2, v0, Lcom/android/internal/app/ProcessStats;->mFlags:I
 
-    .line 92
+    .line 89
     iget-object v0, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
 
     const/4 v2, 0x1
@@ -84,33 +82,28 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/server/am/ProcessStatsService;->writeStateLocked(ZZ)V
 
-    .line 93
+    .line 90
     iget-object v0, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
 
-    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/procstats/ProcessStats;
+    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
 
     const/4 v2, 0x1
 
-    invoke-virtual {v0, v2}, Lcom/android/internal/app/procstats/ProcessStats;->evaluateSystemProperties(Z)Z
+    invoke-virtual {v0, v2}, Lcom/android/internal/app/ProcessStats;->evaluateSystemProperties(Z)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
     monitor-exit v1
 
-    .line 89
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
-
-    .line 88
+    .line 85
     return-void
 
-    .line 89
+    .line 86
     :catchall_0
     move-exception v0
 
     monitor-exit v1
-
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     throw v0
 .end method

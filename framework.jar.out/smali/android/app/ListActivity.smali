@@ -78,7 +78,7 @@
 
     .line 312
     :cond_0
-    const v0, 0x1090077
+    const v0, 0x1090072
 
     invoke-virtual {p0, v0}, Landroid/app/ListActivity;->setContentView(I)V
 

@@ -48,15 +48,15 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 221
+    .line 211
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
-    .line 223
+    .line 213
     iget-object v0, p0, Landroid/media/Image;->mCropRect:Landroid/graphics/Rect;
 
     if-nez v0, :cond_0
 
-    .line 224
+    .line 214
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Landroid/media/Image;->getWidth()I
@@ -71,7 +71,7 @@
 
     return-object v0
 
-    .line 226
+    .line 216
     :cond_0
     new-instance v0, Landroid/graphics/Rect;
 
@@ -92,10 +92,10 @@
     .locals 2
 
     .prologue
-    .line 327
+    .line 317
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
-    .line 329
+    .line 319
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -105,10 +105,10 @@
     .locals 1
 
     .prologue
-    .line 310
+    .line 300
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
-    .line 312
+    .line 302
     const/4 v0, 0x0
 
     return-object v0
@@ -127,10 +127,10 @@
     .locals 1
 
     .prologue
-    .line 289
+    .line 279
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
-    .line 291
+    .line 281
     const/4 v0, 0x0
 
     return v0
@@ -143,18 +143,18 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 237
+    .line 227
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
-    .line 239
+    .line 229
     if-eqz p1, :cond_0
 
-    .line 240
+    .line 230
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0, p1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
-    .line 241
+    .line 231
     .end local p1    # "cropRect":Landroid/graphics/Rect;
     .local v0, "cropRect":Landroid/graphics/Rect;
     invoke-virtual {p0}, Landroid/media/Image;->getWidth()I
@@ -171,19 +171,19 @@
 
     if-nez v1, :cond_1
 
-    .line 242
+    .line 232
     invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
 
     move-object p1, v0
 
-    .line 245
+    .line 235
     .end local v0    # "cropRect":Landroid/graphics/Rect;
     .restart local p1    # "cropRect":Landroid/graphics/Rect;
     :cond_0
     :goto_0
     iput-object p1, p0, Landroid/media/Image;->mCropRect:Landroid/graphics/Rect;
 
-    .line 236
+    .line 226
     return-void
 
     .end local p1    # "cropRect":Landroid/graphics/Rect;
@@ -201,10 +201,10 @@
     .param p1, "timestamp"    # J
 
     .prologue
-    .line 208
+    .line 198
     invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
 
-    .line 209
+    .line 199
     return-void
 .end method
 

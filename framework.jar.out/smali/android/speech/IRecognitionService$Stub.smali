@@ -30,7 +30,7 @@
 
 .field static final TRANSACTION_startListening_0:I = 0x1
 
-.field static final TRANSACTION_stopListening_1:I = 0x2
+.field static final TRANSACTION_stopListening:I = 0x2
 
 
 # direct methods

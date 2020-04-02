@@ -45,15 +45,15 @@
     .locals 1
 
     .prologue
-    .line 475
+    .line 395
     new-instance v0, Landroid/net/wifi/WifiScanner$ParcelableScanResults$1;
 
     invoke-direct {v0}, Landroid/net/wifi/WifiScanner$ParcelableScanResults$1;-><init>()V
 
-    .line 474
+    .line 394
     sput-object v0, Landroid/net/wifi/WifiScanner$ParcelableScanResults;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 443
+    .line 363
     return-void
 .end method
 
@@ -62,13 +62,13 @@
     .param p1, "results"    # [Landroid/net/wifi/ScanResult;
 
     .prologue
-    .line 447
+    .line 367
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 448
+    .line 368
     iput-object p1, p0, Landroid/net/wifi/WifiScanner$ParcelableScanResults;->mResults:[Landroid/net/wifi/ScanResult;
 
-    .line 447
+    .line 367
     return-void
 .end method
 
@@ -78,7 +78,7 @@
     .locals 1
 
     .prologue
-    .line 457
+    .line 377
     const/4 v0, 0x0
 
     return v0
@@ -88,7 +88,7 @@
     .locals 1
 
     .prologue
-    .line 452
+    .line 372
     iget-object v0, p0, Landroid/net/wifi/WifiScanner$ParcelableScanResults;->mResults:[Landroid/net/wifi/ScanResult;
 
     return-object v0
@@ -100,19 +100,19 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 462
+    .line 382
     iget-object v2, p0, Landroid/net/wifi/WifiScanner$ParcelableScanResults;->mResults:[Landroid/net/wifi/ScanResult;
 
     if-eqz v2, :cond_0
 
-    .line 463
+    .line 383
     iget-object v2, p0, Landroid/net/wifi/WifiScanner$ParcelableScanResults;->mResults:[Landroid/net/wifi/ScanResult;
 
     array-length v2, v2
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 464
+    .line 384
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -123,21 +123,21 @@
 
     if-ge v0, v2, :cond_1
 
-    .line 465
+    .line 385
     iget-object v2, p0, Landroid/net/wifi/WifiScanner$ParcelableScanResults;->mResults:[Landroid/net/wifi/ScanResult;
 
     aget-object v1, v2, v0
 
-    .line 466
+    .line 386
     .local v1, "result":Landroid/net/wifi/ScanResult;
     invoke-virtual {v1, p1, p2}, Landroid/net/wifi/ScanResult;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 464
+    .line 384
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 469
+    .line 389
     .end local v0    # "i":I
     .end local v1    # "result":Landroid/net/wifi/ScanResult;
     :cond_0
@@ -145,7 +145,7 @@
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 461
+    .line 381
     :cond_1
     return-void
 .end method

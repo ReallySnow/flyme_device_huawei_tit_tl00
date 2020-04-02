@@ -9,9 +9,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/graphics/drawable/Icon$1;,
+        Landroid/graphics/drawable/Icon$OnDrawableLoadedListener;,
         Landroid/graphics/drawable/Icon$LoadDrawableTask;,
-        Landroid/graphics/drawable/Icon$OnDrawableLoadedListener;
+        Landroid/graphics/drawable/Icon$1;
     }
 .end annotation
 
@@ -66,20 +66,20 @@
     .locals 1
 
     .prologue
-    .line 76
+    .line 75
     sget-object v0, Landroid/graphics/drawable/Drawable;->DEFAULT_TINT_MODE:Landroid/graphics/PorterDuff$Mode;
 
     sput-object v0, Landroid/graphics/drawable/Icon;->DEFAULT_TINT_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    .line 768
+    .line 729
     new-instance v0, Landroid/graphics/drawable/Icon$1;
 
     invoke-direct {v0}, Landroid/graphics/drawable/Icon$1;-><init>()V
 
-    .line 767
+    .line 728
     sput-object v0, Landroid/graphics/drawable/Icon;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 59
+    .line 58
     return-void
 .end method
 
@@ -88,18 +88,18 @@
     .param p1, "mType"    # I
 
     .prologue
-    .line 428
+    .line 425
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 77
+    .line 76
     sget-object v0, Landroid/graphics/drawable/Icon;->DEFAULT_TINT_MODE:Landroid/graphics/PorterDuff$Mode;
 
     iput-object v0, p0, Landroid/graphics/drawable/Icon;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    .line 429
+    .line 426
     iput p1, p0, Landroid/graphics/drawable/Icon;->mType:I
 
-    .line 428
+    .line 425
     return-void
 .end method
 
@@ -108,19 +108,19 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 702
+    .line 663
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
     invoke-direct {p0, v6}, Landroid/graphics/drawable/Icon;-><init>(I)V
 
-    .line 703
+    .line 664
     iget v6, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     packed-switch v6, :pswitch_data_0
 
-    .line 729
+    .line 690
     new-instance v6, Ljava/lang/RuntimeException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -133,7 +133,7 @@
 
     move-result-object v7
 
-    .line 730
+    .line 691
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getClass()Ljava/lang/Class;
 
     move-result-object v8
@@ -142,23 +142,23 @@
 
     move-result-object v8
 
-    .line 729
+    .line 690
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    .line 730
+    .line 691
     const-string/jumbo v8, " type in parcel: "
 
-    .line 729
+    .line 690
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    .line 730
+    .line 691
     iget v8, p0, Landroid/graphics/drawable/Icon;->mType:I
 
-    .line 729
+    .line 690
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -171,7 +171,7 @@
 
     throw v6
 
-    .line 705
+    .line 666
     :pswitch_0
     sget-object v6, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -181,11 +181,11 @@
 
     check-cast v1, Landroid/graphics/Bitmap;
 
-    .line 706
+    .line 667
     .local v1, "bits":Landroid/graphics/Bitmap;
     iput-object v1, p0, Landroid/graphics/drawable/Icon;->mObj1:Ljava/lang/Object;
 
-    .line 732
+    .line 693
     .end local v1    # "bits":Landroid/graphics/Bitmap;
     :goto_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -196,7 +196,7 @@
 
     if-ne v6, v7, :cond_0
 
-    .line 733
+    .line 694
     sget-object v6, Landroid/content/res/ColorStateList;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v6, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -207,7 +207,7 @@
 
     iput-object v6, p0, Landroid/graphics/drawable/Icon;->mTintList:Landroid/content/res/ColorStateList;
 
-    .line 735
+    .line 696
     :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -219,31 +219,31 @@
 
     iput-object v6, p0, Landroid/graphics/drawable/Icon;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    .line 701
+    .line 662
     return-void
 
-    .line 709
+    .line 670
     :pswitch_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 710
+    .line 671
     .local v3, "pkg":Ljava/lang/String;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 711
+    .line 672
     .local v4, "resId":I
     iput-object v3, p0, Landroid/graphics/drawable/Icon;->mString1:Ljava/lang/String;
 
-    .line 712
+    .line 673
     iput v4, p0, Landroid/graphics/drawable/Icon;->mInt1:I
 
     goto :goto_0
 
-    .line 715
+    .line 676
     .end local v3    # "pkg":Ljava/lang/String;
     .end local v4    # "resId":I
     :pswitch_2
@@ -251,19 +251,19 @@
 
     move-result v2
 
-    .line 716
+    .line 677
     .local v2, "len":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readBlob()[B
 
     move-result-object v0
 
-    .line 717
+    .line 678
     .local v0, "a":[B
     array-length v6, v0
 
     if-eq v2, v6, :cond_1
 
-    .line 718
+    .line 679
     new-instance v6, Ljava/lang/RuntimeException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -276,18 +276,18 @@
 
     move-result-object v7
 
-    .line 719
+    .line 680
     array-length v8, v0
 
-    .line 718
+    .line 679
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    .line 719
+    .line 680
     const-string/jumbo v8, ") != expected length ("
 
-    .line 718
+    .line 679
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -296,10 +296,10 @@
 
     move-result-object v7
 
-    .line 719
+    .line 680
     const-string/jumbo v8, ")"
 
-    .line 718
+    .line 679
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -312,16 +312,16 @@
 
     throw v6
 
-    .line 721
+    .line 682
     :cond_1
     iput v2, p0, Landroid/graphics/drawable/Icon;->mInt1:I
 
-    .line 722
+    .line 683
     iput-object v0, p0, Landroid/graphics/drawable/Icon;->mObj1:Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 725
+    .line 686
     .end local v0    # "a":[B
     .end local v2    # "len":I
     :pswitch_3
@@ -329,13 +329,13 @@
 
     move-result-object v5
 
-    .line 726
+    .line 687
     .local v5, "uri":Ljava/lang/String;
     iput-object v5, p0, Landroid/graphics/drawable/Icon;->mString1:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 703
+    .line 664
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -367,40 +367,40 @@
     .prologue
     const/4 v9, 0x0
 
-    .line 439
+    .line 436
     new-instance v1, Ljava/io/DataInputStream;
 
     invoke-direct {v1, p0}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 441
+    .line 438
     .local v1, "inputStream":Ljava/io/DataInputStream;
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v7
 
-    .line 442
+    .line 439
     .local v7, "version":I
     const/4 v8, 0x1
 
     if-lt v7, v8, :cond_0
 
-    .line 443
+    .line 440
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readByte()B
 
     move-result v5
 
-    .line 444
+    .line 441
     .local v5, "type":I
     packed-switch v5, :pswitch_data_0
 
-    .line 461
+    .line 458
     .end local v5    # "type":I
     :cond_0
     const/4 v8, 0x0
 
     return-object v8
 
-    .line 446
+    .line 443
     .restart local v5    # "type":I
     :pswitch_0
     invoke-static {v1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
@@ -413,28 +413,28 @@
 
     return-object v8
 
-    .line 448
+    .line 445
     :pswitch_1
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v2
 
-    .line 449
+    .line 446
     .local v2, "length":I
     new-array v0, v2, [B
 
-    .line 450
+    .line 447
     .local v0, "data":[B
     invoke-virtual {v1, v0, v9, v2}, Ljava/io/DataInputStream;->read([BII)I
 
-    .line 451
+    .line 448
     invoke-static {v0, v9, v2}, Landroid/graphics/drawable/Icon;->createWithData([BII)Landroid/graphics/drawable/Icon;
 
     move-result-object v8
 
     return-object v8
 
-    .line 453
+    .line 450
     .end local v0    # "data":[B
     .end local v2    # "length":I
     :pswitch_2
@@ -442,13 +442,13 @@
 
     move-result-object v3
 
-    .line 454
+    .line 451
     .local v3, "packageName":Ljava/lang/String;
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v4
 
-    .line 455
+    .line 452
     .local v4, "resId":I
     invoke-static {v3, v4}, Landroid/graphics/drawable/Icon;->createWithResource(Ljava/lang/String;I)Landroid/graphics/drawable/Icon;
 
@@ -456,7 +456,7 @@
 
     return-object v8
 
-    .line 457
+    .line 454
     .end local v3    # "packageName":Ljava/lang/String;
     .end local v4    # "resId":I
     :pswitch_3
@@ -464,7 +464,7 @@
 
     move-result-object v6
 
-    .line 458
+    .line 455
     .local v6, "uriOrPath":Ljava/lang/String;
     invoke-static {v6}, Landroid/graphics/drawable/Icon;->createWithContentUri(Ljava/lang/String;)Landroid/graphics/drawable/Icon;
 
@@ -472,7 +472,7 @@
 
     return-object v8
 
-    .line 444
+    .line 441
     nop
 
     :pswitch_data_0
@@ -489,10 +489,10 @@
     .param p0, "bits"    # Landroid/graphics/Bitmap;
 
     .prologue
-    .line 545
+    .line 511
     if-nez p0, :cond_0
 
-    .line 546
+    .line 512
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "Bitmap must not be null."
@@ -501,7 +501,7 @@
 
     throw v1
 
-    .line 548
+    .line 514
     :cond_0
     new-instance v0, Landroid/graphics/drawable/Icon;
 
@@ -509,11 +509,11 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/drawable/Icon;-><init>(I)V
 
-    .line 549
+    .line 515
     .local v0, "rep":Landroid/graphics/drawable/Icon;
     invoke-direct {v0, p0}, Landroid/graphics/drawable/Icon;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 550
+    .line 516
     return-object v0
 .end method
 
@@ -522,10 +522,10 @@
     .param p0, "uri"    # Landroid/net/Uri;
 
     .prologue
-    .line 592
+    .line 558
     if-nez p0, :cond_0
 
-    .line 593
+    .line 559
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "Uri must not be null."
@@ -534,7 +534,7 @@
 
     throw v1
 
-    .line 595
+    .line 561
     :cond_0
     new-instance v0, Landroid/graphics/drawable/Icon;
 
@@ -542,7 +542,7 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/drawable/Icon;-><init>(I)V
 
-    .line 596
+    .line 562
     .local v0, "rep":Landroid/graphics/drawable/Icon;
     invoke-virtual {p0}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
@@ -550,7 +550,7 @@
 
     iput-object v1, v0, Landroid/graphics/drawable/Icon;->mString1:Ljava/lang/String;
 
-    .line 597
+    .line 563
     return-object v0
 .end method
 
@@ -559,10 +559,10 @@
     .param p0, "uri"    # Ljava/lang/String;
 
     .prologue
-    .line 578
+    .line 544
     if-nez p0, :cond_0
 
-    .line 579
+    .line 545
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "Uri must not be null."
@@ -571,7 +571,7 @@
 
     throw v1
 
-    .line 581
+    .line 547
     :cond_0
     new-instance v0, Landroid/graphics/drawable/Icon;
 
@@ -579,11 +579,11 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/drawable/Icon;-><init>(I)V
 
-    .line 582
+    .line 548
     .local v0, "rep":Landroid/graphics/drawable/Icon;
     iput-object p0, v0, Landroid/graphics/drawable/Icon;->mString1:Ljava/lang/String;
 
-    .line 583
+    .line 549
     return-object v0
 .end method
 
@@ -594,10 +594,10 @@
     .param p2, "length"    # I
 
     .prologue
-    .line 562
+    .line 528
     if-nez p0, :cond_0
 
-    .line 563
+    .line 529
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "Data must not be null."
@@ -606,7 +606,7 @@
 
     throw v1
 
-    .line 565
+    .line 531
     :cond_0
     new-instance v0, Landroid/graphics/drawable/Icon;
 
@@ -614,17 +614,17 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/drawable/Icon;-><init>(I)V
 
-    .line 566
+    .line 532
     .local v0, "rep":Landroid/graphics/drawable/Icon;
     iput-object p0, v0, Landroid/graphics/drawable/Icon;->mObj1:Ljava/lang/Object;
 
-    .line 567
+    .line 533
     iput p2, v0, Landroid/graphics/drawable/Icon;->mInt1:I
 
-    .line 568
+    .line 534
     iput p1, v0, Landroid/graphics/drawable/Icon;->mInt2:I
 
-    .line 569
+    .line 535
     return-object v0
 .end method
 
@@ -633,10 +633,10 @@
     .param p0, "path"    # Ljava/lang/String;
 
     .prologue
-    .line 644
+    .line 605
     if-nez p0, :cond_0
 
-    .line 645
+    .line 606
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "Path must not be null."
@@ -645,7 +645,7 @@
 
     throw v1
 
-    .line 647
+    .line 608
     :cond_0
     new-instance v0, Landroid/graphics/drawable/Icon;
 
@@ -653,11 +653,11 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/drawable/Icon;-><init>(I)V
 
-    .line 648
+    .line 609
     .local v0, "rep":Landroid/graphics/drawable/Icon;
     iput-object p0, v0, Landroid/graphics/drawable/Icon;->mString1:Ljava/lang/String;
 
-    .line 649
+    .line 610
     return-object v0
 .end method
 
@@ -667,10 +667,10 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 502
+    .line 468
     if-nez p0, :cond_0
 
-    .line 503
+    .line 469
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "Context must not be null."
@@ -679,7 +679,7 @@
 
     throw v1
 
-    .line 505
+    .line 471
     :cond_0
     new-instance v0, Landroid/graphics/drawable/Icon;
 
@@ -687,18 +687,18 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/drawable/Icon;-><init>(I)V
 
-    .line 506
+    .line 472
     .local v0, "rep":Landroid/graphics/drawable/Icon;
     iput p1, v0, Landroid/graphics/drawable/Icon;->mInt1:I
 
-    .line 507
+    .line 473
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/graphics/drawable/Icon;->mString1:Ljava/lang/String;
 
-    .line 508
+    .line 474
     return-object v0
 .end method
 
@@ -708,10 +708,10 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 516
+    .line 482
     if-nez p0, :cond_0
 
-    .line 517
+    .line 483
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "Resource must not be null."
@@ -720,7 +720,7 @@
 
     throw v1
 
-    .line 519
+    .line 485
     :cond_0
     new-instance v0, Landroid/graphics/drawable/Icon;
 
@@ -728,18 +728,18 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/drawable/Icon;-><init>(I)V
 
-    .line 520
+    .line 486
     .local v0, "rep":Landroid/graphics/drawable/Icon;
     iput p1, v0, Landroid/graphics/drawable/Icon;->mInt1:I
 
-    .line 521
+    .line 487
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getResourcePackageName(I)Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/graphics/drawable/Icon;->mString1:Ljava/lang/String;
 
-    .line 522
+    .line 488
     return-object v0
 .end method
 
@@ -749,10 +749,10 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 531
+    .line 497
     if-nez p0, :cond_0
 
-    .line 532
+    .line 498
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "Resource package name must not be null."
@@ -761,7 +761,7 @@
 
     throw v1
 
-    .line 534
+    .line 500
     :cond_0
     new-instance v0, Landroid/graphics/drawable/Icon;
 
@@ -769,14 +769,14 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/drawable/Icon;-><init>(I)V
 
-    .line 535
+    .line 501
     .local v0, "rep":Landroid/graphics/drawable/Icon;
     iput p1, v0, Landroid/graphics/drawable/Icon;->mInt1:I
 
-    .line 536
+    .line 502
     iput-object p0, v0, Landroid/graphics/drawable/Icon;->mString1:Ljava/lang/String;
 
-    .line 537
+    .line 503
     return-object v0
 .end method
 
@@ -785,21 +785,21 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 285
+    .line 282
     move-object/from16 v0, p0
 
     iget v12, v0, Landroid/graphics/drawable/Icon;->mType:I
 
     packed-switch v12, :pswitch_data_0
 
-    .line 352
+    .line 349
     :cond_0
     :goto_0
     const/4 v12, 0x0
 
     return-object v12
 
-    .line 287
+    .line 284
     :pswitch_0
     new-instance v12, Landroid/graphics/drawable/BitmapDrawable;
 
@@ -815,7 +815,7 @@
 
     return-object v12
 
-    .line 289
+    .line 286
     :pswitch_1
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/drawable/Icon;->getResources()Landroid/content/res/Resources;
 
@@ -823,12 +823,12 @@
 
     if-nez v12, :cond_2
 
-    .line 291
+    .line 288
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 292
+    .line 289
     .local v9, "resPackage":Ljava/lang/String;
     invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -836,12 +836,12 @@
 
     if-eqz v12, :cond_1
 
-    .line 294
+    .line 291
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 296
+    .line 293
     :cond_1
     const-string/jumbo v12, "android"
 
@@ -851,7 +851,7 @@
 
     if-eqz v12, :cond_3
 
-    .line 297
+    .line 294
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v12
@@ -860,7 +860,7 @@
 
     iput-object v12, v0, Landroid/graphics/drawable/Icon;->mObj1:Ljava/lang/Object;
 
-    .line 316
+    .line 313
     .end local v9    # "resPackage":Ljava/lang/String;
     :cond_2
     :goto_1
@@ -885,28 +885,28 @@
 
     return-object v12
 
-    .line 299
+    .line 296
     .restart local v9    # "resPackage":Ljava/lang/String;
     :cond_3
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v8
 
-    .line 302
+    .line 299
     .local v8, "pm":Landroid/content/pm/PackageManager;
     const/16 v12, 0x2000
 
-    .line 301
+    .line 298
     :try_start_1
     invoke-virtual {v8, v9, v12}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v1
 
-    .line 303
+    .line 300
     .local v1, "ai":Landroid/content/pm/ApplicationInfo;
     if-eqz v1, :cond_0
 
-    .line 304
+    .line 301
     invoke-virtual {v8, v1}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
 
     move-result-object v12
@@ -919,12 +919,12 @@
 
     goto :goto_1
 
-    .line 308
+    .line 305
     .end local v1    # "ai":Landroid/content/pm/ApplicationInfo;
     :catch_0
     move-exception v2
 
-    .line 309
+    .line 306
     .local v2, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string/jumbo v12, "Icon"
 
@@ -934,7 +934,7 @@
 
     new-array v14, v14, [Ljava/lang/Object;
 
-    .line 310
+    .line 307
     const/4 v15, 0x0
 
     aput-object v9, v14, v15
@@ -943,7 +943,7 @@
 
     aput-object p0, v14, v15
 
-    .line 309
+    .line 306
     invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v13
@@ -952,14 +952,14 @@
 
     goto :goto_0
 
-    .line 317
+    .line 314
     .end local v2    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     .end local v8    # "pm":Landroid/content/pm/PackageManager;
     .end local v9    # "resPackage":Ljava/lang/String;
     :catch_1
     move-exception v5
 
-    .line 318
+    .line 315
     .local v5, "e":Ljava/lang/RuntimeException;
     const-string/jumbo v12, "Icon"
 
@@ -969,7 +969,7 @@
 
     new-array v14, v14, [Ljava/lang/Object;
 
-    .line 319
+    .line 316
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/drawable/Icon;->getResId()I
 
     move-result v15
@@ -982,7 +982,7 @@
 
     aput-object v15, v14, v16
 
-    .line 320
+    .line 317
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
 
     move-result-object v15
@@ -991,7 +991,7 @@
 
     aput-object v15, v14, v16
 
-    .line 318
+    .line 315
     invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v13
@@ -1000,7 +1000,7 @@
 
     goto/16 :goto_0
 
-    .line 325
+    .line 322
     .end local v5    # "e":Ljava/lang/RuntimeException;
     :pswitch_2
     new-instance v12, Landroid/graphics/drawable/BitmapDrawable;
@@ -1009,7 +1009,7 @@
 
     move-result-object v13
 
-    .line 326
+    .line 323
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/drawable/Icon;->getDataBytes()[B
 
     move-result-object v14
@@ -1026,28 +1026,28 @@
 
     move-result-object v14
 
-    .line 325
+    .line 322
     invoke-direct {v12, v13, v14}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
     return-object v12
 
-    .line 329
+    .line 326
     :pswitch_3
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/drawable/Icon;->getUri()Landroid/net/Uri;
 
     move-result-object v11
 
-    .line 330
+    .line 327
     .local v11, "uri":Landroid/net/Uri;
     invoke-virtual {v11}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
     move-result-object v10
 
-    .line 331
+    .line 328
     .local v10, "scheme":Ljava/lang/String;
     const/4 v6, 0x0
 
-    .line 332
+    .line 329
     .local v6, "is":Ljava/io/InputStream;
     const-string/jumbo v12, "content"
 
@@ -1057,17 +1057,17 @@
 
     if-nez v12, :cond_4
 
-    .line 333
+    .line 330
     const-string/jumbo v12, "file"
 
     invoke-virtual {v12, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v12
 
-    .line 332
+    .line 329
     if-eqz v12, :cond_5
 
-    .line 335
+    .line 332
     :cond_4
     :try_start_2
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1080,34 +1080,34 @@
 
     move-result-object v6
 
-    .line 346
+    .line 343
     .end local v6    # "is":Ljava/io/InputStream;
     :goto_2
     if-eqz v6, :cond_0
 
-    .line 347
+    .line 344
     new-instance v12, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v13
 
-    .line 348
+    .line 345
     invoke-static {v6}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
     move-result-object v14
 
-    .line 347
+    .line 344
     invoke-direct {v12, v13, v14}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
     return-object v12
 
-    .line 336
+    .line 333
     .restart local v6    # "is":Ljava/io/InputStream;
     :catch_2
     move-exception v4
 
-    .line 337
+    .line 334
     .local v4, "e":Ljava/lang/Exception;
     const-string/jumbo v12, "Icon"
 
@@ -1133,7 +1133,7 @@
 
     goto :goto_2
 
-    .line 341
+    .line 338
     .end local v4    # "e":Ljava/lang/Exception;
     :cond_5
     :try_start_3
@@ -1158,12 +1158,12 @@
     .local v6, "is":Ljava/io/InputStream;
     goto :goto_2
 
-    .line 342
+    .line 339
     .local v6, "is":Ljava/io/InputStream;
     :catch_3
     move-exception v3
 
-    .line 343
+    .line 340
     .local v3, "e":Ljava/io/FileNotFoundException;
     const-string/jumbo v12, "Icon"
 
@@ -1189,7 +1189,7 @@
 
     goto :goto_2
 
-    .line 285
+    .line 282
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1204,10 +1204,10 @@
     .param p1, "b"    # Landroid/graphics/Bitmap;
 
     .prologue
-    .line 122
+    .line 121
     iput-object p1, p0, Landroid/graphics/drawable/Icon;->mObj1:Ljava/lang/Object;
 
-    .line 121
+    .line 120
     return-void
 .end method
 
@@ -1216,39 +1216,39 @@
     .param p0, "x"    # I
 
     .prologue
-    .line 219
+    .line 218
     packed-switch p0, :pswitch_data_0
 
-    .line 224
+    .line 223
     const-string/jumbo v0, "UNKNOWN"
 
     return-object v0
 
-    .line 220
+    .line 219
     :pswitch_0
     const-string/jumbo v0, "BITMAP"
 
     return-object v0
 
-    .line 221
+    .line 220
     :pswitch_1
     const-string/jumbo v0, "DATA"
 
     return-object v0
 
-    .line 222
+    .line 221
     :pswitch_2
     const-string/jumbo v0, "RESOURCE"
 
     return-object v0
 
-    .line 223
+    .line 222
     :pswitch_3
     const-string/jumbo v0, "URI"
 
     return-object v0
 
-    .line 219
+    .line 218
     nop
 
     :pswitch_data_0
@@ -1266,14 +1266,14 @@
     .locals 2
 
     .prologue
-    .line 391
+    .line 388
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 392
+    .line 389
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -1282,10 +1282,10 @@
 
     move-result v0
 
-    .line 391
+    .line 388
     if-eqz v0, :cond_0
 
-    .line 393
+    .line 390
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -1298,7 +1298,7 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 394
+    .line 391
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -1309,7 +1309,7 @@
 
     invoke-direct {p0, v0}, Landroid/graphics/drawable/Icon;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 390
+    .line 387
     :cond_0
     return-void
 .end method
@@ -1320,7 +1320,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 695
+    .line 656
     iget v1, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     if-eq v1, v0, :cond_0
@@ -1335,7 +1335,7 @@
     :goto_0
     return v0
 
-    .line 696
+    .line 657
     :cond_1
     const/4 v0, 0x0
 
@@ -1346,14 +1346,14 @@
     .locals 3
 
     .prologue
-    .line 115
+    .line 114
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 116
+    .line 115
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1378,7 +1378,7 @@
 
     throw v0
 
-    .line 118
+    .line 117
     :cond_0
     iget-object v0, p0, Landroid/graphics/drawable/Icon;->mObj1:Ljava/lang/Object;
 
@@ -1391,14 +1391,14 @@
     .locals 3
 
     .prologue
-    .line 158
+    .line 157
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     const/4 v1, 0x3
 
     if-eq v0, v1, :cond_0
 
-    .line 159
+    .line 158
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1423,11 +1423,11 @@
 
     throw v0
 
-    .line 161
+    .line 160
     :cond_0
     monitor-enter p0
 
-    .line 162
+    .line 161
     :try_start_0
     iget-object v0, p0, Landroid/graphics/drawable/Icon;->mObj1:Ljava/lang/Object;
 
@@ -1439,7 +1439,7 @@
 
     return-object v0
 
-    .line 161
+    .line 160
     :catchall_0
     move-exception v0
 
@@ -1452,14 +1452,14 @@
     .locals 3
 
     .prologue
-    .line 130
+    .line 129
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     const/4 v1, 0x3
 
     if-eq v0, v1, :cond_0
 
-    .line 131
+    .line 130
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1484,11 +1484,11 @@
 
     throw v0
 
-    .line 133
+    .line 132
     :cond_0
     monitor-enter p0
 
-    .line 134
+    .line 133
     :try_start_0
     iget v0, p0, Landroid/graphics/drawable/Icon;->mInt1:I
     :try_end_0
@@ -1498,7 +1498,7 @@
 
     return v0
 
-    .line 133
+    .line 132
     :catchall_0
     move-exception v0
 
@@ -1511,14 +1511,14 @@
     .locals 3
 
     .prologue
-    .line 144
+    .line 143
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     const/4 v1, 0x3
 
     if-eq v0, v1, :cond_0
 
-    .line 145
+    .line 144
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1543,11 +1543,11 @@
 
     throw v0
 
-    .line 147
+    .line 146
     :cond_0
     monitor-enter p0
 
-    .line 148
+    .line 147
     :try_start_0
     iget v0, p0, Landroid/graphics/drawable/Icon;->mInt2:I
     :try_end_0
@@ -1557,7 +1557,7 @@
 
     return v0
 
-    .line 147
+    .line 146
     :catchall_0
     move-exception v0
 
@@ -1570,14 +1570,14 @@
     .locals 3
 
     .prologue
-    .line 193
+    .line 192
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_0
 
-    .line 194
+    .line 193
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1602,7 +1602,7 @@
 
     throw v0
 
-    .line 196
+    .line 195
     :cond_0
     iget v0, p0, Landroid/graphics/drawable/Icon;->mInt1:I
 
@@ -1613,14 +1613,14 @@
     .locals 3
 
     .prologue
-    .line 182
+    .line 181
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_0
 
-    .line 183
+    .line 182
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1645,7 +1645,7 @@
 
     throw v0
 
-    .line 185
+    .line 184
     :cond_0
     iget-object v0, p0, Landroid/graphics/drawable/Icon;->mString1:Ljava/lang/String;
 
@@ -1656,14 +1656,14 @@
     .locals 3
 
     .prologue
-    .line 171
+    .line 170
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_0
 
-    .line 172
+    .line 171
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1688,7 +1688,7 @@
 
     throw v0
 
-    .line 174
+    .line 173
     :cond_0
     iget-object v0, p0, Landroid/graphics/drawable/Icon;->mObj1:Ljava/lang/Object;
 
@@ -1701,7 +1701,7 @@
     .locals 1
 
     .prologue
-    .line 107
+    .line 106
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     return v0
@@ -1711,7 +1711,7 @@
     .locals 1
 
     .prologue
-    .line 215
+    .line 214
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getUriString()Ljava/lang/String;
 
     move-result-object v0
@@ -1727,14 +1727,14 @@
     .locals 3
 
     .prologue
-    .line 204
+    .line 203
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     const/4 v1, 0x4
 
     if-eq v0, v1, :cond_0
 
-    .line 205
+    .line 204
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1759,38 +1759,11 @@
 
     throw v0
 
-    .line 207
+    .line 206
     :cond_0
     iget-object v0, p0, Landroid/graphics/drawable/Icon;->mString1:Ljava/lang/String;
 
     return-object v0
-.end method
-
-.method public hasTint()Z
-    .locals 3
-
-    .prologue
-    const/4 v0, 0x1
-
-    .line 634
-    iget-object v1, p0, Landroid/graphics/drawable/Icon;->mTintList:Landroid/content/res/ColorStateList;
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Landroid/graphics/drawable/Icon;->mTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    sget-object v2, Landroid/graphics/drawable/Icon;->DEFAULT_TINT_MODE:Landroid/graphics/PorterDuff$Mode;
-
-    if-eq v1, v2, :cond_1
-
-    :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method public loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
@@ -1798,12 +1771,12 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 272
+    .line 269
     invoke-direct {p0, p1}, Landroid/graphics/drawable/Icon;->loadDrawableInner(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 273
+    .line 270
     .local v0, "result":Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_1
 
@@ -1817,21 +1790,21 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 274
+    .line 271
     :cond_0
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
-    .line 275
+    .line 272
     iget-object v1, p0, Landroid/graphics/drawable/Icon;->mTintList:Landroid/content/res/ColorStateList;
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 276
+    .line 273
     iget-object v1, p0, Landroid/graphics/drawable/Icon;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    .line 278
+    .line 275
     :cond_1
     return-object v0
 .end method
@@ -1844,17 +1817,17 @@
     .prologue
     const/4 v5, 0x2
 
-    .line 362
+    .line 359
     iget v3, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     if-ne v3, v5, :cond_1
 
-    .line 363
+    .line 360
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 364
+    .line 361
     .local v2, "resPackage":Ljava/lang/String;
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1862,12 +1835,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 365
+    .line 362
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 367
+    .line 364
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResources()Landroid/content/res/Resources;
 
@@ -1887,7 +1860,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 380
+    .line 377
     .end local v2    # "resPackage":Ljava/lang/String;
     :cond_1
     :goto_0
@@ -1897,14 +1870,14 @@
 
     return-object v3
 
-    .line 368
+    .line 365
     .restart local v2    # "resPackage":Ljava/lang/String;
     :cond_2
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 371
+    .line 368
     .local v1, "pm":Landroid/content/pm/PackageManager;
     :try_start_0
     invoke-virtual {v1, v2, p2}, Landroid/content/pm/PackageManager;->getResourcesForApplicationAsUser(Ljava/lang/String;I)Landroid/content/res/Resources;
@@ -1917,11 +1890,11 @@
 
     goto :goto_0
 
-    .line 372
+    .line 369
     :catch_0
     move-exception v0
 
-    .line 373
+    .line 370
     .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string/jumbo v3, "Icon"
 
@@ -1929,7 +1902,7 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    .line 374
+    .line 371
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
 
     move-result-object v6
@@ -1938,7 +1911,7 @@
 
     aput-object v6, v5, v7
 
-    .line 375
+    .line 372
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
@@ -1947,7 +1920,7 @@
 
     aput-object v6, v5, v7
 
-    .line 373
+    .line 370
     invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
@@ -1964,14 +1937,14 @@
     .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 258
+    .line 255
     new-instance v0, Landroid/graphics/drawable/Icon$LoadDrawableTask;
 
     invoke-direct {v0, p0, p1, p3, p2}, Landroid/graphics/drawable/Icon$LoadDrawableTask;-><init>(Landroid/graphics/drawable/Icon;Landroid/content/Context;Landroid/os/Handler;Landroid/graphics/drawable/Icon$OnDrawableLoadedListener;)V
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Icon$LoadDrawableTask;->runAsync()V
 
-    .line 257
+    .line 254
     return-void
 .end method
 
@@ -1981,14 +1954,14 @@
     .param p2, "andThen"    # Landroid/os/Message;
 
     .prologue
-    .line 239
+    .line 238
     invoke-virtual {p2}, Landroid/os/Message;->getTarget()Landroid/os/Handler;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    .line 240
+    .line 239
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "callback message must have a target handler"
@@ -1997,7 +1970,7 @@
 
     throw v0
 
-    .line 242
+    .line 241
     :cond_0
     new-instance v0, Landroid/graphics/drawable/Icon$LoadDrawableTask;
 
@@ -2005,170 +1978,8 @@
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Icon$LoadDrawableTask;->runAsync()V
 
-    .line 238
+    .line 237
     return-void
-.end method
-
-.method public sameAs(Landroid/graphics/drawable/Icon;)Z
-    .locals 4
-    .param p1, "otherIcon"    # Landroid/graphics/drawable/Icon;
-
-    .prologue
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    .line 473
-    if-ne p1, p0, :cond_0
-
-    .line 474
-    return v0
-
-    .line 476
-    :cond_0
-    iget v2, p0, Landroid/graphics/drawable/Icon;->mType:I
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Icon;->getType()I
-
-    move-result v3
-
-    if-eq v2, v3, :cond_1
-
-    .line 477
-    return v1
-
-    .line 479
-    :cond_1
-    iget v2, p0, Landroid/graphics/drawable/Icon;->mType:I
-
-    packed-switch v2, :pswitch_data_0
-
-    .line 492
-    return v1
-
-    .line 481
-    :pswitch_0
-    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v2
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v3
-
-    if-ne v2, v3, :cond_2
-
-    :goto_0
-    return v0
-
-    :cond_2
-    move v0, v1
-
-    goto :goto_0
-
-    .line 483
-    :pswitch_1
-    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getDataLength()I
-
-    move-result v2
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Icon;->getDataLength()I
-
-    move-result v3
-
-    if-ne v2, v3, :cond_4
-
-    .line 484
-    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getDataOffset()I
-
-    move-result v2
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Icon;->getDataOffset()I
-
-    move-result v3
-
-    if-ne v2, v3, :cond_4
-
-    .line 485
-    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getDataBytes()[B
-
-    move-result-object v2
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Icon;->getDataBytes()[B
-
-    move-result-object v3
-
-    if-ne v2, v3, :cond_3
-
-    .line 483
-    :goto_1
-    return v0
-
-    :cond_3
-    move v0, v1
-
-    .line 485
-    goto :goto_1
-
-    :cond_4
-    move v0, v1
-
-    .line 483
-    goto :goto_1
-
-    .line 487
-    :pswitch_2
-    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResId()I
-
-    move-result v0
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Icon;->getResId()I
-
-    move-result v2
-
-    if-ne v0, v2, :cond_5
-
-    .line 488
-    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v1
-
-    .line 487
-    :cond_5
-    return v1
-
-    .line 490
-    :pswitch_3
-    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getUriString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Icon;->getUriString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    return v0
-
-    .line 479
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_3
-    .end packed-switch
 .end method
 
 .method public setTint(I)Landroid/graphics/drawable/Icon;
@@ -2176,7 +1987,7 @@
     .param p1, "tint"    # I
 
     .prologue
-    .line 607
+    .line 573
     invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
@@ -2193,10 +2004,10 @@
     .param p1, "tintList"    # Landroid/content/res/ColorStateList;
 
     .prologue
-    .line 617
+    .line 583
     iput-object p1, p0, Landroid/graphics/drawable/Icon;->mTintList:Landroid/content/res/ColorStateList;
 
-    .line 618
+    .line 584
     return-object p0
 .end method
 
@@ -2205,10 +2016,10 @@
     .param p1, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
     .prologue
-    .line 628
+    .line 594
     iput-object p1, p0, Landroid/graphics/drawable/Icon;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    .line 629
+    .line 595
     return-object p0
 .end method
 
@@ -2220,7 +2031,7 @@
 
     const/4 v4, 0x0
 
-    .line 654
+    .line 615
     new-instance v3, Ljava/lang/StringBuilder;
 
     const-string/jumbo v5, "Icon(typ="
@@ -2237,28 +2048,28 @@
 
     move-result-object v1
 
-    .line 655
+    .line 616
     .local v1, "sb":Ljava/lang/StringBuilder;
     iget v3, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     packed-switch v3, :pswitch_data_0
 
-    .line 678
+    .line 639
     :cond_0
     :goto_0
     iget-object v3, p0, Landroid/graphics/drawable/Icon;->mTintList:Landroid/content/res/ColorStateList;
 
     if-eqz v3, :cond_1
 
-    .line 679
+    .line 640
     const-string/jumbo v3, " tint="
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 680
+    .line 641
     const-string/jumbo v2, ""
 
-    .line 681
+    .line 642
     .local v2, "sep":Ljava/lang/String;
     iget-object v3, p0, Landroid/graphics/drawable/Icon;->mTintList:Landroid/content/res/ColorStateList;
 
@@ -2275,7 +2086,7 @@
 
     aget v0, v5, v3
 
-    .line 682
+    .line 643
     .local v0, "c":I
     const-string/jumbo v7, "%s0x%08x"
 
@@ -2297,15 +2108,15 @@
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 683
+    .line 644
     const-string/jumbo v2, "|"
 
-    .line 681
+    .line 642
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 657
+    .line 618
     .end local v0    # "c":I
     .end local v2    # "sep":Ljava/lang/String;
     :pswitch_0
@@ -2315,7 +2126,7 @@
 
     move-result-object v3
 
-    .line 658
+    .line 619
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v5
@@ -2324,20 +2135,20 @@
 
     move-result v5
 
-    .line 657
+    .line 618
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    .line 659
+    .line 620
     const-string/jumbo v5, "x"
 
-    .line 657
+    .line 618
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    .line 660
+    .line 621
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v5
@@ -2346,12 +2157,12 @@
 
     move-result v5
 
-    .line 657
+    .line 618
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
-    .line 663
+    .line 624
     :pswitch_1
     const-string/jumbo v3, " pkg="
 
@@ -2359,25 +2170,25 @@
 
     move-result-object v3
 
-    .line 664
+    .line 625
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 663
+    .line 624
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    .line 665
+    .line 626
     const-string/jumbo v5, " id="
 
-    .line 663
+    .line 624
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    .line 666
+    .line 627
     const-string/jumbo v5, "0x%08x"
 
     new-array v6, v10, [Ljava/lang/Object;
@@ -2396,12 +2207,12 @@
 
     move-result-object v5
 
-    .line 663
+    .line 624
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto/16 :goto_0
 
-    .line 669
+    .line 630
     :pswitch_2
     const-string/jumbo v3, " len="
 
@@ -2415,14 +2226,14 @@
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 670
+    .line 631
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getDataOffset()I
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    .line 671
+    .line 632
     const-string/jumbo v3, " off="
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2437,7 +2248,7 @@
 
     goto/16 :goto_0
 
-    .line 675
+    .line 636
     :pswitch_3
     const-string/jumbo v3, " uri="
 
@@ -2453,7 +2264,7 @@
 
     goto/16 :goto_0
 
-    .line 686
+    .line 647
     :cond_1
     iget-object v3, p0, Landroid/graphics/drawable/Icon;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
@@ -2471,20 +2282,20 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 687
+    .line 648
     :cond_2
     const-string/jumbo v3, ")"
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 688
+    .line 649
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
     return-object v3
 
-    .line 655
+    .line 616
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -2500,28 +2311,28 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 740
+    .line 701
     iget v1, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 741
+    .line 702
     iget v1, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 758
+    .line 719
     :goto_0
     iget-object v1, p0, Landroid/graphics/drawable/Icon;->mTintList:Landroid/content/res/ColorStateList;
 
     if-nez v1, :cond_0
 
-    .line 759
+    .line 720
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 764
+    .line 725
     :goto_1
     iget-object v1, p0, Landroid/graphics/drawable/Icon;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
@@ -2531,16 +2342,16 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 739
+    .line 700
     return-void
 
-    .line 743
+    .line 704
     :pswitch_0
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 744
+    .line 705
     .local v0, "bits":Landroid/graphics/Bitmap;
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
@@ -2550,7 +2361,7 @@
 
     goto :goto_0
 
-    .line 747
+    .line 708
     .end local v0    # "bits":Landroid/graphics/Bitmap;
     :pswitch_1
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
@@ -2559,7 +2370,7 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 748
+    .line 709
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResId()I
 
     move-result v1
@@ -2568,7 +2379,7 @@
 
     goto :goto_0
 
-    .line 751
+    .line 712
     :pswitch_2
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getDataLength()I
 
@@ -2576,7 +2387,7 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 752
+    .line 713
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getDataBytes()[B
 
     move-result-object v1
@@ -2593,7 +2404,7 @@
 
     goto :goto_0
 
-    .line 755
+    .line 716
     :pswitch_3
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getUriString()Ljava/lang/String;
 
@@ -2603,20 +2414,20 @@
 
     goto :goto_0
 
-    .line 761
+    .line 722
     :cond_0
     const/4 v1, 0x1
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 762
+    .line 723
     iget-object v1, p0, Landroid/graphics/drawable/Icon;->mTintList:Landroid/content/res/ColorStateList;
 
     invoke-virtual {v1, p1, p2}, Landroid/content/res/ColorStateList;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto :goto_1
 
-    .line 741
+    .line 702
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -2636,32 +2447,32 @@
     .end annotation
 
     .prologue
-    .line 405
+    .line 402
     new-instance v0, Ljava/io/DataOutputStream;
 
     invoke-direct {v0, p1}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 407
+    .line 404
     .local v0, "dataStream":Ljava/io/DataOutputStream;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 408
+    .line 405
     iget v1, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
-    .line 410
+    .line 407
     iget v1, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 404
+    .line 401
     :goto_0
     return-void
 
-    .line 412
+    .line 409
     :pswitch_0
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
@@ -2675,7 +2486,7 @@
 
     goto :goto_0
 
-    .line 415
+    .line 412
     :pswitch_1
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getDataLength()I
 
@@ -2683,7 +2494,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 416
+    .line 413
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getDataBytes()[B
 
     move-result-object v1
@@ -2700,7 +2511,7 @@
 
     goto :goto_0
 
-    .line 419
+    .line 416
     :pswitch_2
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
 
@@ -2708,7 +2519,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 420
+    .line 417
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResId()I
 
     move-result v1
@@ -2717,7 +2528,7 @@
 
     goto :goto_0
 
-    .line 423
+    .line 420
     :pswitch_3
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getUriString()Ljava/lang/String;
 
@@ -2727,7 +2538,7 @@
 
     goto :goto_0
 
-    .line 410
+    .line 407
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

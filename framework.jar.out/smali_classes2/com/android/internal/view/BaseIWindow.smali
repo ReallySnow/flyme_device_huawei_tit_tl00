@@ -14,7 +14,7 @@
     .locals 0
 
     .prologue
-    .line 30
+    .line 28
     invoke-direct {p0}, Landroid/view/IWindow$Stub;-><init>()V
 
     return-void
@@ -27,7 +27,7 @@
     .param p1, "reason"    # Ljava/lang/String;
 
     .prologue
-    .line 71
+    .line 68
     return-void
 .end method
 
@@ -36,7 +36,7 @@
     .param p1, "visible"    # Z
 
     .prologue
-    .line 55
+    .line 52
     return-void
 .end method
 
@@ -45,7 +45,7 @@
     .param p1, "event"    # Landroid/view/DragEvent;
 
     .prologue
-    .line 85
+    .line 82
     return-void
 .end method
 
@@ -53,7 +53,7 @@
     .locals 0
 
     .prologue
-    .line 59
+    .line 56
     return-void
 .end method
 
@@ -65,10 +65,10 @@
     .param p4, "localChanges"    # I
 
     .prologue
-    .line 95
+    .line 88
     iput p1, p0, Lcom/android/internal/view/BaseIWindow;->mSeq:I
 
-    .line 94
+    .line 87
     return-void
 .end method
 
@@ -82,10 +82,10 @@
     .param p6, "sync"    # Z
 
     .prologue
-    .line 101
+    .line 94
     if-eqz p6, :cond_0
 
-    .line 103
+    .line 96
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/view/BaseIWindow;->mSession:Landroid/view/IWindowSession;
 
@@ -99,12 +99,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 100
+    .line 93
     :cond_0
     :goto_0
     return-void
 
-    .line 104
+    .line 97
     :catch_0
     move-exception v0
 
@@ -121,10 +121,10 @@
     .param p5, "sync"    # Z
 
     .prologue
-    .line 76
+    .line 73
     if-eqz p5, :cond_0
 
-    .line 78
+    .line 75
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/view/BaseIWindow;->mSession:Landroid/view/IWindowSession;
 
@@ -136,12 +136,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 75
+    .line 72
     :cond_0
     :goto_0
     return-void
 
-    .line 79
+    .line 76
     :catch_0
     move-exception v0
 
@@ -153,7 +153,7 @@
     .locals 0
 
     .prologue
-    .line 110
+    .line 111
     return-void
 .end method
 
@@ -164,7 +164,7 @@
     .param p3, "out"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
-    .line 67
+    .line 64
     return-void
 .end method
 
@@ -174,21 +174,28 @@
     .param p2, "newY"    # I
 
     .prologue
-    .line 51
+    .line 48
     return-void
 .end method
 
-.method public requestAppKeyboardShortcuts(Lcom/android/internal/os/IResultReceiver;I)V
+.method public onAnimationStarted(I)V
     .locals 0
-    .param p1, "receiver"    # Lcom/android/internal/os/IResultReceiver;
-    .param p2, "deviceId"    # I
+    .param p1, "remainingFrameCount"    # I
 
     .prologue
-    .line 114
+    .line 103
     return-void
 .end method
 
-.method public resized(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;Landroid/graphics/Rect;ZZ)V
+.method public onAnimationStopped()V
+    .locals 0
+
+    .prologue
+    .line 107
+    return-void
+.end method
+
+.method public resized(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;)V
     .locals 2
     .param p1, "frame"    # Landroid/graphics/Rect;
     .param p2, "overscanInsets"    # Landroid/graphics/Rect;
@@ -198,15 +205,12 @@
     .param p6, "outsets"    # Landroid/graphics/Rect;
     .param p7, "reportDraw"    # Z
     .param p8, "newConfig"    # Landroid/content/res/Configuration;
-    .param p9, "backDropFrame"    # Landroid/graphics/Rect;
-    .param p10, "forceLayout"    # Z
-    .param p11, "alwaysConsumeNavBar"    # Z
 
     .prologue
-    .line 42
+    .line 39
     if-eqz p7, :cond_0
 
-    .line 44
+    .line 41
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/view/BaseIWindow;->mSession:Landroid/view/IWindowSession;
 
@@ -214,12 +218,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 41
+    .line 38
     :cond_0
     :goto_0
     return-void
 
-    .line 45
+    .line 42
     :catch_0
     move-exception v0
 
@@ -232,20 +236,10 @@
     .param p1, "session"    # Landroid/view/IWindowSession;
 
     .prologue
-    .line 35
+    .line 33
     iput-object p1, p0, Lcom/android/internal/view/BaseIWindow;->mSession:Landroid/view/IWindowSession;
 
-    .line 34
-    return-void
-.end method
-
-.method public updatePointerIcon(FF)V
-    .locals 0
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-
-    .prologue
-    .line 89
+    .line 32
     return-void
 .end method
 
@@ -255,6 +249,6 @@
     .param p2, "touchEnabled"    # Z
 
     .prologue
-    .line 63
+    .line 60
     return-void
 .end method

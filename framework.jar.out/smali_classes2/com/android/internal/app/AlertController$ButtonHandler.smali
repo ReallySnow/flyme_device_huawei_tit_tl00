@@ -37,17 +37,17 @@
     .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     .prologue
-    .line 155
+    .line 152
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 156
+    .line 153
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/internal/app/AlertController$ButtonHandler;->mDialog:Ljava/lang/ref/WeakReference;
 
-    .line 155
+    .line 152
     return-void
 .end method
 
@@ -58,17 +58,17 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 161
+    .line 158
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 160
+    .line 157
     :goto_0
     :pswitch_0
     return-void
 
-    .line 166
+    .line 163
     :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -88,7 +88,7 @@
 
     goto :goto_0
 
-    .line 170
+    .line 167
     :pswitch_2
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -98,7 +98,7 @@
 
     goto :goto_0
 
-    .line 161
+    .line 158
     :pswitch_data_0
     .packed-switch -0x3
         :pswitch_1

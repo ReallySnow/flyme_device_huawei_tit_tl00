@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/content/SyncManager;
 
     .prologue
-    .line 367
+    .line 282
     iput-object p1, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,67 +35,39 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 370
-    iget-object v1, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
+    const-wide/16 v6, 0x0
 
-    invoke-static {v1}, Lcom/android/server/content/SyncManager;->-get4(Lcom/android/server/content/SyncManager;)Z
+    const/4 v1, 0x0
 
-    move-result v0
+    .line 285
+    iget-object v0, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
 
-    .line 374
-    .local v0, "wasConnected":Z
-    iget-object v1, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
+    invoke-virtual {v0}, Lcom/android/server/content/SyncManager;->updateRunningAccounts()V
 
-    iget-object v2, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
+    .line 288
+    iget-object v0, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v2}, Lcom/android/server/content/SyncManager;->-wrap6(Lcom/android/server/content/SyncManager;)Z
+    const/4 v2, -0x1
 
-    move-result v2
+    const/4 v3, -0x2
 
-    invoke-static {v1, v2}, Lcom/android/server/content/SyncManager;->-set1(Lcom/android/server/content/SyncManager;Z)Z
+    .line 289
+    const/4 v10, 0x0
 
-    .line 375
-    iget-object v1, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
+    move-object v4, v1
 
-    invoke-static {v1}, Lcom/android/server/content/SyncManager;->-get4(Lcom/android/server/content/SyncManager;)Z
+    move-object v5, v1
 
-    move-result v1
+    move-wide v8, v6
 
-    if-eqz v1, :cond_1
+    .line 288
+    invoke-virtual/range {v0 .. v10}, Lcom/android/server/content/SyncManager;->scheduleSync(Landroid/accounts/Account;IILjava/lang/String;Landroid/os/Bundle;JJZ)V
 
-    .line 376
-    if-nez v0, :cond_0
-
-    .line 377
-    const-string/jumbo v1, "SyncManager"
-
-    const/4 v2, 0x2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 378
-    const-string/jumbo v1, "SyncManager"
-
-    const-string/jumbo v2, "Reconnection detected: clearing all backoffs"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 381
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
-
-    invoke-static {v1}, Lcom/android/server/content/SyncManager;->-wrap10(Lcom/android/server/content/SyncManager;)V
-
-    .line 369
-    :cond_1
+    .line 284
     return-void
 .end method

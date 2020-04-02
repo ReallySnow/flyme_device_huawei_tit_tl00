@@ -13,7 +13,7 @@
 
 
 # static fields
-.field private static final synthetic -android-renderscript-Font$StyleSwitchesValues:[I
+.field private static synthetic -android_renderscript_Font$StyleSwitchesValues:[I
 
 .field private static sFontFamilyMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -35,14 +35,14 @@
 
 
 # direct methods
-.method private static synthetic -getandroid-renderscript-Font$StyleSwitchesValues()[I
+.method private static synthetic -getandroid_renderscript_Font$StyleSwitchesValues()[I
     .locals 3
 
-    sget-object v0, Landroid/renderscript/Font;->-android-renderscript-Font$StyleSwitchesValues:[I
+    sget-object v0, Landroid/renderscript/Font;->-android_renderscript_Font$StyleSwitchesValues:[I
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Landroid/renderscript/Font;->-android-renderscript-Font$StyleSwitchesValues:[I
+    sget-object v0, Landroid/renderscript/Font;->-android_renderscript_Font$StyleSwitchesValues:[I
 
     return-object v0
 
@@ -111,7 +111,7 @@
     .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_0
 
     :goto_3
-    sput-object v0, Landroid/renderscript/Font;->-android-renderscript-Font$StyleSwitchesValues:[I
+    sput-object v0, Landroid/renderscript/Font;->-android_renderscript_Font$StyleSwitchesValues:[I
 
     return-object v0
 
@@ -270,20 +270,13 @@
 .end method
 
 .method constructor <init>(JLandroid/renderscript/RenderScript;)V
-    .locals 3
+    .locals 1
     .param p1, "id"    # J
     .param p3, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
     .line 152
     invoke-direct {p0, p1, p2, p3}, Landroid/renderscript/BaseObj;-><init>(JLandroid/renderscript/RenderScript;)V
-
-    .line 153
-    iget-object v0, p0, Landroid/renderscript/Font;->guard:Ldalvik/system/CloseGuard;
-
-    const-string/jumbo v1, "destroy"
-
-    invoke-virtual {v0, v1}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
 
     .line 151
     return-void
@@ -333,12 +326,12 @@
     .param p4, "pointSize"    # F
 
     .prologue
-    .line 240
+    .line 239
     invoke-static {p2, p3}, Landroid/renderscript/Font;->getFontFileName(Ljava/lang/String;Landroid/renderscript/Font$Style;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 241
+    .line 240
     .local v0, "fileName":Ljava/lang/String;
     invoke-static {}, Landroid/os/Environment;->getRootDirectory()Ljava/io/File;
 
@@ -348,7 +341,7 @@
 
     move-result-object v1
 
-    .line 242
+    .line 241
     .local v1, "fontPath":Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -372,7 +365,7 @@
 
     move-result-object v1
 
-    .line 243
+    .line 242
     invoke-static {p0, p1, v1, p4}, Landroid/renderscript/Font;->createFromFile(Landroid/renderscript/RenderScript;Landroid/content/res/Resources;Ljava/lang/String;F)Landroid/renderscript/Font;
 
     move-result-object v2
@@ -388,15 +381,15 @@
     .param p3, "pointSize"    # F
 
     .prologue
-    .line 184
+    .line 183
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 185
+    .line 184
     invoke-virtual {p1}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v1
 
-    .line 186
+    .line 185
     .local v1, "mgr":Landroid/content/res/AssetManager;
     invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
@@ -404,13 +397,13 @@
 
     iget v0, v5, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    .line 188
+    .line 187
     .local v0, "dpi":I
     invoke-virtual {p0, v1, p2, p3, v0}, Landroid/renderscript/RenderScript;->nFontCreateFromAsset(Landroid/content/res/AssetManager;Ljava/lang/String;FI)J
 
     move-result-wide v2
 
-    .line 189
+    .line 188
     .local v2, "fontId":J
     const-wide/16 v6, 0x0
 
@@ -418,7 +411,7 @@
 
     if-nez v5, :cond_0
 
-    .line 190
+    .line 189
     new-instance v5, Landroid/renderscript/RSRuntimeException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -443,13 +436,13 @@
 
     throw v5
 
-    .line 192
+    .line 191
     :cond_0
     new-instance v4, Landroid/renderscript/Font;
 
     invoke-direct {v4, v2, v3, p0}, Landroid/renderscript/Font;-><init>(JLandroid/renderscript/RenderScript;)V
 
-    .line 193
+    .line 192
     .local v4, "rsFont":Landroid/renderscript/Font;
     return-object v4
 .end method
@@ -462,7 +455,7 @@
     .param p3, "pointSize"    # F
 
     .prologue
-    .line 177
+    .line 176
     invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v0
@@ -482,23 +475,23 @@
     .param p3, "pointSize"    # F
 
     .prologue
-    .line 161
+    .line 160
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 162
+    .line 161
     invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v4
 
     iget v0, v4, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    .line 163
+    .line 162
     .local v0, "dpi":I
     invoke-virtual {p0, p2, p3, v0}, Landroid/renderscript/RenderScript;->nFontCreateFromFile(Ljava/lang/String;FI)J
 
     move-result-wide v2
 
-    .line 165
+    .line 164
     .local v2, "fontId":J
     const-wide/16 v4, 0x0
 
@@ -506,7 +499,7 @@
 
     if-nez v4, :cond_0
 
-    .line 166
+    .line 165
     new-instance v4, Landroid/renderscript/RSRuntimeException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -531,13 +524,13 @@
 
     throw v4
 
-    .line 168
+    .line 167
     :cond_0
     new-instance v1, Landroid/renderscript/Font;
 
     invoke-direct {v1, v2, v3, p0}, Landroid/renderscript/Font;-><init>(JLandroid/renderscript/RenderScript;)V
 
-    .line 170
+    .line 169
     .local v1, "rsFont":Landroid/renderscript/Font;
     return-object v1
 .end method
@@ -550,7 +543,7 @@
     .param p3, "pointSize"    # F
 
     .prologue
-    .line 200
+    .line 199
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -573,14 +566,14 @@
 
     move-result-object v3
 
-    .line 202
+    .line 201
     .local v3, "name":Ljava/lang/String;
     invoke-virtual/range {p0 .. p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 203
+    .line 202
     const/4 v9, 0x0
 
-    .line 205
+    .line 204
     .local v9, "is":Ljava/io/InputStream;
     :try_start_0
     invoke-virtual/range {p1 .. p2}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
@@ -589,7 +582,7 @@
 
     move-result-object v9
 
-    .line 210
+    .line 209
     .local v9, "is":Ljava/io/InputStream;
     invoke-virtual/range {p1 .. p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
@@ -597,17 +590,17 @@
 
     iget v5, v2, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    .line 212
+    .line 211
     .local v5, "dpi":I
     const-wide/16 v10, 0x0
 
-    .line 213
+    .line 212
     .local v10, "fontId":J
     instance-of v2, v9, Landroid/content/res/AssetManager$AssetInputStream;
 
     if-eqz v2, :cond_0
 
-    .line 214
+    .line 213
     check-cast v9, Landroid/content/res/AssetManager$AssetInputStream;
 
     .end local v9    # "is":Ljava/io/InputStream;
@@ -620,19 +613,19 @@
 
     move/from16 v4, p3
 
-    .line 215
+    .line 214
     invoke-virtual/range {v2 .. v7}, Landroid/renderscript/RenderScript;->nFontCreateFromAssetStream(Ljava/lang/String;FIJ)J
 
     move-result-wide v10
 
-    .line 220
+    .line 219
     const-wide/16 v14, 0x0
 
     cmp-long v2, v10, v14
 
     if-nez v2, :cond_1
 
-    .line 221
+    .line 220
     new-instance v2, Landroid/renderscript/RSRuntimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -659,7 +652,7 @@
 
     throw v2
 
-    .line 206
+    .line 205
     .end local v5    # "dpi":I
     .end local v6    # "asset":J
     .end local v10    # "fontId":J
@@ -667,7 +660,7 @@
     :catch_0
     move-exception v8
 
-    .line 207
+    .line 206
     .local v8, "e":Ljava/lang/Exception;
     new-instance v2, Landroid/renderscript/RSRuntimeException;
 
@@ -695,7 +688,7 @@
 
     throw v2
 
-    .line 217
+    .line 216
     .end local v8    # "e":Ljava/lang/Exception;
     .restart local v5    # "dpi":I
     .local v9, "is":Ljava/io/InputStream;
@@ -709,7 +702,7 @@
 
     throw v2
 
-    .line 223
+    .line 222
     .end local v9    # "is":Ljava/io/InputStream;
     .restart local v6    # "asset":J
     :cond_1
@@ -719,7 +712,7 @@
 
     invoke-direct {v12, v10, v11, v0}, Landroid/renderscript/Font;-><init>(JLandroid/renderscript/RenderScript;)V
 
-    .line 224
+    .line 223
     .local v12, "rsFont":Landroid/renderscript/Font;
     return-object v12
 .end method
@@ -744,7 +737,7 @@
     if-eqz v0, :cond_0
 
     .line 136
-    invoke-static {}, Landroid/renderscript/Font;->-getandroid-renderscript-Font$StyleSwitchesValues()[I
+    invoke-static {}, Landroid/renderscript/Font;->-getandroid_renderscript_Font$StyleSwitchesValues()[I
 
     move-result-object v1
 

@@ -16,44 +16,14 @@
     .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
-    .line 3064
+    .line 2643
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3066
+    .line 2645
     iput-object p1, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
-    .line 3064
+    .line 2643
     return-void
-.end method
-
-.method private static writeIntArray([ILandroid/os/Parcel;)V
-    .locals 1
-    .param p0, "array"    # [I
-    .param p1, "data"    # Landroid/os/Parcel;
-
-    .prologue
-    .line 6882
-    if-nez p0, :cond_0
-
-    .line 6883
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6881
-    :goto_0
-    return-void
-
-    .line 6885
-    :cond_0
-    array-length v0, p0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6886
-    invoke-virtual {p1, p0}, Landroid/os/Parcel;->writeIntArray([I)V
-
-    goto :goto_0
 .end method
 
 
@@ -68,27 +38,27 @@
     .end annotation
 
     .prologue
-    .line 3654
+    .line 3195
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3655
+    .line 3196
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3656
+    .line 3197
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3657
+    .line 3198
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3658
+    .line 3199
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x3e
@@ -97,16 +67,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3659
+    .line 3200
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3660
+    .line 3201
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3661
+    .line 3202
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3652
+    .line 3193
     return-void
 .end method
 
@@ -126,36 +96,36 @@
 
     const/4 v2, 0x0
 
-    .line 3588
+    .line 3129
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3589
+    .line 3130
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3590
+    .line 3131
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3591
+    .line 3132
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3592
+    .line 3133
     if-eqz p2, :cond_1
 
-    .line 3593
+    .line 3134
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3594
+    .line 3135
     invoke-virtual {p2, v0, v2}, Landroid/content/res/Configuration;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3598
+    .line 3139
     :goto_0
     if-eqz p3, :cond_0
 
@@ -164,26 +134,26 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3599
+    .line 3140
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x12
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3600
+    .line 3141
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3601
+    .line 3142
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3602
+    .line 3143
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3586
+    .line 3127
     return-void
 
-    .line 3596
+    .line 3137
     :cond_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -200,27 +170,27 @@
     .end annotation
 
     .prologue
-    .line 3617
+    .line 3158
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3618
+    .line 3159
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3619
+    .line 3160
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3620
+    .line 3161
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3621
+    .line 3162
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x13
@@ -229,68 +199,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3622
+    .line 3163
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3623
+    .line 3164
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3624
+    .line 3165
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3615
-    return-void
-.end method
-
-.method public activityRelaunched(Landroid/os/IBinder;)V
-    .locals 5
-    .param p1, "token"    # Landroid/os/IBinder;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 3665
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 3666
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 3667
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 3668
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 3669
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x165
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 3670
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 3671
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 3672
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 3663
+    .line 3156
     return-void
 .end method
 
@@ -304,27 +222,27 @@
     .end annotation
 
     .prologue
-    .line 3606
+    .line 3147
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3607
+    .line 3148
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3608
+    .line 3149
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3609
+    .line 3150
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3610
+    .line 3151
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x27
@@ -333,16 +251,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3611
+    .line 3152
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3612
+    .line 3153
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3613
+    .line 3154
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3604
+    .line 3145
     return-void
 .end method
 
@@ -356,27 +274,27 @@
     .end annotation
 
     .prologue
-    .line 3643
+    .line 3184
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3644
+    .line 3185
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3645
+    .line 3186
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3646
+    .line 3187
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3647
+    .line 3188
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x7b
@@ -385,16 +303,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3648
+    .line 3189
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3649
+    .line 3190
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3650
+    .line 3191
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3641
+    .line 3182
     return-void
 .end method
 
@@ -411,38 +329,38 @@
     .end annotation
 
     .prologue
-    .line 3629
+    .line 3170
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3630
+    .line 3171
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3631
+    .line 3172
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3632
+    .line 3173
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3633
+    .line 3174
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 3634
+    .line 3175
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writePersistableBundle(Landroid/os/PersistableBundle;)V
 
-    .line 3635
+    .line 3176
     const/4 v2, 0x0
 
     invoke-static {p4, v0, v2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
-    .line 3636
+    .line 3177
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x14
@@ -451,16 +369,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3637
+    .line 3178
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3638
+    .line 3179
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3639
+    .line 3180
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3627
+    .line 3168
     return-void
 .end method
 
@@ -479,58 +397,58 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 3723
+    .line 3266
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3724
+    .line 3267
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3725
+    .line 3268
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3726
+    .line 3269
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3727
+    .line 3270
     invoke-virtual {p2, v0, v5}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3728
+    .line 3271
     invoke-virtual {p3, v0, v5}, Landroid/app/ActivityManager$TaskDescription;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3729
+    .line 3272
     invoke-virtual {p4, v0, v5}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3730
+    .line 3273
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xea
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3731
+    .line 3274
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3732
+    .line 3275
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 3733
+    .line 3276
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3734
+    .line 3277
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3735
+    .line 3278
     return v2
 .end method
 
@@ -544,27 +462,27 @@
     .end annotation
 
     .prologue
-    .line 5315
+    .line 4643
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5316
+    .line 4644
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5317
+    .line 4645
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5318
+    .line 4646
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5319
+    .line 4647
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x5f
@@ -573,16 +491,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5320
+    .line 4648
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5321
+    .line 4649
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5322
+    .line 4650
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5314
+    .line 4642
     return-void
 .end method
 
@@ -596,27 +514,27 @@
     .end annotation
 
     .prologue
-    .line 4270
+    .line 3668
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4271
+    .line 3669
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4272
+    .line 3670
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4273
+    .line 3671
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4274
+    .line 3672
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xb7
@@ -625,16 +543,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4275
+    .line 3673
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4276
+    .line 3674
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4277
+    .line 3675
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4269
+    .line 3667
     return-void
 .end method
 
@@ -642,7 +560,7 @@
     .locals 1
 
     .prologue
-    .line 3071
+    .line 2650
     iget-object v0, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     return-object v0
@@ -658,31 +576,31 @@
     .end annotation
 
     .prologue
-    .line 3576
+    .line 3117
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3577
+    .line 3118
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3578
+    .line 3119
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3579
+    .line 3120
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3580
+    .line 3121
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x11
@@ -691,16 +609,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3581
+    .line 3122
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3582
+    .line 3123
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3583
+    .line 3124
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3574
+    .line 3115
     return-void
 .end method
 
@@ -714,27 +632,27 @@
     .end annotation
 
     .prologue
-    .line 6666
+    .line 5872
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6667
+    .line 5873
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6668
+    .line 5874
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6669
+    .line 5875
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6670
+    .line 5876
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xe4
@@ -743,16 +661,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6671
+    .line 5877
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6672
+    .line 5878
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6673
+    .line 5879
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6665
+    .line 5871
     return-void
 .end method
 
@@ -767,30 +685,30 @@
     .end annotation
 
     .prologue
-    .line 4509
+    .line 3907
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4510
+    .line 3908
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4511
+    .line 3909
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4512
+    .line 3910
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4513
+    .line 3911
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4514
+    .line 3912
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x5b
@@ -799,13 +717,13 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4515
+    .line 3913
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4516
+    .line 3914
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4508
+    .line 3906
     return-void
 .end method
 
@@ -823,43 +741,43 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 4485
+    .line 3883
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4486
+    .line 3884
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4487
+    .line 3885
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4488
+    .line 3886
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4489
+    .line 3887
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4490
+    .line 3888
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4491
+    .line 3889
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x5a
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4492
+    .line 3890
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4493
+    .line 3891
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -868,18 +786,18 @@
 
     const/4 v2, 0x1
 
-    .line 4494
+    .line 3892
     .local v2, "success":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4495
+    .line 3893
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4496
+    .line 3894
     return v2
 
-    .line 4493
+    .line 3891
     .end local v2    # "success":Z
     :cond_0
     const/4 v2, 0x0
@@ -909,24 +827,24 @@
 
     const/4 v5, 0x0
 
-    .line 4392
+    .line 3790
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4393
+    .line 3791
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4394
+    .line 3792
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4395
+    .line 3793
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -936,54 +854,54 @@
     :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4396
+    .line 3794
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4397
+    .line 3795
     invoke-virtual {p3, v0, v5}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4398
+    .line 3796
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4399
+    .line 3797
     invoke-interface {p5}, Landroid/app/IServiceConnection;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4400
+    .line 3798
     invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4401
+    .line 3799
     invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4402
+    .line 3800
     invoke-virtual {v0, p8}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4403
+    .line 3801
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x24
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4404
+    .line 3802
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4405
+    .line 3803
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 4406
+    .line 3804
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4407
+    .line 3805
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4408
+    .line 3806
     return v2
 .end method
 
@@ -996,24 +914,24 @@
     .end annotation
 
     .prologue
-    .line 6702
+    .line 5908
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6703
+    .line 5909
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6704
+    .line 5910
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6705
+    .line 5911
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xee
@@ -1022,16 +940,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6706
+    .line 5912
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6707
+    .line 5913
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6708
+    .line 5914
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6701
+    .line 5907
     return-void
 .end method
 
@@ -1057,24 +975,24 @@
     .end annotation
 
     .prologue
-    .line 3520
+    .line 3061
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3521
+    .line 3062
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3522
+    .line 3063
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3523
+    .line 3064
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -1084,15 +1002,15 @@
     :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3524
+    .line 3065
     const/4 v4, 0x0
 
     invoke-virtual {p2, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3525
+    .line 3066
     invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3526
+    .line 3067
     if-eqz p4, :cond_1
 
     invoke-interface {p4}, Landroid/content/IIntentReceiver;->asBinder()Landroid/os/IBinder;
@@ -1102,29 +1020,29 @@
     :goto_1
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3527
+    .line 3068
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3528
+    .line 3069
     invoke-virtual {v1, p6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3529
+    .line 3070
     invoke-virtual {v1, p7}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 3530
+    .line 3071
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    .line 3531
+    .line 3072
     move/from16 v0, p9
 
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3532
+    .line 3073
     move-object/from16 v0, p10
 
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 3533
+    .line 3074
     if-eqz p11, :cond_2
 
     const/4 v4, 0x1
@@ -1132,7 +1050,7 @@
     :goto_2
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3534
+    .line 3075
     if-eqz p12, :cond_3
 
     const/4 v4, 0x1
@@ -1140,12 +1058,12 @@
     :goto_3
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3535
+    .line 3076
     move/from16 v0, p13
 
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3536
+    .line 3077
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xe
@@ -1154,111 +1072,48 @@
 
     invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3537
+    .line 3078
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3538
+    .line 3079
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 3539
+    .line 3080
     .local v3, "res":I
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3540
+    .line 3081
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3541
+    .line 3082
     return v3
 
-    .line 3523
+    .line 3064
     .end local v3    # "res":I
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_0
 
-    .line 3526
+    .line 3067
     :cond_1
     const/4 v4, 0x0
 
     goto :goto_1
 
-    .line 3533
+    .line 3074
     :cond_2
     const/4 v4, 0x0
 
     goto :goto_2
 
-    .line 3534
+    .line 3075
     :cond_3
     const/4 v4, 0x0
 
     goto :goto_3
-.end method
-
-.method public canBypassWorkChallenge(Landroid/app/PendingIntent;)Z
-    .locals 6
-    .param p1, "intent"    # Landroid/app/PendingIntent;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 7105
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 7106
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 7107
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v4, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 7108
-    invoke-virtual {p1, v0, v3}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 7109
-    iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0x17d
-
-    invoke-interface {v4, v5, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 7110
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 7111
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 7112
-    .local v2, "result":I
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 7113
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 7114
-    if-eqz v2, :cond_0
-
-    const/4 v3, 0x1
-
-    :cond_0
-    return v3
 .end method
 
 .method public cancelIntentSender(Landroid/content/IIntentSender;)V
@@ -1271,31 +1126,31 @@
     .end annotation
 
     .prologue
-    .line 4675
+    .line 4073
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4676
+    .line 4074
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4677
+    .line 4075
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4678
+    .line 4076
     invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4679
+    .line 4077
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x40
@@ -1304,16 +1159,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4680
+    .line 4078
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4681
+    .line 4079
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4682
+    .line 4080
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4674
+    .line 4072
     return-void
 .end method
 
@@ -1333,61 +1188,61 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5621
+    .line 4936
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5622
+    .line 4937
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5623
+    .line 4938
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5624
+    .line 4939
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5625
+    .line 4940
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5626
+    .line 4941
     invoke-virtual {p3, v0, v5}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 5627
+    .line 4942
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5628
+    .line 4943
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5629
+    .line 4944
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x77
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5630
+    .line 4945
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5631
+    .line 4946
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 5632
+    .line 4947
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5633
+    .line 4948
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5634
+    .line 4949
     return v2
 .end method
 
@@ -1403,33 +1258,33 @@
     .end annotation
 
     .prologue
-    .line 4765
+    .line 4163
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4766
+    .line 4164
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4767
+    .line 4165
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4768
+    .line 4166
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4769
+    .line 4167
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4770
+    .line 4168
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4771
+    .line 4169
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x35
@@ -1438,22 +1293,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4772
+    .line 4170
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4773
+    .line 4171
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 4774
+    .line 4172
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4775
+    .line 4173
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4776
+    .line 4174
     return v2
 .end method
 
@@ -1470,36 +1325,36 @@
     .end annotation
 
     .prologue
-    .line 4780
+    .line 4178
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4781
+    .line 4179
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4782
+    .line 4180
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4783
+    .line 4181
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4784
+    .line 4182
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4785
+    .line 4183
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4786
+    .line 4184
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4787
+    .line 4185
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xf2
@@ -1508,22 +1363,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4788
+    .line 4186
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4789
+    .line 4187
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 4790
+    .line 4188
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4791
+    .line 4189
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4792
+    .line 4190
     return v2
 .end method
 
@@ -1544,64 +1399,64 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 4811
+    .line 4209
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4812
+    .line 4210
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4813
+    .line 4211
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4814
+    .line 4212
     invoke-virtual {p1, v0, v5}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4815
+    .line 4213
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4816
+    .line 4214
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4817
+    .line 4215
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4818
+    .line 4216
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4819
+    .line 4217
     invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4820
+    .line 4218
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x36
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4821
+    .line 4219
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4822
+    .line 4220
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 4823
+    .line 4221
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4824
+    .line 4222
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4825
+    .line 4223
     return v2
 .end method
 
@@ -1621,27 +1476,27 @@
 
     const/4 v5, 0x0
 
-    .line 4796
+    .line 4194
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4797
+    .line 4195
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4798
+    .line 4196
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4799
+    .line 4197
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4800
+    .line 4198
     if-eqz p2, :cond_0
 
     invoke-interface {p2}, Landroid/content/pm/IPackageDataObserver;->asBinder()Landroid/os/IBinder;
@@ -1651,20 +1506,20 @@
     :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4801
+    .line 4199
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4802
+    .line 4200
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x4e
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4803
+    .line 4201
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4804
+    .line 4202
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -1673,80 +1528,24 @@
 
     const/4 v2, 0x1
 
-    .line 4805
+    .line 4203
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4806
+    .line 4204
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4807
+    .line 4205
     return v2
 
-    .line 4804
+    .line 4202
     .end local v2    # "res":Z
     :cond_1
     const/4 v2, 0x0
 
     .restart local v2    # "res":Z
     goto :goto_0
-.end method
-
-.method public clearGrantedUriPermissions(Ljava/lang/String;I)V
-    .locals 5
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "userId"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 4925
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 4926
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 4927
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 4928
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 4929
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4930
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x16a
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 4931
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 4932
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 4933
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 4924
-    return-void
 .end method
 
 .method public clearPendingBackup()V
@@ -1758,24 +1557,24 @@
     .end annotation
 
     .prologue
-    .line 4500
+    .line 3898
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4501
+    .line 3899
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4502
+    .line 3900
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4503
+    .line 3901
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xa0
@@ -1784,13 +1583,13 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4504
+    .line 3902
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4505
+    .line 3903
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4499
+    .line 3897
     return-void
 .end method
 
@@ -1804,27 +1603,27 @@
     .end annotation
 
     .prologue
-    .line 5341
+    .line 4668
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5342
+    .line 4669
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5343
+    .line 4670
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5344
+    .line 4671
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5345
+    .line 4672
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x61
@@ -1833,16 +1632,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5346
+    .line 4673
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5347
+    .line 4674
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5348
+    .line 4675
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5340
+    .line 4667
     return-void
 .end method
 
@@ -1858,37 +1657,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5427
+    .line 4754
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5428
+    .line 4755
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5429
+    .line 4756
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5430
+    .line 4757
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5431
+    .line 4758
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xae
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5432
+    .line 4759
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5433
+    .line 4760
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -1897,18 +1696,18 @@
 
     const/4 v2, 0x1
 
-    .line 5434
+    .line 4761
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5435
+    .line 4762
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5436
+    .line 4763
     return v2
 
-    .line 5433
+    .line 4760
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -1930,33 +1729,33 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5441
+    .line 4768
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5442
+    .line 4769
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5443
+    .line 4770
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5444
+    .line 4771
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5445
+    .line 4772
     if-nez p2, :cond_0
 
-    .line 5446
+    .line 4773
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5451
+    .line 4778
     :goto_0
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
@@ -1964,10 +1763,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5452
+    .line 4779
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5453
+    .line 4780
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -1976,25 +1775,25 @@
 
     const/4 v2, 0x1
 
-    .line 5454
+    .line 4781
     .local v2, "res":Z
     :goto_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5455
+    .line 4782
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5456
+    .line 4783
     return v2
 
-    .line 5448
+    .line 4775
     .end local v2    # "res":Z
     :cond_0
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5449
+    .line 4776
     invoke-virtual {p2}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
 
     move-result-object v3
@@ -2003,7 +1802,7 @@
 
     goto :goto_0
 
-    .line 5453
+    .line 4780
     :cond_1
     const/4 v2, 0x0
 
@@ -2024,36 +1823,36 @@
     .end annotation
 
     .prologue
-    .line 5527
+    .line 4855
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5528
+    .line 4856
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5529
+    .line 4857
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5530
+    .line 4858
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5531
+    .line 4859
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5532
+    .line 4860
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5533
+    .line 4861
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5534
+    .line 4862
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x72
@@ -2062,16 +1861,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5535
+    .line 4863
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5536
+    .line 4864
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5537
+    .line 4865
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5526
+    .line 4854
     return-void
 .end method
 
@@ -2085,27 +1884,27 @@
     .end annotation
 
     .prologue
-    .line 6415
+    .line 5639
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6416
+    .line 5640
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6417
+    .line 5641
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6418
+    .line 5642
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6419
+    .line 5643
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x11a
@@ -2114,21 +1913,21 @@
 
     invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6420
+    .line 5644
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6421
+    .line 5645
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 6423
+    .line 5647
     .local v3, "result":I
     const/4 v4, 0x1
 
     if-ne v3, v4, :cond_0
 
-    .line 6424
+    .line 5648
     invoke-virtual {v1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v4
@@ -2137,17 +1936,17 @@
 
     move-result-object v2
 
-    .line 6428
+    .line 5652
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6429
+    .line 5653
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6430
+    .line 5654
     return-object v2
 
-    .line 6426
+    .line 5650
     :cond_0
     const/4 v2, 0x0
 
@@ -2168,33 +1967,33 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 6322
+    .line 5606
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6323
+    .line 5607
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6324
+    .line 5608
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v5, "android.app.IActivityManager"
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6325
+    .line 5609
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6326
+    .line 5610
     if-nez p2, :cond_0
 
     :goto_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6327
+    .line 5611
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xa8
@@ -2203,21 +2002,21 @@
 
     invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6328
+    .line 5612
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6329
+    .line 5613
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 6331
+    .line 5615
     .local v3, "result":I
     const/4 v4, 0x1
 
     if-ne v3, v4, :cond_1
 
-    .line 6332
+    .line 5616
     invoke-virtual {v1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v4
@@ -2226,17 +2025,17 @@
 
     move-result-object v2
 
-    .line 6336
+    .line 5620
     :goto_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6337
+    .line 5621
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6338
+    .line 5622
     return-object v2
 
-    .line 6326
+    .line 5610
     .end local v3    # "result":I
     :cond_0
     invoke-interface {p2}, Landroid/app/IActivityContainerCallback;->asBinder()Landroid/os/IBinder;
@@ -2245,7 +2044,7 @@
 
     goto :goto_0
 
-    .line 6334
+    .line 5618
     .restart local v3    # "result":I
     :cond_1
     const/4 v2, 0x0
@@ -2264,31 +2063,31 @@
     .end annotation
 
     .prologue
-    .line 6343
+    .line 5627
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6344
+    .line 5628
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6345
+    .line 5629
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6346
+    .line 5630
     invoke-interface {p1}, Landroid/app/IActivityContainer;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6347
+    .line 5631
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xba
@@ -2297,16 +2096,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6348
+    .line 5632
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6349
+    .line 5633
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6350
+    .line 5634
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6342
+    .line 5626
     return-void
 .end method
 
@@ -2328,30 +2127,30 @@
 
     const/4 v5, 0x0
 
-    .line 5639
+    .line 4954
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5640
+    .line 4955
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5641
+    .line 4956
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5642
+    .line 4957
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5643
+    .line 4958
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5644
+    .line 4959
     if-eqz p3, :cond_0
 
     move v3, v4
@@ -2359,19 +2158,19 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5645
+    .line 4960
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5646
+    .line 4961
     if-eqz p5, :cond_1
 
-    .line 5647
+    .line 4962
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5648
+    .line 4963
     invoke-virtual {p5, v0, v4}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 5652
+    .line 4967
     :goto_1
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
@@ -2379,10 +2178,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5653
+    .line 4968
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5654
+    .line 4969
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -2391,31 +2190,31 @@
 
     const/4 v2, 0x1
 
-    .line 5655
+    .line 4970
     .local v2, "res":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5656
+    .line 4971
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5657
+    .line 4972
     return v2
 
     .end local v2    # "res":Z
     :cond_0
     move v3, v5
 
-    .line 5644
+    .line 4959
     goto :goto_0
 
-    .line 5650
+    .line 4965
     :cond_1
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_1
 
-    .line 5654
+    .line 4969
     :cond_2
     const/4 v2, 0x0
 
@@ -2433,27 +2232,27 @@
     .end annotation
 
     .prologue
-    .line 6742
+    .line 5948
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6743
+    .line 5949
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6744
+    .line 5950
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6745
+    .line 5951
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 6746
+    .line 5952
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x121
@@ -2462,68 +2261,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6747
+    .line 5953
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6748
+    .line 5954
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6749
+    .line 5955
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6741
-    return-void
-.end method
-
-.method public enterPictureInPictureMode(Landroid/os/IBinder;)V
-    .locals 5
-    .param p1, "token"    # Landroid/os/IBinder;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6960
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6961
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6962
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6963
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6964
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x164
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6965
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6966
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6967
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6959
+    .line 5947
     return-void
 .end method
 
@@ -2536,18 +2283,18 @@
     .end annotation
 
     .prologue
-    .line 5058
+    .line 4398
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5059
+    .line 4399
     .local v0, "data":Landroid/os/Parcel;
     const-string/jumbo v1, "android.app.IActivityManager"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5060
+    .line 4400
     iget-object v1, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v2, 0x42
@@ -2558,71 +2305,19 @@
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5061
+    .line 4401
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5057
+    .line 4397
     return-void
 .end method
 
-.method public exitFreeformMode(Landroid/os/IBinder;)V
-    .locals 5
-    .param p1, "token"    # Landroid/os/IBinder;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6840
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6841
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6842
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6843
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6844
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x159
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6845
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6846
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6847
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6839
-    return-void
-.end method
-
-.method public finishActivity(Landroid/os/IBinder;ILandroid/content/Intent;I)Z
+.method public finishActivity(Landroid/os/IBinder;ILandroid/content/Intent;Z)Z
     .locals 6
     .param p1, "token"    # Landroid/os/IBinder;
     .param p2, "resultCode"    # I
     .param p3, "resultData"    # Landroid/content/Intent;
-    .param p4, "finishTask"    # I
+    .param p4, "finishTask"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2630,89 +2325,98 @@
     .end annotation
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v3, 0x1
 
-    .line 3391
+    const/4 v4, 0x0
+
+    .line 2932
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3392
+    .line 2933
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3393
+    .line 2934
     .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
+    const-string/jumbo v5, "android.app.IActivityManager"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3394
+    .line 2935
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3395
+    .line 2936
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3396
+    .line 2937
     if-eqz p3, :cond_0
 
-    .line 3397
-    const/4 v3, 0x1
-
+    .line 2938
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3398
-    invoke-virtual {p3, v0, v5}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
+    .line 2939
+    invoke-virtual {p3, v0, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3402
+    .line 2943
     :goto_0
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
+    if-eqz p4, :cond_1
 
-    .line 3403
+    :goto_1
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 2944
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xb
+    const/16 v5, 0xb
 
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3404
+    .line 2945
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3405
+    .line 2946
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     const/4 v2, 0x1
 
-    .line 3406
+    .line 2947
     .local v2, "res":Z
-    :goto_1
+    :goto_2
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3407
+    .line 2948
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3408
+    .line 2949
     return v2
 
-    .line 3400
+    .line 2941
     .end local v2    # "res":Z
     :cond_0
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
-    .line 3405
     :cond_1
+    move v3, v4
+
+    .line 2943
+    goto :goto_1
+
+    .line 2946
+    :cond_2
     const/4 v2, 0x0
 
     .restart local v2    # "res":Z
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method public finishActivityAffinity(Landroid/os/IBinder;)Z
@@ -2727,37 +2431,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 3424
+    .line 2965
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3425
+    .line 2966
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3426
+    .line 2967
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3427
+    .line 2968
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3428
+    .line 2969
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x95
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3429
+    .line 2970
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3430
+    .line 2971
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -2766,18 +2470,18 @@
 
     const/4 v2, 0x1
 
-    .line 3431
+    .line 2972
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3432
+    .line 2973
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3433
+    .line 2974
     return v2
 
-    .line 3430
+    .line 2971
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -2795,24 +2499,24 @@
     .end annotation
 
     .prologue
-    .line 5416
+    .line 4743
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5417
+    .line 4744
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5418
+    .line 4745
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5419
+    .line 4746
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x6d
@@ -2821,16 +2525,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5420
+    .line 4747
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5421
+    .line 4748
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5422
+    .line 4749
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5415
+    .line 4742
     return-void
 .end method
 
@@ -2848,24 +2552,24 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 4555
+    .line 3953
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4556
+    .line 3954
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4557
+    .line 3955
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4558
+    .line 3956
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -2875,13 +2579,13 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4559
+    .line 3957
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4560
+    .line 3958
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 4561
+    .line 3959
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x2d
@@ -2890,16 +2594,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4562
+    .line 3960
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4563
+    .line 3961
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4564
+    .line 3962
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4554
+    .line 3952
     return-void
 .end method
 
@@ -2920,36 +2624,36 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 3560
+    .line 3101
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3561
+    .line 3102
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3562
+    .line 3103
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3563
+    .line 3104
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3564
+    .line 3105
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3565
+    .line 3106
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3566
+    .line 3107
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 3567
+    .line 3108
     if-eqz p5, :cond_0
 
     move v2, v3
@@ -2957,29 +2661,29 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3568
+    .line 3109
     invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3569
+    .line 3110
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x10
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3570
+    .line 3111
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3571
+    .line 3112
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3572
+    .line 3113
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3558
+    .line 3099
     return-void
 
-    .line 3567
+    .line 3108
     :cond_0
     const/4 v2, 0x0
 
@@ -2998,33 +2702,33 @@
     .end annotation
 
     .prologue
-    .line 3412
+    .line 2953
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3413
+    .line 2954
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3414
+    .line 2955
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3415
+    .line 2956
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3416
+    .line 2957
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3417
+    .line 2958
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3418
+    .line 2959
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x20
@@ -3033,16 +2737,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3419
+    .line 2960
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3420
+    .line 2961
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3421
+    .line 2962
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3410
+    .line 2951
     return-void
 .end method
 
@@ -3056,31 +2760,31 @@
     .end annotation
 
     .prologue
-    .line 3436
+    .line 2977
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3437
+    .line 2978
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3438
+    .line 2979
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3439
+    .line 2980
     invoke-interface {p1}, Landroid/service/voice/IVoiceInteractionSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3440
+    .line 2981
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xe0
@@ -3089,16 +2793,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3441
+    .line 2982
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3442
+    .line 2983
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3443
+    .line 2984
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3435
+    .line 2976
     return-void
 .end method
 
@@ -3113,30 +2817,30 @@
     .end annotation
 
     .prologue
-    .line 5219
+    .line 4547
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5220
+    .line 4548
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5221
+    .line 4549
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5222
+    .line 4550
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5223
+    .line 4551
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5224
+    .line 4552
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x4f
@@ -3145,16 +2849,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5225
+    .line 4553
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5226
+    .line 4554
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5227
+    .line 4555
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5218
+    .line 4546
     return-void
 .end method
 
@@ -3168,27 +2872,27 @@
     .end annotation
 
     .prologue
-    .line 4615
+    .line 4013
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4616
+    .line 4014
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4617
+    .line 4015
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4618
+    .line 4016
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4619
+    .line 4017
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x31
@@ -3197,22 +2901,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4620
+    .line 4018
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4621
+    .line 4019
     invoke-static {v1}, Landroid/content/ComponentName;->readFromParcel(Landroid/os/Parcel;)Landroid/content/ComponentName;
 
     move-result-object v2
 
-    .line 4622
+    .line 4020
     .local v2, "res":Landroid/content/ComponentName;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4623
+    .line 4021
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4624
+    .line 4022
     return-object v2
 .end method
 
@@ -3226,27 +2930,27 @@
     .end annotation
 
     .prologue
-    .line 6436
+    .line 5660
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6437
+    .line 5661
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 6438
+    .line 5662
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6439
+    .line 5663
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6440
+    .line 5664
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xb9
@@ -3255,27 +2959,27 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6441
+    .line 5665
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 6442
+    .line 5666
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 6443
+    .line 5667
     .local v1, "displayId":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6444
+    .line 5668
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 6445
+    .line 5669
     return v1
 .end method
 
 .method public getActivityOptions(Landroid/os/IBinder;)Landroid/app/ActivityOptions;
-    .locals 6
+    .locals 7
     .param p1, "token"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3284,114 +2988,67 @@
     .end annotation
 
     .prologue
-    .line 5460
+    .line 4787
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 5461
-    .local v0, "data":Landroid/os/Parcel;
+    .line 4788
+    .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v2
-
-    .line 5462
-    .local v2, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5463
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 5464
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0xdc
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5465
-    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
-
-    .line 5466
-    invoke-virtual {v2}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v3
 
-    invoke-static {v3}, Landroid/app/ActivityOptions;->fromBundle(Landroid/os/Bundle;)Landroid/app/ActivityOptions;
+    .line 4789
+    .local v3, "reply":Landroid/os/Parcel;
+    const-string/jumbo v4, "android.app.IActivityManager"
 
-    move-result-object v1
+    invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5467
-    .local v1, "options":Landroid/app/ActivityOptions;
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+    .line 4790
+    invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5468
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
+    .line 4791
+    iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
-    .line 5469
-    return-object v1
-.end method
+    const/16 v5, 0xdc
 
-.method public getActivityStackId(Landroid/os/IBinder;)I
-    .locals 6
-    .param p1, "token"    # Landroid/os/IBinder;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+    const/4 v6, 0x0
 
-    .prologue
-    .line 6852
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+    invoke-interface {v4, v5, v1, v3, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 4792
+    invoke-virtual {v3}, Landroid/os/Parcel;->readException()V
+
+    .line 4793
+    invoke-virtual {v3}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 6853
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+    .line 4794
+    .local v0, "bundle":Landroid/os/Bundle;
+    if-nez v0, :cond_0
 
-    move-result-object v1
+    const/4 v2, 0x0
 
-    .line 6854
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6855
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6856
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x158
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6857
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6858
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 6859
-    .local v2, "stackId":I
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6860
+    .line 4795
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6861
-    return v2
+    .line 4796
+    invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
+
+    .line 4797
+    return-object v2
+
+    .line 4794
+    :cond_0
+    new-instance v2, Landroid/app/ActivityOptions;
+
+    invoke-direct {v2, v0}, Landroid/app/ActivityOptions;-><init>(Landroid/os/Bundle;)V
+
+    .local v2, "options":Landroid/app/ActivityOptions;
+    goto :goto_0
 .end method
 
 .method public getAllStackInfos()Ljava/util/List;
@@ -3413,24 +3070,24 @@
     .end annotation
 
     .prologue
-    .line 4086
+    .line 3496
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4087
+    .line 3497
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 4088
+    .line 3498
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4089
+    .line 3499
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xab
@@ -3439,87 +3096,25 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4090
+    .line 3500
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 4091
+    .line 3501
     sget-object v3, Landroid/app/ActivityManager$StackInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v2, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    .line 4092
+    .line 3502
     .local v1, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$StackInfo;>;"
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4093
+    .line 3503
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 4094
+    .line 3504
     return-object v1
-.end method
-
-.method public getAppStartMode(ILjava/lang/String;)I
-    .locals 6
-    .param p1, "uid"    # I
-    .param p2, "packageName"    # Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6917
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6918
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6919
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6920
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6921
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 6922
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x15f
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6923
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6924
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 6925
-    .local v2, "res":I
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6926
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6927
-    return v2
 .end method
 
 .method public getAppTaskThumbnailSize()Landroid/graphics/Point;
@@ -3531,24 +3126,24 @@
     .end annotation
 
     .prologue
-    .line 3738
+    .line 3281
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3739
+    .line 3282
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3740
+    .line 3283
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3741
+    .line 3284
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xeb
@@ -3557,10 +3152,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3742
+    .line 3285
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3743
+    .line 3286
     sget-object v3, Landroid/graphics/Point;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -3569,14 +3164,14 @@
 
     check-cast v2, Landroid/graphics/Point;
 
-    .line 3744
+    .line 3287
     .local v2, "size":Landroid/graphics/Point;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3745
+    .line 3288
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3746
+    .line 3289
     return-object v2
 .end method
 
@@ -3604,61 +3199,61 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 3701
+    .line 3244
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3702
+    .line 3245
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
-    .line 3703
+    .line 3246
     .local v3, "reply":Landroid/os/Parcel;
     const-string/jumbo v5, "android.app.IActivityManager"
 
     invoke-virtual {v1, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3704
+    .line 3247
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3705
+    .line 3248
     iget-object v5, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v6, 0xdd
 
     invoke-interface {v5, v6, v1, v3, v7}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3706
+    .line 3249
     invoke-virtual {v3}, Landroid/os/Parcel;->readException()V
 
-    .line 3707
+    .line 3250
     const/4 v2, 0x0
 
-    .line 3708
+    .line 3251
     .local v2, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/IAppTask;>;"
     invoke-virtual {v3}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 3709
+    .line 3252
     .local v0, "N":I
     if-ltz v0, :cond_0
 
-    .line 3710
+    .line 3253
     new-instance v2, Ljava/util/ArrayList;
 
     .end local v2    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/IAppTask;>;"
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 3711
+    .line 3254
     .local v2, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/IAppTask;>;"
     :goto_0
     if-lez v0, :cond_0
 
-    .line 3712
+    .line 3255
     invoke-virtual {v3}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v5
@@ -3667,25 +3262,25 @@
 
     move-result-object v4
 
-    .line 3713
+    .line 3256
     .local v4, "task":Landroid/app/IAppTask;
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 3714
+    .line 3257
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 3717
+    .line 3260
     .end local v2    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/IAppTask;>;"
     .end local v4    # "task":Landroid/app/IAppTask;
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3718
+    .line 3261
     invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
 
-    .line 3719
+    .line 3262
     return-object v2
 .end method
 
@@ -3699,27 +3294,27 @@
     .end annotation
 
     .prologue
-    .line 6146
+    .line 5444
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6147
+    .line 5445
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6148
+    .line 5446
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6149
+    .line 5447
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6150
+    .line 5448
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xa2
@@ -3728,22 +3323,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6151
+    .line 5449
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6152
+    .line 5450
     invoke-virtual {v1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v2
 
-    .line 6153
+    .line 5451
     .local v2, "res":Landroid/os/Bundle;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6154
+    .line 5452
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6155
+    .line 5453
     return-object v2
 .end method
 
@@ -3757,27 +3352,27 @@
     .end annotation
 
     .prologue
-    .line 3689
+    .line 3232
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3690
+    .line 3233
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3691
+    .line 3234
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3692
+    .line 3235
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3693
+    .line 3236
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x16
@@ -3786,22 +3381,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3694
+    .line 3237
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3695
+    .line 3238
     invoke-static {v1}, Landroid/content/ComponentName;->readFromParcel(Landroid/os/Parcel;)Landroid/content/ComponentName;
 
     move-result-object v2
 
-    .line 3696
+    .line 3239
     .local v2, "res":Landroid/content/ComponentName;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3697
+    .line 3240
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3698
+    .line 3241
     return-object v2
 .end method
 
@@ -3815,27 +3410,27 @@
     .end annotation
 
     .prologue
-    .line 3676
+    .line 3206
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3677
+    .line 3207
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3678
+    .line 3208
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3679
+    .line 3209
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3680
+    .line 3210
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x15
@@ -3844,23 +3439,93 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3681
+    .line 3211
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3682
+    .line 3212
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 3683
+    .line 3213
     .local v2, "res":Ljava/lang/String;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3684
+    .line 3214
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3685
+    .line 3215
     return-object v2
+.end method
+
+.method public getCallingPackageForBroadcast(Z)Ljava/lang/String;
+    .locals 6
+    .param p1, "foreground"    # Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 3219
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 3220
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 3221
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v3, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 3222
+    if-eqz p1, :cond_0
+
+    const/4 v3, 0x1
+
+    :goto_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 3223
+    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v5, 0xf5
+
+    invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 3224
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 3225
+    invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 3226
+    .local v2, "res":Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 3227
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 3228
+    return-object v2
+
+    .end local v2    # "res":Ljava/lang/String;
+    :cond_0
+    move v3, v4
+
+    .line 3222
+    goto :goto_0
 .end method
 
 .method public getConfiguration()Landroid/content/res/Configuration;
@@ -3872,24 +3537,24 @@
     .end annotation
 
     .prologue
-    .line 4568
+    .line 3966
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4569
+    .line 3967
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4570
+    .line 3968
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4571
+    .line 3969
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x2e
@@ -3898,10 +3563,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4572
+    .line 3970
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4573
+    .line 3971
     sget-object v3, Landroid/content/res/Configuration;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -3910,14 +3575,14 @@
 
     check-cast v2, Landroid/content/res/Configuration;
 
-    .line 4574
+    .line 3972
     .local v2, "res":Landroid/content/res/Configuration;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4575
+    .line 3973
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4576
+    .line 3974
     return-object v2
 .end method
 
@@ -3938,24 +3603,24 @@
 
     const/4 v5, 0x0
 
-    .line 4191
+    .line 3589
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4192
+    .line 3590
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 4193
+    .line 3591
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v6, "android.app.IActivityManager"
 
     invoke-virtual {v1, v6}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4194
+    .line 3592
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -3965,13 +3630,13 @@
     :cond_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4195
+    .line 3593
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4196
+    .line 3594
     invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4197
+    .line 3595
     if-eqz p4, :cond_2
 
     const/4 v4, 0x1
@@ -3979,30 +3644,30 @@
     :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4198
+    .line 3596
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v6, 0x1d
 
     invoke-interface {v4, v6, v1, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4199
+    .line 3597
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 4200
+    .line 3598
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 4201
+    .line 3599
     .local v3, "res":I
     const/4 v0, 0x0
 
-    .line 4202
+    .line 3600
     .local v0, "cph":Landroid/app/IActivityManager$ContentProviderHolder;
     if-eqz v3, :cond_1
 
-    .line 4203
+    .line 3601
     sget-object v4, Landroid/app/IActivityManager$ContentProviderHolder;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v4, v2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -4012,21 +3677,21 @@
     .end local v0    # "cph":Landroid/app/IActivityManager$ContentProviderHolder;
     check-cast v0, Landroid/app/IActivityManager$ContentProviderHolder;
 
-    .line 4205
+    .line 3603
     :cond_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4206
+    .line 3604
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 4207
+    .line 3605
     return-object v0
 
     .end local v3    # "res":I
     :cond_2
     move v4, v5
 
-    .line 4197
+    .line 3595
     goto :goto_0
 .end method
 
@@ -4044,56 +3709,56 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 4211
+    .line 3609
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4212
+    .line 3610
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 4213
+    .line 3611
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4214
+    .line 3612
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4215
+    .line 3613
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4216
+    .line 3614
     invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4217
+    .line 3615
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x8d
 
     invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4218
+    .line 3616
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 4219
+    .line 3617
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 4220
+    .line 3618
     .local v3, "res":I
     const/4 v0, 0x0
 
-    .line 4221
+    .line 3619
     .local v0, "cph":Landroid/app/IActivityManager$ContentProviderHolder;
     if-eqz v3, :cond_0
 
-    .line 4222
+    .line 3620
     sget-object v4, Landroid/app/IActivityManager$ContentProviderHolder;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v4, v2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -4103,14 +3768,14 @@
     .end local v0    # "cph":Landroid/app/IActivityManager$ContentProviderHolder;
     check-cast v0, Landroid/app/IActivityManager$ContentProviderHolder;
 
-    .line 4224
+    .line 3622
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4225
+    .line 3623
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 4226
+    .line 3624
     return-object v0
 .end method
 
@@ -4123,24 +3788,24 @@
     .end annotation
 
     .prologue
-    .line 5821
+    .line 5117
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5822
+    .line 5118
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5823
+    .line 5119
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5824
+    .line 5120
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x91
@@ -4149,10 +3814,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5825
+    .line 5121
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5826
+    .line 5122
     sget-object v3, Landroid/content/pm/UserInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -4161,14 +3826,14 @@
 
     check-cast v2, Landroid/content/pm/UserInfo;
 
-    .line 5827
+    .line 5123
     .local v2, "userInfo":Landroid/content/pm/UserInfo;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5828
+    .line 5124
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5829
+    .line 5125
     return-object v2
 .end method
 
@@ -4181,24 +3846,24 @@
     .end annotation
 
     .prologue
-    .line 5245
+    .line 4573
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5246
+    .line 4574
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5247
+    .line 4575
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5248
+    .line 4576
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x54
@@ -4207,10 +3872,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5249
+    .line 4577
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5250
+    .line 4578
     sget-object v3, Landroid/content/pm/ConfigurationInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -4219,14 +3884,14 @@
 
     check-cast v2, Landroid/content/pm/ConfigurationInfo;
 
-    .line 5251
+    .line 4579
     .local v2, "res":Landroid/content/pm/ConfigurationInfo;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5252
+    .line 4580
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5253
+    .line 4581
     return-object v2
 .end method
 
@@ -4239,24 +3904,24 @@
     .end annotation
 
     .prologue
-    .line 4141
+    .line 3551
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4142
+    .line 3552
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 4143
+    .line 3553
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4144
+    .line 3554
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x11b
@@ -4265,22 +3930,22 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4145
+    .line 3555
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 4146
+    .line 3556
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 4147
+    .line 3557
     .local v1, "focusedStackId":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4148
+    .line 3558
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 4149
+    .line 3559
     return v1
 .end method
 
@@ -4293,24 +3958,24 @@
     .end annotation
 
     .prologue
-    .line 5687
+    .line 5002
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5688
+    .line 5003
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 5689
+    .line 5004
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5690
+    .line 5005
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x7c
@@ -4319,101 +3984,23 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5691
+    .line 5006
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 5692
+    .line 5007
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 5693
+    .line 5008
     .local v1, "mode":I
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 5694
+    .line 5009
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5695
+    .line 5010
     return v1
-.end method
-
-.method public getGrantedUriPermissions(Ljava/lang/String;I)Landroid/content/pm/ParceledListSlice;
-    .locals 6
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "userId"    # I
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "I)",
-            "Landroid/content/pm/ParceledListSlice",
-            "<",
-            "Landroid/content/UriPermission;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 4908
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 4909
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v2
-
-    .line 4910
-    .local v2, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 4911
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 4912
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4913
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x169
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 4914
-    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
-
-    .line 4916
-    sget-object v3, Landroid/content/pm/ParceledListSlice;->CREATOR:Landroid/os/Parcelable$ClassLoaderCreator;
-
-    invoke-interface {v3, v2}, Landroid/os/Parcelable$ClassLoaderCreator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/pm/ParceledListSlice;
-
-    .line 4918
-    .local v1, "perms":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<Landroid/content/UriPermission;>;"
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 4919
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-
-    .line 4920
-    return-object v1
 .end method
 
 .method public getIntentForIntentSender(Landroid/content/IIntentSender;)Landroid/content/Intent;
@@ -4428,48 +4015,48 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5943
+    .line 5238
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5944
+    .line 5239
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5945
+    .line 5240
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5946
+    .line 5241
     invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5947
+    .line 5242
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xa1
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5948
+    .line 5243
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5949
+    .line 5244
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    .line 5950
+    .line 5245
     sget-object v3, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -4478,17 +4065,17 @@
 
     check-cast v2, Landroid/content/Intent;
 
-    .line 5951
+    .line 5246
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5952
+    .line 5247
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5953
+    .line 5248
     return-object v2
 
-    .line 5950
+    .line 5245
     :cond_0
     const/4 v2, 0x0
 
@@ -4515,80 +4102,80 @@
     .end annotation
 
     .prologue
-    .line 4643
+    .line 4041
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4644
+    .line 4042
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 4645
+    .line 4043
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4646
+    .line 4044
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4647
+    .line 4045
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4648
+    .line 4046
     invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4649
+    .line 4047
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4650
+    .line 4048
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4651
+    .line 4049
     if-eqz p6, :cond_0
 
-    .line 4652
+    .line 4050
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4653
+    .line 4051
     const/4 v4, 0x0
 
     invoke-virtual {v1, p6, v4}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
-    .line 4654
+    .line 4052
     invoke-virtual {v1, p7}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    .line 4658
+    .line 4056
     :goto_0
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4659
+    .line 4057
     if-eqz p9, :cond_1
 
-    .line 4660
+    .line 4058
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4661
+    .line 4059
     const/4 v4, 0x0
 
     move-object/from16 v0, p9
 
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4665
+    .line 4063
     :goto_1
     move/from16 v0, p10
 
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4666
+    .line 4064
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x3f
@@ -4597,30 +4184,30 @@
 
     invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4667
+    .line 4065
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 4669
+    .line 4067
     invoke-virtual {v2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
-    .line 4668
+    .line 4066
     invoke-static {v4}, Landroid/content/IIntentSender$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/IIntentSender;
 
     move-result-object v3
 
-    .line 4670
+    .line 4068
     .local v3, "res":Landroid/content/IIntentSender;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4671
+    .line 4069
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 4672
+    .line 4070
     return-object v3
 
-    .line 4656
+    .line 4054
     .end local v3    # "res":Landroid/content/IIntentSender;
     :cond_0
     const/4 v4, 0x0
@@ -4629,7 +4216,7 @@
 
     goto :goto_0
 
-    .line 4663
+    .line 4061
     :cond_1
     const/4 v4, 0x0
 
@@ -4648,27 +4235,27 @@
     .end annotation
 
     .prologue
-    .line 6081
+    .line 5383
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6082
+    .line 5384
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6083
+    .line 5385
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6084
+    .line 5386
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6085
+    .line 5387
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xa4
@@ -4677,22 +4264,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6086
+    .line 5388
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6087
+    .line 5389
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 6088
+    .line 5390
     .local v2, "result":Ljava/lang/String;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6089
+    .line 5391
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6090
+    .line 5392
     return-object v2
 .end method
 
@@ -4706,27 +4293,27 @@
     .end annotation
 
     .prologue
-    .line 6068
+    .line 5370
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6069
+    .line 5371
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6070
+    .line 5372
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6071
+    .line 5373
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6072
+    .line 5374
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x96
@@ -4735,22 +4322,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6073
+    .line 5375
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6074
+    .line 5376
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 6075
+    .line 5377
     .local v2, "result":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6076
+    .line 5378
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6077
+    .line 5379
     return v2
 .end method
 
@@ -4763,24 +4350,24 @@
     .end annotation
 
     .prologue
-    .line 6521
+    .line 5744
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6522
+    .line 5745
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 6523
+    .line 5746
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6524
+    .line 5747
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x11f
@@ -4789,22 +4376,22 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6525
+    .line 5748
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 6526
+    .line 5749
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 6527
+    .line 5750
     .local v1, "lockTaskModeState":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6528
+    .line 5751
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 6529
+    .line 5752
     return v1
 .end method
 
@@ -4818,24 +4405,24 @@
     .end annotation
 
     .prologue
-    .line 4949
+    .line 4315
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4950
+    .line 4316
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4951
+    .line 4317
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4952
+    .line 4318
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x4c
@@ -4844,74 +4431,20 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4953
+    .line 4319
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4954
+    .line 4320
     invoke-virtual {p1, v1}, Landroid/app/ActivityManager$MemoryInfo;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 4955
+    .line 4321
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4956
+    .line 4322
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4948
+    .line 4314
     return-void
-.end method
-
-.method public getMemoryTrimLevel()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 5047
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5048
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v2
-
-    .line 5049
-    .local v2, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5050
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x172
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5051
-    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
-
-    .line 5052
-    invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    .line 5053
-    .local v1, "level":I
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5054
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-
-    .line 5055
-    return v1
 .end method
 
 .method public getMyMemoryState(Landroid/app/ActivityManager$RunningAppProcessInfo;)V
@@ -4924,24 +4457,24 @@
     .end annotation
 
     .prologue
-    .line 5233
+    .line 4561
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5234
+    .line 4562
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5235
+    .line 4563
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5236
+    .line 4564
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x8f
@@ -4950,19 +4483,19 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5237
+    .line 4565
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5238
+    .line 4566
     invoke-virtual {p1, v1}, Landroid/app/ActivityManager$RunningAppProcessInfo;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 5239
+    .line 4567
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5240
+    .line 4568
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5231
+    .line 4559
     return-void
 .end method
 
@@ -4978,37 +4511,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5736
+    .line 5051
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5737
+    .line 5052
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 5738
+    .line 5053
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v1, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5739
+    .line 5054
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5740
+    .line 5055
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x80
 
     invoke-interface {v3, v4, v1, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5741
+    .line 5056
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 5742
+    .line 5057
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -5017,18 +4550,18 @@
 
     const/4 v0, 0x1
 
-    .line 5743
+    .line 5058
     .local v0, "ask":Z
     :goto_0
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 5744
+    .line 5059
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5745
+    .line 5060
     return v0
 
-    .line 5742
+    .line 5057
     .end local v0    # "ask":Z
     :cond_0
     const/4 v0, 0x0
@@ -5047,31 +4580,31 @@
     .end annotation
 
     .prologue
-    .line 4685
+    .line 4083
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4686
+    .line 4084
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4687
+    .line 4085
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4688
+    .line 4086
     invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4689
+    .line 4087
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x41
@@ -5080,22 +4613,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4690
+    .line 4088
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4691
+    .line 4089
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 4692
+    .line 4090
     .local v2, "res":Ljava/lang/String;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4693
+    .line 4091
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4694
+    .line 4092
     return-object v2
 .end method
 
@@ -5109,27 +4642,27 @@
     .end annotation
 
     .prologue
-    .line 4628
+    .line 4026
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4629
+    .line 4027
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4630
+    .line 4028
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4631
+    .line 4029
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4632
+    .line 4030
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x32
@@ -5138,22 +4671,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4633
+    .line 4031
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4634
+    .line 4032
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 4635
+    .line 4033
     .local v2, "res":Ljava/lang/String;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4636
+    .line 4034
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4637
+    .line 4035
     return-object v2
 .end method
 
@@ -5168,30 +4701,30 @@
     .end annotation
 
     .prologue
-    .line 6794
+    .line 6000
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6795
+    .line 6001
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6796
+    .line 6002
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6797
+    .line 6003
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 6798
+    .line 6004
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 6799
+    .line 6005
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x126
@@ -5200,22 +4733,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6800
+    .line 6006
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6801
+    .line 6007
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 6802
+    .line 6008
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6803
+    .line 6009
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6804
+    .line 6010
     return v2
 .end method
 
@@ -5229,27 +4762,27 @@
     .end annotation
 
     .prologue
-    .line 5710
+    .line 5025
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5711
+    .line 5026
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 5712
+    .line 5027
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5713
+    .line 5028
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5714
+    .line 5029
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x7e
@@ -5258,22 +4791,22 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5715
+    .line 5030
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 5716
+    .line 5031
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 5717
+    .line 5032
     .local v1, "mode":I
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 5718
+    .line 5033
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5719
+    .line 5034
     return v1
 .end method
 
@@ -5302,27 +4835,27 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 4890
+    .line 4288
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4891
+    .line 4289
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 4892
+    .line 4290
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4893
+    .line 4291
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4894
+    .line 4292
     if-eqz p2, :cond_0
 
     const/4 v3, 0x1
@@ -5330,17 +4863,17 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4895
+    .line 4293
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xb6
 
     invoke-interface {v3, v5, v0, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4896
+    .line 4294
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 4898
+    .line 4295
     sget-object v3, Landroid/content/pm/ParceledListSlice;->CREATOR:Landroid/os/Parcelable$ClassLoaderCreator;
 
     invoke-interface {v3, v2}, Landroid/os/Parcelable$ClassLoaderCreator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -5349,21 +4882,21 @@
 
     check-cast v1, Landroid/content/pm/ParceledListSlice;
 
-    .line 4900
+    .line 4297
     .local v1, "perms":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<Landroid/content/UriPermission;>;"
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4901
+    .line 4298
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 4902
+    .line 4299
     return-object v1
 
     .end local v1    # "perms":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<Landroid/content/UriPermission;>;"
     :cond_0
     move v3, v4
 
-    .line 4894
+    .line 4292
     goto :goto_0
 .end method
 
@@ -5376,24 +4909,24 @@
     .end annotation
 
     .prologue
-    .line 4740
+    .line 4138
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4741
+    .line 4139
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4742
+    .line 4140
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4743
+    .line 4141
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x34
@@ -5402,22 +4935,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4744
+    .line 4142
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4745
+    .line 4143
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 4746
+    .line 4144
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4747
+    .line 4145
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4748
+    .line 4146
     return v2
 .end method
 
@@ -5431,27 +4964,27 @@
     .end annotation
 
     .prologue
-    .line 5353
+    .line 4680
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5354
+    .line 4681
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5355
+    .line 4682
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5356
+    .line 4683
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 5357
+    .line 4684
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x62
@@ -5460,10 +4993,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5358
+    .line 4685
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5359
+    .line 4686
     sget-object v3, Landroid/os/Debug$MemoryInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, v3}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
@@ -5472,14 +5005,14 @@
 
     check-cast v2, [Landroid/os/Debug$MemoryInfo;
 
-    .line 5360
+    .line 4687
     .local v2, "res":[Landroid/os/Debug$MemoryInfo;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5361
+    .line 4688
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5362
+    .line 4689
     return-object v2
 .end method
 
@@ -5493,27 +5026,27 @@
     .end annotation
 
     .prologue
-    .line 5984
+    .line 5279
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5985
+    .line 5280
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5986
+    .line 5281
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5987
+    .line 5282
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 5988
+    .line 5283
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x89
@@ -5522,22 +5055,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5989
+    .line 5284
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5990
+    .line 5285
     invoke-virtual {v1}, Landroid/os/Parcel;->createLongArray()[J
 
     move-result-object v2
 
-    .line 5991
+    .line 5286
     .local v2, "res":[J
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5992
+    .line 5287
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5993
+    .line 5288
     return-object v2
 .end method
 
@@ -5560,24 +5093,24 @@
     .end annotation
 
     .prologue
-    .line 3831
+    .line 3386
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3832
+    .line 3387
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3833
+    .line 3388
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3834
+    .line 3389
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x4d
@@ -5586,24 +5119,24 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3835
+    .line 3390
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3837
+    .line 3392
     sget-object v3, Landroid/app/ActivityManager$ProcessErrorStateInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v2, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    .line 3838
+    .line 3393
     .local v1, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$ProcessErrorStateInfo;>;"
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3839
+    .line 3394
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3840
+    .line 3395
     return-object v1
 .end method
 
@@ -5620,56 +5153,56 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5541
+    .line 4869
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5542
+    .line 4870
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5543
+    .line 4871
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5544
+    .line 4872
     invoke-virtual {p1, v0, v5}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 5545
+    .line 4873
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5546
+    .line 4874
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x73
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5547
+    .line 4875
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5548
+    .line 4876
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 5549
+    .line 4877
     .local v2, "res":Ljava/lang/String;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5550
+    .line 4878
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5551
+    .line 4879
     return-object v2
 .end method
 
-.method public getRecentTasks(III)Landroid/content/pm/ParceledListSlice;
+.method public getRecentTasks(III)Ljava/util/List;
     .locals 6
     .param p1, "maxNum"    # I
     .param p2, "flags"    # I
@@ -5677,7 +5210,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(III)",
-            "Landroid/content/pm/ParceledListSlice",
+            "Ljava/util/List",
             "<",
             "Landroid/app/ActivityManager$RecentTaskInfo;",
             ">;"
@@ -5691,33 +5224,33 @@
     .end annotation
 
     .prologue
-    .line 3775
+    .line 3330
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3776
+    .line 3331
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3777
+    .line 3332
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3778
+    .line 3333
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3779
+    .line 3334
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3780
+    .line 3335
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3781
+    .line 3336
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x3c
@@ -5726,26 +5259,24 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3782
+    .line 3337
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3783
-    sget-object v3, Landroid/content/pm/ParceledListSlice;->CREATOR:Landroid/os/Parcelable$ClassLoaderCreator;
+    .line 3339
+    sget-object v3, Landroid/app/ActivityManager$RecentTaskInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v3, v2}, Landroid/os/Parcelable$ClassLoaderCreator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    check-cast v1, Landroid/content/pm/ParceledListSlice;
-
-    .line 3785
-    .local v1, "list":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<Landroid/app/ActivityManager$RecentTaskInfo;>;"
+    .line 3340
+    .local v1, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$RecentTaskInfo;>;"
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3786
+    .line 3341
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3787
+    .line 3342
     return-object v1
 .end method
 
@@ -5759,27 +5290,27 @@
     .end annotation
 
     .prologue
-    .line 4602
+    .line 4000
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4603
+    .line 4001
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4604
+    .line 4002
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4605
+    .line 4003
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4606
+    .line 4004
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x47
@@ -5788,22 +5319,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4607
+    .line 4005
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4608
+    .line 4006
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 4609
+    .line 4007
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4610
+    .line 4008
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4611
+    .line 4009
     return v2
 .end method
 
@@ -5826,24 +5357,24 @@
     .end annotation
 
     .prologue
-    .line 3844
+    .line 3399
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3845
+    .line 3400
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3846
+    .line 3401
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3847
+    .line 3402
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x53
@@ -5852,24 +5383,24 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3848
+    .line 3403
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3850
+    .line 3405
     sget-object v3, Landroid/app/ActivityManager$RunningAppProcessInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v2, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    .line 3851
+    .line 3406
     .local v1, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3852
+    .line 3407
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3853
+    .line 3408
     return-object v1
 .end method
 
@@ -5892,24 +5423,24 @@
     .end annotation
 
     .prologue
-    .line 3857
+    .line 3412
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3858
+    .line 3413
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3859
+    .line 3414
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3860
+    .line 3415
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x6c
@@ -5918,24 +5449,24 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3861
+    .line 3416
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3863
+    .line 3418
     sget-object v3, Landroid/content/pm/ApplicationInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v2, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    .line 3864
+    .line 3419
     .local v1, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ApplicationInfo;>;"
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3865
+    .line 3420
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3866
+    .line 3421
     return-object v1
 .end method
 
@@ -5951,49 +5482,49 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 4307
+    .line 3705
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4308
+    .line 3706
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4309
+    .line 3707
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4310
+    .line 3708
     invoke-virtual {p1, v0, v5}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4311
+    .line 3709
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x21
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4312
+    .line 3710
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4313
+    .line 3711
     invoke-static {v1}, Landroid/app/PendingIntent;->readPendingIntentOrNullFromParcel(Landroid/os/Parcel;)Landroid/app/PendingIntent;
 
     move-result-object v2
 
-    .line 4314
+    .line 3712
     .local v2, "res":Landroid/app/PendingIntent;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4315
+    .line 3713
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4316
+    .line 3714
     return-object v2
 .end method
 
@@ -6006,24 +5537,24 @@
     .end annotation
 
     .prologue
-    .line 5847
+    .line 5143
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5848
+    .line 5144
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5849
+    .line 5145
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5850
+    .line 5146
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x9d
@@ -6032,22 +5563,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5851
+    .line 5147
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5852
+    .line 5148
     invoke-virtual {v1}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v2
 
-    .line 5853
+    .line 5149
     .local v2, "result":[I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5854
+    .line 5150
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5855
+    .line 5151
     return-object v2
 .end method
 
@@ -6074,64 +5605,64 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 3806
+    .line 3361
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3807
+    .line 3362
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v4
 
-    .line 3808
+    .line 3363
     .local v4, "reply":Landroid/os/Parcel;
     const-string/jumbo v5, "android.app.IActivityManager"
 
     invoke-virtual {v1, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3809
+    .line 3364
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3810
+    .line 3365
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3811
+    .line 3366
     iget-object v5, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v6, 0x51
 
     invoke-interface {v5, v6, v1, v4, v7}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3812
+    .line 3367
     invoke-virtual {v4}, Landroid/os/Parcel;->readException()V
 
-    .line 3813
+    .line 3368
     const/4 v3, 0x0
 
-    .line 3814
+    .line 3369
     .local v3, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$RunningServiceInfo;>;"
     invoke-virtual {v4}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 3815
+    .line 3370
     .local v0, "N":I
     if-ltz v0, :cond_0
 
-    .line 3816
+    .line 3371
     new-instance v3, Ljava/util/ArrayList;
 
     .end local v3    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$RunningServiceInfo;>;"
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 3817
+    .line 3372
     .local v3, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$RunningServiceInfo;>;"
     :goto_0
     if-lez v0, :cond_0
 
-    .line 3819
+    .line 3374
     sget-object v5, Landroid/app/ActivityManager$RunningServiceInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v5, v4}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -6140,25 +5671,25 @@
 
     check-cast v2, Landroid/app/ActivityManager$RunningServiceInfo;
 
-    .line 3821
+    .line 3376
     .local v2, "info":Landroid/app/ActivityManager$RunningServiceInfo;
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 3822
+    .line 3377
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 3825
+    .line 3380
     .end local v2    # "info":Landroid/app/ActivityManager$RunningServiceInfo;
     .end local v3    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$RunningServiceInfo;>;"
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3826
+    .line 3381
     invoke-virtual {v4}, Landroid/os/Parcel;->recycle()V
 
-    .line 3827
+    .line 3382
     return-object v3
 .end method
 
@@ -6174,50 +5705,50 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 4099
+    .line 3509
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4100
+    .line 3510
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 4101
+    .line 3511
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4102
+    .line 3512
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4103
+    .line 3513
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xad
 
     invoke-interface {v4, v5, v0, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4104
+    .line 3514
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 4105
+    .line 3515
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 4106
+    .line 3516
     .local v3, "res":I
     const/4 v1, 0x0
 
-    .line 4107
+    .line 3517
     .local v1, "info":Landroid/app/ActivityManager$StackInfo;
     if-eqz v3, :cond_0
 
-    .line 4108
+    .line 3518
     sget-object v4, Landroid/app/ActivityManager$StackInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v4, v2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -6227,14 +5758,14 @@
     .end local v1    # "info":Landroid/app/ActivityManager$StackInfo;
     check-cast v1, Landroid/app/ActivityManager$StackInfo;
 
-    .line 4110
+    .line 3520
     :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4111
+    .line 3521
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 4112
+    .line 3522
     return-object v1
 .end method
 
@@ -6249,34 +5780,34 @@
     .end annotation
 
     .prologue
-    .line 5958
+    .line 5253
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5959
+    .line 5254
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5960
+    .line 5255
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5961
+    .line 5256
     invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5962
+    .line 5257
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5963
+    .line 5258
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xd3
@@ -6285,91 +5816,28 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5964
+    .line 5259
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5965
+    .line 5260
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 5966
+    .line 5261
     .local v2, "res":Ljava/lang/String;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5967
+    .line 5262
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5968
+    .line 5263
     return-object v2
 .end method
 
-.method public getTaskBounds(I)Landroid/graphics/Rect;
-    .locals 6
-    .param p1, "taskId"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6590
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6591
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v2
-
-    .line 6592
-    .local v2, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6593
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6594
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0xb8
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6595
-    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
-
-    .line 6596
-    sget-object v3, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v3, v2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/graphics/Rect;
-
-    .line 6597
-    .local v1, "rect":Landroid/graphics/Rect;
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6598
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-
-    .line 6599
-    return-object v1
-.end method
-
-.method public getTaskDescriptionIcon(Ljava/lang/String;I)Landroid/graphics/Bitmap;
+.method public getTaskDescriptionIcon(Ljava/lang/String;)Landroid/graphics/Bitmap;
     .locals 6
     .param p1, "filename"    # Ljava/lang/String;
-    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -6379,40 +5847,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 6604
+    .line 5811
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6605
+    .line 5812
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 6606
+    .line 5813
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6607
+    .line 5814
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 6608
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6609
+    .line 5815
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xef
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6610
+    .line 5816
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 6611
+    .line 5817
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -6421,17 +5886,17 @@
 
     const/4 v1, 0x0
 
-    .line 6612
+    .line 5818
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6613
+    .line 5819
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 6614
+    .line 5820
     return-object v1
 
-    .line 6611
+    .line 5817
     :cond_0
     sget-object v3, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -6458,27 +5923,27 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 4177
+    .line 3575
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4178
+    .line 3576
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4179
+    .line 3577
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4180
+    .line 3578
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4181
+    .line 3579
     if-eqz p2, :cond_0
 
     const/4 v3, 0x1
@@ -6486,36 +5951,36 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4182
+    .line 3580
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x1b
 
     invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4183
+    .line 3581
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4184
+    .line 3582
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 4185
+    .line 3583
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4186
+    .line 3584
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4187
+    .line 3585
     return v2
 
     .end local v2    # "res":I
     :cond_0
     move v3, v4
 
-    .line 4181
+    .line 3579
     goto :goto_0
 .end method
 
@@ -6531,40 +5996,40 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 3790
+    .line 3345
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3791
+    .line 3346
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3792
+    .line 3347
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3793
+    .line 3348
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3794
+    .line 3349
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x52
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3795
+    .line 3350
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3796
+    .line 3351
     const/4 v2, 0x0
 
-    .line 3797
+    .line 3352
     .local v2, "taskThumbnail":Landroid/app/ActivityManager$TaskThumbnail;
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
@@ -6572,7 +6037,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 3798
+    .line 3353
     sget-object v3, Landroid/app/ActivityManager$TaskThumbnail;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -6582,14 +6047,14 @@
     .end local v2    # "taskThumbnail":Landroid/app/ActivityManager$TaskThumbnail;
     check-cast v2, Landroid/app/ActivityManager$TaskThumbnail;
 
-    .line 3800
+    .line 3355
     :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3801
+    .line 3356
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3802
+    .line 3357
     return-object v2
 .end method
 
@@ -6616,64 +6081,64 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 3750
+    .line 3293
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3751
+    .line 3294
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v4
 
-    .line 3752
+    .line 3295
     .local v4, "reply":Landroid/os/Parcel;
     const-string/jumbo v5, "android.app.IActivityManager"
 
     invoke-virtual {v1, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3753
+    .line 3296
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3754
+    .line 3297
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3755
+    .line 3298
     iget-object v5, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v6, 0x17
 
     invoke-interface {v5, v6, v1, v4, v7}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3756
+    .line 3299
     invoke-virtual {v4}, Landroid/os/Parcel;->readException()V
 
-    .line 3757
+    .line 3300
     const/4 v3, 0x0
 
-    .line 3758
+    .line 3301
     .local v3, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     invoke-virtual {v4}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 3759
+    .line 3302
     .local v0, "N":I
     if-ltz v0, :cond_0
 
-    .line 3760
+    .line 3303
     new-instance v3, Ljava/util/ArrayList;
 
     .end local v3    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 3761
+    .line 3304
     .local v3, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     :goto_0
     if-lez v0, :cond_0
 
-    .line 3763
+    .line 3306
     sget-object v5, Landroid/app/ActivityManager$RunningTaskInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v5, v4}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -6682,25 +6147,25 @@
 
     check-cast v2, Landroid/app/ActivityManager$RunningTaskInfo;
 
-    .line 3765
+    .line 3308
     .local v2, "info":Landroid/app/ActivityManager$RunningTaskInfo;
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 3766
+    .line 3309
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 3769
+    .line 3312
     .end local v2    # "info":Landroid/app/ActivityManager$RunningTaskInfo;
     .end local v3    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3770
+    .line 3313
     invoke-virtual {v4}, Landroid/os/Parcel;->recycle()V
 
-    .line 3771
+    .line 3314
     return-object v3
 .end method
 
@@ -6714,31 +6179,31 @@
     .end annotation
 
     .prologue
-    .line 4697
+    .line 4095
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4698
+    .line 4096
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4699
+    .line 4097
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4700
+    .line 4098
     invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4701
+    .line 4099
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x5d
@@ -6747,81 +6212,23 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4702
+    .line 4100
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4703
+    .line 4101
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 4704
+    .line 4102
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4705
+    .line 4103
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4706
+    .line 4104
     return v2
-.end method
-
-.method public getUriPermissionOwnerForActivity(Landroid/os/IBinder;)Landroid/os/IBinder;
-    .locals 6
-    .param p1, "activityToken"    # Landroid/os/IBinder;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 5569
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5570
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5571
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5572
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 5573
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x166
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5574
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 5575
-    invoke-virtual {v1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    .line 5576
-    .local v2, "res":Landroid/os/IBinder;
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5577
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 5578
-    return-object v2
 .end method
 
 .method public grantUriPermission(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/net/Uri;II)V
@@ -6840,59 +6247,59 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 4829
+    .line 4227
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4830
+    .line 4228
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4831
+    .line 4229
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4832
+    .line 4230
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4833
+    .line 4231
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4834
+    .line 4232
     invoke-virtual {p3, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4835
+    .line 4233
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4836
+    .line 4234
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4837
+    .line 4235
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x37
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4838
+    .line 4236
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4839
+    .line 4237
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4840
+    .line 4238
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4828
+    .line 4226
     return-void
 .end method
 
@@ -6914,61 +6321,61 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 5583
+    .line 4898
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5584
+    .line 4899
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5585
+    .line 4900
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5586
+    .line 4901
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5587
+    .line 4902
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5588
+    .line 4903
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5589
+    .line 4904
     invoke-virtual {p4, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 5590
+    .line 4905
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5591
+    .line 4906
     invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5592
+    .line 4907
     invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5593
+    .line 4908
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x37
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5594
+    .line 4909
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5595
+    .line 4910
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5596
+    .line 4911
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5582
+    .line 4897
     return-void
 .end method
 
@@ -6985,46 +6392,46 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 5128
+    .line 4468
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5129
+    .line 4469
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5130
+    .line 4470
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5131
+    .line 4471
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5132
+    .line 4472
     invoke-virtual {p2, v0, v4}, Landroid/app/ApplicationErrorReport$CrashInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 5133
+    .line 4473
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x2
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5134
+    .line 4474
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5135
+    .line 4475
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5136
+    .line 4476
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5126
+    .line 4466
     return-void
 .end method
 
@@ -7042,49 +6449,49 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 5161
+    .line 4501
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5162
+    .line 4502
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5163
+    .line 4503
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5164
+    .line 4504
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5165
+    .line 4505
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5166
+    .line 4506
     invoke-virtual {p3, v0, v4}, Landroid/os/StrictMode$ViolationInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 5167
+    .line 4507
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x6e
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5168
+    .line 4508
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5169
+    .line 4509
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5170
+    .line 4510
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5159
+    .line 4499
     return-void
 .end method
 
@@ -7103,30 +6510,30 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 5142
+    .line 4482
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5143
+    .line 4483
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5144
+    .line 4484
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5145
+    .line 4485
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5146
+    .line 4486
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5147
+    .line 4487
     if-eqz p3, :cond_0
 
     const/4 v3, 0x1
@@ -7134,20 +6541,20 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5148
+    .line 4488
     invoke-virtual {p4, v0, v4}, Landroid/app/ApplicationErrorReport$CrashInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 5149
+    .line 4489
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x66
 
     invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5150
+    .line 4490
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5151
+    .line 4491
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -7156,25 +6563,25 @@
 
     const/4 v2, 0x1
 
-    .line 5152
+    .line 4492
     .local v2, "res":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5153
+    .line 4493
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5154
+    .line 4494
     return v2
 
     .end local v2    # "res":Z
     :cond_0
     move v3, v4
 
-    .line 5147
+    .line 4487
     goto :goto_0
 
-    .line 5151
+    .line 4491
     :cond_1
     const/4 v2, 0x0
 
@@ -7202,33 +6609,33 @@
 
     const/4 v5, 0x0
 
-    .line 4710
+    .line 4108
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4711
+    .line 4109
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4712
+    .line 4110
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4713
+    .line 4111
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4714
+    .line 4112
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4715
+    .line 4113
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4716
+    .line 4114
     if-eqz p4, :cond_0
 
     move v3, v4
@@ -7236,54 +6643,54 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4717
+    .line 4115
     if-eqz p5, :cond_1
 
     :goto_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4718
+    .line 4116
     invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4719
+    .line 4117
     invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4720
+    .line 4118
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x5e
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4721
+    .line 4119
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4722
+    .line 4120
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 4723
+    .line 4121
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4724
+    .line 4122
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4725
+    .line 4123
     return v2
 
     .end local v2    # "res":I
     :cond_0
     move v3, v5
 
-    .line 4716
+    .line 4114
     goto :goto_0
 
     :cond_1
     move v4, v5
 
-    .line 4717
+    .line 4115
     goto :goto_1
 .end method
 
@@ -7300,27 +6707,27 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 6257
+    .line 5551
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6258
+    .line 5552
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6259
+    .line 5553
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6260
+    .line 5554
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6261
+    .line 5555
     if-eqz p2, :cond_0
 
     const/4 v2, 0x1
@@ -7328,29 +6735,29 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6262
+    .line 5556
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xa7
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6263
+    .line 5557
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6264
+    .line 5558
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6265
+    .line 5559
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6256
+    .line 5550
     return-void
 
     :cond_0
     move v2, v3
 
-    .line 6261
+    .line 5555
     goto :goto_0
 .end method
 
@@ -7368,27 +6775,27 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 6131
+    .line 5429
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6132
+    .line 5430
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6133
+    .line 5431
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6134
+    .line 5432
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6135
+    .line 5433
     if-eqz p2, :cond_0
 
     const/4 v4, 0x1
@@ -7396,111 +6803,41 @@
     :goto_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6136
+    .line 5434
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 6137
+    .line 5435
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v6, 0x9f
 
     invoke-interface {v4, v6, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6138
+    .line 5436
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6139
+    .line 5437
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
     int-to-long v2, v4
 
-    .line 6140
+    .line 5438
     .local v2, "res":J
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6141
+    .line 5439
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6142
+    .line 5440
     return-wide v2
 
     .end local v2    # "res":J
     :cond_0
     move v4, v5
 
-    .line 6135
-    goto :goto_0
-.end method
-
-.method public isAppForeground(I)Z
-    .locals 6
-    .param p1, "uid"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6972
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6973
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v2
-
-    .line 6974
-    .local v2, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6975
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6976
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x16b
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6977
-    invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    const/4 v4, 0x1
-
-    if-ne v3, v4, :cond_0
-
-    const/4 v1, 0x1
-
-    .line 6978
-    .local v1, "isForeground":Z
-    :goto_0
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6979
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-
-    .line 6980
-    return v1
-
-    .line 6977
-    .end local v1    # "isForeground":Z
-    :cond_0
-    const/4 v1, 0x0
-
-    .restart local v1    # "isForeground":Z
+    .line 5433
     goto :goto_0
 .end method
 
@@ -7515,34 +6852,34 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 6218
+    .line 5512
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6219
+    .line 5513
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6220
+    .line 5514
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6221
+    .line 5515
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x12c
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6222
+    .line 5516
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6223
+    .line 5517
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -7551,18 +6888,18 @@
 
     const/4 v2, 0x1
 
-    .line 6224
+    .line 5518
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6225
+    .line 5519
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6226
+    .line 5520
     return v2
 
-    .line 6223
+    .line 5517
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -7583,37 +6920,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 6652
+    .line 5858
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6653
+    .line 5859
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6654
+    .line 5860
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6655
+    .line 5861
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6656
+    .line 5862
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xe3
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6657
+    .line 5863
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6658
+    .line 5864
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -7622,18 +6959,18 @@
 
     const/4 v2, 0x1
 
-    .line 6659
+    .line 5865
     .local v2, "visible":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6660
+    .line 5866
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6661
+    .line 5867
     return v2
 
-    .line 6658
+    .line 5864
     .end local v2    # "visible":Z
     :cond_0
     const/4 v2, 0x0
@@ -7652,27 +6989,27 @@
     .end annotation
 
     .prologue
-    .line 5487
+    .line 4815
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5488
+    .line 4816
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5489
+    .line 4817
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5490
+    .line 4818
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5491
+    .line 4819
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x6f
@@ -7681,10 +7018,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5492
+    .line 4820
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5493
+    .line 4821
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -7695,18 +7032,18 @@
 
     const/4 v2, 0x1
 
-    .line 5494
+    .line 4822
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5495
+    .line 4823
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5496
+    .line 4824
     return v2
 
-    .line 5493
+    .line 4821
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -7727,37 +7064,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 4116
+    .line 3526
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4117
+    .line 3527
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 4118
+    .line 3528
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4119
+    .line 3529
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4120
+    .line 3530
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xd5
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4121
+    .line 3531
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 4122
+    .line 3532
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -7766,18 +7103,18 @@
 
     const/4 v1, 0x1
 
-    .line 4123
+    .line 3533
     .local v1, "isInHomeStack":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4124
+    .line 3534
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 4125
+    .line 3535
     return v1
 
-    .line 4122
+    .line 3532
     .end local v1    # "isInHomeStack":Z
     :cond_0
     const/4 v1, 0x0
@@ -7795,24 +7132,24 @@
     .end annotation
 
     .prologue
-    .line 6508
+    .line 5731
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6509
+    .line 5732
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 6510
+    .line 5733
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6511
+    .line 5734
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xd9
@@ -7821,10 +7158,10 @@
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6512
+    .line 5735
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 6513
+    .line 5736
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -7835,169 +7172,23 @@
 
     const/4 v1, 0x1
 
-    .line 6514
+    .line 5737
     .local v1, "isInLockTaskMode":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6515
+    .line 5738
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 6516
+    .line 5739
     return v1
 
-    .line 6513
+    .line 5736
     .end local v1    # "isInLockTaskMode":Z
     :cond_0
     const/4 v1, 0x0
 
     .restart local v1    # "isInLockTaskMode":Z
-    goto :goto_0
-.end method
-
-.method public isInMultiWindowMode(Landroid/os/IBinder;)Z
-    .locals 6
-    .param p1, "token"    # Landroid/os/IBinder;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6932
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6933
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v2
-
-    .line 6934
-    .local v2, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6935
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6936
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x161
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6937
-    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
-
-    .line 6938
-    invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    const/4 v4, 0x1
-
-    if-ne v3, v4, :cond_0
-
-    const/4 v1, 0x1
-
-    .line 6939
-    .local v1, "multiWindowMode":Z
-    :goto_0
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6940
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-
-    .line 6941
-    return v1
-
-    .line 6938
-    .end local v1    # "multiWindowMode":Z
-    :cond_0
-    const/4 v1, 0x0
-
-    .restart local v1    # "multiWindowMode":Z
-    goto :goto_0
-.end method
-
-.method public isInPictureInPictureMode(Landroid/os/IBinder;)Z
-    .locals 6
-    .param p1, "token"    # Landroid/os/IBinder;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6946
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6947
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v2
-
-    .line 6948
-    .local v2, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6949
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6950
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x162
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6951
-    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
-
-    .line 6952
-    invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    const/4 v4, 0x1
-
-    if-ne v3, v4, :cond_0
-
-    const/4 v1, 0x1
-
-    .line 6953
-    .local v1, "pipMode":Z
-    :goto_0
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6954
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-
-    .line 6955
-    return v1
-
-    .line 6952
-    .end local v1    # "pipMode":Z
-    :cond_0
-    const/4 v1, 0x0
-
-    .restart local v1    # "pipMode":Z
     goto :goto_0
 .end method
 
@@ -8013,41 +7204,41 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5930
+    .line 5225
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5931
+    .line 5226
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5932
+    .line 5227
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5933
+    .line 5228
     invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5934
+    .line 5229
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x98
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5935
+    .line 5230
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5936
+    .line 5231
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -8056,18 +7247,18 @@
 
     const/4 v2, 0x1
 
-    .line 5937
+    .line 5232
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5938
+    .line 5233
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5939
+    .line 5234
     return v2
 
-    .line 5936
+    .line 5231
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -8088,41 +7279,41 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5917
+    .line 5212
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5918
+    .line 5213
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5919
+    .line 5214
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5920
+    .line 5215
     invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5921
+    .line 5216
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x87
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5922
+    .line 5217
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5923
+    .line 5218
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -8131,23 +7322,94 @@
 
     const/4 v2, 0x1
 
-    .line 5924
+    .line 5219
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5925
+    .line 5220
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5926
+    .line 5221
     return v2
 
-    .line 5923
+    .line 5218
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
 
     .restart local v2    # "res":Z
+    goto :goto_0
+.end method
+
+.method public isPackageInForeground(Ljava/lang/String;)Z
+    .locals 6
+    .param p1, "packageName"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v5, 0x0
+
+    .line 3317
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 3318
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 3319
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v3, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 3320
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 3321
+    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x12f
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 3322
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 3323
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 3324
+    .local v2, "result":Z
+    :goto_0
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 3325
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 3326
+    return v2
+
+    .line 3323
+    .end local v2    # "result":Z
+    :cond_0
+    const/4 v2, 0x0
+
+    .restart local v2    # "result":Z
     goto :goto_0
 .end method
 
@@ -8163,49 +7425,49 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 6826
+    .line 6032
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6827
+    .line 6033
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6828
+    .line 6034
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6829
+    .line 6035
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6830
+    .line 6036
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x12e
 
     invoke-interface {v4, v5, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6831
+    .line 6037
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6832
+    .line 6038
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 6833
+    .line 6039
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6834
+    .line 6040
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6835
+    .line 6041
     if-eqz v2, :cond_0
 
     const/4 v3, 0x1
@@ -8223,24 +7485,24 @@
     .end annotation
 
     .prologue
-    .line 5514
+    .line 4842
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5515
+    .line 4843
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5516
+    .line 4844
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5517
+    .line 4845
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x71
@@ -8249,10 +7511,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5518
+    .line 4846
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5519
+    .line 4847
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -8263,18 +7525,18 @@
 
     const/4 v2, 0x1
 
-    .line 5520
+    .line 4848
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5521
+    .line 4849
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5522
+    .line 4850
     return v2
 
-    .line 5519
+    .line 4847
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -8293,27 +7555,27 @@
     .end annotation
 
     .prologue
-    .line 5500
+    .line 4828
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5501
+    .line 4829
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5502
+    .line 4830
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5503
+    .line 4831
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5504
+    .line 4832
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xe1
@@ -8322,10 +7584,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5505
+    .line 4833
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5506
+    .line 4834
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -8336,18 +7598,18 @@
 
     const/4 v2, 0x1
 
-    .line 5507
+    .line 4835
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5508
+    .line 4836
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5509
+    .line 4837
     return v2
 
-    .line 5506
+    .line 4834
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -8367,34 +7629,34 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5393
+    .line 4720
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5394
+    .line 4721
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5395
+    .line 4722
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5396
+    .line 4723
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x68
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5397
+    .line 4724
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5398
+    .line 4725
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -8403,18 +7665,18 @@
 
     const/4 v2, 0x1
 
-    .line 5399
+    .line 4726
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5400
+    .line 4727
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5401
+    .line 4728
     return v2
 
-    .line 5398
+    .line 4725
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -8423,10 +7685,10 @@
     goto :goto_0
 .end method
 
-.method public isUserRunning(II)Z
+.method public isUserRunning(IZ)Z
     .locals 6
     .param p1, "userid"    # I
-    .param p2, "flags"    # I
+    .param p2, "orStopping"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -8434,73 +7696,86 @@
     .end annotation
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    .line 5833
+    .line 5129
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5834
+    .line 5130
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5835
+    .line 5131
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5836
+    .line 5132
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5837
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+    .line 5133
+    if-eqz p2, :cond_0
 
-    .line 5838
+    const/4 v3, 0x1
+
+    :goto_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5134
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x7a
+    const/16 v5, 0x7a
 
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5839
+    .line 5135
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5840
+    .line 5136
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     const/4 v2, 0x1
 
-    .line 5841
+    .line 5137
     .local v2, "result":Z
-    :goto_0
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5842
+    .line 5138
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5843
+    .line 5139
     return v2
 
-    .line 5840
     .end local v2    # "result":Z
     :cond_0
+    move v3, v4
+
+    .line 5133
+    goto :goto_0
+
+    .line 5136
+    :cond_1
     const/4 v2, 0x0
 
     .restart local v2    # "result":Z
-    goto :goto_0
+    goto :goto_1
 .end method
 
-.method public isVrModePackageEnabled(Landroid/content/ComponentName;)Z
-    .locals 7
-    .param p1, "packageName"    # Landroid/content/ComponentName;
+.method public keyguardGoingAway(ZZZ)V
+    .locals 5
+    .param p1, "disableWindowAnimations"    # Z
+    .param p2, "keyguardGoingToNotificationShade"    # Z
+    .param p3, "keyguardShowingMedia"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -8512,110 +7787,81 @@
 
     const/4 v4, 0x0
 
-    .line 6401
+    .line 5320
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6402
+    .line 5321
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6403
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v5, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6404
-    invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 6405
-    iget-object v5, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v6, 0x174
-
-    invoke-interface {v5, v6, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6406
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6407
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 6408
-    .local v2, "res":I
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6409
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6410
-    if-ne v2, v3, :cond_0
-
-    :goto_0
-    return v3
-
-    :cond_0
-    move v3, v4
-
-    goto :goto_0
-.end method
-
-.method public keyguardGoingAway(I)V
-    .locals 5
-    .param p1, "flags"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6020
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6021
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6022
+    .line 5322
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6023
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+    .line 5323
+    if-eqz p1, :cond_0
 
-    .line 6024
+    move v2, v3
+
+    :goto_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5324
+    if-eqz p2, :cond_1
+
+    move v2, v3
+
+    :goto_1
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5325
+    if-eqz p3, :cond_2
+
+    :goto_2
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5326
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x129
 
-    const/4 v4, 0x0
-
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6025
+    .line 5327
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6026
+    .line 5328
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6027
+    .line 5329
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6019
+    .line 5319
     return-void
+
+    :cond_0
+    move v2, v4
+
+    .line 5323
+    goto :goto_0
+
+    :cond_1
+    move v2, v4
+
+    .line 5324
+    goto :goto_1
+
+    :cond_2
+    move v3, v4
+
+    .line 5325
+    goto :goto_2
 .end method
 
 .method public keyguardWaitingForActivityDrawn()V
@@ -8627,24 +7873,24 @@
     .end annotation
 
     .prologue
-    .line 6009
+    .line 5308
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6010
+    .line 5309
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6011
+    .line 5310
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6012
+    .line 5311
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xe8
@@ -8653,16 +7899,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6013
+    .line 5312
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6014
+    .line 5313
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6015
+    .line 5314
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6008
+    .line 5307
     return-void
 .end method
 
@@ -8675,24 +7921,24 @@
     .end annotation
 
     .prologue
-    .line 5197
+    .line 4537
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5198
+    .line 4538
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5199
+    .line 4539
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5200
+    .line 4540
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x8c
@@ -8701,80 +7947,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5201
+    .line 4541
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5202
+    .line 4542
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5203
+    .line 4543
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5196
-    return-void
-.end method
-
-.method public killApplication(Ljava/lang/String;IILjava/lang/String;)V
-    .locals 5
-    .param p1, "pkg"    # Ljava/lang/String;
-    .param p2, "appId"    # I
-    .param p3, "userId"    # I
-    .param p4, "reason"    # Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 5327
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5328
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5329
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5330
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 5331
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5332
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5333
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 5334
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x60
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5335
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 5336
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5337
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 5326
+    .line 4536
     return-void
 .end method
 
@@ -8789,30 +7971,30 @@
     .end annotation
 
     .prologue
-    .line 5366
+    .line 4693
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5367
+    .line 4694
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5368
+    .line 4695
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5369
+    .line 4696
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5370
+    .line 4697
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5371
+    .line 4698
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x63
@@ -8821,16 +8003,76 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5372
+    .line 4699
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5373
+    .line 4700
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5374
+    .line 4701
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5365
+    .line 4692
+    return-void
+.end method
+
+.method public killApplicationWithAppId(Ljava/lang/String;ILjava/lang/String;)V
+    .locals 5
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "appid"    # I
+    .param p3, "reason"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 4655
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 4656
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 4657
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 4658
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 4659
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 4660
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 4661
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x60
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 4662
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 4663
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 4664
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 4654
     return-void
 .end method
 
@@ -8845,30 +8087,30 @@
     .end annotation
 
     .prologue
-    .line 5185
+    .line 4525
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5186
+    .line 4526
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5187
+    .line 4527
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5188
+    .line 4528
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5189
+    .line 4529
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5190
+    .line 4530
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x67
@@ -8877,72 +8119,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5191
+    .line 4531
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5192
+    .line 4532
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5193
+    .line 4533
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5184
-    return-void
-.end method
-
-.method public killPackageDependents(Ljava/lang/String;I)V
-    .locals 5
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "userId"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 5207
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5208
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5209
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5210
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 5211
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5212
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x163
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5213
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 5214
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5215
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 5206
+    .line 4524
     return-void
 .end method
 
@@ -8960,30 +8146,30 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 5095
+    .line 4435
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5096
+    .line 4436
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5097
+    .line 4437
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5098
+    .line 4438
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 5099
+    .line 4439
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5100
+    .line 4440
     if-eqz p3, :cond_0
 
     const/4 v3, 0x1
@@ -8991,17 +8177,17 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5101
+    .line 4441
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x50
 
     invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5102
+    .line 4442
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5103
+    .line 4443
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -9010,25 +8196,25 @@
 
     const/4 v2, 0x1
 
-    .line 5104
+    .line 4444
     .local v2, "res":Z
     :goto_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5105
+    .line 4445
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5106
+    .line 4446
     return v2
 
     .end local v2    # "res":Z
     :cond_0
     move v3, v4
 
-    .line 5100
+    .line 4440
     goto :goto_0
 
-    .line 5103
+    .line 4443
     :cond_1
     const/4 v2, 0x0
 
@@ -9048,34 +8234,34 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5110
+    .line 4450
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5111
+    .line 4451
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5112
+    .line 4452
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5113
+    .line 4453
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5114
+    .line 4454
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x90
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5115
+    .line 4455
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -9084,18 +8270,18 @@
 
     const/4 v2, 0x1
 
-    .line 5116
+    .line 4456
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5117
+    .line 4457
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5118
+    .line 4458
     return v2
 
-    .line 5115
+    .line 4455
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -9116,33 +8302,33 @@
     .end annotation
 
     .prologue
-    .line 6244
+    .line 5538
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6245
+    .line 5539
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6246
+    .line 5540
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6247
+    .line 5541
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6248
+    .line 5542
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6249
+    .line 5543
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 6250
+    .line 5544
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xa5
@@ -9151,16 +8337,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6251
+    .line 5545
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6252
+    .line 5546
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6253
+    .line 5547
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6243
+    .line 5537
     return-void
 .end method
 
@@ -9180,49 +8366,49 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 6201
+    .line 5495
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6202
+    .line 5496
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6203
+    .line 5497
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6204
+    .line 5498
     invoke-virtual {p1, v0, v5}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 6205
+    .line 5499
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6206
+    .line 5500
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 6207
+    .line 5501
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6208
+    .line 5502
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 6209
+    .line 5503
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xf0
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6210
+    .line 5504
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6211
+    .line 5505
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -9231,18 +8417,18 @@
 
     const/4 v2, 0x1
 
-    .line 6212
+    .line 5506
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6213
+    .line 5507
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6214
+    .line 5508
     return v2
 
-    .line 6211
+    .line 5505
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -9264,27 +8450,27 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 3888
+    .line 3443
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3889
+    .line 3444
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3890
+    .line 3445
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3891
+    .line 3446
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3892
+    .line 3447
     if-eqz p2, :cond_0
 
     const/4 v3, 0x1
@@ -9292,17 +8478,17 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3893
+    .line 3448
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x4b
 
     invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3894
+    .line 3449
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3895
+    .line 3450
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -9311,25 +8497,25 @@
 
     const/4 v2, 0x1
 
-    .line 3896
+    .line 3451
     .local v2, "res":Z
     :goto_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3897
+    .line 3452
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3898
+    .line 3453
     return v2
 
     .end local v2    # "res":Z
     :cond_0
     move v3, v4
 
-    .line 3892
+    .line 3447
     goto :goto_0
 
-    .line 3895
+    .line 3450
     :cond_1
     const/4 v2, 0x0
 
@@ -9347,27 +8533,27 @@
     .end annotation
 
     .prologue
-    .line 3902
+    .line 3457
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3903
+    .line 3458
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3904
+    .line 3459
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3905
+    .line 3460
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3906
+    .line 3461
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x1a
@@ -9376,154 +8562,17 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3907
+    .line 3462
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3908
+    .line 3463
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3909
+    .line 3464
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3900
+    .line 3455
     return-void
-.end method
-
-.method public moveTaskToDockedStack(IIZZLandroid/graphics/Rect;Z)Z
-    .locals 6
-    .param p1, "taskId"    # I
-    .param p2, "createMode"    # I
-    .param p3, "toTop"    # Z
-    .param p4, "animate"    # Z
-    .param p5, "initialBounds"    # Landroid/graphics/Rect;
-    .param p6, "moveHomeStackFront"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    .line 3929
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 3930
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 3931
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 3932
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3933
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3934
-    if-eqz p3, :cond_0
-
-    move v3, v4
-
-    :goto_0
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3935
-    if-eqz p4, :cond_1
-
-    move v3, v4
-
-    :goto_1
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3936
-    if-eqz p5, :cond_2
-
-    .line 3937
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3938
-    invoke-virtual {p5, v0, v5}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 3942
-    :goto_2
-    if-eqz p6, :cond_3
-
-    :goto_3
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3943
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x15b
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 3944
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 3945
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-lez v3, :cond_4
-
-    const/4 v2, 0x1
-
-    .line 3946
-    .local v2, "res":Z
-    :goto_4
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 3947
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 3948
-    return v2
-
-    .end local v2    # "res":Z
-    :cond_0
-    move v3, v5
-
-    .line 3934
-    goto :goto_0
-
-    :cond_1
-    move v3, v5
-
-    .line 3935
-    goto :goto_1
-
-    .line 3940
-    :cond_2
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_2
-
-    :cond_3
-    move v4, v5
-
-    .line 3942
-    goto :goto_3
-
-    .line 3945
-    :cond_4
-    const/4 v2, 0x0
-
-    .restart local v2    # "res":Z
-    goto :goto_4
 .end method
 
 .method public moveTaskToFront(IILandroid/os/Bundle;)V
@@ -9540,41 +8589,41 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 3870
+    .line 3425
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3871
+    .line 3426
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3872
+    .line 3427
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3873
+    .line 3428
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3874
+    .line 3429
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3875
+    .line 3430
     if-eqz p3, :cond_0
 
-    .line 3876
+    .line 3431
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3877
+    .line 3432
     invoke-virtual {p3, v0, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3881
+    .line 3436
     :goto_0
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
@@ -9582,19 +8631,19 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3882
+    .line 3437
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3883
+    .line 3438
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3884
+    .line 3439
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3868
+    .line 3423
     return-void
 
-    .line 3879
+    .line 3434
     :cond_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -9615,30 +8664,30 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 3914
+    .line 3469
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3915
+    .line 3470
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3916
+    .line 3471
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3917
+    .line 3472
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3918
+    .line 3473
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3919
+    .line 3474
     if-eqz p3, :cond_0
 
     const/4 v2, 0x1
@@ -9646,171 +8695,29 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3920
+    .line 3475
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xa9
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3921
+    .line 3476
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3922
+    .line 3477
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3923
+    .line 3478
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3912
+    .line 3467
     return-void
 
     :cond_0
     move v2, v3
 
-    .line 3919
-    goto :goto_0
-.end method
-
-.method public moveTasksToFullscreenStack(IZ)V
-    .locals 5
-    .param p1, "fromStackId"    # I
-    .param p2, "onTop"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 6904
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6905
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6906
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6907
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6908
-    if-eqz p2, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6909
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x15d
-
-    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6910
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6911
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6912
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6903
-    return-void
-
-    :cond_0
-    move v2, v3
-
-    .line 6908
-    goto :goto_0
-.end method
-
-.method public moveTopActivityToPinnedStack(ILandroid/graphics/Rect;)Z
-    .locals 6
-    .param p1, "stackId"    # I
-    .param p2, "r"    # Landroid/graphics/Rect;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v5, 0x0
-
-    .line 3954
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 3955
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 3956
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 3957
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3958
-    invoke-virtual {p2, v0, v5}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 3959
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x15e
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 3960
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 3961
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 3962
-    .local v2, "res":Z
-    :goto_0
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 3963
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 3964
-    return v2
-
-    .line 3961
-    .end local v2    # "res":Z
-    :cond_0
-    const/4 v2, 0x0
-
-    .restart local v2    # "res":Z
+    .line 3474
     goto :goto_0
 .end method
 
@@ -9829,44 +8736,44 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 6047
+    .line 5349
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6048
+    .line 5350
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6049
+    .line 5351
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6050
+    .line 5352
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6051
+    .line 5353
     invoke-virtual {p2, v0, v5}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 6052
+    .line 5354
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6053
+    .line 5355
     if-eqz p4, :cond_0
 
-    .line 6054
+    .line 5356
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6055
+    .line 5357
     invoke-virtual {p4, v0, v5}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 6059
+    .line 5361
     :goto_0
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
@@ -9874,10 +8781,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6060
+    .line 5362
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6061
+    .line 5363
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -9886,25 +8793,25 @@
 
     const/4 v2, 0x1
 
-    .line 6062
+    .line 5364
     .local v2, "result":Z
     :goto_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6063
+    .line 5365
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6064
+    .line 5366
     return v2
 
-    .line 6057
+    .line 5359
     .end local v2    # "result":Z
     :cond_0
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
-    .line 6061
+    .line 5363
     :cond_1
     const/4 v2, 0x0
 
@@ -9922,27 +8829,27 @@
     .end annotation
 
     .prologue
-    .line 5556
+    .line 4884
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5557
+    .line 4885
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5558
+    .line 4886
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5559
+    .line 4887
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5560
+    .line 4888
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x74
@@ -9951,22 +8858,22 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5561
+    .line 4889
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5562
+    .line 4890
     invoke-virtual {v1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    .line 5563
+    .line 4891
     .local v2, "res":Landroid/os/IBinder;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5564
+    .line 4892
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5565
+    .line 4893
     return-object v2
 .end method
 
@@ -9982,31 +8889,31 @@
     .end annotation
 
     .prologue
-    .line 5086
+    .line 4426
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5087
+    .line 4427
     .local v0, "data":Landroid/os/Parcel;
     const-string/jumbo v1, "android.app.IActivityManager"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5088
+    .line 4428
     invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5089
+    .line 4429
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5090
+    .line 4430
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5091
+    .line 4431
     iget-object v1, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v2, 0x125
@@ -10017,10 +8924,10 @@
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5092
+    .line 4432
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5085
+    .line 4425
     return-void
 .end method
 
@@ -10036,31 +8943,31 @@
     .end annotation
 
     .prologue
-    .line 5076
+    .line 4416
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5077
+    .line 4417
     .local v0, "data":Landroid/os/Parcel;
     const-string/jumbo v1, "android.app.IActivityManager"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5078
+    .line 4418
     invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5079
+    .line 4419
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5080
+    .line 4420
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5081
+    .line 4421
     iget-object v1, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v2, 0x124
@@ -10071,10 +8978,10 @@
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5082
+    .line 4422
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5075
+    .line 4415
     return-void
 .end method
 
@@ -10091,34 +8998,34 @@
     .end annotation
 
     .prologue
-    .line 5065
+    .line 4405
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5066
+    .line 4406
     .local v0, "data":Landroid/os/Parcel;
     const-string/jumbo v1, "android.app.IActivityManager"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5067
+    .line 4407
     invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5068
+    .line 4408
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5069
+    .line 4409
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5070
+    .line 4410
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5071
+    .line 4411
     iget-object v1, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v2, 0x44
@@ -10129,10 +9036,10 @@
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5072
+    .line 4412
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5064
+    .line 4404
     return-void
 .end method
 
@@ -10146,27 +9053,27 @@
     .end annotation
 
     .prologue
-    .line 6280
+    .line 5574
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6281
+    .line 5575
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6282
+    .line 5576
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6283
+    .line 5577
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6284
+    .line 5578
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xb0
@@ -10175,16 +9082,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6285
+    .line 5579
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6286
+    .line 5580
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6287
+    .line 5581
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6279
+    .line 5573
     return-void
 .end method
 
@@ -10199,30 +9106,30 @@
     .end annotation
 
     .prologue
-    .line 6713
+    .line 5919
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6714
+    .line 5920
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6715
+    .line 5921
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6716
+    .line 5922
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6717
+    .line 5923
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    .line 6718
+    .line 5924
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x119
@@ -10231,16 +9138,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6719
+    .line 5925
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6720
+    .line 5926
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6721
+    .line 5927
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6712
+    .line 5918
     return-void
 .end method
 
@@ -10254,27 +9161,27 @@
     .end annotation
 
     .prologue
-    .line 6690
+    .line 5896
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6691
+    .line 5897
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6692
+    .line 5898
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6693
+    .line 5899
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6694
+    .line 5900
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xe7
@@ -10283,16 +9190,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6695
+    .line 5901
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6696
+    .line 5902
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6697
+    .line 5903
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6689
+    .line 5895
     return-void
 .end method
 
@@ -10306,27 +9213,27 @@
     .end annotation
 
     .prologue
-    .line 6678
+    .line 5884
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6679
+    .line 5885
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6680
+    .line 5886
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6681
+    .line 5887
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6682
+    .line 5888
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xe5
@@ -10335,113 +9242,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6683
+    .line 5889
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6684
+    .line 5890
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6685
+    .line 5891
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6677
-    return-void
-.end method
-
-.method public notifyLockedProfile(I)V
-    .locals 5
-    .param p1, "userId"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 7007
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 7008
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 7009
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 7010
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 7011
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x176
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 7012
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 7013
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 7014
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 7006
-    return-void
-.end method
-
-.method public notifyPinnedStackAnimationEnded()V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6985
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6986
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6987
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6988
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x16f
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6989
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6990
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6984
+    .line 5883
     return-void
 .end method
 
@@ -10457,37 +9267,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 4970
+    .line 4336
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4971
+    .line 4337
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 4972
+    .line 4338
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4973
+    .line 4339
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x5
 
     invoke-interface {v3, v4, v0, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4974
+    .line 4340
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 4975
+    .line 4341
     const/4 v1, 0x0
 
-    .line 4976
+    .line 4342
     .local v1, "pfd":Landroid/os/ParcelFileDescriptor;
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
@@ -10495,7 +9305,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 4977
+    .line 4343
     sget-object v3, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, v2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -10505,14 +9315,14 @@
     .end local v1    # "pfd":Landroid/os/ParcelFileDescriptor;
     check-cast v1, Landroid/os/ParcelFileDescriptor;
 
-    .line 4979
+    .line 4345
     :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4980
+    .line 4346
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 4981
+    .line 4347
     return-object v1
 .end method
 
@@ -10529,36 +9339,36 @@
     .end annotation
 
     .prologue
-    .line 5379
+    .line 4706
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5380
+    .line 4707
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5381
+    .line 4708
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5382
+    .line 4709
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5383
+    .line 4710
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5384
+    .line 4711
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5385
+    .line 4712
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5386
+    .line 4713
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x65
@@ -10567,16 +9377,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5387
+    .line 4714
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5388
+    .line 4715
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5389
+    .line 4716
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5378
+    .line 4705
     return-void
 .end method
 
@@ -10594,55 +9404,55 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 4469
+    .line 3867
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4470
+    .line 3868
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 4471
+    .line 3869
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v1, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4472
+    .line 3870
     invoke-virtual {p1, v1, v5}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4473
+    .line 3871
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4474
+    .line 3872
     invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4475
+    .line 3873
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x55
 
     invoke-interface {v3, v4, v1, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4476
+    .line 3874
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 4477
+    .line 3875
     invoke-virtual {v2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 4478
+    .line 3876
     .local v0, "binder":Landroid/os/IBinder;
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 4479
+    .line 3877
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4480
+    .line 3878
     return-object v0
 .end method
 
@@ -10655,24 +9465,24 @@
     .end annotation
 
     .prologue
-    .line 6301
+    .line 5595
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6302
+    .line 5596
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6303
+    .line 5597
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6304
+    .line 5598
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xb3
@@ -10681,76 +9491,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6305
+    .line 5599
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6306
+    .line 5600
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6307
+    .line 5601
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6300
-    return-void
-.end method
-
-.method public positionTaskInStack(III)V
-    .locals 5
-    .param p1, "taskId"    # I
-    .param p2, "stackId"    # I
-    .param p3, "position"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 4072
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 4073
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 4074
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 4075
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4076
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4077
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4078
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x157
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 4079
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 4080
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 4081
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 4070
+    .line 5594
     return-void
 .end method
 
@@ -10772,30 +9522,30 @@
 
     const/4 v5, 0x0
 
-    .line 5259
+    .line 4587
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5260
+    .line 4588
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5261
+    .line 4589
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5262
+    .line 4590
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5263
+    .line 4591
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5264
+    .line 4592
     if-eqz p3, :cond_0
 
     move v3, v4
@@ -10803,19 +9553,19 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5265
+    .line 4593
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5266
+    .line 4594
     if-eqz p4, :cond_1
 
-    .line 5267
+    .line 4595
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5268
+    .line 4596
     invoke-virtual {p4, v0, v4}, Landroid/app/ProfilerInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 5272
+    .line 4600
     :goto_1
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
@@ -10823,10 +9573,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5273
+    .line 4601
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5274
+    .line 4602
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -10835,31 +9585,31 @@
 
     const/4 v2, 0x1
 
-    .line 5275
+    .line 4603
     .local v2, "res":Z
     :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5276
+    .line 4604
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5277
+    .line 4605
     return v2
 
     .end local v2    # "res":Z
     :cond_0
     move v3, v5
 
-    .line 5264
+    .line 4592
     goto :goto_0
 
-    .line 5270
+    .line 4598
     :cond_1
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_1
 
-    .line 5274
+    .line 4602
     :cond_2
     const/4 v2, 0x0
 
@@ -10891,24 +9641,24 @@
     .local p2, "providers":Ljava/util/List;, "Ljava/util/List<Landroid/app/IActivityManager$ContentProviderHolder;>;"
     const/4 v2, 0x0
 
-    .line 4231
+    .line 3629
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4232
+    .line 3630
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4233
+    .line 3631
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4234
+    .line 3632
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -10918,10 +9668,10 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4235
+    .line 3633
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 4236
+    .line 3634
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x1e
@@ -10930,16 +9680,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4237
+    .line 3635
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4238
+    .line 3636
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4239
+    .line 3637
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4229
+    .line 3627
     return-void
 .end method
 
@@ -10957,49 +9707,49 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 4426
+    .line 3824
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4427
+    .line 3825
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4428
+    .line 3826
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4429
+    .line 3827
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4430
+    .line 3828
     invoke-virtual {p2, v0, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4431
+    .line 3829
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4432
+    .line 3830
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x26
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4433
+    .line 3831
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4434
+    .line 3832
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4435
+    .line 3833
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4425
+    .line 3823
     return-void
 .end method
 
@@ -11017,43 +9767,43 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 4243
+    .line 3641
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4244
+    .line 3642
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4245
+    .line 3643
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4246
+    .line 3644
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4247
+    .line 3645
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4248
+    .line 3646
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4249
+    .line 3647
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x1f
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4250
+    .line 3648
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4251
+    .line 3649
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -11062,18 +9812,18 @@
 
     const/4 v2, 0x1
 
-    .line 4252
+    .line 3650
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4253
+    .line 3651
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4254
+    .line 3652
     return v2
 
-    .line 4251
+    .line 3649
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -11094,24 +9844,24 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 5872
+    .line 5168
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5873
+    .line 5169
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5874
+    .line 5170
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5875
+    .line 5171
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IProcessObserver;->asBinder()Landroid/os/IBinder;
@@ -11121,7 +9871,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5876
+    .line 5172
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x85
@@ -11130,16 +9880,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5877
+    .line 5173
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5878
+    .line 5174
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5879
+    .line 5175
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5871
+    .line 5167
     return-void
 .end method
 
@@ -11162,24 +9912,24 @@
 
     const/4 v5, 0x0
 
-    .line 3483
+    .line 3024
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3484
+    .line 3025
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
-    .line 3485
+    .line 3026
     .local v3, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3486
+    .line 3027
     if-eqz p1, :cond_2
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -11189,10 +9939,10 @@
     :goto_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3487
+    .line 3028
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3488
+    .line 3029
     if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/content/IIntentReceiver;->asBinder()Landroid/os/IBinder;
@@ -11202,39 +9952,39 @@
     :cond_0
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3489
+    .line 3030
     invoke-virtual {p4, v0, v6}, Landroid/content/IntentFilter;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3490
+    .line 3031
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3491
+    .line 3032
     invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3492
+    .line 3033
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xc
 
     invoke-interface {v4, v5, v0, v3, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3493
+    .line 3034
     invoke-virtual {v3}, Landroid/os/Parcel;->readException()V
 
-    .line 3494
+    .line 3035
     const/4 v2, 0x0
 
-    .line 3495
+    .line 3036
     .local v2, "intent":Landroid/content/Intent;
     invoke-virtual {v3}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 3496
+    .line 3037
     .local v1, "haveIntent":I
     if-eqz v1, :cond_1
 
-    .line 3497
+    .line 3038
     sget-object v4, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v4, v3}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -11244,21 +9994,21 @@
     .end local v2    # "intent":Landroid/content/Intent;
     check-cast v2, Landroid/content/Intent;
 
-    .line 3499
+    .line 3040
     :cond_1
     invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
 
-    .line 3500
+    .line 3041
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3501
+    .line 3042
     return-object v2
 
     .end local v1    # "haveIntent":I
     :cond_2
     move-object v4, v5
 
-    .line 3486
+    .line 3027
     goto :goto_0
 .end method
 
@@ -11272,31 +10022,31 @@
     .end annotation
 
     .prologue
-    .line 4166
+    .line 3564
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4167
+    .line 3565
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4168
+    .line 3566
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4169
+    .line 3567
     invoke-interface {p1}, Landroid/app/ITaskStackListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4170
+    .line 3568
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xf3
@@ -11305,23 +10055,22 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4171
+    .line 3569
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4172
+    .line 3570
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4173
+    .line 3571
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4164
+    .line 3562
     return-void
 .end method
 
-.method public registerUidObserver(Landroid/app/IUidObserver;I)V
+.method public registerUidObserver(Landroid/app/IUidObserver;)V
     .locals 5
     .param p1, "observer"    # Landroid/app/IUidObserver;
-    .param p2, "which"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -11331,24 +10080,24 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 5894
+    .line 5190
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5895
+    .line 5191
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5896
+    .line 5192
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5897
+    .line 5193
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IUidObserver;->asBinder()Landroid/os/IBinder;
@@ -11358,10 +10107,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5898
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5899
+    .line 5194
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x12a
@@ -11370,23 +10116,22 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5900
+    .line 5195
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5901
+    .line 5196
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5902
+    .line 5197
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5893
+    .line 5189
     return-void
 .end method
 
-.method public registerUserSwitchObserver(Landroid/app/IUserSwitchObserver;Ljava/lang/String;)V
+.method public registerUserSwitchObserver(Landroid/app/IUserSwitchObserver;)V
     .locals 5
     .param p1, "observer"    # Landroid/app/IUserSwitchObserver;
-    .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -11396,24 +10141,24 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 6095
+    .line 5396
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6096
+    .line 5397
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6097
+    .line 5398
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6098
+    .line 5399
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IUserSwitchObserver;->asBinder()Landroid/os/IBinder;
@@ -11423,10 +10168,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6099
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 6100
+    .line 5400
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x9b
@@ -11435,16 +10177,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6101
+    .line 5401
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6102
+    .line 5402
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6103
+    .line 5403
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6094
+    .line 5395
     return-void
 .end method
 
@@ -11460,37 +10202,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 3446
+    .line 2987
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3447
+    .line 2988
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3448
+    .line 2989
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3449
+    .line 2990
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3450
+    .line 2991
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xec
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3451
+    .line 2992
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3452
+    .line 2993
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -11499,18 +10241,18 @@
 
     const/4 v2, 0x1
 
-    .line 3453
+    .line 2994
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3454
+    .line 2995
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3455
+    .line 2996
     return v2
 
-    .line 3452
+    .line 2993
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -11533,49 +10275,49 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 4875
+    .line 4273
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4876
+    .line 4274
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4877
+    .line 4275
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4878
+    .line 4276
     invoke-virtual {p1, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4879
+    .line 4277
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4880
+    .line 4278
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4881
+    .line 4279
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xb5
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4882
+    .line 4280
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4883
+    .line 4281
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4884
+    .line 4282
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4874
+    .line 4272
     return-void
 .end method
 
@@ -11589,31 +10331,31 @@
     .end annotation
 
     .prologue
-    .line 3458
+    .line 2999
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3459
+    .line 3000
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3460
+    .line 3001
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3461
+    .line 3002
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3462
+    .line 3003
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xed
@@ -11622,16 +10364,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3463
+    .line 3004
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3464
+    .line 3005
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3465
+    .line 3006
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3457
+    .line 2998
     return-void
 .end method
 
@@ -11648,27 +10390,27 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 4281
+    .line 3679
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4282
+    .line 3680
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4283
+    .line 3681
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4284
+    .line 3682
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4285
+    .line 3683
     if-eqz p2, :cond_0
 
     const/4 v2, 0x1
@@ -11676,29 +10418,29 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4286
+    .line 3684
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x45
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4287
+    .line 3685
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4288
+    .line 3686
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4289
+    .line 3687
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4280
+    .line 3678
     return-void
 
     :cond_0
     move v2, v3
 
-    .line 4285
+    .line 3683
     goto :goto_0
 .end method
 
@@ -11713,30 +10455,30 @@
     .end annotation
 
     .prologue
-    .line 4293
+    .line 3691
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4294
+    .line 3692
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4295
+    .line 3693
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4296
+    .line 3694
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4297
+    .line 3695
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4298
+    .line 3696
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x8e
@@ -11745,68 +10487,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4299
+    .line 3697
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4300
+    .line 3698
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4301
+    .line 3699
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4292
-    return-void
-.end method
-
-.method public removeStack(I)V
-    .locals 5
-    .param p1, "stackId"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6995
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6996
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6997
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6998
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6999
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x170
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 7000
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 7001
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 7002
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6994
+    .line 3690
     return-void
 .end method
 
@@ -11822,37 +10512,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5859
+    .line 5155
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5860
+    .line 5156
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5861
+    .line 5157
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5862
+    .line 5158
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5863
+    .line 5159
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x84
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5864
+    .line 5160
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5865
+    .line 5161
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -11861,18 +10551,18 @@
 
     const/4 v2, 0x1
 
-    .line 5866
+    .line 5162
     .local v2, "result":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5867
+    .line 5163
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5868
+    .line 5164
     return v2
 
-    .line 5865
+    .line 5161
     .end local v2    # "result":Z
     :cond_0
     const/4 v2, 0x0
@@ -11891,27 +10581,27 @@
     .end annotation
 
     .prologue
-    .line 6269
+    .line 5563
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6270
+    .line 5564
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6271
+    .line 5565
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6272
+    .line 5566
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6273
+    .line 5567
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xb1
@@ -11920,16 +10610,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6274
+    .line 5568
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6275
+    .line 5569
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6276
+    .line 5570
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6268
+    .line 5562
     return-void
 .end method
 
@@ -11948,1785 +10638,6 @@
 
     .prologue
     const/4 v4, 0x0
-
-    .line 6180
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6181
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6182
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6183
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6184
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
-
-    .line 6185
-    invoke-virtual {p3, v0, v4}, Landroid/app/assist/AssistStructure;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 6186
-    invoke-virtual {p4, v0, v4}, Landroid/app/assist/AssistContent;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 6187
-    if-eqz p5, :cond_0
-
-    .line 6188
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6189
-    invoke-virtual {p5, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 6193
-    :goto_0
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0xa3
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6194
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6195
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6196
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6179
-    return-void
-
-    .line 6191
-    :cond_0
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_0
-.end method
-
-.method public reportSizeConfigurations(Landroid/os/IBinder;[I[I[I)V
-    .locals 5
-    .param p1, "token"    # Landroid/os/IBinder;
-    .param p2, "horizontalSizeConfiguration"    # [I
-    .param p3, "verticalSizeConfigurations"    # [I
-    .param p4, "smallestSizeConfigurations"    # [I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6868
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6869
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6870
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6871
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6872
-    invoke-static {p2, v0}, Landroid/app/ActivityManagerProxy;->writeIntArray([ILandroid/os/Parcel;)V
-
-    .line 6873
-    invoke-static {p3, v0}, Landroid/app/ActivityManagerProxy;->writeIntArray([ILandroid/os/Parcel;)V
-
-    .line 6874
-    invoke-static {p4, v0}, Landroid/app/ActivityManagerProxy;->writeIntArray([ILandroid/os/Parcel;)V
-
-    .line 6875
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x15a
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6876
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6877
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6878
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6867
-    return-void
-.end method
-
-.method public requestAssistContextExtras(ILcom/android/internal/os/IResultReceiver;Landroid/os/Bundle;Landroid/os/IBinder;ZZ)Z
-    .locals 6
-    .param p1, "requestType"    # I
-    .param p2, "receiver"    # Lcom/android/internal/os/IResultReceiver;
-    .param p3, "receiverExtras"    # Landroid/os/Bundle;
-    .param p4, "activityToken"    # Landroid/os/IBinder;
-    .param p5, "focused"    # Z
-    .param p6, "newSessionId"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    .line 6161
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6162
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6163
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6164
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6165
-    invoke-interface {p2}, Lcom/android/internal/os/IResultReceiver;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6166
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
-
-    .line 6167
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6168
-    if-eqz p5, :cond_0
-
-    move v3, v4
-
-    :goto_0
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6169
-    if-eqz p6, :cond_1
-
-    :goto_1
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6170
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x11d
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6171
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6172
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    const/4 v2, 0x1
-
-    .line 6173
-    .local v2, "res":Z
-    :goto_2
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6174
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6175
-    return v2
-
-    .end local v2    # "res":Z
-    :cond_0
-    move v3, v5
-
-    .line 6168
-    goto :goto_0
-
-    :cond_1
-    move v4, v5
-
-    .line 6169
-    goto :goto_1
-
-    .line 6172
-    :cond_2
-    const/4 v2, 0x0
-
-    .restart local v2    # "res":Z
-    goto :goto_2
-.end method
-
-.method public requestBugReport(I)V
-    .locals 5
-    .param p1, "bugreportType"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6119
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6120
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6121
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6122
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6123
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x9e
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6124
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6125
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6126
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6118
-    return-void
-.end method
-
-.method public requestVisibleBehind(Landroid/os/IBinder;Z)Z
-    .locals 6
-    .param p1, "token"    # Landroid/os/IBinder;
-    .param p2, "visible"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 6637
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6638
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6639
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6640
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6641
-    if-eqz p2, :cond_0
-
-    const/4 v3, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6642
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0xe2
-
-    invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6643
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6644
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-lez v3, :cond_1
-
-    const/4 v2, 0x1
-
-    .line 6645
-    .local v2, "success":Z
-    :goto_1
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6646
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6647
-    return v2
-
-    .end local v2    # "success":Z
-    :cond_0
-    move v3, v4
-
-    .line 6641
-    goto :goto_0
-
-    .line 6644
-    :cond_1
-    const/4 v2, 0x0
-
-    .restart local v2    # "success":Z
-    goto :goto_1
-.end method
-
-.method public resizeDockedStack(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 5
-    .param p1, "dockedBounds"    # Landroid/graphics/Rect;
-    .param p2, "tempDockedTaskBounds"    # Landroid/graphics/Rect;
-    .param p3, "tempDockedTaskInsetBounds"    # Landroid/graphics/Rect;
-    .param p4, "tempOtherTaskBounds"    # Landroid/graphics/Rect;
-    .param p5, "tempOtherTaskInsetBounds"    # Landroid/graphics/Rect;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    .line 4006
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 4007
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 4008
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 4009
-    if-eqz p1, :cond_0
-
-    .line 4010
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4011
-    invoke-virtual {p1, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 4015
-    :goto_0
-    if-eqz p2, :cond_1
-
-    .line 4016
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4017
-    invoke-virtual {p2, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 4021
-    :goto_1
-    if-eqz p3, :cond_2
-
-    .line 4022
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4023
-    invoke-virtual {p3, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 4027
-    :goto_2
-    if-eqz p4, :cond_3
-
-    .line 4028
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4029
-    invoke-virtual {p4, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 4033
-    :goto_3
-    if-eqz p5, :cond_4
-
-    .line 4034
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4035
-    invoke-virtual {p5, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 4039
-    :goto_4
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x167
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 4040
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 4041
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 4042
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 4004
-    return-void
-
-    .line 4013
-    :cond_0
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_0
-
-    .line 4019
-    :cond_1
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_1
-
-    .line 4025
-    :cond_2
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_2
-
-    .line 4031
-    :cond_3
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_3
-
-    .line 4037
-    :cond_4
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_4
-.end method
-
-.method public resizePinnedStack(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 5
-    .param p1, "pinnedBounds"    # Landroid/graphics/Rect;
-    .param p2, "tempPinnedTaskBounds"    # Landroid/graphics/Rect;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    .line 4048
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 4049
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 4050
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 4051
-    if-eqz p1, :cond_0
-
-    .line 4052
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4053
-    invoke-virtual {p1, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 4057
-    :goto_0
-    if-eqz p2, :cond_1
-
-    .line 4058
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4059
-    invoke-virtual {p2, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 4063
-    :goto_1
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x173
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 4064
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 4065
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 4066
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 4046
-    return-void
-
-    .line 4055
-    :cond_0
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_0
-
-    .line 4061
-    :cond_1
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_1
-.end method
-
-.method public resizeStack(ILandroid/graphics/Rect;ZZZI)V
-    .locals 5
-    .param p1, "stackId"    # I
-    .param p2, "r"    # Landroid/graphics/Rect;
-    .param p3, "allowResizeInDockedMode"    # Z
-    .param p4, "preserveWindows"    # Z
-    .param p5, "animate"    # Z
-    .param p6, "animationDuration"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    .line 3970
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 3971
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 3972
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 3973
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3974
-    if-eqz p2, :cond_0
-
-    .line 3975
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3976
-    invoke-virtual {p2, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 3980
-    :goto_0
-    if-eqz p3, :cond_1
-
-    move v2, v3
-
-    :goto_1
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3981
-    if-eqz p4, :cond_2
-
-    move v2, v3
-
-    :goto_2
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3982
-    if-eqz p5, :cond_3
-
-    :goto_3
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3983
-    invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 3984
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0xaa
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 3985
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 3986
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 3987
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 3969
-    return-void
-
-    .line 3978
-    :cond_0
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_0
-
-    :cond_1
-    move v2, v4
-
-    .line 3980
-    goto :goto_1
-
-    :cond_2
-    move v2, v4
-
-    .line 3981
-    goto :goto_2
-
-    :cond_3
-    move v3, v4
-
-    .line 3982
-    goto :goto_3
-.end method
-
-.method public resizeTask(ILandroid/graphics/Rect;I)V
-    .locals 5
-    .param p1, "taskId"    # I
-    .param p2, "r"    # Landroid/graphics/Rect;
-    .param p3, "resizeMode"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 6575
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6576
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6577
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6578
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6579
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6580
-    invoke-virtual {p2, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 6581
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x11e
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6582
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6583
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6584
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6573
-    return-void
-.end method
-
-.method public restart()V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6291
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6292
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6293
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6294
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0xb2
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6295
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6296
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6297
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6290
-    return-void
-.end method
-
-.method public resumeAppSwitches()V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 5305
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5306
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5307
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5308
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x59
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5309
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 5310
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 5311
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5304
-    return-void
-.end method
-
-.method public revokeUriPermission(Landroid/app/IApplicationThread;Landroid/net/Uri;II)V
-    .locals 5
-    .param p1, "caller"    # Landroid/app/IApplicationThread;
-    .param p2, "uri"    # Landroid/net/Uri;
-    .param p3, "mode"    # I
-    .param p4, "userId"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 4844
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 4845
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 4846
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 4847
-    invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 4848
-    invoke-virtual {p2, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 4849
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4850
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4851
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x38
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 4852
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 4853
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 4854
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 4843
-    return-void
-.end method
-
-.method public revokeUriPermissionFromOwner(Landroid/os/IBinder;Landroid/net/Uri;II)V
-    .locals 5
-    .param p1, "owner"    # Landroid/os/IBinder;
-    .param p2, "uri"    # Landroid/net/Uri;
-    .param p3, "mode"    # I
-    .param p4, "userId"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 5601
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5602
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5603
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5604
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 5605
-    if-eqz p2, :cond_0
-
-    .line 5606
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5607
-    invoke-virtual {p2, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 5611
-    :goto_0
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5612
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5613
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x38
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5614
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 5615
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5616
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 5600
-    return-void
-
-    .line 5609
-    :cond_0
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_0
-.end method
-
-.method public sendIdleJobTrigger()V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6311
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6312
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6313
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6314
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x178
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6315
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6316
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6317
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6310
-    return-void
-.end method
-
-.method public sendIntentSender(Landroid/content/IIntentSender;ILandroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;Ljava/lang/String;Landroid/os/Bundle;)I
-    .locals 7
-    .param p1, "target"    # Landroid/content/IIntentSender;
-    .param p2, "code"    # I
-    .param p3, "intent"    # Landroid/content/Intent;
-    .param p4, "resolvedType"    # Ljava/lang/String;
-    .param p5, "finishedReceiver"    # Landroid/content/IIntentReceiver;
-    .param p6, "requiredPermission"    # Ljava/lang/String;
-    .param p7, "options"    # Landroid/os/Bundle;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v6, 0x1
-
-    const/4 v3, 0x0
-
-    const/4 v5, 0x0
-
-    .line 7033
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 7034
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 7035
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v4, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 7036
-    invoke-interface {p1}, Landroid/content/IIntentSender;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v4
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 7037
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 7038
-    if-eqz p3, :cond_1
-
-    .line 7039
-    invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 7040
-    invoke-virtual {p3, v0, v5}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 7045
-    :goto_0
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 7046
-    if-eqz p5, :cond_0
-
-    invoke-interface {p5}, Landroid/content/IIntentReceiver;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v3
-
-    :cond_0
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 7047
-    invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 7048
-    if-eqz p7, :cond_2
-
-    .line 7049
-    invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 7050
-    invoke-virtual {p7, v0, v5}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 7055
-    :goto_1
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x179
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 7056
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 7057
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 7058
-    .local v2, "res":I
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 7059
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 7060
-    return v2
-
-    .line 7043
-    .end local v2    # "res":I
-    :cond_1
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_0
-
-    .line 7053
-    :cond_2
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_1
-.end method
-
-.method public serviceDoneExecuting(Landroid/os/IBinder;III)V
-    .locals 5
-    .param p1, "token"    # Landroid/os/IBinder;
-    .param p2, "type"    # I
-    .param p3, "startId"    # I
-    .param p4, "res"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 4454
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 4455
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 4456
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 4457
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 4458
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4459
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4460
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4461
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x3d
-
-    const/4 v4, 0x1
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 4462
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 4463
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 4464
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 4453
-    return-void
-.end method
-
-.method public setActivityController(Landroid/app/IActivityController;Z)V
-    .locals 5
-    .param p1, "watcher"    # Landroid/app/IActivityController;
-    .param p2, "imAMonkey"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    .line 5024
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5025
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5026
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v4, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5027
-    if-eqz p1, :cond_0
-
-    invoke-interface {p1}, Landroid/app/IActivityController;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 5028
-    if-eqz p2, :cond_1
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5029
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x39
-
-    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5030
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 5031
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5032
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 5022
-    return-void
-
-    :cond_1
-    move v2, v3
-
-    .line 5028
-    goto :goto_0
-.end method
-
-.method public setAlwaysFinish(Z)V
-    .locals 5
-    .param p1, "enabled"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 5012
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5013
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5014
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5015
-    if-eqz p1, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5016
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x2b
-
-    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5017
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 5018
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5019
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 5010
-    return-void
-
-    :cond_0
-    move v2, v3
-
-    .line 5015
-    goto :goto_0
-.end method
-
-.method public setDebugApp(Ljava/lang/String;ZZ)V
-    .locals 5
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "waitForDebugger"    # Z
-    .param p3, "persistent"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    .line 4999
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5000
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5001
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5002
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 5003
-    if-eqz p2, :cond_0
-
-    move v2, v3
-
-    :goto_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5004
-    if-eqz p3, :cond_1
-
-    :goto_1
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5005
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x2a
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5006
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 5007
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5008
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 4997
-    return-void
-
-    :cond_0
-    move v2, v4
-
-    .line 5003
-    goto :goto_0
-
-    :cond_1
-    move v3, v4
-
-    .line 5004
-    goto :goto_1
-.end method
-
-.method public setDumpHeapDebugLimit(Ljava/lang/String;IJLjava/lang/String;)V
-    .locals 5
-    .param p1, "processName"    # Ljava/lang/String;
-    .param p2, "uid"    # I
-    .param p3, "maxMemSize"    # J
-    .param p5, "reportPackage"    # Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6727
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6728
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6729
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6730
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 6731
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6732
-    invoke-virtual {v0, p3, p4}, Landroid/os/Parcel;->writeLong(J)V
-
-    .line 6733
-    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 6734
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x120
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6735
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6736
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6737
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6726
-    return-void
-.end method
-
-.method public setFocusedStack(I)V
-    .locals 5
-    .param p1, "stackId"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 4130
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 4131
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 4132
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 4133
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4134
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0xac
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 4135
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 4136
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 4137
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 4128
-    return-void
-.end method
-
-.method public setFocusedTask(I)V
-    .locals 5
-    .param p1, "taskId"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 4154
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 4155
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 4156
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 4157
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 4158
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x83
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 4159
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 4160
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 4161
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 4152
-    return-void
-.end method
-
-.method public setFrontActivityScreenCompatMode(I)V
-    .locals 5
-    .param p1, "mode"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 5699
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5700
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5701
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5702
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5703
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x7d
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5704
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 5705
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 5706
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5698
-    return-void
-.end method
-
-.method public setHasTopUi(Z)V
-    .locals 5
-    .param p1, "hasTopUi"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 7092
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 7093
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 7094
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 7095
-    if-eqz p1, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 7096
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x17c
-
-    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 7097
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 7098
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 7099
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 7100
-    return-void
-
-    :cond_0
-    move v2, v3
-
-    .line 7095
-    goto :goto_0
-.end method
-
-.method public setImmersive(Landroid/os/IBinder;Z)V
-    .locals 5
-    .param p1, "token"    # Landroid/os/IBinder;
-    .param p2, "immersive"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
 
     .line 5474
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -13749,40 +10660,750 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 5478
-    if-eqz p2, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
     .line 5479
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x70
-
-    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-virtual {p3, v0, v4}, Landroid/app/assist/AssistStructure;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 5480
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-virtual {p4, v0, v4}, Landroid/app/assist/AssistContent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 5481
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+    if-eqz p5, :cond_0
 
     .line 5482
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5483
+    invoke-virtual {p5, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 5487
+    :goto_0
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0xa3
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5488
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5489
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5490
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 5473
     return-void
 
+    .line 5485
     :cond_0
-    move v2, v3
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5478
     goto :goto_0
 .end method
 
-.method public setLenientBackgroundCheck(Z)V
+.method public requestAssistContextExtras(ILcom/android/internal/os/IResultReceiver;Landroid/os/IBinder;)Z
+    .locals 6
+    .param p1, "requestType"    # I
+    .param p2, "receiver"    # Lcom/android/internal/os/IResultReceiver;
+    .param p3, "activityToken"    # Landroid/os/IBinder;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v5, 0x0
+
+    .line 5458
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 5459
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 5460
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v3, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 5461
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5462
+    invoke-interface {p2}, Lcom/android/internal/os/IResultReceiver;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 5463
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 5464
+    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x11d
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5465
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5466
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 5467
+    .local v2, "res":Z
+    :goto_0
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5468
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 5469
+    return v2
+
+    .line 5466
+    .end local v2    # "res":Z
+    :cond_0
+    const/4 v2, 0x0
+
+    .restart local v2    # "res":Z
+    goto :goto_0
+.end method
+
+.method public requestBugReport()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 5418
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 5419
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 5420
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 5421
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x9e
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5422
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5423
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5424
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 5417
+    return-void
+.end method
+
+.method public requestVisibleBehind(Landroid/os/IBinder;Z)Z
+    .locals 6
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "visible"    # Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 5843
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 5844
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 5845
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v3, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 5846
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 5847
+    if-eqz p2, :cond_0
+
+    const/4 v3, 0x1
+
+    :goto_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5848
+    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v5, 0xe2
+
+    invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5849
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5850
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    if-lez v3, :cond_1
+
+    const/4 v2, 0x1
+
+    .line 5851
+    .local v2, "success":Z
+    :goto_1
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5852
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 5853
+    return v2
+
+    .end local v2    # "success":Z
+    :cond_0
+    move v3, v4
+
+    .line 5847
+    goto :goto_0
+
+    .line 5850
+    :cond_1
+    const/4 v2, 0x0
+
+    .restart local v2    # "success":Z
+    goto :goto_1
+.end method
+
+.method public resizeStack(ILandroid/graphics/Rect;)V
+    .locals 5
+    .param p1, "stackBoxId"    # I
+    .param p2, "r"    # Landroid/graphics/Rect;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 3483
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 3484
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 3485
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 3486
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 3487
+    invoke-virtual {p2, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 3488
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0xaa
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 3489
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 3490
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 3491
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 3481
+    return-void
+.end method
+
+.method public resizeTask(ILandroid/graphics/Rect;)V
+    .locals 5
+    .param p1, "taskId"    # I
+    .param p2, "r"    # Landroid/graphics/Rect;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 5798
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 5799
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 5800
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 5801
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5802
+    invoke-virtual {p2, v0, v4}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 5803
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x11e
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5804
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5805
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5806
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 5796
+    return-void
+.end method
+
+.method public restart()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 5585
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 5586
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 5587
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 5588
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0xb2
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5589
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5590
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5591
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 5584
+    return-void
+.end method
+
+.method public resumeAppSwitches()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 4633
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 4634
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 4635
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 4636
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x59
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 4637
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 4638
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 4639
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 4632
+    return-void
+.end method
+
+.method public revokeUriPermission(Landroid/app/IApplicationThread;Landroid/net/Uri;II)V
+    .locals 5
+    .param p1, "caller"    # Landroid/app/IApplicationThread;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "mode"    # I
+    .param p4, "userId"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 4242
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 4243
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 4244
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 4245
+    invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 4246
+    invoke-virtual {p2, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 4247
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 4248
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 4249
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x38
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 4250
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 4251
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 4252
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 4241
+    return-void
+.end method
+
+.method public revokeUriPermissionFromOwner(Landroid/os/IBinder;Landroid/net/Uri;II)V
+    .locals 5
+    .param p1, "owner"    # Landroid/os/IBinder;
+    .param p2, "uri"    # Landroid/net/Uri;
+    .param p3, "mode"    # I
+    .param p4, "userId"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 4916
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 4917
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 4918
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 4919
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 4920
+    if-eqz p2, :cond_0
+
+    .line 4921
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 4922
+    invoke-virtual {p2, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 4926
+    :goto_0
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 4927
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 4928
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x38
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 4929
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 4930
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 4931
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 4915
+    return-void
+
+    .line 4924
+    :cond_0
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_0
+.end method
+
+.method public serviceDoneExecuting(Landroid/os/IBinder;III)V
+    .locals 5
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "type"    # I
+    .param p3, "startId"    # I
+    .param p4, "res"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 3852
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 3853
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 3854
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 3855
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 3856
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 3857
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 3858
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 3859
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x3d
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 3860
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 3861
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 3862
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 3851
+    return-void
+.end method
+
+.method public setActivityController(Landroid/app/IActivityController;)V
+    .locals 5
+    .param p1, "watcher"    # Landroid/app/IActivityController;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 4388
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 4389
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 4390
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v3, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 4391
+    if-eqz p1, :cond_0
+
+    invoke-interface {p1}, Landroid/app/IActivityController;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v2
+
+    :cond_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 4392
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x39
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 4393
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 4394
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 4395
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 4386
+    return-void
+.end method
+
+.method public setAlwaysFinish(Z)V
     .locals 5
     .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -13794,24 +11415,24 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 5036
+    .line 4377
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5037
+    .line 4378
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5038
+    .line 4379
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5039
+    .line 4380
     if-eqz p1, :cond_0
 
     const/4 v2, 0x1
@@ -13819,36 +11440,37 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5040
+    .line 4381
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x171
+    const/16 v4, 0x2b
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5041
+    .line 4382
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5042
+    .line 4383
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5043
+    .line 4384
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5034
+    .line 4375
     return-void
 
     :cond_0
     move v2, v3
 
-    .line 5039
+    .line 4380
     goto :goto_0
 .end method
 
-.method public setLockScreenShown(ZZ)V
+.method public setDebugApp(Ljava/lang/String;ZZ)V
     .locals 5
-    .param p1, "showing"    # Z
-    .param p2, "occluded"    # Z
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "waitForDebugger"    # Z
+    .param p3, "persistent"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -13860,67 +11482,368 @@
 
     const/4 v4, 0x0
 
-    .line 4985
+    .line 4364
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4986
+    .line 4365
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4987
+    .line 4366
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4988
-    if-eqz p1, :cond_0
+    .line 4367
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 4368
+    if-eqz p2, :cond_0
 
     move v2, v3
 
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4989
-    if-eqz p2, :cond_1
+    .line 4369
+    if-eqz p3, :cond_1
 
     :goto_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4990
+    .line 4370
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x94
+    const/16 v3, 0x2a
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4991
+    .line 4371
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4992
+    .line 4372
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4993
+    .line 4373
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4983
+    .line 4362
     return-void
 
     :cond_0
     move v2, v4
 
-    .line 4988
+    .line 4368
     goto :goto_0
 
     :cond_1
     move v3, v4
 
-    .line 4989
+    .line 4369
     goto :goto_1
+.end method
+
+.method public setDumpHeapDebugLimit(Ljava/lang/String;IJLjava/lang/String;)V
+    .locals 5
+    .param p1, "processName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "maxMemSize"    # J
+    .param p5, "reportPackage"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 5933
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 5934
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 5935
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 5936
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 5937
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5938
+    invoke-virtual {v0, p3, p4}, Landroid/os/Parcel;->writeLong(J)V
+
+    .line 5939
+    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 5940
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x120
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5941
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5942
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5943
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 5932
+    return-void
+.end method
+
+.method public setFocusedStack(I)V
+    .locals 5
+    .param p1, "stackId"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 3540
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 3541
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 3542
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 3543
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 3544
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0xac
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 3545
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 3546
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 3547
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 3538
+    return-void
+.end method
+
+.method public setFrontActivityScreenCompatMode(I)V
+    .locals 5
+    .param p1, "mode"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 5014
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 5015
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 5016
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 5017
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5018
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x7d
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5019
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5020
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 5021
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5013
+    return-void
+.end method
+
+.method public setImmersive(Landroid/os/IBinder;Z)V
+    .locals 5
+    .param p1, "token"    # Landroid/os/IBinder;
+    .param p2, "immersive"    # Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 4802
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 4803
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 4804
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 4805
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 4806
+    if-eqz p2, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 4807
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x70
+
+    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 4808
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 4809
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 4810
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 4801
+    return-void
+
+    :cond_0
+    move v2, v3
+
+    .line 4806
+    goto :goto_0
+.end method
+
+.method public setLockScreenShown(Z)V
+    .locals 5
+    .param p1, "shown"    # Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 4351
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 4352
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 4353
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 4354
+    if-eqz p1, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 4355
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x94
+
+    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 4356
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 4357
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 4358
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 4349
+    return-void
+
+    :cond_0
+    move v2, v3
+
+    .line 4354
+    goto :goto_0
 .end method
 
 .method public setPackageAskScreenCompat(Ljava/lang/String;Z)V
@@ -13936,27 +11859,27 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 5750
+    .line 5065
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5751
+    .line 5066
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5752
+    .line 5067
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5753
+    .line 5068
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5754
+    .line 5069
     if-eqz p2, :cond_0
 
     const/4 v2, 0x1
@@ -13964,29 +11887,29 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5755
+    .line 5070
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x81
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5756
+    .line 5071
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5757
+    .line 5072
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5758
+    .line 5073
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5749
+    .line 5064
     return-void
 
     :cond_0
     move v2, v3
 
-    .line 5754
+    .line 5069
     goto :goto_0
 .end method
 
@@ -14001,30 +11924,30 @@
     .end annotation
 
     .prologue
-    .line 5724
+    .line 5039
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5725
+    .line 5040
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5726
+    .line 5041
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5727
+    .line 5042
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5728
+    .line 5043
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5729
+    .line 5044
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x7f
@@ -14033,16 +11956,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5730
+    .line 5045
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5731
+    .line 5046
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5732
+    .line 5047
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5723
+    .line 5038
     return-void
 .end method
 
@@ -14060,30 +11983,30 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 4752
+    .line 4150
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4753
+    .line 4151
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4754
+    .line 4152
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4755
+    .line 4153
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4756
+    .line 4154
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4757
+    .line 4155
     if-eqz p3, :cond_0
 
     const/4 v2, 0x1
@@ -14091,29 +12014,29 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4758
+    .line 4156
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x49
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4759
+    .line 4157
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4760
+    .line 4158
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4761
+    .line 4159
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4751
+    .line 4149
     return-void
 
     :cond_0
     move v2, v3
 
-    .line 4757
+    .line 4155
     goto :goto_0
 .end method
 
@@ -14127,27 +12050,27 @@
     .end annotation
 
     .prologue
-    .line 4729
+    .line 4127
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4730
+    .line 4128
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4731
+    .line 4129
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4732
+    .line 4130
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4733
+    .line 4131
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x33
@@ -14156,16 +12079,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4734
+    .line 4132
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4735
+    .line 4133
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4736
+    .line 4134
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4727
+    .line 4125
     return-void
 .end method
 
@@ -14183,113 +12106,61 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 6810
+    .line 6016
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6811
+    .line 6017
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6812
+    .line 6018
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6813
+    .line 6019
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 6814
+    .line 6020
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6815
+    .line 6021
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6816
+    .line 6022
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xbb
 
     invoke-interface {v4, v5, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6817
+    .line 6023
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6818
+    .line 6024
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 6819
+    .line 6025
     .local v2, "res":I
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6820
+    .line 6026
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6821
+    .line 6027
     if-eqz v2, :cond_0
 
     const/4 v3, 0x1
 
     :cond_0
     return v3
-.end method
-
-.method public setRenderThread(I)V
-    .locals 5
-    .param p1, "tid"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 7079
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 7080
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 7081
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 7082
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 7083
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x17b
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 7084
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 7085
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 7086
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 7087
-    return-void
 .end method
 
 .method public setRequestedOrientation(Landroid/os/IBinder;I)V
@@ -14303,30 +12174,30 @@
     .end annotation
 
     .prologue
-    .line 4591
+    .line 3989
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4592
+    .line 3990
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4593
+    .line 3991
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4594
+    .line 3992
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4595
+    .line 3993
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4596
+    .line 3994
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x46
@@ -14335,26 +12206,26 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4597
+    .line 3995
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4598
+    .line 3996
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4599
+    .line 3997
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4590
+    .line 3988
     return-void
 .end method
 
-.method public setServiceForeground(Landroid/content/ComponentName;Landroid/os/IBinder;ILandroid/app/Notification;I)V
+.method public setServiceForeground(Landroid/content/ComponentName;Landroid/os/IBinder;ILandroid/app/Notification;Z)V
     .locals 5
     .param p1, "className"    # Landroid/content/ComponentName;
     .param p2, "token"    # Landroid/os/IBinder;
     .param p3, "id"    # I
     .param p4, "notification"    # Landroid/app/Notification;
-    .param p5, "flags"    # I
+    .param p5, "removeNotification"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -14362,73 +12233,82 @@
     .end annotation
 
     .prologue
-    const/4 v4, 0x0
+    const/4 v2, 0x1
 
-    .line 4371
+    const/4 v3, 0x0
+
+    .line 3769
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4372
+    .line 3770
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4373
+    .line 3771
     .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
+    const-string/jumbo v4, "android.app.IActivityManager"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4374
+    .line 3772
     invoke-static {p1, v0}, Landroid/content/ComponentName;->writeToParcel(Landroid/content/ComponentName;Landroid/os/Parcel;)V
 
-    .line 4375
+    .line 3773
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4376
+    .line 3774
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4377
+    .line 3775
     if-eqz p4, :cond_0
 
-    .line 4378
-    const/4 v2, 0x1
-
+    .line 3776
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4379
-    invoke-virtual {p4, v0, v4}, Landroid/app/Notification;->writeToParcel(Landroid/os/Parcel;I)V
+    .line 3777
+    invoke-virtual {p4, v0, v3}, Landroid/app/Notification;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4383
+    .line 3781
     :goto_0
-    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
+    if-eqz p5, :cond_1
 
-    .line 4384
+    :goto_1
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 3782
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x4a
+    const/16 v4, 0x4a
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4385
+    .line 3783
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4386
+    .line 3784
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4387
+    .line 3785
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4370
+    .line 3768
     return-void
 
-    .line 4381
+    .line 3779
     :cond_0
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
+
+    :cond_1
+    move v2, v3
+
+    .line 3781
+    goto :goto_1
 .end method
 
 .method public setTaskDescription(Landroid/os/IBinder;Landroid/app/ActivityManager$TaskDescription;)V
@@ -14444,53 +12324,53 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 6548
+    .line 5771
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6549
+    .line 5772
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6550
+    .line 5773
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6551
+    .line 5774
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6552
+    .line 5775
     invoke-virtual {p2, v0, v4}, Landroid/app/ActivityManager$TaskDescription;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 6553
+    .line 5776
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xda
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6554
+    .line 5777
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6555
+    .line 5778
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6556
+    .line 5779
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6547
+    .line 5770
     return-void
 .end method
 
-.method public setTaskResizeable(II)V
+.method public setTaskResizeable(IZ)V
     .locals 5
     .param p1, "taskId"    # I
-    .param p2, "resizeableMode"    # I
+    .param p2, "resizeable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -14498,49 +12378,60 @@
     .end annotation
 
     .prologue
-    .line 6561
+    const/4 v3, 0x0
+
+    .line 5784
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6562
+    .line 5785
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6563
+    .line 5786
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6564
+    .line 5787
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6565
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+    .line 5788
+    if-eqz p2, :cond_0
 
-    .line 6566
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5789
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x11c
+    const/16 v4, 0x11c
 
-    const/4 v4, 0x0
+    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6567
+    .line 5790
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6568
+    .line 5791
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6569
+    .line 5792
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6560
+    .line 5783
     return-void
+
+    :cond_0
+    move v2, v3
+
+    .line 5788
+    goto :goto_0
 .end method
 
 .method public setUserIsMonkey(Z)V
@@ -14555,24 +12446,24 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 5405
+    .line 4732
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5406
+    .line 4733
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5407
+    .line 4734
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5408
+    .line 4735
     if-eqz p1, :cond_0
 
     const/4 v2, 0x1
@@ -14580,29 +12471,29 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5409
+    .line 4736
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xa6
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5410
+    .line 4737
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5411
+    .line 4738
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5412
+    .line 4739
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5404
+    .line 4731
     return-void
 
     :cond_0
     move v2, v3
 
-    .line 5408
+    .line 4735
     goto :goto_0
 .end method
 
@@ -14619,31 +12510,31 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 6755
+    .line 5961
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6756
+    .line 5962
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6757
+    .line 5963
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6758
+    .line 5964
     invoke-interface {p1}, Landroid/service/voice/IVoiceInteractionSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6759
+    .line 5965
     if-eqz p2, :cond_0
 
     const/4 v2, 0x1
@@ -14651,160 +12542,30 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6760
+    .line 5966
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x122
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6761
+    .line 5967
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6762
+    .line 5968
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6763
+    .line 5969
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6754
+    .line 5960
     return-void
 
     :cond_0
     move v2, v3
 
-    .line 6759
+    .line 5965
     goto :goto_0
-.end method
-
-.method public setVrMode(Landroid/os/IBinder;ZLandroid/content/ComponentName;)I
-    .locals 6
-    .param p1, "token"    # Landroid/os/IBinder;
-    .param p2, "enabled"    # Z
-    .param p3, "packageName"    # Landroid/content/ComponentName;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 6385
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6386
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6387
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6388
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 6389
-    if-eqz p2, :cond_0
-
-    const/4 v3, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6390
-    invoke-virtual {p3, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 6391
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0x168
-
-    invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6392
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6393
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 6394
-    .local v2, "res":I
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6395
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6396
-    return v2
-
-    .end local v2    # "res":I
-    :cond_0
-    move v3, v4
-
-    .line 6389
-    goto :goto_0
-.end method
-
-.method public setVrThread(I)V
-    .locals 5
-    .param p1, "tid"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 7066
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 7067
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 7068
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 7069
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 7070
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x17a
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 7071
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 7072
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 7073
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 7074
-    return-void
 .end method
 
 .method public shouldUpRecreateTask(Landroid/os/IBinder;Ljava/lang/String;)Z
@@ -14820,40 +12581,40 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 6032
+    .line 5334
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6033
+    .line 5335
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6034
+    .line 5336
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6035
+    .line 5337
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6036
+    .line 5338
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 6037
+    .line 5339
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x92
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6038
+    .line 5340
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6039
+    .line 5341
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -14862,18 +12623,18 @@
 
     const/4 v2, 0x1
 
-    .line 6040
+    .line 5342
     .local v2, "result":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6041
+    .line 5343
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6042
+    .line 5344
     return v2
 
-    .line 6039
+    .line 5341
     .end local v2    # "result":Z
     :cond_0
     const/4 v2, 0x0
@@ -14895,40 +12656,40 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 6230
+    .line 5524
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6231
+    .line 5525
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6232
+    .line 5526
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6233
+    .line 5527
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6234
+    .line 5528
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 6235
+    .line 5529
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x12d
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6236
+    .line 5530
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6237
+    .line 5531
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -14937,90 +12698,23 @@
 
     const/4 v2, 0x1
 
-    .line 6238
+    .line 5532
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6239
+    .line 5533
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6240
+    .line 5534
     return v2
 
-    .line 6237
+    .line 5531
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
 
     .restart local v2    # "res":Z
-    goto :goto_0
-.end method
-
-.method public showBootMessage(Ljava/lang/CharSequence;Z)V
-    .locals 5
-    .param p1, "msg"    # Ljava/lang/CharSequence;
-    .param p2, "always"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 5997
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5998
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5999
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6000
-    invoke-static {p1, v0, v3}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
-
-    .line 6001
-    if-eqz p2, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6002
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x8a
-
-    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6003
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6004
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6005
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 5996
-    return-void
-
-    :cond_0
-    move v2, v3
-
-    .line 6001
     goto :goto_0
 .end method
 
@@ -15034,47 +12728,47 @@
     .end annotation
 
     .prologue
-    .line 6534
+    .line 5757
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6535
+    .line 5758
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6536
+    .line 5759
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6537
+    .line 5760
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6538
+    .line 5761
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x127
 
-    .line 6539
+    .line 5762
     const/4 v4, 0x1
 
-    .line 6538
+    .line 5761
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6540
+    .line 5763
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6541
+    .line 5764
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6542
+    .line 5765
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6533
+    .line 5756
     return-void
 .end method
 
@@ -15091,31 +12785,31 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 4938
+    .line 4304
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4939
+    .line 4305
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4940
+    .line 4306
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4941
+    .line 4307
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4942
+    .line 4308
     if-eqz p2, :cond_0
 
     const/4 v2, 0x1
@@ -15123,29 +12817,29 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4943
+    .line 4309
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x3a
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4944
+    .line 4310
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4945
+    .line 4311
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4946
+    .line 4312
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4937
+    .line 4303
     return-void
 
     :cond_0
     move v2, v3
 
-    .line 4942
+    .line 4308
     goto :goto_0
 .end method
 
@@ -15161,37 +12855,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5282
+    .line 4610
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5283
+    .line 4611
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5284
+    .line 4612
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5285
+    .line 4613
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5286
+    .line 4614
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x57
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5287
+    .line 4615
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5288
+    .line 4616
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -15200,18 +12894,18 @@
 
     const/4 v2, 0x1
 
-    .line 5289
+    .line 4617
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5290
+    .line 4618
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5291
+    .line 4619
     return v2
 
-    .line 5288
+    .line 4616
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -15230,27 +12924,27 @@
     .end annotation
 
     .prologue
-    .line 5174
+    .line 4514
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5175
+    .line 4515
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5176
+    .line 4516
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5177
+    .line 4517
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5178
+    .line 4518
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x3b
@@ -15259,16 +12953,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5179
+    .line 4519
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5180
+    .line 4520
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5181
+    .line 4521
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5173
+    .line 4513
     return-void
 .end method
 
@@ -15292,24 +12986,24 @@
 
     const/4 v5, 0x0
 
-    .line 5663
+    .line 4978
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5664
+    .line 4979
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5665
+    .line 4980
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5666
+    .line 4981
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -15319,59 +13013,59 @@
     :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5667
+    .line 4982
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 5668
+    .line 4983
     invoke-virtual {v0, p3, v5}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
-    .line 5669
+    .line 4984
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    .line 5670
+    .line 4985
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5671
+    .line 4986
     if-eqz p6, :cond_1
 
-    .line 5672
+    .line 4987
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5673
+    .line 4988
     invoke-virtual {p6, v0, v5}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 5677
+    .line 4992
     :goto_0
     invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5678
+    .line 4993
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x79
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5679
+    .line 4994
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5680
+    .line 4995
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 5681
+    .line 4996
     .local v2, "result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5682
+    .line 4997
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5683
+    .line 4998
     return v2
 
-    .line 5675
+    .line 4990
     .end local v2    # "result":I
     :cond_1
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
@@ -15398,24 +13092,24 @@
     .end annotation
 
     .prologue
-    .line 3077
+    .line 2656
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3078
+    .line 2657
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3079
+    .line 2658
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3080
+    .line 2659
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -15425,61 +13119,61 @@
     :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3081
+    .line 2660
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3082
+    .line 2661
     const/4 v4, 0x0
 
     invoke-virtual {p3, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3083
+    .line 2662
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3084
+    .line 2663
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3085
+    .line 2664
     invoke-virtual {v1, p6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3086
+    .line 2665
     invoke-virtual {v1, p7}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3087
+    .line 2666
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3088
+    .line 2667
     if-eqz p9, :cond_1
 
-    .line 3089
+    .line 2668
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3090
+    .line 2669
     const/4 v4, 0x1
 
     move-object/from16 v0, p9
 
     invoke-virtual {v0, v1, v4}, Landroid/app/ProfilerInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3094
+    .line 2673
     :goto_1
     if-eqz p10, :cond_2
 
-    .line 3095
+    .line 2674
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3096
+    .line 2675
     const/4 v4, 0x0
 
     move-object/from16 v0, p10
 
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3100
+    .line 2679
     :goto_2
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
@@ -15489,32 +13183,32 @@
 
     invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3101
+    .line 2680
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3102
+    .line 2681
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 3103
+    .line 2682
     .local v3, "result":I
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3104
+    .line 2683
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3105
+    .line 2684
     return v3
 
-    .line 3080
+    .line 2659
     .end local v3    # "result":I
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_0
 
-    .line 3092
+    .line 2671
     :cond_1
     const/4 v4, 0x0
 
@@ -15522,7 +13216,7 @@
 
     goto :goto_1
 
-    .line 3098
+    .line 2677
     :cond_2
     const/4 v4, 0x0
 
@@ -15551,24 +13245,24 @@
     .end annotation
 
     .prologue
-    .line 3183
+    .line 2762
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3184
+    .line 2763
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3185
+    .line 2764
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3186
+    .line 2765
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -15578,67 +13272,67 @@
     :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3187
+    .line 2766
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3188
+    .line 2767
     const/4 v4, 0x0
 
     invoke-virtual {p3, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3189
+    .line 2768
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3190
+    .line 2769
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3191
+    .line 2770
     invoke-virtual {v1, p6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3192
+    .line 2771
     invoke-virtual {v1, p7}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3193
+    .line 2772
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3194
+    .line 2773
     if-eqz p9, :cond_1
 
-    .line 3195
+    .line 2774
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3196
+    .line 2775
     const/4 v4, 0x1
 
     move-object/from16 v0, p9
 
     invoke-virtual {v0, v1, v4}, Landroid/app/ProfilerInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3200
+    .line 2779
     :goto_1
     if-eqz p10, :cond_2
 
-    .line 3201
+    .line 2780
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3202
+    .line 2781
     const/4 v4, 0x0
 
     move-object/from16 v0, p10
 
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3206
+    .line 2785
     :goto_2
     move/from16 v0, p11
 
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3207
+    .line 2786
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x69
@@ -15647,10 +13341,10 @@
 
     invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3208
+    .line 2787
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3209
+    .line 2788
     sget-object v4, Landroid/app/IActivityManager$WaitResult;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v4, v2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -15659,24 +13353,24 @@
 
     check-cast v3, Landroid/app/IActivityManager$WaitResult;
 
-    .line 3210
+    .line 2789
     .local v3, "result":Landroid/app/IActivityManager$WaitResult;
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3211
+    .line 2790
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3212
+    .line 2791
     return-object v3
 
-    .line 3186
+    .line 2765
     .end local v3    # "result":Landroid/app/IActivityManager$WaitResult;
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_0
 
-    .line 3198
+    .line 2777
     :cond_1
     const/4 v4, 0x0
 
@@ -15684,7 +13378,7 @@
 
     goto :goto_1
 
-    .line 3204
+    .line 2783
     :cond_2
     const/4 v4, 0x0
 
@@ -15714,24 +13408,24 @@
     .end annotation
 
     .prologue
-    .line 3147
+    .line 2726
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3148
+    .line 2727
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3149
+    .line 2728
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3150
+    .line 2729
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -15741,61 +13435,61 @@
     :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3151
+    .line 2730
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3152
+    .line 2731
     const/4 v4, 0x0
 
     invoke-virtual {p3, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3153
+    .line 2732
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3154
+    .line 2733
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3155
+    .line 2734
     invoke-virtual {v1, p6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3156
+    .line 2735
     invoke-virtual {v1, p7}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3157
+    .line 2736
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3158
+    .line 2737
     if-eqz p9, :cond_1
 
-    .line 3159
+    .line 2738
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3160
+    .line 2739
     const/4 v4, 0x1
 
     move-object/from16 v0, p9
 
     invoke-virtual {v0, v1, v4}, Landroid/app/ProfilerInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3164
+    .line 2743
     :goto_1
     if-eqz p10, :cond_2
 
-    .line 3165
+    .line 2744
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3166
+    .line 2745
     const/4 v4, 0x0
 
     move-object/from16 v0, p10
 
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3170
+    .line 2749
     :goto_2
     if-eqz p11, :cond_3
 
@@ -15804,12 +13498,12 @@
     :goto_3
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3171
+    .line 2750
     move/from16 v0, p12
 
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3172
+    .line 2751
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xe9
@@ -15818,32 +13512,32 @@
 
     invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3173
+    .line 2752
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3174
+    .line 2753
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 3175
+    .line 2754
     .local v3, "result":I
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3176
+    .line 2755
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3177
+    .line 2756
     return v3
 
-    .line 3150
+    .line 2729
     .end local v3    # "result":I
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_0
 
-    .line 3162
+    .line 2741
     :cond_1
     const/4 v4, 0x0
 
@@ -15851,7 +13545,7 @@
 
     goto :goto_1
 
-    .line 3168
+    .line 2747
     :cond_2
     const/4 v4, 0x0
 
@@ -15859,7 +13553,7 @@
 
     goto :goto_2
 
-    .line 3170
+    .line 2749
     :cond_3
     const/4 v4, 0x0
 
@@ -15886,24 +13580,24 @@
     .end annotation
 
     .prologue
-    .line 3112
+    .line 2691
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3113
+    .line 2692
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3114
+    .line 2693
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3115
+    .line 2694
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -15913,67 +13607,67 @@
     :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3116
+    .line 2695
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3117
+    .line 2696
     const/4 v4, 0x0
 
     invoke-virtual {p3, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3118
+    .line 2697
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3119
+    .line 2698
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3120
+    .line 2699
     invoke-virtual {v1, p6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3121
+    .line 2700
     invoke-virtual {v1, p7}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3122
+    .line 2701
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3123
+    .line 2702
     if-eqz p9, :cond_1
 
-    .line 3124
+    .line 2703
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3125
+    .line 2704
     const/4 v4, 0x1
 
     move-object/from16 v0, p9
 
     invoke-virtual {v0, v1, v4}, Landroid/app/ProfilerInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3129
+    .line 2708
     :goto_1
     if-eqz p10, :cond_2
 
-    .line 3130
+    .line 2709
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3131
+    .line 2710
     const/4 v4, 0x0
 
     move-object/from16 v0, p10
 
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3135
+    .line 2714
     :goto_2
     move/from16 v0, p11
 
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3136
+    .line 2715
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x99
@@ -15982,32 +13676,32 @@
 
     invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3137
+    .line 2716
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3138
+    .line 2717
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 3139
+    .line 2718
     .local v3, "result":I
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3140
+    .line 2719
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3141
+    .line 2720
     return v3
 
-    .line 3115
+    .line 2694
     .end local v3    # "result":I
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_0
 
-    .line 3127
+    .line 2706
     :cond_1
     const/4 v4, 0x0
 
@@ -16015,7 +13709,7 @@
 
     goto :goto_1
 
-    .line 3133
+    .line 2712
     :cond_2
     const/4 v4, 0x0
 
@@ -16037,33 +13731,33 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 3372
+    .line 2913
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3373
+    .line 2914
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3374
+    .line 2915
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3375
+    .line 2916
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3376
+    .line 2917
     if-nez p2, :cond_0
 
-    .line 3377
+    .line 2918
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3382
+    .line 2923
     :goto_0
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
@@ -16071,32 +13765,32 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3383
+    .line 2924
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3384
+    .line 2925
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 3385
+    .line 2926
     .local v2, "result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3386
+    .line 2927
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3387
+    .line 2928
     return v2
 
-    .line 3379
+    .line 2920
     .end local v2    # "result":I
     :cond_0
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3380
+    .line 2921
     invoke-virtual {p2, v0, v5}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto :goto_0
@@ -16121,24 +13815,24 @@
     .end annotation
 
     .prologue
-    .line 3248
+    .line 2827
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3249
+    .line 2828
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3250
+    .line 2829
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3251
+    .line 2830
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -16148,61 +13842,61 @@
     :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3252
+    .line 2831
     const/4 v4, 0x0
 
     invoke-virtual {p2, v1, v4}, Landroid/content/IntentSender;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3253
+    .line 2832
     if-eqz p3, :cond_1
 
-    .line 3254
+    .line 2833
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3255
+    .line 2834
     const/4 v4, 0x0
 
     invoke-virtual {p3, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3259
+    .line 2838
     :goto_1
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3260
+    .line 2839
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3261
+    .line 2840
     invoke-virtual {v1, p6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3262
+    .line 2841
     invoke-virtual {v1, p7}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3263
+    .line 2842
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3264
+    .line 2843
     move/from16 v0, p9
 
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3265
+    .line 2844
     if-eqz p10, :cond_2
 
-    .line 3266
+    .line 2845
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3267
+    .line 2846
     const/4 v4, 0x0
 
     move-object/from16 v0, p10
 
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3271
+    .line 2850
     :goto_2
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
@@ -16212,32 +13906,32 @@
 
     invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3272
+    .line 2851
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3273
+    .line 2852
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 3274
+    .line 2853
     .local v3, "result":I
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3275
+    .line 2854
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3276
+    .line 2855
     return v3
 
-    .line 3251
+    .line 2830
     .end local v3    # "result":I
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_0
 
-    .line 3257
+    .line 2836
     :cond_1
     const/4 v4, 0x0
 
@@ -16245,7 +13939,7 @@
 
     goto :goto_1
 
-    .line 3269
+    .line 2848
     :cond_2
     const/4 v4, 0x0
 
@@ -16274,24 +13968,24 @@
     .end annotation
 
     .prologue
-    .line 3218
+    .line 2797
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3219
+    .line 2798
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3220
+    .line 2799
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3221
+    .line 2800
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -16301,58 +13995,58 @@
     :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3222
+    .line 2801
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3223
+    .line 2802
     const/4 v4, 0x0
 
     invoke-virtual {p3, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3224
+    .line 2803
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3225
+    .line 2804
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3226
+    .line 2805
     invoke-virtual {v1, p6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3227
+    .line 2806
     invoke-virtual {v1, p7}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3228
+    .line 2807
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3229
+    .line 2808
     const/4 v4, 0x0
 
     move-object/from16 v0, p9
 
     invoke-virtual {v0, v1, v4}, Landroid/content/res/Configuration;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3230
+    .line 2809
     if-eqz p10, :cond_1
 
-    .line 3231
+    .line 2810
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3232
+    .line 2811
     const/4 v4, 0x0
 
     move-object/from16 v0, p10
 
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3236
+    .line 2815
     :goto_1
     move/from16 v0, p11
 
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3237
+    .line 2816
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v5, 0x3
@@ -16361,157 +14055,38 @@
 
     invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3238
+    .line 2817
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3239
+    .line 2818
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 3240
+    .line 2819
     .local v3, "result":I
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3241
+    .line 2820
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3242
+    .line 2821
     return v3
 
-    .line 3221
+    .line 2800
     .end local v3    # "result":I
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_0
 
-    .line 3234
+    .line 2813
     :cond_1
     const/4 v4, 0x0
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_1
-.end method
-
-.method public startBinderTracking()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v5, 0x0
-
-    .line 6354
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6355
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6356
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6357
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x155
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6358
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6359
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 6360
-    .local v2, "res":Z
-    :goto_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6361
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6362
-    return v2
-
-    .line 6359
-    .end local v2    # "res":Z
-    :cond_0
-    const/4 v2, 0x0
-
-    .restart local v2    # "res":Z
-    goto :goto_0
-.end method
-
-.method public startConfirmDeviceCredentialIntent(Landroid/content/Intent;)V
-    .locals 5
-    .param p1, "intent"    # Landroid/content/Intent;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 7019
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 7020
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 7021
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 7022
-    invoke-virtual {p1, v0, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 7023
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x177
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 7024
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 7025
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 7026
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 7018
-    return-void
 .end method
 
 .method public startInPlaceAnimationOnFrontMostApplication(Landroid/app/ActivityOptions;)V
@@ -16526,30 +14101,30 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 6620
+    .line 5826
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6621
+    .line 5827
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6622
+    .line 5828
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6623
+    .line 5829
     if-nez p1, :cond_0
 
-    .line 6624
+    .line 5830
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6629
+    .line 5835
     :goto_0
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
@@ -16557,25 +14132,25 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6630
+    .line 5836
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6631
+    .line 5837
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6632
+    .line 5838
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6619
+    .line 5825
     return-void
 
-    .line 6626
+    .line 5832
     :cond_0
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6627
+    .line 5833
     invoke-virtual {p1}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
 
     move-result-object v2
@@ -16606,36 +14181,36 @@
 
     const/4 v4, 0x0
 
-    .line 4534
+    .line 3932
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4535
+    .line 3933
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4536
+    .line 3934
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4537
+    .line 3935
     invoke-static {p1, v0}, Landroid/content/ComponentName;->writeToParcel(Landroid/content/ComponentName;Landroid/os/Parcel;)V
 
-    .line 4538
+    .line 3936
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4539
+    .line 3937
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4540
+    .line 3938
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 4541
+    .line 3939
     if-eqz p5, :cond_1
 
     invoke-interface {p5}, Landroid/app/IInstrumentationWatcher;->asBinder()Landroid/os/IBinder;
@@ -16645,7 +14220,7 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4542
+    .line 3940
     if-eqz p6, :cond_0
 
     invoke-interface {p6}, Landroid/app/IUiAutomationConnection;->asBinder()Landroid/os/IBinder;
@@ -16655,23 +14230,23 @@
     :cond_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4543
+    .line 3941
     invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4544
+    .line 3942
     invoke-virtual {v0, p8}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4545
+    .line 3943
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x2c
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4546
+    .line 3944
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4547
+    .line 3945
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -16680,86 +14255,30 @@
 
     const/4 v2, 0x1
 
-    .line 4548
+    .line 3946
     .local v2, "res":Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4549
+    .line 3947
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4550
+    .line 3948
     return v2
 
     .end local v2    # "res":Z
     :cond_1
     move-object v3, v4
 
-    .line 4541
+    .line 3939
     goto :goto_0
 
-    .line 4547
+    .line 3945
     :cond_2
     const/4 v2, 0x0
 
     .restart local v2    # "res":Z
     goto :goto_1
-.end method
-
-.method public startLocalVoiceInteraction(Landroid/os/IBinder;Landroid/os/Bundle;)V
-    .locals 5
-    .param p1, "callingActivity"    # Landroid/os/IBinder;
-    .param p2, "options"    # Landroid/os/Bundle;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 3316
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 3317
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 3318
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 3319
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 3320
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
-
-    .line 3321
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x16c
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 3322
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 3323
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 3324
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 3315
-    return-void
 .end method
 
 .method public startLockTaskMode(I)V
@@ -16772,27 +14291,27 @@
     .end annotation
 
     .prologue
-    .line 6450
+    .line 5674
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6451
+    .line 5675
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6452
+    .line 5676
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6453
+    .line 5677
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6454
+    .line 5678
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xd6
@@ -16801,16 +14320,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6455
+    .line 5679
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6456
+    .line 5680
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6457
+    .line 5681
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6449
+    .line 5673
     return-void
 .end method
 
@@ -16824,27 +14343,27 @@
     .end annotation
 
     .prologue
-    .line 6462
+    .line 5686
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6463
+    .line 5687
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6464
+    .line 5688
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6465
+    .line 5689
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6466
+    .line 5690
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xd7
@@ -16853,16 +14372,64 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6467
+    .line 5691
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6468
+    .line 5692
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6469
+    .line 5693
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6461
+    .line 5685
+    return-void
+.end method
+
+.method public startLockTaskModeOnCurrent()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 5698
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 5699
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 5700
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 5701
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0xde
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5702
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5703
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5704
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 5697
     return-void
 .end method
 
@@ -16882,39 +14449,39 @@
 
     const/4 v4, 0x0
 
-    .line 3352
+    .line 2894
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3353
+    .line 2895
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3354
+    .line 2896
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v5, "android.app.IActivityManager"
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3355
+    .line 2897
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3356
+    .line 2898
     invoke-virtual {p2, v0, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3357
+    .line 2899
     if-eqz p3, :cond_0
 
-    .line 3358
+    .line 2900
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3359
+    .line 2901
     invoke-virtual {p3, v0, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3363
+    .line 2905
     :goto_0
     iget-object v5, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
@@ -16922,28 +14489,28 @@
 
     invoke-interface {v5, v6, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3364
+    .line 2906
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3365
+    .line 2907
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 3366
+    .line 2908
     .local v2, "result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3367
+    .line 2909
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3368
+    .line 2910
     if-eqz v2, :cond_1
 
     :goto_1
     return v3
 
-    .line 3361
+    .line 2903
     .end local v2    # "result":I
     :cond_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -16954,7 +14521,7 @@
     :cond_1
     move v3, v4
 
-    .line 3368
+    .line 2910
     goto :goto_1
 .end method
 
@@ -16976,24 +14543,24 @@
 
     const/4 v5, 0x0
 
-    .line 4322
+    .line 3720
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4323
+    .line 3721
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4324
+    .line 3722
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4325
+    .line 3723
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -17003,94 +14570,42 @@
     :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4326
+    .line 3724
     invoke-virtual {p2, v0, v5}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4327
+    .line 3725
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4328
+    .line 3726
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4329
+    .line 3727
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4330
+    .line 3728
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x22
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4331
+    .line 3729
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4332
+    .line 3730
     invoke-static {v1}, Landroid/content/ComponentName;->readFromParcel(Landroid/os/Parcel;)Landroid/content/ComponentName;
 
     move-result-object v2
 
-    .line 4333
+    .line 3731
     .local v2, "res":Landroid/content/ComponentName;
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4334
+    .line 3732
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4335
+    .line 3733
     return-object v2
-.end method
-
-.method public startSystemLockTaskMode(I)V
-    .locals 5
-    .param p1, "taskId"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6474
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6475
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6476
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6477
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6478
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0xde
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6479
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6480
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6481
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6473
-    return-void
 .end method
 
 .method public startUserInBackground(I)Z
@@ -17105,37 +14620,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5775
+    .line 5090
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5776
+    .line 5091
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5777
+    .line 5092
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5778
+    .line 5093
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5779
+    .line 5094
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xd4
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5780
+    .line 5095
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5781
+    .line 5096
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -17144,18 +14659,18 @@
 
     const/4 v2, 0x1
 
-    .line 5782
+    .line 5097
     .local v2, "result":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5783
+    .line 5098
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5784
+    .line 5099
     return v2
 
-    .line 5781
+    .line 5096
     .end local v2    # "result":Z
     :cond_0
     const/4 v2, 0x0
@@ -17184,95 +14699,95 @@
     .end annotation
 
     .prologue
-    .line 3282
+    .line 2861
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3283
+    .line 2862
     .local v1, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    .line 3284
+    .line 2863
     .local v2, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3285
+    .line 2864
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3286
+    .line 2865
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3287
+    .line 2866
     invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3288
+    .line 2867
     const/4 v4, 0x0
 
     invoke-virtual {p4, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3289
+    .line 2868
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 3290
+    .line 2869
     invoke-interface {p6}, Landroid/service/voice/IVoiceInteractionSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3291
+    .line 2870
     invoke-interface {p7}, Lcom/android/internal/app/IVoiceInteractor;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3292
+    .line 2871
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3293
+    .line 2872
     if-eqz p9, :cond_0
 
-    .line 3294
+    .line 2873
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3295
+    .line 2874
     const/4 v4, 0x1
 
     move-object/from16 v0, p9
 
     invoke-virtual {v0, v1, v4}, Landroid/app/ProfilerInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3299
+    .line 2878
     :goto_0
     if-eqz p10, :cond_1
 
-    .line 3300
+    .line 2879
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3301
+    .line 2880
     const/4 v4, 0x0
 
     move-object/from16 v0, p10
 
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3305
+    .line 2884
     :goto_1
     move/from16 v0, p11
 
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3306
+    .line 2885
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xdb
@@ -17281,25 +14796,25 @@
 
     invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3307
+    .line 2886
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    .line 3308
+    .line 2887
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 3309
+    .line 2888
     .local v3, "result":I
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    .line 3310
+    .line 2889
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3311
+    .line 2890
     return v3
 
-    .line 3297
+    .line 2876
     .end local v3    # "result":I
     :cond_0
     const/4 v4, 0x0
@@ -17308,7 +14823,7 @@
 
     goto :goto_0
 
-    .line 3303
+    .line 2882
     :cond_1
     const/4 v4, 0x0
 
@@ -17326,24 +14841,24 @@
     .end annotation
 
     .prologue
-    .line 5295
+    .line 4623
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5296
+    .line 4624
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5297
+    .line 4625
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5298
+    .line 4626
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x58
@@ -17352,154 +14867,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5299
+    .line 4627
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5300
+    .line 4628
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5301
+    .line 4629
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5294
-    return-void
-.end method
-
-.method public stopBinderTrackingAndDump(Landroid/os/ParcelFileDescriptor;)Z
-    .locals 6
-    .param p1, "fd"    # Landroid/os/ParcelFileDescriptor;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    .line 6366
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6367
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6368
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6369
-    if-eqz p1, :cond_0
-
-    .line 6370
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6371
-    invoke-virtual {p1, v0, v4}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 6375
-    :goto_0
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x156
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6376
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6377
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    const/4 v2, 0x1
-
-    .line 6378
-    .local v2, "res":Z
-    :goto_1
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6379
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6380
-    return v2
-
-    .line 6373
-    .end local v2    # "res":Z
-    :cond_0
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_0
-
-    .line 6377
-    :cond_1
-    const/4 v2, 0x0
-
-    .restart local v2    # "res":Z
-    goto :goto_1
-.end method
-
-.method public stopLocalVoiceInteraction(Landroid/os/IBinder;)V
-    .locals 5
-    .param p1, "callingActivity"    # Landroid/os/IBinder;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 3328
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 3329
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 3330
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 3331
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 3332
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x16d
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 3333
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 3334
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 3335
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 3327
+    .line 4622
     return-void
 .end method
 
@@ -17512,24 +14889,24 @@
     .end annotation
 
     .prologue
-    .line 6486
+    .line 5709
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6487
+    .line 5710
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6488
+    .line 5711
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6489
+    .line 5712
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xd8
@@ -17538,16 +14915,64 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6490
+    .line 5713
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6491
+    .line 5714
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6492
+    .line 5715
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6485
+    .line 5708
+    return-void
+.end method
+
+.method public stopLockTaskModeOnCurrent()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 5720
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 5721
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 5722
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 5723
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0xdf
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5724
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5725
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5726
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 5719
     return-void
 .end method
 
@@ -17568,24 +14993,24 @@
 
     const/4 v5, 0x0
 
-    .line 4340
+    .line 3738
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4341
+    .line 3739
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4342
+    .line 3740
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v4, "android.app.IActivityManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4343
+    .line 3741
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -17595,38 +15020,38 @@
     :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4344
+    .line 3742
     invoke-virtual {p2, v0, v5}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4345
+    .line 3743
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 4346
+    .line 3744
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4347
+    .line 3745
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x23
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4348
+    .line 3746
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4349
+    .line 3747
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 4350
+    .line 3748
     .local v2, "res":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4351
+    .line 3749
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4352
+    .line 3750
     return v2
 .end method
 
@@ -17644,43 +15069,43 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 4356
+    .line 3754
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4357
+    .line 3755
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4358
+    .line 3756
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4359
+    .line 3757
     invoke-static {p1, v0}, Landroid/content/ComponentName;->writeToParcel(Landroid/content/ComponentName;Landroid/os/Parcel;)V
 
-    .line 4360
+    .line 3758
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4361
+    .line 3759
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4362
+    .line 3760
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x30
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4363
+    .line 3761
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4364
+    .line 3762
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -17689,18 +15114,18 @@
 
     const/4 v2, 0x1
 
-    .line 4365
+    .line 3763
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4366
+    .line 3764
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4367
+    .line 3765
     return v2
 
-    .line 4364
+    .line 3762
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -17709,59 +15134,10 @@
     goto :goto_0
 .end method
 
-.method public stopSystemLockTaskMode()V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 6497
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6498
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6499
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6500
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0xdf
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6501
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6502
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6503
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6496
-    return-void
-.end method
-
-.method public stopUser(IZLandroid/app/IStopUserCallback;)I
+.method public stopUser(ILandroid/app/IStopUserCallback;)I
     .locals 6
     .param p1, "userid"    # I
-    .param p2, "force"    # Z
-    .param p3, "callback"    # Landroid/app/IStopUserCallback;
+    .param p2, "callback"    # Landroid/app/IStopUserCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -17769,240 +15145,55 @@
     .end annotation
 
     .prologue
-    const/4 v4, 0x0
-
-    .line 5806
+    .line 5103
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5807
+    .line 5104
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5808
+    .line 5105
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5809
+    .line 5106
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5810
-    if-eqz p2, :cond_0
+    .line 5107
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongInterface(Landroid/os/IInterface;)V
 
-    const/4 v3, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5811
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStrongInterface(Landroid/os/IInterface;)V
-
-    .line 5812
+    .line 5108
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v5, 0x9a
+    const/16 v4, 0x9a
 
-    invoke-interface {v3, v5, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    const/4 v5, 0x0
 
-    .line 5813
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5109
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5814
+    .line 5110
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 5815
+    .line 5111
     .local v2, "result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5816
+    .line 5112
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5817
+    .line 5113
     return v2
-
-    .end local v2    # "result":I
-    :cond_0
-    move v3, v4
-
-    .line 5810
-    goto :goto_0
-.end method
-
-.method public supportsLocalVoiceInteraction()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 3339
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 3340
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 3341
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v4, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 3342
-    iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0x16e
-
-    invoke-interface {v4, v5, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 3343
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 3344
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 3345
-    .local v2, "result":I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 3346
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 3347
-    if-eqz v2, :cond_0
-
-    const/4 v3, 0x1
-
-    :cond_0
-    return v3
-.end method
-
-.method public suppressResizeConfigChanges(Z)V
-    .locals 5
-    .param p1, "suppress"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 6892
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 6893
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 6894
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 6895
-    if-eqz p1, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 6896
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x15c
-
-    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 6897
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 6898
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 6899
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 6891
-    return-void
-
-    :cond_0
-    move v2, v3
-
-    .line 6895
-    goto :goto_0
-.end method
-
-.method public swapDockedAndFullscreenStack()V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 3992
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 3993
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 3994
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v2, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 3995
-    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x175
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 3996
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 3997
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 3998
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 3990
-    return-void
 .end method
 
 .method public switchUser(I)Z
@@ -18017,37 +15208,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 5762
+    .line 5077
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5763
+    .line 5078
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5764
+    .line 5079
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5765
+    .line 5080
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5766
+    .line 5081
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x82
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5767
+    .line 5082
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5768
+    .line 5083
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -18056,18 +15247,18 @@
 
     const/4 v2, 0x1
 
-    .line 5769
+    .line 5084
     .local v2, "result":Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5770
+    .line 5085
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5771
+    .line 5086
     return v2
 
-    .line 5768
+    .line 5083
     .end local v2    # "result":Z
     :cond_0
     const/4 v2, 0x0
@@ -18090,49 +15281,49 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 4860
+    .line 4258
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4861
+    .line 4259
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4862
+    .line 4260
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4863
+    .line 4261
     invoke-virtual {p1, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4864
+    .line 4262
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4865
+    .line 4263
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4866
+    .line 4264
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xb4
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4867
+    .line 4265
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4868
+    .line 4266
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4869
+    .line 4267
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4859
+    .line 4257
     return-void
 .end method
 
@@ -18140,7 +15331,7 @@
     .locals 1
 
     .prologue
-    .line 5123
+    .line 4463
     const/4 v0, 0x1
 
     return v0
@@ -18158,43 +15349,43 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 4520
+    .line 3918
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4521
+    .line 3919
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4522
+    .line 3920
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4523
+    .line 3921
     invoke-virtual {p1, v0, v4}, Landroid/content/pm/ApplicationInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4524
+    .line 3922
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x5c
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4525
+    .line 3923
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4526
+    .line 3924
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4527
+    .line 3925
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4519
+    .line 3917
     return-void
 .end method
 
@@ -18212,30 +15403,30 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 4440
+    .line 3838
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4441
+    .line 3839
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4442
+    .line 3840
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4443
+    .line 3841
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4444
+    .line 3842
     invoke-virtual {p2, v0, v3}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4445
+    .line 3843
     if-eqz p3, :cond_0
 
     const/4 v2, 0x1
@@ -18243,29 +15434,29 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 4446
+    .line 3844
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x48
 
     invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4447
+    .line 3845
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4448
+    .line 3846
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4449
+    .line 3847
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4439
+    .line 3837
     return-void
 
     :cond_0
     move v2, v3
 
-    .line 4445
+    .line 3843
     goto :goto_0
 .end method
 
@@ -18281,41 +15472,41 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 4412
+    .line 3810
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4413
+    .line 3811
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4414
+    .line 3812
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4415
+    .line 3813
     invoke-interface {p1}, Landroid/app/IServiceConnection;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4416
+    .line 3814
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x25
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4417
+    .line 3815
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4418
+    .line 3816
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -18324,18 +15515,18 @@
 
     const/4 v2, 0x1
 
-    .line 4419
+    .line 3817
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4420
+    .line 3818
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4421
+    .line 3819
     return v2
 
-    .line 4418
+    .line 3816
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0
@@ -18360,24 +15551,24 @@
 
     const/4 v4, 0x0
 
-    .line 3546
+    .line 3087
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3547
+    .line 3088
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3548
+    .line 3089
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3549
+    .line 3090
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
@@ -18387,29 +15578,29 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3550
+    .line 3091
     invoke-virtual {p2, v0, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 3551
+    .line 3092
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3552
+    .line 3093
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xf
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3553
+    .line 3094
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3554
+    .line 3095
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3555
+    .line 3096
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3544
+    .line 3085
     return-void
 .end method
 
@@ -18422,24 +15613,24 @@
     .end annotation
 
     .prologue
-    .line 4960
+    .line 4326
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4961
+    .line 4327
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4962
+    .line 4328
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4963
+    .line 4329
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x4
@@ -18448,100 +15639,17 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4964
+    .line 4330
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4965
+    .line 4331
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4966
+    .line 4332
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4958
+    .line 4324
     return-void
-.end method
-
-.method public unlockUser(I[B[BLandroid/os/IProgressListener;)Z
-    .locals 6
-    .param p1, "userId"    # I
-    .param p2, "token"    # [B
-    .param p3, "secret"    # [B
-    .param p4, "listener"    # Landroid/os/IProgressListener;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v5, 0x0
-
-    .line 5789
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 5790
-    .local v0, "data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 5791
-    .local v1, "reply":Landroid/os/Parcel;
-    const-string/jumbo v3, "android.app.IActivityManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 5792
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 5793
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeByteArray([B)V
-
-    .line 5794
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeByteArray([B)V
-
-    .line 5795
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeStrongInterface(Landroid/os/IInterface;)V
-
-    .line 5796
-    iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x160
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 5797
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 5798
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 5799
-    .local v2, "result":Z
-    :goto_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 5800
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 5801
-    return v2
-
-    .line 5798
-    .end local v2    # "result":Z
-    :cond_0
-    const/4 v2, 0x0
-
-    .restart local v2    # "result":Z
-    goto :goto_0
 .end method
 
 .method public unregisterProcessObserver(Landroid/app/IProcessObserver;)V
@@ -18556,24 +15664,24 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 5883
+    .line 5179
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5884
+    .line 5180
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5885
+    .line 5181
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5886
+    .line 5182
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IProcessObserver;->asBinder()Landroid/os/IBinder;
@@ -18583,7 +15691,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5887
+    .line 5183
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x86
@@ -18592,16 +15700,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5888
+    .line 5184
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5889
+    .line 5185
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5890
+    .line 5186
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5882
+    .line 5178
     return-void
 .end method
 
@@ -18615,31 +15723,31 @@
     .end annotation
 
     .prologue
-    .line 3505
+    .line 3046
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3506
+    .line 3047
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3507
+    .line 3048
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3508
+    .line 3049
     invoke-interface {p1}, Landroid/content/IIntentReceiver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3509
+    .line 3050
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xd
@@ -18648,16 +15756,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3510
+    .line 3051
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3511
+    .line 3052
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3512
+    .line 3053
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3503
+    .line 3044
     return-void
 .end method
 
@@ -18673,24 +15781,24 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 5906
+    .line 5201
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5907
+    .line 5202
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5908
+    .line 5203
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5909
+    .line 5204
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IUidObserver;->asBinder()Landroid/os/IBinder;
@@ -18700,7 +15808,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 5910
+    .line 5205
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x12b
@@ -18709,16 +15817,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5911
+    .line 5206
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5912
+    .line 5207
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5913
+    .line 5208
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5905
+    .line 5200
     return-void
 .end method
 
@@ -18734,24 +15842,24 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 6107
+    .line 5407
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6108
+    .line 5408
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6109
+    .line 5409
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6110
+    .line 5410
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IUserSwitchObserver;->asBinder()Landroid/os/IBinder;
@@ -18761,7 +15869,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 6111
+    .line 5411
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x9c
@@ -18770,16 +15878,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6112
+    .line 5412
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6113
+    .line 5413
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6114
+    .line 5414
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6106
+    .line 5406
     return-void
 .end method
 
@@ -18793,27 +15901,27 @@
     .end annotation
 
     .prologue
-    .line 4258
+    .line 3656
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4259
+    .line 3657
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4260
+    .line 3658
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4261
+    .line 3659
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 4262
+    .line 3660
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x97
@@ -18822,17 +15930,96 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4263
+    .line 3661
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4264
+    .line 3662
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4265
+    .line 3663
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4257
+    .line 3655
     return-void
+.end method
+
+.method public updateBootProgress(ILandroid/content/pm/ApplicationInfo;IIZ)V
+    .locals 5
+    .param p1, "stage"    # I
+    .param p2, "optimizedApp"    # Landroid/content/pm/ApplicationInfo;
+    .param p3, "currentAppPos"    # I
+    .param p4, "totalAppCount"    # I
+    .param p5, "always"    # Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 5293
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 5294
+    .local v0, "data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 5295
+    .local v1, "reply":Landroid/os/Parcel;
+    const-string/jumbo v2, "android.app.IActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 5296
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5297
+    invoke-virtual {p2, v0, v3}, Landroid/content/pm/ApplicationInfo;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 5298
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5299
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5300
+    if-eqz p5, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 5301
+    iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x8a
+
+    invoke-interface {v2, v4, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 5302
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 5303
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 5304
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 5292
+    return-void
+
+    :cond_0
+    move v2, v3
+
+    .line 5300
+    goto :goto_0
 .end method
 
 .method public updateConfiguration(Landroid/content/res/Configuration;)V
@@ -18847,43 +16034,43 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 4580
+    .line 3978
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 4581
+    .line 3979
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 4582
+    .line 3980
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 4583
+    .line 3981
     invoke-virtual {p1, v0, v4}, Landroid/content/res/Configuration;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 4584
+    .line 3982
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x2f
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 4585
+    .line 3983
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 4586
+    .line 3984
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 4587
+    .line 3985
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 4578
+    .line 3976
     return-void
 .end method
 
@@ -18897,27 +16084,27 @@
     .end annotation
 
     .prologue
-    .line 6781
+    .line 5987
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6782
+    .line 5988
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6783
+    .line 5989
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6784
+    .line 5990
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 6785
+    .line 5991
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x128
@@ -18926,16 +16113,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6786
+    .line 5992
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6787
+    .line 5993
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6788
+    .line 5994
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6780
+    .line 5986
     return-void
 .end method
 
@@ -18950,30 +16137,30 @@
     .end annotation
 
     .prologue
-    .line 6768
+    .line 5974
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 6769
+    .line 5975
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 6770
+    .line 5976
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 6771
+    .line 5977
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 6772
+    .line 5978
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    .line 6773
+    .line 5979
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x123
@@ -18982,16 +16169,16 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 6774
+    .line 5980
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 6775
+    .line 5981
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 6776
+    .line 5982
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 6767
+    .line 5973
     return-void
 .end method
 
@@ -19007,43 +16194,43 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 5973
+    .line 5268
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 5974
+    .line 5269
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 5975
+    .line 5270
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v2, "android.app.IActivityManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 5976
+    .line 5271
     invoke-virtual {p1, v0, v4}, Landroid/content/res/Configuration;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 5977
+    .line 5272
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x88
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 5978
+    .line 5273
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 5979
+    .line 5274
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 5980
+    .line 5275
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 5971
+    .line 5266
     return-void
 .end method
 
@@ -19059,37 +16246,37 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 3468
+    .line 3009
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 3469
+    .line 3010
     .local v0, "data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 3470
+    .line 3011
     .local v1, "reply":Landroid/os/Parcel;
     const-string/jumbo v3, "android.app.IActivityManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 3471
+    .line 3012
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 3472
+    .line 3013
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x6a
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 3473
+    .line 3014
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 3474
+    .line 3015
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -19098,18 +16285,18 @@
 
     const/4 v2, 0x1
 
-    .line 3475
+    .line 3016
     .local v2, "res":Z
     :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 3476
+    .line 3017
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 3477
+    .line 3018
     return v2
 
-    .line 3474
+    .line 3015
     .end local v2    # "res":Z
     :cond_0
     const/4 v2, 0x0

@@ -34,16 +34,16 @@
     .param p1, "this$0"    # Landroid/content/res/CompatibilityInfo;
 
     .prologue
-    .line 303
+    .line 302
     iget v0, p1, Landroid/content/res/CompatibilityInfo;->applicationScale:F
 
-    .line 304
+    .line 303
     iget v1, p1, Landroid/content/res/CompatibilityInfo;->applicationInvertedScale:F
 
-    .line 303
+    .line 302
     invoke-direct {p0, p1, v0, v1}, Landroid/content/res/CompatibilityInfo$Translator;-><init>(Landroid/content/res/CompatibilityInfo;FF)V
 
-    .line 302
+    .line 301
     return-void
 .end method
 
@@ -56,27 +56,27 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 297
+    .line 296
     iput-object p1, p0, Landroid/content/res/CompatibilityInfo$Translator;->this$0:Landroid/content/res/CompatibilityInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 293
+    .line 292
     iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
 
-    .line 294
+    .line 293
     iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
 
-    .line 295
+    .line 294
     iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
 
-    .line 298
+    .line 297
     iput p2, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
-    .line 299
+    .line 298
     iput p3, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
 
-    .line 297
+    .line 296
     return-void
 .end method
 
@@ -87,7 +87,7 @@
     .param p1, "contentInsets"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 400
+    .line 399
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
 
     if-nez v0, :cond_0
@@ -98,18 +98,18 @@
 
     iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
 
-    .line 401
+    .line 400
     :cond_0
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 402
+    .line 401
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
 
     invoke-virtual {p0, v0}, Landroid/content/res/CompatibilityInfo$Translator;->translateRectInAppWindowToScreen(Landroid/graphics/Rect;)V
 
-    .line 403
+    .line 402
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
 
     return-object v0
@@ -120,7 +120,7 @@
     .param p1, "touchableArea"    # Landroid/graphics/Region;
 
     .prologue
-    .line 422
+    .line 421
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
 
     if-nez v0, :cond_0
@@ -131,20 +131,20 @@
 
     iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
 
-    .line 423
+    .line 422
     :cond_0
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Region;->set(Landroid/graphics/Region;)Z
 
-    .line 424
+    .line 423
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
 
     iget v1, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
     invoke-virtual {v0, v1}, Landroid/graphics/Region;->scale(F)V
 
-    .line 425
+    .line 424
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
 
     return-object v0
@@ -155,7 +155,7 @@
     .param p1, "visibleInsets"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 411
+    .line 410
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
 
     if-nez v0, :cond_0
@@ -166,18 +166,18 @@
 
     iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
 
-    .line 412
+    .line 411
     :cond_0
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 413
+    .line 412
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
 
     invoke-virtual {p0, v0}, Landroid/content/res/CompatibilityInfo$Translator;->translateRectInAppWindowToScreen(Landroid/graphics/Rect;)V
 
-    .line 414
+    .line 413
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
 
     return-object v0
@@ -190,7 +190,7 @@
     .prologue
     const v3, 0x3b2b5601
 
-    .line 325
+    .line 324
     iget v1, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
     const/high16 v2, 0x3fc00000    # 1.5f
@@ -199,14 +199,14 @@
 
     if-nez v1, :cond_0
 
-    .line 341
+    .line 340
     const v0, 0x3b2b5601
 
-    .line 342
+    .line 341
     .local v0, "tinyOffset":F
     invoke-virtual {p1, v3, v3}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 344
+    .line 343
     .end local v0    # "tinyOffset":F
     :cond_0
     iget v1, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
@@ -215,7 +215,7 @@
 
     invoke-virtual {p1, v1, v2}, Landroid/graphics/Canvas;->scale(FF)V
 
-    .line 324
+    .line 323
     return-void
 .end method
 
@@ -224,12 +224,12 @@
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
-    .line 351
+    .line 350
     iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
 
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->scale(F)V
 
-    .line 350
+    .line 349
     return-void
 .end method
 
@@ -238,12 +238,12 @@
     .param p1, "params"    # Landroid/view/WindowManager$LayoutParams;
 
     .prologue
-    .line 392
+    .line 391
     iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
     invoke-virtual {p1, v0}, Landroid/view/WindowManager$LayoutParams;->scale(F)V
 
-    .line 391
+    .line 390
     return-void
 .end method
 
@@ -252,10 +252,10 @@
     .param p1, "point"    # Landroid/graphics/PointF;
 
     .prologue
-    .line 380
+    .line 379
     iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
 
-    .line 381
+    .line 380
     .local v0, "scale":F
     const/high16 v1, 0x3f800000    # 1.0f
 
@@ -263,21 +263,21 @@
 
     if-eqz v1, :cond_0
 
-    .line 382
+    .line 381
     iget v1, p1, Landroid/graphics/PointF;->x:F
 
     mul-float/2addr v1, v0
 
     iput v1, p1, Landroid/graphics/PointF;->x:F
 
-    .line 383
+    .line 382
     iget v1, p1, Landroid/graphics/PointF;->y:F
 
     mul-float/2addr v1, v0
 
     iput v1, p1, Landroid/graphics/PointF;->y:F
 
-    .line 379
+    .line 378
     :cond_0
     return-void
 .end method
@@ -287,12 +287,12 @@
     .param p1, "rect"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 366
+    .line 365
     iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
     invoke-virtual {p1, v0}, Landroid/graphics/Rect;->scale(F)V
 
-    .line 365
+    .line 364
     return-void
 .end method
 
@@ -301,12 +301,12 @@
     .param p1, "rect"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 311
+    .line 310
     iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
 
     invoke-virtual {p1, v0}, Landroid/graphics/Rect;->scale(F)V
 
-    .line 310
+    .line 309
     return-void
 .end method
 
@@ -315,12 +315,12 @@
     .param p1, "rect"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 373
+    .line 372
     iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationInvertedScale:F
 
     invoke-virtual {p1, v0}, Landroid/graphics/Rect;->scale(F)V
 
-    .line 372
+    .line 371
     return-void
 .end method
 
@@ -329,12 +329,12 @@
     .param p1, "transparentRegion"    # Landroid/graphics/Region;
 
     .prologue
-    .line 318
+    .line 317
     iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
     invoke-virtual {p1, v0}, Landroid/graphics/Region;->scale(F)V
 
-    .line 317
+    .line 316
     return-void
 .end method
 
@@ -343,11 +343,11 @@
     .param p1, "params"    # Landroid/view/WindowManager$LayoutParams;
 
     .prologue
-    .line 359
+    .line 358
     iget v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
     invoke-virtual {p1, v0}, Landroid/view/WindowManager$LayoutParams;->scale(F)V
 
-    .line 358
+    .line 357
     return-void
 .end method

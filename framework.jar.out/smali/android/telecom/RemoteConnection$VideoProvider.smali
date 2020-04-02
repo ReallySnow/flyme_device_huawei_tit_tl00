@@ -15,8 +15,8 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/telecom/RemoteConnection$VideoProvider$1;,
-        Landroid/telecom/RemoteConnection$VideoProvider$Callback;
+        Landroid/telecom/RemoteConnection$VideoProvider$Callback;,
+        Landroid/telecom/RemoteConnection$VideoProvider$1;
     }
 .end annotation
 
@@ -54,27 +54,27 @@
     .param p1, "videoProviderBinder"    # Lcom/android/internal/telecom/IVideoProvider;
 
     .prologue
-    .line 419
+    .line 409
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 344
+    .line 334
     new-instance v1, Landroid/telecom/RemoteConnection$VideoProvider$1;
 
     invoke-direct {v1, p0}, Landroid/telecom/RemoteConnection$VideoProvider$1;-><init>(Landroid/telecom/RemoteConnection$VideoProvider;)V
 
     iput-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoCallbackDelegate:Lcom/android/internal/telecom/IVideoCallback;
 
-    .line 407
+    .line 397
     new-instance v1, Landroid/telecom/VideoCallbackServant;
 
     iget-object v2, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoCallbackDelegate:Lcom/android/internal/telecom/IVideoCallback;
 
     invoke-direct {v1, v2}, Landroid/telecom/VideoCallbackServant;-><init>(Lcom/android/internal/telecom/IVideoCallback;)V
 
-    .line 406
+    .line 396
     iput-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoCallbackServant:Landroid/telecom/VideoCallbackServant;
 
-    .line 417
+    .line 407
     new-instance v1, Ljava/util/concurrent/ConcurrentHashMap;
 
     const/16 v2, 0x8
@@ -85,17 +85,17 @@
 
     invoke-direct {v1, v2, v3, v4}, Ljava/util/concurrent/ConcurrentHashMap;-><init>(IFI)V
 
-    .line 416
+    .line 406
     invoke-static {v1}, Ljava/util/Collections;->newSetFromMap(Ljava/util/Map;)Ljava/util/Set;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mCallbacks:Ljava/util/Set;
 
-    .line 420
+    .line 410
     iput-object p1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
-    .line 422
+    .line 412
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -113,11 +113,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 419
+    .line 409
     :goto_0
     return-void
 
-    .line 423
+    .line 413
     :catch_0
     move-exception v0
 
@@ -132,12 +132,12 @@
     .param p1, "l"    # Landroid/telecom/RemoteConnection$VideoProvider$Callback;
 
     .prologue
-    .line 433
+    .line 423
     iget-object v0, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mCallbacks:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 432
+    .line 422
     return-void
 .end method
 
@@ -145,7 +145,7 @@
     .locals 2
 
     .prologue
-    .line 565
+    .line 555
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -153,11 +153,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 563
+    .line 553
     :goto_0
     return-void
 
-    .line 566
+    .line 556
     :catch_0
     move-exception v0
 
@@ -169,7 +169,7 @@
     .locals 2
 
     .prologue
-    .line 552
+    .line 542
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -177,11 +177,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 550
+    .line 540
     :goto_0
     return-void
 
-    .line 553
+    .line 543
     :catch_0
     move-exception v0
 
@@ -195,7 +195,7 @@
     .param p2, "toProfile"    # Landroid/telecom/VideoProfile;
 
     .prologue
-    .line 525
+    .line 515
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -203,11 +203,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 523
+    .line 513
     :goto_0
     return-void
 
-    .line 526
+    .line 516
     :catch_0
     move-exception v0
 
@@ -220,7 +220,7 @@
     .param p1, "responseProfile"    # Landroid/telecom/VideoProfile;
 
     .prologue
-    .line 539
+    .line 529
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -228,11 +228,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 537
+    .line 527
     :goto_0
     return-void
 
-    .line 540
+    .line 530
     :catch_0
     move-exception v0
 
@@ -245,7 +245,7 @@
     .param p1, "cameraId"    # Ljava/lang/String;
 
     .prologue
-    .line 455
+    .line 445
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -253,11 +253,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 453
+    .line 443
     :goto_0
     return-void
 
-    .line 456
+    .line 446
     :catch_0
     move-exception v0
 
@@ -270,7 +270,7 @@
     .param p1, "rotation"    # I
 
     .prologue
-    .line 497
+    .line 487
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -278,11 +278,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 495
+    .line 485
     :goto_0
     return-void
 
-    .line 498
+    .line 488
     :catch_0
     move-exception v0
 
@@ -295,7 +295,7 @@
     .param p1, "surface"    # Landroid/view/Surface;
 
     .prologue
-    .line 483
+    .line 473
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -303,11 +303,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 481
+    .line 471
     :goto_0
     return-void
 
-    .line 484
+    .line 474
     :catch_0
     move-exception v0
 
@@ -320,7 +320,7 @@
     .param p1, "uri"    # Landroid/net/Uri;
 
     .prologue
-    .line 578
+    .line 568
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -328,11 +328,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 576
+    .line 566
     :goto_0
     return-void
 
-    .line 579
+    .line 569
     :catch_0
     move-exception v0
 
@@ -345,7 +345,7 @@
     .param p1, "surface"    # Landroid/view/Surface;
 
     .prologue
-    .line 469
+    .line 459
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -353,11 +353,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 467
+    .line 457
     :goto_0
     return-void
 
-    .line 470
+    .line 460
     :catch_0
     move-exception v0
 
@@ -370,7 +370,7 @@
     .param p1, "value"    # F
 
     .prologue
-    .line 510
+    .line 500
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
@@ -378,11 +378,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 508
+    .line 498
     :goto_0
     return-void
 
-    .line 511
+    .line 501
     :catch_0
     move-exception v0
 
@@ -395,11 +395,11 @@
     .param p1, "l"    # Landroid/telecom/RemoteConnection$VideoProvider$Callback;
 
     .prologue
-    .line 442
+    .line 432
     iget-object v0, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mCallbacks:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 441
+    .line 431
     return-void
 .end method

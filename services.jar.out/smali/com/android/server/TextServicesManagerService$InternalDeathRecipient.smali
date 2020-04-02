@@ -53,30 +53,30 @@
     .param p7, "bundle"    # Landroid/os/Bundle;
 
     .prologue
-    .line 1023
+    .line 1003
     iput-object p1, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->this$0:Lcom/android/server/TextServicesManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1026
+    .line 1006
     iput-object p3, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mTsListener:Lcom/android/internal/textservice/ITextServicesSessionListener;
 
-    .line 1027
+    .line 1007
     iput-object p5, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mScListener:Lcom/android/internal/textservice/ISpellCheckerSessionListener;
 
-    .line 1028
+    .line 1008
     iput-object p4, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mScLocale:Ljava/lang/String;
 
-    .line 1029
+    .line 1009
     iput-object p2, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mGroup:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
 
-    .line 1030
+    .line 1010
     iput p6, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mUid:I
 
-    .line 1031
+    .line 1011
     iput-object p7, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mBundle:Landroid/os/Bundle;
 
-    .line 1025
+    .line 1005
     return-void
 .end method
 
@@ -86,14 +86,14 @@
     .locals 2
 
     .prologue
-    .line 1040
+    .line 1020
     iget-object v0, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mGroup:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
 
     iget-object v1, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mScListener:Lcom/android/internal/textservice/ISpellCheckerSessionListener;
 
     invoke-virtual {v0, v1}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->removeListener(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)V
 
-    .line 1039
+    .line 1019
     return-void
 .end method
 
@@ -102,7 +102,7 @@
     .param p1, "listener"    # Lcom/android/internal/textservice/ISpellCheckerSessionListener;
 
     .prologue
-    .line 1035
+    .line 1015
     invoke-interface {p1}, Lcom/android/internal/textservice/ISpellCheckerSessionListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0

@@ -30,7 +30,7 @@
 
 .field static final TRANSACTION_getDeviceSummaryForNetwork:I = 0x1
 
-.field static final TRANSACTION_getHistoryForNetwork_2:I = 0x3
+.field static final TRANSACTION_getHistoryForNetwork:I = 0x3
 
 .field static final TRANSACTION_getHistoryForUid:I = 0x5
 
@@ -38,7 +38,7 @@
 
 .field static final TRANSACTION_getRelevantUids:I = 0x7
 
-.field static final TRANSACTION_getSummaryForAllUid_3:I = 0x4
+.field static final TRANSACTION_getSummaryForAllUid:I = 0x4
 
 .field static final TRANSACTION_getSummaryForNetwork:I = 0x2
 
@@ -552,10 +552,10 @@
     :cond_7
     const/4 v8, 0x0
 
+    .restart local v8    # "_arg3":Z
     goto :goto_7
 
     .line 142
-    .restart local v8    # "_arg3":Z
     .restart local v19    # "_result":Landroid/net/NetworkStats;
     :cond_8
     const/4 v2, 0x0

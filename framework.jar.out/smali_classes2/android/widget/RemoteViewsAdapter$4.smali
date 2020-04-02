@@ -33,7 +33,7 @@
     .param p3, "val$rv"    # Landroid/widget/RemoteViews;
 
     .prologue
-    .line 1014
+    .line 1060
     iput-object p1, p0, Landroid/widget/RemoteViewsAdapter$4;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     iput p2, p0, Landroid/widget/RemoteViewsAdapter$4;->val$position:I
@@ -51,7 +51,7 @@
     .locals 3
 
     .prologue
-    .line 1017
+    .line 1063
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$4;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     invoke-static {v0}, Landroid/widget/RemoteViewsAdapter;->-get5(Landroid/widget/RemoteViewsAdapter;)Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayoutRefSet;
@@ -64,6 +64,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayoutRefSet;->notifyOnRemoteViewsLoaded(ILandroid/widget/RemoteViews;)V
 
-    .line 1016
+    .line 1062
     return-void
 .end method

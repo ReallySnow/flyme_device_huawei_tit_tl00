@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;
 
     .prologue
-    .line 75
+    .line 71
     iput-object p1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl$1;->this$0:Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 78
+    .line 74
     const-string/jumbo v2, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -53,14 +53,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 79
+    .line 75
     const-string/jumbo v2, "reason"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 80
+    .line 76
     .local v1, "reason":Ljava/lang/String;
     const-string/jumbo v2, "voiceinteraction"
 
@@ -78,22 +78,22 @@
 
     if-eqz v2, :cond_1
 
-    .line 77
+    .line 73
     .end local v1    # "reason":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
-    .line 81
+    .line 77
     .restart local v1    # "reason":Ljava/lang/String;
     :cond_1
     iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl$1;->this$0:Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;
 
-    iget-object v3, v2, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mServiceStub:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
+    iget-object v3, v2, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 82
+    .line 78
     :try_start_0
     iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl$1;->this$0:Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;
 
@@ -111,7 +111,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 84
+    .line 80
     :try_start_1
     iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl$1;->this$0:Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;
 
@@ -130,7 +130,7 @@
 
     goto :goto_0
 
-    .line 81
+    .line 77
     :catchall_0
     move-exception v2
 
@@ -138,7 +138,7 @@
 
     throw v2
 
-    .line 85
+    .line 81
     :catch_0
     move-exception v0
 

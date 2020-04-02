@@ -185,55 +185,40 @@
 .end method
 
 .method public finishBroadcast()V
-    .locals 6
+    .locals 5
 
     .prologue
-    .line 291
     .local p0, "this":Landroid/os/RemoteCallbackList;, "Landroid/os/RemoteCallbackList<TE;>;"
-    iget-object v4, p0, Landroid/os/RemoteCallbackList;->mCallbacks:Landroid/util/ArrayMap;
+    const/4 v4, 0x0
 
-    monitor-enter v4
-
-    .line 292
-    :try_start_0
+    .line 291
     iget v3, p0, Landroid/os/RemoteCallbackList;->mBroadcastCount:I
 
     if-gez v3, :cond_0
 
-    .line 293
+    .line 292
     new-instance v3, Ljava/lang/IllegalStateException;
 
-    .line 294
-    const-string/jumbo v5, "finishBroadcast() called outside of a broadcast"
-
     .line 293
-    invoke-direct {v3, v5}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v4, "finishBroadcast() called outside of a broadcast"
 
-    throw v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 291
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v4
+    .line 292
+    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v3
 
-    .line 297
+    .line 296
     :cond_0
-    :try_start_1
     iget-object v1, p0, Landroid/os/RemoteCallbackList;->mActiveBroadcast:[Ljava/lang/Object;
 
-    .line 298
+    .line 297
     .local v1, "active":[Ljava/lang/Object;
     if-eqz v1, :cond_1
 
-    .line 299
+    .line 298
     iget v0, p0, Landroid/os/RemoteCallbackList;->mBroadcastCount:I
 
-    .line 300
+    .line 299
     .local v0, "N":I
     const/4 v2, 0x0
 
@@ -241,27 +226,21 @@
     :goto_0
     if-ge v2, v0, :cond_1
 
-    .line 301
-    const/4 v3, 0x0
-
-    aput-object v3, v1, v2
-
     .line 300
+    aput-object v4, v1, v2
+
+    .line 299
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 305
+    .line 304
     .end local v0    # "N":I
     .end local v2    # "i":I
     :cond_1
     const/4 v3, -0x1
 
     iput v3, p0, Landroid/os/RemoteCallbackList;->mBroadcastCount:I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit v4
 
     .line 290
     return-void
@@ -312,13 +291,13 @@
     .locals 2
 
     .prologue
-    .line 322
+    .line 320
     .local p0, "this":Landroid/os/RemoteCallbackList;, "Landroid/os/RemoteCallbackList<TE;>;"
     iget-object v1, p0, Landroid/os/RemoteCallbackList;->mCallbacks:Landroid/util/ArrayMap;
 
     monitor-enter v1
 
-    .line 323
+    .line 321
     :try_start_0
     iget-boolean v0, p0, Landroid/os/RemoteCallbackList;->mKilled:Z
     :try_end_0
@@ -326,14 +305,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 324
+    .line 322
     const/4 v0, 0x0
 
     monitor-exit v1
 
     return v0
 
-    .line 326
+    .line 324
     :cond_0
     :try_start_1
     iget-object v0, p0, Landroid/os/RemoteCallbackList;->mCallbacks:Landroid/util/ArrayMap;
@@ -348,7 +327,7 @@
 
     return v0
 
-    .line 322
+    .line 320
     :catchall_0
     move-exception v0
 

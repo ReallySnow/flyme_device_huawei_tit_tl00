@@ -12,15 +12,13 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String; = "HanziToPinyin"
-
 .field private static sInstance:Lcom/android/internal/telephony/meizu/HanziToPinyin;
 
 
 # instance fields
-.field private mAsciiTransliterator:Landroid/icu/text/Transliterator;
+.field private mAsciiTransliterator:Llibcore/icu/Transliterator;
 
-.field private mPinyinTransliterator:Landroid/icu/text/Transliterator;
+.field private mPinyinTransliterator:Llibcore/icu/Transliterator;
 
 
 # direct methods
@@ -28,46 +26,39 @@
     .locals 3
 
     .prologue
-    .line 70
+    .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
+    .line 67
     :try_start_0
-    const-string/jumbo v1, "Han-Latin/Names; Latin-Ascii; Any-Upper"
+    new-instance v1, Llibcore/icu/Transliterator;
 
-    invoke-static {v1}, Landroid/icu/text/Transliterator;->getInstance(Ljava/lang/String;)Landroid/icu/text/Transliterator;
+    const-string/jumbo v2, "Han-Latin/Names; Latin-Ascii; Any-Upper"
 
-    move-result-object v1
+    invoke-direct {v1, v2}, Llibcore/icu/Transliterator;-><init>(Ljava/lang/String;)V
 
-    iput-object v1, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mPinyinTransliterator:Landroid/icu/text/Transliterator;
+    iput-object v1, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mPinyinTransliterator:Llibcore/icu/Transliterator;
 
-    .line 73
-    const-string/jumbo v1, "Latin-Ascii"
+    .line 68
+    new-instance v1, Llibcore/icu/Transliterator;
 
-    invoke-static {v1}, Landroid/icu/text/Transliterator;->getInstance(Ljava/lang/String;)Landroid/icu/text/Transliterator;
+    const-string/jumbo v2, "Latin-Ascii"
 
-    move-result-object v1
+    invoke-direct {v1, v2}, Llibcore/icu/Transliterator;-><init>(Ljava/lang/String;)V
 
-    iput-object v1, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mAsciiTransliterator:Landroid/icu/text/Transliterator;
+    iput-object v1, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mAsciiTransliterator:Llibcore/icu/Transliterator;
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 70
+    .line 65
     :goto_0
     return-void
 
-    .line 74
+    .line 69
     :catch_0
     move-exception v0
 
-    .line 75
     .local v0, "e":Ljava/lang/RuntimeException;
-    const-string/jumbo v1, "HanziToPinyin"
-
-    const-string/jumbo v2, "Han-Latin/Names transliterator data is missing, HanziToPinyin is disabled"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
     goto :goto_0
 .end method
 
@@ -87,13 +78,13 @@
     .end annotation
 
     .prologue
-    .line 172
+    .line 165
     .local p2, "tokens":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;>;"
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 173
+    .line 166
     .local v0, "str":Ljava/lang/String;
     new-instance v1, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;
 
@@ -101,12 +92,12 @@
 
     invoke-virtual {p2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 174
+    .line 167
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    .line 171
+    .line 164
     return-void
 .end method
 
@@ -114,25 +105,25 @@
     .locals 2
 
     .prologue
-    .line 85
+    .line 78
     const-class v1, Lcom/android/internal/telephony/meizu/HanziToPinyin;
 
     monitor-enter v1
 
-    .line 86
+    .line 79
     :try_start_0
     sget-object v0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->sInstance:Lcom/android/internal/telephony/meizu/HanziToPinyin;
 
     if-nez v0, :cond_0
 
-    .line 87
+    .line 80
     new-instance v0, Lcom/android/internal/telephony/meizu/HanziToPinyin;
 
     invoke-direct {v0}, Lcom/android/internal/telephony/meizu/HanziToPinyin;-><init>()V
 
     sput-object v0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->sInstance:Lcom/android/internal/telephony/meizu/HanziToPinyin;
 
-    .line 89
+    .line 82
     :cond_0
     sget-object v0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->sInstance:Lcom/android/internal/telephony/meizu/HanziToPinyin;
     :try_end_0
@@ -142,7 +133,7 @@
 
     return-object v0
 
-    .line 85
+    .line 78
     :catchall_0
     move-exception v0
 
@@ -159,30 +150,30 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 94
+    .line 87
     invoke-static {p1}, Ljava/lang/Character;->toString(C)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->source:Ljava/lang/String;
 
-    .line 97
+    .line 90
     const/16 v0, 0x80
 
     if-ge p1, v0, :cond_0
 
-    .line 98
+    .line 91
     iput v1, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->type:I
 
-    .line 99
+    .line 92
     iget-object v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->source:Ljava/lang/String;
 
     iput-object v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->target:Ljava/lang/String;
 
-    .line 100
+    .line 93
     return-void
 
-    .line 104
+    .line 97
     :cond_0
     const/16 v0, 0x250
 
@@ -196,12 +187,12 @@
 
     if-ge p1, v0, :cond_3
 
-    .line 105
+    .line 98
     :cond_1
     iput v1, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->type:I
 
-    .line 106
-    iget-object v0, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mAsciiTransliterator:Landroid/icu/text/Transliterator;
+    .line 99
+    iget-object v0, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mAsciiTransliterator:Llibcore/icu/Transliterator;
 
     if-nez v0, :cond_2
 
@@ -210,39 +201,39 @@
     :goto_0
     iput-object v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->target:Ljava/lang/String;
 
-    .line 108
+    .line 101
     return-void
 
-    .line 107
+    .line 100
     :cond_2
-    iget-object v0, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mAsciiTransliterator:Landroid/icu/text/Transliterator;
+    iget-object v0, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mAsciiTransliterator:Llibcore/icu/Transliterator;
 
     iget-object v1, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->source:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/icu/text/Transliterator;->transliterate(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Llibcore/icu/Transliterator;->transliterate(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 111
+    .line 104
     :cond_3
     const/4 v0, 0x2
 
     iput v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->type:I
 
-    .line 112
-    iget-object v0, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mPinyinTransliterator:Landroid/icu/text/Transliterator;
+    .line 105
+    iget-object v0, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mPinyinTransliterator:Llibcore/icu/Transliterator;
 
     iget-object v1, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->source:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/icu/text/Transliterator;->transliterate(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Llibcore/icu/Transliterator;->transliterate(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->target:Ljava/lang/String;
 
-    .line 113
+    .line 106
     iget-object v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->target:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -251,7 +242,7 @@
 
     if-nez v0, :cond_4
 
-    .line 114
+    .line 107
     iget-object v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->source:Ljava/lang/String;
 
     iget-object v1, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->target:Ljava/lang/String;
@@ -260,21 +251,21 @@
 
     move-result v0
 
-    .line 113
+    .line 106
     if-eqz v0, :cond_5
 
-    .line 115
+    .line 108
     :cond_4
     const/4 v0, 0x3
 
     iput v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->type:I
 
-    .line 116
+    .line 109
     iget-object v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->source:Ljava/lang/String;
 
     iput-object v0, p2, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->target:Ljava/lang/String;
 
-    .line 93
+    .line 86
     :cond_5
     return-void
 .end method
@@ -297,12 +288,12 @@
     .end annotation
 
     .prologue
-    .line 126
+    .line 119
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    .line 127
+    .line 120
     .local v6, "tokens":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;>;"
     invoke-virtual {p0}, Lcom/android/internal/telephony/meizu/HanziToPinyin;->hasChineseTransliterator()Z
 
@@ -316,33 +307,33 @@
 
     if-eqz v7, :cond_1
 
-    .line 129
+    .line 122
     :cond_0
     return-object v6
 
-    .line 132
+    .line 125
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    .line 133
+    .line 126
     .local v2, "inputLength":I
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 134
+    .line 127
     .local v3, "sb":Ljava/lang/StringBuilder;
     const/4 v5, 0x1
 
-    .line 135
+    .line 128
     .local v5, "tokenType":I
     new-instance v4, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;
 
     invoke-direct {v4}, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;-><init>()V
 
-    .line 141
+    .line 134
     .local v4, "token":Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;
     const/4 v1, 0x0
 
@@ -350,12 +341,12 @@
     :goto_0
     if-ge v1, v2, :cond_7
 
-    .line 142
+    .line 135
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    .line 143
+    .line 136
     .local v0, "character":C
     invoke-static {v0}, Ljava/lang/Character;->isSpaceChar(C)Z
 
@@ -363,62 +354,62 @@
 
     if-eqz v7, :cond_3
 
-    .line 144
+    .line 137
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->length()I
 
     move-result v7
 
     if-lez v7, :cond_2
 
-    .line 145
+    .line 138
     invoke-direct {p0, v3, v6, v5}, Lcom/android/internal/telephony/meizu/HanziToPinyin;->addToken(Ljava/lang/StringBuilder;Ljava/util/ArrayList;I)V
 
-    .line 141
+    .line 134
     :cond_2
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 148
+    .line 141
     :cond_3
     invoke-direct {p0, v0, v4}, Lcom/android/internal/telephony/meizu/HanziToPinyin;->tokenize(CLcom/android/internal/telephony/meizu/HanziToPinyin$Token;)V
 
-    .line 149
+    .line 142
     iget v7, v4, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->type:I
 
     const/4 v8, 0x2
 
     if-ne v7, v8, :cond_5
 
-    .line 150
+    .line 143
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->length()I
 
     move-result v7
 
     if-lez v7, :cond_4
 
-    .line 151
+    .line 144
     invoke-direct {p0, v3, v6, v5}, Lcom/android/internal/telephony/meizu/HanziToPinyin;->addToken(Ljava/lang/StringBuilder;Ljava/util/ArrayList;I)V
 
-    .line 153
+    .line 146
     :cond_4
     invoke-virtual {v6, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 154
+    .line 147
     new-instance v4, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;
 
     .end local v4    # "token":Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;
     invoke-direct {v4}, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;-><init>()V
 
-    .line 161
+    .line 154
     .restart local v4    # "token":Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;
     :goto_2
     iget v5, v4, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->type:I
 
     goto :goto_1
 
-    .line 156
+    .line 149
     :cond_5
     iget v7, v4, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->type:I
 
@@ -430,10 +421,10 @@
 
     if-lez v7, :cond_6
 
-    .line 157
+    .line 150
     invoke-direct {p0, v3, v6, v5}, Lcom/android/internal/telephony/meizu/HanziToPinyin;->addToken(Ljava/lang/StringBuilder;Ljava/util/ArrayList;I)V
 
-    .line 159
+    .line 152
     :cond_6
     iget-object v7, v4, Lcom/android/internal/telephony/meizu/HanziToPinyin$Token;->target:Ljava/lang/String;
 
@@ -441,7 +432,7 @@
 
     goto :goto_2
 
-    .line 164
+    .line 157
     .end local v0    # "character":C
     :cond_7
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->length()I
@@ -450,10 +441,10 @@
 
     if-lez v7, :cond_8
 
-    .line 165
+    .line 158
     invoke-direct {p0, v3, v6, v5}, Lcom/android/internal/telephony/meizu/HanziToPinyin;->addToken(Ljava/lang/StringBuilder;Ljava/util/ArrayList;I)V
 
-    .line 167
+    .line 160
     :cond_8
     return-object v6
 .end method
@@ -462,8 +453,8 @@
     .locals 1
 
     .prologue
-    .line 81
-    iget-object v0, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mPinyinTransliterator:Landroid/icu/text/Transliterator;
+    .line 74
+    iget-object v0, p0, Lcom/android/internal/telephony/meizu/HanziToPinyin;->mPinyinTransliterator:Llibcore/icu/Transliterator;
 
     if-eqz v0, :cond_0
 

@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/media/DecoderCapabilities$AudioDecoder;,
-        Landroid/media/DecoderCapabilities$VideoDecoder;
+        Landroid/media/DecoderCapabilities$VideoDecoder;,
+        Landroid/media/DecoderCapabilities$AudioDecoder;
     }
 .end annotation
 

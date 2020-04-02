@@ -27,18 +27,18 @@
     .param p2, "imm"    # Landroid/view/inputmethod/InputMethodManager;
 
     .prologue
-    .line 2638
+    .line 2479
     invoke-direct {p0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 2635
+    .line 2476
     const/16 v0, 0x8
 
     iput v0, p0, Landroid/view/inputmethod/InputMethodManager$FlymeInjector$FlymeHandler;->MSG_VIS_CHANGED:I
 
-    .line 2639
+    .line 2480
     iput-object p2, p0, Landroid/view/inputmethod/InputMethodManager$FlymeInjector$FlymeHandler;->imm:Landroid/view/inputmethod/InputMethodManager;
 
-    .line 2637
+    .line 2478
     return-void
 .end method
 
@@ -51,15 +51,15 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 2644
+    .line 2485
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 2643
+    .line 2484
     return-void
 
-    .line 2646
+    .line 2487
     :pswitch_0
     iget-object v1, p0, Landroid/view/inputmethod/InputMethodManager$FlymeInjector$FlymeHandler;->imm:Landroid/view/inputmethod/InputMethodManager;
 
@@ -72,10 +72,10 @@
     :cond_0
     invoke-virtual {v1, v0}, Landroid/view/inputmethod/InputMethodManager;->setInputShown(Z)V
 
-    .line 2647
+    .line 2488
     return-void
 
-    .line 2644
+    .line 2485
     :pswitch_data_0
     .packed-switch 0x8
         :pswitch_0

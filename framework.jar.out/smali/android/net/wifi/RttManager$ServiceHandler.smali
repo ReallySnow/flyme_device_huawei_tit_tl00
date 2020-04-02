@@ -9,277 +9,284 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "ServiceHandler"
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Landroid/net/wifi/RttManager;
-
-
 # direct methods
-.method constructor <init>(Landroid/net/wifi/RttManager;Landroid/os/Looper;)V
+.method constructor <init>(Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/net/wifi/RttManager;
-    .param p2, "looper"    # Landroid/os/Looper;
+    .param p1, "looper"    # Landroid/os/Looper;
 
     .prologue
-    .line 1230
-    iput-object p1, p0, Landroid/net/wifi/RttManager$ServiceHandler;->this$0:Landroid/net/wifi/RttManager;
+    .line 1035
+    invoke-direct {p0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 1231
-    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    .line 1230
+    .line 1034
     return-void
 .end method
 
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 6
+    .locals 5
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    .line 1235
-    const-string/jumbo v2, "RttManager"
+    .line 1039
+    const-string/jumbo v1, "RttManager"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "RTT manager get message: "
+    const-string/jumbo v3, "RTT manager get message: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget v4, p1, Landroid/os/Message;->what:I
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1236
-    iget v2, p1, Landroid/os/Message;->what:I
-
-    packed-switch v2, :pswitch_data_0
-
-    .line 1248
-    :pswitch_0
-    iget-object v2, p0, Landroid/net/wifi/RttManager$ServiceHandler;->this$0:Landroid/net/wifi/RttManager;
-
-    iget v3, p1, Landroid/os/Message;->arg2:I
-
-    invoke-static {v2, v3}, Landroid/net/wifi/RttManager;->-wrap0(Landroid/net/wifi/RttManager;I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 1249
-    .local v1, "listener":Ljava/lang/Object;
-    if-nez v1, :cond_0
-
-    .line 1250
-    const-string/jumbo v2, "RttManager"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "invalid listener key = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget v4, p1, Landroid/os/Message;->arg2:I
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1251
-    return-void
-
-    .line 1238
-    .end local v1    # "listener":Ljava/lang/Object;
-    :pswitch_1
-    return-void
-
-    .line 1240
-    :pswitch_2
-    const-string/jumbo v2, "RttManager"
-
-    const-string/jumbo v3, "Channel connection lost"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1243
-    iget-object v2, p0, Landroid/net/wifi/RttManager$ServiceHandler;->this$0:Landroid/net/wifi/RttManager;
-
-    invoke-static {v2, v5}, Landroid/net/wifi/RttManager;->-set0(Landroid/net/wifi/RttManager;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
-
-    .line 1244
-    invoke-virtual {p0}, Landroid/net/wifi/RttManager$ServiceHandler;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/os/Looper;->quit()V
+    iget v3, p1, Landroid/os/Message;->what:I
 
-    .line 1245
-    return-void
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1253
-    .restart local v1    # "listener":Ljava/lang/Object;
-    :cond_0
-    const-string/jumbo v2, "RttManager"
+    move-result-object v2
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v2
 
-    const-string/jumbo v4, "listener key = "
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 1040
+    iget v1, p1, Landroid/os/Message;->what:I
 
-    move-result-object v3
+    packed-switch v1, :pswitch_data_0
 
-    iget v4, p1, Landroid/os/Message;->arg2:I
+    .line 1063
+    :pswitch_0
+    iget v1, p1, Landroid/os/Message;->arg2:I
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Landroid/net/wifi/RttManager;->-wrap0(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 1064
+    .local v0, "listener":Ljava/lang/Object;
+    if-nez v0, :cond_1
 
-    move-result-object v3
+    .line 1065
+    const-string/jumbo v1, "RttManager"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    .line 1256
-    iget v2, p1, Landroid/os/Message;->what:I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    packed-switch v2, :pswitch_data_1
+    const-string/jumbo v3, "invalid listener key = "
 
-    .line 1280
-    :pswitch_3
-    return-void
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1259
-    :pswitch_4
-    invoke-virtual {p0, v1, p1}, Landroid/net/wifi/RttManager$ServiceHandler;->reportSuccess(Ljava/lang/Object;Landroid/os/Message;)V
-
-    .line 1260
-    iget-object v2, p0, Landroid/net/wifi/RttManager$ServiceHandler;->this$0:Landroid/net/wifi/RttManager;
+    move-result-object v2
 
     iget v3, p1, Landroid/os/Message;->arg2:I
 
-    invoke-static {v2, v3}, Landroid/net/wifi/RttManager;->-wrap1(Landroid/net/wifi/RttManager;I)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1234
-    .end local v1    # "listener":Ljava/lang/Object;
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1066
+    return-void
+
+    .line 1042
+    .end local v0    # "listener":Ljava/lang/Object;
+    :pswitch_1
+    iget v1, p1, Landroid/os/Message;->arg1:I
+
+    if-nez v1, :cond_0
+
+    .line 1043
+    invoke-static {}, Landroid/net/wifi/RttManager;->-get0()Lcom/android/internal/util/AsyncChannel;
+
+    move-result-object v1
+
+    const v2, 0x11001
+
+    invoke-virtual {v1, v2}, Lcom/android/internal/util/AsyncChannel;->sendMessage(I)V
+
+    .line 1050
     :goto_0
+    invoke-static {}, Landroid/net/wifi/RttManager;->-get1()Ljava/util/concurrent/CountDownLatch;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    .line 1051
     return-void
 
-    .line 1263
-    .restart local v1    # "listener":Ljava/lang/Object;
+    .line 1045
+    :cond_0
+    const-string/jumbo v1, "RttManager"
+
+    const-string/jumbo v2, "Failed to set up channel connection"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1048
+    invoke-static {v4}, Landroid/net/wifi/RttManager;->-set0(Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
+
+    goto :goto_0
+
+    .line 1053
+    :pswitch_2
+    return-void
+
+    .line 1055
+    :pswitch_3
+    const-string/jumbo v1, "RttManager"
+
+    const-string/jumbo v2, "Channel connection lost"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1058
+    invoke-static {v4}, Landroid/net/wifi/RttManager;->-set0(Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
+
+    .line 1059
+    invoke-virtual {p0}, Landroid/net/wifi/RttManager$ServiceHandler;->getLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/os/Looper;->quit()V
+
+    .line 1060
+    return-void
+
+    .line 1068
+    .restart local v0    # "listener":Ljava/lang/Object;
+    :cond_1
+    const-string/jumbo v1, "RttManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "listener key = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p1, Landroid/os/Message;->arg2:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1071
+    iget v1, p1, Landroid/os/Message;->what:I
+
+    packed-switch v1, :pswitch_data_1
+
+    .line 1086
+    const-string/jumbo v1, "RttManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Ignoring message "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p1, Landroid/os/Message;->what:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1087
+    return-void
+
+    .line 1074
+    :pswitch_4
+    invoke-virtual {p0, v0, p1}, Landroid/net/wifi/RttManager$ServiceHandler;->reportSuccess(Ljava/lang/Object;Landroid/os/Message;)V
+
+    .line 1075
+    iget v1, p1, Landroid/os/Message;->arg2:I
+
+    invoke-static {v1}, Landroid/net/wifi/RttManager;->-wrap1(I)Ljava/lang/Object;
+
+    .line 1038
+    .end local v0    # "listener":Ljava/lang/Object;
+    :goto_1
+    return-void
+
+    .line 1078
+    .restart local v0    # "listener":Ljava/lang/Object;
     :pswitch_5
-    invoke-virtual {p0, v1, p1}, Landroid/net/wifi/RttManager$ServiceHandler;->reportFailure(Ljava/lang/Object;Landroid/os/Message;)V
+    invoke-virtual {p0, v0, p1}, Landroid/net/wifi/RttManager$ServiceHandler;->reportFailure(Ljava/lang/Object;Landroid/os/Message;)V
 
-    .line 1264
-    iget-object v2, p0, Landroid/net/wifi/RttManager$ServiceHandler;->this$0:Landroid/net/wifi/RttManager;
+    .line 1079
+    iget v1, p1, Landroid/os/Message;->arg2:I
 
-    iget v3, p1, Landroid/os/Message;->arg2:I
+    invoke-static {v1}, Landroid/net/wifi/RttManager;->-wrap1(I)Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Landroid/net/wifi/RttManager;->-wrap1(Landroid/net/wifi/RttManager;I)Ljava/lang/Object;
+    goto :goto_1
 
-    goto :goto_0
-
-    .line 1267
+    .line 1082
     :pswitch_6
-    check-cast v1, Landroid/net/wifi/RttManager$RttListener;
+    check-cast v0, Landroid/net/wifi/RttManager$RttListener;
 
-    .end local v1    # "listener":Ljava/lang/Object;
-    invoke-interface {v1}, Landroid/net/wifi/RttManager$RttListener;->onAborted()V
+    .end local v0    # "listener":Ljava/lang/Object;
+    invoke-interface {v0}, Landroid/net/wifi/RttManager$RttListener;->onAborted()V
 
-    .line 1268
-    iget-object v2, p0, Landroid/net/wifi/RttManager$ServiceHandler;->this$0:Landroid/net/wifi/RttManager;
+    .line 1083
+    iget v1, p1, Landroid/os/Message;->arg2:I
 
-    iget v3, p1, Landroid/os/Message;->arg2:I
+    invoke-static {v1}, Landroid/net/wifi/RttManager;->-wrap1(I)Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Landroid/net/wifi/RttManager;->-wrap1(Landroid/net/wifi/RttManager;I)Ljava/lang/Object;
+    goto :goto_1
 
-    goto :goto_0
-
-    .line 1271
-    .restart local v1    # "listener":Ljava/lang/Object;
-    :pswitch_7
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Landroid/net/wifi/RttManager$ResponderConfig;
-
-    .line 1272
-    .local v0, "config":Landroid/net/wifi/RttManager$ResponderConfig;
-    check-cast v1, Landroid/net/wifi/RttManager$ResponderCallback;
-
-    .end local v1    # "listener":Ljava/lang/Object;
-    invoke-virtual {v1, v0}, Landroid/net/wifi/RttManager$ResponderCallback;->onResponderEnabled(Landroid/net/wifi/RttManager$ResponderConfig;)V
-
-    goto :goto_0
-
-    .line 1275
-    .end local v0    # "config":Landroid/net/wifi/RttManager$ResponderConfig;
-    .restart local v1    # "listener":Ljava/lang/Object;
-    :pswitch_8
-    check-cast v1, Landroid/net/wifi/RttManager$ResponderCallback;
-
-    .end local v1    # "listener":Ljava/lang/Object;
-    iget v2, p1, Landroid/os/Message;->arg1:I
-
-    invoke-virtual {v1, v2}, Landroid/net/wifi/RttManager$ResponderCallback;->onResponderEnableFailure(I)V
-
-    .line 1276
-    iget-object v2, p0, Landroid/net/wifi/RttManager$ServiceHandler;->this$0:Landroid/net/wifi/RttManager;
-
-    iget v3, p1, Landroid/os/Message;->arg2:I
-
-    invoke-static {v2, v3}, Landroid/net/wifi/RttManager;->-wrap1(Landroid/net/wifi/RttManager;I)Ljava/lang/Object;
-
-    goto :goto_0
-
-    .line 1236
+    .line 1040
     :pswitch_data_0
-    .packed-switch 0x11002
+    .packed-switch 0x11000
         :pswitch_1
         :pswitch_0
         :pswitch_2
+        :pswitch_0
+        :pswitch_3
     .end packed-switch
 
-    .line 1256
+    .line 1071
     :pswitch_data_1
     .packed-switch 0x27202
         :pswitch_5
         :pswitch_4
         :pswitch_6
-        :pswitch_3
-        :pswitch_3
-        :pswitch_7
-        :pswitch_8
     .end packed-switch
 .end method
 
@@ -291,16 +298,16 @@
     .prologue
     move-object v1, p1
 
-    .line 1291
+    .line 1098
     check-cast v1, Landroid/net/wifi/RttManager$RttListener;
 
-    .line 1292
+    .line 1099
     .local v1, "rttListener":Landroid/net/wifi/RttManager$RttListener;
     iget-object v0, p2, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/Bundle;
 
-    .line 1293
+    .line 1100
     .local v0, "bundle":Landroid/os/Bundle;
     check-cast p1, Landroid/net/wifi/RttManager$RttListener;
 
@@ -315,7 +322,7 @@
 
     invoke-interface {p1, v2, v3}, Landroid/net/wifi/RttManager$RttListener;->onFailure(ILjava/lang/String;)V
 
-    .line 1290
+    .line 1097
     return-void
 .end method
 
@@ -327,16 +334,16 @@
     .prologue
     move-object v1, p1
 
-    .line 1285
+    .line 1092
     check-cast v1, Landroid/net/wifi/RttManager$RttListener;
 
-    .line 1286
+    .line 1093
     .local v1, "rttListener":Landroid/net/wifi/RttManager$RttListener;
     iget-object v0, p2, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/net/wifi/RttManager$ParcelableRttResults;
 
-    .line 1287
+    .line 1094
     .local v0, "parcelableResults":Landroid/net/wifi/RttManager$ParcelableRttResults;
     check-cast p1, Landroid/net/wifi/RttManager$RttListener;
 
@@ -345,6 +352,6 @@
 
     invoke-interface {p1, v2}, Landroid/net/wifi/RttManager$RttListener;->onSuccess([Landroid/net/wifi/RttManager$RttResult;)V
 
-    .line 1284
+    .line 1091
     return-void
 .end method

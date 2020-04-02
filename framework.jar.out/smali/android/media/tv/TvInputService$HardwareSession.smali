@@ -110,18 +110,18 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 1832
+    .line 1477
     invoke-direct {p0, p1}, Landroid/media/tv/TvInputService$Session;-><init>(Landroid/content/Context;)V
 
-    .line 1851
+    .line 1496
     new-instance v0, Landroid/media/tv/TvInputService$HardwareSession$1;
 
     invoke-direct {v0, p0}, Landroid/media/tv/TvInputService$HardwareSession$1;-><init>(Landroid/media/tv/TvInputService$HardwareSession;)V
 
-    .line 1850
+    .line 1495
     iput-object v0, p0, Landroid/media/tv/TvInputService$HardwareSession;->mHardwareSessionCallback:Landroid/media/tv/TvInputManager$SessionCallback;
 
-    .line 1831
+    .line 1476
     return-void
 .end method
 
@@ -134,7 +134,7 @@
     .locals 0
 
     .prologue
-    .line 1904
+    .line 1549
     return-void
 .end method
 
@@ -143,7 +143,7 @@
     .param p1, "reason"    # I
 
     .prologue
-    .line 1919
+    .line 1564
     return-void
 .end method
 
@@ -152,42 +152,15 @@
     .param p1, "surface"    # Landroid/view/Surface;
 
     .prologue
-    .line 1896
+    .line 1541
     const-string/jumbo v0, "TvInputService"
 
     const-string/jumbo v1, "onSetSurface() should not be called in HardwareProxySession."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1897
+    .line 1542
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method release()V
-    .locals 2
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 1923
-    iget-object v0, p0, Landroid/media/tv/TvInputService$HardwareSession;->mHardwareSession:Landroid/media/tv/TvInputManager$Session;
-
-    if-eqz v0, :cond_0
-
-    .line 1924
-    iget-object v0, p0, Landroid/media/tv/TvInputService$HardwareSession;->mHardwareSession:Landroid/media/tv/TvInputManager$Session;
-
-    invoke-virtual {v0}, Landroid/media/tv/TvInputManager$Session;->release()V
-
-    .line 1925
-    iput-object v1, p0, Landroid/media/tv/TvInputService$HardwareSession;->mHardwareSession:Landroid/media/tv/TvInputManager$Session;
-
-    .line 1927
-    :cond_0
-    invoke-super {p0}, Landroid/media/tv/TvInputService$Session;->release()V
-
-    .line 1922
-    return-void
 .end method

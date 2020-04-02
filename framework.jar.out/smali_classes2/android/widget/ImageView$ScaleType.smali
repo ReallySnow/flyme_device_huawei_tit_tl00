@@ -62,105 +62,105 @@
 
     const/4 v4, 0x0
 
-    .line 696
+    .line 644
     new-instance v0, Landroid/widget/ImageView$ScaleType;
 
     const-string/jumbo v1, "MATRIX"
 
     invoke-direct {v0, v1, v4, v4}, Landroid/widget/ImageView$ScaleType;-><init>(Ljava/lang/String;II)V
 
-    .line 701
+    .line 649
     sput-object v0, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
 
-    .line 702
+    .line 650
     new-instance v0, Landroid/widget/ImageView$ScaleType;
 
     const-string/jumbo v1, "FIT_XY"
 
     invoke-direct {v0, v1, v5, v5}, Landroid/widget/ImageView$ScaleType;-><init>(Ljava/lang/String;II)V
 
-    .line 706
+    .line 654
     sput-object v0, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
 
-    .line 707
+    .line 655
     new-instance v0, Landroid/widget/ImageView$ScaleType;
 
     const-string/jumbo v1, "FIT_START"
 
     invoke-direct {v0, v1, v6, v6}, Landroid/widget/ImageView$ScaleType;-><init>(Ljava/lang/String;II)V
 
-    .line 711
+    .line 659
     sput-object v0, Landroid/widget/ImageView$ScaleType;->FIT_START:Landroid/widget/ImageView$ScaleType;
 
-    .line 712
+    .line 660
     new-instance v0, Landroid/widget/ImageView$ScaleType;
 
     const-string/jumbo v1, "FIT_CENTER"
 
     invoke-direct {v0, v1, v7, v7}, Landroid/widget/ImageView$ScaleType;-><init>(Ljava/lang/String;II)V
 
-    .line 717
+    .line 665
     sput-object v0, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
 
-    .line 718
+    .line 666
     new-instance v0, Landroid/widget/ImageView$ScaleType;
 
     const-string/jumbo v1, "FIT_END"
 
     invoke-direct {v0, v1, v8, v8}, Landroid/widget/ImageView$ScaleType;-><init>(Ljava/lang/String;II)V
 
-    .line 722
+    .line 670
     sput-object v0, Landroid/widget/ImageView$ScaleType;->FIT_END:Landroid/widget/ImageView$ScaleType;
 
-    .line 723
+    .line 671
     new-instance v0, Landroid/widget/ImageView$ScaleType;
 
     const-string/jumbo v1, "CENTER"
 
     const/4 v2, 0x5
 
-    .line 727
+    .line 675
     const/4 v3, 0x5
 
-    .line 723
+    .line 671
     invoke-direct {v0, v1, v2, v3}, Landroid/widget/ImageView$ScaleType;-><init>(Ljava/lang/String;II)V
 
-    .line 727
+    .line 675
     sput-object v0, Landroid/widget/ImageView$ScaleType;->CENTER:Landroid/widget/ImageView$ScaleType;
 
-    .line 728
+    .line 676
     new-instance v0, Landroid/widget/ImageView$ScaleType;
 
     const-string/jumbo v1, "CENTER_CROP"
 
     const/4 v2, 0x6
 
-    .line 735
+    .line 683
     const/4 v3, 0x6
 
-    .line 728
+    .line 676
     invoke-direct {v0, v1, v2, v3}, Landroid/widget/ImageView$ScaleType;-><init>(Ljava/lang/String;II)V
 
-    .line 735
+    .line 683
     sput-object v0, Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;
 
-    .line 736
+    .line 684
     new-instance v0, Landroid/widget/ImageView$ScaleType;
 
     const-string/jumbo v1, "CENTER_INSIDE"
 
     const/4 v2, 0x7
 
-    .line 743
+    .line 691
     const/4 v3, 0x7
 
-    .line 736
+    .line 684
     invoke-direct {v0, v1, v2, v3}, Landroid/widget/ImageView$ScaleType;-><init>(Ljava/lang/String;II)V
 
-    .line 743
+    .line 691
     sput-object v0, Landroid/widget/ImageView$ScaleType;->CENTER_INSIDE:Landroid/widget/ImageView$ScaleType;
 
-    .line 695
+    .line 643
     const/16 v0, 0x8
 
     new-array v0, v0, [Landroid/widget/ImageView$ScaleType;
@@ -213,13 +213,13 @@
     .param p3, "ni"    # I
 
     .prologue
-    .line 745
+    .line 693
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 746
+    .line 694
     iput p3, p0, Landroid/widget/ImageView$ScaleType;->nativeInt:I
 
-    .line 745
+    .line 693
     return-void
 .end method
 
@@ -228,7 +228,7 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 695
+    .line 643
     const-class v0, Landroid/widget/ImageView$ScaleType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -244,7 +244,7 @@
     .locals 1
 
     .prologue
-    .line 695
+    .line 643
     sget-object v0, Landroid/widget/ImageView$ScaleType;->$VALUES:[Landroid/widget/ImageView$ScaleType;
 
     return-object v0

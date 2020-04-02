@@ -27,7 +27,7 @@
     .param p1, "this$1"    # Landroid/widget/TextView$Marquee;
 
     .prologue
-    .line 10237
+    .line 10020
     iput-object p1, p0, Landroid/widget/TextView$Marquee$2;->this$1:Landroid/widget/TextView$Marquee;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .param p1, "frameTimeNanos"    # J
 
     .prologue
-    .line 10240
+    .line 10023
     iget-object v0, p0, Landroid/widget/TextView$Marquee$2;->this$1:Landroid/widget/TextView$Marquee;
 
     const/4 v1, 0x2
 
     invoke-static {v0, v1}, Landroid/widget/TextView$Marquee;->-set2(Landroid/widget/TextView$Marquee;B)B
 
-    .line 10241
+    .line 10024
     iget-object v0, p0, Landroid/widget/TextView$Marquee$2;->this$1:Landroid/widget/TextView$Marquee;
 
     iget-object v1, p0, Landroid/widget/TextView$Marquee$2;->this$1:Landroid/widget/TextView$Marquee;
@@ -64,11 +64,11 @@
 
     invoke-static {v0, v2, v3}, Landroid/widget/TextView$Marquee;->-set0(Landroid/widget/TextView$Marquee;J)J
 
-    .line 10242
+    .line 10025
     iget-object v0, p0, Landroid/widget/TextView$Marquee$2;->this$1:Landroid/widget/TextView$Marquee;
 
     invoke-virtual {v0}, Landroid/widget/TextView$Marquee;->tick()V
 
-    .line 10239
+    .line 10022
     return-void
 .end method

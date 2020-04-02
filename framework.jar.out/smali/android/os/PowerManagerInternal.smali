@@ -14,10 +14,6 @@
 # static fields
 .field public static final POWER_HINT_INTERACTION:I = 0x2
 
-.field public static final POWER_HINT_LAUNCH:I = 0x8
-
-.field public static final POWER_HINT_SUSTAINED_PERFORMANCE_MODE:I = 0x6
-
 .field public static final WAKEFULNESS_ASLEEP:I = 0x0
 
 .field public static final WAKEFULNESS_AWAKE:I = 0x1
@@ -45,7 +41,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 94
+    .line 85
     if-eq p0, v0, :cond_0
 
     const/4 v1, 0x2
@@ -67,41 +63,41 @@
     .param p0, "wakefulness"    # I
 
     .prologue
-    .line 75
+    .line 66
     packed-switch p0, :pswitch_data_0
 
-    .line 85
+    .line 76
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
-    .line 77
+    .line 68
     :pswitch_0
     const-string/jumbo v0, "Asleep"
 
     return-object v0
 
-    .line 79
+    .line 70
     :pswitch_1
     const-string/jumbo v0, "Awake"
 
     return-object v0
 
-    .line 81
+    .line 72
     :pswitch_2
     const-string/jumbo v0, "Dreaming"
 
     return-object v0
 
-    .line 83
+    .line 74
     :pswitch_3
     const-string/jumbo v0, "Dozing"
 
     return-object v0
 
-    .line 75
+    .line 66
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -128,7 +124,7 @@
 .method public abstract setButtonBrightnessOverrideFromWindowManager(I)V
 .end method
 
-.method public abstract setDeviceIdleMode(Z)Z
+.method public abstract setDeviceIdleMode(Z)V
 .end method
 
 .method public abstract setDeviceIdleTempWhitelist([I)V
@@ -141,9 +137,6 @@
 .end method
 
 .method public abstract setFeature(II)V
-.end method
-
-.method public abstract setLightDeviceIdleMode(Z)Z
 .end method
 
 .method public abstract setMaximumScreenOffTimeoutFromDeviceAdmin(I)V

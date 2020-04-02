@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/connectivity/Tethering;
 
     .prologue
-    .line 1262
+    .line 454
     iput-object p1, p0, Lcom/android/server/connectivity/Tethering$1;->this$0:Lcom/android/server/connectivity/Tethering;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,10 +41,10 @@
     .locals 3
 
     .prologue
-    .line 1267
+    .line 459
     iget-object v1, p0, Lcom/android/server/connectivity/Tethering$1;->this$0:Lcom/android/server/connectivity/Tethering;
 
-    invoke-static {v1}, Lcom/android/server/connectivity/Tethering;->-get2(Lcom/android/server/connectivity/Tethering;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/server/connectivity/Tethering;->-get1(Lcom/android/server/connectivity/Tethering;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -56,7 +56,7 @@
 
     check-cast v0, Landroid/net/wifi/WifiManager;
 
-    .line 1268
+    .line 460
     .local v0, "wifiManager":Landroid/net/wifi/WifiManager;
     const/4 v1, 0x0
 
@@ -64,6 +64,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 1264
+    .line 456
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class public final Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;
+.class final Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;
 .super Landroid/print/IPrintJobStateChangeListener$Stub;
 .source "PrintManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
+    accessFlags = 0x1a
     name = "PrintJobStateChangeListenerWrapper"
 .end annotation
 
@@ -45,24 +45,24 @@
     .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 1305
+    .line 1039
     invoke-direct {p0}, Landroid/print/IPrintJobStateChangeListener$Stub;-><init>()V
 
-    .line 1307
+    .line 1041
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;->mWeakListener:Ljava/lang/ref/WeakReference;
 
-    .line 1308
+    .line 1042
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;->mWeakHandler:Ljava/lang/ref/WeakReference;
 
-    .line 1306
+    .line 1040
     return-void
 .end method
 
@@ -72,12 +72,12 @@
     .locals 1
 
     .prologue
-    .line 1325
+    .line 1059
     iget-object v0, p0, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;->mWeakListener:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->clear()V
 
-    .line 1324
+    .line 1058
     return-void
 .end method
 
@@ -85,7 +85,7 @@
     .locals 1
 
     .prologue
-    .line 1329
+    .line 1063
     iget-object v0, p0, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;->mWeakListener:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -102,7 +102,7 @@
     .param p1, "printJobId"    # Landroid/print/PrintJobId;
 
     .prologue
-    .line 1313
+    .line 1047
     iget-object v3, p0, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;->mWeakHandler:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v3}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -111,7 +111,7 @@
 
     check-cast v1, Landroid/os/Handler;
 
-    .line 1314
+    .line 1048
     .local v1, "handler":Landroid/os/Handler;
     iget-object v3, p0, Landroid/print/PrintManager$PrintJobStateChangeListenerWrapper;->mWeakListener:Ljava/lang/ref/WeakReference;
 
@@ -121,25 +121,25 @@
 
     check-cast v2, Landroid/print/PrintManager$PrintJobStateChangeListener;
 
-    .line 1315
+    .line 1049
     .local v2, "listener":Landroid/print/PrintManager$PrintJobStateChangeListener;
     if-eqz v1, :cond_0
 
     if-eqz v2, :cond_0
 
-    .line 1316
+    .line 1050
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
     move-result-object v0
 
-    .line 1317
+    .line 1051
     .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iput-object p0, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    .line 1318
+    .line 1052
     iput-object p1, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    .line 1319
+    .line 1053
     const/4 v3, 0x1
 
     invoke-virtual {v1, v3, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -148,7 +148,7 @@
 
     invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1312
+    .line 1046
     .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
     :cond_0
     return-void

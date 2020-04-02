@@ -1,14 +1,11 @@
 .class Lcom/android/server/input/InputManagerService$9;
-.super Ljava/lang/Object;
+.super Landroid/database/ContentObserver;
 .source "InputManagerService.java"
-
-# interfaces
-.implements Lcom/android/server/input/InputManagerService$KeyboardLayoutVisitor;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/input/InputManagerService;->getKeyboardLayoutForInputDevice(Landroid/hardware/input/InputDeviceIdentifier;Landroid/view/inputmethod/InputMethodInfo;Landroid/view/inputmethod/InputMethodSubtype;)Landroid/hardware/input/KeyboardLayout;
+    value = Lcom/android/server/input/InputManagerService;->registerStylusIconEnabledSettingObserver()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,42 +17,34 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/input/InputManagerService;
 
-.field final synthetic val$result:[Landroid/hardware/input/KeyboardLayout;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/input/InputManagerService;[Landroid/hardware/input/KeyboardLayout;)V
+.method constructor <init>(Lcom/android/server/input/InputManagerService;Landroid/os/Handler;)V
     .locals 0
     .param p1, "this$0"    # Lcom/android/server/input/InputManagerService;
-    .param p2, "val$result"    # [Landroid/hardware/input/KeyboardLayout;
+    .param p2, "$anonymous0"    # Landroid/os/Handler;
 
     .prologue
-    .line 1388
+    .line 1414
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$9;->this$0:Lcom/android/server/input/InputManagerService;
 
-    iput-object p2, p0, Lcom/android/server/input/InputManagerService$9;->val$result:[Landroid/hardware/input/KeyboardLayout;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public visitKeyboardLayout(Landroid/content/res/Resources;ILandroid/hardware/input/KeyboardLayout;)V
-    .locals 2
-    .param p1, "resources"    # Landroid/content/res/Resources;
-    .param p2, "keyboardLayoutResId"    # I
-    .param p3, "layout"    # Landroid/hardware/input/KeyboardLayout;
+.method public onChange(Z)V
+    .locals 1
+    .param p1, "selfChange"    # Z
 
     .prologue
-    .line 1392
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$9;->val$result:[Landroid/hardware/input/KeyboardLayout;
+    .line 1417
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$9;->this$0:Lcom/android/server/input/InputManagerService;
 
-    const/4 v1, 0x0
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateStylusIconEnabledFromSettings()V
 
-    aput-object p3, v0, v1
-
-    .line 1391
+    .line 1416
     return-void
 .end method

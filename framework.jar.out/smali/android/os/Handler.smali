@@ -6,9 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/os/Handler$BlockingRunnable;,
         Landroid/os/Handler$Callback;,
-        Landroid/os/Handler$MessengerImpl;
+        Landroid/os/Handler$MessengerImpl;,
+        Landroid/os/Handler$BlockingRunnable;
     }
 .end annotation
 
@@ -191,20 +191,20 @@
     .param p3, "uptimeMillis"    # J
 
     .prologue
-    .line 639
+    .line 627
     iput-object p0, p2, Landroid/os/Message;->target:Landroid/os/Handler;
 
-    .line 640
+    .line 628
     iget-boolean v0, p0, Landroid/os/Handler;->mAsynchronous:Z
 
     if-eqz v0, :cond_0
 
-    .line 641
+    .line 629
     const/4 v0, 0x1
 
     invoke-virtual {p2, v0}, Landroid/os/Message;->setAsynchronous(Z)V
 
-    .line 643
+    .line 631
     :cond_0
     invoke-virtual {p1, p2, p3, p4}, Landroid/os/MessageQueue;->enqueueMessage(Landroid/os/Message;J)Z
 
@@ -218,16 +218,16 @@
     .param p0, "r"    # Ljava/lang/Runnable;
 
     .prologue
-    .line 738
+    .line 726
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 739
+    .line 727
     .local v0, "m":Landroid/os/Message;
     iput-object p0, v0, Landroid/os/Message;->callback:Ljava/lang/Runnable;
 
-    .line 740
+    .line 728
     return-object v0
 .end method
 
@@ -237,19 +237,19 @@
     .param p1, "token"    # Ljava/lang/Object;
 
     .prologue
-    .line 744
+    .line 732
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 745
+    .line 733
     .local v0, "m":Landroid/os/Message;
     iput-object p1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 746
+    .line 734
     iput-object p0, v0, Landroid/os/Message;->callback:Ljava/lang/Runnable;
 
-    .line 747
+    .line 735
     return-object v0
 .end method
 
@@ -258,12 +258,12 @@
     .param p0, "message"    # Landroid/os/Message;
 
     .prologue
-    .line 751
+    .line 739
     iget-object v0, p0, Landroid/os/Message;->callback:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 750
+    .line 738
     return-void
 .end method
 
@@ -317,7 +317,7 @@
     .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
-    .line 705
+    .line 693
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -350,12 +350,12 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 706
+    .line 694
     iget-object v0, p0, Landroid/os/Handler;->mLooper:Landroid/os/Looper;
 
     if-nez v0, :cond_0
 
-    .line 707
+    .line 695
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -376,11 +376,11 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 704
+    .line 692
     :goto_0
     return-void
 
-    .line 709
+    .line 697
     :cond_0
     iget-object v0, p0, Landroid/os/Handler;->mLooper:Landroid/os/Looper;
 
@@ -411,18 +411,18 @@
     .locals 3
 
     .prologue
-    .line 721
+    .line 709
     iget-object v1, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     monitor-enter v1
 
-    .line 722
+    .line 710
     :try_start_0
     iget-object v0, p0, Landroid/os/Handler;->mMessenger:Landroid/os/IMessenger;
 
     if-eqz v0, :cond_0
 
-    .line 723
+    .line 711
     iget-object v0, p0, Landroid/os/Handler;->mMessenger:Landroid/os/IMessenger;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -431,7 +431,7 @@
 
     return-object v0
 
-    .line 725
+    .line 713
     :cond_0
     :try_start_1
     new-instance v0, Landroid/os/Handler$MessengerImpl;
@@ -442,7 +442,7 @@
 
     iput-object v0, p0, Landroid/os/Handler;->mMessenger:Landroid/os/IMessenger;
 
-    .line 726
+    .line 714
     iget-object v0, p0, Landroid/os/Handler;->mMessenger:Landroid/os/IMessenger;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -451,7 +451,7 @@
 
     return-object v0
 
-    .line 721
+    .line 709
     :catchall_0
     move-exception v0
 
@@ -464,7 +464,7 @@
     .locals 1
 
     .prologue
-    .line 701
+    .line 689
     iget-object v0, p0, Landroid/os/Handler;->mLooper:Landroid/os/Looper;
 
     return-object v0
@@ -475,12 +475,12 @@
     .param p1, "message"    # Landroid/os/Message;
 
     .prologue
-    .line 255
+    .line 243
     iget-object v0, p1, Landroid/os/Message;->callback:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
-    .line 256
+    .line 244
     iget-object v0, p1, Landroid/os/Message;->callback:Ljava/lang/Runnable;
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -493,7 +493,7 @@
 
     return-object v0
 
-    .line 258
+    .line 246
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -522,75 +522,6 @@
     return-object v0
 .end method
 
-.method public getTraceName(Landroid/os/Message;)Ljava/lang/String;
-    .locals 3
-    .param p1, "message"    # Landroid/os/Message;
-
-    .prologue
-    .line 236
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 237
-    .local v0, "sb":Ljava/lang/StringBuilder;
-    invoke-virtual {p0}, Landroid/os/Handler;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ": "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 238
-    iget-object v1, p1, Landroid/os/Message;->callback:Ljava/lang/Runnable;
-
-    if-eqz v1, :cond_0
-
-    .line 239
-    iget-object v1, p1, Landroid/os/Message;->callback:Ljava/lang/Runnable;
-
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 243
-    :goto_0
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    return-object v1
-
-    .line 241
-    :cond_0
-    const-string/jumbo v1, "#"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p1, Landroid/os/Message;->what:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    goto :goto_0
-.end method
-
 .method public handleMessage(Landroid/os/Message;)V
     .locals 0
     .param p1, "msg"    # Landroid/os/Message;
@@ -605,7 +536,7 @@
     .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
-    .line 695
+    .line 683
     iget-object v0, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     const/4 v1, 0x0
@@ -622,7 +553,7 @@
     .param p1, "what"    # I
 
     .prologue
-    .line 677
+    .line 665
     iget-object v0, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     const/4 v1, 0x0
@@ -640,7 +571,7 @@
     .param p2, "object"    # Ljava/lang/Object;
 
     .prologue
-    .line 685
+    .line 673
     iget-object v0, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     invoke-virtual {v0, p0, p1, p2}, Landroid/os/MessageQueue;->hasMessages(Landroid/os/Handler;ILjava/lang/Object;)Z
@@ -654,7 +585,7 @@
     .locals 1
 
     .prologue
-    .line 268
+    .line 256
     invoke-static {p0}, Landroid/os/Message;->obtain(Landroid/os/Handler;)Landroid/os/Message;
 
     move-result-object v0
@@ -667,7 +598,7 @@
     .param p1, "what"    # I
 
     .prologue
-    .line 279
+    .line 267
     invoke-static {p0, p1}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
 
     move-result-object v0
@@ -682,7 +613,7 @@
     .param p3, "arg2"    # I
 
     .prologue
-    .line 307
+    .line 295
     invoke-static {p0, p1, p2, p3}, Landroid/os/Message;->obtain(Landroid/os/Handler;III)Landroid/os/Message;
 
     move-result-object v0
@@ -698,7 +629,7 @@
     .param p4, "obj"    # Ljava/lang/Object;
 
     .prologue
-    .line 322
+    .line 310
     invoke-static {p0, p1, p2, p3, p4}, Landroid/os/Message;->obtain(Landroid/os/Handler;IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
@@ -712,7 +643,7 @@
     .param p2, "obj"    # Ljava/lang/Object;
 
     .prologue
-    .line 293
+    .line 281
     invoke-static {p0, p1, p2}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
@@ -725,7 +656,7 @@
     .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
-    .line 338
+    .line 326
     invoke-static {p1}, Landroid/os/Handler;->getPostMessage(Ljava/lang/Runnable;)Landroid/os/Message;
 
     move-result-object v0
@@ -744,7 +675,7 @@
     .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
-    .line 430
+    .line 418
     invoke-static {p1}, Landroid/os/Handler;->getPostMessage(Ljava/lang/Runnable;)Landroid/os/Message;
 
     move-result-object v0
@@ -762,7 +693,7 @@
     .param p2, "uptimeMillis"    # J
 
     .prologue
-    .line 361
+    .line 349
     invoke-static {p1}, Landroid/os/Handler;->getPostMessage(Ljava/lang/Runnable;)Landroid/os/Message;
 
     move-result-object v0
@@ -781,7 +712,7 @@
     .param p3, "uptimeMillis"    # J
 
     .prologue
-    .line 386
+    .line 374
     invoke-static {p1, p2}, Landroid/os/Handler;->getPostMessage(Ljava/lang/Runnable;Ljava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
@@ -799,7 +730,7 @@
     .param p2, "delayMillis"    # J
 
     .prologue
-    .line 410
+    .line 398
     invoke-static {p1}, Landroid/os/Handler;->getPostMessage(Ljava/lang/Runnable;)Landroid/os/Message;
 
     move-result-object v0
@@ -816,14 +747,14 @@
     .param p1, "r"    # Ljava/lang/Runnable;
 
     .prologue
-    .line 495
+    .line 483
     iget-object v0, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, p0, p1, v1}, Landroid/os/MessageQueue;->removeMessages(Landroid/os/Handler;Ljava/lang/Runnable;Ljava/lang/Object;)V
 
-    .line 493
+    .line 481
     return-void
 .end method
 
@@ -833,12 +764,12 @@
     .param p2, "token"    # Ljava/lang/Object;
 
     .prologue
-    .line 505
+    .line 493
     iget-object v0, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     invoke-virtual {v0, p0, p1, p2}, Landroid/os/MessageQueue;->removeMessages(Landroid/os/Handler;Ljava/lang/Runnable;Ljava/lang/Object;)V
 
-    .line 503
+    .line 491
     return-void
 .end method
 
@@ -847,12 +778,12 @@
     .param p1, "token"    # Ljava/lang/Object;
 
     .prologue
-    .line 669
+    .line 657
     iget-object v0, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     invoke-virtual {v0, p0, p1}, Landroid/os/MessageQueue;->removeCallbacksAndMessages(Landroid/os/Handler;Ljava/lang/Object;)V
 
-    .line 668
+    .line 656
     return-void
 .end method
 
@@ -861,14 +792,14 @@
     .param p1, "what"    # I
 
     .prologue
-    .line 651
+    .line 639
     iget-object v0, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, p0, p1, v1}, Landroid/os/MessageQueue;->removeMessages(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 650
+    .line 638
     return-void
 .end method
 
@@ -878,12 +809,12 @@
     .param p2, "object"    # Ljava/lang/Object;
 
     .prologue
-    .line 660
+    .line 648
     iget-object v0, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
     invoke-virtual {v0, p0, p1, p2}, Landroid/os/MessageQueue;->removeMessages(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 659
+    .line 647
     return-void
 .end method
 
@@ -893,10 +824,10 @@
     .param p2, "timeout"    # J
 
     .prologue
-    .line 474
+    .line 462
     if-nez p1, :cond_0
 
-    .line 475
+    .line 463
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "runnable must not be null"
@@ -905,7 +836,7 @@
 
     throw v1
 
-    .line 477
+    .line 465
     :cond_0
     const-wide/16 v2, 0x0
 
@@ -913,7 +844,7 @@
 
     if-gez v1, :cond_1
 
-    .line 478
+    .line 466
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "timeout must be non-negative"
@@ -922,7 +853,7 @@
 
     throw v1
 
-    .line 481
+    .line 469
     :cond_1
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
@@ -932,21 +863,21 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 482
+    .line 470
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    .line 483
+    .line 471
     const/4 v1, 0x1
 
     return v1
 
-    .line 486
+    .line 474
     :cond_2
     new-instance v0, Landroid/os/Handler$BlockingRunnable;
 
     invoke-direct {v0, p1}, Landroid/os/Handler$BlockingRunnable;-><init>(Ljava/lang/Runnable;)V
 
-    .line 487
+    .line 475
     .local v0, "br":Landroid/os/Handler$BlockingRunnable;
     invoke-virtual {v0, p0, p2, p3}, Landroid/os/Handler$BlockingRunnable;->postAndWait(Landroid/os/Handler;J)Z
 
@@ -960,7 +891,7 @@
     .param p1, "what"    # I
 
     .prologue
-    .line 531
+    .line 519
     const-wide/16 v0, 0x0
 
     invoke-virtual {p0, p1, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
@@ -976,16 +907,16 @@
     .param p2, "uptimeMillis"    # J
 
     .prologue
-    .line 560
+    .line 548
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 561
+    .line 549
     .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
-    .line 562
+    .line 550
     invoke-virtual {p0, v0, p2, p3}, Landroid/os/Handler;->sendMessageAtTime(Landroid/os/Message;J)Z
 
     move-result v1
@@ -999,16 +930,16 @@
     .param p2, "delayMillis"    # J
 
     .prologue
-    .line 544
+    .line 532
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 545
+    .line 533
     .local v0, "msg":Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->what:I
 
-    .line 546
+    .line 534
     invoke-virtual {p0, v0, p2, p3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     move-result v1
@@ -1021,7 +952,7 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 519
+    .line 507
     const-wide/16 v0, 0x0
 
     invoke-virtual {p0, p1, v0, v1}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
@@ -1036,17 +967,17 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 628
+    .line 616
     iget-object v1, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
-    .line 629
+    .line 617
     .local v1, "queue":Landroid/os/MessageQueue;
     if-nez v1, :cond_0
 
-    .line 630
+    .line 618
     new-instance v0, Ljava/lang/RuntimeException;
 
-    .line 631
+    .line 619
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1065,10 +996,10 @@
 
     move-result-object v2
 
-    .line 630
+    .line 618
     invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 632
+    .line 620
     .local v0, "e":Ljava/lang/RuntimeException;
     const-string/jumbo v2, "Looper"
 
@@ -1078,12 +1009,12 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 633
+    .line 621
     const/4 v2, 0x0
 
     return v2
 
-    .line 635
+    .line 623
     .end local v0    # "e":Ljava/lang/RuntimeException;
     :cond_0
     const-wide/16 v2, 0x0
@@ -1101,17 +1032,17 @@
     .param p2, "uptimeMillis"    # J
 
     .prologue
-    .line 605
+    .line 593
     iget-object v1, p0, Landroid/os/Handler;->mQueue:Landroid/os/MessageQueue;
 
-    .line 606
+    .line 594
     .local v1, "queue":Landroid/os/MessageQueue;
     if-nez v1, :cond_0
 
-    .line 607
+    .line 595
     new-instance v0, Ljava/lang/RuntimeException;
 
-    .line 608
+    .line 596
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1130,10 +1061,10 @@
 
     move-result-object v2
 
-    .line 607
+    .line 595
     invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 609
+    .line 597
     .local v0, "e":Ljava/lang/RuntimeException;
     const-string/jumbo v2, "Looper"
 
@@ -1143,12 +1074,12 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 610
+    .line 598
     const/4 v2, 0x0
 
     return v2
 
-    .line 612
+    .line 600
     .end local v0    # "e":Ljava/lang/RuntimeException;
     :cond_0
     invoke-direct {p0, v1, p1, p2, p3}, Landroid/os/Handler;->enqueueMessage(Landroid/os/MessageQueue;Landroid/os/Message;J)Z
@@ -1164,17 +1095,17 @@
     .param p2, "delayMillis"    # J
 
     .prologue
-    .line 579
+    .line 567
     const-wide/16 v0, 0x0
 
     cmp-long v0, p2, v0
 
     if-gez v0, :cond_0
 
-    .line 580
+    .line 568
     const-wide/16 p2, 0x0
 
-    .line 582
+    .line 570
     :cond_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -1193,7 +1124,7 @@
     .locals 2
 
     .prologue
-    .line 715
+    .line 703
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1222,7 +1153,7 @@
 
     move-result-object v0
 
-    .line 716
+    .line 704
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v1
@@ -1231,15 +1162,15 @@
 
     move-result-object v1
 
-    .line 715
+    .line 703
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 717
+    .line 705
     const-string/jumbo v1, "}"
 
-    .line 715
+    .line 703
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

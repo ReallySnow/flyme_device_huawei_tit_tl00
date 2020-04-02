@@ -39,14 +39,6 @@
     .end annotation
 .end method
 
-.method public abstract addPasspointManagementObject(Ljava/lang/String;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract addToBlacklist(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -64,14 +56,6 @@
 .end method
 
 .method public abstract clearBlacklist()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract deauthenticateNetwork(JZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -111,6 +95,14 @@
     .end annotation
 .end method
 
+.method public abstract enableAutoJoinWhenAssociated(Z)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract enableNetwork(IZ)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -143,14 +135,6 @@
     .end annotation
 .end method
 
-.method public abstract enableWifiConnectivityManager(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract factoryReset()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -168,6 +152,44 @@
 .end method
 
 .method public abstract getAllowScansWithTraffic()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getBatchedScanResults(Ljava/lang/String;)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Landroid/net/wifi/BatchedScanResult;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getChannelList()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/net/wifi/WifiChannel;",
+            ">;"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -250,6 +272,14 @@
 .end method
 
 .method public abstract getFrequencyBand()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getHalBasedAutojoinOffload()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -351,23 +381,7 @@
     .end annotation
 .end method
 
-.method public abstract getWifiStaSapConcurrency()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getWpsNfcConfigurationToken(I)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract hasCarrierConfiguredNetworks()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -383,7 +397,23 @@
     .end annotation
 .end method
 
+.method public abstract isBatchedScanSupported()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isDualBandSupported()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isIbssSupported()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -407,33 +437,6 @@
     .end annotation
 .end method
 
-.method public abstract matchProviderWithCurrentNetwork(Ljava/lang/String;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract modifyPasspointManagementObject(Ljava/lang/String;Ljava/util/List;)I
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Landroid/net/wifi/PasspointManagementObjectDefinition;",
-            ">;)I"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract pingSupplicant()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -442,7 +445,7 @@
     .end annotation
 .end method
 
-.method public abstract queryPasspointIcon(JLjava/lang/String;)V
+.method public abstract pollBatchedScan()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -498,7 +501,7 @@
     .end annotation
 .end method
 
-.method public abstract requestActivityInfo(Landroid/os/ResultReceiver;)V
+.method public abstract requestBatchedScan(Landroid/net/wifi/BatchedScanSettings;Landroid/os/IBinder;Landroid/os/WorkSource;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -530,7 +533,7 @@
     .end annotation
 .end method
 
-.method public abstract setEnableAutoJoinWhenAssociated(Z)Z
+.method public abstract setFrequencyBand(IZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -538,7 +541,7 @@
     .end annotation
 .end method
 
-.method public abstract setFrequencyBand(IZ)V
+.method public abstract setHalBasedAutojoinOffload(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -562,7 +565,15 @@
     .end annotation
 .end method
 
-.method public abstract setWifiEnabled(Ljava/lang/String;Z)Z
+.method public abstract setWifiEnabled(Z)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract startLocationRestrictedScan(Landroid/os/WorkSource;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -571,6 +582,30 @@
 .end method
 
 .method public abstract startScan(Landroid/net/wifi/ScanSettings;Landroid/os/WorkSource;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract startWifi()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract stopBatchedScan(Landroid/net/wifi/BatchedScanSettings;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract stopWifi()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

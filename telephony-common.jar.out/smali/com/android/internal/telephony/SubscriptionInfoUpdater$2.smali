@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/internal/telephony/SubscriptionInfoUpdater;
 
     .prologue
-    .line 157
+    .line 151
     iput-object p1, p0, Lcom/android/internal/telephony/SubscriptionInfoUpdater$2;->this$0:Lcom/android/internal/telephony/SubscriptionInfoUpdater;
 
     invoke-direct {p0}, Landroid/app/IUserSwitchObserver$Stub;-><init>()V
@@ -44,7 +44,7 @@
     .end annotation
 
     .prologue
-    .line 180
+    .line 173
     return-void
 .end method
 
@@ -53,12 +53,12 @@
     .param p1, "newUserId"    # I
 
     .prologue
-    .line 175
+    .line 168
     return-void
 .end method
 
 .method public onUserSwitching(ILandroid/os/IRemoteCallback;)V
-    .locals 6
+    .locals 5
     .param p1, "newUserId"    # I
     .param p2, "reply"    # Landroid/os/IRemoteCallback;
     .annotation system Ldalvik/annotation/Throws;
@@ -68,12 +68,12 @@
     .end annotation
 
     .prologue
-    .line 161
+    .line 155
     iget-object v1, p0, Lcom/android/internal/telephony/SubscriptionInfoUpdater$2;->this$0:Lcom/android/internal/telephony/SubscriptionInfoUpdater;
 
     invoke-static {v1, p1}, Lcom/android/internal/telephony/SubscriptionInfoUpdater;->-set0(Lcom/android/internal/telephony/SubscriptionInfoUpdater;I)I
 
-    .line 162
+    .line 156
     invoke-static {}, Lcom/android/internal/telephony/SubscriptionInfoUpdater;->-get0()Landroid/content/Context;
 
     move-result-object v1
@@ -82,10 +82,10 @@
 
     move-result-object v1
 
-    .line 163
+    .line 157
     iget-object v2, p0, Lcom/android/internal/telephony/SubscriptionInfoUpdater$2;->this$0:Lcom/android/internal/telephony/SubscriptionInfoUpdater;
 
-    invoke-static {v2}, Lcom/android/internal/telephony/SubscriptionInfoUpdater;->-get2(Lcom/android/internal/telephony/SubscriptionInfoUpdater;)Landroid/content/pm/IPackageManager;
+    invoke-static {v2}, Lcom/android/internal/telephony/SubscriptionInfoUpdater;->-get3(Lcom/android/internal/telephony/SubscriptionInfoUpdater;)Landroid/content/pm/IPackageManager;
 
     move-result-object v2
 
@@ -93,28 +93,19 @@
 
     move-result-object v3
 
-    .line 164
-    invoke-static {}, Lcom/android/internal/telephony/SubscriptionInfoUpdater;->-get0()Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/internal/telephony/SubscriptionInfoUpdater$2;->this$0:Lcom/android/internal/telephony/SubscriptionInfoUpdater;
 
-    move-result-object v4
+    invoke-static {v4}, Lcom/android/internal/telephony/SubscriptionInfoUpdater;->-get1(Lcom/android/internal/telephony/SubscriptionInfoUpdater;)I
 
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    move-result v4
 
-    move-result-object v4
+    .line 156
+    invoke-static {v1, v2, v3, v4}, Lcom/android/internal/telephony/CarrierAppUtils;->disableCarrierAppsUntilPrivileged(Ljava/lang/String;Landroid/content/pm/IPackageManager;Landroid/telephony/TelephonyManager;I)V
 
-    iget-object v5, p0, Lcom/android/internal/telephony/SubscriptionInfoUpdater$2;->this$0:Lcom/android/internal/telephony/SubscriptionInfoUpdater;
-
-    invoke-static {v5}, Lcom/android/internal/telephony/SubscriptionInfoUpdater;->-get1(Lcom/android/internal/telephony/SubscriptionInfoUpdater;)I
-
-    move-result v5
-
-    .line 162
-    invoke-static {v1, v2, v3, v4, v5}, Lcom/android/internal/telephony/CarrierAppUtils;->disableCarrierAppsUntilPrivileged(Ljava/lang/String;Landroid/content/pm/IPackageManager;Landroid/telephony/TelephonyManager;Landroid/content/ContentResolver;I)V
-
-    .line 166
+    .line 159
     if-eqz p2, :cond_0
 
-    .line 168
+    .line 161
     const/4 v1, 0x0
 
     :try_start_0
@@ -122,12 +113,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 160
+    .line 154
     :cond_0
     :goto_0
     return-void
 
-    .line 169
+    .line 162
     :catch_0
     move-exception v0
 

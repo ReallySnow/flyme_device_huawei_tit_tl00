@@ -25,7 +25,7 @@
     .param p2, "$anonymous0"    # Landroid/os/Looper;
 
     .prologue
-    .line 2264
+    .line 1987
     iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$1;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -36,25 +36,19 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .locals 2
     .param p1, "message"    # Landroid/os/Message;
 
     .prologue
-    .line 2267
-    iget v1, p1, Landroid/os/Message;->what:I
+    .line 1990
+    iget v0, p1, Landroid/os/Message;->what:I
 
-    .line 2268
-    .local v1, "eventType":I
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    .line 1991
+    .local v0, "eventType":I
+    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$1;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
-    check-cast v0, Landroid/view/accessibility/AccessibilityEvent;
+    invoke-static {v1, v0}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap0(Lcom/android/server/accessibility/AccessibilityManagerService$Service;I)V
 
-    .line 2269
-    .local v0, "event":Landroid/view/accessibility/AccessibilityEvent;
-    iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$1;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
-
-    invoke-static {v2, v1, v0}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap0(Lcom/android/server/accessibility/AccessibilityManagerService$Service;ILandroid/view/accessibility/AccessibilityEvent;)V
-
-    .line 2266
+    .line 1989
     return-void
 .end method

@@ -26,53 +26,49 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.view.IInputContext"
 
-.field static final TRANSACTION_beginBatchEdit:I = 0xf
+.field static final TRANSACTION_beginBatchEdit:I = 0xe
 
-.field static final TRANSACTION_clearMetaKeyStates:I = 0x13
+.field static final TRANSACTION_clearMetaKeyStates:I = 0x12
 
-.field static final TRANSACTION_commitCompletion:I = 0xa
+.field static final TRANSACTION_commitCompletion:I = 0x9
 
-.field static final TRANSACTION_commitContent:I = 0x18
+.field static final TRANSACTION_commitCorrection:I = 0xa
 
-.field static final TRANSACTION_commitCorrection:I = 0xb
-
-.field static final TRANSACTION_commitText:I = 0x9
+.field static final TRANSACTION_commitText:I = 0x8
 
 .field static final TRANSACTION_deleteSurroundingText:I = 0x5
 
-.field static final TRANSACTION_deleteSurroundingTextInCodePoints:I = 0x6
+.field static final TRANSACTION_endBatchEdit:I = 0xf
 
-.field static final TRANSACTION_endBatchEdit:I = 0x10
-
-.field static final TRANSACTION_finishComposingText:I = 0x8
+.field static final TRANSACTION_finishComposingText:I = 0x7
 
 .field static final TRANSACTION_getCursorCapsMode:I = 0x3
 
 .field static final TRANSACTION_getExtractedText:I = 0x4
 
-.field static final TRANSACTION_getSelectedText:I = 0x16
+.field static final TRANSACTION_getSelectedText:I = 0x15
 
 .field static final TRANSACTION_getTextAfterCursor:I = 0x2
 
 .field static final TRANSACTION_getTextBeforeCursor:I = 0x1
 
-.field static final TRANSACTION_performContextMenuAction:I = 0xe
+.field static final TRANSACTION_performContextMenuAction:I = 0xd
 
-.field static final TRANSACTION_performEditorAction:I = 0xd
+.field static final TRANSACTION_performEditorAction:I = 0xc
 
-.field static final TRANSACTION_performPrivateCommand:I = 0x14
+.field static final TRANSACTION_performPrivateCommand:I = 0x13
 
-.field static final TRANSACTION_reportFullscreenMode:I = 0x11
+.field static final TRANSACTION_reportFullscreenMode:I = 0x10
 
-.field static final TRANSACTION_requestUpdateCursorAnchorInfo:I = 0x17
+.field static final TRANSACTION_requestUpdateCursorAnchorInfo:I = 0x16
 
-.field static final TRANSACTION_sendKeyEvent:I = 0x12
+.field static final TRANSACTION_sendKeyEvent:I = 0x11
 
-.field static final TRANSACTION_setComposingRegion:I = 0x15
+.field static final TRANSACTION_setComposingRegion:I = 0x14
 
-.field static final TRANSACTION_setComposingText:I = 0x7
+.field static final TRANSACTION_setComposingText:I = 0x6
 
-.field static final TRANSACTION_setSelection:I = 0xc
+.field static final TRANSACTION_setSelection:I = 0xb
 
 
 # direct methods
@@ -148,7 +144,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 21
+    .locals 15
     .param p1, "code"    # I
     .param p2, "data"    # Landroid/os/Parcel;
     .param p3, "reply"    # Landroid/os/Parcel;
@@ -163,1023 +159,835 @@
     .line 43
     sparse-switch p1, :sswitch_data_0
 
-    .line 334
+    .line 298
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v3
+    move-result v14
 
-    return v3
+    return v14
 
     .line 47
     :sswitch_0
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 48
-    const/4 v3, 0x1
+    const/4 v14, 0x1
 
-    return v3
+    return v14
 
     .line 52
     :sswitch_1
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 54
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v1
 
     .line 56
-    .local v9, "_arg0":I
+    .local v1, "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v9
 
     .line 58
-    .local v5, "_arg1":I
+    .local v9, "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v18
+    move-result v11
 
     .line 60
-    .local v18, "_arg2":I
+    .local v11, "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v3
+    move-result-object v14
 
-    invoke-static {v3}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
+    invoke-static {v14}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
 
-    move-result-object v20
+    move-result-object v13
 
     .line 61
-    .local v20, "_arg3":Lcom/android/internal/view/IInputContextCallback;
-    move-object/from16 v0, p0
-
-    move/from16 v1, v18
-
-    move-object/from16 v2, v20
-
-    invoke-virtual {v0, v9, v5, v1, v2}, Lcom/android/internal/view/IInputContext$Stub;->getTextBeforeCursor(IIILcom/android/internal/view/IInputContextCallback;)V
+    .local v13, "_arg3":Lcom/android/internal/view/IInputContextCallback;
+    invoke-virtual {p0, v1, v9, v11, v13}, Lcom/android/internal/view/IInputContext$Stub;->getTextBeforeCursor(IIILcom/android/internal/view/IInputContextCallback;)V
 
     .line 62
-    const/4 v3, 0x1
+    const/4 v14, 0x1
 
-    return v3
+    return v14
 
     .line 66
-    .end local v5    # "_arg1":I
-    .end local v9    # "_arg0":I
-    .end local v18    # "_arg2":I
-    .end local v20    # "_arg3":Lcom/android/internal/view/IInputContextCallback;
+    .end local v1    # "_arg0":I
+    .end local v9    # "_arg1":I
+    .end local v11    # "_arg2":I
+    .end local v13    # "_arg3":Lcom/android/internal/view/IInputContextCallback;
     :sswitch_2
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 68
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v1
 
     .line 70
-    .restart local v9    # "_arg0":I
+    .restart local v1    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v9
 
     .line 72
-    .restart local v5    # "_arg1":I
+    .restart local v9    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v18
+    move-result v11
 
     .line 74
-    .restart local v18    # "_arg2":I
+    .restart local v11    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v3
+    move-result-object v14
 
-    invoke-static {v3}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
+    invoke-static {v14}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
 
-    move-result-object v20
+    move-result-object v13
 
     .line 75
-    .restart local v20    # "_arg3":Lcom/android/internal/view/IInputContextCallback;
-    move-object/from16 v0, p0
-
-    move/from16 v1, v18
-
-    move-object/from16 v2, v20
-
-    invoke-virtual {v0, v9, v5, v1, v2}, Lcom/android/internal/view/IInputContext$Stub;->getTextAfterCursor(IIILcom/android/internal/view/IInputContextCallback;)V
+    .restart local v13    # "_arg3":Lcom/android/internal/view/IInputContextCallback;
+    invoke-virtual {p0, v1, v9, v11, v13}, Lcom/android/internal/view/IInputContext$Stub;->getTextAfterCursor(IIILcom/android/internal/view/IInputContextCallback;)V
 
     .line 76
-    const/4 v3, 0x1
+    const/4 v14, 0x1
 
-    return v3
+    return v14
 
     .line 80
-    .end local v5    # "_arg1":I
-    .end local v9    # "_arg0":I
-    .end local v18    # "_arg2":I
-    .end local v20    # "_arg3":Lcom/android/internal/view/IInputContextCallback;
+    .end local v1    # "_arg0":I
+    .end local v9    # "_arg1":I
+    .end local v11    # "_arg2":I
+    .end local v13    # "_arg3":Lcom/android/internal/view/IInputContextCallback;
     :sswitch_3
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 82
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v1
 
     .line 84
-    .restart local v9    # "_arg0":I
+    .restart local v1    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v9
 
     .line 86
-    .restart local v5    # "_arg1":I
+    .restart local v9    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v3
+    move-result-object v14
 
-    invoke-static {v3}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
+    invoke-static {v14}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
 
-    move-result-object v19
+    move-result-object v12
 
     .line 87
-    .local v19, "_arg2":Lcom/android/internal/view/IInputContextCallback;
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v9, v5, v1}, Lcom/android/internal/view/IInputContext$Stub;->getCursorCapsMode(IILcom/android/internal/view/IInputContextCallback;)V
+    .local v12, "_arg2":Lcom/android/internal/view/IInputContextCallback;
+    invoke-virtual {p0, v1, v9, v12}, Lcom/android/internal/view/IInputContext$Stub;->getCursorCapsMode(IILcom/android/internal/view/IInputContextCallback;)V
 
     .line 88
-    const/4 v3, 0x1
+    const/4 v14, 0x1
 
-    return v3
+    return v14
 
     .line 92
-    .end local v5    # "_arg1":I
-    .end local v9    # "_arg0":I
-    .end local v19    # "_arg2":Lcom/android/internal/view/IInputContextCallback;
+    .end local v1    # "_arg0":I
+    .end local v9    # "_arg1":I
+    .end local v12    # "_arg2":Lcom/android/internal/view/IInputContextCallback;
     :sswitch_4
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 94
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v14
 
-    if-eqz v3, :cond_0
+    if-eqz v14, :cond_0
 
     .line 95
-    sget-object v3, Landroid/view/inputmethod/ExtractedTextRequest;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v14, Landroid/view/inputmethod/ExtractedTextRequest;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
 
-    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v14, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v5
 
-    check-cast v13, Landroid/view/inputmethod/ExtractedTextRequest;
+    check-cast v5, Landroid/view/inputmethod/ExtractedTextRequest;
 
     .line 101
     :goto_0
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v9
 
     .line 103
-    .restart local v5    # "_arg1":I
+    .restart local v9    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v18
+    move-result v11
 
     .line 105
-    .restart local v18    # "_arg2":I
+    .restart local v11    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v3
+    move-result-object v14
 
-    invoke-static {v3}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
+    invoke-static {v14}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
 
-    move-result-object v20
+    move-result-object v13
 
     .line 106
-    .restart local v20    # "_arg3":Lcom/android/internal/view/IInputContextCallback;
-    move-object/from16 v0, p0
-
-    move/from16 v1, v18
-
-    move-object/from16 v2, v20
-
-    invoke-virtual {v0, v13, v5, v1, v2}, Lcom/android/internal/view/IInputContext$Stub;->getExtractedText(Landroid/view/inputmethod/ExtractedTextRequest;IILcom/android/internal/view/IInputContextCallback;)V
+    .restart local v13    # "_arg3":Lcom/android/internal/view/IInputContextCallback;
+    invoke-virtual {p0, v5, v9, v11, v13}, Lcom/android/internal/view/IInputContext$Stub;->getExtractedText(Landroid/view/inputmethod/ExtractedTextRequest;IILcom/android/internal/view/IInputContextCallback;)V
 
     .line 107
-    const/4 v3, 0x1
+    const/4 v14, 0x1
 
-    return v3
+    return v14
 
     .line 98
-    .end local v5    # "_arg1":I
-    .end local v18    # "_arg2":I
-    .end local v20    # "_arg3":Lcom/android/internal/view/IInputContextCallback;
+    .end local v9    # "_arg1":I
+    .end local v11    # "_arg2":I
+    .end local v13    # "_arg3":Lcom/android/internal/view/IInputContextCallback;
     :cond_0
-    const/4 v13, 0x0
+    const/4 v5, 0x0
 
-    .local v13, "_arg0":Landroid/view/inputmethod/ExtractedTextRequest;
+    .local v5, "_arg0":Landroid/view/inputmethod/ExtractedTextRequest;
     goto :goto_0
 
     .line 111
-    .end local v13    # "_arg0":Landroid/view/inputmethod/ExtractedTextRequest;
+    .end local v5    # "_arg0":Landroid/view/inputmethod/ExtractedTextRequest;
     :sswitch_5
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 113
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v1
 
     .line 115
-    .restart local v9    # "_arg0":I
+    .restart local v1    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v9
 
     .line 116
-    .restart local v5    # "_arg1":I
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v9, v5}, Lcom/android/internal/view/IInputContext$Stub;->deleteSurroundingText(II)V
+    .restart local v9    # "_arg1":I
+    invoke-virtual {p0, v1, v9}, Lcom/android/internal/view/IInputContext$Stub;->deleteSurroundingText(II)V
 
     .line 117
-    const/4 v3, 0x1
+    const/4 v14, 0x1
 
-    return v3
+    return v14
 
     .line 121
-    .end local v5    # "_arg1":I
-    .end local v9    # "_arg0":I
+    .end local v1    # "_arg0":I
+    .end local v9    # "_arg1":I
     :sswitch_6
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 123
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v14
 
-    .line 125
-    .restart local v9    # "_arg0":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    if-eqz v14, :cond_1
 
-    move-result v5
-
-    .line 126
-    .restart local v5    # "_arg1":I
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v9, v5}, Lcom/android/internal/view/IInputContext$Stub;->deleteSurroundingTextInCodePoints(II)V
-
-    .line 127
-    const/4 v3, 0x1
-
-    return v3
-
-    .line 131
-    .end local v5    # "_arg1":I
-    .end local v9    # "_arg0":I
-    :sswitch_7
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    .line 124
+    sget-object v14, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-interface {v14, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    .line 133
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    move-result-object v6
 
-    move-result v3
+    check-cast v6, Ljava/lang/CharSequence;
 
-    if-eqz v3, :cond_1
-
-    .line 134
-    sget-object v3, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v14
-
-    check-cast v14, Ljava/lang/CharSequence;
-
-    .line 140
+    .line 130
     :goto_1
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v9
 
-    .line 141
-    .restart local v5    # "_arg1":I
-    move-object/from16 v0, p0
+    .line 131
+    .restart local v9    # "_arg1":I
+    invoke-virtual {p0, v6, v9}, Lcom/android/internal/view/IInputContext$Stub;->setComposingText(Ljava/lang/CharSequence;I)V
 
-    invoke-virtual {v0, v14, v5}, Lcom/android/internal/view/IInputContext$Stub;->setComposingText(Ljava/lang/CharSequence;I)V
+    .line 132
+    const/4 v14, 0x1
 
-    .line 142
-    const/4 v3, 0x1
+    return v14
 
-    return v3
-
-    .line 137
-    .end local v5    # "_arg1":I
+    .line 127
+    .end local v9    # "_arg1":I
     :cond_1
-    const/4 v14, 0x0
+    const/4 v6, 0x0
 
-    .local v14, "_arg0":Ljava/lang/CharSequence;
+    .local v6, "_arg0":Ljava/lang/CharSequence;
     goto :goto_1
 
-    .line 146
-    .end local v14    # "_arg0":Ljava/lang/CharSequence;
+    .line 136
+    .end local v6    # "_arg0":Ljava/lang/CharSequence;
+    :sswitch_7
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 137
+    invoke-virtual {p0}, Lcom/android/internal/view/IInputContext$Stub;->finishComposingText()V
+
+    .line 138
+    const/4 v14, 0x1
+
+    return v14
+
+    .line 142
     :sswitch_8
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 147
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputContext$Stub;->finishComposingText()V
-
-    .line 148
-    const/4 v3, 0x1
-
-    return v3
-
-    .line 152
-    :sswitch_9
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 154
+    .line 144
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v14
 
-    if-eqz v3, :cond_2
+    if-eqz v14, :cond_2
 
-    .line 155
-    sget-object v3, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
+    .line 145
+    sget-object v14, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
 
-    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v14, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v6
 
-    check-cast v14, Ljava/lang/CharSequence;
+    check-cast v6, Ljava/lang/CharSequence;
 
-    .line 161
+    .line 151
     :goto_2
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v9
 
-    .line 162
-    .restart local v5    # "_arg1":I
-    move-object/from16 v0, p0
+    .line 152
+    .restart local v9    # "_arg1":I
+    invoke-virtual {p0, v6, v9}, Lcom/android/internal/view/IInputContext$Stub;->commitText(Ljava/lang/CharSequence;I)V
 
-    invoke-virtual {v0, v14, v5}, Lcom/android/internal/view/IInputContext$Stub;->commitText(Ljava/lang/CharSequence;I)V
+    .line 153
+    const/4 v14, 0x1
 
-    .line 163
-    const/4 v3, 0x1
+    return v14
 
-    return v3
-
-    .line 158
-    .end local v5    # "_arg1":I
+    .line 148
+    .end local v9    # "_arg1":I
     :cond_2
-    const/4 v14, 0x0
+    const/4 v6, 0x0
 
-    .restart local v14    # "_arg0":Ljava/lang/CharSequence;
+    .restart local v6    # "_arg0":Ljava/lang/CharSequence;
     goto :goto_2
 
-    .line 167
-    .end local v14    # "_arg0":Ljava/lang/CharSequence;
-    :sswitch_a
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    .line 157
+    .end local v6    # "_arg0":Ljava/lang/CharSequence;
+    :sswitch_9
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 169
+    .line 159
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v14
 
-    if-eqz v3, :cond_3
+    if-eqz v14, :cond_3
 
-    .line 170
-    sget-object v3, Landroid/view/inputmethod/CompletionInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    .line 160
+    sget-object v14, Landroid/view/inputmethod/CompletionInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
 
-    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v14, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v3
 
-    check-cast v11, Landroid/view/inputmethod/CompletionInfo;
+    check-cast v3, Landroid/view/inputmethod/CompletionInfo;
 
-    .line 175
+    .line 165
     :goto_3
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v3}, Lcom/android/internal/view/IInputContext$Stub;->commitCompletion(Landroid/view/inputmethod/CompletionInfo;)V
 
-    invoke-virtual {v0, v11}, Lcom/android/internal/view/IInputContext$Stub;->commitCompletion(Landroid/view/inputmethod/CompletionInfo;)V
+    .line 166
+    const/4 v14, 0x1
 
-    .line 176
-    const/4 v3, 0x1
+    return v14
 
-    return v3
-
-    .line 173
+    .line 163
     :cond_3
-    const/4 v11, 0x0
+    const/4 v3, 0x0
 
-    .local v11, "_arg0":Landroid/view/inputmethod/CompletionInfo;
+    .local v3, "_arg0":Landroid/view/inputmethod/CompletionInfo;
     goto :goto_3
 
-    .line 180
-    .end local v11    # "_arg0":Landroid/view/inputmethod/CompletionInfo;
-    :sswitch_b
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    .line 170
+    .end local v3    # "_arg0":Landroid/view/inputmethod/CompletionInfo;
+    :sswitch_a
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 182
+    .line 172
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v14
 
-    if-eqz v3, :cond_4
+    if-eqz v14, :cond_4
 
-    .line 183
-    sget-object v3, Landroid/view/inputmethod/CorrectionInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    .line 173
+    sget-object v14, Landroid/view/inputmethod/CorrectionInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
 
-    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v14, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v4
 
-    check-cast v12, Landroid/view/inputmethod/CorrectionInfo;
+    check-cast v4, Landroid/view/inputmethod/CorrectionInfo;
 
-    .line 188
+    .line 178
     :goto_4
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v4}, Lcom/android/internal/view/IInputContext$Stub;->commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)V
 
-    invoke-virtual {v0, v12}, Lcom/android/internal/view/IInputContext$Stub;->commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)V
+    .line 179
+    const/4 v14, 0x1
 
-    .line 189
-    const/4 v3, 0x1
+    return v14
 
-    return v3
-
-    .line 186
+    .line 176
     :cond_4
-    const/4 v12, 0x0
+    const/4 v4, 0x0
 
-    .local v12, "_arg0":Landroid/view/inputmethod/CorrectionInfo;
+    .local v4, "_arg0":Landroid/view/inputmethod/CorrectionInfo;
     goto :goto_4
 
-    .line 193
-    .end local v12    # "_arg0":Landroid/view/inputmethod/CorrectionInfo;
-    :sswitch_c
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    .line 183
+    .end local v4    # "_arg0":Landroid/view/inputmethod/CorrectionInfo;
+    :sswitch_b
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 185
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 187
+    .restart local v1    # "_arg0":I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v9
+
+    .line 188
+    .restart local v9    # "_arg1":I
+    invoke-virtual {p0, v1, v9}, Lcom/android/internal/view/IInputContext$Stub;->setSelection(II)V
+
+    .line 189
+    const/4 v14, 0x1
+
+    return v14
+
+    .line 193
+    .end local v1    # "_arg0":I
+    .end local v9    # "_arg1":I
+    :sswitch_c
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 195
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v1
+
+    .line 196
+    .restart local v1    # "_arg0":I
+    invoke-virtual {p0, v1}, Lcom/android/internal/view/IInputContext$Stub;->performEditorAction(I)V
 
     .line 197
-    .restart local v9    # "_arg0":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    const/4 v14, 0x1
 
-    move-result v5
+    return v14
 
-    .line 198
-    .restart local v5    # "_arg1":I
-    move-object/from16 v0, p0
+    .line 201
+    .end local v1    # "_arg0":I
+    :sswitch_d
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
-    invoke-virtual {v0, v9, v5}, Lcom/android/internal/view/IInputContext$Stub;->setSelection(II)V
+    move-object/from16 v0, p2
 
-    .line 199
-    const/4 v3, 0x1
-
-    return v3
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 203
-    .end local v5    # "_arg1":I
-    .end local v9    # "_arg0":I
-    :sswitch_d
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-object/from16 v0, p2
+    move-result v1
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    .line 204
+    .restart local v1    # "_arg0":I
+    invoke-virtual {p0, v1}, Lcom/android/internal/view/IInputContext$Stub;->performContextMenuAction(I)V
 
     .line 205
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    const/4 v14, 0x1
 
-    move-result v9
+    return v14
 
-    .line 206
-    .restart local v9    # "_arg0":I
-    move-object/from16 v0, p0
+    .line 209
+    .end local v1    # "_arg0":I
+    :sswitch_e
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
-    invoke-virtual {v0, v9}, Lcom/android/internal/view/IInputContext$Stub;->performEditorAction(I)V
+    move-object/from16 v0, p2
 
-    .line 207
-    const/4 v3, 0x1
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    return v3
+    .line 210
+    invoke-virtual {p0}, Lcom/android/internal/view/IInputContext$Stub;->beginBatchEdit()V
 
     .line 211
-    .end local v9    # "_arg0":I
-    :sswitch_e
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const/4 v14, 0x1
 
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 213
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v9
-
-    .line 214
-    .restart local v9    # "_arg0":I
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v9}, Lcom/android/internal/view/IInputContext$Stub;->performContextMenuAction(I)V
+    return v14
 
     .line 215
-    const/4 v3, 0x1
-
-    return v3
-
-    .line 219
-    .end local v9    # "_arg0":I
     :sswitch_f
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 220
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputContext$Stub;->beginBatchEdit()V
+    .line 216
+    invoke-virtual {p0}, Lcom/android/internal/view/IInputContext$Stub;->endBatchEdit()V
+
+    .line 217
+    const/4 v14, 0x1
+
+    return v14
 
     .line 221
-    const/4 v3, 0x1
+    :sswitch_10
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
-    return v3
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 223
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v14
+
+    if-eqz v14, :cond_5
+
+    const/4 v8, 0x1
+
+    .line 224
+    .local v8, "_arg0":Z
+    :goto_5
+    invoke-virtual {p0, v8}, Lcom/android/internal/view/IInputContext$Stub;->reportFullscreenMode(Z)V
 
     .line 225
-    :sswitch_10
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const/4 v14, 0x1
 
-    move-object/from16 v0, p2
+    return v14
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 226
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/IInputContext$Stub;->endBatchEdit()V
-
-    .line 227
-    const/4 v3, 0x1
-
-    return v3
-
-    .line 231
-    :sswitch_11
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 233
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    const/16 v16, 0x1
-
-    .line 234
-    .local v16, "_arg0":Z
-    :goto_5
-    move-object/from16 v0, p0
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/view/IInputContext$Stub;->reportFullscreenMode(Z)V
-
-    .line 235
-    const/4 v3, 0x1
-
-    return v3
-
-    .line 233
-    .end local v16    # "_arg0":Z
+    .line 223
+    .end local v8    # "_arg0":Z
     :cond_5
-    const/16 v16, 0x0
+    const/4 v8, 0x0
 
+    .restart local v8    # "_arg0":Z
     goto :goto_5
 
-    .line 239
-    :sswitch_12
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    .line 229
+    .end local v8    # "_arg0":Z
+    :sswitch_11
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 241
+    .line 231
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v14
 
-    if-eqz v3, :cond_6
+    if-eqz v14, :cond_6
 
-    .line 242
-    sget-object v3, Landroid/view/KeyEvent;->CREATOR:Landroid/os/Parcelable$Creator;
+    .line 232
+    sget-object v14, Landroid/view/KeyEvent;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
 
-    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v14, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/KeyEvent;
+
+    .line 237
+    :goto_6
+    invoke-virtual {p0, v2}, Lcom/android/internal/view/IInputContext$Stub;->sendKeyEvent(Landroid/view/KeyEvent;)V
+
+    .line 238
+    const/4 v14, 0x1
+
+    return v14
+
+    .line 235
+    :cond_6
+    const/4 v2, 0x0
+
+    .local v2, "_arg0":Landroid/view/KeyEvent;
+    goto :goto_6
+
+    .line 242
+    .end local v2    # "_arg0":Landroid/view/KeyEvent;
+    :sswitch_12
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 244
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 245
+    .restart local v1    # "_arg0":I
+    invoke-virtual {p0, v1}, Lcom/android/internal/view/IInputContext$Stub;->clearMetaKeyStates(I)V
+
+    .line 246
+    const/4 v14, 0x1
+
+    return v14
+
+    .line 250
+    .end local v1    # "_arg0":I
+    :sswitch_13
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 252
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 254
+    .local v7, "_arg0":Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v14
+
+    if-eqz v14, :cond_7
+
+    .line 255
+    sget-object v14, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v14, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v10
 
-    check-cast v10, Landroid/view/KeyEvent;
+    check-cast v10, Landroid/os/Bundle;
 
-    .line 247
-    :goto_6
-    move-object/from16 v0, p0
+    .line 260
+    :goto_7
+    invoke-virtual {p0, v7, v10}, Lcom/android/internal/view/IInputContext$Stub;->performPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    invoke-virtual {v0, v10}, Lcom/android/internal/view/IInputContext$Stub;->sendKeyEvent(Landroid/view/KeyEvent;)V
+    .line 261
+    const/4 v14, 0x1
 
-    .line 248
-    const/4 v3, 0x1
+    return v14
 
-    return v3
-
-    .line 245
-    :cond_6
+    .line 258
+    :cond_7
     const/4 v10, 0x0
 
-    .local v10, "_arg0":Landroid/view/KeyEvent;
-    goto :goto_6
+    .local v10, "_arg1":Landroid/os/Bundle;
+    goto :goto_7
 
-    .line 252
-    .end local v10    # "_arg0":Landroid/view/KeyEvent;
-    :sswitch_13
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    .line 265
+    .end local v7    # "_arg0":Ljava/lang/String;
+    .end local v10    # "_arg1":Landroid/os/Bundle;
+    :sswitch_14
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 254
+    .line 267
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 269
+    .restart local v1    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
 
-    .line 255
-    .restart local v9    # "_arg0":I
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v9}, Lcom/android/internal/view/IInputContext$Stub;->clearMetaKeyStates(I)V
-
-    .line 256
-    const/4 v3, 0x1
-
-    return v3
-
-    .line 260
-    .end local v9    # "_arg0":I
-    :sswitch_14
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 262
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v15
-
-    .line 264
-    .local v15, "_arg0":Ljava/lang/String;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_7
-
-    .line 265
-    sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v17
-
-    check-cast v17, Landroid/os/Bundle;
-
     .line 270
-    :goto_7
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v15, v1}, Lcom/android/internal/view/IInputContext$Stub;->performPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)V
+    .restart local v9    # "_arg1":I
+    invoke-virtual {p0, v1, v9}, Lcom/android/internal/view/IInputContext$Stub;->setComposingRegion(II)V
 
     .line 271
-    const/4 v3, 0x1
+    const/4 v14, 0x1
 
-    return v3
-
-    .line 268
-    :cond_7
-    const/16 v17, 0x0
-
-    .local v17, "_arg1":Landroid/os/Bundle;
-    goto :goto_7
+    return v14
 
     .line 275
-    .end local v15    # "_arg0":Ljava/lang/String;
-    .end local v17    # "_arg1":Landroid/os/Bundle;
+    .end local v1    # "_arg0":I
+    .end local v9    # "_arg1":I
     :sswitch_15
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 277
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v1
 
     .line 279
-    .restart local v9    # "_arg0":I
+    .restart local v1    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
-
-    .line 280
-    .restart local v5    # "_arg1":I
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v9, v5}, Lcom/android/internal/view/IInputContext$Stub;->setComposingRegion(II)V
+    move-result v9
 
     .line 281
-    const/4 v3, 0x1
+    .restart local v9    # "_arg1":I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    return v3
+    move-result-object v14
 
-    .line 285
-    .end local v5    # "_arg1":I
-    .end local v9    # "_arg0":I
-    :sswitch_16
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
+    invoke-static {v14}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
 
-    move-object/from16 v0, p2
+    move-result-object v12
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    .line 282
+    .restart local v12    # "_arg2":Lcom/android/internal/view/IInputContextCallback;
+    invoke-virtual {p0, v1, v9, v12}, Lcom/android/internal/view/IInputContext$Stub;->getSelectedText(IILcom/android/internal/view/IInputContextCallback;)V
+
+    .line 283
+    const/4 v14, 0x1
+
+    return v14
 
     .line 287
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    .end local v1    # "_arg0":I
+    .end local v9    # "_arg1":I
+    .end local v12    # "_arg2":Lcom/android/internal/view/IInputContextCallback;
+    :sswitch_16
+    const-string/jumbo v14, "com.android.internal.view.IInputContext"
 
-    move-result v9
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 289
-    .restart local v9    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v1
 
     .line 291
-    .restart local v5    # "_arg1":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
-
-    move-result-object v19
-
-    .line 292
-    .restart local v19    # "_arg2":Lcom/android/internal/view/IInputContextCallback;
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v9, v5, v1}, Lcom/android/internal/view/IInputContext$Stub;->getSelectedText(IILcom/android/internal/view/IInputContextCallback;)V
-
-    .line 293
-    const/4 v3, 0x1
-
-    return v3
-
-    .line 297
-    .end local v5    # "_arg1":I
-    .end local v9    # "_arg0":I
-    .end local v19    # "_arg2":Lcom/android/internal/view/IInputContextCallback;
-    :sswitch_17
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 299
+    .restart local v1    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
 
-    .line 301
-    .restart local v9    # "_arg0":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    .line 303
-    .restart local v5    # "_arg1":I
+    .line 293
+    .restart local v9    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v3
+    move-result-object v14
 
-    invoke-static {v3}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
+    invoke-static {v14}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
 
-    move-result-object v19
+    move-result-object v12
 
-    .line 304
-    .restart local v19    # "_arg2":Lcom/android/internal/view/IInputContextCallback;
-    move-object/from16 v0, p0
+    .line 294
+    .restart local v12    # "_arg2":Lcom/android/internal/view/IInputContextCallback;
+    invoke-virtual {p0, v1, v9, v12}, Lcom/android/internal/view/IInputContext$Stub;->requestUpdateCursorAnchorInfo(IILcom/android/internal/view/IInputContextCallback;)V
 
-    move-object/from16 v1, v19
+    .line 295
+    const/4 v14, 0x1
 
-    invoke-virtual {v0, v9, v5, v1}, Lcom/android/internal/view/IInputContext$Stub;->requestUpdateCursorAnchorInfo(IILcom/android/internal/view/IInputContextCallback;)V
-
-    .line 305
-    const/4 v3, 0x1
-
-    return v3
-
-    .line 309
-    .end local v5    # "_arg1":I
-    .end local v9    # "_arg0":I
-    .end local v19    # "_arg2":Lcom/android/internal/view/IInputContextCallback;
-    :sswitch_18
-    const-string/jumbo v3, "com.android.internal.view.IInputContext"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 311
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_8
-
-    .line 312
-    sget-object v3, Landroid/view/inputmethod/InputContentInfo;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/view/inputmethod/InputContentInfo;
-
-    .line 318
-    :goto_8
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    .line 320
-    .restart local v5    # "_arg1":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_9
-
-    .line 321
-    sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/os/Bundle;
-
-    .line 327
-    :goto_9
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v7
-
-    .line 329
-    .local v7, "_arg3":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
-
-    move-result-object v8
-
-    .local v8, "_arg4":Lcom/android/internal/view/IInputContextCallback;
-    move-object/from16 v3, p0
-
-    .line 330
-    invoke-virtual/range {v3 .. v8}, Lcom/android/internal/view/IInputContext$Stub;->commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;ILcom/android/internal/view/IInputContextCallback;)V
-
-    .line 331
-    const/4 v3, 0x1
-
-    return v3
-
-    .line 315
-    .end local v5    # "_arg1":I
-    .end local v7    # "_arg3":I
-    .end local v8    # "_arg4":Lcom/android/internal/view/IInputContextCallback;
-    :cond_8
-    const/4 v4, 0x0
-
-    .local v4, "_arg0":Landroid/view/inputmethod/InputContentInfo;
-    goto :goto_8
-
-    .line 324
-    .end local v4    # "_arg0":Landroid/view/inputmethod/InputContentInfo;
-    .restart local v5    # "_arg1":I
-    :cond_9
-    const/4 v6, 0x0
-
-    .local v6, "_arg2":Landroid/os/Bundle;
-    goto :goto_9
+    return v14
 
     .line 43
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -1204,8 +1012,6 @@
         0x14 -> :sswitch_14
         0x15 -> :sswitch_15
         0x16 -> :sswitch_16
-        0x17 -> :sswitch_17
-        0x18 -> :sswitch_18
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

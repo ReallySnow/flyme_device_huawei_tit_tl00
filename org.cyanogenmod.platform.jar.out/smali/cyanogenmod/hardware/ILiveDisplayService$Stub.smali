@@ -48,17 +48,17 @@
 
 .field static final TRANSACTION_isCABCEnabled:I = 0x8
 
-.field static final TRANSACTION_isColorEnhancementEnabled_9:I = 0xa
+.field static final TRANSACTION_isColorEnhancementEnabled:I = 0xa
 
 .field static final TRANSACTION_setAutoContrastEnabled:I = 0x7
 
 .field static final TRANSACTION_setAutomaticOutdoorModeEnabled:I = 0x12
 
-.field static final TRANSACTION_setCABCEnabled_8:I = 0x9
+.field static final TRANSACTION_setCABCEnabled:I = 0x9
 
 .field static final TRANSACTION_setColorAdjustment:I = 0x5
 
-.field static final TRANSACTION_setColorEnhancementEnabled_10:I = 0xb
+.field static final TRANSACTION_setColorEnhancementEnabled:I = 0xb
 
 .field static final TRANSACTION_setDayColorTemperature:I = 0xd
 
@@ -430,10 +430,10 @@
     :cond_4
     const/4 v2, 0x0
 
+    .restart local v2    # "_arg0":Z
     goto :goto_4
 
     .line 204
-    .restart local v2    # "_arg0":Z
     .restart local v7    # "_result":Z
     :cond_5
     const/4 v9, 0x0
@@ -522,10 +522,10 @@
     :cond_7
     const/4 v2, 0x0
 
+    .restart local v2    # "_arg0":Z
     goto :goto_7
 
     .line 222
-    .restart local v2    # "_arg0":Z
     .restart local v7    # "_result":Z
     :cond_8
     const/4 v9, 0x0
@@ -614,10 +614,10 @@
     :cond_a
     const/4 v2, 0x0
 
+    .restart local v2    # "_arg0":Z
     goto :goto_a
 
     .line 240
-    .restart local v2    # "_arg0":Z
     .restart local v7    # "_result":Z
     :cond_b
     const/4 v9, 0x0
@@ -862,10 +862,10 @@
     :cond_f
     const/4 v2, 0x0
 
+    .restart local v2    # "_arg0":Z
     goto :goto_f
 
     .line 302
-    .restart local v2    # "_arg0":Z
     .restart local v7    # "_result":Z
     :cond_10
     const/4 v9, 0x0

@@ -35,26 +35,26 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 80
     const-string/jumbo v0, "FileObserver"
 
     invoke-direct {p0, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
-    .line 77
+    .line 76
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
 
-    .line 82
+    .line 81
     invoke-direct {p0}, Landroid/os/FileObserver$ObserverThread;->init()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/FileObserver$ObserverThread;->m_fd:I
 
-    .line 80
+    .line 79
     return-void
 .end method
 
@@ -79,16 +79,16 @@
     .param p3, "path"    # Ljava/lang/String;
 
     .prologue
-    .line 108
+    .line 107
     const/4 v1, 0x0
 
-    .line 110
+    .line 109
     .local v1, "observer":Landroid/os/FileObserver;
     iget-object v5, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
 
     monitor-enter v5
 
-    .line 111
+    .line 110
     :try_start_0
     iget-object v4, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
 
@@ -102,11 +102,11 @@
 
     check-cast v3, Ljava/lang/ref/WeakReference;
 
-    .line 112
+    .line 111
     .local v3, "weak":Ljava/lang/ref/WeakReference;
     if-eqz v3, :cond_0
 
-    .line 113
+    .line 112
     invoke-virtual {v3}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v4
@@ -117,11 +117,11 @@
 
     move-object v1, v0
 
-    .line 114
+    .line 113
     .local v1, "observer":Landroid/os/FileObserver;
     if-nez v1, :cond_0
 
-    .line 115
+    .line 114
     iget-object v4, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -136,21 +136,21 @@
     :cond_0
     monitor-exit v5
 
-    .line 121
+    .line 120
     if-eqz v1, :cond_1
 
-    .line 123
+    .line 122
     :try_start_1
     invoke-virtual {v1, p2, p3}, Landroid/os/FileObserver;->onEvent(ILjava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 106
+    .line 105
     :cond_1
     :goto_0
     return-void
 
-    .line 110
+    .line 109
     .end local v3    # "weak":Ljava/lang/ref/WeakReference;
     :catchall_0
     move-exception v4
@@ -159,12 +159,12 @@
 
     throw v4
 
-    .line 124
+    .line 123
     .restart local v3    # "weak":Ljava/lang/ref/WeakReference;
     :catch_0
     move-exception v2
 
-    .line 125
+    .line 124
     .local v2, "throwable":Ljava/lang/Throwable;
     const-string/jumbo v4, "FileObserver"
 
@@ -195,12 +195,12 @@
     .locals 1
 
     .prologue
-    .line 86
+    .line 85
     iget v0, p0, Landroid/os/FileObserver$ObserverThread;->m_fd:I
 
     invoke-direct {p0, v0}, Landroid/os/FileObserver$ObserverThread;->observe(I)V
 
-    .line 85
+    .line 84
     return-void
 .end method
 
@@ -211,29 +211,29 @@
     .param p3, "observer"    # Landroid/os/FileObserver;
 
     .prologue
-    .line 90
+    .line 89
     iget v2, p0, Landroid/os/FileObserver$ObserverThread;->m_fd:I
 
     invoke-direct {p0, v2, p1, p2}, Landroid/os/FileObserver$ObserverThread;->startWatching(ILjava/lang/String;I)I
 
     move-result v1
 
-    .line 92
+    .line 91
     .local v1, "wfd":I
     new-instance v0, Ljava/lang/Integer;
 
     invoke-direct {v0, v1}, Ljava/lang/Integer;-><init>(I)V
 
-    .line 93
+    .line 92
     .local v0, "i":Ljava/lang/Integer;
     if-ltz v1, :cond_0
 
-    .line 94
+    .line 93
     iget-object v3, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
 
     monitor-enter v3
 
-    .line 95
+    .line 94
     :try_start_0
     iget-object v2, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
 
@@ -247,7 +247,7 @@
 
     monitor-exit v3
 
-    .line 99
+    .line 98
     :cond_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -255,7 +255,7 @@
 
     return v2
 
-    .line 94
+    .line 93
     :catchall_0
     move-exception v2
 
@@ -269,11 +269,11 @@
     .param p1, "descriptor"    # I
 
     .prologue
-    .line 103
+    .line 102
     iget v0, p0, Landroid/os/FileObserver$ObserverThread;->m_fd:I
 
     invoke-direct {p0, v0, p1}, Landroid/os/FileObserver$ObserverThread;->stopWatching(II)V
 
-    .line 102
+    .line 101
     return-void
 .end method

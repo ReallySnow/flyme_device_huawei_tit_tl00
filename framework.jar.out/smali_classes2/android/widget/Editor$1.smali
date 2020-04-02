@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/widget/Editor;
 
     .prologue
-    .line 283
+    .line 255
     iput-object p1, p0, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,14 +41,14 @@
     .locals 4
 
     .prologue
-    .line 286
+    .line 258
     iget-object v0, p0, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
 
     iget-object v0, v0, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
 
     if-eqz v0, :cond_0
 
-    .line 287
+    .line 259
     iget-object v0, p0, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
 
     iget-object v0, v0, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
@@ -57,7 +57,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/view/ActionMode;->hide(J)V
 
-    .line 285
+    .line 257
     :cond_0
     return-void
 .end method

@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/content/SyncRequest$1;,
-        Landroid/content/SyncRequest$Builder;
+        Landroid/content/SyncRequest$Builder;,
+        Landroid/content/SyncRequest$1;
     }
 .end annotation
 
@@ -194,10 +194,6 @@
 
     .line 150
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    invoke-static {v0, v1}, Landroid/os/Bundle;->setDefusable(Landroid/os/Bundle;Z)Landroid/os/Bundle;
 
     move-result-object v0
 

@@ -276,7 +276,7 @@
     .end annotation
 
     .prologue
-    .line 136
+    .line 134
     .local p0, "cache":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/os/IBinder;>;"
     sget-object v0, Landroid/os/ServiceManager;->sCache:Ljava/util/HashMap;
 
@@ -286,7 +286,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 137
+    .line 135
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "setServiceCache may only be called once"
@@ -295,21 +295,26 @@
 
     throw v0
 
-    .line 139
+    .line 137
     :cond_0
     sget-object v0, Landroid/os/ServiceManager;->sCache:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->putAll(Ljava/util/Map;)V
 
-    .line 135
+    .line 133
     return-void
 .end method
 
 .method public static listServices()[Ljava/lang/String;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
     .prologue
-    .line 120
+    .line 118
     :try_start_0
     invoke-static {}, Landroid/os/ServiceManager;->getIServiceManager()Landroid/os/IServiceManager;
 
@@ -323,11 +328,11 @@
 
     return-object v1
 
-    .line 121
+    .line 119
     :catch_0
     move-exception v0
 
-    .line 122
+    .line 120
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ServiceManager"
 
@@ -335,7 +340,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 123
+    .line 121
     const/4 v1, 0x0
 
     return-object v1

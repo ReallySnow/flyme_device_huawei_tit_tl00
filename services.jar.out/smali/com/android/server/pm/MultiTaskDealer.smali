@@ -101,7 +101,7 @@
     .local v9, "taskName":Ljava/lang/String;
     new-instance v8, Lcom/android/server/pm/MultiTaskDealer$1;
 
-    invoke-direct {v8, p0, p1}, Lcom/android/server/pm/MultiTaskDealer$1;-><init>(Lcom/android/server/pm/MultiTaskDealer;Ljava/lang/String;)V
+    invoke-direct {v8, p0, v9}, Lcom/android/server/pm/MultiTaskDealer$1;-><init>(Lcom/android/server/pm/MultiTaskDealer;Ljava/lang/String;)V
 
     .line 91
     .local v8, "factory":Ljava/util/concurrent/ThreadFactory;
@@ -185,8 +185,6 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    const/4 v0, 0x0
-
     .line 51
     sget-object v2, Lcom/android/server/pm/MultiTaskDealer;->map:Ljava/util/HashMap;
 
@@ -202,16 +200,20 @@
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lcom/android/server/pm/MultiTaskDealer;
-
-    move-object v0, v2
+    check-cast v0, Lcom/android/server/pm/MultiTaskDealer;
 
     .line 53
-    .local v0, "dealer":Lcom/android/server/pm/MultiTaskDealer;
-    :cond_0
+    :goto_0
     return-object v0
+
+    .line 52
+    :cond_0
+    const/4 v0, 0x0
+
+    .local v0, "dealer":Lcom/android/server/pm/MultiTaskDealer;
+    goto :goto_0
 .end method
 
 .method public static startDealer(Ljava/lang/String;I)Lcom/android/server/pm/MultiTaskDealer;

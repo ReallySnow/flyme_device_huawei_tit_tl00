@@ -6,18 +6,15 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;,
-        Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;
+        Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;
     }
 .end annotation
 
 
 # static fields
-.field private static final synthetic -com-android-server-wifi-anqp-eap-EAP$AuthInfoIDSwitchesValues:[I = null
+.field private static synthetic -com_android_server_wifi_anqp_eap_EAP$AuthInfoIDSwitchesValues:[I
 
-.field private static final synthetic -com-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues:[I = null
-
-.field private static final IconChunkSize:I = 0x578
+.field private static synthetic -com_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues:[I
 
 .field private static final TestStrings:[Ljava/lang/String;
 
@@ -47,7 +44,7 @@
 
 
 # instance fields
-.field private final mCallbacks:Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;
+.field private final mConfigStore:Lcom/android/server/wifi/WifiConfigStore;
 
 .field private final mRequestMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -65,14 +62,14 @@
 
 
 # direct methods
-.method private static synthetic -getcom-android-server-wifi-anqp-eap-EAP$AuthInfoIDSwitchesValues()[I
+.method private static synthetic -getcom_android_server_wifi_anqp_eap_EAP$AuthInfoIDSwitchesValues()[I
     .locals 3
 
-    sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com-android-server-wifi-anqp-eap-EAP$AuthInfoIDSwitchesValues:[I
+    sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com_android_server_wifi_anqp_eap_EAP$AuthInfoIDSwitchesValues:[I
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com-android-server-wifi-anqp-eap-EAP$AuthInfoIDSwitchesValues:[I
+    sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com_android_server_wifi_anqp_eap_EAP$AuthInfoIDSwitchesValues:[I
 
     return-object v0
 
@@ -197,7 +194,7 @@
     .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_0
 
     :goto_7
-    sput-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com-android-server-wifi-anqp-eap-EAP$AuthInfoIDSwitchesValues:[I
+    sput-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com_android_server_wifi_anqp_eap_EAP$AuthInfoIDSwitchesValues:[I
 
     return-object v0
 
@@ -242,14 +239,14 @@
     goto :goto_0
 .end method
 
-.method private static synthetic -getcom-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues()[I
+.method private static synthetic -getcom_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues()[I
     .locals 3
 
-    sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues:[I
+    sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues:[I
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues:[I
+    sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues:[I
 
     return-object v0
 
@@ -682,7 +679,7 @@
     .catch Ljava/lang/NoSuchFieldError; {:try_start_1d .. :try_end_1d} :catch_0
 
     :goto_1d
-    sput-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues:[I
+    sput-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-com_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues:[I
 
     return-object v0
 
@@ -966,14 +963,14 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 374
+    .line 342
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->sMappings:Ljava/util/Map;
 
-    .line 377
+    .line 345
     sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->sMappings:Ljava/util/Map;
 
     invoke-static {v6}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -986,7 +983,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 378
+    .line 346
     sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->sMappings:Ljava/util/Map;
 
     invoke-static {v5}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -999,7 +996,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 379
+    .line 347
     sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->sMappings:Ljava/util/Map;
 
     const/16 v1, 0x65
@@ -1016,7 +1013,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 380
+    .line 348
     sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->sMappings:Ljava/util/Map;
 
     const/16 v1, 0x6e
@@ -1031,7 +1028,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 381
+    .line 349
     sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->sMappings:Ljava/util/Map;
 
     const/16 v1, 0x72
@@ -1046,7 +1043,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 382
+    .line 350
     sget-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->sMappings:Ljava/util/Map;
 
     const/16 v1, 0x74
@@ -1061,102 +1058,102 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 472
+    .line 440
     new-array v0, v3, [Ljava/lang/String;
 
-    .line 473
+    .line 441
     const-string/jumbo v1, "test-ssid"
 
     const/4 v2, 0x0
 
     aput-object v1, v0, v2
 
-    .line 474
+    .line 442
     const-string/jumbo v1, "test\\nss\\tid"
 
     const/4 v2, 0x1
 
     aput-object v1, v0, v2
 
-    .line 475
+    .line 443
     const-string/jumbo v1, "test\\x2d\\x5f\\nss\\tid"
 
     const/4 v2, 0x2
 
     aput-object v1, v0, v2
 
-    .line 476
+    .line 444
     const-string/jumbo v1, "test\\x2d\\x5f\\nss\\tid\\\\"
 
     const/4 v2, 0x3
 
     aput-object v1, v0, v2
 
-    .line 477
+    .line 445
     const-string/jumbo v1, "test\\x2d\\x5f\\nss\\tid\\n"
 
     const/4 v2, 0x4
 
     aput-object v1, v0, v2
 
-    .line 478
+    .line 446
     const-string/jumbo v1, "test\\x2d\\x5f\\nss\\tid\\x4a"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    .line 479
+    .line 447
     const-string/jumbo v1, "another\\"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    .line 480
+    .line 448
     const-string/jumbo v1, "an\\other"
 
     const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
-    .line 481
+    .line 449
     const-string/jumbo v1, "another\\x2"
 
     const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
-    .line 472
+    .line 440
     sput-object v0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->TestStrings:[Ljava/lang/String;
 
-    .line 30
+    .line 31
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/server/wifi/WifiNative;Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;)V
+.method public constructor <init>(Lcom/android/server/wifi/WifiNative;Lcom/android/server/wifi/WifiConfigStore;)V
     .locals 1
     .param p1, "supplicantHook"    # Lcom/android/server/wifi/WifiNative;
-    .param p2, "callbacks"    # Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;
+    .param p2, "configStore"    # Lcom/android/server/wifi/WifiConfigStore;
 
     .prologue
-    .line 79
+    .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
+    .line 34
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mRequestMap:Ljava/util/Map;
 
-    .line 80
+    .line 60
     iput-object p1, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mSupplicantHook:Lcom/android/server/wifi/WifiNative;
 
-    .line 81
-    iput-object p2, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mCallbacks:Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;
+    .line 61
+    iput-object p2, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mConfigStore:Lcom/android/server/wifi/WifiConfigStore;
 
-    .line 79
+    .line 59
     return-void
 .end method
 
@@ -1174,27 +1171,27 @@
 
     const/4 v7, 0x0
 
-    .line 332
+    .line 300
     const/16 v5, 0x3d
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->indexOf(I)I
 
     move-result v4
 
-    .line 333
+    .line 301
     .local v4, "separator":I
     if-gez v4, :cond_0
 
-    .line 334
+    .line 302
     return-object v7
 
-    .line 337
+    .line 305
     :cond_0
     invoke-virtual {p0, v6, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 338
+    .line 306
     .local v0, "elementName":Ljava/lang/String;
     sget-object v5, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->sWpsNames:Ljava/util/Map;
 
@@ -1204,14 +1201,14 @@
 
     check-cast v1, Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
 
-    .line 339
+    .line 307
     .local v1, "elementType":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
     if-nez v1, :cond_1
 
-    .line 340
+    .line 308
     return-object v7
 
-    .line 345
+    .line 313
     :cond_1
     add-int/lit8 v5, v4, 0x1
 
@@ -1226,7 +1223,7 @@
 
     move-result-object v3
 
-    .line 351
+    .line 319
     .local v3, "payload":[B
     invoke-static {v1}, Lcom/android/server/wifi/anqp/Constants;->getANQPElementID(Lcom/android/server/wifi/anqp/Constants$ANQPElementType;)Ljava/lang/Integer;
 
@@ -1234,7 +1231,7 @@
 
     if-eqz v5, :cond_2
 
-    .line 352
+    .line 320
     invoke-static {v3}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v5
@@ -1245,16 +1242,16 @@
 
     move-result-object v5
 
-    .line 351
+    .line 319
     :goto_0
     return-object v5
 
-    .line 347
+    .line 315
     .end local v3    # "payload":[B
     :catch_0
     move-exception v2
 
-    .line 348
+    .line 316
     .local v2, "nfe":Ljava/lang/NumberFormatException;
     const-class v5, Lcom/android/server/wifi/hotspot2/SupplicantBridge;
 
@@ -1266,10 +1263,10 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 349
+    .line 317
     return-object v7
 
-    .line 354
+    .line 322
     .end local v2    # "nfe":Ljava/lang/NumberFormatException;
     .restart local v3    # "payload":[B
     :cond_2
@@ -1283,7 +1280,7 @@
 
     move-result-object v5
 
-    .line 353
+    .line 321
     invoke-static {v1, v5}, Lcom/android/server/wifi/anqp/ANQPFactory;->buildHS20Element(Lcom/android/server/wifi/anqp/Constants$ANQPElementType;Ljava/nio/ByteBuffer;)Lcom/android/server/wifi/anqp/ANQPElement;
 
     move-result-object v5
@@ -1291,155 +1288,148 @@
     goto :goto_0
 .end method
 
-.method private static buildWPSQueryRequest(Lcom/android/server/wifi/hotspot2/NetworkDetail;Ljava/util/List;)Ljava/lang/String;
+.method private static buildWPSQueryRequest(Lcom/android/server/wifi/hotspot2/NetworkDetail;)Ljava/lang/String;
     .locals 8
     .param p0, "networkDetail"    # Lcom/android/server/wifi/hotspot2/NetworkDetail;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/server/wifi/hotspot2/NetworkDetail;",
-            "Ljava/util/List",
-            "<",
-            "Lcom/android/server/wifi/anqp/Constants$ANQPElementType;",
-            ">;)",
-            "Ljava/lang/String;"
-        }
-    .end annotation
 
     .prologue
-    .line 243
-    .local p1, "querySet":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/wifi/anqp/Constants$ANQPElementType;>;"
-    invoke-static {p1}, Lcom/android/server/wifi/anqp/Constants;->hasBaseANQPElements(Ljava/util/Collection;)Z
-
-    move-result v0
-
-    .line 244
-    .local v0, "baseANQPElements":Z
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 245
-    .local v5, "sb":Ljava/lang/StringBuilder;
-    if-eqz v0, :cond_0
-
-    .line 246
-    const-string/jumbo v6, "ANQP_GET "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 251
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/NetworkDetail;->getBSSIDString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const/16 v7, 0x20
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 253
-    const/4 v3, 0x1
-
-    .line 254
-    .local v3, "first":Z
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    .local v2, "elementType$iterator":Ljava/util/Iterator;
-    :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
-
-    .line 255
-    .local v1, "elementType":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
-    if-eqz v3, :cond_1
-
-    .line 256
     const/4 v3, 0x0
 
-    .line 262
-    :goto_2
-    invoke-static {v1}, Lcom/android/server/wifi/anqp/Constants;->getANQPElementID(Lcom/android/server/wifi/anqp/Constants$ANQPElementType;)Ljava/lang/Integer;
+    .line 221
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 222
+    .local v2, "sb":Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "ANQP_GET "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    .line 263
-    .local v4, "id":Ljava/lang/Integer;
-    if-eqz v4, :cond_2
+    invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/NetworkDetail;->getBSSIDString()Ljava/lang/String;
 
-    .line 264
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    goto :goto_1
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 249
-    .end local v1    # "elementType":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
-    .end local v2    # "elementType$iterator":Ljava/util/Iterator;
-    .end local v3    # "first":Z
-    .end local v4    # "id":Ljava/lang/Integer;
-    :cond_0
-    const-string/jumbo v6, "HS20_ANQP_GET "
+    move-result-object v4
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v5, 0x20
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 224
+    const/4 v1, 0x1
+
+    .line 225
+    .local v1, "first":Z
+    invoke-static {}, Lcom/android/server/wifi/anqp/ANQPFactory;->getBaseANQPSet()[Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
+
+    move-result-object v5
+
+    array-length v6, v5
+
+    move v4, v3
+
+    :goto_0
+    if-ge v4, v6, :cond_2
+
+    aget-object v0, v5, v4
+
+    .line 226
+    .local v0, "elementType":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
+    invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/NetworkDetail;->getAnqpOICount()I
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    .line 227
+    sget-object v7, Lcom/android/server/wifi/anqp/Constants$ANQPElementType;->ANQPRoamingConsortium:Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
+
+    if-ne v0, v7, :cond_0
+
+    .line 225
+    :goto_1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 259
-    .restart local v1    # "elementType":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
-    .restart local v2    # "elementType$iterator":Ljava/util/Iterator;
-    .restart local v3    # "first":Z
-    :cond_1
-    const/16 v6, 0x2c
+    .line 230
+    :cond_0
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    .line 231
+    const/4 v1, 0x0
 
-    goto :goto_2
+    .line 236
+    :goto_2
+    invoke-static {v0}, Lcom/android/server/wifi/anqp/Constants;->getANQPElementID(Lcom/android/server/wifi/anqp/Constants$ANQPElementType;)Ljava/lang/Integer;
 
-    .line 267
-    .restart local v4    # "id":Ljava/lang/Integer;
-    :cond_2
-    invoke-static {v1}, Lcom/android/server/wifi/anqp/Constants;->getHS20ElementID(Lcom/android/server/wifi/anqp/Constants$ANQPElementType;)Ljava/lang/Integer;
+    move-result-object v7
 
-    move-result-object v4
-
-    .line 268
-    if-eqz v0, :cond_3
-
-    .line 269
-    const-string/jumbo v6, "hs20:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 271
-    :cond_3
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
-    .line 275
-    .end local v1    # "elementType":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
-    .end local v4    # "id":Ljava/lang/Integer;
-    :cond_4
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 234
+    :cond_1
+    const/16 v7, 0x2c
+
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    goto :goto_2
+
+    .line 238
+    .end local v0    # "elementType":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/NetworkDetail;->getHSRelease()Lcom/android/server/wifi/hotspot2/NetworkDetail$HSRelease;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_3
+
+    .line 239
+    invoke-static {}, Lcom/android/server/wifi/anqp/ANQPFactory;->getHS20ANQPSet()[Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
+
+    move-result-object v4
+
+    array-length v5, v4
+
+    :goto_3
+    if-ge v3, v5, :cond_3
+
+    aget-object v0, v4, v3
+
+    .line 240
+    .restart local v0    # "elementType":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
+    const-string/jumbo v6, ",hs20:"
+
+    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    return-object v6
+    invoke-static {v0}, Lcom/android/server/wifi/anqp/Constants;->getHS20ElementID(Lcom/android/server/wifi/anqp/Constants$ANQPElementType;)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    .line 239
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_3
+
+    .line 243
+    .end local v0    # "elementType":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
+    :cond_3
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
 .end method
 
 .method private static escapeSSID(Lcom/android/server/wifi/hotspot2/NetworkDetail;)Ljava/lang/String;
@@ -1447,7 +1437,7 @@
     .param p0, "networkDetail"    # Lcom/android/server/wifi/hotspot2/NetworkDetail;
 
     .prologue
-    .line 207
+    .line 193
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/NetworkDetail;->getSSID()Ljava/lang/String;
 
     move-result-object v0
@@ -1473,10 +1463,10 @@
 
     const/4 v7, 0x0
 
-    .line 211
+    .line 197
     const/4 v0, 0x1
 
-    .line 212
+    .line 198
     .local v0, "asciiOnly":Z
     const/4 v2, 0x0
 
@@ -1488,26 +1478,26 @@
 
     if-ge v2, v6, :cond_0
 
-    .line 213
+    .line 199
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    .line 214
+    .line 200
     .local v1, "ch":C
     const/16 v6, 0x7f
 
     if-le v1, v6, :cond_1
 
-    .line 215
+    .line 201
     const/4 v0, 0x0
 
-    .line 220
+    .line 206
     .end local v1    # "ch":C
     :cond_0
     if-eqz v0, :cond_2
 
-    .line 221
+    .line 207
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -1530,14 +1520,14 @@
 
     return-object v6
 
-    .line 212
+    .line 198
     .restart local v1    # "ch":C
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 224
+    .line 210
     .end local v1    # "ch":C
     :cond_2
     if-eqz p1, :cond_3
@@ -1549,13 +1539,13 @@
 
     move-result-object v4
 
-    .line 226
+    .line 212
     .local v4, "octets":[B
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 227
+    .line 213
     .local v5, "sb":Ljava/lang/StringBuilder;
     array-length v8, v4
 
@@ -1566,7 +1556,7 @@
 
     aget-byte v3, v4, v6
 
-    .line 228
+    .line 214
     .local v3, "octet":B
     const-string/jumbo v9, "%02x"
 
@@ -1588,12 +1578,12 @@
 
     invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 227
+    .line 213
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_2
 
-    .line 224
+    .line 210
     .end local v3    # "octet":B
     .end local v4    # "octets":[B
     .end local v5    # "sb":Ljava/lang/StringBuilder;
@@ -1602,7 +1592,7 @@
 
     goto :goto_1
 
-    .line 230
+    .line 216
     .restart local v4    # "octets":[B
     .restart local v5    # "sb":Ljava/lang/StringBuilder;
     :cond_4
@@ -1641,18 +1631,18 @@
 
     const/4 v6, 0x1
 
-    .line 281
+    .line 249
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 283
+    .line 251
     .local v1, "commands":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {p2}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getEAPMethod()Lcom/android/server/wifi/anqp/eap/EAPMethod;
 
     move-result-object v2
 
-    .line 284
+    .line 252
     .local v2, "eapMethod":Lcom/android/server/wifi/anqp/eap/EAPMethod;
     const-string/jumbo v3, "SET_NETWORK %s key_mgmt WPA-EAP"
 
@@ -1666,7 +1656,7 @@
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 285
+    .line 253
     const-string/jumbo v3, "SET_NETWORK %s ssid %s"
 
     new-array v4, v8, [Ljava/lang/Object;
@@ -1685,12 +1675,12 @@
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 286
+    .line 254
     const-string/jumbo v3, "SET_NETWORK %s bssid %s"
 
     new-array v4, v8, [Ljava/lang/Object;
 
-    .line 287
+    .line 255
     aput-object p0, v4, v7
 
     invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/NetworkDetail;->getBSSIDString()Ljava/lang/String;
@@ -1699,19 +1689,19 @@
 
     aput-object v5, v4, v6
 
-    .line 286
+    .line 254
     invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 288
+    .line 256
     const-string/jumbo v3, "SET_NETWORK %s eap %s"
 
     new-array v4, v8, [Ljava/lang/Object;
 
-    .line 289
+    .line 257
     aput-object p0, v4, v7
 
     invoke-virtual {v2}, Lcom/android/server/wifi/anqp/eap/EAPMethod;->getEAPMethodID()Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;
@@ -1724,14 +1714,14 @@
 
     aput-object v5, v4, v6
 
-    .line 288
+    .line 256
     invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 291
+    .line 259
     invoke-virtual {p2}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getEAPMethod()Lcom/android/server/wifi/anqp/eap/EAPMethod;
 
     move-result-object v3
@@ -1740,16 +1730,16 @@
 
     move-result-object v0
 
-    .line 292
+    .line 260
     .local v0, "authParam":Lcom/android/server/wifi/anqp/eap/AuthParam;
     if-nez v0, :cond_0
 
-    .line 293
+    .line 261
     return-object v9
 
-    .line 295
+    .line 263
     :cond_0
-    invoke-static {}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-getcom-android-server-wifi-anqp-eap-EAP$AuthInfoIDSwitchesValues()[I
+    invoke-static {}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-getcom_android_server_wifi_anqp_eap_EAP$AuthInfoIDSwitchesValues()[I
 
     move-result-object v3
 
@@ -1765,16 +1755,16 @@
 
     packed-switch v3, :pswitch_data_0
 
-    .line 306
+    .line 274
     return-object v9
 
-    .line 298
+    .line 266
     :pswitch_0
     const-string/jumbo v3, "SET_NETWORK %s identity %s"
 
     new-array v4, v8, [Ljava/lang/Object;
 
-    .line 299
+    .line 267
     aput-object p0, v4, v7
 
     invoke-virtual {p2}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getUserName()Ljava/lang/String;
@@ -1787,19 +1777,19 @@
 
     aput-object v5, v4, v6
 
-    .line 298
+    .line 266
     invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 300
+    .line 268
     const-string/jumbo v3, "SET_NETWORK %s password %s"
 
     new-array v4, v8, [Ljava/lang/Object;
 
-    .line 301
+    .line 269
     aput-object p0, v4, v7
 
     invoke-virtual {p2}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getPassword()Ljava/lang/String;
@@ -1812,29 +1802,29 @@
 
     aput-object v5, v4, v6
 
-    .line 300
+    .line 268
     invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 302
+    .line 270
     const-string/jumbo v3, "SET_NETWORK %s anonymous_identity \"anonymous\""
 
     new-array v4, v6, [Ljava/lang/Object;
 
-    .line 303
+    .line 271
     aput-object p0, v4, v7
 
-    .line 302
+    .line 270
     invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 308
+    .line 276
     const-string/jumbo v3, "SET_NETWORK %s priority 0"
 
     new-array v4, v6, [Ljava/lang/Object;
@@ -1847,7 +1837,7 @@
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 309
+    .line 277
     const-string/jumbo v3, "ENABLE_NETWORK %s"
 
     new-array v4, v6, [Ljava/lang/Object;
@@ -1860,7 +1850,7 @@
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 310
+    .line 278
     const-string/jumbo v3, "SAVE_CONFIG"
 
     new-array v4, v7, [Ljava/lang/Object;
@@ -1871,10 +1861,10 @@
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 311
+    .line 279
     return-object v1
 
-    .line 295
+    .line 263
     nop
 
     :pswitch_data_0
@@ -1891,14 +1881,14 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 75
+    .line 55
     const/16 v2, 0x3d
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    .line 76
+    .line 56
     .local v0, "split":I
     if-ltz v0, :cond_0
 
@@ -1921,7 +1911,7 @@
     .param p0, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 485
+    .line 453
     sget-object v2, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->TestStrings:[Ljava/lang/String;
 
     const/4 v1, 0x0
@@ -1933,7 +1923,7 @@
 
     aget-object v0, v2, v1
 
-    .line 486
+    .line 454
     .local v0, "string":Ljava/lang/String;
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -1943,12 +1933,12 @@
 
     invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 485
+    .line 453
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 484
+    .line 452
     .end local v0    # "string":Ljava/lang/String;
     :cond_0
     return-void
@@ -1959,8 +1949,8 @@
     .param p0, "eapMethodID"    # Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;
 
     .prologue
-    .line 358
-    invoke-static {}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-getcom-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues()[I
+    .line 326
+    invoke-static {}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->-getcom_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues()[I
 
     move-result-object v0
 
@@ -1972,7 +1962,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 370
+    .line 338
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1997,37 +1987,37 @@
 
     throw v0
 
-    .line 360
+    .line 328
     :pswitch_0
     const-string/jumbo v0, "AKA"
 
     return-object v0
 
-    .line 362
+    .line 330
     :pswitch_1
     const-string/jumbo v0, "AKA\'"
 
     return-object v0
 
-    .line 364
+    .line 332
     :pswitch_2
     const-string/jumbo v0, "SIM"
 
     return-object v0
 
-    .line 366
+    .line 334
     :pswitch_3
     const-string/jumbo v0, "TLS"
 
     return-object v0
 
-    .line 368
+    .line 336
     :pswitch_4
     const-string/jumbo v0, "TTLS"
 
     return-object v0
 
-    .line 358
+    .line 326
     nop
 
     :pswitch_data_0
@@ -2061,13 +2051,13 @@
     .local p0, "lines":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v5, 0x0
 
-    .line 85
+    .line 65
     if-nez p0, :cond_0
 
-    .line 86
+    .line 66
     return-object v5
 
-    .line 88
+    .line 68
     :cond_0
     new-instance v1, Ljava/util/HashMap;
 
@@ -2077,7 +2067,7 @@
 
     invoke-direct {v1, v5}, Ljava/util/HashMap;-><init>(I)V
 
-    .line 89
+    .line 69
     .local v1, "elements":Ljava/util/Map;, "Ljava/util/Map<Lcom/android/server/wifi/anqp/Constants$ANQPElementType;Lcom/android/server/wifi/anqp/ANQPElement;>;"
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -2098,18 +2088,18 @@
 
     check-cast v2, Ljava/lang/String;
 
-    .line 91
+    .line 71
     .local v2, "line":Ljava/lang/String;
     :try_start_0
     invoke-static {v2}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->buildElement(Ljava/lang/String;)Lcom/android/server/wifi/anqp/ANQPElement;
 
     move-result-object v0
 
-    .line 92
+    .line 72
     .local v0, "element":Lcom/android/server/wifi/anqp/ANQPElement;
     if-eqz v0, :cond_1
 
-    .line 93
+    .line 73
     invoke-virtual {v0}, Lcom/android/server/wifi/anqp/ANQPElement;->getID()Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
 
     move-result-object v5
@@ -2120,12 +2110,12 @@
 
     goto :goto_0
 
-    .line 96
+    .line 76
     .end local v0    # "element":Lcom/android/server/wifi/anqp/ANQPElement;
     :catch_0
     move-exception v4
 
-    .line 97
+    .line 77
     .local v4, "pe":Ljava/net/ProtocolException;
     const-class v5, Lcom/android/server/wifi/hotspot2/SupplicantBridge;
 
@@ -2155,7 +2145,7 @@
 
     goto :goto_0
 
-    .line 100
+    .line 80
     .end local v2    # "line":Ljava/lang/String;
     .end local v4    # "pe":Ljava/net/ProtocolException;
     :cond_2
@@ -2185,19 +2175,19 @@
     .end annotation
 
     .prologue
-    .line 316
+    .line 284
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 317
+    .line 285
     .local v1, "elements":Ljava/util/Map;, "Ljava/util/Map<Lcom/android/server/wifi/anqp/Constants$ANQPElementType;Lcom/android/server/wifi/anqp/ANQPElement;>;"
     if-nez p0, :cond_0
 
-    .line 318
+    .line 286
     return-object v1
 
-    .line 320
+    .line 288
     :cond_0
     new-instance v3, Ljava/io/BufferedReader;
 
@@ -2207,7 +2197,7 @@
 
     invoke-direct {v3, v4}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
-    .line 322
+    .line 290
     .local v3, "lineReader":Ljava/io/BufferedReader;
     :cond_1
     :goto_0
@@ -2218,16 +2208,16 @@
     .local v2, "line":Ljava/lang/String;
     if-eqz v2, :cond_2
 
-    .line 323
+    .line 291
     invoke-static {v2}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->buildElement(Ljava/lang/String;)Lcom/android/server/wifi/anqp/ANQPElement;
 
     move-result-object v0
 
-    .line 324
+    .line 292
     .local v0, "element":Lcom/android/server/wifi/anqp/ANQPElement;
     if-eqz v0, :cond_1
 
-    .line 325
+    .line 293
     invoke-virtual {v0}, Lcom/android/server/wifi/anqp/ANQPElement;->getID()Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
 
     move-result-object v4
@@ -2236,7 +2226,7 @@
 
     goto :goto_0
 
-    .line 328
+    .line 296
     .end local v0    # "element":Lcom/android/server/wifi/anqp/ANQPElement;
     :cond_2
     return-object v1
@@ -2253,12 +2243,12 @@
 
     const/4 v12, 0x0
 
-    .line 387
+    .line 355
     new-instance v7, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;
 
     invoke-direct {v7, p0, v11}, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;-><init>(Ljava/lang/String;Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;)V
 
-    .line 388
+    .line 356
     .local v7, "chars":Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -2266,11 +2256,11 @@
 
     new-array v9, v11, [B
 
-    .line 389
+    .line 357
     .local v9, "octets":[B
     const/4 v2, 0x0
 
-    .line 391
+    .line 359
     .local v2, "bo":I
     :goto_0
     invoke-static {v7}, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->-wrap1(Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;)Z
@@ -2279,12 +2269,12 @@
 
     if-eqz v11, :cond_3
 
-    .line 392
+    .line 360
     invoke-static {v7}, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->-wrap2(Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;)C
 
     move-result v6
 
-    .line 393
+    .line 361
     .local v6, "ch":C
     if-ne v6, v14, :cond_0
 
@@ -2294,12 +2284,12 @@
 
     if-eqz v11, :cond_0
 
-    .line 397
+    .line 365
     invoke-static {v7}, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->-wrap2(Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;)C
 
     move-result v10
 
-    .line 398
+    .line 366
     .local v10, "suffix":C
     sget-object v11, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->sMappings:Ljava/util/Map;
 
@@ -2313,11 +2303,11 @@
 
     check-cast v8, Ljava/lang/Integer;
 
-    .line 399
+    .line 367
     .local v8, "mapped":Ljava/lang/Integer;
     if-eqz v8, :cond_1
 
-    .line 400
+    .line 368
     add-int/lit8 v3, v2, 0x1
 
     .end local v2    # "bo":I
@@ -2334,7 +2324,7 @@
     .restart local v2    # "bo":I
     goto :goto_0
 
-    .line 394
+    .line 362
     .end local v8    # "mapped":Ljava/lang/Integer;
     .end local v10    # "suffix":C
     :cond_0
@@ -2348,12 +2338,12 @@
 
     move v2, v3
 
-    .line 393
+    .line 361
     .end local v3    # "bo":I
     .restart local v2    # "bo":I
     goto :goto_0
 
-    .line 402
+    .line 370
     .restart local v8    # "mapped":Ljava/lang/Integer;
     .restart local v10    # "suffix":C
     :cond_1
@@ -2367,7 +2357,7 @@
 
     if-eqz v11, :cond_2
 
-    .line 403
+    .line 371
     add-int/lit8 v3, v2, 0x1
 
     .end local v2    # "bo":I
@@ -2386,7 +2376,7 @@
     .restart local v2    # "bo":I
     goto :goto_0
 
-    .line 406
+    .line 374
     :cond_2
     add-int/lit8 v3, v2, 0x1
 
@@ -2394,7 +2384,7 @@
     .restart local v3    # "bo":I
     aput-byte v14, v9, v2
 
-    .line 407
+    .line 375
     add-int/lit8 v2, v3, 0x1
 
     .end local v3    # "bo":I
@@ -2405,14 +2395,14 @@
 
     goto :goto_0
 
-    .line 412
+    .line 380
     .end local v6    # "ch":C
     .end local v8    # "mapped":Ljava/lang/Integer;
     .end local v10    # "suffix":C
     :cond_3
     const/4 v0, 0x1
 
-    .line 413
+    .line 381
     .local v0, "asciiOnly":Z
     array-length v13, v9
 
@@ -2423,21 +2413,21 @@
 
     aget-byte v1, v9, v11
 
-    .line 414
+    .line 382
     .local v1, "b":B
     and-int/lit16 v14, v1, 0x80
 
     if-eqz v14, :cond_5
 
-    .line 415
+    .line 383
     const/4 v0, 0x0
 
-    .line 419
+    .line 387
     .end local v1    # "b":B
     :cond_4
     if-eqz v0, :cond_6
 
-    .line 420
+    .line 388
     new-instance v11, Ljava/lang/String;
 
     sget-object v13, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
@@ -2446,14 +2436,14 @@
 
     return-object v11
 
-    .line 413
+    .line 381
     .restart local v1    # "b":B
     :cond_5
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_1
 
-    .line 424
+    .line 392
     .end local v1    # "b":B
     :cond_6
     :try_start_0
@@ -2463,19 +2453,19 @@
 
     move-result-object v11
 
-    .line 425
+    .line 393
     const/4 v13, 0x0
 
     invoke-static {v9, v13, v2}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
 
     move-result-object v13
 
-    .line 424
+    .line 392
     invoke-virtual {v11, v13}, Ljava/nio/charset/CharsetDecoder;->decode(Ljava/nio/ByteBuffer;)Ljava/nio/CharBuffer;
 
     move-result-object v4
 
-    .line 426
+    .line 394
     .local v4, "cb":Ljava/nio/CharBuffer;
     invoke-virtual {v4}, Ljava/nio/CharBuffer;->toString()Ljava/lang/String;
     :try_end_0
@@ -2485,12 +2475,12 @@
 
     return-object v11
 
-    .line 427
+    .line 395
     .end local v4    # "cb":Ljava/nio/CharBuffer;
     :catch_0
     move-exception v5
 
-    .line 428
+    .line 396
     .local v5, "cce":Ljava/nio/charset/CharacterCodingException;
     new-instance v11, Ljava/lang/String;
 
@@ -2503,88 +2493,26 @@
 
 
 # virtual methods
-.method public doIconQuery(JLjava/lang/String;)Z
-    .locals 5
-    .param p1, "bssid"    # J
-    .param p3, "fileName"    # Ljava/lang/String;
-
-    .prologue
-    .line 125
-    iget-object v1, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mSupplicantHook:Lcom/android/server/wifi/WifiNative;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "REQ_HS20_ICON "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 126
-    invoke-static {p1, p2}, Lcom/android/server/wifi/hotspot2/Utils;->macToString(J)Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 125
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 126
-    const-string/jumbo v3, " "
-
-    .line 125
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/server/wifi/WifiNative;->doCustomSupplicantCommand(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 127
-    .local v0, "result":Ljava/lang/String;
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v1, "OK"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
 .method public notifyANQPDone(Ljava/lang/Long;Z)V
     .locals 11
     .param p1, "bssid"    # Ljava/lang/Long;
     .param p2, "success"    # Z
 
     .prologue
+    const/4 v8, 0x2
+
+    const/4 v10, 0x1
+
+    const/4 v9, 0x0
+
     const/4 v5, 0x0
 
-    .line 177
+    .line 100
     iget-object v6, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mRequestMap:Ljava/util/Map;
 
     monitor-enter v6
 
-    .line 178
+    .line 101
     :try_start_0
     iget-object v7, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mRequestMap:Ljava/util/Map;
 
@@ -2599,26 +2527,43 @@
     .local v4, "scanDetail":Lcom/android/server/wifi/ScanDetail;
     monitor-exit v6
 
-    .line 181
+    .line 103
     if-nez v4, :cond_1
 
-    .line 182
-    if-nez p2, :cond_0
+    .line 104
+    invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->getClass()Ljava/lang/Class;
 
-    .line 183
-    iget-object v5, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mCallbacks:Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;
+    move-result-object v5
 
-    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+    invoke-static {v5}, Lcom/android/server/wifi/hotspot2/Utils;->hs2LogTag(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-wide v6
+    move-result-object v6
 
-    invoke-interface {v5, v6, v7}, Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;->notifyIconFailed(J)V
+    const-string/jumbo v7, "Spurious %s ANQP response for %012x"
 
-    .line 185
-    :cond_0
+    new-array v8, v8, [Ljava/lang/Object;
+
+    .line 105
+    if-eqz p2, :cond_0
+
+    const-string/jumbo v5, "successful"
+
+    :goto_0
+    aput-object v5, v8, v9
+
+    aput-object p1, v8, v10
+
+    .line 104
+    invoke-static {v7, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v6, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 106
     return-void
 
-    .line 177
+    .line 100
     .end local v4    # "scanDetail":Lcom/android/server/wifi/ScanDetail;
     :catchall_0
     move-exception v5
@@ -2627,8 +2572,14 @@
 
     throw v5
 
-    .line 188
+    .line 105
     .restart local v4    # "scanDetail":Lcom/android/server/wifi/ScanDetail;
+    :cond_0
+    const-string/jumbo v5, "failed"
+
+    goto :goto_0
+
+    .line 109
     :cond_1
     iget-object v6, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mSupplicantHook:Lcom/android/server/wifi/WifiNative;
 
@@ -2640,14 +2591,14 @@
 
     move-result-object v0
 
-    .line 190
+    .line 111
     .local v0, "bssData":Ljava/lang/String;
     :try_start_1
     invoke-static {v0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->parseWPSData(Ljava/lang/String;)Ljava/util/Map;
 
     move-result-object v1
 
-    .line 191
+    .line 112
     .local v1, "elements":Ljava/util/Map;, "Ljava/util/Map<Lcom/android/server/wifi/anqp/Constants$ANQPElementType;Lcom/android/server/wifi/anqp/ANQPElement;>;"
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->getClass()Ljava/lang/Class;
 
@@ -2663,12 +2614,12 @@
 
     new-array v9, v6, [Ljava/lang/Object;
 
-    .line 192
+    .line 113
     if-eqz p2, :cond_2
 
     const-string/jumbo v6, "successful"
 
-    :goto_0
+    :goto_1
     const/4 v10, 0x0
 
     aput-object v6, v9, v10
@@ -2681,35 +2632,35 @@
 
     aput-object v1, v9, v6
 
-    .line 191
+    .line 112
     invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
     invoke-static {v7, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 193
-    iget-object v6, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mCallbacks:Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;
+    .line 114
+    iget-object v6, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mConfigStore:Lcom/android/server/wifi/WifiConfigStore;
 
     if-eqz p2, :cond_3
 
     .end local v1    # "elements":Ljava/util/Map;, "Ljava/util/Map<Lcom/android/server/wifi/anqp/Constants$ANQPElementType;Lcom/android/server/wifi/anqp/ANQPElement;>;"
-    :goto_1
-    invoke-interface {v6, v4, v1}, Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;->notifyANQPResponse(Lcom/android/server/wifi/ScanDetail;Ljava/util/Map;)V
+    :goto_2
+    invoke-virtual {v6, v4, v1}, Lcom/android/server/wifi/WifiConfigStore;->notifyANQPResponse(Lcom/android/server/wifi/ScanDetail;Ljava/util/Map;)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 203
-    :goto_2
-    iget-object v6, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mCallbacks:Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;
+    .line 124
+    :goto_3
+    iget-object v6, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mConfigStore:Lcom/android/server/wifi/WifiConfigStore;
 
-    invoke-interface {v6, v4, v5}, Lcom/android/server/wifi/hotspot2/SupplicantBridge$SupplicantBridgeCallbacks;->notifyANQPResponse(Lcom/android/server/wifi/ScanDetail;Ljava/util/Map;)V
+    invoke-virtual {v6, v4, v5}, Lcom/android/server/wifi/WifiConfigStore;->notifyANQPResponse(Lcom/android/server/wifi/ScanDetail;Ljava/util/Map;)V
 
-    .line 175
+    .line 98
     return-void
 
-    .line 192
+    .line 113
     .restart local v1    # "elements":Ljava/util/Map;, "Ljava/util/Map<Lcom/android/server/wifi/anqp/Constants$ANQPElementType;Lcom/android/server/wifi/anqp/ANQPElement;>;"
     :cond_2
     :try_start_2
@@ -2718,20 +2669,20 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
     .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_3
     move-object v1, v5
 
-    .line 193
-    goto :goto_1
+    .line 114
+    goto :goto_2
 
-    .line 199
+    .line 120
     .end local v1    # "elements":Ljava/util/Map;, "Ljava/util/Map<Lcom/android/server/wifi/anqp/Constants$ANQPElementType;Lcom/android/server/wifi/anqp/ANQPElement;>;"
     :catch_0
     move-exception v3
 
-    .line 200
+    .line 121
     .local v3, "rte":Ljava/lang/RuntimeException;
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->getClass()Ljava/lang/Class;
 
@@ -2751,20 +2702,20 @@
 
     move-result-object v7
 
-    .line 201
+    .line 122
     invoke-virtual {v3}, Ljava/lang/RuntimeException;->toString()Ljava/lang/String;
 
     move-result-object v8
 
-    .line 200
+    .line 121
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    .line 201
+    .line 122
     const-string/jumbo v8, ": "
 
-    .line 200
+    .line 121
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -2779,14 +2730,14 @@
 
     invoke-static {v6, v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2
+    goto :goto_3
 
-    .line 195
+    .line 116
     .end local v3    # "rte":Ljava/lang/RuntimeException;
     :catch_1
     move-exception v2
 
-    .line 196
+    .line 117
     .local v2, "ioe":Ljava/io/IOException;
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->getClass()Ljava/lang/Class;
 
@@ -2806,20 +2757,20 @@
 
     move-result-object v7
 
-    .line 197
+    .line 118
     invoke-virtual {v2}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
     move-result-object v8
 
-    .line 196
+    .line 117
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    .line 197
+    .line 118
     const-string/jumbo v8, ": "
 
-    .line 196
+    .line 117
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -2834,589 +2785,30 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    goto :goto_3
 .end method
 
-.method public retrieveIcon(Lcom/android/server/wifi/hotspot2/IconEvent;)[B
-    .locals 14
-    .param p1, "iconEvent"    # Lcom/android/server/wifi/hotspot2/IconEvent;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 131
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getSize()I
-
-    move-result v8
-
-    new-array v3, v8, [B
-
-    .line 133
-    .local v3, "iconData":[B
-    const/4 v4, 0x0
-
-    .line 134
-    .local v4, "offset":I
-    :goto_0
-    :try_start_0
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getSize()I
-
-    move-result v8
-
-    if-ge v4, v8, :cond_3
-
-    .line 135
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getSize()I
-
-    move-result v8
-
-    sub-int/2addr v8, v4
-
-    const/16 v9, 0x578
-
-    invoke-static {v8, v9}, Ljava/lang/Math;->min(II)I
-
-    move-result v7
-
-    .line 137
-    .local v7, "size":I
-    const-string/jumbo v8, "GET_HS20_ICON %s %s %d %d"
-
-    const/4 v9, 0x4
-
-    new-array v9, v9, [Ljava/lang/Object;
-
-    .line 138
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getBSSID()J
-
-    move-result-wide v10
-
-    invoke-static {v10, v11}, Lcom/android/server/wifi/hotspot2/Utils;->macToString(J)Ljava/lang/String;
-
-    move-result-object v10
-
-    const/4 v11, 0x0
-
-    aput-object v10, v9, v11
-
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getFileName()Ljava/lang/String;
-
-    move-result-object v10
-
-    const/4 v11, 0x1
-
-    aput-object v10, v9, v11
-
-    .line 139
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v10
-
-    const/4 v11, 0x2
-
-    aput-object v10, v9, v11
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v10
-
-    const/4 v11, 0x3
-
-    aput-object v10, v9, v11
-
-    .line 137
-    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 140
-    .local v0, "command":Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->getClass()Ljava/lang/Class;
-
-    move-result-object v8
-
-    invoke-static {v8}, Lcom/android/server/wifi/hotspot2/Utils;->hs2LogTag(Ljava/lang/Class;)Ljava/lang/String;
-
-    move-result-object v8
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Issuing \'"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, "\'"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 141
-    iget-object v8, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mSupplicantHook:Lcom/android/server/wifi/WifiNative;
-
-    invoke-virtual {v8, v0}, Lcom/android/server/wifi/WifiNative;->doCustomSupplicantCommand(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 142
-    .local v5, "response":Ljava/lang/String;
-    if-nez v5, :cond_0
-
-    .line 143
-    new-instance v8, Ljava/io/IOException;
-
-    const-string/jumbo v9, "No icon data returned"
-
-    invoke-direct {v8, v9}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v8
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 166
-    .end local v0    # "command":Ljava/lang/String;
-    .end local v5    # "response":Ljava/lang/String;
-    .end local v7    # "size":I
-    :catchall_0
-    move-exception v8
-
-    .line 167
-    invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->getClass()Ljava/lang/Class;
-
-    move-result-object v9
-
-    invoke-static {v9}, Lcom/android/server/wifi/hotspot2/Utils;->hs2LogTag(Ljava/lang/Class;)Ljava/lang/String;
-
-    move-result-object v9
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "Deleting icon for "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 168
-    iget-object v9, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mSupplicantHook:Lcom/android/server/wifi/WifiNative;
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "DEL_HS20_ICON "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    .line 169
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getBSSID()J
-
-    move-result-wide v12
-
-    invoke-static {v12, v13}, Lcom/android/server/wifi/hotspot2/Utils;->macToString(J)Ljava/lang/String;
-
-    move-result-object v11
-
-    .line 168
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    .line 169
-    const-string/jumbo v11, " "
-
-    .line 168
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    .line 169
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getFileName()Ljava/lang/String;
-
-    move-result-object v11
-
-    .line 168
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Lcom/android/server/wifi/WifiNative;->doCustomSupplicantCommand(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 166
-    .local v6, "result":Ljava/lang/String;
-    throw v8
-
-    .line 147
-    .end local v6    # "result":Ljava/lang/String;
-    .restart local v0    # "command":Ljava/lang/String;
-    .restart local v5    # "response":Ljava/lang/String;
-    .restart local v7    # "size":I
-    :cond_0
-    const/4 v8, 0x0
-
-    :try_start_1
-    invoke-static {v5, v8}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
-
-    move-result-object v1
-
-    .line 148
-    .local v1, "fragment":[B
-    array-length v8, v1
-
-    if-nez v8, :cond_1
-
-    .line 149
-    new-instance v8, Ljava/io/IOException;
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Null data for \'"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, "\': "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-direct {v8, v9}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v8
-    :try_end_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 156
-    .end local v1    # "fragment":[B
-    :catch_0
-    move-exception v2
-
-    .line 157
-    .local v2, "iae":Ljava/lang/IllegalArgumentException;
-    :try_start_2
-    new-instance v8, Ljava/io/IOException;
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Failed to parse response to \'"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    .line 158
-    const-string/jumbo v10, "\': "
-
-    .line 157
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-direct {v8, v9}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v8
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    .line 151
-    .end local v2    # "iae":Ljava/lang/IllegalArgumentException;
-    .restart local v1    # "fragment":[B
-    :cond_1
-    :try_start_3
-    array-length v8, v1
-
-    add-int/2addr v8, v4
-
-    array-length v9, v3
-
-    if-le v8, v9, :cond_2
-
-    .line 152
-    new-instance v8, Ljava/io/IOException;
-
-    const-string/jumbo v9, "Icon chunk exceeds image size"
-
-    invoke-direct {v8, v9}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v8
-
-    .line 154
-    :cond_2
-    array-length v8, v1
-
-    const/4 v9, 0x0
-
-    invoke-static {v1, v9, v3, v4, v8}, Ljava/lang/System;->arraycopy([BI[BII)V
-
-    .line 155
-    array-length v8, v1
-    :try_end_3
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    add-int/2addr v4, v8
-
-    goto/16 :goto_0
-
-    .line 161
-    .end local v0    # "command":Ljava/lang/String;
-    .end local v1    # "fragment":[B
-    .end local v5    # "response":Ljava/lang/String;
-    .end local v7    # "size":I
-    :cond_3
-    :try_start_4
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getSize()I
-
-    move-result v8
-
-    if-eq v4, v8, :cond_4
-
-    .line 162
-    invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->getClass()Ljava/lang/Class;
-
-    move-result-object v8
-
-    invoke-static {v8}, Lcom/android/server/wifi/hotspot2/Utils;->hs2LogTag(Ljava/lang/Class;)Ljava/lang/String;
-
-    move-result-object v8
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Partial icon data: "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    .line 163
-    const-string/jumbo v10, ", expected "
-
-    .line 162
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    .line 163
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getSize()I
-
-    move-result v10
-
-    .line 162
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    .line 167
-    :cond_4
-    invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->getClass()Ljava/lang/Class;
-
-    move-result-object v8
-
-    invoke-static {v8}, Lcom/android/server/wifi/hotspot2/Utils;->hs2LogTag(Ljava/lang/Class;)Ljava/lang/String;
-
-    move-result-object v8
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Deleting icon for "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 168
-    iget-object v8, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mSupplicantHook:Lcom/android/server/wifi/WifiNative;
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "DEL_HS20_ICON "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    .line 169
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getBSSID()J
-
-    move-result-wide v10
-
-    invoke-static {v10, v11}, Lcom/android/server/wifi/hotspot2/Utils;->macToString(J)Ljava/lang/String;
-
-    move-result-object v10
-
-    .line 168
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    .line 169
-    const-string/jumbo v10, " "
-
-    .line 168
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    .line 169
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/IconEvent;->getFileName()Ljava/lang/String;
-
-    move-result-object v10
-
-    .line 168
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Lcom/android/server/wifi/WifiNative;->doCustomSupplicantCommand(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 172
-    .restart local v6    # "result":Ljava/lang/String;
-    return-object v3
-.end method
-
-.method public startANQP(Lcom/android/server/wifi/ScanDetail;Ljava/util/List;)Z
-    .locals 7
+.method public startANQP(Lcom/android/server/wifi/ScanDetail;)V
+    .locals 6
     .param p1, "scanDetail"    # Lcom/android/server/wifi/ScanDetail;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/server/wifi/ScanDetail;",
-            "Ljava/util/List",
-            "<",
-            "Lcom/android/server/wifi/anqp/Constants$ANQPElementType;",
-            ">;)Z"
-        }
-    .end annotation
 
     .prologue
-    .local p2, "elements":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/wifi/anqp/Constants$ANQPElementType;>;"
-    const/4 v6, 0x0
-
-    .line 104
+    .line 84
     invoke-virtual {p1}, Lcom/android/server/wifi/ScanDetail;->getNetworkDetail()Lcom/android/server/wifi/hotspot2/NetworkDetail;
 
     move-result-object v2
 
-    invoke-static {v2, p2}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->buildWPSQueryRequest(Lcom/android/server/wifi/hotspot2/NetworkDetail;Ljava/util/List;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->buildWPSQueryRequest(Lcom/android/server/wifi/hotspot2/NetworkDetail;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 105
+    .line 85
     .local v0, "anqpGet":Ljava/lang/String;
-    if-nez v0, :cond_0
-
-    .line 106
-    return v6
-
-    .line 108
-    :cond_0
     iget-object v3, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mRequestMap:Ljava/util/Map;
 
     monitor-enter v3
 
-    .line 109
+    .line 86
     :try_start_0
     iget-object v2, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mRequestMap:Ljava/util/Map;
 
@@ -3438,16 +2830,16 @@
 
     monitor-exit v3
 
-    .line 111
+    .line 88
     iget-object v2, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->mSupplicantHook:Lcom/android/server/wifi/WifiNative;
 
-    invoke-virtual {v2, v0}, Lcom/android/server/wifi/WifiNative;->doCustomSupplicantCommand(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v0}, Lcom/android/server/wifi/WifiNative;->doCustomCommand(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 112
+    .line 89
     .local v1, "result":Ljava/lang/String;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     const-string/jumbo v2, "OK"
 
@@ -3455,9 +2847,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
-    .line 113
+    .line 90
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -3480,38 +2872,17 @@
 
     move-result-object v3
 
-    .line 114
-    const-string/jumbo v4, " ("
-
-    .line 113
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    .line 114
-    const-string/jumbo v4, ")"
-
-    .line 113
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 115
-    const/4 v2, 0x1
+    .line 83
+    :goto_0
+    return-void
 
-    return v2
-
-    .line 108
+    .line 85
     .end local v1    # "result":Ljava/lang/String;
     :catchall_0
     move-exception v2
@@ -3520,9 +2891,9 @@
 
     throw v2
 
-    .line 118
+    .line 93
     .restart local v1    # "result":Ljava/lang/String;
-    :cond_1
+    :cond_0
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/SupplicantBridge;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -3545,10 +2916,10 @@
 
     move-result-object v3
 
-    .line 119
+    .line 94
     const-string/jumbo v4, ": "
 
-    .line 118
+    .line 93
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -3563,6 +2934,5 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 120
-    return v6
+    goto :goto_0
 .end method

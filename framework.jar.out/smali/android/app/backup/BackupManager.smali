@@ -3,31 +3,7 @@
 .source "BackupManager.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroid/app/backup/BackupManager$BackupObserverWrapper;
-    }
-.end annotation
-
-
 # static fields
-.field public static final ERROR_AGENT_FAILURE:I = -0x3eb
-
-.field public static final ERROR_BACKUP_NOT_ALLOWED:I = -0x7d1
-
-.field public static final ERROR_PACKAGE_NOT_FOUND:I = -0x7d2
-
-.field public static final ERROR_TRANSPORT_ABORTED:I = -0x3e8
-
-.field public static final ERROR_TRANSPORT_PACKAGE_REJECTED:I = -0x3ea
-
-.field public static final ERROR_TRANSPORT_QUOTA_EXCEEDED:I = -0x3ed
-
-.field public static final EXTRA_BACKUP_SERVICES_AVAILABLE:Ljava/lang/String; = "backup_services_available"
-
-.field public static final SUCCESS:I = 0x0
-
 .field private static final TAG:Ljava/lang/String; = "BackupManager"
 
 .field private static sService:Landroid/app/backup/IBackupManager;
@@ -43,13 +19,13 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 157
+    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 158
+    .line 81
     iput-object p1, p0, Landroid/app/backup/BackupManager;->mContext:Landroid/content/Context;
 
-    .line 157
+    .line 80
     return-void
 .end method
 
@@ -57,26 +33,26 @@
     .locals 1
 
     .prologue
-    .line 143
+    .line 66
     sget-object v0, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-nez v0, :cond_0
 
-    .line 145
+    .line 68
     const-string/jumbo v0, "backup"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 144
+    .line 67
     invoke-static {v0}, Landroid/app/backup/IBackupManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManager;
 
     move-result-object v0
 
     sput-object v0, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
-    .line 142
+    .line 65
     :cond_0
     return-void
 .end method
@@ -86,15 +62,15 @@
     .param p0, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 190
+    .line 113
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 191
+    .line 114
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 193
+    .line 116
     :try_start_0
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -102,16 +78,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 189
+    .line 112
     :cond_0
     :goto_0
     return-void
 
-    .line 194
+    .line 117
     :catch_0
     move-exception v0
 
-    .line 195
+    .line 118
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "BackupManager"
 
@@ -128,15 +104,15 @@
     .locals 3
 
     .prologue
-    .line 410
+    .line 333
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 411
+    .line 334
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 413
+    .line 336
     :try_start_0
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -144,16 +120,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 409
+    .line 332
     :cond_0
     :goto_0
     return-void
 
-    .line 414
+    .line 337
     :catch_0
     move-exception v0
 
-    .line 415
+    .line 338
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "BackupManager"
 
@@ -168,19 +144,19 @@
     .locals 7
 
     .prologue
-    .line 250
+    .line 173
     const/4 v2, 0x0
 
-    .line 251
+    .line 174
     .local v2, "session":Landroid/app/backup/RestoreSession;
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 252
+    .line 175
     sget-object v4, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v4, :cond_0
 
-    .line 255
+    .line 178
     :try_start_0
     sget-object v4, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -192,11 +168,11 @@
 
     move-result-object v0
 
-    .line 256
+    .line 179
     .local v0, "binder":Landroid/app/backup/IRestoreSession;
     if-eqz v0, :cond_0
 
-    .line 257
+    .line 180
     new-instance v3, Landroid/app/backup/RestoreSession;
 
     iget-object v4, p0, Landroid/app/backup/BackupManager;->mContext:Landroid/content/Context;
@@ -208,7 +184,7 @@
     .local v3, "session":Landroid/app/backup/RestoreSession;
     move-object v2, v3
 
-    .line 263
+    .line 186
     .end local v0    # "binder":Landroid/app/backup/IRestoreSession;
     .end local v2    # "session":Landroid/app/backup/RestoreSession;
     .end local v3    # "session":Landroid/app/backup/RestoreSession;
@@ -216,12 +192,12 @@
     :goto_0
     return-object v2
 
-    .line 259
+    .line 182
     .restart local v2    # "session":Landroid/app/backup/RestoreSession;
     :catch_0
     move-exception v1
 
-    .line 260
+    .line 183
     .local v1, "e":Landroid/os/RemoteException;
     const-string/jumbo v4, "BackupManager"
 
@@ -236,15 +212,15 @@
     .locals 3
 
     .prologue
-    .line 168
+    .line 91
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 169
+    .line 92
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 171
+    .line 94
     :try_start_0
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -258,16 +234,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 167
+    .line 90
     :cond_0
     :goto_0
     return-void
 
-    .line 172
+    .line 95
     :catch_0
     move-exception v0
 
-    .line 173
+    .line 96
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "BackupManager"
 
@@ -283,15 +259,15 @@
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 435
+    .line 358
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 436
+    .line 359
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 438
+    .line 361
     :try_start_0
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -303,11 +279,11 @@
 
     return-wide v2
 
-    .line 439
+    .line 362
     :catch_0
     move-exception v0
 
-    .line 440
+    .line 363
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "BackupManager"
 
@@ -315,7 +291,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 443
+    .line 366
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const-wide/16 v2, 0x0
@@ -329,15 +305,15 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 341
+    .line 264
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 342
+    .line 265
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 344
+    .line 267
     :try_start_0
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -349,11 +325,11 @@
 
     return-object v1
 
-    .line 345
+    .line 268
     :catch_0
     move-exception v0
 
-    .line 346
+    .line 269
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "BackupManager"
 
@@ -361,70 +337,25 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 349
+    .line 272
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     return-object v3
-.end method
-
-.method public isAppEligibleForBackup(Ljava/lang/String;)Z
-    .locals 3
-    .param p1, "packageName"    # Ljava/lang/String;
-
-    .prologue
-    .line 458
-    invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
-
-    .line 459
-    sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
-
-    if-eqz v1, :cond_0
-
-    .line 461
-    :try_start_0
-    sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
-
-    invoke-interface {v1, p1}, Landroid/app/backup/IBackupManager;->isAppEligibleForBackup(Ljava/lang/String;)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    return v1
-
-    .line 462
-    :catch_0
-    move-exception v0
-
-    .line 463
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v1, "BackupManager"
-
-    const-string/jumbo v2, "isAppEligibleForBackup(pkg) couldn\'t connect"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 466
-    .end local v0    # "e":Landroid/os/RemoteException;
-    :cond_0
-    const/4 v1, 0x0
-
-    return v1
 .end method
 
 .method public isBackupEnabled()Z
     .locals 3
 
     .prologue
-    .line 298
+    .line 221
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 299
+    .line 222
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 301
+    .line 224
     :try_start_0
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -436,11 +367,11 @@
 
     return v1
 
-    .line 302
+    .line 225
     :catch_0
     move-exception v0
 
-    .line 303
+    .line 226
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "BackupManager"
 
@@ -448,7 +379,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 306
+    .line 229
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     const/4 v1, 0x0
@@ -462,15 +393,15 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 360
+    .line 283
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 361
+    .line 284
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 363
+    .line 286
     :try_start_0
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -482,11 +413,11 @@
 
     return-object v1
 
-    .line 364
+    .line 287
     :catch_0
     move-exception v0
 
-    .line 365
+    .line 288
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "BackupManager"
 
@@ -494,75 +425,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 368
+    .line 291
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     return-object v3
-.end method
-
-.method public requestBackup([Ljava/lang/String;Landroid/app/backup/BackupObserver;)I
-    .locals 4
-    .param p1, "packages"    # [Ljava/lang/String;
-    .param p2, "observer"    # Landroid/app/backup/BackupObserver;
-
-    .prologue
-    .line 487
-    invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
-
-    .line 488
-    sget-object v2, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
-
-    if-eqz v2, :cond_1
-
-    .line 490
-    if-nez p2, :cond_0
-
-    .line 491
-    const/4 v1, 0x0
-
-    .line 493
-    :goto_0
-    :try_start_0
-    sget-object v2, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
-
-    invoke-interface {v2, p1, v1}, Landroid/app/backup/IBackupManager;->requestBackup([Ljava/lang/String;Landroid/app/backup/IBackupObserver;)I
-
-    move-result v2
-
-    return v2
-
-    .line 492
-    :cond_0
-    new-instance v1, Landroid/app/backup/BackupManager$BackupObserverWrapper;
-
-    iget-object v2, p0, Landroid/app/backup/BackupManager;->mContext:Landroid/content/Context;
-
-    invoke-direct {v1, p0, v2, p2}, Landroid/app/backup/BackupManager$BackupObserverWrapper;-><init>(Landroid/app/backup/BackupManager;Landroid/content/Context;Landroid/app/backup/BackupObserver;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .local v1, "observerWrapper":Landroid/app/backup/BackupManager$BackupObserverWrapper;
-    goto :goto_0
-
-    .line 494
-    .end local v1    # "observerWrapper":Landroid/app/backup/BackupManager$BackupObserverWrapper;
-    :catch_0
-    move-exception v0
-
-    .line 495
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v2, "BackupManager"
-
-    const-string/jumbo v3, "requestBackup() couldn\'t connect"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 498
-    .end local v0    # "e":Landroid/os/RemoteException;
-    :cond_1
-    const/4 v2, -0x1
-
-    return v2
 .end method
 
 .method public requestRestore(Landroid/app/backup/RestoreObserver;)I
@@ -570,22 +436,22 @@
     .param p1, "observer"    # Landroid/app/backup/RestoreObserver;
 
     .prologue
-    .line 219
+    .line 142
     const/4 v2, -0x1
 
-    .line 220
+    .line 143
     .local v2, "result":I
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 221
+    .line 144
     sget-object v5, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v5, :cond_1
 
-    .line 222
+    .line 145
     const/4 v3, 0x0
 
-    .line 224
+    .line 147
     .local v3, "session":Landroid/app/backup/RestoreSession;
     :try_start_0
     sget-object v5, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
@@ -596,19 +462,19 @@
 
     move-result-object v6
 
-    .line 225
+    .line 148
     const/4 v7, 0x0
 
-    .line 224
+    .line 147
     invoke-interface {v5, v6, v7}, Landroid/app/backup/IBackupManager;->beginRestoreSession(Ljava/lang/String;Ljava/lang/String;)Landroid/app/backup/IRestoreSession;
 
     move-result-object v0
 
-    .line 226
+    .line 149
     .local v0, "binder":Landroid/app/backup/IRestoreSession;
     if-eqz v0, :cond_0
 
-    .line 227
+    .line 150
     new-instance v4, Landroid/app/backup/RestoreSession;
 
     iget-object v5, p0, Landroid/app/backup/BackupManager;->mContext:Landroid/content/Context;
@@ -618,7 +484,7 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 228
+    .line 151
     .end local v3    # "session":Landroid/app/backup/RestoreSession;
     .local v4, "session":Landroid/app/backup/RestoreSession;
     :try_start_1
@@ -637,26 +503,26 @@
 
     move-object v3, v4
 
-    .line 233
+    .line 156
     .end local v4    # "session":Landroid/app/backup/RestoreSession;
     :cond_0
     if-eqz v3, :cond_1
 
-    .line 234
+    .line 157
     invoke-virtual {v3}, Landroid/app/backup/RestoreSession;->endRestoreSession()V
 
-    .line 238
+    .line 161
     .end local v0    # "binder":Landroid/app/backup/IRestoreSession;
     :cond_1
     :goto_0
     return v2
 
-    .line 230
+    .line 153
     .restart local v3    # "session":Landroid/app/backup/RestoreSession;
     :catch_0
     move-exception v1
 
-    .line 231
+    .line 154
     .end local v3    # "session":Landroid/app/backup/RestoreSession;
     .local v1, "e":Landroid/os/RemoteException;
     :goto_1
@@ -669,27 +535,27 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 233
+    .line 156
     if-eqz v3, :cond_1
 
-    .line 234
+    .line 157
     invoke-virtual {v3}, Landroid/app/backup/RestoreSession;->endRestoreSession()V
 
     goto :goto_0
 
-    .line 232
+    .line 155
     .end local v1    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v5
 
-    .line 233
+    .line 156
     :goto_2
     if-eqz v3, :cond_2
 
-    .line 234
+    .line 157
     invoke-virtual {v3}, Landroid/app/backup/RestoreSession;->endRestoreSession()V
 
-    .line 232
+    .line 155
     :cond_2
     throw v5
 
@@ -704,7 +570,7 @@
     .local v3, "session":Landroid/app/backup/RestoreSession;
     goto :goto_2
 
-    .line 230
+    .line 153
     .end local v3    # "session":Landroid/app/backup/RestoreSession;
     .restart local v4    # "session":Landroid/app/backup/RestoreSession;
     :catch_1
@@ -725,15 +591,15 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 385
+    .line 308
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 386
+    .line 309
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 388
+    .line 311
     :try_start_0
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -745,11 +611,11 @@
 
     return-object v1
 
-    .line 389
+    .line 312
     :catch_0
     move-exception v0
 
-    .line 390
+    .line 313
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "BackupManager"
 
@@ -757,7 +623,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 393
+    .line 316
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     return-object v3
@@ -768,15 +634,15 @@
     .param p1, "isEnabled"    # Z
 
     .prologue
-    .line 321
+    .line 244
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 322
+    .line 245
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 324
+    .line 247
     :try_start_0
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -784,16 +650,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 320
+    .line 243
     :cond_0
     :goto_0
     return-void
 
-    .line 325
+    .line 248
     :catch_0
     move-exception v0
 
-    .line 326
+    .line 249
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "BackupManager"
 
@@ -809,15 +675,15 @@
     .param p1, "isEnabled"    # Z
 
     .prologue
-    .line 279
+    .line 202
     invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
 
-    .line 280
+    .line 203
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 282
+    .line 205
     :try_start_0
     sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
 
@@ -825,16 +691,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 278
+    .line 201
     :cond_0
     :goto_0
     return-void
 
-    .line 283
+    .line 206
     :catch_0
     move-exception v0
 
-    .line 284
+    .line 207
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "BackupManager"
 

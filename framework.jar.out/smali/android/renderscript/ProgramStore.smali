@@ -6,10 +6,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/renderscript/ProgramStore$BlendDstFunc;,
+        Landroid/renderscript/ProgramStore$DepthFunc;,
         Landroid/renderscript/ProgramStore$BlendSrcFunc;,
-        Landroid/renderscript/ProgramStore$Builder;,
-        Landroid/renderscript/ProgramStore$DepthFunc;
+        Landroid/renderscript/ProgramStore$BlendDstFunc;,
+        Landroid/renderscript/ProgramStore$Builder;
     }
 .end annotation
 

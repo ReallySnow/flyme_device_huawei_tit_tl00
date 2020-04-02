@@ -39,20 +39,20 @@
     .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
     .prologue
-    .line 874
+    .line 738
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 891
+    .line 755
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo$DisplayNameComparator;->sCollator:Ljava/text/Collator;
 
-    .line 875
+    .line 739
     iput-object p1, p0, Landroid/content/pm/ApplicationInfo$DisplayNameComparator;->mPM:Landroid/content/pm/PackageManager;
 
-    .line 874
+    .line 738
     return-void
 .end method
 
@@ -64,21 +64,21 @@
     .param p2, "ab"    # Landroid/content/pm/ApplicationInfo;
 
     .prologue
-    .line 879
+    .line 743
     iget-object v2, p0, Landroid/content/pm/ApplicationInfo$DisplayNameComparator;->mPM:Landroid/content/pm/PackageManager;
 
     invoke-virtual {v2, p1}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 880
+    .line 744
     .local v0, "sa":Ljava/lang/CharSequence;
     if-nez v0, :cond_0
 
-    .line 881
+    .line 745
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    .line 883
+    .line 747
     :cond_0
     iget-object v2, p0, Landroid/content/pm/ApplicationInfo$DisplayNameComparator;->mPM:Landroid/content/pm/PackageManager;
 
@@ -86,14 +86,14 @@
 
     move-result-object v1
 
-    .line 884
+    .line 748
     .local v1, "sb":Ljava/lang/CharSequence;
     if-nez v1, :cond_1
 
-    .line 885
+    .line 749
     iget-object v1, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    .line 888
+    .line 752
     :cond_1
     iget-object v2, p0, Landroid/content/pm/ApplicationInfo$DisplayNameComparator;->sCollator:Ljava/text/Collator;
 
@@ -118,7 +118,7 @@
     .param p2, "ab"    # Ljava/lang/Object;
 
     .prologue
-    .line 878
+    .line 742
     check-cast p1, Landroid/content/pm/ApplicationInfo;
 
     .end local p1    # "aa":Ljava/lang/Object;

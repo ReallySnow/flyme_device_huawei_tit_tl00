@@ -73,24 +73,24 @@
     .param p1, "adapter"    # Landroid/telecom/InCallAdapter;
 
     .prologue
-    .line 128
+    .line 120
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 111
+    .line 103
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v0, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
 
-    .line 115
+    .line 107
     new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
 
     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/telecom/Phone;->mCalls:Ljava/util/List;
 
-    .line 118
+    .line 110
     iget-object v0, p0, Landroid/telecom/Phone;->mCalls:Ljava/util/List;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
@@ -99,42 +99,70 @@
 
     iput-object v0, p0, Landroid/telecom/Phone;->mUnmodifiableCalls:Ljava/util/List;
 
-    .line 124
+    .line 116
     new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
 
     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/telecom/Phone;->mListeners:Ljava/util/List;
 
-    .line 126
+    .line 118
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/telecom/Phone;->mCanAddCall:Z
 
-    .line 129
+    .line 121
     iput-object p1, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
 
-    .line 128
+    .line 120
     return-void
 .end method
 
 .method private checkCallTree(Landroid/telecom/ParcelableCall;)V
-    .locals 5
+    .locals 7
     .param p1, "parcelableCall"    # Landroid/telecom/ParcelableCall;
 
     .prologue
-    .line 359
+    const/4 v6, 0x2
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    .line 350
+    invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getParentCallId()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    .line 351
+    iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
+
+    invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getParentCallId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 355
+    :cond_0
+    :goto_0
     invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getChildCallIds()Ljava/util/List;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
-    .line 360
+    .line 356
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getChildCallIds()Ljava/util/List;
 
     move-result-object v1
@@ -143,9 +171,9 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_3
 
-    .line 361
+    .line 357
     iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
 
     invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getChildCallIds()Ljava/util/List;
@@ -160,21 +188,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
-    .line 362
+    .line 358
     const-string/jumbo v1, "ParcelableCall %s has nonexistent child %s"
 
-    const/4 v2, 0x2
+    new-array v2, v6, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
-
-    .line 363
+    .line 359
     invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getId()Ljava/lang/String;
 
     move-result-object v3
-
-    const/4 v4, 0x0
 
     aput-object v3, v2, v4
 
@@ -186,22 +210,44 @@
 
     move-result-object v3
 
-    const/4 v4, 0x1
+    aput-object v3, v2, v5
+
+    .line 358
+    invoke-static {p0, v1, v2}, Landroid/telecom/Log;->wtf(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 356
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    .line 352
+    .end local v0    # "i":I
+    :cond_2
+    const-string/jumbo v1, "ParcelableCall %s has nonexistent parent %s"
+
+    new-array v2, v6, [Ljava/lang/Object;
+
+    .line 353
+    invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getId()Ljava/lang/String;
+
+    move-result-object v3
 
     aput-object v3, v2, v4
 
-    .line 362
-    invoke-static {p0, v1, v2}, Landroid/telecom/Log;->wtf(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getParentCallId()Ljava/lang/String;
 
-    .line 360
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
+    move-result-object v3
+
+    aput-object v3, v2, v5
+
+    .line 352
+    invoke-static {p0, v1, v2}, Landroid/telecom/Log;->wtf(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 
-    .line 358
-    .end local v0    # "i":I
-    :cond_1
+    .line 349
+    :cond_3
     return-void
 .end method
 
@@ -210,7 +256,7 @@
     .param p1, "showDialpad"    # Z
 
     .prologue
-    .line 341
+    .line 338
     iget-object v2, p0, Landroid/telecom/Phone;->mListeners:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -231,13 +277,13 @@
 
     check-cast v0, Landroid/telecom/Phone$Listener;
 
-    .line 342
+    .line 339
     .local v0, "listener":Landroid/telecom/Phone$Listener;
     invoke-virtual {v0, p0, p1}, Landroid/telecom/Phone$Listener;->onBringToForeground(Landroid/telecom/Phone;Z)V
 
     goto :goto_0
 
-    .line 340
+    .line 337
     .end local v0    # "listener":Landroid/telecom/Phone$Listener;
     :cond_0
     return-void
@@ -248,7 +294,7 @@
     .param p1, "call"    # Landroid/telecom/Call;
 
     .prologue
-    .line 322
+    .line 319
     iget-object v2, p0, Landroid/telecom/Phone;->mListeners:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -269,13 +315,13 @@
 
     check-cast v0, Landroid/telecom/Phone$Listener;
 
-    .line 323
+    .line 320
     .local v0, "listener":Landroid/telecom/Phone$Listener;
     invoke-virtual {v0, p0, p1}, Landroid/telecom/Phone$Listener;->onCallAdded(Landroid/telecom/Phone;Landroid/telecom/Call;)V
 
     goto :goto_0
 
-    .line 321
+    .line 318
     .end local v0    # "listener":Landroid/telecom/Phone$Listener;
     :cond_0
     return-void
@@ -286,7 +332,7 @@
     .param p1, "audioState"    # Landroid/telecom/CallAudioState;
 
     .prologue
-    .line 334
+    .line 331
     iget-object v2, p0, Landroid/telecom/Phone;->mListeners:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -307,11 +353,11 @@
 
     check-cast v0, Landroid/telecom/Phone$Listener;
 
-    .line 335
+    .line 332
     .local v0, "listener":Landroid/telecom/Phone$Listener;
     invoke-virtual {v0, p0, p1}, Landroid/telecom/Phone$Listener;->onCallAudioStateChanged(Landroid/telecom/Phone;Landroid/telecom/CallAudioState;)V
 
-    .line 336
+    .line 333
     new-instance v2, Landroid/telecom/AudioState;
 
     invoke-direct {v2, p1}, Landroid/telecom/AudioState;-><init>(Landroid/telecom/CallAudioState;)V
@@ -320,7 +366,7 @@
 
     goto :goto_0
 
-    .line 333
+    .line 330
     .end local v0    # "listener":Landroid/telecom/Phone$Listener;
     :cond_0
     return-void
@@ -331,7 +377,7 @@
     .param p1, "call"    # Landroid/telecom/Call;
 
     .prologue
-    .line 328
+    .line 325
     iget-object v2, p0, Landroid/telecom/Phone;->mListeners:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -352,13 +398,13 @@
 
     check-cast v0, Landroid/telecom/Phone$Listener;
 
-    .line 329
+    .line 326
     .local v0, "listener":Landroid/telecom/Phone$Listener;
     invoke-virtual {v0, p0, p1}, Landroid/telecom/Phone$Listener;->onCallRemoved(Landroid/telecom/Phone;Landroid/telecom/Call;)V
 
     goto :goto_0
 
-    .line 327
+    .line 324
     .end local v0    # "listener":Landroid/telecom/Phone$Listener;
     :cond_0
     return-void
@@ -369,7 +415,7 @@
     .param p1, "canAddCall"    # Z
 
     .prologue
-    .line 347
+    .line 344
     iget-object v2, p0, Landroid/telecom/Phone;->mListeners:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -390,50 +436,13 @@
 
     check-cast v0, Landroid/telecom/Phone$Listener;
 
-    .line 348
+    .line 345
     .local v0, "listener":Landroid/telecom/Phone$Listener;
     invoke-virtual {v0, p0, p1}, Landroid/telecom/Phone$Listener;->onCanAddCallChanged(Landroid/telecom/Phone;Z)V
 
     goto :goto_0
 
-    .line 346
-    .end local v0    # "listener":Landroid/telecom/Phone$Listener;
-    :cond_0
-    return-void
-.end method
-
-.method private fireSilenceRinger()V
-    .locals 3
-
-    .prologue
-    .line 353
-    iget-object v2, p0, Landroid/telecom/Phone;->mListeners:Ljava/util/List;
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, "listener$iterator":Ljava/util/Iterator;
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/telecom/Phone$Listener;
-
-    .line 354
-    .local v0, "listener":Landroid/telecom/Phone$Listener;
-    invoke-virtual {v0, p0}, Landroid/telecom/Phone$Listener;->onSilenceRinger(Landroid/telecom/Phone;)V
-
-    goto :goto_0
-
-    .line 352
+    .line 343
     .end local v0    # "listener":Landroid/telecom/Phone$Listener;
     :cond_0
     return-void
@@ -446,12 +455,12 @@
     .param p1, "listener"    # Landroid/telecom/Phone$Listener;
 
     .prologue
-    .line 222
+    .line 209
     iget-object v0, p0, Landroid/telecom/Phone;->mListeners:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 221
+    .line 208
     return-void
 .end method
 
@@ -459,7 +468,7 @@
     .locals 1
 
     .prologue
-    .line 251
+    .line 238
     iget-boolean v0, p0, Landroid/telecom/Phone;->mCanAddCall:Z
 
     return v0
@@ -469,7 +478,7 @@
     .locals 5
 
     .prologue
-    .line 205
+    .line 192
     iget-object v3, p0, Landroid/telecom/Phone;->mCalls:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -491,20 +500,20 @@
 
     check-cast v0, Landroid/telecom/Call;
 
-    .line 206
+    .line 193
     .local v0, "call":Landroid/telecom/Call;
     invoke-virtual {v0}, Landroid/telecom/Call;->getVideoCall()Landroid/telecom/InCallService$VideoCall;
 
     move-result-object v2
 
-    .line 207
+    .line 194
     .local v2, "videoCall":Landroid/telecom/InCallService$VideoCall;
     if-eqz v2, :cond_1
 
-    .line 208
+    .line 195
     invoke-virtual {v2}, Landroid/telecom/InCallService$VideoCall;->destroy()V
 
-    .line 210
+    .line 197
     :cond_1
     invoke-virtual {v0}, Landroid/telecom/Call;->getState()I
 
@@ -514,12 +523,12 @@
 
     if-eq v3, v4, :cond_0
 
-    .line 211
+    .line 198
     invoke-virtual {v0}, Landroid/telecom/Call;->internalSetDisconnected()V
 
     goto :goto_0
 
-    .line 204
+    .line 191
     .end local v0    # "call":Landroid/telecom/Call;
     .end local v2    # "videoCall":Landroid/telecom/InCallService$VideoCall;
     :cond_2
@@ -532,7 +541,7 @@
     .end annotation
 
     .prologue
-    .line 309
+    .line 306
     new-instance v0, Landroid/telecom/AudioState;
 
     iget-object v1, p0, Landroid/telecom/Phone;->mCallAudioState:Landroid/telecom/CallAudioState;
@@ -546,7 +555,7 @@
     .locals 1
 
     .prologue
-    .line 318
+    .line 315
     iget-object v0, p0, Landroid/telecom/Phone;->mCallAudioState:Landroid/telecom/CallAudioState;
 
     return-object v0
@@ -565,35 +574,41 @@
     .end annotation
 
     .prologue
-    .line 242
+    .line 229
     iget-object v0, p0, Landroid/telecom/Phone;->mUnmodifiableCalls:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method final internalAddCall(Landroid/telecom/ParcelableCall;)V
-    .locals 4
+    .locals 6
     .param p1, "parcelableCall"    # Landroid/telecom/ParcelableCall;
 
     .prologue
-    .line 133
+    .line 125
     new-instance v0, Landroid/telecom/Call;
 
     invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v2, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
+    iget-object v3, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
 
-    .line 134
+    .line 126
     invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getState()I
 
-    move-result v3
+    move-result v4
 
-    .line 133
-    invoke-direct {v0, p0, v1, v2, v3}, Landroid/telecom/Call;-><init>(Landroid/telecom/Phone;Ljava/lang/String;Landroid/telecom/InCallAdapter;I)V
+    invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->isActive()Z
 
-    .line 135
+    move-result v5
+
+    move-object v1, p0
+
+    .line 125
+    invoke-direct/range {v0 .. v5}, Landroid/telecom/Call;-><init>(Landroid/telecom/Phone;Ljava/lang/String;Landroid/telecom/InCallAdapter;IZ)V
+
+    .line 127
     .local v0, "call":Landroid/telecom/Call;
     iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
 
@@ -603,23 +618,23 @@
 
     invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 136
+    .line 128
     iget-object v1, p0, Landroid/telecom/Phone;->mCalls:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 137
+    .line 129
     invoke-direct {p0, p1}, Landroid/telecom/Phone;->checkCallTree(Landroid/telecom/ParcelableCall;)V
 
-    .line 138
+    .line 130
     iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
 
     invoke-virtual {v0, p1, v1}, Landroid/telecom/Call;->internalUpdate(Landroid/telecom/ParcelableCall;Ljava/util/Map;)V
 
-    .line 139
+    .line 131
     invoke-direct {p0, v0}, Landroid/telecom/Phone;->fireCallAdded(Landroid/telecom/Call;)V
 
-    .line 132
+    .line 124
     return-void
 .end method
 
@@ -628,10 +643,10 @@
     .param p1, "showDialpad"    # Z
 
     .prologue
-    .line 180
+    .line 172
     invoke-direct {p0, p1}, Landroid/telecom/Phone;->fireBringToForeground(Z)V
 
-    .line 179
+    .line 171
     return-void
 .end method
 
@@ -640,7 +655,7 @@
     .param p1, "callAudioState"    # Landroid/telecom/CallAudioState;
 
     .prologue
-    .line 169
+    .line 161
     iget-object v0, p0, Landroid/telecom/Phone;->mCallAudioState:Landroid/telecom/CallAudioState;
 
     invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -649,13 +664,13 @@
 
     if-nez v0, :cond_0
 
-    .line 170
+    .line 162
     iput-object p1, p0, Landroid/telecom/Phone;->mCallAudioState:Landroid/telecom/CallAudioState;
 
-    .line 171
+    .line 163
     invoke-direct {p0, p1}, Landroid/telecom/Phone;->fireCallAudioStateChanged(Landroid/telecom/CallAudioState;)V
 
-    .line 168
+    .line 160
     :cond_0
     return-void
 .end method
@@ -665,7 +680,7 @@
     .param p1, "telecomId"    # Ljava/lang/String;
 
     .prologue
-    .line 176
+    .line 168
     iget-object v0, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -677,40 +692,12 @@
     return-object v0
 .end method
 
-.method final internalOnConnectionEvent(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 2
-    .param p1, "telecomId"    # Ljava/lang/String;
-    .param p2, "event"    # Ljava/lang/String;
-    .param p3, "extras"    # Landroid/os/Bundle;
-
-    .prologue
-    .line 195
-    iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
-
-    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/telecom/Call;
-
-    .line 196
-    .local v0, "call":Landroid/telecom/Call;
-    if-eqz v0, :cond_0
-
-    .line 197
-    invoke-virtual {v0, p2, p3}, Landroid/telecom/Call;->internalOnConnectionEvent(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    .line 194
-    :cond_0
-    return-void
-.end method
-
 .method final internalRemoveCall(Landroid/telecom/Call;)V
     .locals 3
     .param p1, "call"    # Landroid/telecom/Call;
 
     .prologue
-    .line 143
+    .line 135
     iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
 
     invoke-virtual {p1}, Landroid/telecom/Call;->internalGetCallId()Ljava/lang/String;
@@ -719,28 +706,28 @@
 
     invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 144
+    .line 136
     iget-object v1, p0, Landroid/telecom/Phone;->mCalls:Ljava/util/List;
 
     invoke-interface {v1, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 146
+    .line 138
     invoke-virtual {p1}, Landroid/telecom/Call;->getVideoCall()Landroid/telecom/InCallService$VideoCall;
 
     move-result-object v0
 
-    .line 147
+    .line 139
     .local v0, "videoCall":Landroid/telecom/InCallService$VideoCall;
     if-eqz v0, :cond_0
 
-    .line 148
+    .line 140
     invoke-virtual {v0}, Landroid/telecom/InCallService$VideoCall;->destroy()V
 
-    .line 150
+    .line 142
     :cond_0
     invoke-direct {p0, p1}, Landroid/telecom/Phone;->fireCallRemoved(Landroid/telecom/Call;)V
 
-    .line 142
+    .line 134
     return-void
 .end method
 
@@ -749,18 +736,18 @@
     .param p1, "canAddCall"    # Z
 
     .prologue
-    .line 184
+    .line 176
     iget-boolean v0, p0, Landroid/telecom/Phone;->mCanAddCall:Z
 
     if-eq v0, p1, :cond_0
 
-    .line 185
+    .line 177
     iput-boolean p1, p0, Landroid/telecom/Phone;->mCanAddCall:Z
 
-    .line 186
+    .line 178
     invoke-direct {p0, p1}, Landroid/telecom/Phone;->fireCanAddCallChanged(Z)V
 
-    .line 183
+    .line 175
     :cond_0
     return-void
 .end method
@@ -771,7 +758,7 @@
     .param p2, "remaining"    # Ljava/lang/String;
 
     .prologue
-    .line 162
+    .line 154
     iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -780,26 +767,15 @@
 
     check-cast v0, Landroid/telecom/Call;
 
-    .line 163
+    .line 155
     .local v0, "call":Landroid/telecom/Call;
     if-eqz v0, :cond_0
 
-    .line 164
+    .line 156
     invoke-virtual {v0, p2}, Landroid/telecom/Call;->internalSetPostDialWait(Ljava/lang/String;)V
 
-    .line 161
+    .line 153
     :cond_0
-    return-void
-.end method
-
-.method final internalSilenceRinger()V
-    .locals 0
-
-    .prologue
-    .line 191
-    invoke-direct {p0}, Landroid/telecom/Phone;->fireSilenceRinger()V
-
-    .line 190
     return-void
 .end method
 
@@ -808,7 +784,7 @@
     .param p1, "parcelableCall"    # Landroid/telecom/ParcelableCall;
 
     .prologue
-    .line 154
+    .line 146
     iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
 
     invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getId()Ljava/lang/String;
@@ -821,19 +797,49 @@
 
     check-cast v0, Landroid/telecom/Call;
 
-    .line 155
+    .line 147
     .local v0, "call":Landroid/telecom/Call;
     if-eqz v0, :cond_0
 
-    .line 156
+    .line 148
     invoke-direct {p0, p1}, Landroid/telecom/Phone;->checkCallTree(Landroid/telecom/ParcelableCall;)V
 
-    .line 157
+    .line 149
     iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
 
     invoke-virtual {v0, p1, v1}, Landroid/telecom/Call;->internalUpdate(Landroid/telecom/ParcelableCall;Ljava/util/Map;)V
 
-    .line 153
+    .line 145
+    :cond_0
+    return-void
+.end method
+
+.method final onMergeFailed(Landroid/telecom/ParcelableCall;)V
+    .locals 3
+    .param p1, "parcelableCall"    # Landroid/telecom/ParcelableCall;
+
+    .prologue
+    .line 183
+    iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
+
+    invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/telecom/Call;
+
+    .line 184
+    .local v0, "call":Landroid/telecom/Call;
+    if-eqz v0, :cond_0
+
+    .line 185
+    invoke-virtual {v0}, Landroid/telecom/Call;->onMergeFailed()V
+
+    .line 182
     :cond_0
     return-void
 .end method
@@ -843,15 +849,15 @@
     .param p1, "listener"    # Landroid/telecom/Phone$Listener;
 
     .prologue
-    .line 231
+    .line 218
     if-eqz p1, :cond_0
 
-    .line 232
+    .line 219
     iget-object v0, p0, Landroid/telecom/Phone;->mListeners:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 230
+    .line 217
     :cond_0
     return-void
 .end method
@@ -861,12 +867,12 @@
     .param p1, "route"    # I
 
     .prologue
-    .line 271
+    .line 258
     iget-object v0, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
 
     invoke-virtual {v0, p1}, Landroid/telecom/InCallAdapter;->setAudioRoute(I)V
 
-    .line 270
+    .line 257
     return-void
 .end method
 
@@ -875,12 +881,12 @@
     .param p1, "state"    # Z
 
     .prologue
-    .line 261
+    .line 248
     iget-object v0, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
 
     invoke-virtual {v0, p1}, Landroid/telecom/InCallAdapter;->mute(Z)V
 
-    .line 260
+    .line 247
     return-void
 .end method
 
@@ -889,12 +895,12 @@
     .param p1, "screenOnImmediately"    # Z
 
     .prologue
-    .line 298
+    .line 285
     iget-object v0, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
 
     invoke-virtual {v0, p1}, Landroid/telecom/InCallAdapter;->turnProximitySensorOff(Z)V
 
-    .line 297
+    .line 284
     return-void
 .end method
 
@@ -902,11 +908,25 @@
     .locals 1
 
     .prologue
-    .line 283
+    .line 270
     iget-object v0, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
 
     invoke-virtual {v0}, Landroid/telecom/InCallAdapter;->turnProximitySensorOn()V
 
-    .line 282
+    .line 269
+    return-void
+.end method
+
+.method public switchToOtherActiveSub(Ljava/lang/String;)V
+    .locals 1
+    .param p1, "subId"    # Ljava/lang/String;
+
+    .prologue
+    .line 295
+    iget-object v0, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
+
+    invoke-virtual {v0, p1}, Landroid/telecom/InCallAdapter;->switchToOtherActiveSub(Ljava/lang/String;)V
+
+    .line 294
     return-void
 .end method

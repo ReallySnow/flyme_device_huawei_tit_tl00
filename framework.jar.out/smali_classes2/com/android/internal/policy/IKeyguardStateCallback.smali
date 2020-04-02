@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract onHasLockscreenWallpaperChanged(Z)V
+.method public abstract onInputRestrictedStateChanged(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract onInputRestrictedStateChanged(Z)V
+.method public abstract onKeyguardPanelFocusChanged(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -40,14 +40,6 @@
 .end method
 
 .method public abstract onSimSecureStateChanged(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract onTrustedChanged(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

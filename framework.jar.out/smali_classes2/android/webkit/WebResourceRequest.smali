@@ -28,6 +28,3 @@
 
 .method public abstract isForMainFrame()Z
 .end method
-
-.method public abstract isRedirect()Z
-.end method

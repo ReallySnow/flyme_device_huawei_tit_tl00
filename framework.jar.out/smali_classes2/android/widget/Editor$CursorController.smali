@@ -21,12 +21,6 @@
 .method public abstract hide()V
 .end method
 
-.method public abstract isActive()Z
-.end method
-
-.method public abstract isCursorBeingModified()Z
-.end method
-
 .method public abstract onDetached()V
 .end method
 

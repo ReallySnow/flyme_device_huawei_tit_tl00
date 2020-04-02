@@ -30,7 +30,7 @@
     .param p2, "val$thread"    # Landroid/os/HandlerThread;
 
     .prologue
-    .line 2192
+    .line 2153
     iput-object p1, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
     iput-object p2, p0, Landroid/media/MediaPlayer$2;->val$thread:Landroid/os/HandlerThread;
@@ -46,12 +46,12 @@
     .locals 5
 
     .prologue
-    .line 2195
+    .line 2156
     invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
 
     move-result-object v0
 
-    .line 2196
+    .line 2157
     .local v0, "context":Landroid/content/Context;
     iget-object v1, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
@@ -69,7 +69,7 @@
 
     invoke-static {v1, v2}, Landroid/media/MediaPlayer;->-set0(Landroid/media/MediaPlayer;Landroid/media/SubtitleController;)Landroid/media/SubtitleController;
 
-    .line 2197
+    .line 2158
     iget-object v1, p0, Landroid/media/MediaPlayer$2;->this$0:Landroid/media/MediaPlayer;
 
     invoke-static {v1}, Landroid/media/MediaPlayer;->-get14(Landroid/media/MediaPlayer;)Landroid/media/SubtitleController;
@@ -82,7 +82,7 @@
 
     invoke-virtual {v1, v2}, Landroid/media/SubtitleController;->setAnchor(Landroid/media/SubtitleController$Anchor;)V
 
-    .line 2207
+    .line 2168
     iget-object v1, p0, Landroid/media/MediaPlayer$2;->val$thread:Landroid/os/HandlerThread;
 
     invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
@@ -91,6 +91,6 @@
 
     invoke-virtual {v1}, Landroid/os/Looper;->quitSafely()V
 
-    .line 2194
+    .line 2155
     return-void
 .end method

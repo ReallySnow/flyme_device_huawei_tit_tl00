@@ -26,7 +26,7 @@
     .param p1, "this$1"    # Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
     .prologue
-    .line 2069
+    .line 1878
     iput-object p1, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$ErrorState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -37,46 +37,51 @@
 
 # virtual methods
 .method notify(I)V
-    .locals 3
+    .locals 4
     .param p1, "msgType"    # I
 
     .prologue
-    .line 2085
+    .line 1894
     iput p1, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$ErrorState;->mErrorNotification:I
 
-    .line 2086
-    iget-object v2, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$ErrorState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
+    .line 1895
+    iget-object v3, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$ErrorState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->-get4(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
+    invoke-static {v3}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->-get3(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "sm$iterator":Ljava/util/Iterator;
+    .local v1, "o$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/server/connectivity/tethering/TetherInterfaceStateMachine;
+    .local v0, "o":Ljava/lang/Object;
+    move-object v2, v0
 
-    .line 2087
-    .local v0, "sm":Lcom/android/server/connectivity/tethering/TetherInterfaceStateMachine;
-    invoke-virtual {v0, p1}, Lcom/android/server/connectivity/tethering/TetherInterfaceStateMachine;->sendMessage(I)V
+    .line 1896
+    check-cast v2, Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
+
+    .line 1897
+    .local v2, "sm":Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
+    invoke-virtual {v2, p1}, Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;->sendMessage(I)V
 
     goto :goto_0
 
-    .line 2084
-    .end local v0    # "sm":Lcom/android/server/connectivity/tethering/TetherInterfaceStateMachine;
+    .line 1893
+    .end local v0    # "o":Ljava/lang/Object;
+    .end local v2    # "sm":Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
     :cond_0
     return-void
 .end method
@@ -86,39 +91,39 @@
     .param p1, "message"    # Landroid/os/Message;
 
     .prologue
-    .line 2073
+    .line 1882
     const/4 v0, 0x1
 
-    .line 2074
+    .line 1883
     .local v0, "retValue":Z
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 2080
+    .line 1889
     const/4 v0, 0x0
 
-    .line 2082
+    .line 1891
     :goto_0
     return v0
 
-    .line 2076
+    .line 1885
     :pswitch_0
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/server/connectivity/tethering/TetherInterfaceStateMachine;
+    check-cast v1, Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
 
-    .line 2077
-    .local v1, "who":Lcom/android/server/connectivity/tethering/TetherInterfaceStateMachine;
+    .line 1886
+    .local v1, "who":Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
     iget v2, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$ErrorState;->mErrorNotification:I
 
-    invoke-virtual {v1, v2}, Lcom/android/server/connectivity/tethering/TetherInterfaceStateMachine;->sendMessage(I)V
+    invoke-virtual {v1, v2}, Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;->sendMessage(I)V
 
     goto :goto_0
 
-    .line 2074
+    .line 1883
     :pswitch_data_0
-    .packed-switch 0x50001
+    .packed-switch 0x1
         :pswitch_0
     .end packed-switch
 .end method

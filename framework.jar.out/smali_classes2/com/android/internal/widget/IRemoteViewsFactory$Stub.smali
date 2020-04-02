@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_getCount:I = 0x4
 
-.field static final TRANSACTION_getItemId_7:I = 0x8
+.field static final TRANSACTION_getItemId:I = 0x8
 
 .field static final TRANSACTION_getLoadingView:I = 0x6
 
@@ -36,9 +36,9 @@
 
 .field static final TRANSACTION_getViewTypeCount:I = 0x7
 
-.field static final TRANSACTION_hasStableIds_8:I = 0x9
+.field static final TRANSACTION_hasStableIds:I = 0x9
 
-.field static final TRANSACTION_isCreated_9:I = 0xa
+.field static final TRANSACTION_isCreated:I = 0xa
 
 .field static final TRANSACTION_onDataSetChanged:I = 0x1
 

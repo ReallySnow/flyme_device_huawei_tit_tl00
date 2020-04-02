@@ -1,6 +1,6 @@
 " Vim syntax support file
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last Change:	2016 Nov 04
+" Last Change:	2012 Sep 25
 
 " This file sets up for syntax highlighting.
 " It is loaded from "syntax.vim" and "manual.vim".
@@ -69,11 +69,8 @@ au Syntax c,cpp,cs,idl,java,php,datascript
 
 
 " Source the user-specified syntax highlighting file
-if exists("mysyntaxfile")
-  let s:fname = expand(mysyntaxfile)
-  if filereadable(s:fname)
-    execute "source " . fnameescape(s:fname)
-  endif
+if exists("mysyntaxfile") && filereadable(expand(mysyntaxfile))
+  execute "source " . mysyntaxfile
 endif
 
 " Restore 'cpoptions'

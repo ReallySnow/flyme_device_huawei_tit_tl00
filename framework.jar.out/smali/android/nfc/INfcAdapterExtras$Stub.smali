@@ -26,15 +26,15 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.nfc.INfcAdapterExtras"
 
-.field static final TRANSACTION_authenticate_5:I = 0x6
+.field static final TRANSACTION_authenticate:I = 0x6
 
 .field static final TRANSACTION_close:I = 0x2
 
 .field static final TRANSACTION_getCardEmulationRoute:I = 0x4
 
-.field static final TRANSACTION_getDriverName_6:I = 0x7
+.field static final TRANSACTION_getDriverName:I = 0x7
 
-.field static final TRANSACTION_open_0:I = 0x1
+.field static final TRANSACTION_open:I = 0x1
 
 .field static final TRANSACTION_setCardEmulationRoute:I = 0x5
 

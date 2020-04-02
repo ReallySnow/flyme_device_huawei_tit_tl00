@@ -24,7 +24,7 @@
     .param p1, "this$1"    # Lcom/android/server/connectivity/PacManager$3;
 
     .prologue
-    .line 350
+    .line 346
     iput-object p1, p0, Lcom/android/server/connectivity/PacManager$3$1;->this$1:Lcom/android/server/connectivity/PacManager$3;
 
     invoke-direct {p0}, Lcom/android/net/IProxyPortListener$Stub;-><init>()V
@@ -46,7 +46,7 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 353
+    .line 349
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager$3$1;->this$1:Lcom/android/server/connectivity/PacManager$3;
 
     iget-object v0, v0, Lcom/android/server/connectivity/PacManager$3;->this$0:Lcom/android/server/connectivity/PacManager;
@@ -57,7 +57,7 @@
 
     if-eq v0, v2, :cond_0
 
-    .line 355
+    .line 351
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager$3$1;->this$1:Lcom/android/server/connectivity/PacManager$3;
 
     iget-object v0, v0, Lcom/android/server/connectivity/PacManager$3;->this$0:Lcom/android/server/connectivity/PacManager;
@@ -66,7 +66,7 @@
 
     invoke-static {v0, v1}, Lcom/android/server/connectivity/PacManager;->-set1(Lcom/android/server/connectivity/PacManager;Z)Z
 
-    .line 357
+    .line 353
     :cond_0
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager$3$1;->this$1:Lcom/android/server/connectivity/PacManager$3;
 
@@ -74,10 +74,10 @@
 
     invoke-static {v0, p1}, Lcom/android/server/connectivity/PacManager;->-set2(Lcom/android/server/connectivity/PacManager;I)I
 
-    .line 358
+    .line 354
     if-eq p1, v2, :cond_1
 
-    .line 359
+    .line 355
     const-string/jumbo v0, "PacManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -100,18 +100,18 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 360
+    .line 356
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager$3$1;->this$1:Lcom/android/server/connectivity/PacManager$3;
 
     iget-object v0, v0, Lcom/android/server/connectivity/PacManager$3;->this$0:Lcom/android/server/connectivity/PacManager;
 
     invoke-static {v0}, Lcom/android/server/connectivity/PacManager;->-wrap4(Lcom/android/server/connectivity/PacManager;)V
 
-    .line 352
+    .line 348
     :goto_0
     return-void
 
-    .line 362
+    .line 358
     :cond_1
     const-string/jumbo v0, "PacManager"
 

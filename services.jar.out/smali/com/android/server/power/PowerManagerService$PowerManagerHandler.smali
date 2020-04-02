@@ -25,92 +25,117 @@
     .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
-    .line 3308
+    .line 3079
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    .line 3309
+    .line 3080
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
     invoke-direct {p0, p2, v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
 
-    .line 3308
+    .line 3079
     return-void
 .end method
 
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .locals 4
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 3314
-    iget v0, p1, Landroid/os/Message;->what:I
+    const/4 v3, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    .line 3085
+    iget v1, p1, Landroid/os/Message;->what:I
 
-    .line 3313
+    packed-switch v1, :pswitch_data_0
+
+    .line 3084
     :goto_0
     return-void
 
-    .line 3316
+    .line 3087
     :pswitch_0
-    iget-object v0, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-wrap19(Lcom/android/server/power/PowerManagerService;)V
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap22(Lcom/android/server/power/PowerManagerService;)V
 
     goto :goto_0
 
-    .line 3319
+    .line 3090
     :pswitch_1
-    iget-object v0, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget v1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-wrap16(Lcom/android/server/power/PowerManagerService;)V
+    if-ne v1, v3, :cond_0
+
+    const/4 v0, 0x1
+
+    .line 3091
+    .local v0, "fromDreamService":Z
+    :goto_1
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v1, v0}, Lcom/android/server/power/PowerManagerService;->-wrap19(Lcom/android/server/power/PowerManagerService;Z)V
 
     goto :goto_0
 
-    .line 3322
+    .line 3090
+    .end local v0    # "fromDreamService":Z
+    :cond_0
+    const/4 v0, 0x0
+
+    .restart local v0    # "fromDreamService":Z
+    goto :goto_1
+
+    .line 3094
+    .end local v0    # "fromDreamService":Z
     :pswitch_2
-    iget-object v0, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-wrap17(Lcom/android/server/power/PowerManagerService;)V
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap20(Lcom/android/server/power/PowerManagerService;)V
 
     goto :goto_0
 
-    .line 3325
+    .line 3097
     :pswitch_3
-    iget-object v0, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/power/PowerManagerService;->checkForLongWakeLocks()V
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap14(Lcom/android/server/power/PowerManagerService;)V
+
+    .line 3098
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/Runnable;
+
+    invoke-interface {v1}, Ljava/lang/Runnable;->run()V
 
     goto :goto_0
 
-    .line 3328
+    .line 3101
     :pswitch_4
-    iget-object v0, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
+    const-string/jumbo v1, "PowerManagerService"
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-wrap11(Lcom/android/server/power/PowerManagerService;)V
+    const-string/jumbo v2, "Sandman unresponsive, releasing suspend blocker"
 
-    .line 3329
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    check-cast v0, Ljava/lang/Runnable;
+    .line 3102
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+    invoke-static {v1, v3}, Lcom/android/server/power/PowerManagerService;->-wrap19(Lcom/android/server/power/PowerManagerService;Z)V
 
     goto :goto_0
 
-    .line 3314
-    nop
-
+    .line 3085
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
         :pswitch_1
         :pswitch_2
-        :pswitch_3
         :pswitch_4
+        :pswitch_3
     .end packed-switch
 .end method

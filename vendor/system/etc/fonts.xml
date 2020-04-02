@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    All fonts without names are added to the default list. Fonts are chosen
+    NOTE: this is the newer (L) version of the system font configuration,
+    supporting richer weight selection. Some apps will expect the older
+    version, so please keep system_fonts.xml and fallback_fonts.xml in sync
+    with any changes, even though framework will only read this file.
+
+    All fonts withohut names are added to the default list. Fonts are chosen
     based on a match: full BCP-47 language tag including script, then just
     language, and finally order (the first font containing the glyph).
 
@@ -88,282 +93,279 @@
     </family>
 
     <!-- fallback fonts -->
-    <family lang="und-Arab" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoNaskhArabic-Regular.ttf</font>
         <font weight="700" style="normal">NotoNaskhArabic-Bold.ttf</font>
     </family>
-    <family lang="und-Arab" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoNaskhArabicUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoNaskhArabicUI-Bold.ttf</font>
     </family>
-    <family lang="und-Ethi">
+    <family>
         <font weight="400" style="normal">NotoSansEthiopic-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansEthiopic-Bold.ttf</font>
     </family>
-    <family lang="und-Hebr">
+    <family>
         <font weight="400" style="normal">NotoSansHebrew-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansHebrew-Bold.ttf</font>
     </family>
-    <family lang="und-Thai" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansThai-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansThai-Bold.ttf</font>
     </family>
-    <family lang="und-Thai" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansThaiUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansThaiUI-Bold.ttf</font>
     </family>
-    <family lang="und-Armn">
+    <family>
         <font weight="400" style="normal">NotoSansArmenian-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansArmenian-Bold.ttf</font>
     </family>
-    <!-- TODO: add Geok -->
-    <family lang="und-Geor">
+    <family>
         <font weight="400" style="normal">NotoSansGeorgian-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansGeorgian-Bold.ttf</font>
     </family>
-    <family lang="und-Deva" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansDevanagari-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansDevanagari-Bold.ttf</font>
     </family>
-    <family lang="und-Deva" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansDevanagariUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansDevanagariUI-Bold.ttf</font>
     </family>
-
-    <!-- All scripts of India should come after Devanagari, due to shared
-         danda characters.
-    -->
-    <family lang="und-Gujr" variant="elegant">
+    <!-- Gujarati should come after Devanagari -->
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansGujarati-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansGujarati-Bold.ttf</font>
     </family>
-    <family lang="und-Gujr" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansGujaratiUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansGujaratiUI-Bold.ttf</font>
     </family>
-    <family lang="und-Guru" variant="elegant">
+    <!-- Gurmukhi should come after Devanagari -->
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansGurmukhi-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansGurmukhi-Bold.ttf</font>
     </family>
-    <family lang="und-Guru" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansGurmukhiUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansGurmukhiUI-Bold.ttf</font>
     </family>
-    <family lang="und-Taml" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansTamil-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansTamil-Bold.ttf</font>
     </family>
-    <family lang="und-Taml" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansTamilUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansTamilUI-Bold.ttf</font>
     </family>
-    <family lang="und-Mlym" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansMalayalam-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansMalayalam-Bold.ttf</font>
     </family>
-    <family lang="und-Mlym" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansMalayalamUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansMalayalamUI-Bold.ttf</font>
     </family>
-    <family lang="und-Beng" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansBengali-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansBengali-Bold.ttf</font>
     </family>
-    <family lang="und-Beng" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansBengaliUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansBengaliUI-Bold.ttf</font>
     </family>
-    <family lang="und-Telu" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansTelugu-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansTelugu-Bold.ttf</font>
     </family>
-    <family lang="und-Telu" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansTeluguUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansTeluguUI-Bold.ttf</font>
     </family>
-    <family lang="und-Knda" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansKannada-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansKannada-Bold.ttf</font>
     </family>
-    <family lang="und-Knda" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansKannadaUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansKannadaUI-Bold.ttf</font>
     </family>
-    <family lang="und-Orya" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansOriya-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansOriya-Bold.ttf</font>
     </family>
-    <family lang="und-Orya" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansOriyaUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansOriyaUI-Bold.ttf</font>
     </family>
-
-    <family lang="und-Sinh">
+    <family>
         <font weight="400" style="normal">NotoSansSinhala-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansSinhala-Bold.ttf</font>
     </family>
-    <family lang="und-Khmr" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansKhmer-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansKhmer-Bold.ttf</font>
     </family>
-    <family lang="und-Khmr" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansKhmerUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansKhmerUI-Bold.ttf</font>
     </family>
-    <family lang="und-Laoo" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansLao-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansLao-Bold.ttf</font>
     </family>
-    <family lang="und-Laoo" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansLaoUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansLaoUI-Bold.ttf</font>
     </family>
-    <family lang="und-Mymr" variant="elegant">
+    <family variant="elegant">
         <font weight="400" style="normal">NotoSansMyanmar-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansMyanmar-Bold.ttf</font>
     </family>
-    <family lang="und-Mymr" variant="compact">
+    <family variant="compact">
         <font weight="400" style="normal">NotoSansMyanmarUI-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansMyanmarUI-Bold.ttf</font>
     </family>
-    <family lang="und-Thaa">
+    <family>
         <font weight="400" style="normal">NotoSansThaana-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansThaana-Bold.ttf</font>
     </family>
-    <family lang="und-Cham">
+    <family>
         <font weight="400" style="normal">NotoSansCham-Regular.ttf</font>
         <font weight="700" style="normal">NotoSansCham-Bold.ttf</font>
     </family>
-    <family lang="und-Bali">
+    <family>
         <font weight="400" style="normal">NotoSansBalinese-Regular.ttf</font>
     </family>
-    <family lang="und-Bamu">
+    <family>
         <font weight="400" style="normal">NotoSansBamum-Regular.ttf</font>
     </family>
-    <family lang="und-Batk">
+    <family>
         <font weight="400" style="normal">NotoSansBatak-Regular.ttf</font>
     </family>
-    <family lang="und-Bugi">
+    <family>
         <font weight="400" style="normal">NotoSansBuginese-Regular.ttf</font>
     </family>
-    <family lang="und-Buhd">
+    <family>
         <font weight="400" style="normal">NotoSansBuhid-Regular.ttf</font>
     </family>
-    <family lang="und-Cans">
+    <family>
         <font weight="400" style="normal">NotoSansCanadianAboriginal-Regular.ttf</font>
     </family>
-    <family lang="und-Cher">
+    <family>
         <font weight="400" style="normal">NotoSansCherokee-Regular.ttf</font>
     </family>
-    <family lang="und-Copt">
+    <family>
         <font weight="400" style="normal">NotoSansCoptic-Regular.ttf</font>
     </family>
-    <family lang="und-Glag">
+    <family>
         <font weight="400" style="normal">NotoSansGlagolitic-Regular.ttf</font>
     </family>
-    <family lang="und-Hano">
+    <family>
         <font weight="400" style="normal">NotoSansHanunoo-Regular.ttf</font>
     </family>
-    <family lang="und-Java">
+    <family>
         <font weight="400" style="normal">NotoSansJavanese-Regular.ttf</font>
     </family>
-    <family lang="und-Kali">
+    <family>
         <font weight="400" style="normal">NotoSansKayahLi-Regular.ttf</font>
     </family>
-    <family lang="und-Lepc">
+    <family>
         <font weight="400" style="normal">NotoSansLepcha-Regular.ttf</font>
     </family>
-    <family lang="und-Limb">
+    <family>
         <font weight="400" style="normal">NotoSansLimbu-Regular.ttf</font>
     </family>
-    <family lang="und-Lisu">
+    <family>
         <font weight="400" style="normal">NotoSansLisu-Regular.ttf</font>
     </family>
-    <family lang="und-Mand">
+    <family>
         <font weight="400" style="normal">NotoSansMandaic-Regular.ttf</font>
     </family>
-    <family lang="und-Mtei">
+    <family>
         <font weight="400" style="normal">NotoSansMeeteiMayek-Regular.ttf</font>
     </family>
-    <family lang="und-Talu">
+    <family>
         <font weight="400" style="normal">NotoSansNewTaiLue-Regular.ttf</font>
     </family>
-    <family lang="und-Nkoo">
+    <family>
         <font weight="400" style="normal">NotoSansNKo-Regular.ttf</font>
     </family>
-    <family lang="und-Olck">
+    <family>
         <font weight="400" style="normal">NotoSansOlChiki-Regular.ttf</font>
     </family>
-    <family lang="und-Rjng">
+    <family>
         <font weight="400" style="normal">NotoSansRejang-Regular.ttf</font>
     </family>
-    <family lang="und-Saur">
+    <family>
         <font weight="400" style="normal">NotoSansSaurashtra-Regular.ttf</font>
     </family>
-    <family lang="und-Sund">
+    <family>
         <font weight="400" style="normal">NotoSansSundanese-Regular.ttf</font>
     </family>
-    <family lang="und-Sylo">
+    <family>
         <font weight="400" style="normal">NotoSansSylotiNagri-Regular.ttf</font>
     </family>
-    <family lang="und-Syre">
+    <family>
         <font weight="400" style="normal">NotoSansSyriacEstrangela-Regular.ttf</font>
     </family>
-    <family lang="und-Tagb">
+    <family>
         <font weight="400" style="normal">NotoSansTagbanwa-Regular.ttf</font>
     </family>
-    <family lang="und-Lana">
+    <family>
         <font weight="400" style="normal">NotoSansTaiTham-Regular.ttf</font>
     </family>
-    <family lang="und-Tavt">
+    <family>
         <font weight="400" style="normal">NotoSansTaiViet-Regular.ttf</font>
     </family>
-    <family lang="und-Tibt">
+    <family>
         <font weight="400" style="normal">NotoSansTibetan-Regular.ttf</font>
-        <font weight="700" style="normal">NotoSansTibetan-Bold.ttf</font>
     </family>
-    <family lang="und-Tfng">
+    <family>
         <font weight="400" style="normal">NotoSansTifinagh-Regular.ttf</font>
     </family>
-    <family lang="und-Vaii">
+    <family>
         <font weight="400" style="normal">NotoSansVai-Regular.ttf</font>
     </family>
-    <family lang="und-Yiii">
+    <family>
         <font weight="400" style="normal">NotoSansYi-Regular.ttf</font>
     </family>
     <family>
         <font weight="400" style="normal">NotoSansSymbols-Regular-Subsetted.ttf</font>
     </family>
     <family lang="zh-Hans">
-        <font weight="400" style="normal" index="2">NotoSansCJK-Regular.ttc</font>
+        <font weight="400" style="normal">NotoSansSC-Regular.otf</font>
     </family>
-    <!-- TODO: Add Bopo -->
     <family lang="zh-Hant">
-        <font weight="400" style="normal" index="3">NotoSansCJK-Regular.ttc</font>
+        <font weight="400" style="normal">NotoSansTC-Regular.otf</font>
     </family>
     <family lang="ja">
-        <font weight="400" style="normal" index="0">NotoSansCJK-Regular.ttc</font>
+        <font weight="400" style="normal">NotoSansJP-Regular.otf</font>
     </family>
     <family lang="ko">
-        <font weight="400" style="normal" index="1">NotoSansCJK-Regular.ttc</font>
+        <font weight="400" style="normal">NotoSansKR-Regular.otf</font>
     </family>
-    <family lang="und-Zsye">
+    <family>
+        <font weight="400" style="normal">NanumGothic.ttf</font>
+    </family>
+    <family>
         <font weight="400" style="normal">NotoColorEmoji.ttf</font>
     </family>
     <family>
-        <font weight="400" style="normal">NotoSansSymbols-Regular-Subsetted2.ttf</font>
-    </family>
-    <family>
         <font weight="400" style="normal">DroidSansFallback.ttf</font>
+    </family>
+    <family lang="ja">
+        <font weight="400" style="normal">MTLmr3m.ttf</font>
     </family>
     <!--
         Tai Le and Mongolian are intentionally kept last, to make sure they don't override
         the East Asian punctuation for Chinese.
     -->
-    <family lang="und-Tale">
+    <family>
         <font weight="400" style="normal">NotoSansTaiLe-Regular.ttf</font>
     </family>
-    <family lang="und-Mong">
+    <family>
         <font weight="400" style="normal">NotoSansMongolian-Regular.ttf</font>
     </family>
 </familyset>

@@ -36,15 +36,13 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/media/TextTrackCue;Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
-    .locals 5
+    .locals 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cue"    # Landroid/media/TextTrackCue;
     .param p3, "captionStyle"    # Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     .param p4, "fontSize"    # F
 
     .prologue
-    const/4 v1, 0x0
-
     const/4 v2, 0x1
 
     .line 1666
@@ -60,24 +58,24 @@
     iput p4, p0, Landroid/media/WebVttRenderingWidget$CueLayout;->mFontSize:F
 
     .line 1673
-    iget v3, p2, Landroid/media/TextTrackCue;->mWritingDirection:I
+    iget v1, p2, Landroid/media/TextTrackCue;->mWritingDirection:I
 
     .line 1674
-    const/16 v4, 0x64
+    const/16 v3, 0x64
 
     .line 1673
-    if-ne v3, v4, :cond_1
+    if-ne v1, v3, :cond_0
 
-    move v0, v2
+    const/4 v0, 0x1
 
     .line 1675
     .local v0, "horizontal":Z
     :goto_0
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     move v1, v2
 
-    :cond_0
+    :goto_1
     invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->setOrientation(I)V
 
     .line 1677
@@ -86,27 +84,33 @@
     packed-switch v1, :pswitch_data_0
 
     .line 1700
-    :goto_1
+    :goto_2
     invoke-virtual {p0}, Landroid/media/WebVttRenderingWidget$CueLayout;->update()V
 
     .line 1665
     return-void
 
-    .end local v0    # "horizontal":Z
-    :cond_1
-    move v0, v1
-
     .line 1673
+    .end local v0    # "horizontal":Z
+    :cond_0
+    const/4 v0, 0x0
+
+    .restart local v0    # "horizontal":Z
     goto :goto_0
 
+    .line 1675
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_1
+
     .line 1679
-    .restart local v0    # "horizontal":Z
     :pswitch_0
     const v1, 0x800005
 
     invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->setGravity(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     .line 1682
     :pswitch_1
@@ -114,22 +118,22 @@
 
     invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->setGravity(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     .line 1685
     :pswitch_2
     if-eqz v0, :cond_2
 
-    :goto_2
+    :goto_3
     invoke-virtual {p0, v2}, Landroid/media/WebVttRenderingWidget$CueLayout;->setGravity(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     .line 1686
     :cond_2
     const/16 v2, 0x10
 
-    goto :goto_2
+    goto :goto_3
 
     .line 1689
     :pswitch_3
@@ -137,7 +141,7 @@
 
     invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->setGravity(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     .line 1692
     :pswitch_4
@@ -145,9 +149,11 @@
 
     invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->setGravity(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     .line 1677
+    nop
+
     :pswitch_data_0
     .packed-switch 0xc8
         :pswitch_2

@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/view/MenuItem$OnActionExpandListener;,
-        Landroid/view/MenuItem$OnMenuItemClickListener;
+        Landroid/view/MenuItem$OnMenuItemClickListener;,
+        Landroid/view/MenuItem$OnActionExpandListener;
     }
 .end annotation
 

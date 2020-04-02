@@ -188,8 +188,6 @@
     .locals 6
 
     .prologue
-    const/4 v2, 0x1
-
     .line 82
     iget-object v4, p0, Lcom/android/server/connectivity/DataConnectionStats;->mServiceState:Landroid/telephony/ServiceState;
 
@@ -204,7 +202,7 @@
 
     sget-object v5, Lcom/android/internal/telephony/IccCardConstants$State;->READY:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_2
 
     .line 86
     iget-object v4, p0, Lcom/android/server/connectivity/DataConnectionStats;->mSimState:Lcom/android/internal/telephony/IccCardConstants$State;
@@ -213,11 +211,12 @@
 
     if-ne v4, v5, :cond_3
 
+    const/4 v2, 0x1
+
     .line 87
     .local v2, "simReadyOrUnknown":Z
-    :cond_1
     :goto_0
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1
 
     invoke-direct {p0}, Lcom/android/server/connectivity/DataConnectionStats;->isCdma()Z
 
@@ -226,7 +225,7 @@
     if-eqz v4, :cond_5
 
     .line 88
-    :cond_2
+    :cond_1
     invoke-direct {p0}, Lcom/android/server/connectivity/DataConnectionStats;->hasService()Z
 
     move-result v4
@@ -265,17 +264,25 @@
     :goto_2
     return-void
 
-    .line 86
+    .line 85
     .end local v1    # "networkType":I
     .end local v2    # "simReadyOrUnknown":Z
     .end local v3    # "visible":Z
+    :cond_2
+    const/4 v2, 0x1
+
+    .restart local v2    # "simReadyOrUnknown":Z
+    goto :goto_0
+
+    .line 86
+    .end local v2    # "simReadyOrUnknown":Z
     :cond_3
     const/4 v2, 0x0
 
+    .restart local v2    # "simReadyOrUnknown":Z
     goto :goto_0
 
     .line 89
-    .restart local v2    # "simReadyOrUnknown":Z
     :cond_4
     const/4 v3, 0x0
 

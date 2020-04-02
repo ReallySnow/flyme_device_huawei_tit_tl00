@@ -30,14 +30,5 @@
 .method public abstract onKeyEvent(Landroid/view/KeyEvent;)Z
 .end method
 
-.method public abstract onMagnificationChanged(Landroid/graphics/Region;FFF)V
-.end method
-
-.method public abstract onPerformGestureResult(IZ)V
-.end method
-
 .method public abstract onServiceConnected()V
-.end method
-
-.method public abstract onSoftKeyboardShowModeChanged(I)V
 .end method

@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.service.dreams.IDreamService"
 
-.field static final TRANSACTION_attach:I = 0x1
+.field static final TRANSACTION_attach_0:I = 0x1
 
 .field static final TRANSACTION_detach:I = 0x2
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 5
+    .locals 4
     .param p1, "code"    # I
     .param p2, "data"    # Landroid/os/Parcel;
     .param p3, "reply"    # Landroid/os/Parcel;
@@ -118,32 +118,32 @@
     .end annotation
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
     .line 41
     sparse-switch p1, :sswitch_data_0
 
-    .line 73
+    .line 71
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v3
+    move-result v2
 
-    return v3
+    return v2
 
     .line 45
     :sswitch_0
-    const-string/jumbo v3, "android.service.dreams.IDreamService"
+    const-string/jumbo v2, "android.service.dreams.IDreamService"
 
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 46
-    return v4
+    return v3
 
     .line 50
     :sswitch_1
-    const-string/jumbo v3, "android.service.dreams.IDreamService"
+    const-string/jumbo v2, "android.service.dreams.IDreamService"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 52
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
@@ -154,64 +154,53 @@
     .local v0, "_arg0":Landroid/os/IBinder;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
-    .line 56
+    .line 55
     .local v1, "_arg1":Z
     :goto_0
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    invoke-virtual {p0, v0, v1}, Landroid/service/dreams/IDreamService$Stub;->attach(Landroid/os/IBinder;Z)V
 
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/os/IRemoteCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRemoteCallback;
-
-    move-result-object v2
-
-    .line 57
-    .local v2, "_arg2":Landroid/os/IRemoteCallback;
-    invoke-virtual {p0, v0, v1, v2}, Landroid/service/dreams/IDreamService$Stub;->attach(Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
-
-    .line 58
-    return v4
+    .line 56
+    return v3
 
     .line 54
     .end local v1    # "_arg1":Z
-    .end local v2    # "_arg2":Landroid/os/IRemoteCallback;
     :cond_0
     const/4 v1, 0x0
 
     .restart local v1    # "_arg1":Z
     goto :goto_0
 
-    .line 62
+    .line 60
     .end local v0    # "_arg0":Landroid/os/IBinder;
     .end local v1    # "_arg1":Z
     :sswitch_2
-    const-string/jumbo v3, "android.service.dreams.IDreamService"
+    const-string/jumbo v2, "android.service.dreams.IDreamService"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 63
+    .line 61
     invoke-virtual {p0}, Landroid/service/dreams/IDreamService$Stub;->detach()V
 
-    .line 64
-    return v4
+    .line 62
+    return v3
 
-    .line 68
+    .line 66
     :sswitch_3
-    const-string/jumbo v3, "android.service.dreams.IDreamService"
+    const-string/jumbo v2, "android.service.dreams.IDreamService"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 69
+    .line 67
     invoke-virtual {p0}, Landroid/service/dreams/IDreamService$Stub;->wakeUp()V
 
-    .line 70
-    return v4
+    .line 68
+    return v3
 
     .line 41
     nop

@@ -25,8 +25,6 @@
 # instance fields
 .field private mGlobalGids:[I
 
-.field private mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
 .field private mPermissions:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -45,14 +43,14 @@
     .locals 1
 
     .prologue
-    .line 63
+    .line 61
     const/4 v0, 0x0
 
     new-array v0, v0, [I
 
     sput-object v0, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
-    .line 52
+    .line 50
     return-void
 .end method
 
@@ -60,15 +58,15 @@
     .locals 1
 
     .prologue
-    .line 71
+    .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 67
+    .line 65
     sget-object v0, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
     iput-object v0, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    .line 71
+    .line 67
     return-void
 .end method
 
@@ -77,18 +75,18 @@
     .param p1, "prototype"    # Lcom/android/server/pm/PermissionsState;
 
     .prologue
-    .line 75
+    .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 67
+    .line 65
     sget-object v0, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
     iput-object v0, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    .line 76
+    .line 72
     invoke-virtual {p0, p1}, Lcom/android/server/pm/PermissionsState;->copyFrom(Lcom/android/server/pm/PermissionsState;)V
 
-    .line 75
+    .line 71
     return-void
 .end method
 
@@ -98,12 +96,12 @@
     .param p1, "added"    # [I
 
     .prologue
-    .line 570
+    .line 521
     if-eqz p0, :cond_0
 
     if-eqz p1, :cond_0
 
-    .line 571
+    .line 522
     const/4 v1, 0x0
 
     array-length v2, p1
@@ -113,18 +111,18 @@
 
     aget v0, p1, v1
 
-    .line 572
+    .line 523
     .local v0, "guid":I
     invoke-static {p0, v0}, Lcom/android/internal/util/ArrayUtils;->appendInt([II)[I
 
     move-result-object p0
 
-    .line 571
+    .line 522
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 575
+    .line 526
     .end local v0    # "guid":I
     :cond_0
     return-object p0
@@ -135,14 +133,14 @@
     .param p0, "userId"    # I
 
     .prologue
-    .line 579
+    .line 530
     const/4 v0, -0x1
 
     if-eq p0, v0, :cond_0
 
     if-gez p0, :cond_0
 
-    .line 580
+    .line 531
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -167,7 +165,7 @@
 
     throw v0
 
-    .line 578
+    .line 529
     :cond_0
     return-void
 .end method
@@ -179,21 +177,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 597
+    .line 548
     iget-object v0, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     if-nez v0, :cond_0
 
-    .line 598
+    .line 549
     return-void
 
-    .line 600
+    .line 551
     :cond_0
     iget-object v0, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 601
+    .line 552
     iget-object v0, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -202,10 +200,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 602
+    .line 553
     iput-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    .line 596
+    .line 547
     :cond_1
     return-void
 .end method
@@ -215,19 +213,19 @@
     .param p1, "permission"    # Lcom/android/server/pm/BasePermission;
 
     .prologue
-    .line 585
+    .line 536
     iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     if-nez v1, :cond_0
 
-    .line 586
+    .line 537
     new-instance v1, Landroid/util/ArrayMap;
 
     invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    .line 588
+    .line 539
     :cond_0
     iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
@@ -239,17 +237,17 @@
 
     check-cast v0, Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    .line 589
+    .line 540
     .local v0, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     if-nez v0, :cond_1
 
-    .line 590
+    .line 541
     new-instance v0, Lcom/android/server/pm/PermissionsState$PermissionData;
 
     .end local v0    # "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     invoke-direct {v0, p1}, Lcom/android/server/pm/PermissionsState$PermissionData;-><init>(Lcom/android/server/pm/BasePermission;)V
 
-    .line 591
+    .line 542
     .restart local v0    # "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
@@ -257,7 +255,7 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 593
+    .line 544
     :cond_1
     return-object v0
 .end method
@@ -270,15 +268,15 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 485
+    .line 436
     iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     if-nez v1, :cond_0
 
-    .line 486
+    .line 437
     return-object v2
 
-    .line 488
+    .line 439
     :cond_0
     iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
@@ -288,14 +286,14 @@
 
     check-cast v0, Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    .line 489
+    .line 440
     .local v0, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     if-nez v0, :cond_1
 
-    .line 490
+    .line 441
     return-object v2
 
-    .line 492
+    .line 443
     :cond_1
     invoke-virtual {v0, p2}, Lcom/android/server/pm/PermissionsState$PermissionData;->getPermissionState(I)Lcom/android/server/pm/PermissionsState$PermissionState;
 
@@ -318,28 +316,28 @@
     .end annotation
 
     .prologue
-    .line 496
+    .line 447
     invoke-static {p1}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 498
+    .line 449
     iget-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     if-nez v5, :cond_0
 
-    .line 499
+    .line 450
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v5
 
     return-object v5
 
-    .line 502
+    .line 453
     :cond_0
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    .line 504
+    .line 455
     .local v4, "permissionStates":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/pm/PermissionsState$PermissionState;>;"
     iget-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
@@ -347,7 +345,7 @@
 
     move-result v1
 
-    .line 505
+    .line 456
     .local v1, "permissionCount":I
     const/4 v0, 0x0
 
@@ -355,7 +353,7 @@
     :goto_0
     if-ge v0, v1, :cond_2
 
-    .line 506
+    .line 457
     iget-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
@@ -364,26 +362,26 @@
 
     check-cast v2, Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    .line 508
+    .line 459
     .local v2, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     invoke-virtual {v2, p1}, Lcom/android/server/pm/PermissionsState$PermissionData;->getPermissionState(I)Lcom/android/server/pm/PermissionsState$PermissionState;
 
     move-result-object v3
 
-    .line 509
+    .line 460
     .local v3, "permissionState":Lcom/android/server/pm/PermissionsState$PermissionState;
     if-eqz v3, :cond_1
 
-    .line 510
+    .line 461
     invoke-interface {v4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 505
+    .line 456
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 514
+    .line 465
     .end local v2    # "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     .end local v3    # "permissionState":Lcom/android/server/pm/PermissionsState$PermissionState;
     :cond_2
@@ -391,44 +389,40 @@
 .end method
 
 .method private grantPermission(Lcom/android/server/pm/BasePermission;I)I
-    .locals 8
+    .locals 6
     .param p1, "permission"    # Lcom/android/server/pm/BasePermission;
     .param p2, "userId"    # I
 
     .prologue
-    const/4 v5, 0x1
+    const/4 v5, -0x1
 
-    const/4 v4, 0x0
+    .line 469
+    iget-object v4, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
 
-    const/4 v7, -0x1
+    invoke-virtual {p0, v4, p2}, Lcom/android/server/pm/PermissionsState;->hasPermission(Ljava/lang/String;I)Z
 
-    .line 518
-    iget-object v6, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
+    move-result v4
 
-    invoke-virtual {p0, v6, p2}, Lcom/android/server/pm/PermissionsState;->hasPermission(Ljava/lang/String;I)Z
+    if-eqz v4, :cond_0
 
-    move-result v6
+    .line 470
+    return v5
 
-    if-eqz v6, :cond_0
-
-    .line 519
-    return v7
-
-    .line 522
+    .line 473
     :cond_0
     invoke-virtual {p1, p2}, Lcom/android/server/pm/BasePermission;->computeGids(I)[I
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-static {v6}, Lcom/android/internal/util/ArrayUtils;->isEmpty([I)Z
+    invoke-static {v4}, Lcom/android/internal/util/ArrayUtils;->isEmpty([I)Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_1
+    if-eqz v4, :cond_1
 
-    move v0, v4
+    const/4 v0, 0x0
 
-    .line 523
+    .line 474
     .local v0, "hasGids":Z
     :goto_0
     if-eqz v0, :cond_2
@@ -437,107 +431,107 @@
 
     move-result-object v2
 
-    .line 525
+    .line 476
     .local v2, "oldGids":[I
     :goto_1
     invoke-direct {p0, p1}, Lcom/android/server/pm/PermissionsState;->ensurePermissionData(Lcom/android/server/pm/BasePermission;)Lcom/android/server/pm/PermissionsState$PermissionData;
 
     move-result-object v3
 
-    .line 527
+    .line 478
     .local v3, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     invoke-virtual {v3, p2}, Lcom/android/server/pm/PermissionsState$PermissionData;->grant(I)Z
 
-    move-result v6
+    move-result v4
 
-    if-nez v6, :cond_3
+    if-nez v4, :cond_3
 
-    .line 528
-    return v7
+    .line 479
+    return v5
 
+    .line 473
     .end local v0    # "hasGids":Z
     .end local v2    # "oldGids":[I
     .end local v3    # "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     :cond_1
-    move v0, v5
+    const/4 v0, 0x1
 
-    .line 522
+    .restart local v0    # "hasGids":Z
     goto :goto_0
 
-    .line 523
-    .restart local v0    # "hasGids":Z
+    .line 474
     :cond_2
     sget-object v2, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
     .restart local v2    # "oldGids":[I
     goto :goto_1
 
-    .line 531
+    .line 482
     .restart local v3    # "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     :cond_3
     if-eqz v0, :cond_4
 
-    .line 532
+    .line 483
     invoke-virtual {p0, p2}, Lcom/android/server/pm/PermissionsState;->computeGids(I)[I
 
     move-result-object v1
 
-    .line 533
+    .line 484
     .local v1, "newGids":[I
-    array-length v6, v2
+    array-length v4, v2
 
-    array-length v7, v1
+    array-length v5, v1
 
-    if-eq v6, v7, :cond_4
+    if-eq v4, v5, :cond_4
 
-    .line 534
-    return v5
+    .line 485
+    const/4 v4, 0x1
 
-    .line 538
+    return v4
+
+    .line 489
     .end local v1    # "newGids":[I
     :cond_4
+    const/4 v4, 0x0
+
     return v4
 .end method
 
 .method private revokePermission(Lcom/android/server/pm/BasePermission;I)I
-    .locals 9
+    .locals 7
     .param p1, "permission"    # Lcom/android/server/pm/BasePermission;
     .param p2, "userId"    # I
 
     .prologue
-    const/4 v5, 0x1
+    const/4 v6, -0x1
 
-    const/4 v4, 0x0
+    .line 493
+    iget-object v4, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
 
-    const/4 v8, -0x1
+    invoke-virtual {p0, v4, p2}, Lcom/android/server/pm/PermissionsState;->hasPermission(Ljava/lang/String;I)Z
 
-    .line 542
-    iget-object v6, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
+    move-result v4
 
-    invoke-virtual {p0, v6, p2}, Lcom/android/server/pm/PermissionsState;->hasPermission(Ljava/lang/String;I)Z
+    if-nez v4, :cond_0
 
-    move-result v6
+    .line 494
+    return v6
 
-    if-nez v6, :cond_0
-
-    .line 543
-    return v8
-
-    .line 546
+    .line 497
     :cond_0
     invoke-virtual {p1, p2}, Lcom/android/server/pm/BasePermission;->computeGids(I)[I
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-static {v6}, Lcom/android/internal/util/ArrayUtils;->isEmpty([I)Z
+    invoke-static {v4}, Lcom/android/internal/util/ArrayUtils;->isEmpty([I)Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_1
+    if-eqz v4, :cond_1
 
-    move v0, v4
+    const/4 v0, 0x0
 
-    .line 547
+    .line 498
     .local v0, "hasGids":Z
     :goto_0
     if-eqz v0, :cond_2
@@ -546,84 +540,88 @@
 
     move-result-object v2
 
-    .line 549
+    .line 500
     .local v2, "oldGids":[I
     :goto_1
-    iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    iget-object v7, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
+    iget-object v5, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    .line 551
+    .line 502
     .local v3, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     invoke-virtual {v3, p2}, Lcom/android/server/pm/PermissionsState$PermissionData;->revoke(I)Z
 
-    move-result v6
+    move-result v4
 
-    if-nez v6, :cond_3
+    if-nez v4, :cond_3
 
-    .line 552
-    return v8
+    .line 503
+    return v6
 
+    .line 497
     .end local v0    # "hasGids":Z
     .end local v2    # "oldGids":[I
     .end local v3    # "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     :cond_1
-    move v0, v5
+    const/4 v0, 0x1
 
-    .line 546
+    .restart local v0    # "hasGids":Z
     goto :goto_0
 
-    .line 547
-    .restart local v0    # "hasGids":Z
+    .line 498
     :cond_2
     sget-object v2, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
     .restart local v2    # "oldGids":[I
     goto :goto_1
 
-    .line 555
+    .line 506
     .restart local v3    # "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     :cond_3
     invoke-virtual {v3}, Lcom/android/server/pm/PermissionsState$PermissionData;->isDefault()Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_4
+    if-eqz v4, :cond_4
 
-    .line 556
-    iget-object v6, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
+    .line 507
+    iget-object v4, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
 
-    invoke-direct {p0, v6}, Lcom/android/server/pm/PermissionsState;->ensureNoPermissionData(Ljava/lang/String;)V
+    invoke-direct {p0, v4}, Lcom/android/server/pm/PermissionsState;->ensureNoPermissionData(Ljava/lang/String;)V
 
-    .line 559
+    .line 510
     :cond_4
     if-eqz v0, :cond_5
 
-    .line 560
+    .line 511
     invoke-virtual {p0, p2}, Lcom/android/server/pm/PermissionsState;->computeGids(I)[I
 
     move-result-object v1
 
-    .line 561
+    .line 512
     .local v1, "newGids":[I
-    array-length v6, v2
+    array-length v4, v2
 
-    array-length v7, v1
+    array-length v5, v1
 
-    if-eq v6, v7, :cond_5
+    if-eq v4, v5, :cond_5
 
-    .line 562
-    return v5
+    .line 513
+    const/4 v4, 0x1
 
-    .line 566
+    return v4
+
+    .line 517
     .end local v1    # "newGids":[I
     :cond_5
+    const/4 v4, 0x0
+
     return v4
 .end method
 
@@ -634,26 +632,26 @@
     .param p1, "userId"    # I
 
     .prologue
-    .line 436
+    .line 388
     invoke-static {p1}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 438
+    .line 390
     iget-object v0, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    .line 440
+    .line 392
     .local v0, "gids":[I
     iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     if-eqz v6, :cond_2
 
-    .line 441
+    .line 393
     iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     invoke-virtual {v6}, Landroid/util/ArrayMap;->size()I
 
     move-result v4
 
-    .line 442
+    .line 394
     .local v4, "permissionCount":I
     const/4 v1, 0x0
 
@@ -661,7 +659,7 @@
     :goto_0
     if-ge v1, v4, :cond_2
 
-    .line 443
+    .line 395
     iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     invoke-virtual {v6, v1}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
@@ -670,7 +668,7 @@
 
     check-cast v3, Ljava/lang/String;
 
-    .line 444
+    .line 396
     .local v3, "permission":Ljava/lang/String;
     invoke-virtual {p0, v3, p1}, Lcom/android/server/pm/PermissionsState;->hasPermission(Ljava/lang/String;I)Z
 
@@ -678,14 +676,14 @@
 
     if-nez v6, :cond_1
 
-    .line 442
+    .line 394
     :cond_0
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 447
+    .line 399
     :cond_1
     iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
@@ -695,26 +693,26 @@
 
     check-cast v5, Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    .line 448
+    .line 400
     .local v5, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     invoke-virtual {v5, p1}, Lcom/android/server/pm/PermissionsState$PermissionData;->computeGids(I)[I
 
     move-result-object v2
 
-    .line 449
+    .line 401
     .local v2, "permGids":[I
     sget-object v6, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
     if-eq v2, v6, :cond_0
 
-    .line 450
+    .line 402
     invoke-static {v0, v2}, Lcom/android/server/pm/PermissionsState;->appendInts([I[I)[I
 
     move-result-object v0
 
     goto :goto_1
 
-    .line 455
+    .line 407
     .end local v1    # "i":I
     .end local v2    # "permGids":[I
     .end local v3    # "permission":Ljava/lang/String;
@@ -729,10 +727,10 @@
     .param p1, "userIds"    # [I
 
     .prologue
-    .line 465
+    .line 417
     iget-object v0, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    .line 467
+    .line 419
     .local v0, "gids":[I
     const/4 v3, 0x0
 
@@ -743,24 +741,24 @@
 
     aget v2, p1, v3
 
-    .line 468
+    .line 420
     .local v2, "userId":I
     invoke-virtual {p0, v2}, Lcom/android/server/pm/PermissionsState;->computeGids(I)[I
 
     move-result-object v1
 
-    .line 469
+    .line 421
     .local v1, "userGids":[I
     invoke-static {v0, v1}, Lcom/android/server/pm/PermissionsState;->appendInts([I[I)[I
 
     move-result-object v0
 
-    .line 467
+    .line 419
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 472
+    .line 424
     .end local v1    # "userGids":[I
     .end local v2    # "userId":I
     :cond_0
@@ -768,60 +766,60 @@
 .end method
 
 .method public copyFrom(Lcom/android/server/pm/PermissionsState;)V
-    .locals 9
+    .locals 6
     .param p1, "other"    # Lcom/android/server/pm/PermissionsState;
 
     .prologue
-    const/4 v8, 0x0
+    const/4 v5, 0x0
 
-    .line 96
+    .line 92
     if-ne p1, p0, :cond_0
 
-    .line 97
+    .line 93
     return-void
 
-    .line 99
+    .line 95
     :cond_0
-    iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    if-eqz v6, :cond_1
+    if-eqz v4, :cond_1
 
-    .line 100
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    .line 96
+    iget-object v4, p1, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    if-nez v6, :cond_3
+    if-nez v4, :cond_3
 
-    .line 101
-    iput-object v8, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    .line 97
+    iput-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    .line 106
+    .line 102
     :cond_1
     :goto_0
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    iget-object v4, p1, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    if-eqz v6, :cond_4
+    if-eqz v4, :cond_4
 
-    .line 107
-    iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    .line 103
+    iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    if-nez v6, :cond_2
+    if-nez v4, :cond_2
 
-    .line 108
-    new-instance v6, Landroid/util/ArrayMap;
+    .line 104
+    new-instance v4, Landroid/util/ArrayMap;
 
-    invoke-direct {v6}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct {v4}, Landroid/util/ArrayMap;-><init>()V
 
-    iput-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    iput-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    .line 110
+    .line 106
     :cond_2
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    iget-object v4, p1, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    invoke-virtual {v6}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual {v4}, Landroid/util/ArrayMap;->size()I
 
     move-result v2
 
-    .line 111
+    .line 107
     .local v2, "permissionCount":I
     const/4 v0, 0x0
 
@@ -829,160 +827,82 @@
     :goto_1
     if-ge v0, v2, :cond_4
 
-    .line 112
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    .line 108
+    iget-object v4, p1, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    invoke-virtual {v6, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
 
-    .line 113
+    .line 109
     .local v1, "name":Ljava/lang/String;
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    iget-object v4, p1, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    invoke-virtual {v6, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    .line 114
+    .line 110
     .local v3, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
-    iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    new-instance v7, Lcom/android/server/pm/PermissionsState$PermissionData;
+    new-instance v5, Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    invoke-direct {v7, v3}, Lcom/android/server/pm/PermissionsState$PermissionData;-><init>(Lcom/android/server/pm/PermissionsState$PermissionData;)V
+    invoke-direct {v5, v3}, Lcom/android/server/pm/PermissionsState$PermissionData;-><init>(Lcom/android/server/pm/PermissionsState$PermissionData;)V
 
-    invoke-virtual {v6, v1, v7}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v1, v5}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 111
+    .line 107
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 103
+    .line 99
     .end local v0    # "i":I
     .end local v1    # "name":Ljava/lang/String;
     .end local v2    # "permissionCount":I
     .end local v3    # "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     :cond_3
-    iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    invoke-virtual {v6}, Landroid/util/ArrayMap;->clear()V
+    invoke-virtual {v4}, Landroid/util/ArrayMap;->clear()V
 
     goto :goto_0
 
-    .line 118
+    .line 114
     :cond_4
-    sget-object v6, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
+    sget-object v4, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
-    iput-object v6, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
+    iput-object v4, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    .line 119
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
+    .line 115
+    iget-object v4, p1, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    sget-object v7, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
+    sget-object v5, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
-    if-eq v6, v7, :cond_5
+    if-eq v4, v5, :cond_5
 
-    .line 120
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
+    .line 116
+    iget-object v4, p1, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    .line 121
-    iget-object v7, p1, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
+    .line 117
+    iget-object v5, p1, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    array-length v7, v7
+    array-length v5, v5
 
-    .line 120
-    invoke-static {v6, v7}, Ljava/util/Arrays;->copyOf([II)[I
+    .line 116
+    invoke-static {v4, v5}, Ljava/util/Arrays;->copyOf([II)[I
 
-    move-result-object v6
+    move-result-object v4
 
-    iput-object v6, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
+    iput-object v4, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    .line 124
+    .line 91
     :cond_5
-    iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    if-eqz v6, :cond_6
-
-    .line 125
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    if-nez v6, :cond_8
-
-    .line 126
-    iput-object v8, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    .line 131
-    :cond_6
-    :goto_2
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    if-eqz v6, :cond_9
-
-    .line 132
-    iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    if-nez v6, :cond_7
-
-    .line 133
-    new-instance v6, Landroid/util/SparseBooleanArray;
-
-    invoke-direct {v6}, Landroid/util/SparseBooleanArray;-><init>()V
-
-    iput-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    .line 135
-    :cond_7
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v6}, Landroid/util/SparseBooleanArray;->size()I
-
-    move-result v5
-
-    .line 136
-    .local v5, "userCount":I
-    const/4 v0, 0x0
-
-    .restart local v0    # "i":I
-    :goto_3
-    if-ge v0, v5, :cond_9
-
-    .line 137
-    iget-object v6, p1, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v6, v0}, Landroid/util/SparseBooleanArray;->valueAt(I)Z
-
-    move-result v4
-
-    .line 138
-    .local v4, "reviewRequired":Z
-    iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v6, v0, v4}, Landroid/util/SparseBooleanArray;->put(IZ)V
-
-    .line 136
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_3
-
-    .line 128
-    .end local v0    # "i":I
-    .end local v4    # "reviewRequired":Z
-    .end local v5    # "userCount":I
-    :cond_8
-    iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v6}, Landroid/util/SparseBooleanArray;->clear()V
-
-    goto :goto_2
-
-    .line 95
-    :cond_9
     return-void
 .end method
 
@@ -991,7 +911,7 @@
     .param p1, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 305
+    .line 278
     const/4 v0, -0x1
 
     invoke-direct {p0, p1, v0}, Lcom/android/server/pm/PermissionsState;->getPermissionState(Ljava/lang/String;I)Lcom/android/server/pm/PermissionsState$PermissionState;
@@ -1014,7 +934,7 @@
     .end annotation
 
     .prologue
-    .line 326
+    .line 299
     const/4 v0, -0x1
 
     invoke-direct {p0, v0}, Lcom/android/server/pm/PermissionsState;->getPermissionStatesInternal(I)Ljava/util/List;
@@ -1030,40 +950,40 @@
     .param p2, "userId"    # I
 
     .prologue
-    .line 347
+    .line 320
     invoke-virtual {p0, p1}, Lcom/android/server/pm/PermissionsState;->getInstallPermissionState(Ljava/lang/String;)Lcom/android/server/pm/PermissionsState$PermissionState;
 
     move-result-object v0
 
-    .line 348
+    .line 321
     .local v0, "installPermState":Lcom/android/server/pm/PermissionsState$PermissionState;
     if-eqz v0, :cond_0
 
-    .line 349
+    .line 322
     invoke-virtual {v0}, Lcom/android/server/pm/PermissionsState$PermissionState;->getFlags()I
 
     move-result v2
 
     return v2
 
-    .line 351
+    .line 324
     :cond_0
     invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PermissionsState;->getRuntimePermissionState(Ljava/lang/String;I)Lcom/android/server/pm/PermissionsState$PermissionState;
 
     move-result-object v1
 
-    .line 352
+    .line 325
     .local v1, "runtimePermState":Lcom/android/server/pm/PermissionsState$PermissionState;
     if-eqz v1, :cond_1
 
-    .line 353
+    .line 326
     invoke-virtual {v1}, Lcom/android/server/pm/PermissionsState$PermissionState;->getFlags()I
 
     move-result v2
 
     return v2
 
-    .line 355
+    .line 328
     :cond_1
     const/4 v2, 0x0
 
@@ -1084,34 +1004,28 @@
     .end annotation
 
     .prologue
-    .line 271
+    .line 245
     invoke-static {p1}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 273
+    .line 247
     iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     if-nez v4, :cond_0
 
-    .line 274
+    .line 248
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
 
     move-result-object v4
 
     return-object v4
 
-    .line 277
+    .line 251
     :cond_0
     new-instance v3, Landroid/util/ArraySet;
 
-    iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    invoke-direct {v3}, Landroid/util/ArraySet;-><init>()V
 
-    invoke-virtual {v4}, Landroid/util/ArrayMap;->size()I
-
-    move-result v4
-
-    invoke-direct {v3, v4}, Landroid/util/ArraySet;-><init>(I)V
-
-    .line 279
+    .line 253
     .local v3, "permissions":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
@@ -1119,7 +1033,7 @@
 
     move-result v2
 
-    .line 280
+    .line 254
     .local v2, "permissionCount":I
     const/4 v0, 0x0
 
@@ -1127,7 +1041,7 @@
     :goto_0
     if-ge v0, v2, :cond_3
 
-    .line 281
+    .line 255
     iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     invoke-virtual {v4, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
@@ -1136,43 +1050,40 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 283
+    .line 257
     .local v1, "permission":Ljava/lang/String;
     invoke-virtual {p0, v1}, Lcom/android/server/pm/PermissionsState;->hasInstallPermission(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1
 
-    .line 284
+    .line 258
     invoke-interface {v3, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 280
+    .line 261
     :cond_1
-    :goto_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 288
-    :cond_2
     const/4 v4, -0x1
 
-    if-eq p1, v4, :cond_1
+    if-eq p1, v4, :cond_2
 
-    .line 289
+    .line 262
     invoke-virtual {p0, v1, p1}, Lcom/android/server/pm/PermissionsState;->hasRuntimePermission(Ljava/lang/String;I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    .line 290
+    .line 263
     invoke-interface {v3, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    .line 254
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
 
-    .line 295
+    goto :goto_0
+
+    .line 268
     .end local v1    # "permission":Ljava/lang/String;
     :cond_3
     return-object v3
@@ -1184,10 +1095,10 @@
     .param p2, "userId"    # I
 
     .prologue
-    .line 316
+    .line 289
     invoke-static {p2}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 317
+    .line 290
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PermissionsState;->getPermissionState(Ljava/lang/String;I)Lcom/android/server/pm/PermissionsState$PermissionState;
 
     move-result-object v0
@@ -1209,10 +1120,10 @@
     .end annotation
 
     .prologue
-    .line 335
+    .line 308
     invoke-static {p1}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 336
+    .line 309
     invoke-direct {p0, p1}, Lcom/android/server/pm/PermissionsState;->getPermissionStatesInternal(I)Ljava/util/List;
 
     move-result-object v0
@@ -1225,7 +1136,7 @@
     .param p1, "permission"    # Lcom/android/server/pm/BasePermission;
 
     .prologue
-    .line 156
+    .line 130
     const/4 v0, -0x1
 
     invoke-direct {p0, p1, v0}, Lcom/android/server/pm/PermissionsState;->grantPermission(Lcom/android/server/pm/BasePermission;I)I
@@ -1243,16 +1154,16 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 181
+    .line 155
     invoke-static {p2}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 182
+    .line 156
     if-ne p2, v0, :cond_0
 
-    .line 183
+    .line 157
     return v0
 
-    .line 185
+    .line 159
     :cond_0
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PermissionsState;->grantPermission(Lcom/android/server/pm/BasePermission;I)I
 
@@ -1266,7 +1177,7 @@
     .param p1, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 225
+    .line 199
     const/4 v0, -0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/android/server/pm/PermissionsState;->hasPermission(Ljava/lang/String;I)Z
@@ -1284,18 +1195,18 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 237
+    .line 211
     invoke-static {p2}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 239
+    .line 213
     iget-object v2, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     if-nez v2, :cond_0
 
-    .line 240
+    .line 214
     return v1
 
-    .line 243
+    .line 217
     :cond_0
     iget-object v2, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
@@ -1305,7 +1216,7 @@
 
     check-cast v0, Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    .line 244
+    .line 218
     .local v0, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     if-eqz v0, :cond_1
 
@@ -1333,15 +1244,15 @@
     .local p1, "names":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     const/4 v3, 0x0
 
-    .line 252
+    .line 226
     iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     if-nez v1, :cond_0
 
-    .line 253
+    .line 227
     return v3
 
-    .line 255
+    .line 229
     :cond_0
     invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
 
@@ -1353,7 +1264,7 @@
     :goto_0
     if-ltz v0, :cond_2
 
-    .line 256
+    .line 230
     iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     invoke-virtual {p1, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
@@ -1366,18 +1277,18 @@
 
     if-eqz v1, :cond_1
 
-    .line 257
+    .line 231
     const/4 v1, 0x1
 
     return v1
 
-    .line 255
+    .line 229
     :cond_1
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 260
+    .line 234
     :cond_2
     return v3
 .end method
@@ -1388,10 +1299,10 @@
     .param p2, "userId"    # I
 
     .prologue
-    .line 214
+    .line 188
     invoke-static {p2}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 215
+    .line 189
     invoke-virtual {p0, p1}, Lcom/android/server/pm/PermissionsState;->hasInstallPermission(Ljava/lang/String;)Z
 
     move-result v0
@@ -1411,49 +1322,21 @@
     goto :goto_0
 .end method
 
-.method public isPermissionReviewRequired(I)Z
-    .locals 1
-    .param p1, "userId"    # I
-
-    .prologue
-    .line 144
-    iget-object v0, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
-
-    move-result v0
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public reset()V
-    .locals 2
+    .locals 1
 
     .prologue
-    const/4 v1, 0x0
-
-    .line 479
+    .line 431
     sget-object v0, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
     iput-object v0, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    .line 480
-    iput-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    .line 432
+    const/4 v0, 0x0
 
-    .line 481
-    iput-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
+    iput-object v0, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    .line 478
+    .line 430
     return-void
 .end method
 
@@ -1462,7 +1345,7 @@
     .param p1, "permission"    # Lcom/android/server/pm/BasePermission;
 
     .prologue
-    .line 168
+    .line 142
     const/4 v0, -0x1
 
     invoke-direct {p0, p1, v0}, Lcom/android/server/pm/PermissionsState;->revokePermission(Lcom/android/server/pm/BasePermission;I)I
@@ -1480,16 +1363,16 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 198
+    .line 172
     invoke-static {p2}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 199
+    .line 173
     if-ne p2, v0, :cond_0
 
-    .line 200
+    .line 174
     return v0
 
-    .line 202
+    .line 176
     :cond_0
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PermissionsState;->revokePermission(Lcom/android/server/pm/BasePermission;I)I
 
@@ -1503,14 +1386,14 @@
     .param p1, "globalGids"    # [I
 
     .prologue
-    .line 85
+    .line 81
     invoke-static {p1}, Lcom/android/internal/util/ArrayUtils;->isEmpty([I)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 86
+    .line 82
     array-length v0, p1
 
     invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([II)[I
@@ -1519,27 +1402,25 @@
 
     iput-object v0, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
 
-    .line 84
+    .line 80
     :cond_0
     return-void
 .end method
 
 .method public updatePermissionFlags(Lcom/android/server/pm/BasePermission;III)Z
-    .locals 9
+    .locals 5
     .param p1, "permission"    # Lcom/android/server/pm/BasePermission;
     .param p2, "userId"    # I
     .param p3, "flagMask"    # I
     .param p4, "flagValues"    # I
 
     .prologue
-    const/4 v8, 0x0
+    const/4 v4, 0x0
 
-    const/4 v7, 0x0
-
-    .line 368
+    .line 341
     invoke-static {p2}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 370
+    .line 343
     if-nez p4, :cond_0
 
     if-eqz p3, :cond_1
@@ -1547,20 +1428,20 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 372
+    .line 345
     .local v0, "mayChangeFlags":Z
     :goto_0
-    iget-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    iget-object v2, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    if-nez v5, :cond_3
+    if-nez v2, :cond_3
 
-    .line 373
+    .line 346
     if-nez v0, :cond_2
 
-    .line 374
-    return v7
+    .line 347
+    return v4
 
-    .line 370
+    .line 343
     .end local v0    # "mayChangeFlags":Z
     :cond_1
     const/4 v0, 0x0
@@ -1568,131 +1449,45 @@
     .restart local v0    # "mayChangeFlags":Z
     goto :goto_0
 
-    .line 376
+    .line 349
     :cond_2
     invoke-direct {p0, p1}, Lcom/android/server/pm/PermissionsState;->ensurePermissionData(Lcom/android/server/pm/BasePermission;)Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    .line 379
+    .line 352
     :cond_3
-    iget-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+    iget-object v2, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
-    iget-object v6, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
+    iget-object v3, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Lcom/android/server/pm/PermissionsState$PermissionData;
+    check-cast v1, Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    .line 380
-    .local v3, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
-    if-nez v3, :cond_5
+    .line 353
+    .local v1, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
+    if-nez v1, :cond_5
 
-    .line 381
+    .line 354
     if-nez v0, :cond_4
 
-    .line 382
-    return v7
+    .line 355
+    return v4
 
-    .line 384
+    .line 357
     :cond_4
     invoke-direct {p0, p1}, Lcom/android/server/pm/PermissionsState;->ensurePermissionData(Lcom/android/server/pm/BasePermission;)Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    move-result-object v3
+    move-result-object v1
 
-    .line 387
+    .line 360
     :cond_5
-    invoke-virtual {v3, p2}, Lcom/android/server/pm/PermissionsState$PermissionData;->getFlags(I)I
+    invoke-virtual {v1, p2, p3, p4}, Lcom/android/server/pm/PermissionsState$PermissionData;->updateFlags(III)Z
 
     move-result v2
 
-    .line 389
-    .local v2, "oldFlags":I
-    invoke-virtual {v3, p2, p3, p4}, Lcom/android/server/pm/PermissionsState$PermissionData;->updateFlags(III)Z
-
-    move-result v4
-
-    .line 390
-    .local v4, "updated":Z
-    if-eqz v4, :cond_7
-
-    .line 391
-    invoke-virtual {v3, p2}, Lcom/android/server/pm/PermissionsState$PermissionData;->getFlags(I)I
-
-    move-result v1
-
-    .line 392
-    .local v1, "newFlags":I
-    and-int/lit8 v5, v2, 0x40
-
-    if-nez v5, :cond_8
-
-    .line 393
-    and-int/lit8 v5, v1, 0x40
-
-    if-eqz v5, :cond_8
-
-    .line 394
-    iget-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    if-nez v5, :cond_6
-
-    .line 395
-    new-instance v5, Landroid/util/SparseBooleanArray;
-
-    invoke-direct {v5}, Landroid/util/SparseBooleanArray;-><init>()V
-
-    iput-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    .line 397
-    :cond_6
-    iget-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    const/4 v6, 0x1
-
-    invoke-virtual {v5, p2, v6}, Landroid/util/SparseBooleanArray;->put(IZ)V
-
-    .line 408
-    .end local v1    # "newFlags":I
-    :cond_7
-    :goto_1
-    return v4
-
-    .line 398
-    .restart local v1    # "newFlags":I
-    :cond_8
-    and-int/lit8 v5, v2, 0x40
-
-    if-eqz v5, :cond_7
-
-    .line 399
-    and-int/lit8 v5, v1, 0x40
-
-    if-nez v5, :cond_7
-
-    .line 400
-    iget-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    if-eqz v5, :cond_7
-
-    .line 401
-    iget-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v5, p2}, Landroid/util/SparseBooleanArray;->delete(I)V
-
-    .line 402
-    iget-object v5, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v5}, Landroid/util/SparseBooleanArray;->size()I
-
-    move-result v5
-
-    if-gtz v5, :cond_7
-
-    .line 403
-    iput-object v8, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
-
-    goto :goto_1
+    return v2
 .end method
 
 .method public updatePermissionFlagsForAllPermissions(III)Z
@@ -1702,24 +1497,24 @@
     .param p3, "flagValues"    # I
 
     .prologue
-    .line 413
+    .line 365
     invoke-static {p1}, Lcom/android/server/pm/PermissionsState;->enforceValidUserId(I)V
 
-    .line 415
+    .line 367
     iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     if-nez v4, :cond_0
 
-    .line 416
+    .line 368
     const/4 v4, 0x0
 
     return v4
 
-    .line 418
+    .line 370
     :cond_0
     const/4 v0, 0x0
 
-    .line 419
+    .line 371
     .local v0, "changed":Z
     iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
@@ -1727,7 +1522,7 @@
 
     move-result v2
 
-    .line 420
+    .line 372
     .local v2, "permissionCount":I
     const/4 v1, 0x0
 
@@ -1736,7 +1531,7 @@
     :goto_0
     if-ge v1, v2, :cond_1
 
-    .line 421
+    .line 373
     iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
     invoke-virtual {v4, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
@@ -1745,7 +1540,7 @@
 
     check-cast v3, Lcom/android/server/pm/PermissionsState$PermissionData;
 
-    .line 422
+    .line 374
     .local v3, "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     invoke-virtual {v3, p1, p2, p3}, Lcom/android/server/pm/PermissionsState$PermissionData;->updateFlags(III)Z
 
@@ -1753,13 +1548,13 @@
 
     or-int/2addr v0, v4
 
-    .line 420
+    .line 372
     .local v0, "changed":Z
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 424
+    .line 376
     .end local v0    # "changed":Z
     .end local v3    # "permissionData":Lcom/android/server/pm/PermissionsState$PermissionData;
     :cond_1

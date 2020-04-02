@@ -68,13 +68,13 @@
     .param p1, "s"    # Ljava/lang/String;
 
     .prologue
-    .line 438
+    .line 406
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 439
+    .line 407
     iput-object p1, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mString:Ljava/lang/String;
 
-    .line 438
+    .line 406
     return-void
 .end method
 
@@ -96,7 +96,7 @@
 
     const/4 v4, 0x0
 
-    .line 451
+    .line 419
     iget-object v2, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mString:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
@@ -111,10 +111,10 @@
 
     if-ge v2, v3, :cond_0
 
-    .line 452
+    .line 420
     return v4
 
-    .line 454
+    .line 422
     :cond_0
     iget-object v2, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mString:Ljava/lang/String;
 
@@ -128,14 +128,14 @@
 
     move-result v0
 
-    .line 455
+    .line 423
     .local v0, "nh":I
     if-gez v0, :cond_1
 
-    .line 456
+    .line 424
     return v4
 
-    .line 458
+    .line 426
     :cond_1
     iget-object v2, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mString:Ljava/lang/String;
 
@@ -151,14 +151,14 @@
 
     move-result v1
 
-    .line 459
+    .line 427
     .local v1, "nl":I
     if-gez v1, :cond_2
 
-    .line 460
+    .line 428
     return v4
 
-    .line 462
+    .line 430
     :cond_2
     iget v2, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mPosition:I
 
@@ -166,14 +166,14 @@
 
     iput v2, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mPosition:I
 
-    .line 463
+    .line 431
     shl-int/lit8 v2, v0, 0x4
 
     or-int/2addr v2, v1
 
     iput v2, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mHex:I
 
-    .line 464
+    .line 432
     return v5
 .end method
 
@@ -181,7 +181,7 @@
     .locals 2
 
     .prologue
-    .line 443
+    .line 411
     iget v0, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mPosition:I
 
     iget-object v1, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mString:Ljava/lang/String;
@@ -207,7 +207,7 @@
     .locals 3
 
     .prologue
-    .line 447
+    .line 415
     iget-object v0, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mString:Ljava/lang/String;
 
     iget v1, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mPosition:I
@@ -227,7 +227,7 @@
     .locals 1
 
     .prologue
-    .line 468
+    .line 436
     iget v0, p0, Lcom/android/server/wifi/hotspot2/SupplicantBridge$CharIterator;->mHex:I
 
     return v0

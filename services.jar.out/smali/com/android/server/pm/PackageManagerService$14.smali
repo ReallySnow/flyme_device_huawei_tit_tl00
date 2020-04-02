@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->removePackageDataLIF(Lcom/android/server/pm/PackageSetting;[ILcom/android/server/pm/PackageManagerService$PackageRemovedInfo;IZ)V
+    value = Lcom/android/server/pm/PackageManagerService;->resetUserChangesToRuntimePermissionsAndFlagsLPw(Lcom/android/server/pm/PackageSetting;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,25 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
-.field final synthetic val$deletedPs:Lcom/android/server/pm/PackageSetting;
+.field final synthetic val$appId:I
+
+.field final synthetic val$userId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageSetting;)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;II)V
     .locals 0
     .param p1, "this$0"    # Lcom/android/server/pm/PackageManagerService;
-    .param p2, "val$deletedPs"    # Lcom/android/server/pm/PackageSetting;
+    .param p2, "val$appId"    # I
+    .param p3, "val$userId"    # I
 
     .prologue
-    .line 16154
+    .line 14640
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$14;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$14;->val$deletedPs:Lcom/android/server/pm/PackageSetting;
+    iput p2, p0, Lcom/android/server/pm/PackageManagerService$14;->val$appId:I
+
+    iput p3, p0, Lcom/android/server/pm/PackageManagerService$14;->val$userId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,23 +51,17 @@
     .locals 4
 
     .prologue
-    .line 16158
+    .line 14643
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$14;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$14;->val$deletedPs:Lcom/android/server/pm/PackageSetting;
+    iget v1, p0, Lcom/android/server/pm/PackageManagerService$14;->val$appId:I
 
-    iget-object v1, v1, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
+    iget v2, p0, Lcom/android/server/pm/PackageManagerService$14;->val$userId:I
 
-    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$14;->val$deletedPs:Lcom/android/server/pm/PackageSetting;
-
-    iget v2, v2, Lcom/android/server/pm/PackageSetting;->appId:I
-
-    .line 16159
     const-string/jumbo v3, "permission grant or revoke changed gids"
 
-    .line 16158
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap28(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ILjava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap30(Lcom/android/server/pm/PackageManagerService;IILjava/lang/String;)V
 
-    .line 16156
+    .line 14642
     return-void
 .end method

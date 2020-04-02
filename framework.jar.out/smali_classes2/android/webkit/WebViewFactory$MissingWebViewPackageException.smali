@@ -1,4 +1,4 @@
-.class public Landroid/webkit/WebViewFactory$MissingWebViewPackageException;
+.class Landroid/webkit/WebViewFactory$MissingWebViewPackageException;
 .super Landroid/util/AndroidRuntimeException;
 .source "WebViewFactory.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
+    accessFlags = 0xa
     name = "MissingWebViewPackageException"
 .end annotation
 
@@ -20,7 +20,7 @@
     .param p1, "e"    # Ljava/lang/Exception;
 
     .prologue
-    .line 122
+    .line 96
     invoke-direct {p0, p1}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/Exception;)V
 
     return-void
@@ -31,7 +31,7 @@
     .param p1, "message"    # Ljava/lang/String;
 
     .prologue
-    .line 121
+    .line 95
     invoke-direct {p0, p1}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
 
     return-void

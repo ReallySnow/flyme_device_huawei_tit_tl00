@@ -224,13 +224,12 @@
     .param p1, "address"    # Ljava/net/InetAddress;
 
     .prologue
-    const/4 v0, 0x0
-
     .line 179
     if-nez p1, :cond_1
 
+    const/4 v0, 0x0
+
     .line 180
-    .local v0, "addrBytes":[B
     :goto_0
     if-eqz v0, :cond_0
 
@@ -249,16 +248,16 @@
     return v1
 
     .line 179
-    .end local v0    # "addrBytes":[B
     :cond_1
     invoke-virtual {p1}, Ljava/net/InetAddress;->getAddress()[B
 
     move-result-object v0
 
+    .local v0, "addrBytes":[B
     goto :goto_0
 
     .line 183
-    .restart local v0    # "addrBytes":[B
+    .end local v0    # "addrBytes":[B
     :cond_2
     iget v1, p0, Landroid/net/IpPrefix;->prefixLength:I
 

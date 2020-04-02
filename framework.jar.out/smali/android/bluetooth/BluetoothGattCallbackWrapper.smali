@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 32
+    .line 31
     invoke-direct {p0}, Landroid/bluetooth/IBluetoothGattCallback$Stub;-><init>()V
 
     return-void
@@ -35,17 +35,21 @@
     .end annotation
 
     .prologue
-    .line 48
+    .line 47
     .local p1, "batchResults":Ljava/util/List;, "Ljava/util/List<Landroid/bluetooth/le/ScanResult;>;"
     return-void
 .end method
 
-.method public onCharacteristicRead(Ljava/lang/String;II[B)V
+.method public onCharacteristicRead(Ljava/lang/String;IIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;[B)V
     .locals 0
     .param p1, "address"    # Ljava/lang/String;
     .param p2, "status"    # I
-    .param p3, "handle"    # I
-    .param p4, "value"    # [B
+    .param p3, "srvcType"    # I
+    .param p4, "srvcInstId"    # I
+    .param p5, "srvcUuid"    # Landroid/os/ParcelUuid;
+    .param p6, "charInstId"    # I
+    .param p7, "charUuid"    # Landroid/os/ParcelUuid;
+    .param p8, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -53,15 +57,19 @@
     .end annotation
 
     .prologue
-    .line 58
+    .line 80
     return-void
 .end method
 
-.method public onCharacteristicWrite(Ljava/lang/String;II)V
+.method public onCharacteristicWrite(Ljava/lang/String;IIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;)V
     .locals 0
     .param p1, "address"    # Ljava/lang/String;
     .param p2, "status"    # I
-    .param p3, "handle"    # I
+    .param p3, "srvcType"    # I
+    .param p4, "srvcInstId"    # I
+    .param p5, "srvcUuid"    # Landroid/os/ParcelUuid;
+    .param p6, "charInstId"    # I
+    .param p7, "charUuid"    # Landroid/os/ParcelUuid;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -69,7 +77,7 @@
     .end annotation
 
     .prologue
-    .line 62
+    .line 85
     return-void
 .end method
 
@@ -86,7 +94,7 @@
     .end annotation
 
     .prologue
-    .line 40
+    .line 39
     return-void
 .end method
 
@@ -101,7 +109,7 @@
     .end annotation
 
     .prologue
-    .line 35
+    .line 34
     return-void
 .end method
 
@@ -117,16 +125,22 @@
     .end annotation
 
     .prologue
-    .line 91
+    .line 119
     return-void
 .end method
 
-.method public onDescriptorRead(Ljava/lang/String;II[B)V
+.method public onDescriptorRead(Ljava/lang/String;IIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;[B)V
     .locals 0
     .param p1, "address"    # Ljava/lang/String;
     .param p2, "status"    # I
-    .param p3, "handle"    # I
-    .param p4, "value"    # [B
+    .param p3, "srvcType"    # I
+    .param p4, "srvcInstId"    # I
+    .param p5, "srvcUuid"    # Landroid/os/ParcelUuid;
+    .param p6, "charInstId"    # I
+    .param p7, "charUuid"    # Landroid/os/ParcelUuid;
+    .param p8, "descrInstId"    # I
+    .param p9, "descrUuid"    # Landroid/os/ParcelUuid;
+    .param p10, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -134,15 +148,21 @@
     .end annotation
 
     .prologue
-    .line 70
+    .line 95
     return-void
 .end method
 
-.method public onDescriptorWrite(Ljava/lang/String;II)V
+.method public onDescriptorWrite(Ljava/lang/String;IIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;)V
     .locals 0
     .param p1, "address"    # Ljava/lang/String;
     .param p2, "status"    # I
-    .param p3, "handle"    # I
+    .param p3, "srvcType"    # I
+    .param p4, "srvcInstId"    # I
+    .param p5, "srvcUuid"    # Landroid/os/ParcelUuid;
+    .param p6, "charInstId"    # I
+    .param p7, "charUuid"    # Landroid/os/ParcelUuid;
+    .param p8, "descrInstId"    # I
+    .param p9, "descrUuid"    # Landroid/os/ParcelUuid;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -150,7 +170,7 @@
     .end annotation
 
     .prologue
-    .line 74
+    .line 101
     return-void
 .end method
 
@@ -165,7 +185,7 @@
     .end annotation
 
     .prologue
-    .line 66
+    .line 89
     return-void
 .end method
 
@@ -180,7 +200,85 @@
     .end annotation
 
     .prologue
-    .line 95
+    .line 123
+    return-void
+.end method
+
+.method public onGetCharacteristic(Ljava/lang/String;IILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;I)V
+    .locals 0
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "srvcType"    # I
+    .param p3, "srvcInstId"    # I
+    .param p4, "srvcUuid"    # Landroid/os/ParcelUuid;
+    .param p5, "charInstId"    # I
+    .param p6, "charUuid"    # Landroid/os/ParcelUuid;
+    .param p7, "charProps"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 64
+    return-void
+.end method
+
+.method public onGetDescriptor(Ljava/lang/String;IILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;)V
+    .locals 0
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "srvcType"    # I
+    .param p3, "srvcInstId"    # I
+    .param p4, "srvcUuid"    # Landroid/os/ParcelUuid;
+    .param p5, "charInstId"    # I
+    .param p6, "charUuid"    # Landroid/os/ParcelUuid;
+    .param p7, "descrInstId"    # I
+    .param p8, "descrUuid"    # Landroid/os/ParcelUuid;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 70
+    return-void
+.end method
+
+.method public onGetIncludedService(Ljava/lang/String;IILandroid/os/ParcelUuid;IILandroid/os/ParcelUuid;)V
+    .locals 0
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "srvcType"    # I
+    .param p3, "srvcInstId"    # I
+    .param p4, "srvcUuid"    # Landroid/os/ParcelUuid;
+    .param p5, "inclSrvcType"    # I
+    .param p6, "inclSrvcInstId"    # I
+    .param p7, "inclSrvcUuid"    # Landroid/os/ParcelUuid;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 58
+    return-void
+.end method
+
+.method public onGetService(Ljava/lang/String;IILandroid/os/ParcelUuid;)V
+    .locals 0
+    .param p1, "address"    # Ljava/lang/String;
+    .param p2, "srvcType"    # I
+    .param p3, "srvcInstId"    # I
+    .param p4, "srvcUuid"    # Landroid/os/ParcelUuid;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 52
     return-void
 .end method
 
@@ -196,15 +294,19 @@
     .end annotation
 
     .prologue
-    .line 87
+    .line 115
     return-void
 .end method
 
-.method public onNotify(Ljava/lang/String;I[B)V
+.method public onNotify(Ljava/lang/String;IILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;[B)V
     .locals 0
     .param p1, "address"    # Ljava/lang/String;
-    .param p2, "handle"    # I
-    .param p3, "value"    # [B
+    .param p2, "srvcType"    # I
+    .param p3, "srvcInstId"    # I
+    .param p4, "srvcUuid"    # Landroid/os/ParcelUuid;
+    .param p5, "charInstId"    # I
+    .param p6, "charUuid"    # Landroid/os/ParcelUuid;
+    .param p7, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -212,7 +314,7 @@
     .end annotation
 
     .prologue
-    .line 78
+    .line 106
     return-void
 .end method
 
@@ -228,7 +330,7 @@
     .end annotation
 
     .prologue
-    .line 82
+    .line 110
     return-void
 .end method
 
@@ -242,7 +344,7 @@
     .end annotation
 
     .prologue
-    .line 99
+    .line 127
     return-void
 .end method
 
@@ -256,25 +358,14 @@
     .end annotation
 
     .prologue
-    .line 44
+    .line 43
     return-void
 .end method
 
-.method public onSearchComplete(Ljava/lang/String;Ljava/util/List;I)V
+.method public onSearchComplete(Ljava/lang/String;I)V
     .locals 0
     .param p1, "address"    # Ljava/lang/String;
-    .param p3, "status"    # I
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Landroid/bluetooth/BluetoothGattService;",
-            ">;I)V"
-        }
-    .end annotation
-
+    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -282,7 +373,6 @@
     .end annotation
 
     .prologue
-    .line 53
-    .local p2, "services":Ljava/util/List;, "Ljava/util/List<Landroid/bluetooth/BluetoothGattService;>;"
+    .line 74
     return-void
 .end method

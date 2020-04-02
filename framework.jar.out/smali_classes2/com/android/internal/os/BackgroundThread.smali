@@ -14,50 +14,39 @@
     .locals 2
 
     .prologue
-    .line 31
+    .line 30
     const-string/jumbo v0, "android.bg"
 
     const/16 v1, 0xa
 
     invoke-direct {p0, v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
 
-    .line 30
+    .line 29
     return-void
 .end method
 
 .method private static ensureThreadLocked()V
-    .locals 4
+    .locals 2
 
     .prologue
-    .line 35
+    .line 34
     sget-object v0, Lcom/android/internal/os/BackgroundThread;->sInstance:Lcom/android/internal/os/BackgroundThread;
 
     if-nez v0, :cond_0
 
-    .line 36
+    .line 35
     new-instance v0, Lcom/android/internal/os/BackgroundThread;
 
     invoke-direct {v0}, Lcom/android/internal/os/BackgroundThread;-><init>()V
 
     sput-object v0, Lcom/android/internal/os/BackgroundThread;->sInstance:Lcom/android/internal/os/BackgroundThread;
 
-    .line 37
+    .line 36
     sget-object v0, Lcom/android/internal/os/BackgroundThread;->sInstance:Lcom/android/internal/os/BackgroundThread;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BackgroundThread;->start()V
 
-    .line 38
-    sget-object v0, Lcom/android/internal/os/BackgroundThread;->sInstance:Lcom/android/internal/os/BackgroundThread;
-
-    invoke-virtual {v0}, Lcom/android/internal/os/BackgroundThread;->getLooper()Landroid/os/Looper;
-
-    move-result-object v0
-
-    const-wide/16 v2, 0x40
-
-    invoke-virtual {v0, v2, v3}, Landroid/os/Looper;->setTraceTag(J)V
-
-    .line 39
+    .line 37
     new-instance v0, Landroid/os/Handler;
 
     sget-object v1, Lcom/android/internal/os/BackgroundThread;->sInstance:Lcom/android/internal/os/BackgroundThread;
@@ -70,7 +59,7 @@
 
     sput-object v0, Lcom/android/internal/os/BackgroundThread;->sHandler:Landroid/os/Handler;
 
-    .line 34
+    .line 33
     :cond_0
     return-void
 .end method
@@ -79,16 +68,16 @@
     .locals 2
 
     .prologue
-    .line 44
+    .line 42
     const-class v1, Lcom/android/internal/os/BackgroundThread;
 
     monitor-enter v1
 
-    .line 45
+    .line 43
     :try_start_0
     invoke-static {}, Lcom/android/internal/os/BackgroundThread;->ensureThreadLocked()V
 
-    .line 46
+    .line 44
     sget-object v0, Lcom/android/internal/os/BackgroundThread;->sInstance:Lcom/android/internal/os/BackgroundThread;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -97,7 +86,7 @@
 
     return-object v0
 
-    .line 44
+    .line 42
     :catchall_0
     move-exception v0
 
@@ -110,16 +99,16 @@
     .locals 2
 
     .prologue
-    .line 51
+    .line 49
     const-class v1, Lcom/android/internal/os/BackgroundThread;
 
     monitor-enter v1
 
-    .line 52
+    .line 50
     :try_start_0
     invoke-static {}, Lcom/android/internal/os/BackgroundThread;->ensureThreadLocked()V
 
-    .line 53
+    .line 51
     sget-object v0, Lcom/android/internal/os/BackgroundThread;->sHandler:Landroid/os/Handler;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -128,7 +117,7 @@
 
     return-object v0
 
-    .line 51
+    .line 49
     :catchall_0
     move-exception v0
 

@@ -1,6 +1,9 @@
 .class Lcom/android/internal/widget/SwipeDismissLayout$1;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "SwipeDismissLayout.java"
+
+# interfaces
+.implements Landroid/view/ViewTreeObserver$OnEnterAnimationCompleteListener;
 
 
 # annotations
@@ -13,56 +16,62 @@
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/internal/widget/SwipeDismissLayout$1$1;
-    }
-.end annotation
-
 
 # instance fields
-.field private mRunnable:Ljava/lang/Runnable;
-
 .field final synthetic this$0:Lcom/android/internal/widget/SwipeDismissLayout;
 
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/SwipeDismissLayout;)V
-    .locals 1
+    .locals 0
     .param p1, "this$0"    # Lcom/android/internal/widget/SwipeDismissLayout;
 
     .prologue
-    .line 89
+    .line 79
     iput-object p1, p0, Lcom/android/internal/widget/SwipeDismissLayout$1;->this$0:Lcom/android/internal/widget/SwipeDismissLayout;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 90
-    new-instance v0, Lcom/android/internal/widget/SwipeDismissLayout$1$1;
-
-    invoke-direct {v0, p0}, Lcom/android/internal/widget/SwipeDismissLayout$1$1;-><init>(Lcom/android/internal/widget/SwipeDismissLayout$1;)V
-
-    iput-object v0, p0, Lcom/android/internal/widget/SwipeDismissLayout$1;->mRunnable:Ljava/lang/Runnable;
-
-    .line 89
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
+.method public onEnterAnimationComplete()V
+    .locals 1
 
     .prologue
-    .line 104
+    .line 86
     iget-object v0, p0, Lcom/android/internal/widget/SwipeDismissLayout$1;->this$0:Lcom/android/internal/widget/SwipeDismissLayout;
 
-    iget-object v1, p0, Lcom/android/internal/widget/SwipeDismissLayout$1;->mRunnable:Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/internal/widget/SwipeDismissLayout;->-get1(Lcom/android/internal/widget/SwipeDismissLayout;)Z
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/SwipeDismissLayout;->post(Ljava/lang/Runnable;)Z
+    move-result v0
 
-    .line 103
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/widget/SwipeDismissLayout$1;->this$0:Lcom/android/internal/widget/SwipeDismissLayout;
+
+    invoke-virtual {v0}, Lcom/android/internal/widget/SwipeDismissLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    instance-of v0, v0, Landroid/app/Activity;
+
+    if-eqz v0, :cond_0
+
+    .line 87
+    iget-object v0, p0, Lcom/android/internal/widget/SwipeDismissLayout$1;->this$0:Lcom/android/internal/widget/SwipeDismissLayout;
+
+    invoke-virtual {v0}, Lcom/android/internal/widget/SwipeDismissLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/Activity;
+
+    invoke-virtual {v0}, Landroid/app/Activity;->convertFromTranslucent()V
+
+    .line 81
+    :cond_0
     return-void
 .end method

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->showScrim()V
+    value = Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->hideScrim()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
 
     .prologue
-    .line 399
+    .line 391
     iput-object p1, p0, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$3;->this$0:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,17 +41,17 @@
     .locals 2
 
     .prologue
-    .line 402
+    .line 394
     iget-object v0, p0, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$3;->this$0:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
 
     invoke-static {v0}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->-get3(Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;)Landroid/view/View;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 401
+    .line 393
     return-void
 .end method

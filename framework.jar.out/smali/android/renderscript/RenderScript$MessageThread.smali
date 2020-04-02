@@ -46,27 +46,27 @@
     .param p1, "rs"    # Landroid/renderscript/RenderScript;
 
     .prologue
-    .line 1268
+    .line 1235
     const-string/jumbo v0, "RSMessageThread"
 
     invoke-direct {p0, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
-    .line 1254
+    .line 1221
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/renderscript/RenderScript$MessageThread;->mRun:Z
 
-    .line 1255
+    .line 1222
     const/4 v0, 0x2
 
     new-array v0, v0, [I
 
     iput-object v0, p0, Landroid/renderscript/RenderScript$MessageThread;->mAuxData:[I
 
-    .line 1269
+    .line 1236
     iput-object p1, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
-    .line 1267
+    .line 1234
     return-void
 .end method
 
@@ -76,12 +76,12 @@
     .locals 14
 
     .prologue
-    .line 1276
+    .line 1243
     const/16 v8, 0x10
 
     new-array v5, v8, [I
 
-    .line 1277
+    .line 1244
     .local v5, "rbuf":[I
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
@@ -91,20 +91,20 @@
 
     invoke-virtual {v8, v10, v11}, Landroid/renderscript/RenderScript;->nContextInitToClient(J)V
 
-    .line 1278
+    .line 1245
     :goto_0
     iget-boolean v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRun:Z
 
     if-eqz v8, :cond_a
 
-    .line 1279
+    .line 1246
     const/4 v8, 0x0
 
     const/4 v9, 0x0
 
     aput v8, v5, v9
 
-    .line 1280
+    .line 1247
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v9, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
@@ -117,7 +117,7 @@
 
     move-result v4
 
-    .line 1281
+    .line 1248
     .local v4, "msg":I
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mAuxData:[I
 
@@ -125,7 +125,7 @@
 
     aget v6, v8, v9
 
-    .line 1282
+    .line 1249
     .local v6, "size":I
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mAuxData:[I
 
@@ -133,27 +133,27 @@
 
     aget v7, v8, v9
 
-    .line 1284
+    .line 1251
     .local v7, "subID":I
     const/4 v8, 0x4
 
     if-ne v4, v8, :cond_3
 
-    .line 1285
+    .line 1252
     shr-int/lit8 v8, v6, 0x2
 
     array-length v9, v5
 
     if-lt v8, v9, :cond_0
 
-    .line 1286
+    .line 1253
     add-int/lit8 v8, v6, 0x3
 
     shr-int/lit8 v8, v8, 0x2
 
     new-array v5, v8, [I
 
-    .line 1288
+    .line 1255
     :cond_0
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
@@ -165,13 +165,13 @@
 
     move-result v8
 
-    .line 1289
+    .line 1256
     const/4 v9, 0x4
 
-    .line 1288
+    .line 1255
     if-eq v8, v9, :cond_1
 
-    .line 1290
+    .line 1257
     new-instance v8, Landroid/renderscript/RSDriverException;
 
     const-string/jumbo v9, "Error processing message from RenderScript."
@@ -180,7 +180,7 @@
 
     throw v8
 
-    .line 1293
+    .line 1260
     :cond_1
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
@@ -188,28 +188,28 @@
 
     if-eqz v8, :cond_2
 
-    .line 1294
+    .line 1261
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, v8, Landroid/renderscript/RenderScript;->mMessageCallback:Landroid/renderscript/RenderScript$RSMessageHandler;
 
     iput-object v5, v8, Landroid/renderscript/RenderScript$RSMessageHandler;->mData:[I
 
-    .line 1295
+    .line 1262
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, v8, Landroid/renderscript/RenderScript;->mMessageCallback:Landroid/renderscript/RenderScript$RSMessageHandler;
 
     iput v7, v8, Landroid/renderscript/RenderScript$RSMessageHandler;->mID:I
 
-    .line 1296
+    .line 1263
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, v8, Landroid/renderscript/RenderScript;->mMessageCallback:Landroid/renderscript/RenderScript$RSMessageHandler;
 
     iput v6, v8, Landroid/renderscript/RenderScript$RSMessageHandler;->mLength:I
 
-    .line 1297
+    .line 1264
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, v8, Landroid/renderscript/RenderScript;->mMessageCallback:Landroid/renderscript/RenderScript$RSMessageHandler;
@@ -218,7 +218,7 @@
 
     goto :goto_0
 
-    .line 1299
+    .line 1266
     :cond_2
     new-instance v8, Landroid/renderscript/RSInvalidStateException;
 
@@ -228,13 +228,13 @@
 
     throw v8
 
-    .line 1304
+    .line 1271
     :cond_3
     const/4 v8, 0x3
 
     if-ne v4, v8, :cond_7
 
-    .line 1305
+    .line 1272
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v9, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
@@ -245,18 +245,18 @@
 
     move-result-object v3
 
-    .line 1314
+    .line 1281
     .local v3, "e":Ljava/lang/String;
     const/16 v8, 0x1000
 
     if-ge v7, v8, :cond_4
 
-    .line 1315
+    .line 1282
     const/16 v8, 0x800
 
     if-lt v7, v8, :cond_5
 
-    .line 1316
+    .line 1283
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, v8, Landroid/renderscript/RenderScript;->mContextType:Landroid/renderscript/RenderScript$ContextType;
@@ -265,14 +265,14 @@
 
     if-ne v8, v9, :cond_4
 
-    .line 1317
+    .line 1284
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, v8, Landroid/renderscript/RenderScript;->mErrorCallback:Landroid/renderscript/RenderScript$RSErrorHandler;
 
     if-nez v8, :cond_5
 
-    .line 1318
+    .line 1285
     :cond_4
     new-instance v8, Landroid/renderscript/RSRuntimeException;
 
@@ -308,7 +308,7 @@
 
     throw v8
 
-    .line 1321
+    .line 1288
     :cond_5
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
@@ -316,21 +316,21 @@
 
     if-eqz v8, :cond_6
 
-    .line 1322
+    .line 1289
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, v8, Landroid/renderscript/RenderScript;->mErrorCallback:Landroid/renderscript/RenderScript$RSErrorHandler;
 
     iput-object v3, v8, Landroid/renderscript/RenderScript$RSErrorHandler;->mErrorMessage:Ljava/lang/String;
 
-    .line 1323
+    .line 1290
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, v8, Landroid/renderscript/RenderScript;->mErrorCallback:Landroid/renderscript/RenderScript$RSErrorHandler;
 
     iput v7, v8, Landroid/renderscript/RenderScript$RSErrorHandler;->mErrorNum:I
 
-    .line 1324
+    .line 1291
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, v8, Landroid/renderscript/RenderScript;->mErrorCallback:Landroid/renderscript/RenderScript$RSErrorHandler;
@@ -339,7 +339,7 @@
 
     goto/16 :goto_0
 
-    .line 1326
+    .line 1293
     :cond_6
     const-string/jumbo v8, "RenderScript_jni"
 
@@ -365,14 +365,14 @@
 
     goto/16 :goto_0
 
-    .line 1333
+    .line 1300
     .end local v3    # "e":Ljava/lang/String;
     :cond_7
     const/4 v8, 0x5
 
     if-ne v4, v8, :cond_9
 
-    .line 1334
+    .line 1301
     iget-object v8, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v9, p0, Landroid/renderscript/RenderScript$MessageThread;->mRS:Landroid/renderscript/RenderScript;
@@ -383,13 +383,13 @@
 
     move-result v8
 
-    .line 1335
+    .line 1302
     const/4 v9, 0x5
 
-    .line 1334
+    .line 1301
     if-eq v8, v9, :cond_8
 
-    .line 1336
+    .line 1303
     new-instance v8, Landroid/renderscript/RSDriverException;
 
     const-string/jumbo v9, "Error processing message from RenderScript."
@@ -398,7 +398,7 @@
 
     throw v8
 
-    .line 1338
+    .line 1305
     :cond_8
     const/4 v8, 0x1
 
@@ -422,13 +422,13 @@
 
     add-long v0, v8, v10
 
-    .line 1339
+    .line 1306
     .local v0, "bufferID":J
     invoke-static {v0, v1}, Landroid/renderscript/Allocation;->sendBufferNotification(J)V
 
     goto/16 :goto_0
 
-    .line 1348
+    .line 1315
     .end local v0    # "bufferID":J
     :cond_9
     const-wide/16 v8, 0x1
@@ -442,14 +442,14 @@
 
     goto/16 :goto_0
 
-    .line 1349
+    .line 1316
     :catch_0
     move-exception v2
 
     .local v2, "e":Ljava/lang/InterruptedException;
     goto/16 :goto_0
 
-    .line 1273
+    .line 1240
     .end local v2    # "e":Ljava/lang/InterruptedException;
     .end local v4    # "msg":I
     .end local v6    # "size":I

@@ -19,8 +19,6 @@
 
 .field private final mDescriptor:Landroid/hardware/radio/RadioManager$BandDescriptor;
 
-.field private mEa:Z
-
 .field private mRds:Z
 
 .field private mStereo:Z
@@ -34,10 +32,10 @@
     .param p1, "config"    # Landroid/hardware/radio/RadioManager$FmBandConfig;
 
     .prologue
-    .line 935
+    .line 902
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 936
+    .line 903
     new-instance v0, Landroid/hardware/radio/RadioManager$BandDescriptor;
 
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandConfig;->getRegion()I
@@ -48,7 +46,7 @@
 
     move-result v2
 
-    .line 937
+    .line 904
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandConfig;->getLowerLimit()I
 
     move-result v3
@@ -61,47 +59,40 @@
 
     move-result v5
 
-    .line 936
+    .line 903
     invoke-direct/range {v0 .. v5}, Landroid/hardware/radio/RadioManager$BandDescriptor;-><init>(IIIII)V
 
     iput-object v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mDescriptor:Landroid/hardware/radio/RadioManager$BandDescriptor;
 
-    .line 938
+    .line 905
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandConfig;->getStereo()Z
 
     move-result v0
 
     iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mStereo:Z
 
-    .line 939
+    .line 906
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandConfig;->getRds()Z
 
     move-result v0
 
     iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mRds:Z
 
-    .line 940
+    .line 907
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandConfig;->getTa()Z
 
     move-result v0
 
     iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mTa:Z
 
-    .line 941
+    .line 908
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandConfig;->getAf()Z
 
     move-result v0
 
     iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mAf:Z
 
-    .line 942
-    invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandConfig;->getEa()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mEa:Z
-
-    .line 935
+    .line 902
     return-void
 .end method
 
@@ -110,10 +101,10 @@
     .param p1, "descriptor"    # Landroid/hardware/radio/RadioManager$FmBandDescriptor;
 
     .prologue
-    .line 920
+    .line 888
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 921
+    .line 889
     new-instance v0, Landroid/hardware/radio/RadioManager$BandDescriptor;
 
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandDescriptor;->getRegion()I
@@ -124,7 +115,7 @@
 
     move-result v2
 
-    .line 922
+    .line 890
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandDescriptor;->getLowerLimit()I
 
     move-result v3
@@ -133,62 +124,55 @@
 
     move-result v4
 
-    .line 923
+    .line 891
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandDescriptor;->getSpacing()I
 
     move-result v5
 
-    .line 921
+    .line 889
     invoke-direct/range {v0 .. v5}, Landroid/hardware/radio/RadioManager$BandDescriptor;-><init>(IIIII)V
 
     iput-object v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mDescriptor:Landroid/hardware/radio/RadioManager$BandDescriptor;
 
-    .line 924
+    .line 892
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandDescriptor;->isStereoSupported()Z
 
     move-result v0
 
     iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mStereo:Z
 
-    .line 925
+    .line 893
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandDescriptor;->isRdsSupported()Z
 
     move-result v0
 
     iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mRds:Z
 
-    .line 926
+    .line 894
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandDescriptor;->isTaSupported()Z
 
     move-result v0
 
     iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mTa:Z
 
-    .line 927
+    .line 895
     invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandDescriptor;->isAfSupported()Z
 
     move-result v0
 
     iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mAf:Z
 
-    .line 928
-    invoke-virtual {p1}, Landroid/hardware/radio/RadioManager$FmBandDescriptor;->isEaSupported()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mEa:Z
-
-    .line 920
+    .line 888
     return-void
 .end method
 
 
 # virtual methods
 .method public build()Landroid/hardware/radio/RadioManager$FmBandConfig;
-    .locals 11
+    .locals 10
 
     .prologue
-    .line 951
+    .line 917
     new-instance v0, Landroid/hardware/radio/RadioManager$FmBandConfig;
 
     iget-object v1, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mDescriptor:Landroid/hardware/radio/RadioManager$BandDescriptor;
@@ -197,7 +181,7 @@
 
     move-result v1
 
-    .line 952
+    .line 918
     iget-object v2, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mDescriptor:Landroid/hardware/radio/RadioManager$BandDescriptor;
 
     invoke-virtual {v2}, Landroid/hardware/radio/RadioManager$BandDescriptor;->getType()I
@@ -210,7 +194,7 @@
 
     move-result v3
 
-    .line 953
+    .line 919
     iget-object v4, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mDescriptor:Landroid/hardware/radio/RadioManager$BandDescriptor;
 
     invoke-virtual {v4}, Landroid/hardware/radio/RadioManager$BandDescriptor;->getUpperLimit()I
@@ -223,7 +207,7 @@
 
     move-result v5
 
-    .line 954
+    .line 920
     iget-boolean v6, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mStereo:Z
 
     iget-boolean v7, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mRds:Z
@@ -232,12 +216,10 @@
 
     iget-boolean v9, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mAf:Z
 
-    iget-boolean v10, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mEa:Z
+    .line 917
+    invoke-direct/range {v0 .. v9}, Landroid/hardware/radio/RadioManager$FmBandConfig;-><init>(IIIIIZZZZ)V
 
-    .line 951
-    invoke-direct/range {v0 .. v10}, Landroid/hardware/radio/RadioManager$FmBandConfig;-><init>(IIIIIZZZZZ)V
-
-    .line 955
+    .line 921
     .local v0, "config":Landroid/hardware/radio/RadioManager$FmBandConfig;
     return-object v0
 .end method
@@ -247,22 +229,10 @@
     .param p1, "state"    # Z
 
     .prologue
-    .line 990
+    .line 956
     iput-boolean p1, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mAf:Z
 
-    .line 991
-    return-object p0
-.end method
-
-.method public setEa(Z)Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;
-    .locals 0
-    .param p1, "state"    # Z
-
-    .prologue
-    .line 999
-    iput-boolean p1, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mEa:Z
-
-    .line 1000
+    .line 957
     return-object p0
 .end method
 
@@ -271,10 +241,10 @@
     .param p1, "state"    # Z
 
     .prologue
-    .line 972
+    .line 938
     iput-boolean p1, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mRds:Z
 
-    .line 973
+    .line 939
     return-object p0
 .end method
 
@@ -283,10 +253,10 @@
     .param p1, "state"    # Z
 
     .prologue
-    .line 963
+    .line 929
     iput-boolean p1, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mStereo:Z
 
-    .line 964
+    .line 930
     return-object p0
 .end method
 
@@ -295,9 +265,9 @@
     .param p1, "state"    # Z
 
     .prologue
-    .line 981
+    .line 947
     iput-boolean p1, p0, Landroid/hardware/radio/RadioManager$FmBandConfig$Builder;->mTa:Z
 
-    .line 982
+    .line 948
     return-object p0
 .end method

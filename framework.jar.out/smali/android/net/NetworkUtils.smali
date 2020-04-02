@@ -4,6 +4,12 @@
 
 
 # static fields
+.field public static final RESET_ALL_ADDRESSES:I = 0x3
+
+.field public static final RESET_IPV4_ADDRESSES:I = 0x1
+
+.field public static final RESET_IPV6_ADDRESSES:I = 0x2
+
 .field private static final TAG:Ljava/lang/String; = "NetworkUtils"
 
 
@@ -24,7 +30,7 @@
     .param p1, "right"    # Ljava/net/InetAddress;
 
     .prologue
-    .line 321
+    .line 397
     instance-of v0, p0, Ljava/net/Inet4Address;
 
     if-eqz v0, :cond_0
@@ -33,7 +39,7 @@
 
     if-nez v0, :cond_1
 
-    .line 322
+    .line 398
     :cond_0
     instance-of v0, p0, Ljava/net/Inet6Address;
 
@@ -41,7 +47,7 @@
 
     instance-of v0, p1, Ljava/net/Inet6Address;
 
-    .line 321
+    .line 397
     :goto_0
     return v0
 
@@ -50,30 +56,14 @@
 
     goto :goto_0
 
-    .line 322
+    .line 398
     :cond_2
     const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-.method public static native attachControlPacketFilter(Ljava/io/FileDescriptor;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/net/SocketException;
-        }
-    .end annotation
-.end method
-
 .method public static native attachDhcpFilter(Ljava/io/FileDescriptor;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/net/SocketException;
-        }
-    .end annotation
-.end method
-
-.method public static native attachRaFilter(Ljava/io/FileDescriptor;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -93,12 +83,18 @@
 .method public static native getBoundNetworkForProcess()I
 .end method
 
+.method public static native getDhcpError()Ljava/lang/String;
+.end method
+
+.method public static native getDhcpResults(Ljava/lang/String;Landroid/net/DhcpResults;)Z
+.end method
+
 .method public static getImplicitNetmask(Ljava/net/Inet4Address;)I
     .locals 3
     .param p0, "address"    # Ljava/net/Inet4Address;
 
     .prologue
-    .line 280
+    .line 356
     invoke-virtual {p0}, Ljava/net/Inet4Address;->getAddress()[B
 
     move-result-object v1
@@ -109,40 +105,40 @@
 
     and-int/lit16 v0, v1, 0xff
 
-    .line 281
+    .line 357
     .local v0, "firstByte":I
     const/16 v1, 0x80
 
     if-ge v0, v1, :cond_0
 
-    .line 282
+    .line 358
     const/16 v1, 0x8
 
     return v1
 
-    .line 283
+    .line 359
     :cond_0
     const/16 v1, 0xc0
 
     if-ge v0, v1, :cond_1
 
-    .line 284
+    .line 360
     const/16 v1, 0x10
 
     return v1
 
-    .line 285
+    .line 361
     :cond_1
     const/16 v1, 0xe0
 
     if-ge v0, v1, :cond_2
 
-    .line 286
+    .line 362
     const/16 v1, 0x18
 
     return v1
 
-    .line 288
+    .line 364
     :cond_2
     const/16 v1, 0x20
 
@@ -155,19 +151,19 @@
     .param p1, "prefixLength"    # I
 
     .prologue
-    .line 264
+    .line 340
     invoke-virtual {p0}, Ljava/net/InetAddress;->getAddress()[B
 
     move-result-object v0
 
-    .line 265
+    .line 341
     .local v0, "array":[B
     invoke-static {v0, p1}, Landroid/net/NetworkUtils;->maskRawAddress([BI)V
 
-    .line 267
+    .line 343
     const/4 v2, 0x0
 
-    .line 269
+    .line 345
     .local v2, "netPart":Ljava/net/InetAddress;
     :try_start_0
     invoke-static {v0}, Ljava/net/InetAddress;->getByAddress([B)Ljava/net/InetAddress;
@@ -176,16 +172,16 @@
 
     move-result-object v2
 
-    .line 273
+    .line 349
     .local v2, "netPart":Ljava/net/InetAddress;
     return-object v2
 
-    .line 270
+    .line 346
     .local v2, "netPart":Ljava/net/InetAddress;
     :catch_0
     move-exception v1
 
-    .line 271
+    .line 347
     .local v1, "e":Ljava/net/UnknownHostException;
     new-instance v3, Ljava/lang/RuntimeException;
 
@@ -226,7 +222,7 @@
     .end annotation
 
     .prologue
-    .line 335
+    .line 411
     :try_start_0
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
@@ -236,7 +232,7 @@
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    .line 336
+    .line 412
     const/4 v4, 0x0
 
     const/4 v5, 0x4
@@ -261,7 +257,7 @@
 
     aput-object v4, v3, v5
 
-    .line 337
+    .line 413
     const/16 v4, 0x8
 
     const/16 v5, 0xc
@@ -286,7 +282,7 @@
 
     aput-object v4, v3, v5
 
-    .line 338
+    .line 414
     const/16 v4, 0x10
 
     const/16 v5, 0x14
@@ -311,7 +307,7 @@
 
     aput-object v4, v3, v5
 
-    .line 339
+    .line 415
     const/16 v4, 0x18
 
     const/16 v5, 0x1c
@@ -336,7 +332,7 @@
 
     aput-object v4, v3, v5
 
-    .line 335
+    .line 411
     invoke-static {v1, v2, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -349,11 +345,11 @@
 
     return-object v1
 
-    .line 340
+    .line 416
     :catch_0
     move-exception v0
 
-    .line 341
+    .line 417
     .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v1, "NetworkUtils"
 
@@ -387,7 +383,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 342
+    .line 418
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
@@ -405,12 +401,12 @@
     .end annotation
 
     .prologue
-    .line 150
+    .line 226
     invoke-virtual {p0}, Ljava/net/Inet4Address;->getAddress()[B
 
     move-result-object v0
 
-    .line 151
+    .line 227
     .local v0, "addr":[B
     const/4 v1, 0x3
 
@@ -430,7 +426,7 @@
 
     or-int/2addr v1, v2
 
-    .line 152
+    .line 228
     const/4 v2, 0x1
 
     aget-byte v2, v0, v2
@@ -439,17 +435,17 @@
 
     shl-int/lit8 v2, v2, 0x8
 
-    .line 151
+    .line 227
     or-int/2addr v1, v2
 
-    .line 152
+    .line 228
     const/4 v2, 0x0
 
     aget-byte v2, v0, v2
 
     and-int/lit16 v2, v2, 0xff
 
-    .line 151
+    .line 227
     or-int/2addr v1, v2
 
     return v1
@@ -460,7 +456,7 @@
     .param p0, "hostAddress"    # I
 
     .prologue
-    .line 131
+    .line 207
     const/4 v2, 0x4
 
     new-array v0, v2, [B
@@ -473,7 +469,7 @@
 
     aput-byte v2, v0, v3
 
-    .line 132
+    .line 208
     shr-int/lit8 v2, p0, 0x8
 
     and-int/lit16 v2, v2, 0xff
@@ -484,7 +480,7 @@
 
     aput-byte v2, v0, v3
 
-    .line 133
+    .line 209
     shr-int/lit8 v2, p0, 0x10
 
     and-int/lit16 v2, v2, 0xff
@@ -495,7 +491,7 @@
 
     aput-byte v2, v0, v3
 
-    .line 134
+    .line 210
     shr-int/lit8 v2, p0, 0x18
 
     and-int/lit16 v2, v2, 0xff
@@ -506,7 +502,7 @@
 
     aput-byte v2, v0, v3
 
-    .line 137
+    .line 213
     .local v0, "addressBytes":[B
     :try_start_0
     invoke-static {v0}, Ljava/net/InetAddress;->getByAddress([B)Ljava/net/InetAddress;
@@ -517,11 +513,11 @@
 
     return-object v2
 
-    .line 138
+    .line 214
     :catch_0
     move-exception v1
 
-    .line 139
+    .line 215
     .local v1, "e":Ljava/net/UnknownHostException;
     new-instance v2, Ljava/lang/AssertionError;
 
@@ -544,7 +540,7 @@
     .end annotation
 
     .prologue
-    .line 352
+    .line 428
     .local p0, "addrs":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/net/InetAddress;>;"
     invoke-interface {p0}, Ljava/util/Collection;->size()I
 
@@ -552,11 +548,11 @@
 
     new-array v4, v5, [Ljava/lang/String;
 
-    .line 353
+    .line 429
     .local v4, "result":[Ljava/lang/String;
     const/4 v2, 0x0
 
-    .line 354
+    .line 430
     .local v2, "i":I
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -576,7 +572,7 @@
 
     check-cast v0, Ljava/net/InetAddress;
 
-    .line 355
+    .line 431
     .local v0, "addr":Ljava/net/InetAddress;
     add-int/lit8 v3, v2, 0x1
 
@@ -594,7 +590,7 @@
     .restart local v2    # "i":I
     goto :goto_0
 
-    .line 357
+    .line 433
     .end local v0    # "addr":Ljava/net/InetAddress;
     :cond_0
     return-object v4
@@ -608,7 +604,7 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 240
+    .line 316
     if-ltz p1, :cond_0
 
     array-length v3, p0
@@ -617,7 +613,7 @@
 
     if-le p1, v3, :cond_1
 
-    .line 241
+    .line 317
     :cond_0
     new-instance v3, Ljava/lang/RuntimeException;
 
@@ -637,10 +633,10 @@
 
     move-result-object v4
 
-    .line 242
+    .line 318
     const-string/jumbo v5, " bytes has invalid prefix length "
 
-    .line 241
+    .line 317
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -657,15 +653,15 @@
 
     throw v3
 
-    .line 245
+    .line 321
     :cond_1
     div-int/lit8 v1, p1, 0x8
 
-    .line 246
+    .line 322
     .local v1, "offset":I
     rem-int/lit8 v2, p1, 0x8
 
-    .line 247
+    .line 323
     .local v2, "remainder":I
     rsub-int/lit8 v3, v2, 0x8
 
@@ -675,7 +671,7 @@
 
     int-to-byte v0, v3
 
-    .line 249
+    .line 325
     .local v0, "mask":B
     array-length v3, p0
 
@@ -689,25 +685,25 @@
 
     aput-byte v3, p0, v1
 
-    .line 251
+    .line 327
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
-    .line 253
+    .line 329
     :goto_0
     array-length v3, p0
 
     if-ge v1, v3, :cond_3
 
-    .line 254
+    .line 330
     aput-byte v5, p0, v1
 
-    .line 253
+    .line 329
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 239
+    .line 315
     :cond_3
     return-void
 .end method
@@ -717,7 +713,7 @@
     .param p0, "netmask"    # I
 
     .prologue
-    .line 175
+    .line 251
     invoke-static {p0}, Ljava/lang/Integer;->bitCount(I)I
 
     move-result v0
@@ -730,7 +726,7 @@
     .param p0, "netmask"    # Ljava/net/Inet4Address;
 
     .prologue
-    .line 187
+    .line 263
     invoke-static {p0}, Landroid/net/NetworkUtils;->inetAddressToInt(Ljava/net/Inet4Address;)I
 
     move-result v3
@@ -739,25 +735,25 @@
 
     move-result v0
 
-    .line 188
+    .line 264
     .local v0, "i":I
     invoke-static {v0}, Ljava/lang/Integer;->bitCount(I)I
 
     move-result v1
 
-    .line 189
+    .line 265
     .local v1, "prefixLength":I
     invoke-static {v0}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
 
     move-result v2
 
-    .line 190
+    .line 266
     .local v2, "trailingZeros":I
     rsub-int/lit8 v3, v1, 0x20
 
     if-eq v2, v3, :cond_0
 
-    .line 191
+    .line 267
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -786,7 +782,7 @@
 
     throw v3
 
-    .line 193
+    .line 269
     :cond_0
     return v1
 .end method
@@ -801,7 +797,7 @@
     .end annotation
 
     .prologue
-    .line 207
+    .line 283
     invoke-static {p0}, Ljava/net/InetAddress;->parseNumericAddress(Ljava/lang/String;)Ljava/net/InetAddress;
 
     move-result-object v0
@@ -816,22 +812,26 @@
     .param p2, "flags"    # I
 
     .prologue
-    const/4 v0, 0x0
-
-    .line 215
+    .line 291
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/net/InetAddress;->getAddress()[B
 
     move-result-object v0
 
-    .line 216
-    .local v0, "addressArray":[B
-    :cond_0
+    .line 292
+    :goto_0
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    .line 214
+    .line 290
     return-void
+
+    .line 291
+    :cond_0
+    const/4 v0, 0x0
+
+    .local v0, "addressArray":[B
+    goto :goto_0
 .end method
 
 .method public static parseIpAndMask(Ljava/lang/String;)Landroid/util/Pair;
@@ -851,14 +851,14 @@
     .end annotation
 
     .prologue
-    .line 297
+    .line 373
     const/4 v0, 0x0
 
-    .line 298
+    .line 374
     .local v0, "address":Ljava/net/InetAddress;
     const/4 v6, -0x1
 
-    .line 300
+    .line 376
     .local v6, "prefixLength":I
     :try_start_0
     const-string/jumbo v7, "/"
@@ -869,7 +869,7 @@
 
     move-result-object v5
 
-    .line 301
+    .line 377
     .local v5, "pieces":[Ljava/lang/String;
     const/4 v7, 0x1
 
@@ -879,7 +879,7 @@
 
     move-result v6
 
-    .line 302
+    .line 378
     const/4 v7, 0x0
 
     aget-object v7, v5, v7
@@ -893,7 +893,7 @@
 
     move-result-object v0
 
-    .line 309
+    .line 385
     .end local v0    # "address":Ljava/net/InetAddress;
     .end local v5    # "pieces":[Ljava/lang/String;
     :goto_0
@@ -903,7 +903,7 @@
 
     if-ne v6, v7, :cond_1
 
-    .line 310
+    .line 386
     :cond_0
     new-instance v7, Ljava/lang/IllegalArgumentException;
 
@@ -929,7 +929,7 @@
 
     throw v7
 
-    .line 313
+    .line 389
     :cond_1
     new-instance v7, Landroid/util/Pair;
 
@@ -941,7 +941,7 @@
 
     return-object v7
 
-    .line 303
+    .line 379
     .restart local v0    # "address":Ljava/net/InetAddress;
     :catch_0
     move-exception v3
@@ -949,7 +949,7 @@
     .local v3, "e":Ljava/lang/NullPointerException;
     goto :goto_0
 
-    .line 304
+    .line 380
     .end local v3    # "e":Ljava/lang/NullPointerException;
     :catch_1
     move-exception v1
@@ -957,7 +957,7 @@
     .local v1, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     goto :goto_0
 
-    .line 305
+    .line 381
     .end local v1    # "e":Ljava/lang/ArrayIndexOutOfBoundsException;
     :catch_2
     move-exception v4
@@ -965,7 +965,7 @@
     .local v4, "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 
-    .line 306
+    .line 382
     .end local v4    # "e":Ljava/lang/NumberFormatException;
     :catch_3
     move-exception v2
@@ -984,14 +984,14 @@
     .end annotation
 
     .prologue
-    .line 162
+    .line 238
     if-ltz p0, :cond_0
 
     const/16 v1, 0x20
 
     if-le p0, v1, :cond_1
 
-    .line 163
+    .line 239
     :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -1001,7 +1001,7 @@
 
     throw v1
 
-    .line 165
+    .line 241
     :cond_1
     rsub-int/lit8 v1, p0, 0x20
 
@@ -1009,7 +1009,7 @@
 
     shl-int v0, v2, v1
 
-    .line 166
+    .line 242
     .local v0, "value":I
     invoke-static {v0}, Ljava/lang/Integer;->reverseBytes(I)I
 
@@ -1026,7 +1026,7 @@
     .param p0, "fd"    # Ljava/io/FileDescriptor;
 
     .prologue
-    .line 110
+    .line 186
     invoke-virtual {p0}, Ljava/io/FileDescriptor;->getInt$()I
 
     move-result v0
@@ -1041,12 +1041,71 @@
 .method public static native queryUserAccess(II)Z
 .end method
 
-.method public static native setupRaSocket(Ljava/io/FileDescriptor;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/net/SocketException;
-        }
-    .end annotation
+.method public static native releaseDhcpLease(Ljava/lang/String;)Z
+.end method
+
+.method public static native resetConnections(Ljava/lang/String;I)I
+.end method
+
+.method public static runDhcp(Ljava/lang/String;Landroid/net/DhcpResults;)Z
+    .locals 1
+    .param p0, "interfaceName"    # Ljava/lang/String;
+    .param p1, "dhcpResults"    # Landroid/net/DhcpResults;
+
+    .prologue
+    .line 94
+    invoke-static {p0}, Landroid/net/NetworkUtils;->startDhcp(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p0, p1}, Landroid/net/NetworkUtils;->getDhcpResults(Ljava/lang/String;Landroid/net/DhcpResults;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static runDhcpRenew(Ljava/lang/String;Landroid/net/DhcpResults;)Z
+    .locals 1
+    .param p0, "interfaceName"    # Ljava/lang/String;
+    .param p1, "dhcpResults"    # Landroid/net/DhcpResults;
+
+    .prologue
+    .line 106
+    invoke-static {p0}, Landroid/net/NetworkUtils;->startDhcpRenew(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p0, p1}, Landroid/net/NetworkUtils;->getDhcpResults(Ljava/lang/String;Landroid/net/DhcpResults;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static native startDhcp(Ljava/lang/String;)Z
+.end method
+
+.method public static native startDhcpRenew(Ljava/lang/String;)Z
+.end method
+
+.method public static native stopDhcp(Ljava/lang/String;)Z
 .end method
 
 .method public static trimV4AddrZeros(Ljava/lang/String;)Ljava/lang/String;
@@ -1060,12 +1119,12 @@
 
     const/4 v6, 0x3
 
-    .line 370
+    .line 446
     if-nez p0, :cond_0
 
     return-object v5
 
-    .line 371
+    .line 447
     :cond_0
     const-string/jumbo v5, "\\."
 
@@ -1073,7 +1132,7 @@
 
     move-result-object v3
 
-    .line 372
+    .line 448
     .local v3, "octets":[Ljava/lang/String;
     array-length v5, v3
 
@@ -1081,7 +1140,7 @@
 
     return-object p0
 
-    .line 373
+    .line 449
     :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1089,11 +1148,11 @@
 
     invoke-direct {v0, v5}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 374
+    .line 450
     .local v0, "builder":Ljava/lang/StringBuilder;
     const/4 v4, 0x0
 
-    .line 375
+    .line 451
     .local v4, "result":Ljava/lang/String;
     const/4 v2, 0x0
 
@@ -1101,7 +1160,7 @@
     :goto_0
     if-ge v2, v7, :cond_4
 
-    .line 377
+    .line 453
     :try_start_0
     aget-object v5, v3, v2
 
@@ -1113,7 +1172,7 @@
 
     return-object p0
 
-    .line 378
+    .line 454
     :cond_2
     aget-object v5, v3, v2
 
@@ -1125,35 +1184,35 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 382
+    .line 458
     if-ge v2, v6, :cond_3
 
     const/16 v5, 0x2e
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 375
+    .line 451
     :cond_3
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 379
+    .line 455
     :catch_0
     move-exception v1
 
-    .line 380
+    .line 456
     .local v1, "e":Ljava/lang/NumberFormatException;
     return-object p0
 
-    .line 384
+    .line 460
     .end local v1    # "e":Ljava/lang/NumberFormatException;
     :cond_4
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 385
+    .line 461
     .local v4, "result":Ljava/lang/String;
     return-object v4
 .end method
@@ -1165,19 +1224,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 224
+    .line 300
     invoke-virtual {p0}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v0
 
-    .line 225
+    .line 301
     .local v0, "addressArray":[B
     if-nez v0, :cond_0
 
-    .line 226
+    .line 302
     return-object v2
 
-    .line 229
+    .line 305
     :cond_0
     :try_start_0
     invoke-static {v0}, Ljava/net/InetAddress;->getByAddress([B)Ljava/net/InetAddress;
@@ -1188,11 +1247,11 @@
 
     return-object v2
 
-    .line 230
+    .line 306
     :catch_0
     move-exception v1
 
-    .line 231
+    .line 307
     .local v1, "e":Ljava/net/UnknownHostException;
     return-object v2
 .end method

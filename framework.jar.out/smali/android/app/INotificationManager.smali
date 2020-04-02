@@ -15,50 +15,7 @@
 
 
 # virtual methods
-.method public abstract addAutomaticZenRule(Landroid/app/AutomaticZenRule;)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract applyAdjustmentFromRankerService(Landroid/service/notification/INotificationListener;Landroid/service/notification/Adjustment;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract applyAdjustmentsFromRankerService(Landroid/service/notification/INotificationListener;Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/service/notification/INotificationListener;",
-            "Ljava/util/List",
-            "<",
-            "Landroid/service/notification/Adjustment;",
-            ">;)V"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract applyRestore([BI)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract areNotificationsEnabled(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -114,7 +71,7 @@
     .end annotation
 .end method
 
-.method public abstract doLightsSupport(I)Z
+.method public abstract deviceLightsCan(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -162,14 +119,6 @@
     .end annotation
 .end method
 
-.method public abstract getAutomaticZenRule(Ljava/lang/String;)Landroid/app/AutomaticZenRule;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getBackupPayload(I)[B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -202,14 +151,6 @@
     .end annotation
 .end method
 
-.method public abstract getImportance(Ljava/lang/String;I)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getInterruptionFilterFromListener(Landroid/service/notification/INotificationListener;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -226,7 +167,7 @@
     .end annotation
 .end method
 
-.method public abstract getNotificationSoundTimeout(Ljava/lang/String;I)J
+.method public abstract getPackageNotificationSoundTimeout(Ljava/lang/String;I)J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -234,7 +175,23 @@
     .end annotation
 .end method
 
-.method public abstract getPackageImportance(Ljava/lang/String;)I
+.method public abstract getPackagePeekable(Ljava/lang/String;I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getPackagePriority(Ljava/lang/String;I)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getPackageVisibilityOverride(Ljava/lang/String;I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -250,23 +207,7 @@
     .end annotation
 .end method
 
-.method public abstract getPriority(Ljava/lang/String;I)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getRuleInstanceCount(Landroid/content/ComponentName;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getVisibilityOverride(Ljava/lang/String;I)I
+.method public abstract getShowNotificationForPackageOnKeyguard(Ljava/lang/String;I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -283,24 +224,6 @@
 .end method
 
 .method public abstract getZenModeConfig()Landroid/service/notification/ZenModeConfig;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getZenRules()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/service/notification/ZenModeConfig$ZenRule;",
-            ">;"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -356,30 +279,6 @@
     .end annotation
 .end method
 
-.method public abstract removeAutomaticZenRule(Ljava/lang/String;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract removeAutomaticZenRules(Ljava/lang/String;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract requestBindListener(Landroid/content/ComponentName;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract requestHintsFromListener(Landroid/service/notification/INotificationListener;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -396,15 +295,7 @@
     .end annotation
 .end method
 
-.method public abstract requestUnbindListener(Landroid/service/notification/INotificationListener;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setImportance(Ljava/lang/String;II)V
+.method public abstract requestZenModeConditions(Landroid/service/notification/IConditionListener;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -436,14 +327,6 @@
     .end annotation
 .end method
 
-.method public abstract setNotificationSoundTimeout(Ljava/lang/String;IJ)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract setNotificationsEnabledForPackage(Ljava/lang/String;IZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -468,7 +351,7 @@
     .end annotation
 .end method
 
-.method public abstract setPriority(Ljava/lang/String;II)V
+.method public abstract setPackageNotificationSoundTimeout(Ljava/lang/String;IJ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -476,7 +359,31 @@
     .end annotation
 .end method
 
-.method public abstract setVisibilityOverride(Ljava/lang/String;II)V
+.method public abstract setPackagePeekable(Ljava/lang/String;IZ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setPackagePriority(Ljava/lang/String;II)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setPackageVisibilityOverride(Ljava/lang/String;II)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setShowNotificationForPackageOnKeyguard(Ljava/lang/String;II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -492,7 +399,7 @@
     .end annotation
 .end method
 
-.method public abstract unregisterListener(Landroid/service/notification/INotificationListener;I)V
+.method public abstract setZenModeConfig(Landroid/service/notification/ZenModeConfig;Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -500,7 +407,7 @@
     .end annotation
 .end method
 
-.method public abstract updateAutomaticZenRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)Z
+.method public abstract unregisterListener(Landroid/service/notification/INotificationListener;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

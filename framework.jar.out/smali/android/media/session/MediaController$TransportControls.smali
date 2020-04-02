@@ -52,7 +52,7 @@
     .locals 3
 
     .prologue
-    .line 875
+    .line 786
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -64,15 +64,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 873
+    .line 784
     :goto_0
     return-void
 
-    .line 876
+    .line 787
     :catch_0
     move-exception v0
 
-    .line 877
+    .line 788
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -87,14 +87,14 @@
     .locals 3
 
     .prologue
-    .line 861
+    .line 772
     const-string/jumbo v1, "TransportController"
 
     const-string/jumbo v2, "getRemoteControlClientNowPlayingEntries in TransportControls"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 863
+    .line 774
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -106,15 +106,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 860
+    .line 771
     :goto_0
     return-void
 
-    .line 864
+    .line 775
     :catch_0
     move-exception v0
 
-    .line 865
+    .line 776
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -129,7 +129,7 @@
     .locals 3
 
     .prologue
-    .line 801
+    .line 712
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -141,15 +141,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 799
+    .line 710
     :goto_0
     return-void
 
-    .line 802
+    .line 713
     :catch_0
     move-exception v0
 
-    .line 803
+    .line 714
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -164,7 +164,7 @@
     .locals 3
 
     .prologue
-    .line 717
+    .line 628
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -176,15 +176,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 715
+    .line 626
     :goto_0
     return-void
 
-    .line 718
+    .line 629
     :catch_0
     move-exception v0
 
-    .line 719
+    .line 630
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -201,25 +201,25 @@
     .param p2, "extras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 731
+    .line 642
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 732
+    .line 643
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    .line 733
+    .line 644
     const-string/jumbo v2, "You must specify a non-empty String for playFromMediaId."
 
-    .line 732
+    .line 643
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 736
+    .line 647
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
@@ -232,15 +232,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 730
+    .line 641
     :goto_0
     return-void
 
-    .line 737
+    .line 648
     :catch_0
     move-exception v0
 
-    .line 738
+    .line 649
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -279,13 +279,13 @@
     .param p2, "extras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 752
+    .line 663
     if-nez p1, :cond_0
 
-    .line 755
+    .line 666
     const-string/jumbo p1, ""
 
-    .line 758
+    .line 669
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
@@ -298,15 +298,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 751
+    .line 662
     :goto_0
     return-void
 
-    .line 759
+    .line 670
     :catch_0
     move-exception v0
 
-    .line 760
+    .line 671
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -345,7 +345,7 @@
     .param p2, "extras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 772
+    .line 683
     if-eqz p1, :cond_0
 
     sget-object v1, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
@@ -356,19 +356,19 @@
 
     if-eqz v1, :cond_1
 
-    .line 773
+    .line 684
     :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    .line 774
+    .line 685
     const-string/jumbo v2, "You must specify a non-empty Uri for playFromUri."
 
-    .line 773
+    .line 684
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 777
+    .line 688
     :cond_1
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
@@ -381,15 +381,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 771
+    .line 682
     :goto_0
     return-void
 
-    .line 778
+    .line 689
     :catch_0
     move-exception v0
 
-    .line 779
+    .line 690
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -422,273 +422,11 @@
     goto :goto_0
 .end method
 
-.method public prepare()V
-    .locals 3
-
-    .prologue
-    .line 632
-    :try_start_0
-    iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
-
-    invoke-static {v1}, Landroid/media/session/MediaController;->-get0(Landroid/media/session/MediaController;)Landroid/media/session/ISessionController;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/media/session/ISessionController;->prepare()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 630
-    :goto_0
-    return-void
-
-    .line 633
-    :catch_0
-    move-exception v0
-
-    .line 634
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v1, "TransportController"
-
-    const-string/jumbo v2, "Error calling prepare."
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
-.method public prepareFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 4
-    .param p1, "mediaId"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
-
-    .prologue
-    .line 651
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 652
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    .line 653
-    const-string/jumbo v2, "You must specify a non-empty String for prepareFromMediaId."
-
-    .line 652
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 656
-    :cond_0
-    :try_start_0
-    iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
-
-    invoke-static {v1}, Landroid/media/session/MediaController;->-get0(Landroid/media/session/MediaController;)Landroid/media/session/ISessionController;
-
-    move-result-object v1
-
-    invoke-interface {v1, p1, p2}, Landroid/media/session/ISessionController;->prepareFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 650
-    :goto_0
-    return-void
-
-    .line 657
-    :catch_0
-    move-exception v0
-
-    .line 658
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v1, "TransportController"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Error calling prepare("
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ")."
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
-.method public prepareFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 4
-    .param p1, "query"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
-
-    .prologue
-    .line 676
-    if-nez p1, :cond_0
-
-    .line 679
-    const-string/jumbo p1, ""
-
-    .line 682
-    :cond_0
-    :try_start_0
-    iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
-
-    invoke-static {v1}, Landroid/media/session/MediaController;->-get0(Landroid/media/session/MediaController;)Landroid/media/session/ISessionController;
-
-    move-result-object v1
-
-    invoke-interface {v1, p1, p2}, Landroid/media/session/ISessionController;->prepareFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 675
-    :goto_0
-    return-void
-
-    .line 683
-    :catch_0
-    move-exception v0
-
-    .line 684
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v1, "TransportController"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Error calling prepare("
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ")."
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
-.method public prepareFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
-    .locals 4
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "extras"    # Landroid/os/Bundle;
-
-    .prologue
-    .line 701
-    if-eqz p1, :cond_0
-
-    sget-object v1, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
-
-    invoke-virtual {v1, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 702
-    :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    .line 703
-    const-string/jumbo v2, "You must specify a non-empty Uri for prepareFromUri."
-
-    .line 702
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 706
-    :cond_1
-    :try_start_0
-    iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
-
-    invoke-static {v1}, Landroid/media/session/MediaController;->-get0(Landroid/media/session/MediaController;)Landroid/media/session/ISessionController;
-
-    move-result-object v1
-
-    invoke-interface {v1, p1, p2}, Landroid/media/session/ISessionController;->prepareFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 700
-    :goto_0
-    return-void
-
-    .line 707
-    :catch_0
-    move-exception v0
-
-    .line 708
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v1, "TransportController"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Error calling prepare("
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ")."
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
 .method public rewind()V
     .locals 3
 
     .prologue
-    .line 898
+    .line 809
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -700,15 +438,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 896
+    .line 807
     :goto_0
     return-void
 
-    .line 899
+    .line 810
     :catch_0
     move-exception v0
 
-    .line 900
+    .line 811
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -724,14 +462,14 @@
     .param p1, "pos"    # J
 
     .prologue
-    .line 825
+    .line 736
     const-string/jumbo v1, "TransportController"
 
     const-string/jumbo v2, "seekTo in TransportControls"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 827
+    .line 738
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -743,15 +481,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 824
+    .line 735
     :goto_0
     return-void
 
-    .line 828
+    .line 739
     :catch_0
     move-exception v0
 
-    .line 829
+    .line 740
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -768,10 +506,10 @@
     .param p2, "args"    # Landroid/os/Bundle;
 
     .prologue
-    .line 939
+    .line 850
     if-nez p1, :cond_0
 
-    .line 940
+    .line 851
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "CustomAction cannot be null."
@@ -780,7 +518,7 @@
 
     throw v0
 
-    .line 942
+    .line 853
     :cond_0
     invoke-virtual {p1}, Landroid/media/session/PlaybackState$CustomAction;->getAction()Ljava/lang/String;
 
@@ -788,7 +526,7 @@
 
     invoke-virtual {p0, v0, p2}, Landroid/media/session/MediaController$TransportControls;->sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 938
+    .line 849
     return-void
 .end method
 
@@ -798,14 +536,14 @@
     .param p2, "args"    # Landroid/os/Bundle;
 
     .prologue
-    .line 955
+    .line 866
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 956
+    .line 867
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "CustomAction cannot be null."
@@ -814,7 +552,7 @@
 
     throw v1
 
-    .line 959
+    .line 870
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
@@ -827,15 +565,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 954
+    .line 865
     :goto_0
     return-void
 
-    .line 960
+    .line 871
     :catch_0
     move-exception v0
 
-    .line 961
+    .line 872
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -851,7 +589,7 @@
     .param p1, "rating"    # Landroid/media/Rating;
 
     .prologue
-    .line 924
+    .line 835
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -863,15 +601,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 922
+    .line 833
     :goto_0
     return-void
 
-    .line 925
+    .line 836
     :catch_0
     move-exception v0
 
-    .line 926
+    .line 837
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -886,14 +624,14 @@
     .locals 3
 
     .prologue
-    .line 837
+    .line 748
     const-string/jumbo v1, "TransportController"
 
     const-string/jumbo v2, "setRemoteControlClientBrowsedPlayer in TransportControls"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 839
+    .line 750
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -905,15 +643,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 836
+    .line 747
     :goto_0
     return-void
 
-    .line 840
+    .line 751
     :catch_0
     move-exception v0
 
-    .line 841
+    .line 752
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -930,14 +668,14 @@
     .param p3, "scope"    # I
 
     .prologue
-    .line 849
+    .line 760
     const-string/jumbo v1, "TransportController"
 
     const-string/jumbo v2, "setRemoteControlClientPlayItem in TransportControls"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 851
+    .line 762
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -949,15 +687,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 848
+    .line 759
     :goto_0
     return-void
 
-    .line 852
+    .line 763
     :catch_0
     move-exception v0
 
-    .line 853
+    .line 764
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -972,7 +710,7 @@
     .locals 3
 
     .prologue
-    .line 886
+    .line 797
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -984,15 +722,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 884
+    .line 795
     :goto_0
     return-void
 
-    .line 887
+    .line 798
     :catch_0
     move-exception v0
 
-    .line 888
+    .line 799
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -1007,7 +745,7 @@
     .locals 3
 
     .prologue
-    .line 909
+    .line 820
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -1019,15 +757,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 907
+    .line 818
     :goto_0
     return-void
 
-    .line 910
+    .line 821
     :catch_0
     move-exception v0
 
-    .line 911
+    .line 822
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -1043,7 +781,7 @@
     .param p1, "id"    # J
 
     .prologue
-    .line 789
+    .line 700
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -1055,15 +793,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 787
+    .line 698
     :goto_0
     return-void
 
-    .line 790
+    .line 701
     :catch_0
     move-exception v0
 
-    .line 791
+    .line 702
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 
@@ -1100,7 +838,7 @@
     .locals 3
 
     .prologue
-    .line 813
+    .line 724
     :try_start_0
     iget-object v1, p0, Landroid/media/session/MediaController$TransportControls;->this$0:Landroid/media/session/MediaController;
 
@@ -1112,15 +850,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 811
+    .line 722
     :goto_0
     return-void
 
-    .line 814
+    .line 725
     :catch_0
     move-exception v0
 
-    .line 815
+    .line 726
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "TransportController"
 

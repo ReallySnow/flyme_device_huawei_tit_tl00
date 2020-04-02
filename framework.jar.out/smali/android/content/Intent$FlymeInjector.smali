@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 9200
+    .line 8270
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,7 +31,7 @@
     .param p1, "src"    # Landroid/content/Intent;
 
     .prologue
-    .line 9212
+    .line 8282
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v1, p1, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
@@ -40,7 +40,7 @@
 
     iput v1, v0, Landroid/content/IntentExt;->mMeizuFlags:I
 
-    .line 9213
+    .line 8283
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v1, p1, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
@@ -49,7 +49,7 @@
 
     iput v1, v0, Landroid/content/IntentExt;->mAccessSrcFlags:I
 
-    .line 9214
+    .line 8284
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v1, p1, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
@@ -58,7 +58,7 @@
 
     iput-object v1, v0, Landroid/content/IntentExt;->mAccessPackageName:Ljava/lang/String;
 
-    .line 9215
+    .line 8285
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v1, p1, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
@@ -67,7 +67,7 @@
 
     iput-object v1, v0, Landroid/content/IntentExt;->mAccessPackageLabel:Ljava/lang/String;
 
-    .line 9216
+    .line 8286
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v1, p1, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
@@ -76,7 +76,7 @@
 
     iput-object v1, v0, Landroid/content/IntentExt;->mAccessSrcPackageName:Ljava/lang/String;
 
-    .line 9217
+    .line 8287
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v1, p1, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
@@ -85,7 +85,7 @@
 
     iput-object v1, v0, Landroid/content/IntentExt;->mAccessSrcClassName:Ljava/lang/String;
 
-    .line 9211
+    .line 8281
     return-void
 .end method
 
@@ -95,7 +95,7 @@
     .param p1, "src"    # Landroid/content/Intent;
 
     .prologue
-    .line 9221
+    .line 8291
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v1, p1, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
@@ -104,7 +104,7 @@
 
     iput v1, v0, Landroid/content/IntentExt;->mMeizuFlags:I
 
-    .line 9220
+    .line 8290
     return-void
 .end method
 
@@ -113,14 +113,14 @@
     .param p0, "dst"    # Landroid/content/Intent;
 
     .prologue
-    .line 9203
+    .line 8273
     new-instance v0, Landroid/content/IntentExt;
 
     invoke-direct {v0}, Landroid/content/IntentExt;-><init>()V
 
     iput-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
-    .line 9202
+    .line 8272
     return-void
 .end method
 
@@ -130,13 +130,13 @@
     .param p1, "src"    # Landroid/content/Intent;
 
     .prologue
-    .line 9207
+    .line 8277
     invoke-static {p0}, Landroid/content/Intent$FlymeInjector;->createFlymeIntent(Landroid/content/Intent;)V
 
-    .line 9208
+    .line 8278
     invoke-static {p0, p1}, Landroid/content/Intent$FlymeInjector;->copyIntent(Landroid/content/Intent;Landroid/content/Intent;)V
 
-    .line 9206
+    .line 8276
     return-void
 .end method
 
@@ -146,7 +146,7 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 9234
+    .line 8304
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -155,7 +155,7 @@
 
     iput v1, v0, Landroid/content/IntentExt;->mMeizuFlags:I
 
-    .line 9235
+    .line 8305
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -164,7 +164,7 @@
 
     iput v1, v0, Landroid/content/IntentExt;->mAccessSrcFlags:I
 
-    .line 9236
+    .line 8306
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -173,7 +173,7 @@
 
     iput-object v1, v0, Landroid/content/IntentExt;->mAccessPackageName:Ljava/lang/String;
 
-    .line 9237
+    .line 8307
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -182,7 +182,7 @@
 
     iput-object v1, v0, Landroid/content/IntentExt;->mAccessPackageLabel:Ljava/lang/String;
 
-    .line 9238
+    .line 8308
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -191,7 +191,7 @@
 
     iput-object v1, v0, Landroid/content/IntentExt;->mAccessSrcPackageName:Ljava/lang/String;
 
-    .line 9239
+    .line 8309
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -200,7 +200,7 @@
 
     iput-object v1, v0, Landroid/content/IntentExt;->mAccessSrcClassName:Ljava/lang/String;
 
-    .line 9233
+    .line 8303
     return-void
 .end method
 
@@ -210,48 +210,48 @@
     .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
-    .line 9225
+    .line 8295
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget v0, v0, Landroid/content/IntentExt;->mMeizuFlags:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 9226
+    .line 8296
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget v0, v0, Landroid/content/IntentExt;->mAccessSrcFlags:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 9227
+    .line 8297
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v0, v0, Landroid/content/IntentExt;->mAccessPackageName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 9228
+    .line 8298
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v0, v0, Landroid/content/IntentExt;->mAccessPackageLabel:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 9229
+    .line 8299
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v0, v0, Landroid/content/IntentExt;->mAccessSrcPackageName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 9230
+    .line 8300
     iget-object v0, p0, Landroid/content/Intent;->mFlymeIntent:Landroid/content/IntentExt;
 
     iget-object v0, v0, Landroid/content/IntentExt;->mAccessSrcClassName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 9224
+    .line 8294
     return-void
 .end method

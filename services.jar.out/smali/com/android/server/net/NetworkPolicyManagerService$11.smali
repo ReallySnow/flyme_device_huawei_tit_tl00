@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/net/NetworkPolicyManagerService;
 
     .prologue
-    .line 885
+    .line 703
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,128 +35,99 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .locals 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 892
-    const-string/jumbo v5, "networkInfo"
+    .line 709
+    const-string/jumbo v3, "changeReason"
 
-    invoke-virtual {p2, v5}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    const/4 v4, 0x0
 
-    move-result-object v2
-
-    check-cast v2, Landroid/net/NetworkInfo;
-
-    .line 893
-    .local v2, "netInfo":Landroid/net/NetworkInfo;
-    invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnected()Z
-
-    move-result v5
-
-    if-nez v5, :cond_0
-
-    return-void
-
-    .line 895
-    :cond_0
-    const-string/jumbo v5, "wifiInfo"
-
-    invoke-virtual {p2, v5}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/wifi/WifiInfo;
-
-    .line 896
-    .local v0, "info":Landroid/net/wifi/WifiInfo;
-    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getMeteredHint()Z
+    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 898
-    .local v1, "meteredHint":Z
-    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+    .line 710
+    .local v1, "reason":I
+    const/4 v3, 0x1
 
-    move-result-object v5
+    if-ne v1, v3, :cond_1
 
-    invoke-static {v5}, Landroid/net/NetworkTemplate;->buildTemplateWifi(Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    .line 712
+    const-string/jumbo v3, "wifiConfiguration"
 
-    move-result-object v4
+    .line 711
+    invoke-virtual {p2, v3}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    .line 899
-    .local v4, "template":Landroid/net/NetworkTemplate;
-    iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    move-result-object v0
 
-    iget-object v6, v5, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPoliciesSecondLock:Ljava/lang/Object;
+    check-cast v0, Landroid/net/wifi/WifiConfiguration;
 
-    monitor-enter v6
+    .line 713
+    .local v0, "config":Landroid/net/wifi/WifiConfiguration;
+    iget-object v3, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
-    .line 900
+    if-eqz v3, :cond_1
+
+    .line 714
+    iget-object v3, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
+
+    invoke-static {v3}, Landroid/net/NetworkTemplate;->buildTemplateWifi(Ljava/lang/String;)Landroid/net/NetworkTemplate;
+
+    move-result-object v2
+
+    .line 715
+    .local v2, "template":Landroid/net/NetworkTemplate;
+    iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+
+    iget-object v4, v3, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    .line 716
     :try_start_0
-    iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    iget-object v5, v5, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
+    iget-object v3, v3, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
-    invoke-virtual {v5, v4}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result-object v3
+    move-result v3
 
-    check-cast v3, Landroid/net/NetworkPolicy;
+    if-eqz v3, :cond_0
 
-    .line 901
-    .local v3, "policy":Landroid/net/NetworkPolicy;
-    if-nez v3, :cond_2
+    .line 717
+    iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    if-eqz v1, :cond_2
+    iget-object v3, v3, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
-    .line 904
-    invoke-static {v4, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->newWifiPolicy(Landroid/net/NetworkTemplate;Z)Landroid/net/NetworkPolicy;
+    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    .line 718
+    iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    .line 905
-    iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
-
-    invoke-virtual {v5, v3}, Lcom/android/server/net/NetworkPolicyManagerService;->addNetworkPolicyNL(Landroid/net/NetworkPolicy;)V
+    invoke-virtual {v3}, Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_1
-    :goto_0
-    monitor-exit v6
+    :cond_0
+    monitor-exit v4
 
-    .line 887
+    .line 705
+    .end local v0    # "config":Landroid/net/wifi/WifiConfiguration;
+    .end local v2    # "template":Landroid/net/NetworkTemplate;
+    :cond_1
     return-void
 
-    .line 907
-    :cond_2
-    if-eqz v3, :cond_1
-
-    :try_start_1
-    iget-boolean v5, v3, Landroid/net/NetworkPolicy;->inferred:Z
-
-    if-eqz v5, :cond_1
-
-    .line 910
-    iput-boolean v1, v3, Landroid/net/NetworkPolicy;->metered:Z
-
-    .line 914
-    iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
-
-    invoke-virtual {v5}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkRulesNL()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    .line 899
-    .end local v3    # "policy":Landroid/net/NetworkPolicy;
+    .line 715
+    .restart local v0    # "config":Landroid/net/wifi/WifiConfiguration;
+    .restart local v2    # "template":Landroid/net/NetworkTemplate;
     :catchall_0
-    move-exception v5
+    move-exception v3
 
-    monitor-exit v6
+    monitor-exit v4
 
-    throw v5
+    throw v3
 .end method

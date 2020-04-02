@@ -26,67 +26,61 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.backup.IBackupManager"
 
-.field static final TRANSACTION_acknowledgeFullBackupOrRestore_15:I = 0x10
+.field static final TRANSACTION_acknowledgeFullBackupOrRestore:I = 0x10
 
-.field static final TRANSACTION_agentConnected_2:I = 0x3
+.field static final TRANSACTION_agentConnected:I = 0x3
 
-.field static final TRANSACTION_agentDisconnected_3:I = 0x4
+.field static final TRANSACTION_agentDisconnected:I = 0x4
 
 .field static final TRANSACTION_backupNow_11:I = 0xc
 
-.field static final TRANSACTION_beginRestoreSession_24:I = 0x19
+.field static final TRANSACTION_beginRestoreSession_23:I = 0x18
 
-.field static final TRANSACTION_clearBackupData_1:I = 0x2
+.field static final TRANSACTION_clearBackupData:I = 0x2
 
-.field static final TRANSACTION_dataChanged_0:I = 0x1
+.field static final TRANSACTION_dataChanged:I = 0x1
 
 .field static final TRANSACTION_fullBackup_12:I = 0xd
 
 .field static final TRANSACTION_fullRestore_14:I = 0xf
 
-.field static final TRANSACTION_fullTransportBackup_13:I = 0xe
+.field static final TRANSACTION_fullTransportBackup:I = 0xe
 
-.field static final TRANSACTION_getAvailableRestoreToken_28:I = 0x1d
+.field static final TRANSACTION_getAvailableRestoreToken_27:I = 0x1c
 
-.field static final TRANSACTION_getConfigurationIntent_20:I = 0x15
+.field static final TRANSACTION_getConfigurationIntent_19:I = 0x14
 
-.field static final TRANSACTION_getCurrentTransport_16:I = 0x11
+.field static final TRANSACTION_getCurrentTransport:I = 0x11
 
-.field static final TRANSACTION_getDataManagementIntent:I = 0x17
+.field static final TRANSACTION_getDataManagementIntent:I = 0x16
 
-.field static final TRANSACTION_getDataManagementLabel:I = 0x18
+.field static final TRANSACTION_getDataManagementLabel:I = 0x17
 
-.field static final TRANSACTION_getDestinationString_21:I = 0x16
+.field static final TRANSACTION_getDestinationString_20:I = 0x15
 
-.field static final TRANSACTION_getTransportWhitelist_18:I = 0x13
+.field static final TRANSACTION_hasBackupPassword:I = 0xb
 
-.field static final TRANSACTION_hasBackupPassword_10:I = 0xb
+.field static final TRANSACTION_isBackupEnabled:I = 0x9
 
-.field static final TRANSACTION_isAppEligibleForBackup_29:I = 0x1e
+.field static final TRANSACTION_isBackupServiceActive:I = 0x1b
 
-.field static final TRANSACTION_isBackupEnabled_8:I = 0x9
+.field static final TRANSACTION_listAllTransports:I = 0x12
 
-.field static final TRANSACTION_isBackupServiceActive_27:I = 0x1c
+.field static final TRANSACTION_opComplete_24:I = 0x19
 
-.field static final TRANSACTION_listAllTransports_17:I = 0x12
+.field static final TRANSACTION_restoreAtInstall:I = 0x5
 
-.field static final TRANSACTION_opComplete_25:I = 0x1a
-
-.field static final TRANSACTION_requestBackup:I = 0x1f
-
-.field static final TRANSACTION_restoreAtInstall_4:I = 0x5
-
-.field static final TRANSACTION_selectBackupTransport_19:I = 0x14
+.field static final TRANSACTION_selectBackupTransport:I = 0x13
 
 .field static final TRANSACTION_setAutoRestore_6:I = 0x7
 
 .field static final TRANSACTION_setBackupEnabled_5:I = 0x6
 
-.field static final TRANSACTION_setBackupPassword_9:I = 0xa
+.field static final TRANSACTION_setBackupPassword:I = 0xa
 
-.field static final TRANSACTION_setBackupProvisioned_7:I = 0x8
+.field static final TRANSACTION_setBackupProvisioned:I = 0x8
 
-.field static final TRANSACTION_setBackupServiceActive_26:I = 0x1b
+.field static final TRANSACTION_setBackupServiceActive_25:I = 0x1a
 
 
 # direct methods
@@ -162,7 +156,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 37
+    .locals 35
     .param p1, "code"    # I
     .param p2, "data"    # Landroid/os/Parcel;
     .param p3, "reply"    # Landroid/os/Parcel;
@@ -177,7 +171,7 @@
     .line 48
     sparse-switch p1, :sswitch_data_0
 
-    .line 401
+    .line 371
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v4
@@ -244,15 +238,15 @@
     .restart local v20    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v27
 
     .line 71
-    .local v28, "_arg1":Ljava/lang/String;
+    .local v27, "_arg1":Ljava/lang/String;
     move-object/from16 v0, p0
 
     move-object/from16 v1, v20
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v27
 
     invoke-virtual {v0, v1, v2}, Landroid/app/backup/IBackupManager$Stub;->clearBackupData(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -266,7 +260,7 @@
 
     .line 77
     .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v28    # "_arg1":Ljava/lang/String;
+    .end local v27    # "_arg1":Ljava/lang/String;
     :sswitch_3
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
@@ -283,15 +277,15 @@
     .restart local v20    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v27
+    move-result-object v26
 
     .line 82
-    .local v27, "_arg1":Landroid/os/IBinder;
+    .local v26, "_arg1":Landroid/os/IBinder;
     move-object/from16 v0, p0
 
     move-object/from16 v1, v20
 
-    move-object/from16 v2, v27
+    move-object/from16 v2, v26
 
     invoke-virtual {v0, v1, v2}, Landroid/app/backup/IBackupManager$Stub;->agentConnected(Ljava/lang/String;Landroid/os/IBinder;)V
 
@@ -305,7 +299,7 @@
 
     .line 88
     .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v27    # "_arg1":Landroid/os/IBinder;
+    .end local v26    # "_arg1":Landroid/os/IBinder;
     :sswitch_4
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
@@ -413,9 +407,11 @@
     :cond_0
     const/16 v21, 0x0
 
+    .restart local v21    # "_arg0":Z
     goto :goto_0
 
     .line 117
+    .end local v21    # "_arg0":Z
     :sswitch_7
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
@@ -454,9 +450,11 @@
     :cond_1
     const/16 v21, 0x0
 
+    .restart local v21    # "_arg0":Z
     goto :goto_1
 
     .line 126
+    .end local v21    # "_arg0":Z
     :sswitch_8
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
@@ -495,9 +493,11 @@
     :cond_2
     const/16 v21, 0x0
 
+    .restart local v21    # "_arg0":Z
     goto :goto_2
 
     .line 135
+    .end local v21    # "_arg0":Z
     :sswitch_9
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
@@ -508,14 +508,14 @@
     .line 136
     invoke-virtual/range {p0 .. p0}, Landroid/app/backup/IBackupManager$Stub;->isBackupEnabled()Z
 
-    move-result v35
+    move-result v33
 
     .line 137
-    .local v35, "_result":Z
+    .local v33, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 138
-    if-eqz v35, :cond_3
+    if-eqz v33, :cond_3
 
     const/4 v4, 0x1
 
@@ -536,7 +536,7 @@
     goto :goto_3
 
     .line 143
-    .end local v35    # "_result":Z
+    .end local v33    # "_result":Z
     :sswitch_a
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
@@ -553,26 +553,26 @@
     .restart local v20    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v27
 
     .line 148
-    .restart local v28    # "_arg1":Ljava/lang/String;
+    .restart local v27    # "_arg1":Ljava/lang/String;
     move-object/from16 v0, p0
 
     move-object/from16 v1, v20
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v27
 
     invoke-virtual {v0, v1, v2}, Landroid/app/backup/IBackupManager$Stub;->setBackupPassword(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v35
+    move-result v33
 
     .line 149
-    .restart local v35    # "_result":Z
+    .restart local v33    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 150
-    if-eqz v35, :cond_4
+    if-eqz v33, :cond_4
 
     const/4 v4, 0x1
 
@@ -594,8 +594,8 @@
 
     .line 155
     .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v28    # "_arg1":Ljava/lang/String;
-    .end local v35    # "_result":Z
+    .end local v27    # "_arg1":Ljava/lang/String;
+    .end local v33    # "_result":Z
     :sswitch_b
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
@@ -606,14 +606,14 @@
     .line 156
     invoke-virtual/range {p0 .. p0}, Landroid/app/backup/IBackupManager$Stub;->hasBackupPassword()Z
 
-    move-result v35
+    move-result v33
 
     .line 157
-    .restart local v35    # "_result":Z
+    .restart local v33    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 158
-    if-eqz v35, :cond_5
+    if-eqz v33, :cond_5
 
     const/4 v4, 0x1
 
@@ -634,7 +634,7 @@
     goto :goto_5
 
     .line 163
-    .end local v35    # "_result":Z
+    .end local v33    # "_result":Z
     :sswitch_c
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
@@ -1012,16 +1012,16 @@
     .line 241
     invoke-virtual/range {p0 .. p0}, Landroid/app/backup/IBackupManager$Stub;->getCurrentTransport()Ljava/lang/String;
 
-    move-result-object v34
+    move-result-object v32
 
     .line 242
-    .local v34, "_result":Ljava/lang/String;
+    .local v32, "_result":Ljava/lang/String;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 243
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -1031,7 +1031,7 @@
     return v4
 
     .line 248
-    .end local v34    # "_result":Ljava/lang/String;
+    .end local v32    # "_result":Ljava/lang/String;
     :sswitch_12
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
@@ -1042,16 +1042,16 @@
     .line 249
     invoke-virtual/range {p0 .. p0}, Landroid/app/backup/IBackupManager$Stub;->listAllTransports()[Ljava/lang/String;
 
-    move-result-object v36
+    move-result-object v34
 
     .line 250
-    .local v36, "_result":[Ljava/lang/String;
+    .local v34, "_result":[Ljava/lang/String;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 251
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v34
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
@@ -1061,7 +1061,7 @@
     return v4
 
     .line 256
-    .end local v36    # "_result":[Ljava/lang/String;
+    .end local v34    # "_result":[Ljava/lang/String;
     :sswitch_13
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
@@ -1069,42 +1069,12 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 257
-    invoke-virtual/range {p0 .. p0}, Landroid/app/backup/IBackupManager$Stub;->getTransportWhitelist()[Ljava/lang/String;
-
-    move-result-object v36
-
     .line 258
-    .restart local v36    # "_result":[Ljava/lang/String;
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 259
-    move-object/from16 v0, p3
-
-    move-object/from16 v1, v36
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
-
-    .line 260
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 264
-    .end local v36    # "_result":[Ljava/lang/String;
-    :sswitch_14
-    const-string/jumbo v4, "android.app.backup.IBackupManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 266
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v20
 
-    .line 267
+    .line 259
     .restart local v20    # "_arg0":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1112,40 +1082,40 @@
 
     invoke-virtual {v0, v1}, Landroid/app/backup/IBackupManager$Stub;->selectBackupTransport(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v34
+    move-result-object v32
 
-    .line 268
-    .restart local v34    # "_result":Ljava/lang/String;
+    .line 260
+    .restart local v32    # "_result":Ljava/lang/String;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 269
+    .line 261
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 270
+    .line 262
     const/4 v4, 0x1
 
     return v4
 
-    .line 274
+    .line 266
     .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v34    # "_result":Ljava/lang/String;
-    :sswitch_15
+    .end local v32    # "_result":Ljava/lang/String;
+    :sswitch_14
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 276
+    .line 268
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v20
 
-    .line 277
+    .line 269
     .restart local v20    # "_arg0":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1153,38 +1123,38 @@
 
     invoke-virtual {v0, v1}, Landroid/app/backup/IBackupManager$Stub;->getConfigurationIntent(Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v33
+    move-result-object v31
 
-    .line 278
-    .local v33, "_result":Landroid/content/Intent;
+    .line 270
+    .local v31, "_result":Landroid/content/Intent;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 279
-    if-eqz v33, :cond_10
+    .line 271
+    if-eqz v31, :cond_10
 
-    .line 280
+    .line 272
     const/4 v4, 0x1
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 281
+    .line 273
     const/4 v4, 0x1
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v31
 
     move-object/from16 v1, p3
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 286
+    .line 278
     :goto_10
     const/4 v4, 0x1
 
     return v4
 
-    .line 284
+    .line 276
     :cond_10
     const/4 v4, 0x0
 
@@ -1194,22 +1164,22 @@
 
     goto :goto_10
 
-    .line 290
+    .line 282
     .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v33    # "_result":Landroid/content/Intent;
-    :sswitch_16
+    .end local v31    # "_result":Landroid/content/Intent;
+    :sswitch_15
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 292
+    .line 284
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v20
 
-    .line 293
+    .line 285
     .restart local v20    # "_arg0":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1217,40 +1187,40 @@
 
     invoke-virtual {v0, v1}, Landroid/app/backup/IBackupManager$Stub;->getDestinationString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v34
+    move-result-object v32
 
-    .line 294
-    .restart local v34    # "_result":Ljava/lang/String;
+    .line 286
+    .restart local v32    # "_result":Ljava/lang/String;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 295
+    .line 287
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 296
+    .line 288
     const/4 v4, 0x1
 
     return v4
 
-    .line 300
+    .line 292
     .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v34    # "_result":Ljava/lang/String;
-    :sswitch_17
+    .end local v32    # "_result":Ljava/lang/String;
+    :sswitch_16
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 302
+    .line 294
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v20
 
-    .line 303
+    .line 295
     .restart local v20    # "_arg0":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1258,38 +1228,38 @@
 
     invoke-virtual {v0, v1}, Landroid/app/backup/IBackupManager$Stub;->getDataManagementIntent(Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v33
+    move-result-object v31
 
-    .line 304
-    .restart local v33    # "_result":Landroid/content/Intent;
+    .line 296
+    .restart local v31    # "_result":Landroid/content/Intent;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 305
-    if-eqz v33, :cond_11
+    .line 297
+    if-eqz v31, :cond_11
 
-    .line 306
+    .line 298
     const/4 v4, 0x1
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 307
+    .line 299
     const/4 v4, 0x1
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v31
 
     move-object/from16 v1, p3
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 312
+    .line 304
     :goto_11
     const/4 v4, 0x1
 
     return v4
 
-    .line 310
+    .line 302
     :cond_11
     const/4 v4, 0x0
 
@@ -1299,22 +1269,22 @@
 
     goto :goto_11
 
-    .line 316
+    .line 308
     .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v33    # "_result":Landroid/content/Intent;
-    :sswitch_18
+    .end local v31    # "_result":Landroid/content/Intent;
+    :sswitch_17
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 318
+    .line 310
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v20
 
-    .line 319
+    .line 311
     .restart local v20    # "_arg0":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1322,65 +1292,65 @@
 
     invoke-virtual {v0, v1}, Landroid/app/backup/IBackupManager$Stub;->getDataManagementLabel(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v34
+    move-result-object v32
 
-    .line 320
-    .restart local v34    # "_result":Ljava/lang/String;
+    .line 312
+    .restart local v32    # "_result":Ljava/lang/String;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 321
+    .line 313
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 322
+    .line 314
     const/4 v4, 0x1
 
     return v4
 
-    .line 326
+    .line 318
     .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v34    # "_result":Ljava/lang/String;
-    :sswitch_19
+    .end local v32    # "_result":Ljava/lang/String;
+    :sswitch_18
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 328
+    .line 320
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v20
 
-    .line 330
+    .line 322
     .restart local v20    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v27
 
-    .line 331
-    .restart local v28    # "_arg1":Ljava/lang/String;
+    .line 323
+    .restart local v27    # "_arg1":Ljava/lang/String;
     move-object/from16 v0, p0
 
     move-object/from16 v1, v20
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v27
 
     invoke-virtual {v0, v1, v2}, Landroid/app/backup/IBackupManager$Stub;->beginRestoreSession(Ljava/lang/String;Ljava/lang/String;)Landroid/app/backup/IRestoreSession;
 
-    move-result-object v32
+    move-result-object v30
 
-    .line 332
-    .local v32, "_result":Landroid/app/backup/IRestoreSession;
+    .line 324
+    .local v30, "_result":Landroid/app/backup/IRestoreSession;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 333
-    if-eqz v32, :cond_12
+    .line 325
+    if-eqz v30, :cond_12
 
-    invoke-interface/range {v32 .. v32}, Landroid/app/backup/IRestoreSession;->asBinder()Landroid/os/IBinder;
+    invoke-interface/range {v30 .. v30}, Landroid/app/backup/IRestoreSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
@@ -1389,40 +1359,40 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 334
+    .line 326
     const/4 v4, 0x1
 
     return v4
 
-    .line 333
+    .line 325
     :cond_12
     const/4 v4, 0x0
 
     goto :goto_12
 
-    .line 338
+    .line 330
     .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v28    # "_arg1":Ljava/lang/String;
-    .end local v32    # "_result":Landroid/app/backup/IRestoreSession;
-    :sswitch_1a
+    .end local v27    # "_arg1":Ljava/lang/String;
+    .end local v30    # "_result":Landroid/app/backup/IRestoreSession;
+    :sswitch_19
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 340
+    .line 332
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v15
 
-    .line 342
+    .line 334
     .restart local v15    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v24
 
-    .line 343
+    .line 335
     .local v24, "_arg1":J
     move-object/from16 v0, p0
 
@@ -1430,30 +1400,30 @@
 
     invoke-virtual {v0, v15, v1, v2}, Landroid/app/backup/IBackupManager$Stub;->opComplete(IJ)V
 
-    .line 344
+    .line 336
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 345
+    .line 337
     const/4 v4, 0x1
 
     return v4
 
-    .line 349
+    .line 341
     .end local v15    # "_arg0":I
     .end local v24    # "_arg1":J
-    :sswitch_1b
+    :sswitch_1a
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 351
+    .line 343
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v15
 
-    .line 353
+    .line 345
     .restart local v15    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -1463,56 +1433,58 @@
 
     const/4 v6, 0x1
 
-    .line 354
-    .local v6, "_arg1":Z
+    .line 346
+    .restart local v6    # "_arg1":Z
     :goto_13
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v15, v6}, Landroid/app/backup/IBackupManager$Stub;->setBackupServiceActive(IZ)V
 
-    .line 355
+    .line 347
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 356
+    .line 348
     const/4 v4, 0x1
 
     return v4
 
-    .line 353
+    .line 345
     .end local v6    # "_arg1":Z
     :cond_13
     const/4 v6, 0x0
 
+    .restart local v6    # "_arg1":Z
     goto :goto_13
 
-    .line 360
+    .line 352
+    .end local v6    # "_arg1":Z
     .end local v15    # "_arg0":I
-    :sswitch_1c
+    :sswitch_1b
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 362
+    .line 354
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v15
 
-    .line 363
+    .line 355
     .restart local v15    # "_arg0":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v15}, Landroid/app/backup/IBackupManager$Stub;->isBackupServiceActive(I)Z
 
-    move-result v35
+    move-result v33
 
-    .line 364
-    .restart local v35    # "_result":Z
+    .line 356
+    .restart local v33    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 365
-    if-eqz v35, :cond_14
+    .line 357
+    if-eqz v33, :cond_14
 
     const/4 v4, 0x1
 
@@ -1521,33 +1493,33 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 366
+    .line 358
     const/4 v4, 0x1
 
     return v4
 
-    .line 365
+    .line 357
     :cond_14
     const/4 v4, 0x0
 
     goto :goto_14
 
-    .line 370
+    .line 362
     .end local v15    # "_arg0":I
-    .end local v35    # "_result":Z
-    :sswitch_1d
+    .end local v33    # "_result":Z
+    :sswitch_1c
     const-string/jumbo v4, "android.app.backup.IBackupManager"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 372
+    .line 364
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v20
 
-    .line 373
+    .line 365
     .restart local v20    # "_arg0":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1555,130 +1527,25 @@
 
     invoke-virtual {v0, v1}, Landroid/app/backup/IBackupManager$Stub;->getAvailableRestoreToken(Ljava/lang/String;)J
 
-    move-result-wide v30
+    move-result-wide v28
 
-    .line 374
-    .local v30, "_result":J
+    .line 366
+    .local v28, "_result":J
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 375
+    .line 367
     move-object/from16 v0, p3
 
-    move-wide/from16 v1, v30
+    move-wide/from16 v1, v28
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 376
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 380
-    .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v30    # "_result":J
-    :sswitch_1e
-    const-string/jumbo v4, "android.app.backup.IBackupManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 382
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v20
-
-    .line 383
-    .restart local v20    # "_arg0":Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Landroid/app/backup/IBackupManager$Stub;->isAppEligibleForBackup(Ljava/lang/String;)Z
-
-    move-result v35
-
-    .line 384
-    .restart local v35    # "_result":Z
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 385
-    if-eqz v35, :cond_15
-
-    const/4 v4, 0x1
-
-    :goto_15
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 386
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 385
-    :cond_15
-    const/4 v4, 0x0
-
-    goto :goto_15
-
-    .line 390
-    .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v35    # "_result":Z
-    :sswitch_1f
-    const-string/jumbo v4, "android.app.backup.IBackupManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 392
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
-
-    move-result-object v22
-
-    .line 394
-    .restart local v22    # "_arg0":[Ljava/lang/String;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v4
-
-    invoke-static {v4}, Landroid/app/backup/IBackupObserver$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupObserver;
-
-    move-result-object v26
-
-    .line 395
-    .local v26, "_arg1":Landroid/app/backup/IBackupObserver;
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    move-object/from16 v2, v26
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/backup/IBackupManager$Stub;->requestBackup([Ljava/lang/String;Landroid/app/backup/IBackupObserver;)I
-
-    move-result v29
-
-    .line 396
-    .local v29, "_result":I
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 397
-    move-object/from16 v0, p3
-
-    move/from16 v1, v29
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 398
+    .line 368
     const/4 v4, 0x1
 
     return v4
 
     .line 48
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -1709,9 +1576,6 @@
         0x1a -> :sswitch_1a
         0x1b -> :sswitch_1b
         0x1c -> :sswitch_1c
-        0x1d -> :sswitch_1d
-        0x1e -> :sswitch_1e
-        0x1f -> :sswitch_1f
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

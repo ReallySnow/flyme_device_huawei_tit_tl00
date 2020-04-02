@@ -29,21 +29,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1046
+    .line 1049
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1047
+    .line 1050
     iput-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Ljava/io/ByteArrayOutputStream;
 
-    .line 1048
+    .line 1051
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentPosition:I
 
-    .line 1050
+    .line 1053
     iput-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->next:Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
 
-    .line 1046
+    .line 1049
     return-void
 .end method
 

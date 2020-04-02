@@ -25,7 +25,7 @@
     .locals 0
 
     .prologue
-    .line 1221
+    .line 1234
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,12 +37,12 @@
     .locals 2
 
     .prologue
-    .line 1242
+    .line 1255
     iget-object v0, p0, Landroid/media/MediaDrm$Certificate;->mCertificateData:[B
 
     if-nez v0, :cond_0
 
-    .line 1246
+    .line 1259
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cerfificate is not initialized"
@@ -51,7 +51,7 @@
 
     throw v0
 
-    .line 1248
+    .line 1261
     :cond_0
     iget-object v0, p0, Landroid/media/MediaDrm$Certificate;->mCertificateData:[B
 
@@ -62,12 +62,12 @@
     .locals 2
 
     .prologue
-    .line 1228
+    .line 1241
     iget-object v0, p0, Landroid/media/MediaDrm$Certificate;->mWrappedKey:[B
 
     if-nez v0, :cond_0
 
-    .line 1232
+    .line 1245
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cerfificate is not initialized"
@@ -76,7 +76,7 @@
 
     throw v0
 
-    .line 1234
+    .line 1247
     :cond_0
     iget-object v0, p0, Landroid/media/MediaDrm$Certificate;->mWrappedKey:[B
 

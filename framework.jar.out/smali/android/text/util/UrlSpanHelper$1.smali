@@ -91,14 +91,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 125
     iget-object v0, p0, Landroid/text/util/UrlSpanHelper$1;->val$value:Ljava/lang/CharSequence;
 
     invoke-static {v0}, Landroid/text/util/UrlSpanHelper;->-wrap2(Ljava/lang/CharSequence;)J
 
     move-result-wide v8
 
-    .line 126
     .local v8, "sTime":J
     iget-object v0, p0, Landroid/text/util/UrlSpanHelper$1;->val$eventTitle:Ljava/lang/CharSequence;
 
@@ -145,14 +143,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 128
     iget-object v0, p0, Landroid/text/util/UrlSpanHelper$1;->val$value:Ljava/lang/CharSequence;
 
     invoke-static {v0}, Landroid/text/util/UrlSpanHelper;->-wrap2(Ljava/lang/CharSequence;)J
 
     move-result-wide v8
 
-    .line 129
     .restart local v8    # "sTime":J
     iget-object v0, p0, Landroid/text/util/UrlSpanHelper$1;->val$eventTitle:Ljava/lang/CharSequence;
 
@@ -173,14 +169,12 @@
 
     if-eqz v0, :cond_2
 
-    .line 131
     iget-object v0, p0, Landroid/text/util/UrlSpanHelper$1;->val$value:Ljava/lang/CharSequence;
 
     invoke-static {v0}, Landroid/text/util/UrlSpanHelper;->-wrap1(Ljava/lang/CharSequence;)[J
 
     move-result-object v7
 
-    .line 132
     .local v7, "times":[J
     const/4 v0, 0x0
 
@@ -237,14 +231,12 @@
 
     if-eqz v0, :cond_3
 
-    .line 149
     iget-object v0, p0, Landroid/text/util/UrlSpanHelper$1;->val$value:Ljava/lang/CharSequence;
 
     invoke-static {v0}, Landroid/text/util/UrlSpanHelper;->-wrap1(Ljava/lang/CharSequence;)[J
 
     move-result-object v7
 
-    .line 150
     .restart local v7    # "times":[J
     const/4 v0, 0x0
 
@@ -256,27 +248,22 @@
 
     goto/16 :goto_0
 
-    .line 155
     .end local v7    # "times":[J
     :catch_1
     move-exception v6
 
-    .line 156
     .restart local v6    # "e":Ljava/lang/Exception;
     invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 157
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v8
 
-    .line 158
     .restart local v8    # "sTime":J
     invoke-static {v8, v9, v4}, Landroid/text/util/UrlSpanHelper;->-wrap6(JLandroid/content/Context;)V
 
     goto/16 :goto_0
 
-    .line 152
     .end local v6    # "e":Ljava/lang/Exception;
     .end local v8    # "sTime":J
     :cond_3

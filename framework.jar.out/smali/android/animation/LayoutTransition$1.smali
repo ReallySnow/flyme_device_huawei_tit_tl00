@@ -27,7 +27,7 @@
     .param p2, "val$child"    # Landroid/view/View;
 
     .prologue
-    .line 873
+    .line 869
     iput-object p1, p0, Landroid/animation/LayoutTransition$1;->this$0:Landroid/animation/LayoutTransition;
 
     iput-object p2, p0, Landroid/animation/LayoutTransition$1;->val$child:Landroid/view/View;
@@ -44,7 +44,7 @@
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 876
+    .line 872
     iget-object v0, p0, Landroid/animation/LayoutTransition$1;->this$0:Landroid/animation/LayoutTransition;
 
     invoke-static {v0}, Landroid/animation/LayoutTransition;->-get14(Landroid/animation/LayoutTransition;)Ljava/util/HashMap;
@@ -55,6 +55,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 875
+    .line 871
     return-void
 .end method

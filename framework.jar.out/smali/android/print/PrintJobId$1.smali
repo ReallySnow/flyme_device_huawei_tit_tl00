@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 113
+    .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,22 +45,16 @@
     .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
-    .line 116
-    new-instance v1, Landroid/print/PrintJobId;
+    .line 114
+    new-instance v0, Landroid/print/PrintJobId;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct {v0, v1}, Landroid/print/PrintJobId;-><init>(Ljava/lang/String;)V
 
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-direct {v1, v0}, Landroid/print/PrintJobId;-><init>(Ljava/lang/String;)V
-
-    return-object v1
+    return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -68,7 +62,7 @@
     .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
-    .line 115
+    .line 113
     invoke-virtual {p0, p1}, Landroid/print/PrintJobId$1;->createFromParcel(Landroid/os/Parcel;)Landroid/print/PrintJobId;
 
     move-result-object v0
@@ -81,7 +75,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 121
+    .line 119
     new-array v0, p1, [Landroid/print/PrintJobId;
 
     return-object v0
@@ -92,7 +86,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 120
+    .line 118
     invoke-virtual {p0, p1}, Landroid/print/PrintJobId$1;->newArray(I)[Landroid/print/PrintJobId;
 
     move-result-object v0

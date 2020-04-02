@@ -48,7 +48,7 @@
 
 .field private mSpacingMult:F
 
-.field private final mText:Landroid/text/SpannableStringBuilder;
+.field private final mText:Ljava/lang/StringBuilder;
 
 .field private mTextPaint:Landroid/text/TextPaint;
 
@@ -59,12 +59,12 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 79
+    .line 78
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/android/internal/widget/SubtitleView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 78
+    .line 77
     return-void
 .end method
 
@@ -74,12 +74,12 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 83
+    .line 82
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/widget/SubtitleView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 82
+    .line 81
     return-void
 .end method
 
@@ -90,12 +90,12 @@
     .param p3, "defStyleAttr"    # I
 
     .prologue
-    .line 87
+    .line 86
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/internal/widget/SubtitleView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    .line 86
+    .line 85
     return-void
 .end method
 
@@ -109,61 +109,61 @@
     .prologue
     const/4 v8, 0x1
 
-    .line 91
+    .line 90
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 56
+    .line 55
     new-instance v7, Landroid/graphics/RectF;
 
     invoke-direct {v7}, Landroid/graphics/RectF;-><init>()V
 
     iput-object v7, p0, Lcom/android/internal/widget/SubtitleView;->mLineBounds:Landroid/graphics/RectF;
 
-    .line 59
-    new-instance v7, Landroid/text/SpannableStringBuilder;
+    .line 58
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Landroid/text/SpannableStringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    iput-object v7, p0, Lcom/android/internal/widget/SubtitleView;->mText:Landroid/text/SpannableStringBuilder;
+    iput-object v7, p0, Lcom/android/internal/widget/SubtitleView;->mText:Ljava/lang/StringBuilder;
 
-    .line 74
+    .line 73
     const/high16 v7, 0x3f800000    # 1.0f
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mSpacingMult:F
 
-    .line 75
+    .line 74
     const/4 v7, 0x0
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mSpacingAdd:F
 
-    .line 76
+    .line 75
     const/4 v7, 0x0
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mInnerPaddingX:I
 
-    .line 94
+    .line 93
     sget-object v7, Landroid/R$styleable;->TextView:[I
 
-    .line 93
+    .line 92
     invoke-virtual {p1, p2, v7, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 96
+    .line 95
     .local v0, "a":Landroid/content/res/TypedArray;
     const-string/jumbo v5, ""
 
-    .line 97
+    .line 96
     .local v5, "text":Ljava/lang/CharSequence;
     const/16 v6, 0xf
 
-    .line 99
+    .line 98
     .local v6, "textSize":I
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->getIndexCount()I
 
     move-result v3
 
-    .line 100
+    .line 99
     .local v3, "n":I
     const/4 v2, 0x0
 
@@ -171,22 +171,22 @@
     :goto_0
     if-ge v2, v3, :cond_0
 
-    .line 101
+    .line 100
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
 
     move-result v1
 
-    .line 103
+    .line 102
     .local v1, "attr":I
     sparse-switch v1, :sswitch_data_0
 
-    .line 100
+    .line 99
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 105
+    .line 104
     :sswitch_0
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
 
@@ -194,7 +194,7 @@
 
     goto :goto_1
 
-    .line 108
+    .line 107
     :sswitch_1
     iget v7, p0, Lcom/android/internal/widget/SubtitleView;->mSpacingAdd:F
 
@@ -210,7 +210,7 @@
 
     goto :goto_1
 
-    .line 111
+    .line 110
     :sswitch_2
     iget v7, p0, Lcom/android/internal/widget/SubtitleView;->mSpacingMult:F
 
@@ -222,7 +222,7 @@
 
     goto :goto_1
 
-    .line 114
+    .line 113
     :sswitch_3
     invoke-virtual {v0, v1, v6}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
@@ -230,7 +230,7 @@
 
     goto :goto_1
 
-    .line 121
+    .line 120
     .end local v1    # "attr":I
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->getContext()Landroid/content/Context;
@@ -241,9 +241,9 @@
 
     move-result-object v4
 
-    .line 122
+    .line 121
     .local v4, "res":Landroid/content/res/Resources;
-    const v7, 0x105009f
+    const v7, 0x1050083
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -253,8 +253,8 @@
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mCornerRadius:F
 
-    .line 123
-    const v7, 0x10500a2
+    .line 122
+    const v7, 0x1050086
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -264,8 +264,8 @@
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mOutlineWidth:F
 
-    .line 124
-    const v7, 0x10500a0
+    .line 123
+    const v7, 0x1050084
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -275,8 +275,8 @@
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mShadowRadius:F
 
-    .line 125
-    const v7, 0x10500a1
+    .line 124
+    const v7, 0x1050085
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -286,52 +286,52 @@
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mShadowOffsetX:F
 
-    .line 126
+    .line 125
     iget v7, p0, Lcom/android/internal/widget/SubtitleView;->mShadowOffsetX:F
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mShadowOffsetY:F
 
-    .line 128
+    .line 127
     new-instance v7, Landroid/text/TextPaint;
 
     invoke-direct {v7}, Landroid/text/TextPaint;-><init>()V
 
     iput-object v7, p0, Lcom/android/internal/widget/SubtitleView;->mTextPaint:Landroid/text/TextPaint;
 
-    .line 129
+    .line 128
     iget-object v7, p0, Lcom/android/internal/widget/SubtitleView;->mTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v7, v8}, Landroid/text/TextPaint;->setAntiAlias(Z)V
 
-    .line 130
+    .line 129
     iget-object v7, p0, Lcom/android/internal/widget/SubtitleView;->mTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v7, v8}, Landroid/text/TextPaint;->setSubpixelText(Z)V
 
-    .line 132
+    .line 131
     new-instance v7, Landroid/graphics/Paint;
 
     invoke-direct {v7}, Landroid/graphics/Paint;-><init>()V
 
     iput-object v7, p0, Lcom/android/internal/widget/SubtitleView;->mPaint:Landroid/graphics/Paint;
 
-    .line 133
+    .line 132
     iget-object v7, p0, Lcom/android/internal/widget/SubtitleView;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v7, v8}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 135
+    .line 134
     invoke-virtual {p0, v5}, Lcom/android/internal/widget/SubtitleView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 136
+    .line 135
     int-to-float v7, v6
 
     invoke-virtual {p0, v7}, Lcom/android/internal/widget/SubtitleView;->setTextSize(F)V
 
-    .line 90
+    .line 89
     return-void
 
-    .line 103
+    .line 102
     nop
 
     :sswitch_data_0
@@ -352,7 +352,7 @@
 
     const/4 v7, 0x1
 
-    .line 243
+    .line 242
     iget-boolean v0, p0, Lcom/android/internal/widget/SubtitleView;->mHasMeasurements:Z
 
     if-eqz v0, :cond_0
@@ -361,10 +361,10 @@
 
     if-ne p1, v0, :cond_0
 
-    .line 244
+    .line 243
     return v7
 
-    .line 248
+    .line 247
     :cond_0
     iget v0, p0, Lcom/android/internal/widget/SubtitleView;->mPaddingLeft:I
 
@@ -378,28 +378,28 @@
 
     add-int v8, v0, v1
 
-    .line 249
+    .line 248
     .local v8, "paddingX":I
     sub-int/2addr p1, v8
 
-    .line 250
+    .line 249
     if-gtz p1, :cond_1
 
-    .line 251
+    .line 250
     return v2
 
-    .line 257
+    .line 256
     :cond_1
     iput-boolean v7, p0, Lcom/android/internal/widget/SubtitleView;->mHasMeasurements:Z
 
-    .line 258
+    .line 257
     iput p1, p0, Lcom/android/internal/widget/SubtitleView;->mLastMeasuredWidth:I
 
-    .line 259
+    .line 258
     new-instance v0, Landroid/text/StaticLayout;
 
-    .line 260
-    iget-object v1, p0, Lcom/android/internal/widget/SubtitleView;->mText:Landroid/text/SpannableStringBuilder;
+    .line 259
+    iget-object v1, p0, Lcom/android/internal/widget/SubtitleView;->mText:Ljava/lang/StringBuilder;
 
     iget-object v2, p0, Lcom/android/internal/widget/SubtitleView;->mTextPaint:Landroid/text/TextPaint;
 
@@ -411,12 +411,12 @@
 
     move v3, p1
 
-    .line 259
+    .line 258
     invoke-direct/range {v0 .. v7}, Landroid/text/StaticLayout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
 
     iput-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mLayout:Landroid/text/StaticLayout;
 
-    .line 262
+    .line 261
     return v7
 .end method
 
@@ -427,31 +427,31 @@
     .param p1, "c"    # Landroid/graphics/Canvas;
 
     .prologue
-    .line 292
+    .line 291
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/internal/widget/SubtitleView;->mLayout:Landroid/text/StaticLayout;
 
-    .line 293
+    .line 292
     .local v11, "layout":Landroid/text/StaticLayout;
     if-nez v11, :cond_0
 
-    .line 294
+    .line 293
     return-void
 
-    .line 297
+    .line 296
     :cond_0
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->save()I
 
     move-result v17
 
-    .line 298
+    .line 297
     .local v17, "saveCount":I
     move-object/from16 v0, p0
 
     iget v10, v0, Lcom/android/internal/widget/SubtitleView;->mInnerPaddingX:I
 
-    .line 299
+    .line 298
     .local v10, "innerPaddingX":I
     move-object/from16 v0, p0
 
@@ -487,12 +487,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 301
+    .line 300
     invoke-virtual {v11}, Landroid/text/StaticLayout;->getLineCount()I
 
     move-result v12
 
-    .line 302
+    .line 301
     .local v12, "lineCount":I
     move-object/from16 v0, p0
 
@@ -500,19 +500,19 @@
 
     move-object/from16 v18, v0
 
-    .line 303
+    .line 302
     .local v18, "textPaint":Landroid/graphics/Paint;
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/widget/SubtitleView;->mPaint:Landroid/graphics/Paint;
 
-    .line 304
+    .line 303
     .local v14, "paint":Landroid/graphics/Paint;
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/widget/SubtitleView;->mLineBounds:Landroid/graphics/RectF;
 
-    .line 306
+    .line 305
     .local v4, "bounds":Landroid/graphics/RectF;
     move-object/from16 v0, p0
 
@@ -526,12 +526,12 @@
 
     if-lez v19, :cond_1
 
-    .line 307
+    .line 306
     move-object/from16 v0, p0
 
     iget v7, v0, Lcom/android/internal/widget/SubtitleView;->mCornerRadius:F
 
-    .line 308
+    .line 307
     .local v7, "cornerRadius":F
     const/16 v19, 0x0
 
@@ -545,7 +545,7 @@
 
     int-to-float v15, v0
 
-    .line 310
+    .line 309
     .local v15, "previousBottom":F
     move-object/from16 v0, p0
 
@@ -557,21 +557,21 @@
 
     invoke-virtual {v14, v0}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 311
+    .line 310
     sget-object v19, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     move-object/from16 v0, v19
 
     invoke-virtual {v14, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 313
+    .line 312
     const/4 v9, 0x0
 
     .local v9, "i":I
     :goto_0
     if-ge v9, v12, :cond_1
 
-    .line 314
+    .line 313
     invoke-virtual {v11, v9}, Landroid/text/StaticLayout;->getLineLeft(I)F
 
     move-result v19
@@ -586,7 +586,7 @@
 
     iput v0, v4, Landroid/graphics/RectF;->left:F
 
-    .line 315
+    .line 314
     invoke-virtual {v11, v9}, Landroid/text/StaticLayout;->getLineRight(I)F
 
     move-result v19
@@ -601,10 +601,10 @@
 
     iput v0, v4, Landroid/graphics/RectF;->right:F
 
-    .line 316
+    .line 315
     iput v15, v4, Landroid/graphics/RectF;->top:F
 
-    .line 317
+    .line 316
     invoke-virtual {v11, v9}, Landroid/text/StaticLayout;->getLineBottom(I)I
 
     move-result v19
@@ -619,20 +619,20 @@
 
     iput v0, v4, Landroid/graphics/RectF;->bottom:F
 
-    .line 318
+    .line 317
     iget v15, v4, Landroid/graphics/RectF;->bottom:F
 
-    .line 320
+    .line 319
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v4, v7, v7, v14}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    .line 313
+    .line 312
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_0
 
-    .line 324
+    .line 323
     .end local v7    # "cornerRadius":F
     .end local v9    # "i":I
     .end local v15    # "previousBottom":F
@@ -641,7 +641,7 @@
 
     iget v8, v0, Lcom/android/internal/widget/SubtitleView;->mEdgeType:I
 
-    .line 325
+    .line 324
     .local v8, "edgeType":I
     const/16 v19, 0x1
 
@@ -649,12 +649,12 @@
 
     if-ne v8, v0, :cond_2
 
-    .line 326
+    .line 325
     sget-object v19, Landroid/graphics/Paint$Join;->ROUND:Landroid/graphics/Paint$Join;
 
     invoke-virtual/range {v18 .. v19}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
 
-    .line 327
+    .line 326
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/SubtitleView;->mOutlineWidth:F
@@ -663,7 +663,7 @@
 
     invoke-virtual/range {v18 .. v19}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    .line 328
+    .line 327
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/SubtitleView;->mEdgeColor:I
@@ -672,29 +672,29 @@
 
     invoke-virtual/range {v18 .. v19}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 329
+    .line 328
     sget-object v19, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual/range {v18 .. v19}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 331
+    .line 330
     const/4 v9, 0x0
 
     .restart local v9    # "i":I
     :goto_1
     if-ge v9, v12, :cond_3
 
-    .line 332
+    .line 331
     move-object/from16 v0, p1
 
     invoke-virtual {v11, v0, v9, v9}, Landroid/text/StaticLayout;->drawText(Landroid/graphics/Canvas;II)V
 
-    .line 331
+    .line 330
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
-    .line 334
+    .line 333
     .end local v9    # "i":I
     :cond_2
     const/16 v19, 0x2
@@ -703,7 +703,7 @@
 
     if-ne v8, v0, :cond_4
 
-    .line 335
+    .line 334
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/SubtitleView;->mShadowRadius:F
@@ -730,7 +730,7 @@
 
     invoke-virtual/range {v18 .. v22}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
 
-    .line 354
+    .line 353
     :cond_3
     :goto_2
     move-object/from16 v0, p0
@@ -741,29 +741,29 @@
 
     invoke-virtual/range {v18 .. v19}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 355
+    .line 354
     sget-object v19, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual/range {v18 .. v19}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 357
+    .line 356
     const/4 v9, 0x0
 
     .restart local v9    # "i":I
     :goto_3
     if-ge v9, v12, :cond_a
 
-    .line 358
+    .line 357
     move-object/from16 v0, p1
 
     invoke-virtual {v11, v0, v9, v9}, Landroid/text/StaticLayout;->drawText(Landroid/graphics/Canvas;II)V
 
-    .line 357
+    .line 356
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_3
 
-    .line 336
+    .line 335
     .end local v9    # "i":I
     :cond_4
     const/16 v19, 0x3
@@ -772,14 +772,14 @@
 
     if-eq v8, v0, :cond_5
 
-    .line 337
+    .line 336
     const/16 v19, 0x4
 
     move/from16 v0, v19
 
     if-ne v8, v0, :cond_3
 
-    .line 338
+    .line 337
     :cond_5
     const/16 v19, 0x3
 
@@ -789,14 +789,14 @@
 
     const/16 v16, 0x1
 
-    .line 339
+    .line 338
     .local v16, "raised":Z
     :goto_4
     if-eqz v16, :cond_7
 
     const/4 v6, -0x1
 
-    .line 340
+    .line 339
     .local v6, "colorUp":I
     :goto_5
     if-eqz v16, :cond_8
@@ -805,7 +805,7 @@
 
     iget v5, v0, Lcom/android/internal/widget/SubtitleView;->mEdgeColor:I
 
-    .line 341
+    .line 340
     .local v5, "colorDown":I
     :goto_6
     move-object/from16 v0, p0
@@ -818,7 +818,7 @@
 
     div-float v13, v19, v20
 
-    .line 343
+    .line 342
     .local v13, "offset":F
     move-object/from16 v0, p0
 
@@ -828,12 +828,12 @@
 
     invoke-virtual/range {v18 .. v19}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 344
+    .line 343
     sget-object v19, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual/range {v18 .. v19}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 345
+    .line 344
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/SubtitleView;->mShadowRadius:F
@@ -858,24 +858,24 @@
 
     invoke-virtual {v0, v1, v2, v3, v6}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
 
-    .line 347
+    .line 346
     const/4 v9, 0x0
 
     .restart local v9    # "i":I
     :goto_7
     if-ge v9, v12, :cond_9
 
-    .line 348
+    .line 347
     move-object/from16 v0, p1
 
     invoke-virtual {v11, v0, v9, v9}, Landroid/text/StaticLayout;->drawText(Landroid/graphics/Canvas;II)V
 
-    .line 347
+    .line 346
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_7
 
-    .line 338
+    .line 337
     .end local v5    # "colorDown":I
     .end local v6    # "colorUp":I
     .end local v9    # "i":I
@@ -884,10 +884,10 @@
     :cond_6
     const/16 v16, 0x0
 
+    .restart local v16    # "raised":Z
     goto :goto_4
 
-    .line 339
-    .restart local v16    # "raised":Z
+    .line 338
     :cond_7
     move-object/from16 v0, p0
 
@@ -896,14 +896,14 @@
     .restart local v6    # "colorUp":I
     goto :goto_5
 
-    .line 340
+    .line 339
     :cond_8
     const/4 v5, -0x1
 
     .restart local v5    # "colorDown":I
     goto :goto_6
 
-    .line 351
+    .line 350
     .restart local v9    # "i":I
     .restart local v13    # "offset":F
     :cond_9
@@ -921,7 +921,7 @@
 
     goto/16 :goto_2
 
-    .line 361
+    .line 360
     .end local v5    # "colorDown":I
     .end local v6    # "colorUp":I
     .end local v13    # "offset":F
@@ -937,14 +937,14 @@
 
     invoke-virtual/range {v18 .. v22}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
 
-    .line 362
+    .line 361
     move-object/from16 v0, p1
 
     move/from16 v1, v17
 
     invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
-    .line 291
+    .line 290
     return-void
 .end method
 
@@ -957,14 +957,14 @@
     .param p5, "b"    # I
 
     .prologue
-    .line 237
+    .line 236
     sub-int v0, p4, p2
 
-    .line 239
+    .line 238
     .local v0, "width":I
     invoke-direct {p0, v0}, Lcom/android/internal/widget/SubtitleView;->computeMeasurements(I)Z
 
-    .line 236
+    .line 235
     return-void
 .end method
 
@@ -976,12 +976,12 @@
     .prologue
     const/high16 v6, 0x1000000
 
-    .line 220
+    .line 219
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v4
 
-    .line 222
+    .line 221
     .local v4, "widthSpec":I
     invoke-direct {p0, v4}, Lcom/android/internal/widget/SubtitleView;->computeMeasurements(I)Z
 
@@ -989,10 +989,10 @@
 
     if-eqz v5, :cond_0
 
-    .line 223
+    .line 222
     iget-object v1, p0, Lcom/android/internal/widget/SubtitleView;->mLayout:Landroid/text/StaticLayout;
 
-    .line 226
+    .line 225
     .local v1, "layout":Landroid/text/StaticLayout;
     iget v5, p0, Lcom/android/internal/widget/SubtitleView;->mPaddingLeft:I
 
@@ -1006,7 +1006,7 @@
 
     add-int v2, v5, v6
 
-    .line 227
+    .line 226
     .local v2, "paddingX":I
     invoke-virtual {v1}, Landroid/text/StaticLayout;->getWidth()I
 
@@ -1014,7 +1014,7 @@
 
     add-int v3, v5, v2
 
-    .line 228
+    .line 227
     .local v3, "width":I
     invoke-virtual {v1}, Landroid/text/StaticLayout;->getHeight()I
 
@@ -1028,11 +1028,11 @@
 
     add-int v0, v5, v6
 
-    .line 229
+    .line 228
     .local v0, "height":I
     invoke-virtual {p0, v3, v0}, Lcom/android/internal/widget/SubtitleView;->setMeasuredDimension(II)V
 
-    .line 219
+    .line 218
     .end local v0    # "height":I
     .end local v1    # "layout":Landroid/text/StaticLayout;
     .end local v2    # "paddingX":I
@@ -1040,7 +1040,7 @@
     :goto_0
     return-void
 
-    .line 231
+    .line 230
     :cond_0
     invoke-virtual {p0, v6, v6}, Lcom/android/internal/widget/SubtitleView;->setMeasuredDimension(II)V
 
@@ -1052,26 +1052,26 @@
     .param p1, "textAlignment"    # Landroid/text/Layout$Alignment;
 
     .prologue
-    .line 208
+    .line 207
     iget-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mAlignment:Landroid/text/Layout$Alignment;
 
     if-eq v0, p1, :cond_0
 
-    .line 209
+    .line 208
     iput-object p1, p0, Lcom/android/internal/widget/SubtitleView;->mAlignment:Landroid/text/Layout$Alignment;
 
-    .line 211
+    .line 210
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/widget/SubtitleView;->mHasMeasurements:Z
 
-    .line 213
+    .line 212
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->requestLayout()V
 
-    .line 214
+    .line 213
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->invalidate()V
 
-    .line 207
+    .line 206
     :cond_0
     return-void
 .end method
@@ -1081,13 +1081,13 @@
     .param p1, "color"    # I
 
     .prologue
-    .line 162
+    .line 161
     iput p1, p0, Lcom/android/internal/widget/SubtitleView;->mBackgroundColor:I
 
-    .line 164
+    .line 163
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->invalidate()V
 
-    .line 161
+    .line 160
     return-void
 .end method
 
@@ -1096,13 +1096,13 @@
     .param p1, "color"    # I
 
     .prologue
-    .line 174
+    .line 173
     iput p1, p0, Lcom/android/internal/widget/SubtitleView;->mEdgeColor:I
 
-    .line 176
+    .line 175
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->invalidate()V
 
-    .line 173
+    .line 172
     return-void
 .end method
 
@@ -1111,13 +1111,13 @@
     .param p1, "edgeType"    # I
 
     .prologue
-    .line 168
+    .line 167
     iput p1, p0, Lcom/android/internal/widget/SubtitleView;->mEdgeType:I
 
-    .line 170
+    .line 169
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->invalidate()V
 
-    .line 167
+    .line 166
     return-void
 .end method
 
@@ -1126,13 +1126,13 @@
     .param p1, "color"    # I
 
     .prologue
-    .line 155
+    .line 154
     iput p1, p0, Lcom/android/internal/widget/SubtitleView;->mForegroundColor:I
 
-    .line 157
+    .line 156
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->invalidate()V
 
-    .line 154
+    .line 153
     return-void
 .end method
 
@@ -1141,32 +1141,32 @@
     .param p1, "styleId"    # I
 
     .prologue
-    .line 266
+    .line 265
     iget-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mContext:Landroid/content/Context;
 
-    .line 267
+    .line 266
     .local v0, "context":Landroid/content/Context;
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    .line 269
+    .line 268
     .local v1, "cr":Landroid/content/ContentResolver;
     const/4 v5, -0x1
 
     if-ne p1, v5, :cond_0
 
-    .line 270
+    .line 269
     invoke-static {v1}, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->getCustomStyle(Landroid/content/ContentResolver;)Landroid/view/accessibility/CaptioningManager$CaptionStyle;
 
     move-result-object v3
 
-    .line 275
+    .line 274
     .local v3, "style":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     :goto_0
     sget-object v2, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->DEFAULT:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
 
-    .line 276
+    .line 275
     .local v2, "defStyle":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     invoke-virtual {v3}, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->hasForegroundColor()Z
 
@@ -1174,28 +1174,28 @@
 
     if-eqz v5, :cond_1
 
-    .line 277
+    .line 276
     iget v5, v3, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->foregroundColor:I
 
-    .line 276
+    .line 275
     :goto_1
     iput v5, p0, Lcom/android/internal/widget/SubtitleView;->mForegroundColor:I
 
-    .line 278
+    .line 277
     invoke-virtual {v3}, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->hasBackgroundColor()Z
 
     move-result v5
 
     if-eqz v5, :cond_2
 
-    .line 279
+    .line 278
     iget v5, v3, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->backgroundColor:I
 
-    .line 278
+    .line 277
     :goto_2
     iput v5, p0, Lcom/android/internal/widget/SubtitleView;->mBackgroundColor:I
 
-    .line 280
+    .line 279
     invoke-virtual {v3}, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->hasEdgeType()Z
 
     move-result v5
@@ -1207,7 +1207,7 @@
     :goto_3
     iput v5, p0, Lcom/android/internal/widget/SubtitleView;->mEdgeType:I
 
-    .line 281
+    .line 280
     invoke-virtual {v3}, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->hasEdgeColor()Z
 
     move-result v5
@@ -1219,27 +1219,27 @@
     :goto_4
     iput v5, p0, Lcom/android/internal/widget/SubtitleView;->mEdgeColor:I
 
-    .line 282
+    .line 281
     const/4 v5, 0x0
 
     iput-boolean v5, p0, Lcom/android/internal/widget/SubtitleView;->mHasMeasurements:Z
 
-    .line 284
+    .line 283
     invoke-virtual {v3}, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->getTypeface()Landroid/graphics/Typeface;
 
     move-result-object v4
 
-    .line 285
+    .line 284
     .local v4, "typeface":Landroid/graphics/Typeface;
     invoke-virtual {p0, v4}, Lcom/android/internal/widget/SubtitleView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 287
+    .line 286
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->requestLayout()V
 
-    .line 265
+    .line 264
     return-void
 
-    .line 272
+    .line 271
     .end local v2    # "defStyle":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     .end local v3    # "style":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     .end local v4    # "typeface":Landroid/graphics/Typeface;
@@ -1251,26 +1251,26 @@
     .restart local v3    # "style":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     goto :goto_0
 
-    .line 277
+    .line 276
     .restart local v2    # "defStyle":Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     :cond_1
     iget v5, v2, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->foregroundColor:I
 
     goto :goto_1
 
-    .line 279
+    .line 278
     :cond_2
     iget v5, v2, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->backgroundColor:I
 
     goto :goto_2
 
-    .line 280
+    .line 279
     :cond_3
     iget v5, v2, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->edgeType:I
 
     goto :goto_3
 
-    .line 281
+    .line 280
     :cond_4
     iget v5, v2, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->edgeColor:I
 
@@ -1282,7 +1282,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 140
+    .line 139
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -1291,41 +1291,41 @@
 
     move-result-object v0
 
-    .line 141
+    .line 140
     .local v0, "text":Ljava/lang/CharSequence;
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/SubtitleView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 139
+    .line 138
     return-void
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)V
-    .locals 1
+    .locals 2
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 145
-    iget-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mText:Landroid/text/SpannableStringBuilder;
-
-    invoke-virtual {v0}, Landroid/text/SpannableStringBuilder;->clear()V
-
-    .line 146
-    iget-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mText:Landroid/text/SpannableStringBuilder;
-
-    invoke-virtual {v0, p1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-
-    .line 148
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/internal/widget/SubtitleView;->mHasMeasurements:Z
-
-    .line 150
-    invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->requestLayout()V
-
-    .line 151
-    invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->invalidate()V
+    const/4 v1, 0x0
 
     .line 144
+    iget-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mText:Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->setLength(I)V
+
+    .line 145
+    iget-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mText:Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    .line 147
+    iput-boolean v1, p0, Lcom/android/internal/widget/SubtitleView;->mHasMeasurements:Z
+
+    .line 149
+    invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->requestLayout()V
+
+    .line 150
+    invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->invalidate()V
+
+    .line 143
     return-void
 .end method
 
@@ -1334,7 +1334,7 @@
     .param p1, "size"    # F
 
     .prologue
-    .line 185
+    .line 184
     iget-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v0}, Landroid/text/TextPaint;->getTextSize()F
@@ -1345,12 +1345,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 186
+    .line 185
     iget-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v0, p1}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    .line 187
+    .line 186
     const/high16 v0, 0x3e000000    # 0.125f
 
     mul-float/2addr v0, p1
@@ -1363,18 +1363,18 @@
 
     iput v0, p0, Lcom/android/internal/widget/SubtitleView;->mInnerPaddingX:I
 
-    .line 189
+    .line 188
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/widget/SubtitleView;->mHasMeasurements:Z
 
-    .line 191
+    .line 190
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->requestLayout()V
 
-    .line 192
+    .line 191
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->invalidate()V
 
-    .line 184
+    .line 183
     :cond_0
     return-void
 .end method
@@ -1384,7 +1384,7 @@
     .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .prologue
-    .line 197
+    .line 196
     iget-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v0}, Landroid/text/TextPaint;->getTypeface()Landroid/graphics/Typeface;
@@ -1393,23 +1393,23 @@
 
     if-eq v0, p1, :cond_0
 
-    .line 198
+    .line 197
     iget-object v0, p0, Lcom/android/internal/widget/SubtitleView;->mTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v0, p1}, Landroid/text/TextPaint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
-    .line 200
+    .line 199
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/widget/SubtitleView;->mHasMeasurements:Z
 
-    .line 202
+    .line 201
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->requestLayout()V
 
-    .line 203
+    .line 202
     invoke-virtual {p0}, Lcom/android/internal/widget/SubtitleView;->invalidate()V
 
-    .line 196
+    .line 195
     :cond_0
     return-void
 .end method

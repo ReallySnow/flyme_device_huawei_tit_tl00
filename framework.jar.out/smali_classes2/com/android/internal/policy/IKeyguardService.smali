@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract dismiss(Z)V
+.method public abstract dismiss()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -79,7 +79,7 @@
     .end annotation
 .end method
 
-.method public abstract onFinishedGoingToSleep(IZ)V
+.method public abstract onFinishedGoingToSleep(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -151,7 +151,15 @@
     .end annotation
 .end method
 
-.method public abstract setOccluded(ZZ)V
+.method public abstract setOccluded(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract showKeyguard()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

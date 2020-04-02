@@ -7,21 +7,19 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/net/wifi/WifiScanner$ActionListener;,
-        Landroid/net/wifi/WifiScanner$BssidInfo;,
-        Landroid/net/wifi/WifiScanner$BssidListener;,
         Landroid/net/wifi/WifiScanner$ChannelSpec;,
-        Landroid/net/wifi/WifiScanner$HotlistSettings;,
-        Landroid/net/wifi/WifiScanner$OperationResult;,
+        Landroid/net/wifi/WifiScanner$ScanSettings;,
+        Landroid/net/wifi/WifiScanner$ScanData;,
         Landroid/net/wifi/WifiScanner$ParcelableScanData;,
         Landroid/net/wifi/WifiScanner$ParcelableScanResults;,
-        Landroid/net/wifi/WifiScanner$PnoScanListener;,
-        Landroid/net/wifi/WifiScanner$PnoSettings;,
-        Landroid/net/wifi/WifiScanner$ScanData;,
         Landroid/net/wifi/WifiScanner$ScanListener;,
-        Landroid/net/wifi/WifiScanner$ScanSettings;,
-        Landroid/net/wifi/WifiScanner$ServiceHandler;,
+        Landroid/net/wifi/WifiScanner$BssidInfo;,
+        Landroid/net/wifi/WifiScanner$WifiChangeSettings;,
         Landroid/net/wifi/WifiScanner$WifiChangeListener;,
-        Landroid/net/wifi/WifiScanner$WifiChangeSettings;
+        Landroid/net/wifi/WifiScanner$BssidListener;,
+        Landroid/net/wifi/WifiScanner$HotlistSettings;,
+        Landroid/net/wifi/WifiScanner$OperationResult;,
+        Landroid/net/wifi/WifiScanner$ServiceHandler;
     }
 .end annotation
 
@@ -35,8 +33,6 @@
 
 .field public static final CMD_CONFIGURE_WIFI_CHANGE:I = 0x2700d
 
-.field public static final CMD_DEREGISTER_SCAN_LISTENER:I = 0x2701c
-
 .field public static final CMD_FULL_SCAN_RESULT:I = 0x27014
 
 .field public static final CMD_GET_SCAN_RESULTS:I = 0x27004
@@ -46,10 +42,6 @@
 .field public static final CMD_OP_SUCCEEDED:I = 0x27011
 
 .field public static final CMD_PERIOD_CHANGED:I = 0x27013
-
-.field public static final CMD_PNO_NETWORK_FOUND:I = 0x2701a
-
-.field public static final CMD_REGISTER_SCAN_LISTENER:I = 0x2701b
 
 .field public static final CMD_RESET_HOTLIST:I = 0x27007
 
@@ -63,15 +55,11 @@
 
 .field public static final CMD_START_BACKGROUND_SCAN:I = 0x27002
 
-.field public static final CMD_START_PNO_SCAN:I = 0x27018
-
 .field public static final CMD_START_SINGLE_SCAN:I = 0x27015
 
 .field public static final CMD_START_TRACKING_CHANGE:I = 0x2700b
 
 .field public static final CMD_STOP_BACKGROUND_SCAN:I = 0x27003
-
-.field public static final CMD_STOP_PNO_SCAN:I = 0x27019
 
 .field public static final CMD_STOP_SINGLE_SCAN:I = 0x27016
 
@@ -90,12 +78,6 @@
 .field public static final MAX_SCAN_PERIOD_MS:I = 0xfa000
 
 .field public static final MIN_SCAN_PERIOD_MS:I = 0x3e8
-
-.field public static final PNO_PARAMS_PNO_SETTINGS_KEY:Ljava/lang/String; = "PnoSettings"
-
-.field public static final PNO_PARAMS_SCAN_SETTINGS_KEY:Ljava/lang/String; = "ScanSettings"
-
-.field public static final REASON_DUPLICATE_REQEUST:I = -0x5
 
 .field public static final REASON_INVALID_LISTENER:I = -0x2
 
@@ -118,10 +100,6 @@
 
 .field public static final REPORT_EVENT_NO_BATCH:I = 0x4
 
-.field public static final SCAN_PARAMS_SCAN_SETTINGS_KEY:Ljava/lang/String; = "ScanSettings"
-
-.field public static final SCAN_PARAMS_WORK_SOURCE_KEY:Ljava/lang/String; = "WorkSource"
-
 .field private static final TAG:Ljava/lang/String; = "WifiScanner"
 
 .field public static final WIFI_BAND_24_GHZ:I = 0x1
@@ -138,287 +116,157 @@
 
 .field public static final WIFI_BAND_UNSPECIFIED:I
 
+.field private static sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+
+.field private static sConnected:Ljava/util/concurrent/CountDownLatch;
+
+.field private static sHandlerThread:Landroid/os/HandlerThread;
+
+.field private static sListenerKey:I
+
+.field private static final sListenerMap:Landroid/util/SparseArray;
+
+.field private static final sListenerMapLock:Ljava/lang/Object;
+
+.field private static sThreadRefCount:I
+
+.field private static final sThreadRefLock:Ljava/lang/Object;
+
 
 # instance fields
-.field private mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
-
 .field private mContext:Landroid/content/Context;
-
-.field private final mInternalHandler:Landroid/os/Handler;
-
-.field private mListenerKey:I
-
-.field private final mListenerMap:Landroid/util/SparseArray;
-
-.field private final mListenerMapLock:Ljava/lang/Object;
 
 .field private mService:Landroid/net/wifi/IWifiScanner;
 
 
 # direct methods
-.method static synthetic -set0(Landroid/net/wifi/WifiScanner;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
+.method static synthetic -get0()Lcom/android/internal/util/AsyncChannel;
+    .locals 1
+
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1()Ljava/util/concurrent/CountDownLatch;
+    .locals 1
+
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sConnected:Ljava/util/concurrent/CountDownLatch;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
     .locals 0
 
-    iput-object p1, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    sput-object p0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
-    return-object p1
+    return-object p0
 .end method
 
-.method static synthetic -wrap0(Landroid/net/wifi/WifiScanner;I)Ljava/lang/Object;
+.method static synthetic -wrap0(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # I
+    .param p0, "key"    # I
 
     .prologue
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->getListener(I)Ljava/lang/Object;
+    invoke-static {p0}, Landroid/net/wifi/WifiScanner;->getListener(I)Ljava/lang/Object;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method static synthetic -wrap1(Landroid/net/wifi/WifiScanner;I)Ljava/lang/Object;
+.method static synthetic -wrap1(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # I
+    .param p0, "key"    # I
 
     .prologue
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->removeListener(I)Ljava/lang/Object;
+    invoke-static {p0}, Landroid/net/wifi/WifiScanner;->removeListener(I)Ljava/lang/Object;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/net/wifi/IWifiScanner;Landroid/os/Looper;)V
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "service"    # Landroid/net/wifi/IWifiScanner;
-    .param p3, "looper"    # Landroid/os/Looper;
+.method static constructor <clinit>()V
+    .locals 1
 
     .prologue
-    .line 1209
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 780
+    const/4 v0, 0x1
 
-    .line 1191
-    const/4 v2, 0x1
+    sput v0, Landroid/net/wifi/WifiScanner;->sListenerKey:I
 
-    iput v2, p0, Landroid/net/wifi/WifiScanner;->mListenerKey:I
+    .line 782
+    new-instance v0, Landroid/util/SparseArray;
 
-    .line 1193
-    new-instance v2, Landroid/util/SparseArray;
+    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
-    invoke-direct {v2}, Landroid/util/SparseArray;-><init>()V
+    sput-object v0, Landroid/net/wifi/WifiScanner;->sListenerMap:Landroid/util/SparseArray;
 
-    iput-object v2, p0, Landroid/net/wifi/WifiScanner;->mListenerMap:Landroid/util/SparseArray;
+    .line 783
+    new-instance v0, Ljava/lang/Object;
 
-    .line 1194
-    new-instance v2, Ljava/lang/Object;
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/Object;-><init>()V
+    sput-object v0, Landroid/net/wifi/WifiScanner;->sListenerMapLock:Ljava/lang/Object;
 
-    iput-object v2, p0, Landroid/net/wifi/WifiScanner;->mListenerMapLock:Ljava/lang/Object;
+    .line 788
+    new-instance v0, Ljava/lang/Object;
 
-    .line 1210
-    iput-object p1, p0, Landroid/net/wifi/WifiScanner;->mContext:Landroid/content/Context;
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    .line 1211
-    iput-object p2, p0, Landroid/net/wifi/WifiScanner;->mService:Landroid/net/wifi/IWifiScanner;
+    sput-object v0, Landroid/net/wifi/WifiScanner;->sThreadRefLock:Ljava/lang/Object;
 
-    .line 1213
-    const/4 v1, 0x0
-
-    .line 1215
-    .local v1, "messenger":Landroid/os/Messenger;
-    :try_start_0
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mService:Landroid/net/wifi/IWifiScanner;
-
-    invoke-interface {v2}, Landroid/net/wifi/IWifiScanner;->getMessenger()Landroid/os/Messenger;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 1220
-    .local v1, "messenger":Landroid/os/Messenger;
-    if-nez v1, :cond_0
-
-    .line 1221
-    new-instance v2, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v3, "getMessenger() returned null!  This is invalid."
-
-    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 1216
-    .local v1, "messenger":Landroid/os/Messenger;
-    :catch_0
-    move-exception v0
-
-    .line 1217
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v2
-
-    throw v2
-
-    .line 1224
-    .end local v0    # "e":Landroid/os/RemoteException;
-    .local v1, "messenger":Landroid/os/Messenger;
-    :cond_0
-    new-instance v2, Lcom/android/internal/util/AsyncChannel;
-
-    invoke-direct {v2}, Lcom/android/internal/util/AsyncChannel;-><init>()V
-
-    iput-object v2, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
-
-    .line 1226
-    new-instance v2, Landroid/net/wifi/WifiScanner$ServiceHandler;
-
-    invoke-direct {v2, p0, p3}, Landroid/net/wifi/WifiScanner$ServiceHandler;-><init>(Landroid/net/wifi/WifiScanner;Landroid/os/Looper;)V
-
-    iput-object v2, p0, Landroid/net/wifi/WifiScanner;->mInternalHandler:Landroid/os/Handler;
-
-    .line 1227
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
-
-    iget-object v3, p0, Landroid/net/wifi/WifiScanner;->mContext:Landroid/content/Context;
-
-    iget-object v4, p0, Landroid/net/wifi/WifiScanner;->mInternalHandler:Landroid/os/Handler;
-
-    invoke-virtual {v2, v3, v4, v1}, Lcom/android/internal/util/AsyncChannel;->connectSync(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Messenger;)I
-
-    .line 1230
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
-
-    const v3, 0x11001
-
-    invoke-virtual {v2, v3}, Lcom/android/internal/util/AsyncChannel;->sendMessage(I)V
-
-    .line 1209
+    .line 48
     return-void
 .end method
 
-.method private addListener(Landroid/net/wifi/WifiScanner$ActionListener;)I
-    .locals 9
-    .param p1, "listener"    # Landroid/net/wifi/WifiScanner$ActionListener;
+.method public constructor <init>(Landroid/content/Context;Landroid/net/wifi/IWifiScanner;)V
+    .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/net/wifi/IWifiScanner;
 
     .prologue
-    const/4 v8, 0x0
+    .line 801
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1242
-    iget-object v5, p0, Landroid/net/wifi/WifiScanner;->mListenerMapLock:Ljava/lang/Object;
+    .line 802
+    iput-object p1, p0, Landroid/net/wifi/WifiScanner;->mContext:Landroid/content/Context;
 
-    monitor-enter v5
+    .line 803
+    iput-object p2, p0, Landroid/net/wifi/WifiScanner;->mService:Landroid/net/wifi/IWifiScanner;
 
-    .line 1243
-    :try_start_0
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->getListenerKey(Ljava/lang/Object;)I
+    .line 804
+    invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->init()V
 
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const/4 v1, 0x1
-
-    .line 1247
-    .local v1, "keyExists":Z
-    :goto_0
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->putListener(Ljava/lang/Object;)I
-
-    move-result v0
-
-    .line 1248
-    .local v0, "key":I
-    if-eqz v1, :cond_1
-
-    .line 1250
-    new-instance v3, Landroid/net/wifi/WifiScanner$OperationResult;
-
-    .line 1251
-    const-string/jumbo v4, "Outstanding request with same key not stopped yet"
-
-    .line 1250
-    const/4 v6, -0x5
-
-    invoke-direct {v3, v6, v4}, Landroid/net/wifi/WifiScanner$OperationResult;-><init>(ILjava/lang/String;)V
-
-    .line 1252
-    .local v3, "operationResult":Landroid/net/wifi/WifiScanner$OperationResult;
-    iget-object v4, p0, Landroid/net/wifi/WifiScanner;->mInternalHandler:Landroid/os/Handler;
-
-    const v6, 0x27012
-
-    const/4 v7, 0x0
-
-    invoke-static {v4, v6, v7, v0, v3}, Landroid/os/Message;->obtain(Landroid/os/Handler;IIILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v2
-
-    .line 1254
-    .local v2, "message":Landroid/os/Message;
-    invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v5
-
-    .line 1255
-    return v8
-
-    .line 1243
-    .end local v0    # "key":I
-    .end local v1    # "keyExists":Z
-    .end local v2    # "message":Landroid/os/Message;
-    .end local v3    # "operationResult":Landroid/net/wifi/WifiScanner$OperationResult;
-    :cond_0
-    const/4 v1, 0x0
-
-    .restart local v1    # "keyExists":Z
-    goto :goto_0
-
-    .restart local v0    # "key":I
-    :cond_1
-    monitor-exit v5
-
-    .line 1257
-    return v0
-
-    .line 1242
-    .end local v0    # "key":I
-    .end local v1    # "keyExists":Z
-    :catchall_0
-    move-exception v4
-
-    monitor-exit v5
-
-    throw v4
+    .line 801
+    return-void
 .end method
 
-.method private getListener(I)Ljava/lang/Object;
+.method private static getListener(I)Ljava/lang/Object;
     .locals 3
-    .param p1, "key"    # I
+    .param p0, "key"    # I
 
     .prologue
-    .line 1275
-    if-nez p1, :cond_0
+    .line 858
+    if-nez p0, :cond_0
 
     const/4 v1, 0x0
 
     return-object v1
 
-    .line 1276
+    .line 859
     :cond_0
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mListenerMapLock:Ljava/lang/Object;
+    sget-object v2, Landroid/net/wifi/WifiScanner;->sListenerMapLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1277
+    .line 860
     :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mListenerMap:Landroid/util/SparseArray;
+    sget-object v1, Landroid/net/wifi/WifiScanner;->sListenerMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -427,10 +275,10 @@
     .local v0, "listener":Ljava/lang/Object;
     monitor-exit v2
 
-    .line 1278
+    .line 861
     return-object v0
 
-    .line 1276
+    .line 859
     .end local v0    # "listener":Ljava/lang/Object;
     :catchall_0
     move-exception v1
@@ -440,35 +288,35 @@
     throw v1
 .end method
 
-.method private getListenerKey(Ljava/lang/Object;)I
+.method private static getListenerKey(Ljava/lang/Object;)I
     .locals 4
-    .param p1, "listener"    # Ljava/lang/Object;
+    .param p0, "listener"    # Ljava/lang/Object;
 
     .prologue
     const/4 v3, 0x0
 
-    .line 1283
-    if-nez p1, :cond_0
+    .line 866
+    if-nez p0, :cond_0
 
     return v3
 
-    .line 1284
+    .line 867
     :cond_0
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mListenerMapLock:Ljava/lang/Object;
+    sget-object v2, Landroid/net/wifi/WifiScanner;->sListenerMapLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1285
+    .line 868
     :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mListenerMap:Landroid/util/SparseArray;
+    sget-object v1, Landroid/net/wifi/WifiScanner;->sListenerMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->indexOfValue(Ljava/lang/Object;)I
+    invoke-virtual {v1, p0}, Landroid/util/SparseArray;->indexOfValue(Ljava/lang/Object;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    .line 1286
+    .line 869
     .local v0, "index":I
     const/4 v1, -0x1
 
@@ -476,13 +324,13 @@
 
     monitor-exit v2
 
-    .line 1287
+    .line 870
     return v3
 
-    .line 1289
+    .line 872
     :cond_1
     :try_start_1
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mListenerMap:Landroid/util/SparseArray;
+    sget-object v1, Landroid/net/wifi/WifiScanner;->sListenerMap:Landroid/util/SparseArray;
 
     invoke-virtual {v1, v0}, Landroid/util/SparseArray;->keyAt(I)I
     :try_end_1
@@ -494,7 +342,7 @@
 
     return v1
 
-    .line 1284
+    .line 867
     .end local v0    # "index":I
     :catchall_0
     move-exception v1
@@ -504,50 +352,222 @@
     throw v1
 .end method
 
-.method private putListener(Ljava/lang/Object;)I
+.method private init()V
+    .locals 8
+
+    .prologue
+    const/4 v7, 0x1
+
+    .line 808
+    sget-object v6, Landroid/net/wifi/WifiScanner;->sThreadRefLock:Ljava/lang/Object;
+
+    monitor-enter v6
+
+    .line 809
+    :try_start_0
+    sget v5, Landroid/net/wifi/WifiScanner;->sThreadRefCount:I
+
+    add-int/lit8 v5, v5, 0x1
+
+    sput v5, Landroid/net/wifi/WifiScanner;->sThreadRefCount:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-ne v5, v7, :cond_1
+
+    .line 810
+    const/4 v4, 0x0
+
+    .line 812
+    .local v4, "messenger":Landroid/os/Messenger;
+    :try_start_1
+    iget-object v5, p0, Landroid/net/wifi/WifiScanner;->mService:Landroid/net/wifi/IWifiScanner;
+
+    invoke-interface {v5}, Landroid/net/wifi/IWifiScanner;->getMessenger()Landroid/os/Messenger;
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v4
+
+    .line 819
+    .end local v4    # "messenger":Landroid/os/Messenger;
+    :goto_0
+    if-nez v4, :cond_0
+
+    .line 820
+    const/4 v5, 0x0
+
+    :try_start_2
+    sput-object v5, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit v6
+
+    .line 821
+    return-void
+
+    .line 824
+    :cond_0
+    :try_start_3
+    new-instance v5, Landroid/os/HandlerThread;
+
+    const-string/jumbo v7, "WifiScanner"
+
+    invoke-direct {v5, v7}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
+
+    sput-object v5, Landroid/net/wifi/WifiScanner;->sHandlerThread:Landroid/os/HandlerThread;
+
+    .line 825
+    new-instance v5, Lcom/android/internal/util/AsyncChannel;
+
+    invoke-direct {v5}, Lcom/android/internal/util/AsyncChannel;-><init>()V
+
+    sput-object v5, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+
+    .line 826
+    new-instance v5, Ljava/util/concurrent/CountDownLatch;
+
+    const/4 v7, 0x1
+
+    invoke-direct {v5, v7}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+
+    sput-object v5, Landroid/net/wifi/WifiScanner;->sConnected:Ljava/util/concurrent/CountDownLatch;
+
+    .line 828
+    sget-object v5, Landroid/net/wifi/WifiScanner;->sHandlerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v5}, Landroid/os/HandlerThread;->start()V
+
+    .line 829
+    new-instance v3, Landroid/net/wifi/WifiScanner$ServiceHandler;
+
+    sget-object v5, Landroid/net/wifi/WifiScanner;->sHandlerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v5}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v5
+
+    invoke-direct {v3, v5}, Landroid/net/wifi/WifiScanner$ServiceHandler;-><init>(Landroid/os/Looper;)V
+
+    .line 830
+    .local v3, "handler":Landroid/os/Handler;
+    sget-object v5, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+
+    iget-object v7, p0, Landroid/net/wifi/WifiScanner;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5, v7, v3, v4}, Lcom/android/internal/util/AsyncChannel;->connect(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Messenger;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    .line 832
+    :try_start_4
+    sget-object v5, Landroid/net/wifi/WifiScanner;->sConnected:Ljava/util/concurrent/CountDownLatch;
+
+    invoke-virtual {v5}, Ljava/util/concurrent/CountDownLatch;->await()V
+    :try_end_4
+    .catch Ljava/lang/InterruptedException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    .end local v3    # "handler":Landroid/os/Handler;
+    :cond_1
+    :goto_1
+    monitor-exit v6
+
+    .line 807
+    return-void
+
+    .line 833
+    .restart local v3    # "handler":Landroid/os/Handler;
+    :catch_0
+    move-exception v1
+
+    .line 834
+    .local v1, "e":Ljava/lang/InterruptedException;
+    :try_start_5
+    const-string/jumbo v5, "WifiScanner"
+
+    const-string/jumbo v7, "interrupted wait at init"
+
+    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    goto :goto_1
+
+    .line 808
+    .end local v1    # "e":Ljava/lang/InterruptedException;
+    .end local v3    # "handler":Landroid/os/Handler;
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    .line 813
+    .restart local v4    # "messenger":Landroid/os/Messenger;
+    :catch_1
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    goto :goto_0
+
+    .line 815
+    .end local v0    # "e":Landroid/os/RemoteException;
+    :catch_2
+    move-exception v2
+
+    .local v2, "e":Ljava/lang/SecurityException;
+    goto :goto_0
+.end method
+
+.method private static putListener(Ljava/lang/Object;)I
     .locals 3
-    .param p1, "listener"    # Ljava/lang/Object;
+    .param p0, "listener"    # Ljava/lang/Object;
 
     .prologue
     const/4 v1, 0x0
 
-    .line 1263
-    if-nez p1, :cond_0
+    .line 846
+    if-nez p0, :cond_0
 
     return v1
 
-    .line 1265
+    .line 848
     :cond_0
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mListenerMapLock:Ljava/lang/Object;
+    sget-object v2, Landroid/net/wifi/WifiScanner;->sListenerMapLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1267
+    .line 850
     :cond_1
     :try_start_0
-    iget v0, p0, Landroid/net/wifi/WifiScanner;->mListenerKey:I
+    sget v0, Landroid/net/wifi/WifiScanner;->sListenerKey:I
 
     add-int/lit8 v1, v0, 0x1
 
-    iput v1, p0, Landroid/net/wifi/WifiScanner;->mListenerKey:I
+    sput v1, Landroid/net/wifi/WifiScanner;->sListenerKey:I
 
-    .line 1268
+    .line 851
     .local v0, "key":I
     if-eqz v0, :cond_1
 
-    .line 1269
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mListenerMap:Landroid/util/SparseArray;
+    .line 852
+    sget-object v1, Landroid/net/wifi/WifiScanner;->sListenerMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, v0, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v1, v0, p0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v2
 
-    .line 1271
+    .line 854
     return v0
 
-    .line 1265
+    .line 848
     .end local v0    # "key":I
     :catchall_0
     move-exception v1
@@ -557,39 +577,31 @@
     throw v1
 .end method
 
-.method private removeListener(Ljava/lang/Object;)I
+.method private static removeListener(Ljava/lang/Object;)I
     .locals 3
-    .param p1, "listener"    # Ljava/lang/Object;
+    .param p0, "listener"    # Ljava/lang/Object;
 
     .prologue
-    .line 1304
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->getListenerKey(Ljava/lang/Object;)I
+    .line 887
+    invoke-static {p0}, Landroid/net/wifi/WifiScanner;->getListenerKey(Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 1305
+    .line 888
     .local v0, "key":I
     if-nez v0, :cond_0
 
-    .line 1306
-    const-string/jumbo v1, "WifiScanner"
-
-    const-string/jumbo v2, "listener cannot be found"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1307
     return v0
 
-    .line 1309
+    .line 889
     :cond_0
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mListenerMapLock:Ljava/lang/Object;
+    sget-object v2, Landroid/net/wifi/WifiScanner;->sListenerMapLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1310
+    .line 890
     :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mListenerMap:Landroid/util/SparseArray;
+    sget-object v1, Landroid/net/wifi/WifiScanner;->sListenerMap:Landroid/util/SparseArray;
 
     invoke-virtual {v1, v0}, Landroid/util/SparseArray;->remove(I)V
     :try_end_0
@@ -597,10 +609,10 @@
 
     monitor-exit v2
 
-    .line 1311
+    .line 891
     return v0
 
-    .line 1309
+    .line 889
     :catchall_0
     move-exception v1
 
@@ -609,46 +621,46 @@
     throw v1
 .end method
 
-.method private removeListener(I)Ljava/lang/Object;
+.method private static removeListener(I)Ljava/lang/Object;
     .locals 3
-    .param p1, "key"    # I
+    .param p0, "key"    # I
 
     .prologue
-    .line 1295
-    if-nez p1, :cond_0
+    .line 878
+    if-nez p0, :cond_0
 
     const/4 v1, 0x0
 
     return-object v1
 
-    .line 1296
+    .line 879
     :cond_0
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mListenerMapLock:Ljava/lang/Object;
+    sget-object v2, Landroid/net/wifi/WifiScanner;->sListenerMapLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1297
+    .line 880
     :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mListenerMap:Landroid/util/SparseArray;
+    sget-object v1, Landroid/net/wifi/WifiScanner;->sListenerMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 1298
+    .line 881
     .local v0, "listener":Ljava/lang/Object;
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mListenerMap:Landroid/util/SparseArray;
+    sget-object v1, Landroid/net/wifi/WifiScanner;->sListenerMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->remove(I)V
+    invoke-virtual {v1, p0}, Landroid/util/SparseArray;->remove(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v2
 
-    .line 1299
+    .line 882
     return-object v0
 
-    .line 1296
+    .line 879
     .end local v0    # "listener":Ljava/lang/Object;
     :catchall_0
     move-exception v1
@@ -658,67 +670,26 @@
     throw v1
 .end method
 
-.method private startPnoScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$PnoSettings;I)V
-    .locals 4
-    .param p1, "scanSettings"    # Landroid/net/wifi/WifiScanner$ScanSettings;
-    .param p2, "pnoSettings"    # Landroid/net/wifi/WifiScanner$PnoSettings;
-    .param p3, "key"    # I
-
-    .prologue
-    .line 809
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    .line 811
-    .local v0, "pnoParams":Landroid/os/Bundle;
-    const/4 v1, 0x1
-
-    iput-boolean v1, p1, Landroid/net/wifi/WifiScanner$ScanSettings;->isPnoScan:Z
-
-    .line 812
-    const-string/jumbo v1, "ScanSettings"
-
-    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 813
-    const-string/jumbo v1, "PnoSettings"
-
-    invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 814
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
-
-    const v2, 0x27018
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v1, v2, v3, p3, v0}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
-
-    .line 807
-    return-void
-.end method
-
 .method private validateChannel()V
     .locals 2
 
     .prologue
-    .line 1234
-    iget-object v0, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    .line 841
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
     if-nez v0, :cond_0
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    .line 1235
+    .line 842
     const-string/jumbo v1, "No permission to access and change wifi or a bad initialization"
 
-    .line 1234
+    .line 841
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 1233
+    .line 840
     :cond_0
     return-void
 .end method
@@ -735,37 +706,37 @@
     .param p6, "bssidInfos"    # [Landroid/net/wifi/WifiScanner$BssidInfo;
 
     .prologue
-    .line 969
+    .line 580
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
-    .line 971
+    .line 582
     new-instance v0, Landroid/net/wifi/WifiScanner$WifiChangeSettings;
 
     invoke-direct {v0}, Landroid/net/wifi/WifiScanner$WifiChangeSettings;-><init>()V
 
-    .line 972
+    .line 583
     .local v0, "settings":Landroid/net/wifi/WifiScanner$WifiChangeSettings;
     iput p1, v0, Landroid/net/wifi/WifiScanner$WifiChangeSettings;->rssiSampleSize:I
 
-    .line 973
+    .line 584
     iput p2, v0, Landroid/net/wifi/WifiScanner$WifiChangeSettings;->lostApSampleSize:I
 
-    .line 974
+    .line 585
     iput p3, v0, Landroid/net/wifi/WifiScanner$WifiChangeSettings;->unchangedSampleSize:I
 
-    .line 975
+    .line 586
     iput p4, v0, Landroid/net/wifi/WifiScanner$WifiChangeSettings;->minApsBreachingThreshold:I
 
-    .line 976
+    .line 587
     iput p5, v0, Landroid/net/wifi/WifiScanner$WifiChangeSettings;->periodInMs:I
 
-    .line 977
+    .line 588
     iput-object p6, v0, Landroid/net/wifi/WifiScanner$WifiChangeSettings;->bssidInfos:[Landroid/net/wifi/WifiScanner$BssidInfo;
 
-    .line 979
+    .line 590
     invoke-virtual {p0, v0}, Landroid/net/wifi/WifiScanner;->configureWifiChange(Landroid/net/wifi/WifiScanner$WifiChangeSettings;)V
 
-    .line 967
+    .line 578
     return-void
 .end method
 
@@ -776,55 +747,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1024
+    .line 630
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
-    .line 1025
-    iget-object v0, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    .line 631
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
     const v1, 0x2700d
 
     invoke-virtual {v0, v1, v2, v2, p1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
 
-    .line 1023
-    return-void
-.end method
-
-.method public deregisterScanListener(Landroid/net/wifi/WifiScanner$ScanListener;)V
-    .locals 4
-    .param p1, "listener"    # Landroid/net/wifi/WifiScanner$ScanListener;
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 702
-    const-string/jumbo v1, "listener cannot be null"
-
-    invoke-static {p1, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 703
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->removeListener(Ljava/lang/Object;)I
-
-    move-result v0
-
-    .line 704
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 705
-    :cond_0
-    invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
-
-    .line 706
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
-
-    const v2, 0x2701c
-
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
-
-    .line 701
+    .line 629
     return-void
 .end method
 
@@ -842,7 +775,7 @@
     .end annotation
 
     .prologue
-    .line 104
+    .line 102
     :try_start_0
     iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mService:Landroid/net/wifi/IWifiScanner;
 
@@ -850,7 +783,7 @@
 
     move-result-object v0
 
-    .line 105
+    .line 103
     .local v0, "bundle":Landroid/os/Bundle;
     const-string/jumbo v2, "Channels"
 
@@ -862,12 +795,12 @@
 
     return-object v2
 
-    .line 106
+    .line 104
     .end local v0    # "bundle":Landroid/os/Bundle;
     :catch_0
     move-exception v1
 
-    .line 107
+    .line 105
     .local v1, "e":Landroid/os/RemoteException;
     const/4 v2, 0x0
 
@@ -880,11 +813,11 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 757
+    .line 456
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
-    .line 758
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    .line 457
+    sget-object v2, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
     const v3, 0x27004
 
@@ -892,7 +825,7 @@
 
     move-result-object v0
 
-    .line 759
+    .line 458
     .local v0, "reply":Landroid/os/Message;
     iget v2, v0, Landroid/os/Message;->what:I
 
@@ -906,271 +839,55 @@
     return v1
 .end method
 
-.method public registerScanListener(Landroid/net/wifi/WifiScanner$ScanListener;)V
+.method public startBackgroundScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$ScanListener;)V
     .locals 4
-    .param p1, "listener"    # Landroid/net/wifi/WifiScanner$ScanListener;
+    .param p1, "settings"    # Landroid/net/wifi/WifiScanner$ScanSettings;
+    .param p2, "listener"    # Landroid/net/wifi/WifiScanner$ScanListener;
 
     .prologue
+    .line 439
+    invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
+
+    .line 440
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+
+    invoke-static {p2}, Landroid/net/wifi/WifiScanner;->putListener(Ljava/lang/Object;)I
+
+    move-result v1
+
+    const v2, 0x27002
+
     const/4 v3, 0x0
 
-    .line 688
-    const-string/jumbo v1, "listener cannot be null"
+    invoke-virtual {v0, v2, v3, v1, p1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
 
-    invoke-static {p1, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 689
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->addListener(Landroid/net/wifi/WifiScanner$ActionListener;)I
-
-    move-result v0
-
-    .line 690
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 691
-    :cond_0
-    invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
-
-    .line 692
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
-
-    const v2, 0x2701b
-
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
-
-    .line 687
-    return-void
-.end method
-
-.method public startBackgroundScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$ScanListener;)V
-    .locals 1
-    .param p1, "settings"    # Landroid/net/wifi/WifiScanner$ScanSettings;
-    .param p2, "listener"    # Landroid/net/wifi/WifiScanner$ScanListener;
-
-    .prologue
-    .line 717
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, p2, v0}, Landroid/net/wifi/WifiScanner;->startBackgroundScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$ScanListener;Landroid/os/WorkSource;)V
-
-    .line 716
-    return-void
-.end method
-
-.method public startBackgroundScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$ScanListener;Landroid/os/WorkSource;)V
-    .locals 5
-    .param p1, "settings"    # Landroid/net/wifi/WifiScanner$ScanSettings;
-    .param p2, "listener"    # Landroid/net/wifi/WifiScanner$ScanListener;
-    .param p3, "workSource"    # Landroid/os/WorkSource;
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 730
-    const-string/jumbo v2, "listener cannot be null"
-
-    invoke-static {p2, v2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 731
-    invoke-direct {p0, p2}, Landroid/net/wifi/WifiScanner;->addListener(Landroid/net/wifi/WifiScanner$ActionListener;)I
-
-    move-result v0
-
-    .line 732
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 733
-    :cond_0
-    invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
-
-    .line 734
-    new-instance v1, Landroid/os/Bundle;
-
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
-
-    .line 735
-    .local v1, "scanParams":Landroid/os/Bundle;
-    const-string/jumbo v2, "ScanSettings"
-
-    invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 736
-    const-string/jumbo v2, "WorkSource"
-
-    invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 737
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
-
-    const v3, 0x27002
-
-    invoke-virtual {v2, v3, v4, v0, v1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
-
-    .line 729
-    return-void
-.end method
-
-.method public startConnectedPnoScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$PnoSettings;Landroid/net/wifi/WifiScanner$PnoScanListener;)V
-    .locals 2
-    .param p1, "scanSettings"    # Landroid/net/wifi/WifiScanner$ScanSettings;
-    .param p2, "pnoSettings"    # Landroid/net/wifi/WifiScanner$PnoSettings;
-    .param p3, "listener"    # Landroid/net/wifi/WifiScanner$PnoScanListener;
-
-    .prologue
-    .line 829
-    const-string/jumbo v1, "listener cannot be null"
-
-    invoke-static {p3, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 830
-    const-string/jumbo v1, "pnoSettings cannot be null"
-
-    invoke-static {p2, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 831
-    invoke-direct {p0, p3}, Landroid/net/wifi/WifiScanner;->addListener(Landroid/net/wifi/WifiScanner$ActionListener;)I
-
-    move-result v0
-
-    .line 832
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 833
-    :cond_0
-    invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
-
-    .line 834
-    const/4 v1, 0x1
-
-    iput-boolean v1, p2, Landroid/net/wifi/WifiScanner$PnoSettings;->isConnected:Z
-
-    .line 835
-    invoke-direct {p0, p1, p2, v0}, Landroid/net/wifi/WifiScanner;->startPnoScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$PnoSettings;I)V
-
-    .line 828
-    return-void
-.end method
-
-.method public startDisconnectedPnoScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$PnoSettings;Landroid/net/wifi/WifiScanner$PnoScanListener;)V
-    .locals 3
-    .param p1, "scanSettings"    # Landroid/net/wifi/WifiScanner$ScanSettings;
-    .param p2, "pnoSettings"    # Landroid/net/wifi/WifiScanner$PnoSettings;
-    .param p3, "listener"    # Landroid/net/wifi/WifiScanner$PnoScanListener;
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 850
-    const-string/jumbo v1, "listener cannot be null"
-
-    invoke-static {p3, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 851
-    const-string/jumbo v1, "pnoSettings cannot be null"
-
-    invoke-static {p2, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 852
-    invoke-direct {p0, p3}, Landroid/net/wifi/WifiScanner;->addListener(Landroid/net/wifi/WifiScanner$ActionListener;)I
-
-    move-result v0
-
-    .line 853
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 854
-    :cond_0
-    invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
-
-    .line 855
-    iput-boolean v2, p2, Landroid/net/wifi/WifiScanner$PnoSettings;->isConnected:Z
-
-    .line 856
-    invoke-direct {p0, p1, p2, v0}, Landroid/net/wifi/WifiScanner;->startPnoScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$PnoSettings;I)V
-
-    .line 849
+    .line 438
     return-void
 .end method
 
 .method public startScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$ScanListener;)V
-    .locals 1
+    .locals 4
     .param p1, "settings"    # Landroid/net/wifi/WifiScanner$ScanSettings;
     .param p2, "listener"    # Landroid/net/wifi/WifiScanner$ScanListener;
 
     .prologue
-    .line 771
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, p2, v0}, Landroid/net/wifi/WifiScanner;->startScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$ScanListener;Landroid/os/WorkSource;)V
-
-    .line 770
-    return-void
-.end method
-
-.method public startScan(Landroid/net/wifi/WifiScanner$ScanSettings;Landroid/net/wifi/WifiScanner$ScanListener;Landroid/os/WorkSource;)V
-    .locals 5
-    .param p1, "settings"    # Landroid/net/wifi/WifiScanner$ScanSettings;
-    .param p2, "listener"    # Landroid/net/wifi/WifiScanner$ScanListener;
-    .param p3, "workSource"    # Landroid/os/WorkSource;
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 784
-    const-string/jumbo v2, "listener cannot be null"
-
-    invoke-static {p2, v2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 785
-    invoke-direct {p0, p2}, Landroid/net/wifi/WifiScanner;->addListener(Landroid/net/wifi/WifiScanner$ActionListener;)I
-
-    move-result v0
-
-    .line 786
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 787
-    :cond_0
+    .line 470
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
-    .line 788
-    new-instance v1, Landroid/os/Bundle;
+    .line 471
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+    invoke-static {p2}, Landroid/net/wifi/WifiScanner;->putListener(Ljava/lang/Object;)I
 
-    .line 789
-    .local v1, "scanParams":Landroid/os/Bundle;
-    const-string/jumbo v2, "ScanSettings"
+    move-result v1
 
-    invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    const v2, 0x27015
 
-    .line 790
-    const-string/jumbo v2, "WorkSource"
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    invoke-virtual {v0, v2, v3, v1, p1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
 
-    .line 791
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
-
-    const v3, 0x27015
-
-    invoke-virtual {v2, v3, v4, v0, v1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
-
-    .line 783
+    .line 469
     return-void
 .end method
 
@@ -1181,48 +898,32 @@
     .param p3, "listener"    # Landroid/net/wifi/WifiScanner$BssidListener;
 
     .prologue
-    const/4 v4, 0x0
-
-    .line 1103
-    const-string/jumbo v2, "listener cannot be null"
-
-    invoke-static {p3, v2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 1104
-    invoke-direct {p0, p3}, Landroid/net/wifi/WifiScanner;->addListener(Landroid/net/wifi/WifiScanner$ActionListener;)I
-
-    move-result v0
-
-    .line 1105
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 1106
-    :cond_0
+    .line 709
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
-    .line 1107
-    new-instance v1, Landroid/net/wifi/WifiScanner$HotlistSettings;
+    .line 710
+    new-instance v0, Landroid/net/wifi/WifiScanner$HotlistSettings;
 
-    invoke-direct {v1}, Landroid/net/wifi/WifiScanner$HotlistSettings;-><init>()V
+    invoke-direct {v0}, Landroid/net/wifi/WifiScanner$HotlistSettings;-><init>()V
 
-    .line 1108
-    .local v1, "settings":Landroid/net/wifi/WifiScanner$HotlistSettings;
-    iput-object p1, v1, Landroid/net/wifi/WifiScanner$HotlistSettings;->bssidInfos:[Landroid/net/wifi/WifiScanner$BssidInfo;
+    .line 711
+    .local v0, "settings":Landroid/net/wifi/WifiScanner$HotlistSettings;
+    iput-object p1, v0, Landroid/net/wifi/WifiScanner$HotlistSettings;->bssidInfos:[Landroid/net/wifi/WifiScanner$BssidInfo;
 
-    .line 1109
-    iput p2, v1, Landroid/net/wifi/WifiScanner$HotlistSettings;->apLostThreshold:I
+    .line 712
+    sget-object v1, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
-    .line 1110
-    iget-object v2, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    invoke-static {p3}, Landroid/net/wifi/WifiScanner;->putListener(Ljava/lang/Object;)I
+
+    move-result v2
 
     const v3, 0x27006
 
-    invoke-virtual {v2, v3, v4, v0, v1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
+    const/4 v4, 0x0
 
-    .line 1102
+    invoke-virtual {v1, v3, v4, v2, v0}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
+
+    .line 708
     return-void
 .end method
 
@@ -1231,36 +932,23 @@
     .param p1, "listener"    # Landroid/net/wifi/WifiScanner$WifiChangeListener;
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 1002
-    const-string/jumbo v1, "listener cannot be null"
-
-    invoke-static {p1, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 1003
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->addListener(Landroid/net/wifi/WifiScanner$ActionListener;)I
-
-    move-result v0
-
-    .line 1004
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 1005
-    :cond_0
+    .line 613
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
-    .line 1006
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    .line 614
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+
+    invoke-static {p1}, Landroid/net/wifi/WifiScanner;->putListener(Ljava/lang/Object;)I
+
+    move-result v1
 
     const v2, 0x2700b
 
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
+    const/4 v3, 0x0
 
-    .line 1001
+    invoke-virtual {v0, v2, v3, v1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
+
+    .line 612
     return-void
 .end method
 
@@ -1269,74 +957,23 @@
     .param p1, "listener"    # Landroid/net/wifi/WifiScanner$ScanListener;
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 746
-    const-string/jumbo v1, "listener cannot be null"
-
-    invoke-static {p1, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 747
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->removeListener(Ljava/lang/Object;)I
-
-    move-result v0
-
-    .line 748
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 749
-    :cond_0
+    .line 448
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
-    .line 750
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    .line 449
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+
+    invoke-static {p1}, Landroid/net/wifi/WifiScanner;->removeListener(Ljava/lang/Object;)I
+
+    move-result v1
 
     const v2, 0x27003
 
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
-
-    .line 745
-    return-void
-.end method
-
-.method public stopPnoScan(Landroid/net/wifi/WifiScanner$ScanListener;)V
-    .locals 4
-    .param p1, "listener"    # Landroid/net/wifi/WifiScanner$ScanListener;
-
-    .prologue
     const/4 v3, 0x0
 
-    .line 866
-    const-string/jumbo v1, "listener cannot be null"
+    invoke-virtual {v0, v2, v3, v1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
 
-    invoke-static {p1, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 867
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->removeListener(Ljava/lang/Object;)I
-
-    move-result v0
-
-    .line 868
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 869
-    :cond_0
-    invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
-
-    .line 870
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
-
-    const v2, 0x27019
-
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
-
-    .line 865
+    .line 447
     return-void
 .end method
 
@@ -1345,36 +982,23 @@
     .param p1, "listener"    # Landroid/net/wifi/WifiScanner$ScanListener;
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 800
-    const-string/jumbo v1, "listener cannot be null"
-
-    invoke-static {p1, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 801
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->removeListener(Ljava/lang/Object;)I
-
-    move-result v0
-
-    .line 802
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 803
-    :cond_0
+    .line 480
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
-    .line 804
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    .line 481
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+
+    invoke-static {p1}, Landroid/net/wifi/WifiScanner;->removeListener(Ljava/lang/Object;)I
+
+    move-result v1
 
     const v2, 0x27016
 
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
+    const/4 v3, 0x0
 
-    .line 799
+    invoke-virtual {v0, v2, v3, v1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
+
+    .line 479
     return-void
 .end method
 
@@ -1383,36 +1007,23 @@
     .param p1, "listener"    # Landroid/net/wifi/WifiScanner$BssidListener;
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 1118
-    const-string/jumbo v1, "listener cannot be null"
-
-    invoke-static {p1, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 1119
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->removeListener(Ljava/lang/Object;)I
-
-    move-result v0
-
-    .line 1120
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 1121
-    :cond_0
+    .line 720
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
-    .line 1122
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    .line 721
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+
+    invoke-static {p1}, Landroid/net/wifi/WifiScanner;->removeListener(Ljava/lang/Object;)I
+
+    move-result v1
 
     const v2, 0x27007
 
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
+    const/4 v3, 0x0
 
-    .line 1117
+    invoke-virtual {v0, v2, v3, v1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
+
+    .line 719
     return-void
 .end method
 
@@ -1421,30 +1032,22 @@
     .param p1, "listener"    # Landroid/net/wifi/WifiScanner$WifiChangeListener;
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 1015
-    invoke-direct {p0, p1}, Landroid/net/wifi/WifiScanner;->removeListener(Ljava/lang/Object;)I
-
-    move-result v0
-
-    .line 1016
-    .local v0, "key":I
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 1017
-    :cond_0
+    .line 623
     invoke-direct {p0}, Landroid/net/wifi/WifiScanner;->validateChannel()V
 
-    .line 1018
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+    .line 624
+    sget-object v0, Landroid/net/wifi/WifiScanner;->sAsyncChannel:Lcom/android/internal/util/AsyncChannel;
+
+    invoke-static {p1}, Landroid/net/wifi/WifiScanner;->removeListener(Ljava/lang/Object;)I
+
+    move-result v1
 
     const v2, 0x2700c
 
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
+    const/4 v3, 0x0
 
-    .line 1014
+    invoke-virtual {v0, v2, v3, v1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
+
+    .line 622
     return-void
 .end method

@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/GlobalActions;->getLockdownAction()Lcom/android/server/policy/GlobalActions$Action;
+    value = Lcom/android/server/policy/GlobalActions;->getAssistAction()Lcom/android/server/policy/GlobalActions$Action;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,73 +26,53 @@
     .param p3, "$anonymous1"    # I
 
     .prologue
-    .line 702
+    .line 603
     iput-object p1, p0, Lcom/android/server/policy/GlobalActions$14;->this$0:Lcom/android/server/policy/GlobalActions;
 
     invoke-direct {p0, p2, p3}, Lcom/android/server/policy/GlobalActions$SinglePressAction;-><init>(II)V
 
-    .line 703
+    .line 604
     return-void
 .end method
 
 
 # virtual methods
 .method public onPress()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 707
-    new-instance v1, Lcom/android/internal/widget/LockPatternUtils;
+    .line 607
+    new-instance v0, Landroid/content/Intent;
 
-    iget-object v2, p0, Lcom/android/server/policy/GlobalActions$14;->this$0:Lcom/android/server/policy/GlobalActions;
+    const-string/jumbo v1, "android.intent.action.ASSIST"
 
-    invoke-static {v2}, Lcom/android/server/policy/GlobalActions;->-get5(Lcom/android/server/policy/GlobalActions;)Landroid/content/Context;
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move-result-object v2
+    .line 608
+    .local v0, "intent":Landroid/content/Intent;
+    const/high16 v1, 0x14000000
 
-    invoke-direct {v1, v2}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    const/4 v2, -0x1
+    .line 609
+    iget-object v1, p0, Lcom/android/server/policy/GlobalActions$14;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    invoke-virtual {v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->requireCredentialEntry(I)V
-
-    .line 709
-    :try_start_0
-    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
+    invoke-static {v1}, Lcom/android/server/policy/GlobalActions;->-get5(Lcom/android/server/policy/GlobalActions;)Landroid/content/Context;
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    invoke-interface {v1, v2}, Landroid/view/IWindowManager;->lockNow(Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 706
-    :goto_0
+    .line 606
     return-void
-
-    .line 710
-    :catch_0
-    move-exception v0
-
-    .line 711
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v1, "GlobalActions"
-
-    const-string/jumbo v2, "Error while trying to lock device."
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
 .end method
 
 .method public showBeforeProvisioning()Z
     .locals 1
 
     .prologue
-    .line 722
-    const/4 v0, 0x0
+    .line 619
+    const/4 v0, 0x1
 
     return v0
 .end method
@@ -101,7 +81,7 @@
     .locals 1
 
     .prologue
-    .line 717
+    .line 614
     const/4 v0, 0x1
 
     return v0

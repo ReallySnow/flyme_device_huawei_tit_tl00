@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;->setActiveUser(I)V
+    value = Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;->remove(Landroid/os/IBinder;IILandroid/hardware/fingerprint/IFingerprintServiceReceiver;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,40 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;
 
-.field final synthetic val$userId:I
+.field final synthetic val$effectiveGroupId:I
+
+.field final synthetic val$fingerId:I
+
+.field final synthetic val$receiver:Landroid/hardware/fingerprint/IFingerprintServiceReceiver;
+
+.field final synthetic val$restricted:Z
+
+.field final synthetic val$token:Landroid/os/IBinder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;I)V
+.method constructor <init>(Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;Landroid/os/IBinder;IILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Z)V
     .locals 0
     .param p1, "this$1"    # Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;
-    .param p2, "val$userId"    # I
+    .param p2, "val$token"    # Landroid/os/IBinder;
+    .param p3, "val$fingerId"    # I
+    .param p4, "val$effectiveGroupId"    # I
+    .param p5, "val$receiver"    # Landroid/hardware/fingerprint/IFingerprintServiceReceiver;
+    .param p6, "val$restricted"    # Z
 
     .prologue
-    .line 880
+    .line 990
     iput-object p1, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->this$1:Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;
 
-    iput p2, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$userId:I
+    iput-object p2, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$token:Landroid/os/IBinder;
+
+    iput p3, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$fingerId:I
+
+    iput p4, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$effectiveGroupId:I
+
+    iput-object p5, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$receiver:Landroid/hardware/fingerprint/IFingerprintServiceReceiver;
+
+    iput-boolean p6, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$restricted:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,20 +63,26 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 6
 
     .prologue
-    .line 883
+    .line 993
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->this$1:Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;
 
     iget-object v0, v0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
-    iget v1, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$userId:I
+    iget-object v1, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$token:Landroid/os/IBinder;
 
-    const/4 v2, 0x0
+    iget v2, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$fingerId:I
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/fingerprint/FingerprintService;->-wrap9(Lcom/android/server/fingerprint/FingerprintService;ILjava/lang/String;)V
+    iget v3, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$effectiveGroupId:I
 
-    .line 882
+    iget-object v4, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$receiver:Landroid/hardware/fingerprint/IFingerprintServiceReceiver;
+
+    iget-boolean v5, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$restricted:Z
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/fingerprint/FingerprintService;->startRemove(Landroid/os/IBinder;IILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Z)V
+
+    .line 992
     return-void
 .end method

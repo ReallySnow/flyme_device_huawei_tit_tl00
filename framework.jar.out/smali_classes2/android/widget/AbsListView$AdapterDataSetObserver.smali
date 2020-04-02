@@ -33,7 +33,7 @@
     .param p1, "this$0"    # Landroid/widget/AbsListView;
 
     .prologue
-    .line 6377
+    .line 6200
     iput-object p1, p0, Landroid/widget/AbsListView$AdapterDataSetObserver;->this$0:Landroid/widget/AbsListView;
 
     invoke-direct {p0, p1}, Landroid/widget/AdapterView$AdapterDataSetObserver;-><init>(Landroid/widget/AdapterView;)V
@@ -47,10 +47,10 @@
     .locals 1
 
     .prologue
-    .line 6380
+    .line 6203
     invoke-super {p0}, Landroid/widget/AdapterView$AdapterDataSetObserver;->onChanged()V
 
-    .line 6381
+    .line 6204
     iget-object v0, p0, Landroid/widget/AbsListView$AdapterDataSetObserver;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v0}, Landroid/widget/AbsListView;->-get5(Landroid/widget/AbsListView;)Landroid/widget/FastScroller;
@@ -59,7 +59,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 6382
+    .line 6205
     iget-object v0, p0, Landroid/widget/AbsListView$AdapterDataSetObserver;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v0}, Landroid/widget/AbsListView;->-get5(Landroid/widget/AbsListView;)Landroid/widget/FastScroller;
@@ -68,7 +68,7 @@
 
     invoke-virtual {v0}, Landroid/widget/FastScroller;->onSectionsChanged()V
 
-    .line 6379
+    .line 6202
     :cond_0
     return-void
 .end method
@@ -77,10 +77,10 @@
     .locals 1
 
     .prologue
-    .line 6388
+    .line 6211
     invoke-super {p0}, Landroid/widget/AdapterView$AdapterDataSetObserver;->onInvalidated()V
 
-    .line 6389
+    .line 6212
     iget-object v0, p0, Landroid/widget/AbsListView$AdapterDataSetObserver;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v0}, Landroid/widget/AbsListView;->-get5(Landroid/widget/AbsListView;)Landroid/widget/FastScroller;
@@ -89,7 +89,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 6390
+    .line 6213
     iget-object v0, p0, Landroid/widget/AbsListView$AdapterDataSetObserver;->this$0:Landroid/widget/AbsListView;
 
     invoke-static {v0}, Landroid/widget/AbsListView;->-get5(Landroid/widget/AbsListView;)Landroid/widget/FastScroller;
@@ -98,7 +98,7 @@
 
     invoke-virtual {v0}, Landroid/widget/FastScroller;->onSectionsChanged()V
 
-    .line 6387
+    .line 6210
     :cond_0
     return-void
 .end method

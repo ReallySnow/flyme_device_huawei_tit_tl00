@@ -39,14 +39,6 @@
     .end annotation
 .end method
 
-.method public abstract cancelEnumeration()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract closeHal()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -56,14 +48,6 @@
 .end method
 
 .method public abstract enroll([BII)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract enumerate()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_backupObbs:I = 0x1
 
-.field static final TRANSACTION_restoreObbFile_1:I = 0x2
+.field static final TRANSACTION_restoreObbFile:I = 0x2
 
 
 # direct methods

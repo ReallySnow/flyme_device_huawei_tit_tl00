@@ -55,17 +55,17 @@
     .locals 1
 
     .prologue
-    .line 59
+    .line 57
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 86
+    .line 84
     const/4 v0, 0x2
 
     new-array v0, v0, [I
 
     iput-object v0, p0, Landroid/app/NativeActivity;->mLocation:[I
 
-    .line 59
+    .line 57
     return-void
 .end method
 
@@ -76,7 +76,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 189
+    .line 188
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -87,10 +87,7 @@
     return-object v0
 .end method
 
-.method private native getDlError()Ljava/lang/String;
-.end method
-
-.method private native loadNativeCode(Ljava/lang/String;Ljava/lang/String;Landroid/os/MessageQueue;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/content/res/AssetManager;[BLjava/lang/ClassLoader;Ljava/lang/String;)J
+.method private native loadNativeCode(Ljava/lang/String;Ljava/lang/String;Landroid/os/MessageQueue;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/content/res/AssetManager;[B)J
 .end method
 
 .method private native onConfigurationChangedNative(J)V
@@ -148,7 +145,7 @@
     .param p1, "mode"    # I
 
     .prologue
-    .line 336
+    .line 335
     iget-object v0, p0, Landroid/app/NativeActivity;->mIMM:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v1, p0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
@@ -159,7 +156,7 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 335
+    .line 334
     return-void
 .end method
 
@@ -168,43 +165,43 @@
     .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
-    .line 242
+    .line 241
     invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 243
+    .line 242
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
     if-nez v0, :cond_0
 
-    .line 244
+    .line 243
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onConfigurationChangedNative(J)V
 
-    .line 241
+    .line 240
     :cond_0
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 18
+    .locals 17
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 132
-    const-string/jumbo v16, "main"
+    .line 129
+    const-string/jumbo v14, "main"
 
-    .line 133
-    .local v16, "libname":Ljava/lang/String;
+    .line 130
+    .local v14, "libname":Ljava/lang/String;
     const-string/jumbo v4, "ANativeActivity_onCreate"
 
-    .line 136
+    .line 133
     .local v4, "funcname":Ljava/lang/String;
-    const-class v2, Landroid/view/inputmethod/InputMethodManager;
+    const-string/jumbo v2, "input_method"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Landroid/app/NativeActivity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Landroid/app/NativeActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -214,7 +211,7 @@
 
     iput-object v2, v0, Landroid/app/NativeActivity;->mIMM:Landroid/view/inputmethod/InputMethodManager;
 
-    .line 138
+    .line 135
     invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -223,7 +220,7 @@
 
     invoke-virtual {v2, v0}, Landroid/view/Window;->takeSurface(Landroid/view/SurfaceHolder$Callback2;)V
 
-    .line 139
+    .line 136
     invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -232,7 +229,7 @@
 
     invoke-virtual {v2, v0}, Landroid/view/Window;->takeInputQueue(Landroid/view/InputQueue$Callback;)V
 
-    .line 140
+    .line 137
     invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -241,18 +238,18 @@
 
     invoke-virtual {v2, v5}, Landroid/view/Window;->setFormat(I)V
 
-    .line 141
+    .line 138
     invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
-    .line 142
+    .line 139
     const/16 v5, 0x10
 
-    .line 141
+    .line 138
     invoke-virtual {v2, v5}, Landroid/view/Window;->setSoftInputMode(I)V
 
-    .line 145
+    .line 142
     new-instance v2, Landroid/app/NativeActivity$NativeContentView;
 
     move-object/from16 v0, p0
@@ -263,7 +260,7 @@
 
     iput-object v2, v0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
 
-    .line 146
+    .line 143
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
@@ -272,7 +269,7 @@
 
     iput-object v0, v2, Landroid/app/NativeActivity$NativeContentView;->mActivity:Landroid/app/NativeActivity;
 
-    .line 147
+    .line 144
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
@@ -281,14 +278,14 @@
 
     invoke-virtual {v0, v2}, Landroid/app/NativeActivity;->setContentView(Landroid/view/View;)V
 
-    .line 148
+    .line 145
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
 
     invoke-virtual {v2}, Landroid/app/NativeActivity$NativeContentView;->requestFocus()Z
 
-    .line 149
+    .line 146
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
@@ -301,13 +298,13 @@
 
     invoke-virtual {v2, v0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    .line 152
+    .line 149
     :try_start_0
     invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    .line 153
+    .line 150
     invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v5
@@ -318,35 +315,35 @@
 
     const/16 v6, 0x80
 
-    .line 152
+    .line 149
     invoke-virtual {v2, v5, v6}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
 
-    move-result-object v14
+    move-result-object v12
 
-    .line 154
-    .local v14, "ai":Landroid/content/pm/ActivityInfo;
-    iget-object v2, v14, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    .line 151
+    .local v12, "ai":Landroid/content/pm/ActivityInfo;
+    iget-object v2, v12, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     if-eqz v2, :cond_1
 
-    .line 155
-    iget-object v2, v14, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    .line 152
+    iget-object v2, v12, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     const-string/jumbo v5, "android.app.lib_name"
 
     invoke-virtual {v2, v5}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v16
 
-    .line 156
-    .local v17, "ln":Ljava/lang/String;
-    if-eqz v17, :cond_0
+    .line 153
+    .local v16, "ln":Ljava/lang/String;
+    if-eqz v16, :cond_0
 
-    move-object/from16 v16, v17
+    move-object/from16 v14, v16
 
-    .line 157
+    .line 154
     :cond_0
-    iget-object v2, v14, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v2, v12, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     const-string/jumbo v5, "android.app.func_name"
 
@@ -354,68 +351,66 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v17
+    move-result-object v16
 
-    .line 158
-    if-eqz v17, :cond_1
+    .line 155
+    if-eqz v16, :cond_1
 
-    move-object/from16 v4, v17
+    move-object/from16 v4, v16
+
+    .line 161
+    .end local v16    # "ln":Ljava/lang/String;
+    :cond_1
+    const/4 v3, 0x0
+
+    .line 163
+    .local v3, "path":Ljava/lang/String;
+    new-instance v15, Ljava/io/File;
+
+    iget-object v2, v12, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ApplicationInfo;->nativeLibraryDir:Ljava/lang/String;
 
     .line 164
-    .end local v17    # "ln":Ljava/lang/String;
-    :cond_1
-    invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-static {v14}, Ljava/lang/System;->mapLibraryName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v5
 
-    check-cast v12, Ldalvik/system/BaseDexClassLoader;
+    .line 163
+    invoke-direct {v15, v2, v5}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 165
-    .local v12, "classLoader":Ldalvik/system/BaseDexClassLoader;
-    move-object/from16 v0, v16
+    .local v15, "libraryFile":Ljava/io/File;
+    invoke-virtual {v15}, Ljava/io/File;->exists()Z
 
-    invoke-virtual {v12, v0}, Ldalvik/system/BaseDexClassLoader;->findLibrary(Ljava/lang/String;)Ljava/lang/String;
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 166
+    invoke-virtual {v15}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 167
-    .local v3, "path":Ljava/lang/String;
-    if-nez v3, :cond_2
+    .line 169
+    .end local v3    # "path":Ljava/lang/String;
+    :cond_2
+    if-nez v3, :cond_3
 
-    .line 168
+    .line 170
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Unable to find native library "
+    const-string/jumbo v6, "Unable to find native library: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    move-object/from16 v0, v16
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 169
-    const-string/jumbo v6, " using classloader: "
-
-    .line 168
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 169
-    invoke-virtual {v12}, Ldalvik/system/BaseDexClassLoader;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 168
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -427,32 +422,30 @@
 
     throw v2
 
-    .line 160
-    .end local v3    # "path":Ljava/lang/String;
-    .end local v12    # "classLoader":Ldalvik/system/BaseDexClassLoader;
-    .end local v14    # "ai":Landroid/content/pm/ActivityInfo;
+    .line 157
+    .end local v12    # "ai":Landroid/content/pm/ActivityInfo;
+    .end local v15    # "libraryFile":Ljava/io/File;
     :catch_0
-    move-exception v15
+    move-exception v13
 
-    .line 161
-    .local v15, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .line 158
+    .local v13, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string/jumbo v5, "Error getting activity info"
 
-    invoke-direct {v2, v5, v15}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v2, v5, v13}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
 
-    .line 172
-    .end local v15    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    .restart local v3    # "path":Ljava/lang/String;
-    .restart local v12    # "classLoader":Ldalvik/system/BaseDexClassLoader;
-    .restart local v14    # "ai":Landroid/content/pm/ActivityInfo;
-    :cond_2
-    if-eqz p1, :cond_3
-
     .line 173
+    .end local v13    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .restart local v12    # "ai":Landroid/content/pm/ActivityInfo;
+    .restart local v15    # "libraryFile":Ljava/io/File;
+    :cond_3
+    if-eqz p1, :cond_4
+
+    .line 174
     const-string/jumbo v2, "android:native_state"
 
     move-object/from16 v0, p1
@@ -461,13 +454,13 @@
 
     move-result-object v11
 
-    .line 175
+    .line 176
     :goto_0
     invoke-static {}, Landroid/os/Looper;->myQueue()Landroid/os/MessageQueue;
 
     move-result-object v5
 
-    .line 176
+    .line 177
     invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getFilesDir()Ljava/io/File;
 
     move-result-object v2
@@ -484,7 +477,7 @@
 
     move-result-object v7
 
-    .line 177
+    .line 178
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
@@ -497,22 +490,17 @@
 
     move-result-object v8
 
-    .line 178
+    .line 179
     sget v9, Landroid/os/Build$VERSION;->SDK_INT:I
 
     invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v10
 
-    .line 179
-    invoke-virtual {v12}, Ldalvik/system/BaseDexClassLoader;->getLdLibraryPath()Ljava/lang/String;
-
-    move-result-object v13
-
     move-object/from16 v2, p0
 
-    .line 175
-    invoke-direct/range {v2 .. v13}, Landroid/app/NativeActivity;->loadNativeCode(Ljava/lang/String;Ljava/lang/String;Landroid/os/MessageQueue;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/content/res/AssetManager;[BLjava/lang/ClassLoader;Ljava/lang/String;)J
+    .line 176
+    invoke-direct/range {v2 .. v11}, Landroid/app/NativeActivity;->loadNativeCode(Ljava/lang/String;Ljava/lang/String;Landroid/os/MessageQueue;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/content/res/AssetManager;[B)J
 
     move-result-wide v6
 
@@ -529,17 +517,16 @@
 
     cmp-long v2, v6, v8
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_5
 
     .line 182
-    new-instance v2, Ljava/lang/UnsatisfiedLinkError;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    .line 183
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Unable to load native library \""
+    const-string/jumbo v6, "Unable to load native library: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -549,42 +536,27 @@
 
     move-result-object v5
 
-    const-string/jumbo v6, "\": "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-direct/range {p0 .. p0}, Landroid/app/NativeActivity;->getDlError()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 182
-    invoke-direct {v2, v5}, Ljava/lang/UnsatisfiedLinkError;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
-    .line 173
-    :cond_3
+    .line 174
+    :cond_4
     const/4 v11, 0x0
 
     .local v11, "nativeSavedState":[B
     goto :goto_0
 
-    .line 185
+    .line 184
     .end local v11    # "nativeSavedState":[B
-    :cond_4
+    :cond_5
     invoke-super/range {p0 .. p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 131
+    .line 128
     return-void
 .end method
 
@@ -594,31 +566,31 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 194
+    .line 193
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    .line 195
+    .line 194
     iget-object v0, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
 
     if-eqz v0, :cond_0
 
-    .line 196
+    .line 195
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onSurfaceDestroyedNative(J)V
 
-    .line 197
+    .line 196
     iput-object v4, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
 
-    .line 199
+    .line 198
     :cond_0
     iget-object v0, p0, Landroid/app/NativeActivity;->mCurInputQueue:Landroid/view/InputQueue;
 
     if-eqz v0, :cond_1
 
-    .line 200
+    .line 199
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     iget-object v2, p0, Landroid/app/NativeActivity;->mCurInputQueue:Landroid/view/InputQueue;
@@ -629,19 +601,19 @@
 
     invoke-direct {p0, v0, v1, v2, v3}, Landroid/app/NativeActivity;->onInputQueueDestroyedNative(JJ)V
 
-    .line 201
+    .line 200
     iput-object v4, p0, Landroid/app/NativeActivity;->mCurInputQueue:Landroid/view/InputQueue;
 
-    .line 203
+    .line 202
     :cond_1
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->unloadNativeCode(J)V
 
-    .line 204
+    .line 203
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 193
+    .line 192
     return-void
 .end method
 
@@ -653,21 +625,21 @@
 
     const/4 v3, 0x0
 
-    .line 307
+    .line 306
     iget-object v1, p0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
 
     iget-object v2, p0, Landroid/app/NativeActivity;->mLocation:[I
 
     invoke-virtual {v1, v2}, Landroid/app/NativeActivity$NativeContentView;->getLocationInWindow([I)V
 
-    .line 308
+    .line 307
     iget-object v1, p0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
 
     invoke-virtual {v1}, Landroid/app/NativeActivity$NativeContentView;->getWidth()I
 
     move-result v8
 
-    .line 309
+    .line 308
     .local v8, "w":I
     iget-object v1, p0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
 
@@ -675,7 +647,7 @@
 
     move-result v0
 
-    .line 310
+    .line 309
     .local v0, "h":I
     iget-object v1, p0, Landroid/app/NativeActivity;->mLocation:[I
 
@@ -693,7 +665,7 @@
 
     if-eq v1, v2, :cond_2
 
-    .line 312
+    .line 311
     :cond_0
     :goto_0
     iget-object v1, p0, Landroid/app/NativeActivity;->mLocation:[I
@@ -702,30 +674,30 @@
 
     iput v1, p0, Landroid/app/NativeActivity;->mLastContentX:I
 
-    .line 313
+    .line 312
     iget-object v1, p0, Landroid/app/NativeActivity;->mLocation:[I
 
     aget v1, v1, v4
 
     iput v1, p0, Landroid/app/NativeActivity;->mLastContentY:I
 
-    .line 314
+    .line 313
     iput v8, p0, Landroid/app/NativeActivity;->mLastContentWidth:I
 
-    .line 315
+    .line 314
     iput v0, p0, Landroid/app/NativeActivity;->mLastContentHeight:I
 
-    .line 316
+    .line 315
     iget-boolean v1, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
     if-nez v1, :cond_1
 
-    .line 317
+    .line 316
     iget-wide v2, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     iget v4, p0, Landroid/app/NativeActivity;->mLastContentX:I
 
-    .line 318
+    .line 317
     iget v5, p0, Landroid/app/NativeActivity;->mLastContentY:I
 
     iget v6, p0, Landroid/app/NativeActivity;->mLastContentWidth:I
@@ -734,14 +706,14 @@
 
     move-object v1, p0
 
-    .line 317
+    .line 316
     invoke-direct/range {v1 .. v7}, Landroid/app/NativeActivity;->onContentRectChangedNative(JIIII)V
 
-    .line 306
+    .line 305
     :cond_1
     return-void
 
-    .line 311
+    .line 310
     :cond_2
     iget v1, p0, Landroid/app/NativeActivity;->mLastContentWidth:I
 
@@ -759,15 +731,15 @@
     .param p1, "queue"    # Landroid/view/InputQueue;
 
     .prologue
-    .line 293
+    .line 292
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
     if-nez v0, :cond_0
 
-    .line 294
+    .line 293
     iput-object p1, p0, Landroid/app/NativeActivity;->mCurInputQueue:Landroid/view/InputQueue;
 
-    .line 295
+    .line 294
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-virtual {p1}, Landroid/view/InputQueue;->getNativePtr()J
@@ -776,7 +748,7 @@
 
     invoke-direct {p0, v0, v1, v2, v3}, Landroid/app/NativeActivity;->onInputQueueCreatedNative(JJ)V
 
-    .line 292
+    .line 291
     :cond_0
     return-void
 .end method
@@ -786,12 +758,12 @@
     .param p1, "queue"    # Landroid/view/InputQueue;
 
     .prologue
-    .line 300
+    .line 299
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
     if-nez v0, :cond_0
 
-    .line 301
+    .line 300
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-virtual {p1}, Landroid/view/InputQueue;->getNativePtr()J
@@ -800,12 +772,12 @@
 
     invoke-direct {p0, v0, v1, v2, v3}, Landroid/app/NativeActivity;->onInputQueueDestroyedNative(JJ)V
 
-    .line 302
+    .line 301
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/app/NativeActivity;->mCurInputQueue:Landroid/view/InputQueue;
 
-    .line 299
+    .line 298
     :cond_0
     return-void
 .end method
@@ -814,20 +786,20 @@
     .locals 2
 
     .prologue
-    .line 250
+    .line 249
     invoke-super {p0}, Landroid/app/Activity;->onLowMemory()V
 
-    .line 251
+    .line 250
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
     if-nez v0, :cond_0
 
-    .line 252
+    .line 251
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onLowMemoryNative(J)V
 
-    .line 249
+    .line 248
     :cond_0
     return-void
 .end method
@@ -836,15 +808,15 @@
     .locals 2
 
     .prologue
-    .line 209
+    .line 208
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 210
+    .line 209
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onPauseNative(J)V
 
-    .line 208
+    .line 207
     return-void
 .end method
 
@@ -852,15 +824,15 @@
     .locals 2
 
     .prologue
-    .line 215
+    .line 214
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 216
+    .line 215
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onResumeNative(J)V
 
-    .line 214
+    .line 213
     return-void
 .end method
 
@@ -869,26 +841,26 @@
     .param p1, "outState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 221
+    .line 220
     invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 222
+    .line 221
     iget-wide v2, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v2, v3}, Landroid/app/NativeActivity;->onSaveInstanceStateNative(J)[B
 
     move-result-object v0
 
-    .line 223
+    .line 222
     .local v0, "state":[B
     if-eqz v0, :cond_0
 
-    .line 224
+    .line 223
     const-string/jumbo v1, "android:native_state"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
 
-    .line 220
+    .line 219
     :cond_0
     return-void
 .end method
@@ -897,15 +869,15 @@
     .locals 2
 
     .prologue
-    .line 230
+    .line 229
     invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
-    .line 231
+    .line 230
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onStartNative(J)V
 
-    .line 229
+    .line 228
     return-void
 .end method
 
@@ -913,15 +885,15 @@
     .locals 2
 
     .prologue
-    .line 236
+    .line 235
     invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
-    .line 237
+    .line 236
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onStopNative(J)V
 
-    .line 235
+    .line 234
     return-void
 .end method
 
@@ -930,20 +902,20 @@
     .param p1, "hasFocus"    # Z
 
     .prologue
-    .line 258
+    .line 257
     invoke-super {p0, p1}, Landroid/app/Activity;->onWindowFocusChanged(Z)V
 
-    .line 259
+    .line 258
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
     if-nez v0, :cond_0
 
-    .line 260
+    .line 259
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v0, v1, p1}, Landroid/app/NativeActivity;->onWindowFocusChangedNative(JZ)V
 
-    .line 257
+    .line 256
     :cond_0
     return-void
 .end method
@@ -954,14 +926,14 @@
     .param p2, "mask"    # I
 
     .prologue
-    .line 324
+    .line 323
     invoke-virtual {p0}, Landroid/app/NativeActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
     invoke-virtual {v0, p1, p2}, Landroid/view/Window;->setFlags(II)V
 
-    .line 323
+    .line 322
     return-void
 .end method
 
@@ -970,14 +942,14 @@
     .param p1, "format"    # I
 
     .prologue
-    .line 328
+    .line 327
     invoke-virtual {p0}, Landroid/app/NativeActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/view/Window;->setFormat(I)V
 
-    .line 327
+    .line 326
     return-void
 .end method
 
@@ -986,14 +958,14 @@
     .param p1, "mode"    # I
 
     .prologue
-    .line 332
+    .line 331
     iget-object v0, p0, Landroid/app/NativeActivity;->mIMM:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v1, p0, Landroid/app/NativeActivity;->mNativeContentView:Landroid/app/NativeActivity$NativeContentView;
 
     invoke-virtual {v0, v1, p1}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    .line 331
+    .line 330
     return-void
 .end method
 
@@ -1005,15 +977,15 @@
     .param p4, "height"    # I
 
     .prologue
-    .line 272
+    .line 271
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
     if-nez v0, :cond_0
 
-    .line 273
+    .line 272
     iput-object p1, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
 
-    .line 274
+    .line 273
     iget-wide v2, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-interface {p1}, Landroid/view/SurfaceHolder;->getSurface()Landroid/view/Surface;
@@ -1030,7 +1002,7 @@
 
     invoke-direct/range {v1 .. v7}, Landroid/app/NativeActivity;->onSurfaceChangedNative(JLandroid/view/Surface;III)V
 
-    .line 271
+    .line 270
     :cond_0
     return-void
 .end method
@@ -1040,15 +1012,15 @@
     .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
-    .line 265
+    .line 264
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
     if-nez v0, :cond_0
 
-    .line 266
+    .line 265
     iput-object p1, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
 
-    .line 267
+    .line 266
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-interface {p1}, Landroid/view/SurfaceHolder;->getSurface()Landroid/view/Surface;
@@ -1057,7 +1029,7 @@
 
     invoke-direct {p0, v0, v1, v2}, Landroid/app/NativeActivity;->onSurfaceCreatedNative(JLandroid/view/Surface;)V
 
-    .line 264
+    .line 263
     :cond_0
     return-void
 .end method
@@ -1067,22 +1039,22 @@
     .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
-    .line 286
+    .line 285
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
 
-    .line 287
+    .line 286
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
     if-nez v0, :cond_0
 
-    .line 288
+    .line 287
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onSurfaceDestroyedNative(J)V
 
-    .line 285
+    .line 284
     :cond_0
     return-void
 .end method
@@ -1092,15 +1064,15 @@
     .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
     .prologue
-    .line 279
+    .line 278
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
     if-nez v0, :cond_0
 
-    .line 280
+    .line 279
     iput-object p1, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
 
-    .line 281
+    .line 280
     iget-wide v0, p0, Landroid/app/NativeActivity;->mNativeHandle:J
 
     invoke-interface {p1}, Landroid/view/SurfaceHolder;->getSurface()Landroid/view/Surface;
@@ -1109,7 +1081,7 @@
 
     invoke-direct {p0, v0, v1, v2}, Landroid/app/NativeActivity;->onSurfaceRedrawNeededNative(JLandroid/view/Surface;)V
 
-    .line 278
+    .line 277
     :cond_0
     return-void
 .end method

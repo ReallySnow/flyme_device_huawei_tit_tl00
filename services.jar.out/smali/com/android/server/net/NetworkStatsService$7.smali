@@ -1,6 +1,9 @@
 .class Lcom/android/server/net/NetworkStatsService$7;
-.super Lcom/android/server/net/BaseNetworkObserver;
+.super Ljava/lang/Object;
 .source "NetworkStatsService.java"
+
+# interfaces
+.implements Landroid/os/Handler$Callback;
 
 
 # annotations
@@ -24,82 +27,70 @@
     .param p1, "this$0"    # Lcom/android/server/net/NetworkStatsService;
 
     .prologue
-    .line 935
+    .line 1316
     iput-object p1, p0, Lcom/android/server/net/NetworkStatsService$7;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    invoke-direct {p0}, Lcom/android/server/net/BaseNetworkObserver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
-    .param p1, "limitName"    # Ljava/lang/String;
-    .param p2, "iface"    # Ljava/lang/String;
+.method public handleMessage(Landroid/os/Message;)Z
+    .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v2, 0x1
 
-    .line 939
-    iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$7;->this$0:Lcom/android/server/net/NetworkStatsService;
+    .line 1319
+    iget v1, p1, Landroid/os/Message;->what:I
 
-    invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->-get0(Lcom/android/server/net/NetworkStatsService;)Landroid/content/Context;
+    packed-switch v1, :pswitch_data_0
 
-    move-result-object v1
+    .line 1334
+    const/4 v1, 0x0
 
-    const-string/jumbo v2, "android.permission.CONNECTIVITY_INTERNAL"
+    return v1
 
-    const-string/jumbo v3, "NetworkStats"
+    .line 1321
+    :pswitch_0
+    iget v0, p1, Landroid/os/Message;->arg1:I
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 941
-    const-string/jumbo v1, "globalAlert"
-
-    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 944
-    const/4 v0, 0x1
-
-    .line 945
+    .line 1322
     .local v0, "flags":I
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$7;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->-get1(Lcom/android/server/net/NetworkStatsService;)Landroid/os/Handler;
+    invoke-static {v1, v0}, Lcom/android/server/net/NetworkStatsService;->-wrap4(Lcom/android/server/net/NetworkStatsService;I)V
 
-    move-result-object v1
+    .line 1323
+    return v2
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v4, v4, v2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-
-    .line 948
+    .line 1326
+    .end local v0    # "flags":I
+    :pswitch_1
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$7;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->-get1(Lcom/android/server/net/NetworkStatsService;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->-wrap9(Lcom/android/server/net/NetworkStatsService;)V
 
-    move-result-object v1
+    .line 1327
+    return v2
 
-    const/4 v2, 0x3
+    .line 1330
+    :pswitch_2
+    iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$7;->this$0:Lcom/android/server/net/NetworkStatsService;
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->-wrap5(Lcom/android/server/net/NetworkStatsService;)V
 
-    move-result-object v1
+    .line 1331
+    return v2
 
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-
-    .line 937
-    .end local v0    # "flags":I
-    :cond_0
-    return-void
+    .line 1319
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method

@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcyanogenmod/weatherservice/ServiceRequestResult$1;,
-        Lcyanogenmod/weatherservice/ServiceRequestResult$Builder;
+        Lcyanogenmod/weatherservice/ServiceRequestResult$Builder;,
+        Lcyanogenmod/weatherservice/ServiceRequestResult$1;
     }
 .end annotation
 

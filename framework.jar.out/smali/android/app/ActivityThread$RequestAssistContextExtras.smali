@@ -21,15 +21,13 @@
 
 .field requestType:I
 
-.field sessionId:I
-
 
 # direct methods
 .method constructor <init>()V
     .locals 0
 
     .prologue
-    .line 648
+    .line 560
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

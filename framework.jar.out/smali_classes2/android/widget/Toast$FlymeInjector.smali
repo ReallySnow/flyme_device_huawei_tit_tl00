@@ -25,17 +25,17 @@
     .locals 1
 
     .prologue
-    .line 541
+    .line 507
     const-string/jumbo v0, ""
 
     sput-object v0, Landroid/widget/Toast$FlymeInjector;->mText:Ljava/lang/CharSequence;
 
-    .line 542
+    .line 508
     const-string/jumbo v0, ""
 
     sput-object v0, Landroid/widget/Toast$FlymeInjector;->mPkgName:Ljava/lang/String;
 
-    .line 538
+    .line 504
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .locals 0
 
     .prologue
-    .line 538
+    .line 504
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -56,14 +56,14 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 547
+    .line 513
     iget-object v4, p0, Landroid/widget/Toast;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 549
+    .line 515
     .local v2, "pkg":Ljava/lang/String;
     :try_start_0
     iget-object v4, p0, Landroid/widget/Toast;->mNextView:Landroid/view/View;
@@ -76,13 +76,13 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 550
+    .line 516
     .local v3, "tv":Landroid/widget/TextView;
     invoke-virtual {v3}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 551
+    .line 517
     .local v1, "msg":Ljava/lang/CharSequence;
     sget-object v4, Landroid/widget/Toast$FlymeInjector;->mPkgName:Ljava/lang/String;
 
@@ -104,25 +104,25 @@
 
     return v4
 
-    .line 552
+    .line 518
     :cond_0
     sput-object v2, Landroid/widget/Toast$FlymeInjector;->mPkgName:Ljava/lang/String;
 
-    .line 553
+    .line 519
     sput-object v1, Landroid/widget/Toast$FlymeInjector;->mText:Ljava/lang/CharSequence;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 554
+    .line 520
     return v6
 
-    .line 555
+    .line 521
     .end local v1    # "msg":Ljava/lang/CharSequence;
     .end local v3    # "tv":Landroid/widget/TextView;
     :catch_0
     move-exception v0
 
-    .line 556
+    .line 522
     .local v0, "e":Ljava/lang/Exception;
     return v6
 .end method
@@ -131,16 +131,16 @@
     .locals 1
 
     .prologue
-    .line 563
+    .line 529
     const-string/jumbo v0, ""
 
     sput-object v0, Landroid/widget/Toast$FlymeInjector;->mPkgName:Ljava/lang/String;
 
-    .line 564
+    .line 530
     const-string/jumbo v0, ""
 
     sput-object v0, Landroid/widget/Toast$FlymeInjector;->mText:Ljava/lang/CharSequence;
 
-    .line 561
+    .line 527
     return-void
 .end method

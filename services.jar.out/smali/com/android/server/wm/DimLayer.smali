@@ -3,413 +3,289 @@
 .source "DimLayer.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/wm/DimLayer$DimLayerUser;
-    }
-.end annotation
-
-
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field private static final DEBUG:Z = false
+
+.field private static final TAG:Ljava/lang/String; = "DimLayer"
 
 
 # instance fields
-.field private mAlpha:F
+.field mAlpha:F
 
-.field private final mBounds:Landroid/graphics/Rect;
+.field mBounds:Landroid/graphics/Rect;
 
-.field private mDestroyed:Z
+.field mDimSurface:Landroid/view/SurfaceControl;
 
-.field private mDimSurface:Landroid/view/SurfaceControl;
+.field final mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-.field private final mDisplayId:I
+.field mDuration:J
 
-.field private mDuration:J
+.field mLastBounds:Landroid/graphics/Rect;
 
-.field private final mLastBounds:Landroid/graphics/Rect;
-
-.field private mLayer:I
-
-.field private final mName:Ljava/lang/String;
-
-.field private final mService:Lcom/android/server/wm/WindowManagerService;
+.field mLayer:I
 
 .field private mShowing:Z
 
-.field private mStartAlpha:F
+.field final mStack:Lcom/android/server/wm/TaskStack;
 
-.field private mStartTime:J
+.field mStartAlpha:F
 
-.field private mTargetAlpha:F
+.field mStartTime:J
 
-.field private final mUser:Lcom/android/server/wm/DimLayer$DimLayerUser;
+.field mTargetAlpha:F
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .prologue
-    .line 36
-    const-string/jumbo v0, "WindowManager"
-
-    sput-object v0, Lcom/android/server/wm/DimLayer;->TAG:Ljava/lang/String;
-
-    .line 35
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DimLayer$DimLayerUser;ILjava/lang/String;)V
-    .locals 3
+.method constructor <init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/TaskStack;Lcom/android/server/wm/DisplayContent;)V
+    .locals 9
     .param p1, "service"    # Lcom/android/server/wm/WindowManagerService;
-    .param p2, "user"    # Lcom/android/server/wm/DimLayer$DimLayerUser;
-    .param p3, "displayId"    # I
-    .param p4, "name"    # Ljava/lang/String;
+    .param p2, "stack"    # Lcom/android/server/wm/TaskStack;
+    .param p3, "displayContent"    # Lcom/android/server/wm/DisplayContent;
 
     .prologue
-    const/4 v2, 0x0
+    const/4 v0, -0x1
 
     const/4 v1, 0x0
 
-    .line 89
+    .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
+    .line 39
     iput v1, p0, Lcom/android/server/wm/DimLayer;->mAlpha:F
 
-    .line 46
-    const/4 v0, -0x1
-
+    .line 42
     iput v0, p0, Lcom/android/server/wm/DimLayer;->mLayer:I
 
-    .line 49
+    .line 45
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
 
-    .line 52
+    .line 48
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/wm/DimLayer;->mLastBounds:Landroid/graphics/Rect;
 
-    .line 55
-    iput-boolean v2, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
+    .line 51
+    const/4 v0, 0x0
 
-    .line 58
+    iput-boolean v0, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
+
+    .line 54
     iput v1, p0, Lcom/android/server/wm/DimLayer;->mStartAlpha:F
 
-    .line 61
+    .line 57
     iput v1, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
 
     .line 69
-    iput-boolean v2, p0, Lcom/android/server/wm/DimLayer;->mDestroyed:Z
+    iput-object p2, p0, Lcom/android/server/wm/DimLayer;->mStack:Lcom/android/server/wm/TaskStack;
 
-    .line 90
-    iput-object p2, p0, Lcom/android/server/wm/DimLayer;->mUser:Lcom/android/server/wm/DimLayer$DimLayerUser;
+    .line 70
+    iput-object p3, p0, Lcom/android/server/wm/DimLayer;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    .line 91
-    iput p3, p0, Lcom/android/server/wm/DimLayer;->mDisplayId:I
+    .line 71
+    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    .line 92
-    iput-object p1, p0, Lcom/android/server/wm/DimLayer;->mService:Lcom/android/server/wm/WindowManagerService;
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getDisplayId()I
 
-    .line 93
-    iput-object p4, p0, Lcom/android/server/wm/DimLayer;->mName:Ljava/lang/String;
+    move-result v7
 
-    .line 89
-    return-void
-.end method
-
-.method private adjustAlpha(F)V
-    .locals 3
-    .param p1, "alpha"    # F
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 166
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    if-eqz v1, :cond_0
-
-    .line 167
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v1, p1}, Landroid/view/SurfaceControl;->setAlpha(F)V
-
-    .line 169
-    :cond_0
-    cmpl-float v1, p1, v2
-
-    if-nez v1, :cond_2
-
-    iget-boolean v1, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
-
-    if-eqz v1, :cond_2
-
-    .line 171
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    if-eqz v1, :cond_1
-
-    .line 172
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v1}, Landroid/view/SurfaceControl;->hide()V
-
-    .line 173
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
-
-    .line 163
-    :cond_1
-    :goto_0
-    return-void
-
-    .line 175
-    :cond_2
-    cmpl-float v1, p1, v2
-
-    if-lez v1, :cond_1
-
-    iget-boolean v1, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
-
-    if-nez v1, :cond_1
-
-    .line 177
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    if-eqz v1, :cond_1
-
-    .line 178
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v1}, Landroid/view/SurfaceControl;->show()V
-
-    .line 179
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    .line 182
-    :catch_0
-    move-exception v0
-
-    .line 183
-    .local v0, "e":Ljava/lang/RuntimeException;
-    sget-object v1, Lcom/android/server/wm/DimLayer;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "Failure setting alpha immediately"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
-.method private adjustBounds()V
-    .locals 3
-
-    .prologue
-    .line 191
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mUser:Lcom/android/server/wm/DimLayer$DimLayerUser;
-
-    invoke-interface {v0}, Lcom/android/server/wm/DimLayer$DimLayerUser;->dimFullscreen()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 192
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
-
-    invoke-direct {p0, v0}, Lcom/android/server/wm/DimLayer;->getBoundsForFullscreen(Landroid/graphics/Rect;)V
-
-    .line 195
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    if-eqz v0, :cond_1
-
-    .line 196
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mLastBounds:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 197
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
-
-    iget v1, v1, Landroid/graphics/Rect;->left:I
-
-    int-to-float v1, v1
-
-    iget-object v2, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
-
-    iget v2, v2, Landroid/graphics/Rect;->top:I
-
-    int-to-float v2, v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/SurfaceControl;->setPosition(FF)V
-
-    .line 198
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/SurfaceControl;->setSize(II)V
-
-    .line 201
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mLastBounds:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    .line 190
-    :cond_1
-    return-void
-.end method
-
-.method private adjustLayer(I)V
-    .locals 1
-    .param p1, "layer"    # I
-
-    .prologue
-    .line 146
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    if-eqz v0, :cond_0
-
-    .line 147
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v0, p1}, Landroid/view/SurfaceControl;->setLayer(I)V
-
-    .line 145
-    :cond_0
-    return-void
-.end method
-
-.method private constructSurface(Lcom/android/server/wm/WindowManagerService;)V
-    .locals 8
-    .param p1, "service"    # Lcom/android/server/wm/WindowManagerService;
-
-    .prologue
-    .line 98
+    .line 73
+    .local v7, "displayId":I
     invoke-static {}, Landroid/view/SurfaceControl;->openTransaction()V
 
-    .line 106
+    .line 81
     :try_start_0
     new-instance v0, Landroid/view/SurfaceControl;
 
     iget-object v1, p1, Lcom/android/server/wm/WindowManagerService;->mFxSession:Landroid/view/SurfaceSession;
 
-    iget-object v2, p0, Lcom/android/server/wm/DimLayer;->mName:Ljava/lang/String;
+    const-string/jumbo v2, "DimLayer"
 
-    .line 107
+    .line 82
     const/16 v3, 0x10
 
     const/16 v4, 0x10
 
     const/4 v5, -0x1
 
-    .line 108
+    .line 83
     const v6, 0x20004
 
-    .line 106
+    .line 81
     invoke-direct/range {v0 .. v6}, Landroid/view/SurfaceControl;-><init>(Landroid/view/SurfaceSession;Ljava/lang/String;IIII)V
 
     iput-object v0, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
 
-    .line 112
+    .line 88
     iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
 
-    iget v1, p0, Lcom/android/server/wm/DimLayer;->mDisplayId:I
-
-    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl;->setLayerStack(I)V
-
-    .line 113
-    invoke-direct {p0}, Lcom/android/server/wm/DimLayer;->adjustBounds()V
-
-    .line 114
-    iget v0, p0, Lcom/android/server/wm/DimLayer;->mAlpha:F
-
-    invoke-direct {p0, v0}, Lcom/android/server/wm/DimLayer;->adjustAlpha(F)V
-
-    .line 115
-    iget v0, p0, Lcom/android/server/wm/DimLayer;->mLayer:I
-
-    invoke-direct {p0, v0}, Lcom/android/server/wm/DimLayer;->adjustLayer(I)V
+    invoke-virtual {v0, v7}, Landroid/view/SurfaceControl;->setLayerStack(I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 119
+    .line 92
     invoke-static {}, Landroid/view/SurfaceControl;->closeTransaction()V
 
-    .line 97
+    .line 68
     :goto_0
     return-void
 
-    .line 116
+    .line 89
     :catch_0
-    move-exception v7
+    move-exception v8
 
-    .line 117
-    .local v7, "e":Ljava/lang/Exception;
+    .line 90
+    .local v8, "e":Ljava/lang/Exception;
     :try_start_1
     const-string/jumbo v0, "WindowManager"
 
     const-string/jumbo v1, "Exception creating Dim surface"
 
-    invoke-static {v0, v1, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 119
+    .line 92
     invoke-static {}, Landroid/view/SurfaceControl;->closeTransaction()V
 
     goto :goto_0
 
-    .line 118
-    .end local v7    # "e":Ljava/lang/Exception;
+    .line 91
+    .end local v8    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v0
 
-    .line 119
+    .line 92
     invoke-static {}, Landroid/view/SurfaceControl;->closeTransaction()V
 
-    .line 118
+    .line 91
     throw v0
+.end method
+
+.method private adjustBounds()V
+    .locals 10
+
+    .prologue
+    const-wide/high16 v8, 0x3ff8000000000000L    # 1.5
+
+    .line 148
+    iget-object v5, p0, Lcom/android/server/wm/DimLayer;->mStack:Lcom/android/server/wm/TaskStack;
+
+    invoke-virtual {v5}, Lcom/android/server/wm/TaskStack;->isFullscreen()Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    .line 149
+    iget-object v5, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
+
+    move-result v1
+
+    .line 150
+    .local v1, "dw":I
+    iget-object v5, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
+
+    move-result v0
+
+    .line 151
+    .local v0, "dh":I
+    iget-object v5, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
+
+    iget v5, v5, Landroid/graphics/Rect;->left:I
+
+    int-to-float v3, v5
+
+    .line 152
+    .local v3, "xPos":F
+    iget-object v5, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
+
+    iget v5, v5, Landroid/graphics/Rect;->top:I
+
+    int-to-float v4, v5
+
+    .line 165
+    .local v4, "yPos":F
+    :goto_0
+    iget-object v5, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
+
+    invoke-virtual {v5, v3, v4}, Landroid/view/SurfaceControl;->setPosition(FF)V
+
+    .line 166
+    iget-object v5, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
+
+    invoke-virtual {v5, v1, v0}, Landroid/view/SurfaceControl;->setSize(II)V
+
+    .line 168
+    iget-object v5, p0, Lcom/android/server/wm/DimLayer;->mLastBounds:Landroid/graphics/Rect;
+
+    iget-object v6, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v5, v6}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    .line 145
+    return-void
+
+    .line 155
+    .end local v0    # "dh":I
+    .end local v1    # "dw":I
+    .end local v3    # "xPos":F
+    .end local v4    # "yPos":F
+    :cond_0
+    iget-object v5, p0, Lcom/android/server/wm/DimLayer;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    invoke-virtual {v5}, Lcom/android/server/wm/DisplayContent;->getDisplayInfo()Landroid/view/DisplayInfo;
+
+    move-result-object v2
+
+    .line 158
+    .local v2, "info":Landroid/view/DisplayInfo;
+    iget v5, v2, Landroid/view/DisplayInfo;->logicalWidth:I
+
+    int-to-double v6, v5
+
+    mul-double/2addr v6, v8
+
+    double-to-int v1, v6
+
+    .line 159
+    .restart local v1    # "dw":I
+    iget v5, v2, Landroid/view/DisplayInfo;->logicalHeight:I
+
+    int-to-double v6, v5
+
+    mul-double/2addr v6, v8
+
+    double-to-int v0, v6
+
+    .line 161
+    .restart local v0    # "dh":I
+    mul-int/lit8 v5, v1, -0x1
+
+    div-int/lit8 v5, v5, 0x6
+
+    int-to-float v3, v5
+
+    .line 162
+    .restart local v3    # "xPos":F
+    mul-int/lit8 v5, v0, -0x1
+
+    div-int/lit8 v5, v5, 0x6
+
+    int-to-float v4, v5
+
+    .restart local v4    # "yPos":F
+    goto :goto_0
 .end method
 
 .method private durationEndsEarlier(J)Z
@@ -417,7 +293,7 @@
     .param p1, "duration"    # J
 
     .prologue
-    .line 246
+    .line 191
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
@@ -445,100 +321,94 @@
     goto :goto_0
 .end method
 
-.method private getBoundsForFullscreen(Landroid/graphics/Rect;)V
-    .locals 10
-    .param p1, "outBounds"    # Landroid/graphics/Rect;
-
-    .prologue
-    const-wide/high16 v8, 0x3ff8000000000000L    # 1.5
-
-    .line 210
-    iget-object v5, p0, Lcom/android/server/wm/DimLayer;->mUser:Lcom/android/server/wm/DimLayer$DimLayerUser;
-
-    invoke-interface {v5}, Lcom/android/server/wm/DimLayer$DimLayerUser;->getDisplayInfo()Landroid/view/DisplayInfo;
-
-    move-result-object v2
-
-    .line 213
-    .local v2, "info":Landroid/view/DisplayInfo;
-    iget v5, v2, Landroid/view/DisplayInfo;->logicalWidth:I
-
-    int-to-double v6, v5
-
-    mul-double/2addr v6, v8
-
-    double-to-int v1, v6
-
-    .line 214
-    .local v1, "dw":I
-    iget v5, v2, Landroid/view/DisplayInfo;->logicalHeight:I
-
-    int-to-double v6, v5
-
-    mul-double/2addr v6, v8
-
-    double-to-int v0, v6
-
-    .line 216
-    .local v0, "dh":I
-    mul-int/lit8 v5, v1, -0x1
-
-    div-int/lit8 v5, v5, 0x6
-
-    int-to-float v3, v5
-
-    .line 217
-    .local v3, "xPos":F
-    mul-int/lit8 v5, v0, -0x1
-
-    div-int/lit8 v5, v5, 0x6
-
-    int-to-float v4, v5
-
-    .line 218
-    .local v4, "yPos":F
-    float-to-int v5, v3
-
-    float-to-int v6, v4
-
-    float-to-int v7, v3
-
-    add-int/2addr v7, v1
-
-    float-to-int v8, v4
-
-    add-int/2addr v8, v0
-
-    invoke-virtual {p1, v5, v6, v7, v8}, Landroid/graphics/Rect;->set(IIII)V
-
-    .line 206
-    return-void
-.end method
-
 .method private setAlpha(F)V
-    .locals 1
+    .locals 3
     .param p1, "alpha"    # F
 
     .prologue
-    .line 156
-    iget v0, p0, Lcom/android/server/wm/DimLayer;->mAlpha:F
+    const/4 v2, 0x0
 
-    cmpl-float v0, v0, p1
+    .line 122
+    iget v1, p0, Lcom/android/server/wm/DimLayer;->mAlpha:F
 
-    if-nez v0, :cond_0
+    cmpl-float v1, v1, p1
 
-    .line 157
-    return-void
+    if-eqz v1, :cond_1
 
-    .line 159
+    .line 125
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
+
+    invoke-virtual {v1, p1}, Landroid/view/SurfaceControl;->setAlpha(F)V
+
+    .line 126
+    cmpl-float v1, p1, v2
+
+    if-nez v1, :cond_2
+
+    iget-boolean v1, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
+
+    if-eqz v1, :cond_2
+
+    .line 128
+    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
+
+    invoke-virtual {v1}, Landroid/view/SurfaceControl;->hide()V
+
+    .line 129
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 138
     :cond_0
+    :goto_0
     iput p1, p0, Lcom/android/server/wm/DimLayer;->mAlpha:F
 
-    .line 160
-    invoke-direct {p0, p1}, Lcom/android/server/wm/DimLayer;->adjustAlpha(F)V
-
-    .line 155
+    .line 121
+    :cond_1
     return-void
+
+    .line 130
+    :cond_2
+    cmpl-float v1, p1, v2
+
+    if-lez v1, :cond_0
+
+    :try_start_1
+    iget-boolean v1, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
+
+    if-nez v1, :cond_0
+
+    .line 132
+    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
+
+    invoke-virtual {v1}, Landroid/view/SurfaceControl;->show()V
+
+    .line 133
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
+    :try_end_1
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_0
+
+    .line 135
+    :catch_0
+    move-exception v0
+
+    .line 136
+    .local v0, "e":Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DimLayer"
+
+    const-string/jumbo v2, "Failure setting alpha immediately"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 
@@ -549,26 +419,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 358
+    .line 299
     iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
 
     if-eqz v0, :cond_0
 
-    .line 359
+    .line 300
     iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
 
     invoke-virtual {v0}, Landroid/view/SurfaceControl;->destroy()V
 
-    .line 360
+    .line 301
     iput-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
 
-    .line 362
+    .line 297
     :cond_0
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/wm/DimLayer;->mDestroyed:Z
-
-    .line 356
     return-void
 .end method
 
@@ -576,7 +441,7 @@
     .locals 1
 
     .prologue
-    .line 152
+    .line 118
     iget v0, p0, Lcom/android/server/wm/DimLayer;->mLayer:I
 
     return v0
@@ -586,7 +451,7 @@
     .locals 1
 
     .prologue
-    .line 134
+    .line 107
     iget v0, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
 
     return v0
@@ -596,17 +461,17 @@
     .locals 2
 
     .prologue
-    .line 307
+    .line 247
     iget-boolean v0, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
 
     if-eqz v0, :cond_0
 
-    .line 309
+    .line 249
     const-wide/16 v0, 0x0
 
     invoke-virtual {p0, v0, v1}, Lcom/android/server/wm/DimLayer;->hide(J)V
 
-    .line 306
+    .line 246
     :cond_0
     return-void
 .end method
@@ -618,7 +483,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 320
+    .line 260
     iget-boolean v0, p0, Lcom/android/server/wm/DimLayer;->mShowing:Z
 
     if-eqz v0, :cond_1
@@ -635,13 +500,13 @@
 
     if-eqz v0, :cond_1
 
-    .line 322
+    .line 262
     :cond_0
     iget v0, p0, Lcom/android/server/wm/DimLayer;->mLayer:I
 
     invoke-virtual {p0, v0, v1, p1, p2}, Lcom/android/server/wm/DimLayer;->show(IFJ)V
 
-    .line 319
+    .line 259
     :cond_1
     return-void
 .end method
@@ -650,7 +515,7 @@
     .locals 2
 
     .prologue
-    .line 130
+    .line 103
     iget v0, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
 
     iget v1, p0, Lcom/android/server/wm/DimLayer;->mAlpha:F
@@ -674,7 +539,7 @@
     .locals 2
 
     .prologue
-    .line 125
+    .line 98
     iget v0, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
 
     const/4 v1, 0x0
@@ -700,7 +565,7 @@
     .param p2, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
-    .line 366
+    .line 306
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string/jumbo v0, "mDimSurface="
@@ -711,7 +576,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/Object;)V
 
-    .line 367
+    .line 307
     const-string/jumbo v0, " mLayer="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -720,7 +585,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 368
+    .line 308
     const-string/jumbo v0, " mAlpha="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -729,7 +594,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(F)V
 
-    .line 369
+    .line 309
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string/jumbo v0, "mLastBounds="
@@ -744,7 +609,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 370
+    .line 310
     const-string/jumbo v0, " mBounds="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -757,14 +622,14 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 371
+    .line 311
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string/jumbo v0, "Last animation: "
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 372
+    .line 312
     const-string/jumbo v0, " mDuration="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -773,7 +638,7 @@
 
     invoke-virtual {p2, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 373
+    .line 313
     const-string/jumbo v0, " mStartTime="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -782,7 +647,7 @@
 
     invoke-virtual {p2, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 374
+    .line 314
     const-string/jumbo v0, " curTime="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -793,7 +658,7 @@
 
     invoke-virtual {p2, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
-    .line 375
+    .line 315
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string/jumbo v0, " mStartAlpha="
@@ -804,7 +669,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(F)V
 
-    .line 376
+    .line 316
     const-string/jumbo v0, " mTargetAlpha="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -813,7 +678,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(F)V
 
-    .line 365
+    .line 305
     return-void
 .end method
 
@@ -822,12 +687,12 @@
     .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 228
+    .line 173
     iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v1, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 229
+    .line 174
     invoke-virtual {p0}, Lcom/android/server/wm/DimLayer;->isDimming()Z
 
     move-result v1
@@ -842,35 +707,35 @@
 
     if-eqz v1, :cond_1
 
-    .line 227
+    .line 172
     :cond_0
     :goto_0
     return-void
 
-    .line 231
+    .line 176
     :cond_1
     :try_start_0
     invoke-static {}, Landroid/view/SurfaceControl;->openTransaction()V
 
-    .line 232
+    .line 177
     invoke-direct {p0}, Lcom/android/server/wm/DimLayer;->adjustBounds()V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 236
+    .line 181
     invoke-static {}, Landroid/view/SurfaceControl;->closeTransaction()V
 
     goto :goto_0
 
-    .line 233
+    .line 178
     :catch_0
     move-exception v0
 
-    .line 234
+    .line 179
     .local v0, "e":Ljava/lang/RuntimeException;
     :try_start_1
-    sget-object v1, Lcom/android/server/wm/DimLayer;->TAG:Ljava/lang/String;
+    const-string/jumbo v1, "DimLayer"
 
     const-string/jumbo v2, "Failure setting size"
 
@@ -878,39 +743,21 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 236
+    .line 181
     invoke-static {}, Landroid/view/SurfaceControl;->closeTransaction()V
 
     goto :goto_0
 
-    .line 235
+    .line 180
     .end local v0    # "e":Ljava/lang/RuntimeException;
     :catchall_0
     move-exception v1
 
-    .line 236
+    .line 181
     invoke-static {}, Landroid/view/SurfaceControl;->closeTransaction()V
 
-    .line 235
+    .line 180
     throw v1
-.end method
-
-.method setBoundsForFullscreen()V
-    .locals 1
-
-    .prologue
-    .line 222
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
-
-    invoke-direct {p0, v0}, Lcom/android/server/wm/DimLayer;->getBoundsForFullscreen(Landroid/graphics/Rect;)V
-
-    .line 223
-    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/DimLayer;->setBounds(Landroid/graphics/Rect;)V
-
-    .line 221
-    return-void
 .end method
 
 .method setLayer(I)V
@@ -918,22 +765,21 @@
     .param p1, "layer"    # I
 
     .prologue
-    .line 138
+    .line 111
     iget v0, p0, Lcom/android/server/wm/DimLayer;->mLayer:I
 
-    if-ne v0, p1, :cond_0
+    if-eq v0, p1, :cond_0
 
-    .line 139
-    return-void
-
-    .line 141
-    :cond_0
+    .line 112
     iput p1, p0, Lcom/android/server/wm/DimLayer;->mLayer:I
 
-    .line 142
-    invoke-direct {p0, p1}, Lcom/android/server/wm/DimLayer;->adjustLayer(I)V
+    .line 113
+    iget-object v0, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
 
-    .line 137
+    invoke-virtual {v0, p1}, Landroid/view/SurfaceControl;->setLayer(I)V
+
+    .line 110
+    :cond_0
     return-void
 .end method
 
@@ -941,14 +787,14 @@
     .locals 4
 
     .prologue
-    .line 252
+    .line 197
     invoke-virtual {p0}, Lcom/android/server/wm/DimLayer;->isAnimating()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 254
+    .line 199
     iget v0, p0, Lcom/android/server/wm/DimLayer;->mLayer:I
 
     iget v1, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
@@ -957,7 +803,7 @@
 
     invoke-virtual {p0, v0, v1, v2, v3}, Lcom/android/server/wm/DimLayer;->show(IFJ)V
 
-    .line 251
+    .line 196
     :cond_0
     return-void
 .end method
@@ -971,39 +817,28 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 269
-    iget-boolean v1, p0, Lcom/android/server/wm/DimLayer;->mDestroyed:Z
+    .line 214
+    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    .line 270
-    sget-object v1, Lcom/android/server/wm/DimLayer;->TAG:Ljava/lang/String;
+    .line 215
+    const-string/jumbo v1, "DimLayer"
 
     const-string/jumbo v4, "show: no Surface"
 
     invoke-static {v1, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 272
+    .line 217
     iput v5, p0, Lcom/android/server/wm/DimLayer;->mAlpha:F
 
     iput v5, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
 
-    .line 273
+    .line 218
     return-void
 
-    .line 276
+    .line 221
     :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
-
-    if-nez v1, :cond_1
-
-    .line 277
-    iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-direct {p0, v1}, Lcom/android/server/wm/DimLayer;->constructSurface(Lcom/android/server/wm/WindowManagerService;)V
-
-    .line 280
-    :cond_1
     iget-object v1, p0, Lcom/android/server/wm/DimLayer;->mLastBounds:Landroid/graphics/Rect;
 
     iget-object v4, p0, Lcom/android/server/wm/DimLayer;->mBounds:Landroid/graphics/Rect;
@@ -1012,81 +847,81 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1
 
-    .line 281
+    .line 222
     invoke-direct {p0}, Lcom/android/server/wm/DimLayer;->adjustBounds()V
 
-    .line 283
-    :cond_2
+    .line 224
+    :cond_1
     invoke-virtual {p0, p1}, Lcom/android/server/wm/DimLayer;->setLayer(I)V
 
-    .line 285
+    .line 226
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 
-    .line 286
+    .line 227
     .local v2, "curTime":J
     invoke-virtual {p0}, Lcom/android/server/wm/DimLayer;->isAnimating()Z
 
     move-result v0
 
-    .line 287
+    .line 228
     .local v0, "animating":Z
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget v1, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
 
     cmpl-float v1, v1, p2
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     invoke-direct {p0, p3, p4}, Lcom/android/server/wm/DimLayer;->durationEndsEarlier(J)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
-    .line 288
-    :cond_3
-    if-nez v0, :cond_5
+    .line 229
+    :cond_2
+    if-nez v0, :cond_4
 
     iget v1, p0, Lcom/android/server/wm/DimLayer;->mAlpha:F
 
     cmpl-float v1, v1, p2
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
-    .line 289
-    :cond_4
+    .line 230
+    :cond_3
     const-wide/16 v4, 0x0
 
     cmp-long v1, p3, v4
 
-    if-gtz v1, :cond_6
+    if-gtz v1, :cond_5
 
-    .line 291
+    .line 232
     invoke-direct {p0, p2}, Lcom/android/server/wm/DimLayer;->setAlpha(F)V
 
-    .line 299
-    :cond_5
+    .line 241
+    :cond_4
     :goto_0
     iput p2, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
 
-    .line 266
+    .line 211
     return-void
 
-    .line 294
-    :cond_6
+    .line 235
+    :cond_5
     iget v1, p0, Lcom/android/server/wm/DimLayer;->mAlpha:F
 
     iput v1, p0, Lcom/android/server/wm/DimLayer;->mStartAlpha:F
 
-    .line 295
+    .line 236
     iput-wide v2, p0, Lcom/android/server/wm/DimLayer;->mStartTime:J
 
-    .line 296
+    .line 237
     iput-wide p3, p0, Lcom/android/server/wm/DimLayer;->mDuration:J
 
     goto :goto_0
@@ -1098,29 +933,29 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 333
-    iget-boolean v4, p0, Lcom/android/server/wm/DimLayer;->mDestroyed:Z
+    .line 273
+    iget-object v4, p0, Lcom/android/server/wm/DimLayer;->mDimSurface:Landroid/view/SurfaceControl;
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_0
 
-    .line 334
-    sget-object v4, Lcom/android/server/wm/DimLayer;->TAG:Ljava/lang/String;
+    .line 274
+    const-string/jumbo v4, "DimLayer"
 
-    const-string/jumbo v5, "stepAnimation: surface destroyed"
+    const-string/jumbo v5, "stepAnimation: null Surface"
 
     invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 336
+    .line 276
     iput v8, p0, Lcom/android/server/wm/DimLayer;->mAlpha:F
 
     iput v8, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
 
-    .line 337
+    .line 277
     const/4 v4, 0x0
 
     return v4
 
-    .line 339
+    .line 280
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/wm/DimLayer;->isAnimating()Z
 
@@ -1128,12 +963,12 @@
 
     if-eqz v4, :cond_2
 
-    .line 340
+    .line 281
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 
-    .line 341
+    .line 282
     .local v2, "curTime":J
     iget v4, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
 
@@ -1141,7 +976,7 @@
 
     sub-float v1, v4, v5
 
-    .line 342
+    .line 283
     .local v1, "alphaDelta":F
     iget v4, p0, Lcom/android/server/wm/DimLayer;->mStartAlpha:F
 
@@ -1161,7 +996,7 @@
 
     add-float v0, v4, v5
 
-    .line 343
+    .line 284
     .local v0, "alpha":F
     cmpl-float v4, v1, v8
 
@@ -1173,15 +1008,15 @@
 
     if-lez v4, :cond_3
 
-    .line 346
+    .line 287
     :goto_0
     iget v0, p0, Lcom/android/server/wm/DimLayer;->mTargetAlpha:F
 
-    .line 349
+    .line 290
     :cond_1
     invoke-direct {p0, v0}, Lcom/android/server/wm/DimLayer;->setAlpha(F)V
 
-    .line 352
+    .line 293
     .end local v0    # "alpha":F
     .end local v1    # "alphaDelta":F
     .end local v2    # "curTime":J
@@ -1192,7 +1027,7 @@
 
     return v4
 
-    .line 344
+    .line 285
     .restart local v0    # "alpha":F
     .restart local v1    # "alphaDelta":F
     .restart local v2    # "curTime":J

@@ -24,34 +24,34 @@
     .prologue
     const v4, 0x30000008
 
-    .line 165
+    .line 148
     sparse-switch p1, :sswitch_data_0
 
-    .line 164
+    .line 147
     :cond_0
     :goto_0
     return-void
 
-    .line 168
+    .line 151
     :sswitch_0
     const/16 v2, 0x20
 
-    .line 167
+    .line 150
     invoke-static {p2, v2}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 171
+    .line 154
     const-wide/16 v2, 0x60
 
-    .line 170
+    .line 153
     invoke-virtual {p0, v4, v2, v3}, Landroid/security/keymaster/KeymasterArguments;->addUnsignedInt(IJ)V
 
     goto :goto_0
 
-    .line 179
+    .line 162
     :sswitch_1
     array-length v2, p3
 
@@ -59,10 +59,10 @@
 
     if-eq v2, v3, :cond_1
 
-    .line 180
+    .line 163
     new-instance v2, Ljava/security/ProviderException;
 
-    .line 181
+    .line 164
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -73,18 +73,18 @@
 
     move-result-object v3
 
-    .line 182
+    .line 165
     array-length v4, p3
 
-    .line 181
+    .line 164
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    .line 183
+    .line 166
     const-string/jumbo v4, ". Exactly one digest must be authorized"
 
-    .line 181
+    .line 164
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -93,33 +93,33 @@
 
     move-result-object v3
 
-    .line 180
+    .line 163
     invoke-direct {v2, v3}, Ljava/security/ProviderException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
-    .line 185
+    .line 168
     :cond_1
     const/4 v2, 0x0
 
     aget v1, p3, v2
 
-    .line 186
+    .line 169
     .local v1, "keymasterDigest":I
     invoke-static {v1}, Landroid/security/keystore/KeymasterUtils;->getDigestOutputSizeBits(I)I
 
     move-result v0
 
-    .line 187
+    .line 170
     .local v0, "digestOutputSizeBits":I
     const/4 v2, -0x1
 
     if-ne v0, v2, :cond_2
 
-    .line 188
+    .line 171
     new-instance v2, Ljava/security/ProviderException;
 
-    .line 189
+    .line 172
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -130,12 +130,12 @@
 
     move-result-object v3
 
-    .line 190
+    .line 173
     invoke-static {v1}, Landroid/security/keystore/KeyProperties$Digest;->fromKeymaster(I)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 189
+    .line 172
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -144,12 +144,12 @@
 
     move-result-object v3
 
-    .line 188
+    .line 171
     invoke-direct {v2, v3}, Ljava/security/ProviderException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
-    .line 192
+    .line 175
     :cond_2
     int-to-long v2, v0
 
@@ -157,7 +157,7 @@
 
     goto :goto_0
 
-    .line 165
+    .line 148
     :sswitch_data_0
     .sparse-switch
         0x20 -> :sswitch_0
@@ -165,46 +165,50 @@
     .end sparse-switch
 .end method
 
-.method public static addUserAuthArgs(Landroid/security/keymaster/KeymasterArguments;ZIZZ)V
-    .locals 10
+.method public static addUserAuthArgs(Landroid/security/keymaster/KeymasterArguments;ZI)V
+    .locals 12
     .param p0, "args"    # Landroid/security/keymaster/KeymasterArguments;
     .param p1, "userAuthenticationRequired"    # Z
     .param p2, "userAuthenticationValidityDurationSeconds"    # I
-    .param p3, "userAuthenticationValidWhileOnBody"    # Z
-    .param p4, "invalidatedByBiometricEnrollment"    # Z
 
     .prologue
-    .line 102
+    const-wide/16 v10, 0x0
+
+    const v8, 0x100001f8
+
+    const v7, -0x5ffffe0a
+
+    .line 100
     if-nez p1, :cond_0
 
-    .line 103
+    .line 101
     const v1, 0x700001f7
 
     invoke-virtual {p0, v1}, Landroid/security/keymaster/KeymasterArguments;->addBoolean(I)V
 
-    .line 104
+    .line 102
     return-void
 
-    .line 107
+    .line 105
     :cond_0
     const/4 v1, -0x1
 
-    if-ne p2, v1, :cond_4
+    if-ne p2, v1, :cond_3
 
-    .line 111
+    .line 109
     invoke-static {}, Landroid/security/KeyStore;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
-    const-class v8, Landroid/hardware/fingerprint/FingerprintManager;
+    const-class v6, Landroid/hardware/fingerprint/FingerprintManager;
 
-    invoke-virtual {v1, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v1, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/hardware/fingerprint/FingerprintManager;
 
-    .line 115
+    .line 113
     .local v0, "fingerprintManager":Landroid/hardware/fingerprint/FingerprintManager;
     if-eqz v0, :cond_1
 
@@ -212,131 +216,97 @@
 
     move-result-wide v2
 
-    .line 116
+    .line 114
     .local v2, "fingerprintOnlySid":J
     :goto_0
-    const-wide/16 v8, 0x0
-
-    cmp-long v1, v2, v8
+    cmp-long v1, v2, v10
 
     if-nez v1, :cond_2
 
-    .line 117
+    .line 115
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    .line 118
-    const-string/jumbo v8, "At least one fingerprint must be enrolled to create keys requiring user authentication for every use"
+    .line 116
+    const-string/jumbo v6, "At least one fingerprint must be enrolled to create keys requiring user authentication for every use"
 
-    .line 117
-    invoke-direct {v1, v8}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    .line 115
+    invoke-direct {v1, v6}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 115
+    .line 113
     .end local v2    # "fingerprintOnlySid":J
     :cond_1
     const-wide/16 v2, 0x0
 
+    .restart local v2    # "fingerprintOnlySid":J
     goto :goto_0
 
-    .line 123
-    .restart local v2    # "fingerprintOnlySid":J
+    .line 120
     :cond_2
-    if-eqz p4, :cond_3
-
-    .line 126
-    move-wide v6, v2
-
-    .line 134
-    .local v6, "sid":J
-    :goto_1
-    invoke-static {v6, v7}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
+    invoke-static {v2, v3}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
 
     move-result-object v1
 
-    const v8, -0x5ffffe0a
+    .line 119
+    invoke-virtual {p0, v7, v1}, Landroid/security/keymaster/KeymasterArguments;->addUnsignedLong(ILjava/math/BigInteger;)V
 
-    .line 133
-    invoke-virtual {p0, v8, v1}, Landroid/security/keymaster/KeymasterArguments;->addUnsignedLong(ILjava/math/BigInteger;)V
+    .line 121
+    const/4 v1, 0x2
 
-    .line 135
-    const v1, 0x100001f8
+    invoke-virtual {p0, v8, v1}, Landroid/security/keymaster/KeymasterArguments;->addEnum(II)V
 
-    const/4 v8, 0x2
-
-    invoke-virtual {p0, v1, v8}, Landroid/security/keymaster/KeymasterArguments;->addEnum(II)V
-
-    .line 136
-    if-eqz p3, :cond_5
-
-    .line 137
-    new-instance v1, Ljava/security/ProviderException;
-
-    const-string/jumbo v8, "Key validity extension while device is on-body is not supported for keys requiring fingerprint authentication"
-
-    invoke-direct {v1, v8}, Ljava/security/ProviderException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 130
-    .end local v6    # "sid":J
-    :cond_3
-    invoke-static {}, Landroid/security/keystore/KeymasterUtils;->getRootSid()J
-
-    move-result-wide v6
-
-    .restart local v6    # "sid":J
-    goto :goto_1
-
-    .line 143
+    .line 99
     .end local v0    # "fingerprintManager":Landroid/hardware/fingerprint/FingerprintManager;
     .end local v2    # "fingerprintOnlySid":J
-    .end local v6    # "sid":J
-    :cond_4
-    invoke-static {}, Landroid/security/keystore/KeymasterUtils;->getRootSid()J
+    :goto_1
+    return-void
+
+    .line 125
+    :cond_3
+    invoke-static {}, Landroid/security/GateKeeper;->getSecureUserId()J
 
     move-result-wide v4
 
-    .line 145
+    .line 126
     .local v4, "rootSid":J
+    cmp-long v1, v4, v10
+
+    if-nez v1, :cond_4
+
+    .line 127
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v6, "Secure lock screen must be enabled to create keys requiring user authentication"
+
+    invoke-direct {v1, v6}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 131
+    :cond_4
     invoke-static {v4, v5}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
 
     move-result-object v1
 
-    .line 144
-    const v8, -0x5ffffe0a
+    .line 130
+    invoke-virtual {p0, v7, v1}, Landroid/security/keymaster/KeymasterArguments;->addUnsignedLong(ILjava/math/BigInteger;)V
 
-    invoke-virtual {p0, v8, v1}, Landroid/security/keymaster/KeymasterArguments;->addUnsignedLong(ILjava/math/BigInteger;)V
+    .line 133
+    const/4 v1, 0x3
 
-    .line 146
-    const v1, 0x100001f8
+    .line 132
+    invoke-virtual {p0, v8, v1}, Landroid/security/keymaster/KeymasterArguments;->addEnum(II)V
 
-    .line 147
-    const/4 v8, 0x3
+    .line 135
+    int-to-long v6, p2
 
-    .line 146
-    invoke-virtual {p0, v1, v8}, Landroid/security/keymaster/KeymasterArguments;->addEnum(II)V
-
-    .line 149
-    int-to-long v8, p2
-
-    .line 148
+    .line 134
     const v1, 0x300001f9
 
-    invoke-virtual {p0, v1, v8, v9}, Landroid/security/keymaster/KeymasterArguments;->addUnsignedInt(IJ)V
+    invoke-virtual {p0, v1, v6, v7}, Landroid/security/keymaster/KeymasterArguments;->addUnsignedInt(IJ)V
 
-    .line 150
-    if-eqz p3, :cond_5
-
-    .line 151
-    const v1, 0x700001fa
-
-    invoke-virtual {p0, v1}, Landroid/security/keymaster/KeymasterArguments;->addBoolean(I)V
-
-    .line 101
-    .end local v4    # "rootSid":J
-    :cond_5
-    return-void
+    goto :goto_1
 .end method
 
 .method public static getDigestOutputSizeBits(I)I
@@ -427,37 +397,6 @@
         :pswitch_5
         :pswitch_6
     .end packed-switch
-.end method
-
-.method private static getRootSid()J
-    .locals 4
-
-    .prologue
-    .line 198
-    invoke-static {}, Landroid/security/GateKeeper;->getSecureUserId()J
-
-    move-result-wide v0
-
-    .line 199
-    .local v0, "rootSid":J
-    const-wide/16 v2, 0x0
-
-    cmp-long v2, v0, v2
-
-    if-nez v2, :cond_0
-
-    .line 200
-    new-instance v2, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v3, "Secure lock screen must be enabled to create keys requiring user authentication"
-
-    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 203
-    :cond_0
-    return-wide v0
 .end method
 
 .method public static isKeymasterBlockModeIndCpaCompatibleWithSymmetricCrypto(I)Z

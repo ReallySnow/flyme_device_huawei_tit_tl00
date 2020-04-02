@@ -30,7 +30,7 @@
     .param p2, "val$type"    # I
 
     .prologue
-    .line 1744
+    .line 1630
     iput-object p1, p0, Lcom/android/server/NetworkManagementService$3;->this$0:Lcom/android/server/NetworkManagementService;
 
     iput p2, p0, Lcom/android/server/NetworkManagementService$3;->val$type:I
@@ -43,30 +43,27 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 7
 
     .prologue
-    .line 1746
+    .line 1632
     iget-object v1, p0, Lcom/android/server/NetworkManagementService$3;->this$0:Lcom/android/server/NetworkManagementService;
 
     iget v2, p0, Lcom/android/server/NetworkManagementService$3;->val$type:I
 
-    .line 1748
+    .line 1633
+    sget v3, Landroid/telephony/DataConnectionRealTimeInfo;->DC_POWER_STATE_HIGH:I
+
+    .line 1634
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtimeNanos()J
 
     move-result-wide v4
 
-    .line 1747
-    const/4 v3, 0x3
+    const/4 v6, 0x0
 
-    .line 1748
-    const/4 v6, -0x1
+    .line 1632
+    invoke-static/range {v1 .. v6}, Lcom/android/server/NetworkManagementService;->-wrap3(Lcom/android/server/NetworkManagementService;IIJZ)V
 
-    const/4 v7, 0x0
-
-    .line 1746
-    invoke-static/range {v1 .. v7}, Lcom/android/server/NetworkManagementService;->-wrap4(Lcom/android/server/NetworkManagementService;IIJIZ)V
-
-    .line 1745
+    .line 1631
     return-void
 .end method

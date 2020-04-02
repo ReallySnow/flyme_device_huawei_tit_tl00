@@ -39,14 +39,31 @@
     .param p1, "resourceName"    # Ljava/lang/String;
 
     .prologue
-    .line 71
+    .line 53
     :try_start_0
-    invoke-static {p0}, Lcom/android/internal/telephony/ConfigResourceUtil;->getResources(Landroid/content/Context;)Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 72
+    .line 54
     .local v1, "res":Landroid/content/res/Resources;
+    if-nez v1, :cond_0
+
+    .line 55
+    const-string/jumbo v4, "ConfigResourceUtil"
+
+    const-string/jumbo v5, "res is null"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 56
+    :cond_0
     const-string/jumbo v4, "bool"
 
     sget-object v5, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
@@ -55,13 +72,13 @@
 
     move-result v2
 
-    .line 73
+    .line 57
     .local v2, "resId":I
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v3
 
-    .line 75
+    .line 58
     .local v3, "resValue":Z
     const-string/jumbo v4, "ConfigResourceUtil"
 
@@ -89,10 +106,10 @@
 
     move-result-object v5
 
-    .line 76
+    .line 59
     const-string/jumbo v6, "resourceValue = "
 
-    .line 75
+    .line 58
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -109,19 +126,18 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 78
+    .line 60
     return v3
 
-    .line 80
+    .line 61
     .end local v1    # "res":Landroid/content/res/Resources;
     .end local v2    # "resId":I
     .end local v3    # "resValue":Z
     :catch_0
     move-exception v0
 
-    .line 81
+    .line 62
     .local v0, "e":Ljava/lang/Exception;
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -140,14 +156,31 @@
     .param p1, "resourceName"    # Ljava/lang/String;
 
     .prologue
-    .line 144
+    .line 122
     :try_start_0
-    invoke-static {p0}, Lcom/android/internal/telephony/ConfigResourceUtil;->getResources(Landroid/content/Context;)Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 145
+    .line 123
     .local v1, "res":Landroid/content/res/Resources;
+    if-nez v1, :cond_0
+
+    .line 124
+    const-string/jumbo v4, "ConfigResourceUtil"
+
+    const-string/jumbo v5, "res is null"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 125
+    :cond_0
     const-string/jumbo v4, "array"
 
     sget-object v5, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
@@ -156,13 +189,13 @@
 
     move-result v2
 
-    .line 146
+    .line 126
     .local v2, "resId":I
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getIntArray(I)[I
 
     move-result-object v3
 
-    .line 148
+    .line 127
     .local v3, "resValue":[I
     const-string/jumbo v4, "ConfigResourceUtil"
 
@@ -190,20 +223,20 @@
 
     move-result-object v5
 
-    .line 149
+    .line 128
     const-string/jumbo v6, "resourceValue = "
 
-    .line 148
+    .line 127
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 149
+    .line 128
     invoke-static {v3}, Ljava/util/Arrays;->toString([I)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 148
+    .line 127
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -216,19 +249,18 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 151
+    .line 129
     return-object v3
 
-    .line 153
+    .line 130
     .end local v1    # "res":Landroid/content/res/Resources;
     .end local v2    # "resId":I
     .end local v3    # "resValue":[I
     :catch_0
     move-exception v0
 
-    .line 154
+    .line 131
     .local v0, "e":Ljava/lang/Exception;
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -247,14 +279,31 @@
     .param p1, "resourceName"    # Ljava/lang/String;
 
     .prologue
-    .line 95
+    .line 76
     :try_start_0
-    invoke-static {p0}, Lcom/android/internal/telephony/ConfigResourceUtil;->getResources(Landroid/content/Context;)Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 96
+    .line 77
     .local v1, "res":Landroid/content/res/Resources;
+    if-nez v1, :cond_0
+
+    .line 78
+    const-string/jumbo v4, "ConfigResourceUtil"
+
+    const-string/jumbo v5, "res is null"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 79
+    :cond_0
     const-string/jumbo v4, "integer"
 
     sget-object v5, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
@@ -263,13 +312,13 @@
 
     move-result v2
 
-    .line 97
+    .line 80
     .local v2, "resId":I
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v3
 
-    .line 99
+    .line 81
     .local v3, "resValue":I
     const-string/jumbo v4, "ConfigResourceUtil"
 
@@ -297,10 +346,10 @@
 
     move-result-object v5
 
-    .line 100
+    .line 82
     const-string/jumbo v6, "resourceValue = "
 
-    .line 99
+    .line 81
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -317,19 +366,18 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 102
+    .line 83
     return v3
 
-    .line 104
+    .line 84
     .end local v1    # "res":Landroid/content/res/Resources;
     .end local v2    # "resId":I
     .end local v3    # "resValue":I
     :catch_0
     move-exception v0
 
-    .line 105
+    .line 85
     .local v0, "e":Ljava/lang/Exception;
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -342,89 +390,37 @@
     throw v4
 .end method
 
-.method private static getResources(Landroid/content/Context;)Landroid/content/res/Resources;
-    .locals 3
-    .param p0, "context"    # Landroid/content/Context;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;,
-            Ljava/lang/IllegalArgumentException;
-        }
-    .end annotation
-
-    .prologue
-    .line 45
-    if-nez p0, :cond_0
-
-    .line 46
-    const-string/jumbo v1, "ConfigResourceUtil"
-
-    const-string/jumbo v2, "context is null"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 47
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v2, "context==null"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 50
-    :cond_0
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    .line 51
-    sget-object v2, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
-
-    .line 50
-    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    .line 53
-    .local v0, "res":Landroid/content/res/Resources;
-    if-nez v0, :cond_1
-
-    .line 54
-    const-string/jumbo v1, "ConfigResourceUtil"
-
-    const-string/jumbo v2, "res is null"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 55
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v2, "res==null"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 58
-    :cond_1
-    return-object v0
-.end method
-
 .method public static getStringArray(Landroid/content/Context;Ljava/lang/String;)[Ljava/lang/String;
     .locals 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "resourceName"    # Ljava/lang/String;
 
     .prologue
-    .line 168
+    .line 145
     :try_start_0
-    invoke-static {p0}, Lcom/android/internal/telephony/ConfigResourceUtil;->getResources(Landroid/content/Context;)Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 170
+    .line 146
     .local v1, "res":Landroid/content/res/Resources;
+    if-nez v1, :cond_0
+
+    .line 147
+    const-string/jumbo v4, "ConfigResourceUtil"
+
+    const-string/jumbo v5, "res is null"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 148
+    :cond_0
     const-string/jumbo v4, "array"
 
     sget-object v5, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
@@ -433,13 +429,13 @@
 
     move-result v2
 
-    .line 171
+    .line 149
     .local v2, "resId":I
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 173
+    .line 150
     .local v3, "resValue":[Ljava/lang/String;
     const-string/jumbo v4, "ConfigResourceUtil"
 
@@ -467,20 +463,20 @@
 
     move-result-object v5
 
-    .line 174
+    .line 151
     const-string/jumbo v6, "resourceValue = "
 
-    .line 173
+    .line 150
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 174
+    .line 151
     invoke-static {v3}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 173
+    .line 150
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -493,19 +489,18 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 176
+    .line 152
     return-object v3
 
-    .line 178
+    .line 153
     .end local v1    # "res":Landroid/content/res/Resources;
     .end local v2    # "resId":I
     .end local v3    # "resValue":[Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .line 179
+    .line 154
     .local v0, "e":Ljava/lang/Exception;
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -524,14 +519,31 @@
     .param p1, "resourceName"    # Ljava/lang/String;
 
     .prologue
-    .line 119
+    .line 99
     :try_start_0
-    invoke-static {p0}, Lcom/android/internal/telephony/ConfigResourceUtil;->getResources(Landroid/content/Context;)Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 120
+    .line 100
     .local v1, "res":Landroid/content/res/Resources;
+    if-nez v1, :cond_0
+
+    .line 101
+    const-string/jumbo v4, "ConfigResourceUtil"
+
+    const-string/jumbo v5, "res is null"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 102
+    :cond_0
     const-string/jumbo v4, "string"
 
     sget-object v5, Lcom/android/internal/telephony/ConfigResourceUtil;->packageName:Ljava/lang/String;
@@ -540,13 +552,13 @@
 
     move-result v2
 
-    .line 121
+    .line 103
     .local v2, "resId":I
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 123
+    .line 104
     .local v3, "resValue":Ljava/lang/String;
     const-string/jumbo v4, "ConfigResourceUtil"
 
@@ -574,10 +586,10 @@
 
     move-result-object v5
 
-    .line 124
+    .line 105
     const-string/jumbo v6, "resourceValue = "
 
-    .line 123
+    .line 104
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -594,19 +606,18 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 126
+    .line 106
     return-object v3
 
-    .line 128
+    .line 107
     .end local v1    # "res":Landroid/content/res/Resources;
     .end local v2    # "resId":I
     .end local v3    # "resValue":Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .line 129
+    .line 108
     .local v0, "e":Ljava/lang/Exception;
     new-instance v4, Ljava/lang/RuntimeException;
 

@@ -23,6 +23,14 @@
     .end annotation
 .end method
 
+.method public abstract onRequestConditions(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onSubscribe(Landroid/net/Uri;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

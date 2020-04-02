@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 115
+    .line 121
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,16 +45,16 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 117
+    .line 123
     new-instance v0, Landroid/net/DhcpResults;
 
     invoke-direct {v0}, Landroid/net/DhcpResults;-><init>()V
 
-    .line 118
+    .line 124
     .local v0, "dhcpResults":Landroid/net/DhcpResults;
     invoke-static {v0, p1}, Landroid/net/DhcpResults;->-wrap0(Landroid/net/DhcpResults;Landroid/os/Parcel;)V
 
-    .line 119
+    .line 125
     return-object v0
 .end method
 
@@ -63,7 +63,7 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 116
+    .line 122
     invoke-virtual {p0, p1}, Landroid/net/DhcpResults$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/DhcpResults;
 
     move-result-object v0
@@ -76,7 +76,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 123
+    .line 129
     new-array v0, p1, [Landroid/net/DhcpResults;
 
     return-object v0
@@ -87,7 +87,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 122
+    .line 128
     invoke-virtual {p0, p1}, Landroid/net/DhcpResults$1;->newArray(I)[Landroid/net/DhcpResults;
 
     move-result-object v0

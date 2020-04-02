@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 659
+    .line 611
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,7 +32,7 @@
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
 
     .prologue
-    .line 723
+    .line 675
     return-void
 .end method
 
@@ -41,7 +41,7 @@
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
 
     .prologue
-    .line 741
+    .line 693
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
 
     .prologue
-    .line 707
+    .line 659
     return-void
 .end method
 
@@ -66,6 +66,6 @@
     .param p2, "surface"    # Landroid/view/Surface;
 
     .prologue
-    .line 761
+    .line 713
     return-void
 .end method

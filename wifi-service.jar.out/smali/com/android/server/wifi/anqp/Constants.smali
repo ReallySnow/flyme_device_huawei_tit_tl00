@@ -82,10 +82,6 @@
 
 .field public static final INT_MASK:J = 0xffffffffL
 
-.field public static final LANG_CODE_LENGTH:I = 0x3
-
-.field public static final MILLIS_IN_A_SEC:J = 0x3e8L
-
 .field public static final NIBBLE_MASK:I = 0xf
 
 .field public static final SHORT_MASK:I = 0xffff
@@ -146,41 +142,35 @@
     .locals 5
 
     .prologue
-    .line 94
+    .line 88
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
     sput-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
-    .line 95
+    .line 89
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
     sput-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
-    .line 97
-    new-instance v2, Ljava/util/EnumMap;
+    .line 90
+    new-instance v2, Ljava/util/HashMap;
 
-    const-class v3, Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    invoke-direct {v2, v3}, Ljava/util/EnumMap;-><init>(Ljava/lang/Class;)V
-
-    .line 96
     sput-object v2, Lcom/android/server/wifi/anqp/Constants;->sRevAnqpmap:Ljava/util/Map;
 
-    .line 99
-    new-instance v2, Ljava/util/EnumMap;
+    .line 91
+    new-instance v2, Ljava/util/HashMap;
 
-    const-class v3, Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    invoke-direct {v2, v3}, Ljava/util/EnumMap;-><init>(Ljava/lang/Class;)V
-
-    .line 98
     sput-object v2, Lcom/android/server/wifi/anqp/Constants;->sRevHs20map:Ljava/util/Map;
 
-    .line 102
+    .line 94
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x100
@@ -193,7 +183,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 103
+    .line 95
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x101
@@ -206,7 +196,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 104
+    .line 96
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x102
@@ -219,7 +209,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 105
+    .line 97
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x103
@@ -232,7 +222,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 106
+    .line 98
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x104
@@ -245,7 +235,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 107
+    .line 99
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x105
@@ -258,7 +248,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 108
+    .line 100
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x106
@@ -271,7 +261,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 109
+    .line 101
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x107
@@ -284,7 +274,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 110
+    .line 102
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x108
@@ -297,7 +287,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 111
+    .line 103
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x109
@@ -310,7 +300,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 112
+    .line 104
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x10a
@@ -323,7 +313,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 113
+    .line 105
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x10b
@@ -336,7 +326,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 114
+    .line 106
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x10c
@@ -349,7 +339,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 115
+    .line 107
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x10d
@@ -362,7 +352,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 116
+    .line 108
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x10e
@@ -375,7 +365,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 117
+    .line 109
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x10f
@@ -388,7 +378,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 118
+    .line 110
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const/16 v3, 0x110
@@ -401,7 +391,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 119
+    .line 111
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     const v3, 0xdddd
@@ -414,7 +404,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 121
+    .line 113
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     const/4 v3, 0x1
@@ -427,7 +417,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 122
+    .line 114
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     const/4 v3, 0x2
@@ -440,7 +430,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 123
+    .line 115
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     const/4 v3, 0x3
@@ -453,7 +443,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 124
+    .line 116
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     const/4 v3, 0x4
@@ -466,7 +456,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 125
+    .line 117
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     const/4 v3, 0x5
@@ -479,7 +469,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 126
+    .line 118
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     const/4 v3, 0x6
@@ -492,7 +482,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 127
+    .line 119
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     const/4 v3, 0x7
@@ -505,7 +495,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 128
+    .line 120
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     const/16 v3, 0x8
@@ -518,7 +508,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 129
+    .line 121
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     const/16 v3, 0xa
@@ -531,7 +521,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 130
+    .line 122
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     const/16 v3, 0xb
@@ -544,7 +534,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 132
+    .line 124
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     invoke-interface {v2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -569,7 +559,7 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 133
+    .line 125
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Lcom/android/server/wifi/anqp/Constants$ANQPElementType;>;"
     sget-object v4, Lcom/android/server/wifi/anqp/Constants;->sRevAnqpmap:Ljava/util/Map;
 
@@ -589,7 +579,7 @@
 
     goto :goto_0
 
-    .line 135
+    .line 127
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Lcom/android/server/wifi/anqp/Constants$ANQPElementType;>;"
     :cond_0
     sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
@@ -615,7 +605,7 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 136
+    .line 128
     .restart local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Lcom/android/server/wifi/anqp/Constants$ANQPElementType;>;"
     sget-object v4, Lcom/android/server/wifi/anqp/Constants;->sRevHs20map:Ljava/util/Map;
 
@@ -635,7 +625,7 @@
 
     goto :goto_1
 
-    .line 16
+    .line 13
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Lcom/android/server/wifi/anqp/Constants$ANQPElementType;>;"
     :cond_1
     return-void
@@ -645,7 +635,7 @@
     .locals 0
 
     .prologue
-    .line 16
+    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -656,7 +646,7 @@
     .param p0, "elementType"    # Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
 
     .prologue
-    .line 149
+    .line 141
     sget-object v0, Lcom/android/server/wifi/anqp/Constants;->sRevAnqpmap:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -673,7 +663,7 @@
     .param p0, "elementType"    # Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
 
     .prologue
-    .line 153
+    .line 145
     sget-object v0, Lcom/android/server/wifi/anqp/Constants;->sRevHs20map:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -696,23 +686,23 @@
 
     const/4 v3, 0x0
 
-    .line 173
+    .line 149
     new-array v2, p2, [B
 
-    .line 174
+    .line 150
     .local v2, "octets":[B
     invoke-virtual {p0, v2}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
-    .line 175
+    .line 151
     const-wide/16 v4, 0x0
 
-    .line 176
+    .line 152
     .local v4, "value":J
     sget-object v6, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     if-ne p1, v6, :cond_0
 
-    .line 177
+    .line 153
     array-length v3, v2
 
     add-int/lit8 v0, v3, -0x1
@@ -721,7 +711,7 @@
     :goto_0
     if-ltz v0, :cond_1
 
-    .line 178
+    .line 154
     shl-long v6, v4, v12
 
     aget-byte v3, v2, v0
@@ -732,12 +722,12 @@
 
     or-long v4, v6, v8
 
-    .line 177
+    .line 153
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 182
+    .line 158
     .end local v0    # "n":I
     :cond_0
     array-length v6, v2
@@ -747,7 +737,7 @@
 
     aget-byte v1, v2, v3
 
-    .line 183
+    .line 159
     .local v1, "octet":B
     shl-long v8, v4, v12
 
@@ -757,12 +747,12 @@
 
     or-long v4, v8, v10
 
-    .line 182
+    .line 158
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 186
+    .line 162
     .end local v1    # "octet":B
     :cond_1
     return-wide v4
@@ -780,7 +770,7 @@
     .end annotation
 
     .prologue
-    .line 191
+    .line 167
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, v0}, Lcom/android/server/wifi/anqp/Constants;->getPrefixedString(Ljava/nio/ByteBuffer;ILjava/nio/charset/Charset;Z)Ljava/lang/String;
@@ -803,14 +793,14 @@
     .end annotation
 
     .prologue
-    .line 196
+    .line 172
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v0
 
     if-ge v0, p1, :cond_0
 
-    .line 197
+    .line 173
     new-instance v0, Ljava/net/ProtocolException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -839,7 +829,7 @@
 
     throw v0
 
-    .line 199
+    .line 175
     :cond_0
     sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
@@ -868,7 +858,7 @@
     .end annotation
 
     .prologue
-    .line 218
+    .line 181
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, v0}, Lcom/android/server/wifi/anqp/Constants;->getString(Ljava/nio/ByteBuffer;ILjava/nio/charset/Charset;Z)Ljava/lang/String;
@@ -891,14 +881,14 @@
     .end annotation
 
     .prologue
-    .line 223
+    .line 186
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v1
 
     if-le p1, v1, :cond_0
 
-    .line 224
+    .line 187
     new-instance v1, Ljava/net/ProtocolException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -923,26 +913,26 @@
 
     throw v1
 
-    .line 226
+    .line 189
     :cond_0
     if-eqz p3, :cond_1
 
     if-nez p1, :cond_1
 
-    .line 227
+    .line 190
     const/4 v1, 0x0
 
     return-object v1
 
-    .line 229
+    .line 192
     :cond_1
     new-array v0, p1, [B
 
-    .line 230
+    .line 193
     .local v0, "octets":[B
     invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
-    .line 231
+    .line 194
     new-instance v1, Ljava/lang/String;
 
     invoke-direct {v1, v0, p2}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
@@ -950,158 +940,12 @@
     return-object v1
 .end method
 
-.method public static getTrimmedString(Ljava/nio/ByteBuffer;ILjava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 4
-    .param p0, "payload"    # Ljava/nio/ByteBuffer;
-    .param p1, "length"    # I
-    .param p2, "charset"    # Ljava/nio/charset/Charset;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/net/ProtocolException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 205
-    invoke-static {p0, p1, p2, v3}, Lcom/android/server/wifi/anqp/Constants;->getString(Ljava/nio/ByteBuffer;ILjava/nio/charset/Charset;Z)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 206
-    .local v0, "s":Ljava/lang/String;
-    add-int/lit8 v1, p1, -0x1
-
-    .line 207
-    .local v1, "zero":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 208
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    .line 213
-    :cond_0
-    add-int/lit8 v2, p1, -0x1
-
-    if-ge v1, v2, :cond_1
-
-    add-int/lit8 v2, v1, 0x1
-
-    invoke-virtual {v0, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    .end local v0    # "s":Ljava/lang/String;
-    :cond_1
-    return-object v0
-
-    .line 211
-    .restart local v0    # "s":Ljava/lang/String;
-    :cond_2
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-.end method
-
-.method public static hasBaseANQPElements(Ljava/util/Collection;)Z
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Collection",
-            "<",
-            "Lcom/android/server/wifi/anqp/Constants$ANQPElementType;",
-            ">;)Z"
-        }
-    .end annotation
-
-    .prologue
-    .local p0, "elements":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/android/server/wifi/anqp/Constants$ANQPElementType;>;"
-    const/4 v3, 0x0
-
-    .line 157
-    if-nez p0, :cond_0
-
-    .line 158
-    return v3
-
-    .line 160
-    :cond_0
-    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, "element$iterator":Ljava/util/Iterator;
-    :cond_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
-
-    .line 161
-    .local v0, "element":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
-    sget-object v2, Lcom/android/server/wifi/anqp/Constants;->sRevAnqpmap:Ljava/util/Map;
-
-    invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 162
-    const/4 v2, 0x1
-
-    return v2
-
-    .line 165
-    .end local v0    # "element":Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
-    :cond_2
-    return v3
-.end method
-
-.method public static hasR2Elements(Ljava/util/List;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lcom/android/server/wifi/anqp/Constants$ANQPElementType;",
-            ">;)Z"
-        }
-    .end annotation
-
-    .prologue
-    .line 169
-    .local p0, "elements":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/wifi/anqp/Constants$ANQPElementType;>;"
-    sget-object v0, Lcom/android/server/wifi/anqp/Constants$ANQPElementType;->HSOSUProviders:Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
-
-    invoke-interface {p0, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public static mapANQPElement(I)Lcom/android/server/wifi/anqp/Constants$ANQPElementType;
     .locals 2
     .param p0, "id"    # I
 
     .prologue
-    .line 141
+    .line 133
     sget-object v0, Lcom/android/server/wifi/anqp/Constants;->sAnqpMap:Ljava/util/Map;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1122,7 +966,7 @@
     .param p0, "id"    # I
 
     .prologue
-    .line 145
+    .line 137
     sget-object v0, Lcom/android/server/wifi/anqp/Constants;->sHs20Map:Ljava/util/Map;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;

@@ -3,14 +3,6 @@
 .source "KeyguardStateMonitor.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/policy/keyguard/KeyguardStateMonitor$OnShowingStateChangedCallback;
-    }
-.end annotation
-
-
 # static fields
 .field private static final TAG:Ljava/lang/String; = "KeyguardStateMonitor"
 
@@ -18,34 +10,27 @@
 # instance fields
 .field private mCurrentUserId:I
 
-.field private volatile mHasLockscreenWallpaper:Z
-
 .field private volatile mInputRestricted:Z
 
 .field private volatile mIsShowing:Z
 
-.field private final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+.field private volatile mKeyguardPanelFocused:Z
 
-.field private final mOnShowingStateChangedCallback:Lcom/android/server/policy/keyguard/KeyguardStateMonitor$OnShowingStateChangedCallback;
+.field private final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
 .field private volatile mSimSecure:Z
 
-.field private volatile mTrusted:Z
-
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/internal/policy/IKeyguardService;Lcom/android/server/policy/keyguard/KeyguardStateMonitor$OnShowingStateChangedCallback;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/internal/policy/IKeyguardService;)V
     .locals 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "service"    # Lcom/android/internal/policy/IKeyguardService;
-    .param p3, "showingStateChangedCallback"    # Lcom/android/server/policy/keyguard/KeyguardStateMonitor$OnShowingStateChangedCallback;
 
     .prologue
-    const/4 v2, 0x0
-
     const/4 v1, 0x1
 
-    .line 54
+    .line 52
     invoke-direct {p0}, Lcom/android/internal/policy/IKeyguardStateCallback$Stub;-><init>()V
 
     .line 43
@@ -58,43 +43,39 @@
     iput-boolean v1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mInputRestricted:Z
 
     .line 46
-    iput-boolean v2, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mTrusted:Z
+    const/4 v1, 0x0
 
-    .line 47
-    iput-boolean v2, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mHasLockscreenWallpaper:Z
+    iput-boolean v1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mKeyguardPanelFocused:Z
 
-    .line 56
+    .line 53
     new-instance v1, Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-direct {v1, p1}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    .line 57
+    .line 54
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mCurrentUserId:I
 
-    .line 58
-    iput-object p3, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mOnShowingStateChangedCallback:Lcom/android/server/policy/keyguard/KeyguardStateMonitor$OnShowingStateChangedCallback;
-
-    .line 60
+    .line 56
     :try_start_0
     invoke-interface {p2, p0}, Lcom/android/internal/policy/IKeyguardService;->addStateMonitorCallback(Lcom/android/internal/policy/IKeyguardStateCallback;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 55
+    .line 52
     :goto_0
     return-void
 
-    .line 61
+    .line 57
     :catch_0
     move-exception v0
 
-    .line 62
+    .line 58
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyguardStateMonitor"
 
@@ -111,7 +92,7 @@
     .prologue
     monitor-enter p0
 
-    .line 102
+    .line 98
     :try_start_0
     iget v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mCurrentUserId:I
     :try_end_0
@@ -137,7 +118,7 @@
     .param p2, "pw"    # Ljava/io/PrintWriter;
 
     .prologue
-    .line 121
+    .line 107
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -158,7 +139,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 122
+    .line 108
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -177,7 +158,7 @@
 
     move-result-object p1
 
-    .line 123
+    .line 109
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -204,7 +185,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 124
+    .line 110
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -231,7 +212,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 125
+    .line 111
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -258,34 +239,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 126
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "mTrusted="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-boolean v1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mTrusted:Z
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 127
+    .line 112
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -312,39 +266,69 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 120
+    .line 113
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "mKeyguardPanelFocused="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mKeyguardPanelFocused:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 106
     return-void
-.end method
-
-.method public hasLockscreenWallpaper()Z
-    .locals 1
-
-    .prologue
-    .line 83
-    iget-boolean v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mHasLockscreenWallpaper:Z
-
-    return v0
 .end method
 
 .method public isInputRestricted()Z
     .locals 1
 
     .prologue
-    .line 75
+    .line 71
     iget-boolean v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mInputRestricted:Z
 
     return v0
 .end method
 
-.method public isSecure(I)Z
+.method public isKeyguardPanelFocused()Z
     .locals 1
-    .param p1, "userId"    # I
 
     .prologue
-    .line 71
+    .line 75
+    iget-boolean v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mKeyguardPanelFocused:Z
+
+    return v0
+.end method
+
+.method public isSecure()Z
+    .locals 2
+
+    .prologue
+    .line 67
     iget-object v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
+    invoke-direct {p0}, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->getCurrentUser()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
 
     move-result v0
 
@@ -365,32 +349,10 @@
     .locals 1
 
     .prologue
-    .line 67
+    .line 63
     iget-boolean v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mIsShowing:Z
 
     return v0
-.end method
-
-.method public isTrusted()Z
-    .locals 1
-
-    .prologue
-    .line 79
-    iget-boolean v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mTrusted:Z
-
-    return v0
-.end method
-
-.method public onHasLockscreenWallpaperChanged(Z)V
-    .locals 0
-    .param p1, "hasLockscreenWallpaper"    # Z
-
-    .prologue
-    .line 117
-    iput-boolean p1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mHasLockscreenWallpaper:Z
-
-    .line 116
-    return-void
 .end method
 
 .method public onInputRestrictedStateChanged(Z)V
@@ -398,27 +360,34 @@
     .param p1, "inputRestricted"    # Z
 
     .prologue
-    .line 107
+    .line 103
     iput-boolean p1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mInputRestricted:Z
 
-    .line 106
+    .line 102
+    return-void
+.end method
+
+.method public onKeyguardPanelFocusChanged(Z)V
+    .locals 0
+    .param p1, "focused"    # Z
+
+    .prologue
+    .line 90
+    iput-boolean p1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mKeyguardPanelFocused:Z
+
+    .line 89
     return-void
 .end method
 
 .method public onShowingStateChanged(Z)V
-    .locals 1
+    .locals 0
     .param p1, "showing"    # Z
 
     .prologue
-    .line 88
+    .line 80
     iput-boolean p1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mIsShowing:Z
 
-    .line 89
-    iget-object v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mOnShowingStateChangedCallback:Lcom/android/server/policy/keyguard/KeyguardStateMonitor$OnShowingStateChangedCallback;
-
-    invoke-interface {v0, p1}, Lcom/android/server/policy/keyguard/KeyguardStateMonitor$OnShowingStateChangedCallback;->onShowingStateChanged(Z)V
-
-    .line 87
+    .line 79
     return-void
 .end method
 
@@ -427,22 +396,10 @@
     .param p1, "simSecure"    # Z
 
     .prologue
-    .line 94
+    .line 85
     iput-boolean p1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mSimSecure:Z
 
-    .line 93
-    return-void
-.end method
-
-.method public onTrustedChanged(Z)V
-    .locals 0
-    .param p1, "trusted"    # Z
-
-    .prologue
-    .line 112
-    iput-boolean p1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mTrusted:Z
-
-    .line 111
+    .line 84
     return-void
 .end method
 
@@ -453,7 +410,7 @@
     .prologue
     monitor-enter p0
 
-    .line 98
+    .line 94
     :try_start_0
     iput p1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mCurrentUserId:I
     :try_end_0
@@ -461,7 +418,7 @@
 
     monitor-exit p0
 
-    .line 97
+    .line 93
     return-void
 
     :catchall_0

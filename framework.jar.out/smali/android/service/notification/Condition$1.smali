@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 226
+    .line 167
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,14 +41,16 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/service/notification/Condition;
-    .locals 1
+    .locals 2
     .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
-    .line 229
+    .line 170
     new-instance v0, Landroid/service/notification/Condition;
 
-    invoke-direct {v0, p1}, Landroid/service/notification/Condition;-><init>(Landroid/os/Parcel;)V
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p1, v1}, Landroid/service/notification/Condition;-><init>(Landroid/os/Parcel;Landroid/service/notification/Condition;)V
 
     return-object v0
 .end method
@@ -58,7 +60,7 @@
     .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
-    .line 228
+    .line 169
     invoke-virtual {p0, p1}, Landroid/service/notification/Condition$1;->createFromParcel(Landroid/os/Parcel;)Landroid/service/notification/Condition;
 
     move-result-object v0
@@ -71,7 +73,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 234
+    .line 175
     new-array v0, p1, [Landroid/service/notification/Condition;
 
     return-object v0
@@ -82,7 +84,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 233
+    .line 174
     invoke-virtual {p0, p1}, Landroid/service/notification/Condition$1;->newArray(I)[Landroid/service/notification/Condition;
 
     move-result-object v0

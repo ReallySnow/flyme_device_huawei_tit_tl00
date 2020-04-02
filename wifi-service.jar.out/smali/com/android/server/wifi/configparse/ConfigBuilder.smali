@@ -4,9 +4,9 @@
 
 
 # static fields
-.field private static final synthetic -com-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues:[I = null
+.field private static synthetic -com_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues:[I = null
 
-.field private static final synthetic -com-android-server-wifi-anqp-eap-NonEAPInnerAuth$NonEAPTypeSwitchesValues:[I = null
+.field private static synthetic -com_android_server_wifi_anqp_eap_NonEAPInnerAuth$NonEAPTypeSwitchesValues:[I = null
 
 .field private static final CATag:Ljava/lang/String; = "application/x-x509-ca-cert"
 
@@ -22,14 +22,14 @@
 
 
 # direct methods
-.method private static synthetic -getcom-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues()[I
+.method private static synthetic -getcom_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues()[I
     .locals 3
 
-    sget-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues:[I
+    sget-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues:[I
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues:[I
+    sget-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues:[I
 
     return-object v0
 
@@ -462,7 +462,7 @@
     .catch Ljava/lang/NoSuchFieldError; {:try_start_1d .. :try_end_1d} :catch_0
 
     :goto_1d
-    sput-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues:[I
+    sput-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues:[I
 
     return-object v0
 
@@ -617,14 +617,14 @@
     goto/16 :goto_0
 .end method
 
-.method private static synthetic -getcom-android-server-wifi-anqp-eap-NonEAPInnerAuth$NonEAPTypeSwitchesValues()[I
+.method private static synthetic -getcom_android_server_wifi_anqp_eap_NonEAPInnerAuth$NonEAPTypeSwitchesValues()[I
     .locals 3
 
-    sget-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com-android-server-wifi-anqp-eap-NonEAPInnerAuth$NonEAPTypeSwitchesValues:[I
+    sget-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com_android_server_wifi_anqp_eap_NonEAPInnerAuth$NonEAPTypeSwitchesValues:[I
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com-android-server-wifi-anqp-eap-NonEAPInnerAuth$NonEAPTypeSwitchesValues:[I
+    sget-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com_android_server_wifi_anqp_eap_NonEAPInnerAuth$NonEAPTypeSwitchesValues:[I
 
     return-object v0
 
@@ -707,7 +707,7 @@
     .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_0
 
     :goto_4
-    sput-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com-android-server-wifi-anqp-eap-NonEAPInnerAuth$NonEAPTypeSwitchesValues:[I
+    sput-object v0, Lcom/android/server/wifi/configparse/ConfigBuilder;->-com_android_server_wifi_anqp_eap_NonEAPInnerAuth$NonEAPTypeSwitchesValues:[I
 
     return-object v0
 
@@ -741,7 +741,7 @@
     .locals 0
 
     .prologue
-    .line 40
+    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -757,7 +757,7 @@
     .end annotation
 
     .prologue
-    .line 346
+    .line 332
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/pps/HomeSP;->getCredential()Lcom/android/server/wifi/hotspot2/pps/Credential;
 
     move-result-object v8
@@ -770,13 +770,13 @@
 
     move-result-object v1
 
-    .line 348
+    .line 334
     .local v1, "eapMethodID":Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;
     new-instance v0, Landroid/net/wifi/WifiConfiguration;
 
     invoke-direct {v0}, Landroid/net/wifi/WifiConfiguration;-><init>()V
 
-    .line 350
+    .line 336
     .local v0, "config":Landroid/net/wifi/WifiConfiguration;
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/pps/HomeSP;->getFQDN()Ljava/lang/String;
 
@@ -784,12 +784,12 @@
 
     iput-object v8, v0, Landroid/net/wifi/WifiConfiguration;->FQDN:Ljava/lang/String;
 
-    .line 352
+    .line 338
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/pps/HomeSP;->getRoamingConsortiums()Ljava/util/HashSet;
 
     move-result-object v7
 
-    .line 353
+    .line 339
     .local v7, "roamingConsortiumIds":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/Long;>;"
     invoke-virtual {v7}, Ljava/util/HashSet;->size()I
 
@@ -799,10 +799,10 @@
 
     iput-object v8, v0, Landroid/net/wifi/WifiConfiguration;->roamingConsortiumIds:[J
 
-    .line 354
+    .line 340
     const/4 v3, 0x0
 
-    .line 355
+    .line 341
     .local v3, "i":I
     invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -826,18 +826,18 @@
 
     move-result-wide v4
 
-    .line 356
+    .line 342
     .local v4, "id":J
     iget-object v8, v0, Landroid/net/wifi/WifiConfiguration;->roamingConsortiumIds:[J
 
     aput-wide v4, v8, v3
 
-    .line 357
+    .line 343
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 359
+    .line 345
     .end local v4    # "id":J
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/pps/HomeSP;->getFriendlyName()Ljava/lang/String;
@@ -846,26 +846,26 @@
 
     iput-object v8, v0, Landroid/net/wifi/WifiConfiguration;->providerFriendlyName:Ljava/lang/String;
 
-    .line 361
+    .line 347
     iget-object v8, v0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
     const/4 v9, 0x2
 
     invoke-virtual {v8, v9}, Ljava/util/BitSet;->set(I)V
 
-    .line 362
+    .line 348
     iget-object v8, v0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
     const/4 v9, 0x3
 
     invoke-virtual {v8, v9}, Ljava/util/BitSet;->set(I)V
 
-    .line 364
+    .line 350
     new-instance v2, Landroid/net/wifi/WifiEnterpriseConfig;
 
     invoke-direct {v2}, Landroid/net/wifi/WifiEnterpriseConfig;-><init>()V
 
-    .line 365
+    .line 351
     .local v2, "enterpriseConfig":Landroid/net/wifi/WifiEnterpriseConfig;
     invoke-static {v1}, Lcom/android/server/wifi/configparse/ConfigBuilder;->remapEAPMethod(Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;)I
 
@@ -873,7 +873,7 @@
 
     invoke-virtual {v2, v8}, Landroid/net/wifi/WifiEnterpriseConfig;->setEapMethod(I)V
 
-    .line 366
+    .line 352
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/pps/HomeSP;->getCredential()Lcom/android/server/wifi/hotspot2/pps/Credential;
 
     move-result-object v8
@@ -884,33 +884,30 @@
 
     invoke-virtual {v2, v8}, Landroid/net/wifi/WifiEnterpriseConfig;->setRealm(Ljava/lang/String;)V
 
-    .line 367
+    .line 353
     iput-object v2, v0, Landroid/net/wifi/WifiConfiguration;->enterpriseConfig:Landroid/net/wifi/WifiEnterpriseConfig;
 
-    .line 369
-    const/4 v8, 0x0
-
-    iput-object v8, v0, Landroid/net/wifi/WifiConfiguration;->updateIdentifier:Ljava/lang/String;
-
-    .line 371
+    .line 355
     return-object v0
 .end method
 
-.method private static buildConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;Ljava/security/cert/X509Certificate;Ljava/util/List;Ljava/security/PrivateKey;)Landroid/net/wifi/WifiConfiguration;
-    .locals 5
-    .param p0, "homeSP"    # Lcom/android/server/wifi/hotspot2/pps/HomeSP;
+.method private static buildConfig(Ljava/lang/String;Ljava/security/cert/X509Certificate;Ljava/util/List;Ljava/security/PrivateKey;Landroid/content/Context;)Landroid/net/wifi/WifiConfiguration;
+    .locals 8
+    .param p0, "text"    # Ljava/lang/String;
     .param p1, "caCert"    # Ljava/security/cert/X509Certificate;
     .param p3, "key"    # Ljava/security/PrivateKey;
+    .param p4, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/server/wifi/hotspot2/pps/HomeSP;",
+            "Ljava/lang/String;",
             "Ljava/security/cert/X509Certificate;",
             "Ljava/util/List",
             "<",
             "Ljava/security/cert/X509Certificate;",
             ">;",
             "Ljava/security/PrivateKey;",
+            "Landroid/content/Context;",
             ")",
             "Landroid/net/wifi/WifiConfiguration;"
         }
@@ -919,158 +916,205 @@
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
+            Lorg/xml/sax/SAXException;,
             Ljava/security/GeneralSecurityException;
         }
     .end annotation
 
     .prologue
-    .line 168
+    .line 172
     .local p2, "clientChain":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
-    invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/pps/HomeSP;->getCredential()Lcom/android/server/wifi/hotspot2/pps/Credential;
+    invoke-static {p0}, Lcom/android/server/wifi/hotspot2/omadm/MOManager;->buildSP(Ljava/lang/String;)Lcom/android/server/wifi/hotspot2/pps/HomeSP;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getEAPMethod()Lcom/android/server/wifi/anqp/eap/EAPMethod;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/server/wifi/anqp/eap/EAPMethod;->getEAPMethodID()Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;
+    .line 173
+    .local v4, "homeSP":Lcom/android/server/wifi/hotspot2/pps/HomeSP;
+    invoke-virtual {v4}, Lcom/android/server/wifi/hotspot2/pps/HomeSP;->getCredential()Lcom/android/server/wifi/hotspot2/pps/Credential;
 
     move-result-object v1
 
-    .line 169
-    .local v1, "eapMethodID":Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;
-    invoke-static {}, Lcom/android/server/wifi/configparse/ConfigBuilder;->-getcom-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues()[I
+    .line 177
+    .local v1, "credential":Lcom/android/server/wifi/hotspot2/pps/Credential;
+    invoke-virtual {v1}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getEAPMethod()Lcom/android/server/wifi/anqp/eap/EAPMethod;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/server/wifi/anqp/eap/EAPMethod;->getEAPMethodID()Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;
 
     move-result-object v2
 
-    invoke-virtual {v1}, Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;->ordinal()I
+    .line 178
+    .local v2, "eapMethodID":Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;
+    invoke-static {}, Lcom/android/server/wifi/configparse/ConfigBuilder;->-getcom_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues()[I
 
-    move-result v3
+    move-result-object v5
 
-    aget v2, v2, v3
+    invoke-virtual {v2}, Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;->ordinal()I
 
-    packed-switch v2, :pswitch_data_0
+    move-result v6
 
-    .line 190
-    new-instance v2, Ljava/io/IOException;
+    aget v5, v5, v6
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    packed-switch v5, :pswitch_data_0
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    .line 198
+    new-instance v5, Ljava/io/IOException;
 
-    const-string/jumbo v4, "Unsupported EAP Method: "
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v3
+    const-string/jumbo v7, "Unsupported EAP Method: "
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-direct {v2, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v2
+    move-result-object v6
 
-    .line 171
+    invoke-direct {v5, v6}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v5
+
+    .line 180
     :pswitch_0
     if-nez p3, :cond_0
 
     if-eqz p2, :cond_1
 
-    .line 172
+    .line 181
     :cond_0
-    const-string/jumbo v2, "WCFG"
+    const-string/jumbo v5, "WCFG"
 
-    const-string/jumbo v3, "Client cert and/or key unnecessarily included with EAP-TTLS profile"
+    const-string/jumbo v6, "Client cert and/or key included with EAP-TTLS profile"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 175
+    .line 183
     :cond_1
-    invoke-static {p0, p1}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildTTLSConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;Ljava/security/cert/X509Certificate;)Landroid/net/wifi/WifiConfiguration;
+    invoke-static {v4}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildTTLSConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;)Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v0
 
-    .line 193
+    .line 201
     .local v0, "config":Landroid/net/wifi/WifiConfiguration;
     :goto_0
+    iget-object v3, v0, Landroid/net/wifi/WifiConfiguration;->enterpriseConfig:Landroid/net/wifi/WifiEnterpriseConfig;
+
+    .line 203
+    .local v3, "enterpriseConfig":Landroid/net/wifi/WifiEnterpriseConfig;
+    invoke-virtual {v3, p1}, Landroid/net/wifi/WifiEnterpriseConfig;->setCaCertificate(Ljava/security/cert/X509Certificate;)V
+
+    .line 204
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "anonymous@"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v1}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getRealm()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v5}, Landroid/net/wifi/WifiEnterpriseConfig;->setAnonymousIdentity(Ljava/lang/String;)V
+
+    .line 205
+    invoke-virtual {v1}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getRealm()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v5}, Landroid/net/wifi/WifiEnterpriseConfig;->setRealm(Ljava/lang/String;)V
+
+    .line 207
     return-object v0
 
-    .line 178
+    .line 186
     .end local v0    # "config":Landroid/net/wifi/WifiConfiguration;
+    .end local v3    # "enterpriseConfig":Landroid/net/wifi/WifiEnterpriseConfig;
     :pswitch_1
-    invoke-static {p0, p2, p3, p1}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildTLSConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;Ljava/util/List;Ljava/security/PrivateKey;Ljava/security/cert/X509Certificate;)Landroid/net/wifi/WifiConfiguration;
+    invoke-static {v4, p2, p3}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildTLSConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;Ljava/util/List;Ljava/security/PrivateKey;)Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v0
 
     .restart local v0    # "config":Landroid/net/wifi/WifiConfiguration;
     goto :goto_0
 
-    .line 183
+    .line 191
     .end local v0    # "config":Landroid/net/wifi/WifiConfiguration;
     :pswitch_2
     if-nez p3, :cond_2
 
     if-eqz p2, :cond_4
 
-    .line 184
+    .line 192
     :cond_2
     :goto_1
-    const-string/jumbo v2, "WCFG"
+    const-string/jumbo v5, "WCFG"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "Client/CA cert and/or key unnecessarily included with "
+    const-string/jumbo v7, "Client/CA cert and/or key included with "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    .line 185
-    const-string/jumbo v4, " profile"
+    .line 193
+    const-string/jumbo v7, " profile"
 
-    .line 184
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 192
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 187
+    .line 195
     :cond_3
-    invoke-static {p0}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildSIMConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;)Landroid/net/wifi/WifiConfiguration;
+    invoke-static {v4, p4}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildSIMConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;Landroid/content/Context;)Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v0
 
     .restart local v0    # "config":Landroid/net/wifi/WifiConfiguration;
     goto :goto_0
 
-    .line 183
+    .line 191
     .end local v0    # "config":Landroid/net/wifi/WifiConfiguration;
     :cond_4
     if-eqz p1, :cond_3
 
     goto :goto_1
 
-    .line 169
-    nop
-
+    .line 178
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_2
@@ -1099,7 +1143,7 @@
 
     const/4 v8, 0x0
 
-    .line 52
+    .line 53
     const-string/jumbo v5, "WCFG"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1127,7 +1171,7 @@
 
     invoke-static {v5, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 54
+    .line 55
     new-instance v4, Ljava/lang/String;
 
     sget-object v5, Ljava/nio/charset/StandardCharsets;->ISO_8859_1:Ljava/nio/charset/Charset;
@@ -1138,7 +1182,7 @@
 
     move-result-object v0
 
-    .line 55
+    .line 56
     .local v0, "b64":[B
     const-string/jumbo v4, "WCFG"
 
@@ -1170,13 +1214,20 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 57
+    .line 58
+    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    invoke-static {v4, p2}, Lcom/android/server/wifi/configparse/ConfigBuilder;->dropFile(Landroid/net/Uri;Landroid/content/Context;)V
+
+    .line 60
     new-instance v2, Lcom/android/server/wifi/configparse/MIMEContainer;
 
-    .line 58
+    .line 61
     new-instance v4, Ljava/io/LineNumberReader;
 
-    .line 59
+    .line 62
     new-instance v5, Ljava/io/InputStreamReader;
 
     new-instance v6, Ljava/io/ByteArrayInputStream;
@@ -1187,13 +1238,13 @@
 
     invoke-direct {v5, v6, v7}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
 
-    .line 58
+    .line 61
     invoke-direct {v4, v5}, Ljava/io/LineNumberReader;-><init>(Ljava/io/Reader;)V
 
-    .line 57
+    .line 60
     invoke-direct {v2, v4, v8}, Lcom/android/server/wifi/configparse/MIMEContainer;-><init>(Ljava/io/LineNumberReader;Ljava/lang/String;)V
 
-    .line 61
+    .line 64
     .local v2, "mimeContainer":Lcom/android/server/wifi/configparse/MIMEContainer;
     invoke-virtual {v2}, Lcom/android/server/wifi/configparse/MIMEContainer;->isBase64()Z
 
@@ -1201,7 +1252,7 @@
 
     if-nez v4, :cond_1
 
-    .line 62
+    .line 65
     new-instance v4, Ljava/io/IOException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1214,20 +1265,20 @@
 
     move-result-object v5
 
-    .line 63
+    .line 66
     invoke-virtual {v2}, Lcom/android/server/wifi/configparse/MIMEContainer;->getContentType()Ljava/lang/String;
 
     move-result-object v6
 
-    .line 62
+    .line 65
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 63
+    .line 66
     const-string/jumbo v6, " is not base64"
 
-    .line 62
+    .line 65
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -1240,15 +1291,15 @@
 
     throw v4
 
-    .line 52
+    .line 53
     .end local v0    # "b64":[B
     .end local v2    # "mimeContainer":Lcom/android/server/wifi/configparse/MIMEContainer;
     :cond_0
     const/4 v4, -0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 66
+    .line 69
     .restart local v0    # "b64":[B
     .restart local v2    # "mimeContainer":Lcom/android/server/wifi/configparse/MIMEContainer;
     :cond_1
@@ -1264,7 +1315,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 67
+    .line 70
     invoke-virtual {v2}, Lcom/android/server/wifi/configparse/MIMEContainer;->getText()Ljava/lang/String;
 
     move-result-object v4
@@ -1273,7 +1324,7 @@
 
     move-result-object v3
 
-    .line 68
+    .line 71
     .local v3, "wrappedContent":[B
     const-string/jumbo v4, "WCFG"
 
@@ -1287,22 +1338,22 @@
 
     move-result-object v5
 
-    .line 69
+    .line 72
     new-instance v6, Ljava/lang/String;
 
     sget-object v7, Ljava/nio/charset/StandardCharsets;->ISO_8859_1:Ljava/nio/charset/Charset;
 
     invoke-direct {v6, v3, v7}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
 
-    .line 68
+    .line 71
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 69
+    .line 72
     const-string/jumbo v6, "\'"
 
-    .line 68
+    .line 71
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -1313,40 +1364,40 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 70
+    .line 73
     new-instance v1, Lcom/android/server/wifi/configparse/MIMEContainer;
 
     new-instance v4, Ljava/io/LineNumberReader;
 
-    .line 71
+    .line 74
     new-instance v5, Ljava/io/InputStreamReader;
 
     new-instance v6, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v6, v3}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    .line 72
+    .line 75
     sget-object v7, Ljava/nio/charset/StandardCharsets;->ISO_8859_1:Ljava/nio/charset/Charset;
 
-    .line 71
+    .line 74
     invoke-direct {v5, v6, v7}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
 
-    .line 70
+    .line 73
     invoke-direct {v4, v5}, Ljava/io/LineNumberReader;-><init>(Ljava/io/Reader;)V
 
     invoke-direct {v1, v4, v8}, Lcom/android/server/wifi/configparse/MIMEContainer;-><init>(Ljava/io/LineNumberReader;Ljava/lang/String;)V
 
-    .line 77
+    .line 80
     .end local v3    # "wrappedContent":[B
     .local v1, "inner":Lcom/android/server/wifi/configparse/MIMEContainer;
     :goto_1
-    invoke-static {v1}, Lcom/android/server/wifi/configparse/ConfigBuilder;->parse(Lcom/android/server/wifi/configparse/MIMEContainer;)Landroid/net/wifi/WifiConfiguration;
+    invoke-static {v1, p2}, Lcom/android/server/wifi/configparse/ConfigBuilder;->parse(Lcom/android/server/wifi/configparse/MIMEContainer;Landroid/content/Context;)Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v4
 
     return-object v4
 
-    .line 75
+    .line 78
     .end local v1    # "inner":Lcom/android/server/wifi/configparse/MIMEContainer;
     :cond_2
     move-object v1, v2
@@ -1355,9 +1406,10 @@
     goto :goto_1
 .end method
 
-.method private static buildSIMConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;)Landroid/net/wifi/WifiConfiguration;
+.method private static buildSIMConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;Landroid/content/Context;)Landroid/net/wifi/WifiConfiguration;
     .locals 5
     .param p0, "homeSP"    # Lcom/android/server/wifi/hotspot2/pps/HomeSP;
+    .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1365,24 +1417,24 @@
     .end annotation
 
     .prologue
-    .line 318
+    .line 304
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/pps/HomeSP;->getCredential()Lcom/android/server/wifi/hotspot2/pps/Credential;
 
     move-result-object v2
 
-    .line 319
+    .line 305
     .local v2, "credential":Lcom/android/server/wifi/hotspot2/pps/Credential;
     invoke-virtual {v2}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getImsi()Lcom/android/server/wifi/IMSIParameter;
 
     move-result-object v1
 
-    .line 340
+    .line 326
     .local v1, "credImsi":Lcom/android/server/wifi/IMSIParameter;
     invoke-static {p0}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildBaseConfiguration(Lcom/android/server/wifi/hotspot2/pps/HomeSP;)Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v0
 
-    .line 341
+    .line 327
     .local v0, "config":Landroid/net/wifi/WifiConfiguration;
     iget-object v3, v0, Landroid/net/wifi/WifiConfiguration;->enterpriseConfig:Landroid/net/wifi/WifiEnterpriseConfig;
 
@@ -1392,15 +1444,14 @@
 
     invoke-virtual {v3, v4}, Landroid/net/wifi/WifiEnterpriseConfig;->setPlmn(Ljava/lang/String;)V
 
-    .line 342
+    .line 328
     return-object v0
 .end method
 
-.method private static buildTLSConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;Ljava/util/List;Ljava/security/PrivateKey;Ljava/security/cert/X509Certificate;)Landroid/net/wifi/WifiConfiguration;
-    .locals 14
+.method private static buildTLSConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;Ljava/util/List;Ljava/security/PrivateKey;)Landroid/net/wifi/WifiConfiguration;
+    .locals 13
     .param p0, "homeSP"    # Lcom/android/server/wifi/hotspot2/pps/HomeSP;
     .param p2, "clientKey"    # Ljava/security/PrivateKey;
-    .param p3, "caCert"    # Ljava/security/cert/X509Certificate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1410,7 +1461,6 @@
             "Ljava/security/cert/X509Certificate;",
             ">;",
             "Ljava/security/PrivateKey;",
-            "Ljava/security/cert/X509Certificate;",
             ")",
             "Landroid/net/wifi/WifiConfiguration;"
         }
@@ -1424,190 +1474,179 @@
     .end annotation
 
     .prologue
-    .line 276
+    .line 265
     .local p1, "clientChain":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/pps/HomeSP;->getCredential()Lcom/android/server/wifi/hotspot2/pps/Credential;
 
-    move-result-object v6
+    move-result-object v5
 
-    .line 278
-    .local v6, "credential":Lcom/android/server/wifi/hotspot2/pps/Credential;
-    const/4 v4, 0x0
+    .line 267
+    .local v5, "credential":Lcom/android/server/wifi/hotspot2/pps/Credential;
+    const/4 v3, 0x0
 
-    .line 280
-    .local v4, "clientCertificate":Ljava/security/cert/X509Certificate;
+    .line 269
+    .local v3, "clientCertificate":Ljava/security/cert/X509Certificate;
     if-eqz p2, :cond_0
 
     if-nez p1, :cond_1
 
-    .line 281
+    .line 270
     :cond_0
-    new-instance v11, Ljava/io/IOException;
+    new-instance v10, Ljava/io/IOException;
 
-    const-string/jumbo v12, "No key and/or cert passed for EAP-TLS"
+    const-string/jumbo v11, "No key and/or cert passed for EAP-TLS"
 
-    invoke-direct {v11, v12}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v10, v11}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v11
+    throw v10
 
-    .line 283
+    .line 272
     :cond_1
-    invoke-virtual {v6}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getCertType()Lcom/android/server/wifi/hotspot2/pps/Credential$CertType;
-
-    move-result-object v11
-
-    sget-object v12, Lcom/android/server/wifi/hotspot2/pps/Credential$CertType;->x509v3:Lcom/android/server/wifi/hotspot2/pps/Credential$CertType;
-
-    if-eq v11, v12, :cond_2
-
-    .line 284
-    new-instance v11, Ljava/io/IOException;
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "Invalid certificate type for TLS: "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    .line 285
-    invoke-virtual {v6}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getCertType()Lcom/android/server/wifi/hotspot2/pps/Credential$CertType;
-
-    move-result-object v13
-
-    .line 284
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-direct {v11, v12}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v11
-
-    .line 288
-    :cond_2
-    invoke-virtual {v6}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getFingerPrint()[B
+    invoke-virtual {v5}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getCertType()Lcom/android/server/wifi/hotspot2/pps/Credential$CertType;
 
     move-result-object v10
 
-    .line 289
-    .local v10, "reference":[B
-    const-string/jumbo v11, "SHA-256"
+    sget-object v11, Lcom/android/server/wifi/hotspot2/pps/Credential$CertType;->x509v3:Lcom/android/server/wifi/hotspot2/pps/Credential$CertType;
 
-    invoke-static {v11}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+    if-eq v10, v11, :cond_2
 
-    move-result-object v7
+    .line 273
+    new-instance v10, Ljava/io/IOException;
 
-    .line 290
-    .local v7, "digester":Ljava/security/MessageDigest;
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    .local v3, "certificate$iterator":Ljava/util/Iterator;
-    :cond_3
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    const-string/jumbo v12, "Invalid certificate type for TLS: "
 
-    move-result v11
-
-    if-eqz v11, :cond_4
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/security/cert/X509Certificate;
-
-    .line 291
-    .local v2, "certificate":Ljava/security/cert/X509Certificate;
-    invoke-virtual {v7}, Ljava/security/MessageDigest;->reset()V
-
-    .line 292
-    invoke-virtual {v2}, Ljava/security/cert/X509Certificate;->getEncoded()[B
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v11
 
-    invoke-virtual {v7, v11}, Ljava/security/MessageDigest;->digest([B)[B
+    .line 274
+    invoke-virtual {v5}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getCertType()Lcom/android/server/wifi/hotspot2/pps/Credential$CertType;
+
+    move-result-object v12
+
+    .line 273
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-direct {v10, v11}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v10
+
+    .line 277
+    :cond_2
+    invoke-virtual {v5}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getFingerPrint()[B
 
     move-result-object v9
 
-    .line 293
-    .local v9, "fingerprint":[B
-    invoke-static {v10, v9}, Ljava/util/Arrays;->equals([B[B)Z
+    .line 278
+    .local v9, "reference":[B
+    const-string/jumbo v10, "SHA-256"
 
-    move-result v11
+    invoke-static {v10}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
-    if-eqz v11, :cond_3
+    move-result-object v6
 
-    .line 294
-    move-object v4, v2
+    .line 279
+    .local v6, "digester":Ljava/security/MessageDigest;
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    .line 298
-    .end local v2    # "certificate":Ljava/security/cert/X509Certificate;
-    .end local v4    # "clientCertificate":Ljava/security/cert/X509Certificate;
-    .end local v9    # "fingerprint":[B
-    :cond_4
-    if-nez v4, :cond_5
+    move-result-object v2
 
-    .line 299
-    new-instance v11, Ljava/io/IOException;
+    .local v2, "certificate$iterator":Ljava/util/Iterator;
+    :cond_3
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    const-string/jumbo v12, "No certificate in chain matches supplied fingerprint"
+    move-result v10
 
-    invoke-direct {v11, v12}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    if-eqz v10, :cond_4
 
-    throw v11
-
-    .line 302
-    :cond_5
-    const/4 v11, 0x0
-
-    invoke-static {v10, v11}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 304
-    .local v1, "alias":Ljava/lang/String;
+    check-cast v1, Ljava/security/cert/X509Certificate;
+
+    .line 280
+    .local v1, "certificate":Ljava/security/cert/X509Certificate;
+    invoke-virtual {v6}, Ljava/security/MessageDigest;->reset()V
+
+    .line 281
+    invoke-virtual {v1}, Ljava/security/cert/X509Certificate;->getEncoded()[B
+
+    move-result-object v10
+
+    invoke-virtual {v6, v10}, Ljava/security/MessageDigest;->digest([B)[B
+
+    move-result-object v8
+
+    .line 282
+    .local v8, "fingerprint":[B
+    invoke-static {v9, v8}, Ljava/util/Arrays;->equals([B[B)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_3
+
+    .line 283
+    move-object v3, v1
+
+    .line 287
+    .end local v1    # "certificate":Ljava/security/cert/X509Certificate;
+    .end local v3    # "clientCertificate":Ljava/security/cert/X509Certificate;
+    .end local v8    # "fingerprint":[B
+    :cond_4
+    if-nez v3, :cond_5
+
+    .line 288
+    new-instance v10, Ljava/io/IOException;
+
+    const-string/jumbo v11, "No certificate in chain matches supplied fingerprint"
+
+    invoke-direct {v10, v11}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v10
+
+    .line 291
+    :cond_5
+    const/4 v10, 0x0
+
+    invoke-static {v9, v10}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 293
+    .local v0, "alias":Ljava/lang/String;
     invoke-static {p0}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildBaseConfiguration(Lcom/android/server/wifi/hotspot2/pps/HomeSP;)Landroid/net/wifi/WifiConfiguration;
 
-    move-result-object v5
+    move-result-object v4
 
-    .line 305
-    .local v5, "config":Landroid/net/wifi/WifiConfiguration;
-    iget-object v8, v5, Landroid/net/wifi/WifiConfiguration;->enterpriseConfig:Landroid/net/wifi/WifiEnterpriseConfig;
+    .line 294
+    .local v4, "config":Landroid/net/wifi/WifiConfiguration;
+    iget-object v7, v4, Landroid/net/wifi/WifiConfiguration;->enterpriseConfig:Landroid/net/wifi/WifiEnterpriseConfig;
 
-    .line 306
-    .local v8, "enterpriseConfig":Landroid/net/wifi/WifiEnterpriseConfig;
-    invoke-virtual {v8, v1}, Landroid/net/wifi/WifiEnterpriseConfig;->setClientCertificateAlias(Ljava/lang/String;)V
+    .line 295
+    .local v7, "enterpriseConfig":Landroid/net/wifi/WifiEnterpriseConfig;
+    invoke-virtual {v7, v0}, Landroid/net/wifi/WifiEnterpriseConfig;->setClientCertificateAlias(Ljava/lang/String;)V
 
-    .line 307
-    move-object/from16 v0, p2
+    .line 296
+    invoke-virtual {v7, p2, v3}, Landroid/net/wifi/WifiEnterpriseConfig;->setClientKeyEntry(Ljava/security/PrivateKey;Ljava/security/cert/X509Certificate;)V
 
-    invoke-virtual {v8, v0, v4}, Landroid/net/wifi/WifiEnterpriseConfig;->setClientKeyEntry(Ljava/security/PrivateKey;Ljava/security/cert/X509Certificate;)V
-
-    .line 308
-    move-object/from16 v0, p3
-
-    invoke-virtual {v8, v0}, Landroid/net/wifi/WifiEnterpriseConfig;->setCaCertificate(Ljava/security/cert/X509Certificate;)V
-
-    .line 310
-    invoke-static {v5, v6}, Lcom/android/server/wifi/configparse/ConfigBuilder;->setAnonymousIdentityToNaiRealm(Landroid/net/wifi/WifiConfiguration;Lcom/android/server/wifi/hotspot2/pps/Credential;)V
-
-    .line 312
-    return-object v5
+    .line 298
+    return-object v4
 .end method
 
-.method private static buildTTLSConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;Ljava/security/cert/X509Certificate;)Landroid/net/wifi/WifiConfiguration;
+.method private static buildTTLSConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;)Landroid/net/wifi/WifiConfiguration;
     .locals 9
     .param p0, "homeSP"    # Lcom/android/server/wifi/hotspot2/pps/HomeSP;
-    .param p1, "caCert"    # Ljava/security/cert/X509Certificate;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1615,12 +1654,12 @@
     .end annotation
 
     .prologue
-    .line 243
+    .line 236
     invoke-virtual {p0}, Lcom/android/server/wifi/hotspot2/pps/HomeSP;->getCredential()Lcom/android/server/wifi/hotspot2/pps/Credential;
 
     move-result-object v2
 
-    .line 245
+    .line 238
     .local v2, "credential":Lcom/android/server/wifi/hotspot2/pps/Credential;
     invoke-virtual {v2}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getUserName()Ljava/lang/String;
 
@@ -1634,7 +1673,7 @@
 
     if-nez v6, :cond_1
 
-    .line 246
+    .line 239
     :cond_0
     new-instance v6, Ljava/io/IOException;
 
@@ -1644,23 +1683,23 @@
 
     throw v6
 
-    .line 249
+    .line 242
     :cond_1
     invoke-virtual {v2}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getEAPMethod()Lcom/android/server/wifi/anqp/eap/EAPMethod;
 
     move-result-object v3
 
-    .line 251
+    .line 244
     .local v3, "eapMethod":Lcom/android/server/wifi/anqp/eap/EAPMethod;
     invoke-virtual {v3}, Lcom/android/server/wifi/anqp/eap/EAPMethod;->getAuthParam()Lcom/android/server/wifi/anqp/eap/AuthParam;
 
     move-result-object v0
 
-    .line 252
+    .line 245
     .local v0, "authParam":Lcom/android/server/wifi/anqp/eap/AuthParam;
     if-eqz v0, :cond_2
 
-    .line 253
+    .line 246
     invoke-interface {v0}, Lcom/android/server/wifi/anqp/eap/AuthParam;->getAuthInfoID()Lcom/android/server/wifi/anqp/eap/EAP$AuthInfoID;
 
     move-result-object v6
@@ -1669,7 +1708,7 @@
 
     if-eq v6, v7, :cond_3
 
-    .line 254
+    .line 247
     :cond_2
     new-instance v6, Ljava/io/IOException;
 
@@ -1695,7 +1734,7 @@
 
     throw v6
 
-    .line 257
+    .line 250
     :cond_3
     invoke-static {p0}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildBaseConfiguration(Lcom/android/server/wifi/hotspot2/pps/HomeSP;)Landroid/net/wifi/WifiConfiguration;
 
@@ -1704,14 +1743,14 @@
     .local v1, "config":Landroid/net/wifi/WifiConfiguration;
     move-object v5, v0
 
-    .line 258
+    .line 251
     check-cast v5, Lcom/android/server/wifi/anqp/eap/NonEAPInnerAuth;
 
-    .line 259
+    .line 252
     .local v5, "ttlsParam":Lcom/android/server/wifi/anqp/eap/NonEAPInnerAuth;
     iget-object v4, v1, Landroid/net/wifi/WifiConfiguration;->enterpriseConfig:Landroid/net/wifi/WifiEnterpriseConfig;
 
-    .line 260
+    .line 253
     .local v4, "enterpriseConfig":Landroid/net/wifi/WifiEnterpriseConfig;
     invoke-virtual {v5}, Lcom/android/server/wifi/anqp/eap/NonEAPInnerAuth;->getType()Lcom/android/server/wifi/anqp/eap/NonEAPInnerAuth$NonEAPType;
 
@@ -1723,33 +1762,47 @@
 
     invoke-virtual {v4, v6}, Landroid/net/wifi/WifiEnterpriseConfig;->setPhase2Method(I)V
 
-    .line 261
+    .line 254
     invoke-virtual {v2}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getUserName()Ljava/lang/String;
 
     move-result-object v6
 
     invoke-virtual {v4, v6}, Landroid/net/wifi/WifiEnterpriseConfig;->setIdentity(Ljava/lang/String;)V
 
-    .line 262
+    .line 255
     invoke-virtual {v2}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getPassword()Ljava/lang/String;
 
     move-result-object v6
 
     invoke-virtual {v4, v6}, Landroid/net/wifi/WifiEnterpriseConfig;->setPassword(Ljava/lang/String;)V
 
-    .line 263
-    invoke-virtual {v4, p1}, Landroid/net/wifi/WifiEnterpriseConfig;->setCaCertificate(Ljava/security/cert/X509Certificate;)V
-
-    .line 265
-    invoke-static {v1, v2}, Lcom/android/server/wifi/configparse/ConfigBuilder;->setAnonymousIdentityToNaiRealm(Landroid/net/wifi/WifiConfiguration;Lcom/android/server/wifi/hotspot2/pps/Credential;)V
-
-    .line 267
+    .line 257
     return-object v1
 .end method
 
-.method private static parse(Lcom/android/server/wifi/configparse/MIMEContainer;)Landroid/net/wifi/WifiConfiguration;
-    .locals 22
+.method private static dropFile(Landroid/net/Uri;Landroid/content/Context;)V
+    .locals 2
+    .param p0, "uri"    # Landroid/net/Uri;
+    .param p1, "context"    # Landroid/content/Context;
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 84
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, v1, v1}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    .line 83
+    return-void
+.end method
+
+.method private static parse(Lcom/android/server/wifi/configparse/MIMEContainer;Landroid/content/Context;)Landroid/net/wifi/WifiConfiguration;
+    .locals 20
     .param p0, "root"    # Lcom/android/server/wifi/configparse/MIMEContainer;
+    .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1759,284 +1812,512 @@
     .end annotation
 
     .prologue
-    .line 83
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wifi/configparse/MIMEContainer;->getMimeContainers()Ljava/util/List;
-
-    move-result-object v17
-
-    if-nez v17, :cond_0
-
-    .line 84
-    new-instance v17, Ljava/io/IOException;
-
-    const-string/jumbo v18, "Malformed MIME content: not multipart"
-
-    invoke-direct/range {v17 .. v18}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v17
-
-    .line 87
-    :cond_0
-    const/4 v13, 0x0
-
-    .line 88
-    .local v13, "moText":Ljava/lang/String;
-    const/4 v4, 0x0
-
-    .line 89
-    .local v4, "caCert":Ljava/security/cert/X509Certificate;
-    const/4 v8, 0x0
-
     .line 90
-    .local v8, "clientKey":Ljava/security/PrivateKey;
-    const/4 v7, 0x0
-
-    .line 92
-    .local v7, "clientChain":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/wifi/configparse/MIMEContainer;->getMimeContainers()Ljava/util/List;
-
-    move-result-object v17
-
-    invoke-interface/range {v17 .. v17}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v16
-
-    .end local v4    # "caCert":Ljava/security/cert/X509Certificate;
-    .end local v7    # "clientChain":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
-    .end local v8    # "clientKey":Ljava/security/PrivateKey;
-    .end local v13    # "moText":Ljava/lang/String;
-    .local v16, "subContainer$iterator":Ljava/util/Iterator;
-    :cond_1
-    :goto_0
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_b
-
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v15
 
-    check-cast v15, Lcom/android/server/wifi/configparse/MIMEContainer;
+    if-nez v15, :cond_0
 
-    .line 93
-    .local v15, "subContainer":Lcom/android/server/wifi/configparse/MIMEContainer;
-    const-string/jumbo v17, "WCFG"
+    .line 91
+    new-instance v15, Ljava/io/IOException;
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    const-string/jumbo v16, "Malformed MIME content: not multipart"
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v15 .. v16}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v19, " + Content Type: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual {v15}, Lcom/android/server/wifi/configparse/MIMEContainer;->getContentType()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    throw v15
 
     .line 94
-    invoke-virtual {v15}, Lcom/android/server/wifi/configparse/MIMEContainer;->getContentType()Ljava/lang/String;
+    :cond_0
+    const/4 v11, 0x0
 
-    move-result-object v17
-
-    const-string/jumbo v18, "application/x-passpoint-profile"
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_2
+    .line 95
+    .local v11, "moText":Ljava/lang/String;
+    const/4 v3, 0x0
 
     .line 96
-    invoke-virtual {v15}, Lcom/android/server/wifi/configparse/MIMEContainer;->isBase64()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_4
+    .local v3, "caCert":Ljava/security/cert/X509Certificate;
+    const/4 v7, 0x0
 
     .line 97
-    invoke-virtual {v15}, Lcom/android/server/wifi/configparse/MIMEContainer;->getText()Ljava/lang/String;
+    .local v7, "clientKey":Ljava/security/PrivateKey;
+    const/4 v6, 0x0
 
-    move-result-object v17
+    .line 99
+    .local v6, "clientChain":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wifi/configparse/MIMEContainer;->getMimeContainers()Ljava/util/List;
 
-    const/16 v18, 0x0
+    move-result-object v15
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v14
 
-    .line 98
-    .local v14, "octets":[B
-    new-instance v13, Ljava/lang/String;
+    .end local v3    # "caCert":Ljava/security/cert/X509Certificate;
+    .end local v6    # "clientChain":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
+    .end local v7    # "clientKey":Ljava/security/PrivateKey;
+    .end local v11    # "moText":Ljava/lang/String;
+    .local v14, "subContainer$iterator":Ljava/util/Iterator;
+    :cond_1
+    :goto_0
+    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
-    sget-object v17, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+    move-result v15
 
-    move-object/from16 v0, v17
+    if-eqz v15, :cond_b
 
-    invoke-direct {v13, v14, v0}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
-
-    .line 102
-    .end local v14    # "octets":[B
-    .local v13, "moText":Ljava/lang/String;
-    :goto_1
-    const-string/jumbo v17, "WCFG"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "OMA: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    .line 94
-    .end local v13    # "moText":Ljava/lang/String;
-    :cond_2
-    const-string/jumbo v18, "application/x-x509-ca-cert"
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_3
-
-    .line 105
-    invoke-virtual {v15}, Lcom/android/server/wifi/configparse/MIMEContainer;->isBase64()Z
-
-    move-result v17
-
-    if-nez v17, :cond_5
-
-    .line 106
-    new-instance v17, Ljava/io/IOException;
-
-    const-string/jumbo v18, "Can\'t read non base64 encoded cert"
-
-    invoke-direct/range {v17 .. v18}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v17
-
-    .line 94
-    :cond_3
-    const-string/jumbo v18, "application/x-pkcs12"
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_1
-
-    .line 118
-    invoke-virtual {v15}, Lcom/android/server/wifi/configparse/MIMEContainer;->isBase64()Z
-
-    move-result v17
-
-    if-nez v17, :cond_6
-
-    .line 119
-    new-instance v17, Ljava/io/IOException;
-
-    const-string/jumbo v18, "Can\'t read non base64 encoded key"
-
-    invoke-direct/range {v17 .. v18}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v17
-
-    .line 100
-    :cond_4
-    invoke-virtual {v15}, Lcom/android/server/wifi/configparse/MIMEContainer;->getText()Ljava/lang/String;
+    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v13
 
-    .restart local v13    # "moText":Ljava/lang/String;
-    goto :goto_1
+    check-cast v13, Lcom/android/server/wifi/configparse/MIMEContainer;
 
-    .line 109
-    .end local v13    # "moText":Ljava/lang/String;
-    :cond_5
-    invoke-virtual {v15}, Lcom/android/server/wifi/configparse/MIMEContainer;->getText()Ljava/lang/String;
+    .line 100
+    .local v13, "subContainer":Lcom/android/server/wifi/configparse/MIMEContainer;
+    const-string/jumbo v15, "WCFG"
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, " + Content Type: "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual {v13}, Lcom/android/server/wifi/configparse/MIMEContainer;->getContentType()Ljava/lang/String;
 
     move-result-object v17
 
-    const/16 v18, 0x0
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+    move-result-object v16
 
-    move-result-object v14
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 110
-    .restart local v14    # "octets":[B
-    const-string/jumbo v17, "X.509"
+    move-result-object v16
 
-    invoke-static/range {v17 .. v17}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v9
+    .line 101
+    invoke-virtual {v13}, Lcom/android/server/wifi/configparse/MIMEContainer;->getContentType()Ljava/lang/String;
+
+    move-result-object v15
+
+    const-string/jumbo v16, "application/x-passpoint-profile"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v16
+
+    if-eqz v16, :cond_2
+
+    .line 103
+    invoke-virtual {v13}, Lcom/android/server/wifi/configparse/MIMEContainer;->isBase64()Z
+
+    move-result v15
+
+    if-eqz v15, :cond_4
+
+    .line 104
+    invoke-virtual {v13}, Lcom/android/server/wifi/configparse/MIMEContainer;->getText()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+
+    move-result-object v12
+
+    .line 105
+    .local v12, "octets":[B
+    new-instance v11, Ljava/lang/String;
+
+    sget-object v15, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+
+    invoke-direct {v11, v12, v15}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+
+    .line 109
+    .end local v12    # "octets":[B
+    .local v11, "moText":Ljava/lang/String;
+    :goto_1
+    const-string/jumbo v15, "WCFG"
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, "OMA: "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 101
+    .end local v11    # "moText":Ljava/lang/String;
+    :cond_2
+    const-string/jumbo v16, "application/x-x509-ca-cert"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v16
+
+    if-eqz v16, :cond_3
 
     .line 112
-    .local v9, "factory":Ljava/security/cert/CertificateFactory;
-    new-instance v17, Ljava/io/ByteArrayInputStream;
+    invoke-virtual {v13}, Lcom/android/server/wifi/configparse/MIMEContainer;->isBase64()Z
 
-    move-object/from16 v0, v17
+    move-result v15
 
-    invoke-direct {v0, v14}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-
-    .line 111
-    move-object/from16 v0, v17
-
-    invoke-virtual {v9, v0}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/security/cert/X509Certificate;
+    if-nez v15, :cond_5
 
     .line 113
-    .local v4, "caCert":Ljava/security/cert/X509Certificate;
+    new-instance v15, Ljava/io/IOException;
+
+    const-string/jumbo v16, "Can\'t read non base64 encoded cert"
+
+    invoke-direct/range {v15 .. v16}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v15
+
+    .line 101
+    :cond_3
+    const-string/jumbo v16, "application/x-pkcs12"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v15
+
+    if-eqz v15, :cond_1
+
+    .line 125
+    invoke-virtual {v13}, Lcom/android/server/wifi/configparse/MIMEContainer;->isBase64()Z
+
+    move-result v15
+
+    if-nez v15, :cond_6
+
+    .line 126
+    new-instance v15, Ljava/io/IOException;
+
+    const-string/jumbo v16, "Can\'t read non base64 encoded key"
+
+    invoke-direct/range {v15 .. v16}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v15
+
+    .line 107
+    :cond_4
+    invoke-virtual {v13}, Lcom/android/server/wifi/configparse/MIMEContainer;->getText()Ljava/lang/String;
+
+    move-result-object v11
+
+    .restart local v11    # "moText":Ljava/lang/String;
+    goto :goto_1
+
+    .line 116
+    .end local v11    # "moText":Ljava/lang/String;
+    :cond_5
+    invoke-virtual {v13}, Lcom/android/server/wifi/configparse/MIMEContainer;->getText()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+
+    move-result-object v12
+
+    .line 117
+    .restart local v12    # "octets":[B
+    const-string/jumbo v15, "X.509"
+
+    invoke-static {v15}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
+
+    move-result-object v8
+
+    .line 119
+    .local v8, "factory":Ljava/security/cert/CertificateFactory;
+    new-instance v15, Ljava/io/ByteArrayInputStream;
+
+    invoke-direct {v15, v12}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+
+    .line 118
+    invoke-virtual {v8, v15}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/security/cert/X509Certificate;
+
+    .line 120
+    .local v3, "caCert":Ljava/security/cert/X509Certificate;
+    const-string/jumbo v15, "WCFG"
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, "Cert subject "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual {v3}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 121
+    const-string/jumbo v15, "WCFG"
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, "Full Cert: "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    .line 129
+    .end local v3    # "caCert":Ljava/security/cert/X509Certificate;
+    .end local v8    # "factory":Ljava/security/cert/CertificateFactory;
+    .end local v12    # "octets":[B
+    :cond_6
+    invoke-virtual {v13}, Lcom/android/server/wifi/configparse/MIMEContainer;->getText()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+
+    move-result-object v12
+
+    .line 131
+    .restart local v12    # "octets":[B
+    const-string/jumbo v15, "PKCS12"
+
+    invoke-static {v15}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
+
+    move-result-object v10
+
+    .line 132
+    .local v10, "ks":Ljava/security/KeyStore;
+    new-instance v9, Ljava/io/ByteArrayInputStream;
+
+    invoke-direct {v9, v12}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+
+    .line 133
+    .local v9, "in":Ljava/io/ByteArrayInputStream;
+    const/4 v15, 0x0
+
+    new-array v15, v15, [C
+
+    invoke-virtual {v10, v9, v15}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
+
+    .line 134
+    invoke-virtual {v9}, Ljava/io/ByteArrayInputStream;->close()V
+
+    .line 135
+    const-string/jumbo v15, "WCFG"
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, "---- Start PKCS12 info "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    array-length v0, v12
+
+    move/from16 v17, v0
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string/jumbo v17, ", size "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual {v10}, Ljava/security/KeyStore;->size()I
+
+    move-result v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 136
+    invoke-virtual {v10}, Ljava/security/KeyStore;->aliases()Ljava/util/Enumeration;
+
+    move-result-object v2
+
+    .line 137
+    .local v2, "aliases":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/lang/String;>;"
+    :cond_7
+    :goto_2
+    invoke-interface {v2}, Ljava/util/Enumeration;->hasMoreElements()Z
+
+    move-result v15
+
+    if-eqz v15, :cond_a
+
+    .line 138
+    invoke-interface {v2}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    .line 139
+    .local v1, "alias":Ljava/lang/String;
+    const/4 v15, 0x0
+
+    invoke-virtual {v10, v1, v15}, Ljava/security/KeyStore;->getKey(Ljava/lang/String;[C)Ljava/security/Key;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/security/PrivateKey;
+
+    .line 140
+    .local v7, "clientKey":Ljava/security/PrivateKey;
+    const-string/jumbo v15, "WCFG"
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, "Key: "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-interface {v7}, Ljava/security/PrivateKey;->getFormat()Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 141
+    invoke-virtual {v10, v1}, Ljava/security/KeyStore;->getCertificateChain(Ljava/lang/String;)[Ljava/security/cert/Certificate;
+
+    move-result-object v5
+
+    .line 142
+    .local v5, "chain":[Ljava/security/cert/Certificate;
+    if-eqz v5, :cond_7
+
+    .line 143
+    new-instance v6, Ljava/util/ArrayList;
+
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+
+    .line 144
+    .local v6, "clientChain":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
+    const/4 v15, 0x0
+
+    array-length v0, v5
+
+    move/from16 v16, v0
+
+    :goto_3
+    move/from16 v0, v16
+
+    if-ge v15, v0, :cond_9
+
+    aget-object v4, v5, v15
+
+    .line 145
+    .local v4, "certificate":Ljava/security/cert/Certificate;
+    instance-of v0, v4, Ljava/security/cert/X509Certificate;
+
+    move/from16 v17, v0
+
+    if-nez v17, :cond_8
+
+    .line 146
     const-string/jumbo v17, "WCFG"
 
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "Cert subject "
+    const-string/jumbo v19, "Element in cert chain is not an X509Certificate: "
 
     invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v18
 
-    invoke-virtual {v4}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
+    .line 147
+    invoke-virtual {v4}, Ljava/security/cert/Certificate;->getClass()Ljava/lang/Class;
 
     move-result-object v19
 
+    .line 146
     invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v18
@@ -2045,339 +2326,91 @@
 
     move-result-object v18
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 114
-    const-string/jumbo v17, "WCFG"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "Full Cert: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    .line 122
-    .end local v4    # "caCert":Ljava/security/cert/X509Certificate;
-    .end local v9    # "factory":Ljava/security/cert/CertificateFactory;
-    .end local v14    # "octets":[B
-    :cond_6
-    invoke-virtual {v15}, Lcom/android/server/wifi/configparse/MIMEContainer;->getText()Ljava/lang/String;
-
-    move-result-object v17
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
-
-    move-result-object v14
-
-    .line 124
-    .restart local v14    # "octets":[B
-    const-string/jumbo v17, "PKCS12"
-
-    invoke-static/range {v17 .. v17}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
-
-    move-result-object v12
-
-    .line 125
-    .local v12, "ks":Ljava/security/KeyStore;
-    new-instance v11, Ljava/io/ByteArrayInputStream;
-
-    invoke-direct {v11, v14}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-
-    .line 126
-    .local v11, "in":Ljava/io/ByteArrayInputStream;
-    const/16 v17, 0x0
-
-    move/from16 v0, v17
-
-    new-array v0, v0, [C
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v12, v11, v0}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
-
-    .line 127
-    invoke-virtual {v11}, Ljava/io/ByteArrayInputStream;->close()V
-
-    .line 128
-    const-string/jumbo v17, "WCFG"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "---- Start PKCS12 info "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    array-length v0, v14
-
-    move/from16 v19, v0
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, ", size "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual {v12}, Ljava/security/KeyStore;->size()I
-
-    move-result v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 129
-    invoke-virtual {v12}, Ljava/security/KeyStore;->aliases()Ljava/util/Enumeration;
-
-    move-result-object v3
-
-    .line 130
-    .local v3, "aliases":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/lang/String;>;"
-    :cond_7
-    :goto_2
-    invoke-interface {v3}, Ljava/util/Enumeration;->hasMoreElements()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_a
-
-    .line 131
-    invoke-interface {v3}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    .line 132
-    .local v2, "alias":Ljava/lang/String;
-    const/16 v17, 0x0
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v12, v2, v0}, Ljava/security/KeyStore;->getKey(Ljava/lang/String;[C)Ljava/security/Key;
-
-    move-result-object v8
-
-    check-cast v8, Ljava/security/PrivateKey;
-
-    .line 133
-    .local v8, "clientKey":Ljava/security/PrivateKey;
-    const-string/jumbo v17, "WCFG"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "Key: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-interface {v8}, Ljava/security/PrivateKey;->getFormat()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 134
-    invoke-virtual {v12, v2}, Ljava/security/KeyStore;->getCertificateChain(Ljava/lang/String;)[Ljava/security/cert/Certificate;
-
-    move-result-object v6
-
-    .line 135
-    .local v6, "chain":[Ljava/security/cert/Certificate;
-    if-eqz v6, :cond_7
-
-    .line 136
-    new-instance v7, Ljava/util/ArrayList;
-
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
-
-    .line 137
-    .local v7, "clientChain":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
-    const/16 v17, 0x0
-
-    array-length v0, v6
-
-    move/from16 v18, v0
-
-    :goto_3
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-ge v0, v1, :cond_9
-
-    aget-object v5, v6, v17
-
-    .line 138
-    .local v5, "certificate":Ljava/security/cert/Certificate;
-    instance-of v0, v5, Ljava/security/cert/X509Certificate;
-
-    move/from16 v19, v0
-
-    if-nez v19, :cond_8
-
-    .line 139
-    const-string/jumbo v19, "WCFG"
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v21, "Element in cert chain is not an X509Certificate: "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    .line 140
-    invoke-virtual {v5}, Ljava/security/cert/Certificate;->getClass()Ljava/lang/Class;
-
-    move-result-object v21
-
-    .line 139
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v20
-
-    invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 142
+    .line 149
     :cond_8
-    check-cast v5, Ljava/security/cert/X509Certificate;
+    check-cast v4, Ljava/security/cert/X509Certificate;
 
-    .end local v5    # "certificate":Ljava/security/cert/Certificate;
-    invoke-interface {v7, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    .end local v4    # "certificate":Ljava/security/cert/Certificate;
+    invoke-interface {v6, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 137
-    add-int/lit8 v17, v17, 0x1
+    .line 144
+    add-int/lit8 v15, v15, 0x1
 
     goto :goto_3
 
-    .line 144
+    .line 151
     :cond_9
-    const-string/jumbo v17, "WCFG"
+    const-string/jumbo v15, "WCFG"
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v16, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "Chain: "
+    const-string/jumbo v17, "Chain: "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v16
 
-    invoke-interface {v7}, Ljava/util/List;->size()I
+    invoke-interface {v6}, Ljava/util/List;->size()I
 
-    move-result v19
+    move-result v17
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v16
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v16
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_2
 
-    .line 147
-    .end local v2    # "alias":Ljava/lang/String;
-    .end local v6    # "chain":[Ljava/security/cert/Certificate;
-    .end local v7    # "clientChain":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
-    .end local v8    # "clientKey":Ljava/security/PrivateKey;
+    .line 154
+    .end local v1    # "alias":Ljava/lang/String;
+    .end local v5    # "chain":[Ljava/security/cert/Certificate;
+    .end local v6    # "clientChain":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
+    .end local v7    # "clientKey":Ljava/security/PrivateKey;
     :cond_a
-    const-string/jumbo v17, "WCFG"
+    const-string/jumbo v15, "WCFG"
 
-    const-string/jumbo v18, "---- End PKCS12 info."
+    const-string/jumbo v16, "---- End PKCS12 info."
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
-    .line 153
-    .end local v3    # "aliases":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/lang/String;>;"
-    .end local v11    # "in":Ljava/io/ByteArrayInputStream;
-    .end local v12    # "ks":Ljava/security/KeyStore;
-    .end local v14    # "octets":[B
-    .end local v15    # "subContainer":Lcom/android/server/wifi/configparse/MIMEContainer;
+    .line 160
+    .end local v2    # "aliases":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/lang/String;>;"
+    .end local v9    # "in":Ljava/io/ByteArrayInputStream;
+    .end local v10    # "ks":Ljava/security/KeyStore;
+    .end local v12    # "octets":[B
+    .end local v13    # "subContainer":Lcom/android/server/wifi/configparse/MIMEContainer;
     :cond_b
-    if-nez v13, :cond_c
+    if-nez v11, :cond_c
 
-    .line 154
-    new-instance v17, Ljava/io/IOException;
+    .line 161
+    new-instance v15, Ljava/io/IOException;
 
-    const-string/jumbo v18, "Missing profile"
+    const-string/jumbo v16, "Missing profile"
 
-    invoke-direct/range {v17 .. v18}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v15 .. v16}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v17
+    throw v15
 
-    .line 157
+    .line 164
     :cond_c
-    invoke-static {v13}, Lcom/android/server/wifi/hotspot2/omadm/PasspointManagementObjectManager;->buildSP(Ljava/lang/String;)Lcom/android/server/wifi/hotspot2/pps/HomeSP;
+    move-object/from16 v0, p1
 
-    move-result-object v10
+    invoke-static {v11, v3, v6, v7, v0}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildConfig(Ljava/lang/String;Ljava/security/cert/X509Certificate;Ljava/util/List;Ljava/security/PrivateKey;Landroid/content/Context;)Landroid/net/wifi/WifiConfiguration;
 
-    .line 159
-    .local v10, "homeSP":Lcom/android/server/wifi/hotspot2/pps/HomeSP;
-    invoke-static {v10, v4, v7, v8}, Lcom/android/server/wifi/configparse/ConfigBuilder;->buildConfig(Lcom/android/server/wifi/hotspot2/pps/HomeSP;Ljava/security/cert/X509Certificate;Ljava/util/List;Ljava/security/PrivateKey;)Landroid/net/wifi/WifiConfiguration;
+    move-result-object v15
 
-    move-result-object v17
-
-    return-object v17
+    return-object v15
 .end method
 
 .method private static remapEAPMethod(Lcom/android/server/wifi/anqp/eap/EAP$EAPMethodID;)I
@@ -2390,8 +2423,8 @@
     .end annotation
 
     .prologue
-    .line 375
-    invoke-static {}, Lcom/android/server/wifi/configparse/ConfigBuilder;->-getcom-android-server-wifi-anqp-eap-EAP$EAPMethodIDSwitchesValues()[I
+    .line 359
+    invoke-static {}, Lcom/android/server/wifi/configparse/ConfigBuilder;->-getcom_android_server_wifi_anqp_eap_EAP$EAPMethodIDSwitchesValues()[I
 
     move-result-object v0
 
@@ -2403,7 +2436,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 387
+    .line 371
     new-instance v0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2428,37 +2461,37 @@
 
     throw v0
 
-    .line 377
+    .line 361
     :pswitch_0
     const/4 v0, 0x2
 
     return v0
 
-    .line 379
+    .line 363
     :pswitch_1
     const/4 v0, 0x1
 
     return v0
 
-    .line 381
+    .line 365
     :pswitch_2
     const/4 v0, 0x4
 
     return v0
 
-    .line 383
+    .line 367
     :pswitch_3
     const/4 v0, 0x5
 
     return v0
 
-    .line 385
+    .line 369
     :pswitch_4
     const/4 v0, 0x6
 
     return v0
 
-    .line 375
+    .line 359
     nop
 
     :pswitch_data_0
@@ -2481,8 +2514,8 @@
     .end annotation
 
     .prologue
-    .line 392
-    invoke-static {}, Lcom/android/server/wifi/configparse/ConfigBuilder;->-getcom-android-server-wifi-anqp-eap-NonEAPInnerAuth$NonEAPTypeSwitchesValues()[I
+    .line 376
+    invoke-static {}, Lcom/android/server/wifi/configparse/ConfigBuilder;->-getcom_android_server_wifi_anqp_eap_NonEAPInnerAuth$NonEAPTypeSwitchesValues()[I
 
     move-result-object v0
 
@@ -2494,7 +2527,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 401
+    .line 385
     new-instance v0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2525,66 +2558,29 @@
 
     throw v0
 
-    .line 394
+    .line 378
     :pswitch_0
     const/4 v0, 0x1
 
     return v0
 
-    .line 396
+    .line 380
     :pswitch_1
     const/4 v0, 0x2
 
     return v0
 
-    .line 398
+    .line 382
     :pswitch_2
     const/4 v0, 0x3
 
     return v0
 
-    .line 392
+    .line 376
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_1
         :pswitch_2
         :pswitch_0
     .end packed-switch
-.end method
-
-.method private static setAnonymousIdentityToNaiRealm(Landroid/net/wifi/WifiConfiguration;Lcom/android/server/wifi/hotspot2/pps/Credential;)V
-    .locals 3
-    .param p0, "config"    # Landroid/net/wifi/WifiConfiguration;
-    .param p1, "credential"    # Lcom/android/server/wifi/hotspot2/pps/Credential;
-
-    .prologue
-    .line 238
-    iget-object v0, p0, Landroid/net/wifi/WifiConfiguration;->enterpriseConfig:Landroid/net/wifi/WifiEnterpriseConfig;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "anonymous@"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Lcom/android/server/wifi/hotspot2/pps/Credential;->getRealm()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiEnterpriseConfig;->setAnonymousIdentity(Ljava/lang/String;)V
-
-    .line 221
-    return-void
 .end method

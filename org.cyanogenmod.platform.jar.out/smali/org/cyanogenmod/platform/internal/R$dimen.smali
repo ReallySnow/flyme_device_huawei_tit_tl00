@@ -14,18 +14,12 @@
 .end annotation
 
 
-# static fields
-.field public static final net_traffic_multi_text_size:I = 0x3f080001
-
-.field public static final net_traffic_single_text_size:I = 0x3f080000
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 177
+    .line 118
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

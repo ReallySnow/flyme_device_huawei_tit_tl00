@@ -32,17 +32,17 @@
     .locals 1
 
     .prologue
-    .line 207
+    .line 199
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 211
+    .line 203
     new-instance v0, Ljava/util/LinkedHashSet;
 
     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
 
-    .line 207
+    .line 199
     return-void
 .end method
 
@@ -70,7 +70,7 @@
     .end annotation
 
     .prologue
-    .line 265
+    .line 257
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
@@ -97,7 +97,7 @@
     .end annotation
 
     .prologue
-    .line 232
+    .line 224
     .local p1, "imis":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodInfo;>;"
     iget-object v4, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
 
@@ -119,7 +119,7 @@
 
     check-cast v2, Landroid/view/inputmethod/InputMethodInfo;
 
-    .line 233
+    .line 225
     .local v2, "imi":Landroid/view/inputmethod/InputMethodInfo;
     invoke-virtual {v2}, Landroid/view/inputmethod/InputMethodInfo;->isAuxiliaryIme()Z
 
@@ -127,15 +127,15 @@
 
     if-eqz v4, :cond_0
 
-    .line 234
+    .line 226
     return-object p0
 
-    .line 237
+    .line 229
     .end local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_1
     const/4 v0, 0x0
 
-    .line 238
+    .line 230
     .local v0, "added":Z
     const/4 v1, 0x0
 
@@ -147,47 +147,47 @@
 
     if-ge v1, v4, :cond_3
 
-    .line 239
+    .line 231
     invoke-virtual {p1, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/view/inputmethod/InputMethodInfo;
 
-    .line 241
+    .line 233
     .restart local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     const/4 v4, 0x1
 
-    .line 240
+    .line 232
     invoke-static {v2, p2, v4}, Lcom/android/internal/inputmethod/InputMethodUtils;->-wrap0(Landroid/view/inputmethod/InputMethodInfo;Landroid/content/Context;Z)Z
 
     move-result v4
 
     if-eqz v4, :cond_2
 
-    .line 242
+    .line 234
     iget-object v4, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
 
     invoke-virtual {v4, v2}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
-    .line 243
+    .line 235
     const/4 v0, 0x1
 
-    .line 238
+    .line 230
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 246
+    .line 238
     .end local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_3
     if-eqz v0, :cond_4
 
-    .line 247
+    .line 239
     return-object p0
 
-    .line 249
+    .line 241
     :cond_4
     const/4 v1, 0x0
 
@@ -198,36 +198,36 @@
 
     if-ge v1, v4, :cond_6
 
-    .line 250
+    .line 242
     invoke-virtual {p1, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/view/inputmethod/InputMethodInfo;
 
-    .line 252
+    .line 244
     .restart local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     const/4 v4, 0x0
 
-    .line 251
+    .line 243
     invoke-static {v2, p2, v4}, Lcom/android/internal/inputmethod/InputMethodUtils;->-wrap0(Landroid/view/inputmethod/InputMethodInfo;Landroid/content/Context;Z)Z
 
     move-result v4
 
     if-eqz v4, :cond_5
 
-    .line 253
+    .line 245
     iget-object v4, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
 
     invoke-virtual {v4, v2}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
-    .line 249
+    .line 241
     :cond_5
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 256
+    .line 248
     .end local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_6
     return-object p0
@@ -258,7 +258,7 @@
     .end annotation
 
     .prologue
-    .line 217
+    .line 209
     .local p1, "imis":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodInfo;>;"
     const/4 v6, 0x0
 
@@ -270,7 +270,7 @@
 
     if-ge v6, v1, :cond_1
 
-    .line 218
+    .line 210
     invoke-virtual {p1, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -288,25 +288,25 @@
 
     move-object v5, p6
 
-    .line 219
+    .line 211
     invoke-static/range {v0 .. v5}, Lcom/android/internal/inputmethod/InputMethodUtils;->isSystemImeThatHasSubtypeOf(Landroid/view/inputmethod/InputMethodInfo;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 221
+    .line 213
     iget-object v1, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
 
     invoke-virtual {v1, v0}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
-    .line 217
+    .line 209
     :cond_0
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    .line 224
+    .line 216
     .end local v0    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_1
     return-object p0
@@ -316,7 +316,7 @@
     .locals 1
 
     .prologue
-    .line 260
+    .line 252
     iget-object v0, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
 
     invoke-virtual {v0}, Ljava/util/LinkedHashSet;->isEmpty()Z

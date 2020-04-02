@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 2949
+    .line 2873
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -33,7 +33,7 @@
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 2952
+    .line 2876
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -46,10 +46,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 2954
+    .line 2878
     const-string/jumbo v0, "android.hardware.display.extra.WIFI_DISPLAY_STATUS"
 
-    .line 2953
+    .line 2877
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v0
@@ -58,7 +58,7 @@
 
     invoke-static {v0}, Landroid/media/MediaRouter;->updateWifiDisplayStatus(Landroid/hardware/display/WifiDisplayStatus;)V
 
-    .line 2951
+    .line 2875
     :cond_0
     return-void
 .end method

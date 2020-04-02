@@ -25,15 +25,17 @@
 
 
 # direct methods
-.method public constructor <init>(IZ[Landroid/hardware/camera2/CaptureRequest;Ljava/util/Collection;)V
-    .locals 9
+.method public constructor <init>(IZLjava/util/List;Ljava/util/Collection;)V
+    .locals 8
     .param p1, "requestId"    # I
     .param p2, "repeating"    # Z
-    .param p3, "requests"    # [Landroid/hardware/camera2/CaptureRequest;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(IZ[",
+            "(IZ",
+            "Ljava/util/List",
+            "<",
             "Landroid/hardware/camera2/CaptureRequest;",
+            ">;",
             "Ljava/util/Collection",
             "<",
             "Ljava/lang/Long;",
@@ -43,6 +45,7 @@
 
     .prologue
     .line 41
+    .local p3, "requests":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CaptureRequest;>;"
     .local p4, "jpegSurfaceIds":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/Long;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -58,20 +61,27 @@
 
     .line 45
     .local v2, "i":I
-    const/4 v0, 0x0
+    invoke-interface {p3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    array-length v7, p3
+    move-result-object v6
 
-    move v6, v0
-
+    .local v6, "r$iterator":Ljava/util/Iterator;
     :goto_0
-    if-ge v6, v7, :cond_0
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    aget-object v3, p3, v6
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/hardware/camera2/CaptureRequest;
 
     .line 46
     .local v3, "r":Landroid/hardware/camera2/CaptureRequest;
-    iget-object v8, p0, Landroid/hardware/camera2/legacy/BurstHolder;->mRequestBuilders:Ljava/util/ArrayList;
+    iget-object v7, p0, Landroid/hardware/camera2/legacy/BurstHolder;->mRequestBuilders:Ljava/util/ArrayList;
 
     new-instance v0, Landroid/hardware/camera2/legacy/RequestHolder$Builder;
 
@@ -83,15 +93,10 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/hardware/camera2/legacy/RequestHolder$Builder;-><init>(IILandroid/hardware/camera2/CaptureRequest;ZLjava/util/Collection;)V
 
-    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 48
     add-int/lit8 v2, v2, 0x1
-
-    .line 45
-    add-int/lit8 v0, v6, 0x1
-
-    move v6, v0
 
     goto :goto_0
 

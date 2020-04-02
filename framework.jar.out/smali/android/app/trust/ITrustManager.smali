@@ -31,14 +31,6 @@
     .end annotation
 .end method
 
-.method public abstract isTrustUsuallyManaged(I)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract registerTrustListener(Landroid/app/trust/ITrustListener;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -64,14 +56,6 @@
 .end method
 
 .method public abstract reportUnlockAttempt(ZI)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setDeviceLockedForUser(IZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

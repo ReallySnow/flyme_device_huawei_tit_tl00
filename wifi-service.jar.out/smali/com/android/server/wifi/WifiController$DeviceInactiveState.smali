@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/wifi/WifiController;
 
     .prologue
-    .line 996
+    .line 851
     iput-object p1, p0, Lcom/android/server/wifi/WifiController$DeviceInactiveState;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -41,40 +41,40 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 999
+    .line 854
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 1009
+    .line 864
     return v1
 
-    .line 1001
+    .line 856
     :sswitch_0
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$DeviceInactiveState;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-static {v0}, Lcom/android/server/wifi/WifiController;->-wrap2(Lcom/android/server/wifi/WifiController;)V
 
-    .line 1002
+    .line 857
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$DeviceInactiveState;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-static {v0}, Lcom/android/server/wifi/WifiController;->-wrap11(Lcom/android/server/wifi/WifiController;)V
 
-    .line 1003
+    .line 858
     const/4 v0, 0x1
 
     return v0
 
-    .line 1005
+    .line 860
     :sswitch_1
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$DeviceInactiveState;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-static {v0}, Lcom/android/server/wifi/WifiController;->-wrap1(Lcom/android/server/wifi/WifiController;)V
 
-    .line 1007
+    .line 862
     return v1
 
-    .line 999
+    .line 854
     nop
 
     :sswitch_data_0

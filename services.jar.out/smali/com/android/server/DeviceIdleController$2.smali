@@ -3,7 +3,7 @@
 .source "DeviceIdleController.java"
 
 # interfaces
-.implements Landroid/app/AlarmManager$OnAlarmListener;
+.implements Landroid/hardware/display/DisplayManager$DisplayListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/DeviceIdleController;
 
     .prologue
-    .line 354
+    .line 264
     iput-object p1, p0, Lcom/android/server/DeviceIdleController$2;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,35 +37,56 @@
 
 
 # virtual methods
-.method public onAlarm()V
-    .locals 3
+.method public onDisplayAdded(I)V
+    .locals 0
+    .param p1, "displayId"    # I
 
     .prologue
-    .line 357
+    .line 265
+    return-void
+.end method
+
+.method public onDisplayChanged(I)V
+    .locals 2
+    .param p1, "displayId"    # I
+
+    .prologue
+    .line 272
+    if-nez p1, :cond_0
+
+    .line 273
     iget-object v1, p0, Lcom/android/server/DeviceIdleController$2;->this$0:Lcom/android/server/DeviceIdleController;
 
     monitor-enter v1
 
-    .line 358
+    .line 274
     :try_start_0
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$2;->this$0:Lcom/android/server/DeviceIdleController;
 
-    const-string/jumbo v2, "s:alarm"
-
-    invoke-virtual {v0, v2}, Lcom/android/server/DeviceIdleController;->stepLightIdleStateLocked(Ljava/lang/String;)V
+    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->updateDisplayLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
-    .line 356
+    .line 271
+    :cond_0
     return-void
 
-    .line 357
+    .line 273
     :catchall_0
     move-exception v0
 
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public onDisplayRemoved(I)V
+    .locals 0
+    .param p1, "displayId"    # I
+
+    .prologue
+    .line 268
+    return-void
 .end method

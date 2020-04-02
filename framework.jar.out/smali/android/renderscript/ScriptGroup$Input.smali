@@ -51,24 +51,24 @@
     .locals 1
 
     .prologue
-    .line 369
+    .line 346
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 370
+    .line 347
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/renderscript/ScriptGroup$Input;->mFieldID:Ljava/util/List;
 
-    .line 371
+    .line 348
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/renderscript/ScriptGroup$Input;->mArgIndex:Ljava/util/List;
 
-    .line 369
+    .line 346
     return-void
 .end method
 
@@ -80,7 +80,7 @@
     .param p2, "index"    # I
 
     .prologue
-    .line 375
+    .line 352
     iget-object v0, p0, Landroid/renderscript/ScriptGroup$Input;->mArgIndex:Ljava/util/List;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -93,7 +93,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 374
+    .line 351
     return-void
 .end method
 
@@ -103,7 +103,7 @@
     .param p2, "fieldID"    # Landroid/renderscript/Script$FieldID;
 
     .prologue
-    .line 379
+    .line 356
     iget-object v0, p0, Landroid/renderscript/ScriptGroup$Input;->mFieldID:Ljava/util/List;
 
     invoke-static {p1, p2}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
@@ -112,7 +112,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 378
+    .line 355
     return-void
 .end method
 
@@ -120,7 +120,7 @@
     .locals 1
 
     .prologue
-    .line 396
+    .line 373
     iget-object v0, p0, Landroid/renderscript/ScriptGroup$Input;->mValue:Ljava/lang/Object;
 
     return-object v0
@@ -131,10 +131,10 @@
     .param p1, "value"    # Ljava/lang/Object;
 
     .prologue
-    .line 383
+    .line 360
     iput-object p1, p0, Landroid/renderscript/ScriptGroup$Input;->mValue:Ljava/lang/Object;
 
-    .line 384
+    .line 361
     iget-object v6, p0, Landroid/renderscript/ScriptGroup$Input;->mArgIndex:Ljava/util/List;
 
     invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -155,13 +155,13 @@
 
     check-cast v4, Landroid/util/Pair;
 
-    .line 385
+    .line 362
     .local v4, "p":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/renderscript/ScriptGroup$Closure;Ljava/lang/Integer;>;"
     iget-object v0, v4, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v0, Landroid/renderscript/ScriptGroup$Closure;
 
-    .line 386
+    .line 363
     .local v0, "closure":Landroid/renderscript/ScriptGroup$Closure;
     iget-object v6, v4, Landroid/util/Pair;->second:Ljava/lang/Object;
 
@@ -171,13 +171,13 @@
 
     move-result v2
 
-    .line 387
+    .line 364
     .local v2, "index":I
     invoke-virtual {v0, v2, p1}, Landroid/renderscript/ScriptGroup$Closure;->setArg(ILjava/lang/Object;)V
 
     goto :goto_0
 
-    .line 389
+    .line 366
     .end local v0    # "closure":Landroid/renderscript/ScriptGroup$Closure;
     .end local v2    # "index":I
     .end local v4    # "p":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/renderscript/ScriptGroup$Closure;Ljava/lang/Integer;>;"
@@ -201,25 +201,25 @@
 
     check-cast v3, Landroid/util/Pair;
 
-    .line 390
+    .line 367
     .local v3, "p":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/renderscript/ScriptGroup$Closure;Landroid/renderscript/Script$FieldID;>;"
     iget-object v0, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v0, Landroid/renderscript/ScriptGroup$Closure;
 
-    .line 391
+    .line 368
     .restart local v0    # "closure":Landroid/renderscript/ScriptGroup$Closure;
     iget-object v1, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v1, Landroid/renderscript/Script$FieldID;
 
-    .line 392
+    .line 369
     .local v1, "fieldID":Landroid/renderscript/Script$FieldID;
     invoke-virtual {v0, v1, p1}, Landroid/renderscript/ScriptGroup$Closure;->setGlobal(Landroid/renderscript/Script$FieldID;Ljava/lang/Object;)V
 
     goto :goto_1
 
-    .line 382
+    .line 359
     .end local v0    # "closure":Landroid/renderscript/ScriptGroup$Closure;
     .end local v1    # "fieldID":Landroid/renderscript/Script$FieldID;
     .end local v3    # "p":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/renderscript/ScriptGroup$Closure;Landroid/renderscript/Script$FieldID;>;"

@@ -30,17 +30,17 @@
 
 .field static final TRANSACTION_onExtrasChanged:I = 0x7
 
-.field static final TRANSACTION_onMetadataChanged_3:I = 0x4
+.field static final TRANSACTION_onMetadataChanged:I = 0x4
 
 .field static final TRANSACTION_onPlayItemResponse:I = 0x9
 
-.field static final TRANSACTION_onPlaybackStateChanged_2:I = 0x3
+.field static final TRANSACTION_onPlaybackStateChanged:I = 0x3
 
 .field static final TRANSACTION_onQueueChanged:I = 0x5
 
 .field static final TRANSACTION_onQueueTitleChanged:I = 0x6
 
-.field static final TRANSACTION_onSessionDestroyed_1:I = 0x2
+.field static final TRANSACTION_onSessionDestroyed:I = 0x2
 
 .field static final TRANSACTION_onUpdateFolderInfoBrowsedPlayer:I = 0xb
 
@@ -481,9 +481,11 @@
     :cond_7
     const/4 v7, 0x0
 
+    .restart local v7    # "_arg0":Z
     goto :goto_7
 
     .line 157
+    .end local v7    # "_arg0":Z
     :sswitch_a
     const-string/jumbo v10, "android.media.session.ISessionControllerCallback"
 

@@ -34,7 +34,7 @@
     if-eqz v0, :cond_0
 
     .line 61
-    const v0, 0x104017f
+    const v0, 0x104016e
 
     .line 62
     const/4 v1, 0x0

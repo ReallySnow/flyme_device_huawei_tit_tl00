@@ -137,15 +137,17 @@
 
     return-object v5
 
+    .line 57
     .end local v0    # "dotPos":I
     .end local v1    # "filename":Ljava/lang/String;
     :cond_2
     move-object v1, p0
 
-    .line 57
+    .restart local v1    # "filename":Ljava/lang/String;
     goto :goto_0
 
     .line 70
+    .end local v1    # "filename":Ljava/lang/String;
     .end local v2    # "filenamePos":I
     .end local v3    # "fragment":I
     .end local v4    # "query":I

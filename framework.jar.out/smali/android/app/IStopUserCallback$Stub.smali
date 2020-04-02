@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_userStopAborted:I = 0x2
 
-.field static final TRANSACTION_userStopped_0:I = 0x1
+.field static final TRANSACTION_userStopped:I = 0x1
 
 
 # direct methods

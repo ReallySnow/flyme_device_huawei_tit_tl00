@@ -6,10 +6,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/os/CommonClock$1;,
-        Landroid/os/CommonClock$OnServerDiedListener;,
         Landroid/os/CommonClock$OnTimelineChangedListener;,
-        Landroid/os/CommonClock$TimelineChangedListener;
+        Landroid/os/CommonClock$OnServerDiedListener;,
+        Landroid/os/CommonClock$TimelineChangedListener;,
+        Landroid/os/CommonClock$1;
     }
 .end annotation
 

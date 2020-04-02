@@ -6,9 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/net/EthernetManager$Listener;,
         Landroid/net/EthernetManager$1;,
-        Landroid/net/EthernetManager$2;,
-        Landroid/net/EthernetManager$Listener;
+        Landroid/net/EthernetManager$2;
     }
 .end annotation
 
@@ -105,10 +105,10 @@
     .param p1, "listener"    # Landroid/net/EthernetManager$Listener;
 
     .prologue
-    .line 124
+    .line 123
     if-nez p1, :cond_0
 
-    .line 125
+    .line 124
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "listener must not be null"
@@ -117,13 +117,13 @@
 
     throw v1
 
-    .line 127
+    .line 126
     :cond_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 128
+    .line 127
     iget-object v1, p0, Landroid/net/EthernetManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -134,7 +134,7 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 130
+    .line 129
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -142,23 +142,20 @@
 
     invoke-interface {v1, v2}, Landroid/net/IEthernetManager;->addListener(Landroid/net/IEthernetServiceListener;)V
     :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 123
+    .line 122
     :cond_1
+    :goto_0
     return-void
 
-    .line 131
+    .line 130
     :catch_0
     move-exception v0
 
-    .line 132
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v1
-
-    throw v1
+    .local v0, "e":Ljava/lang/Exception;
+    goto :goto_0
 .end method
 
 .method public getConfiguration()Landroid/net/IpConfiguration;
@@ -171,6 +168,7 @@
 
     invoke-interface {v1}, Landroid/net/IEthernetManager;->getConfiguration()Landroid/net/IpConfiguration;
     :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
@@ -182,41 +180,40 @@
     move-exception v0
 
     .line 91
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    .local v0, "e":Ljava/lang/Exception;
+    new-instance v1, Landroid/net/IpConfiguration;
 
-    move-result-object v1
+    invoke-direct {v1}, Landroid/net/IpConfiguration;-><init>()V
 
-    throw v1
+    return-object v1
 .end method
 
 .method public isAvailable()Z
     .locals 2
 
     .prologue
-    .line 112
+    .line 111
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
     invoke-interface {v1}, Landroid/net/IEthernetManager;->isAvailable()Z
     :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     return v1
 
-    .line 113
+    .line 112
     :catch_0
     move-exception v0
 
-    .line 114
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    .line 113
+    .local v0, "e":Ljava/lang/Exception;
+    const/4 v1, 0x0
 
-    move-result-object v1
-
-    throw v1
+    return v1
 .end method
 
 .method public removeListener(Landroid/net/EthernetManager$Listener;)V
@@ -224,10 +221,10 @@
     .param p1, "listener"    # Landroid/net/EthernetManager$Listener;
 
     .prologue
-    .line 143
+    .line 141
     if-nez p1, :cond_0
 
-    .line 144
+    .line 142
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "listener must not be null"
@@ -236,13 +233,13 @@
 
     throw v1
 
-    .line 146
+    .line 144
     :cond_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 147
+    .line 145
     iget-object v1, p0, Landroid/net/EthernetManager;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
@@ -251,7 +248,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 149
+    .line 147
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
@@ -259,23 +256,20 @@
 
     invoke-interface {v1, v2}, Landroid/net/IEthernetManager;->removeListener(Landroid/net/IEthernetServiceListener;)V
     :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 142
+    .line 140
     :cond_1
+    :goto_0
     return-void
 
-    .line 150
+    .line 148
     :catch_0
     move-exception v0
 
-    .line 151
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v1
-
-    throw v1
+    .local v0, "e":Ljava/lang/Exception;
+    goto :goto_0
 .end method
 
 .method public setConfiguration(Landroid/net/IpConfiguration;)V
@@ -289,20 +283,17 @@
 
     invoke-interface {v1, p1}, Landroid/net/IEthernetManager;->setConfiguration(Landroid/net/IpConfiguration;)V
     :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 98
+    :goto_0
     return-void
 
     .line 101
     :catch_0
     move-exception v0
 
-    .line 102
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v1
-
-    throw v1
+    .local v0, "e":Ljava/lang/Exception;
+    goto :goto_0
 .end method

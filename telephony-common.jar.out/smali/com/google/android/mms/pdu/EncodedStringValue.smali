@@ -21,6 +21,80 @@
 
 
 # direct methods
+.method public constructor <init>(ILjava/lang/String;)V
+    .locals 3
+    .param p1, "charSet"    # I
+    .param p2, "data"    # Ljava/lang/String;
+
+    .prologue
+    .line 73
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 75
+    :try_start_0
+    invoke-static {p1}, Lcom/google/android/mms/pdu/CharacterSets;->getMimeName(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p2, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
+
+    .line 76
+    iput p1, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 73
+    :goto_0
+    return-void
+
+    .line 77
+    :catch_0
+    move-exception v0
+
+    .line 84
+    .local v0, "e":Ljava/io/UnsupportedEncodingException;
+    :try_start_1
+    const-string/jumbo v2, "iso-8859-1"
+
+    invoke-virtual {p2, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
+
+    .line 85
+    const/4 v2, 0x4
+
+    iput v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
+    :try_end_1
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_1
+
+    goto :goto_0
+
+    .line 86
+    :catch_1
+    move-exception v1
+
+    .line 87
+    .local v1, "e2":Ljava/io/UnsupportedEncodingException;
+    invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
+
+    .line 88
+    const/4 v2, 0x0
+
+    iput v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
+
+    goto :goto_0
+.end method
+
 .method public constructor <init>(I[B)V
     .locals 3
     .param p1, "charset"    # I
@@ -71,10 +145,10 @@
     .param p1, "data"    # Ljava/lang/String;
 
     .prologue
-    .line 73
+    .line 93
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 75
+    .line 95
     :try_start_0
     const-string/jumbo v1, "utf-8"
 
@@ -84,22 +158,22 @@
 
     iput-object v1, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
-    .line 76
+    .line 96
     const/16 v1, 0x6a
 
     iput v1, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 73
+    .line 93
     :goto_0
     return-void
 
-    .line 77
+    .line 97
     :catch_0
     move-exception v0
 
-    .line 78
+    .line 98
     .local v0, "e":Ljava/io/UnsupportedEncodingException;
     const-string/jumbo v1, "EncodedStringValue"
 
@@ -129,18 +203,18 @@
     .param p0, "addr"    # [Lcom/google/android/mms/pdu/EncodedStringValue;
 
     .prologue
-    .line 252
+    .line 274
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 253
+    .line 275
     .local v2, "sb":Ljava/lang/StringBuilder;
     array-length v3, p0
 
     add-int/lit8 v1, v3, -0x1
 
-    .line 254
+    .line 276
     .local v1, "maxIndex":I
     const/4 v0, 0x0
 
@@ -148,7 +222,7 @@
     :goto_0
     if-gt v0, v1, :cond_1
 
-    .line 255
+    .line 277
     aget-object v3, p0, v0
 
     invoke-virtual {v3}, Lcom/google/android/mms/pdu/EncodedStringValue;->getString()Ljava/lang/String;
@@ -157,21 +231,21 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 256
+    .line 278
     if-ge v0, v1, :cond_0
 
-    .line 257
+    .line 279
     const-string/jumbo v3, ";"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 254
+    .line 276
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 261
+    .line 283
     :cond_1
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -187,13 +261,13 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 265
+    .line 287
     if-nez p0, :cond_0
 
-    .line 266
+    .line 288
     return-object v0
 
-    .line 269
+    .line 291
     :cond_0
     new-instance v0, Lcom/google/android/mms/pdu/EncodedStringValue;
 
@@ -211,17 +285,17 @@
     .param p0, "array"    # [Ljava/lang/String;
 
     .prologue
-    .line 273
+    .line 295
     array-length v0, p0
 
-    .line 274
+    .line 296
     .local v0, "count":I
     if-lez v0, :cond_1
 
-    .line 275
+    .line 297
     new-array v1, v0, [Lcom/google/android/mms/pdu/EncodedStringValue;
 
-    .line 276
+    .line 298
     .local v1, "encodedArray":[Lcom/google/android/mms/pdu/EncodedStringValue;
     const/4 v2, 0x0
 
@@ -229,7 +303,7 @@
     :goto_0
     if-ge v2, v0, :cond_0
 
-    .line 277
+    .line 299
     new-instance v3, Lcom/google/android/mms/pdu/EncodedStringValue;
 
     aget-object v4, p0, v2
@@ -238,16 +312,16 @@
 
     aput-object v3, v1, v2
 
-    .line 276
+    .line 298
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 279
+    .line 301
     :cond_0
     return-object v1
 
-    .line 281
+    .line 303
     .end local v1    # "encodedArray":[Lcom/google/android/mms/pdu/EncodedStringValue;
     .end local v2    # "i":I
     :cond_1
@@ -261,20 +335,20 @@
     .param p0, "src"    # Ljava/lang/String;
 
     .prologue
-    .line 231
+    .line 253
     const-string/jumbo v4, ";"
 
     invoke-virtual {p0, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 233
+    .line 255
     .local v3, "values":[Ljava/lang/String;
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 234
+    .line 256
     .local v2, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/google/android/mms/pdu/EncodedStringValue;>;"
     const/4 v0, 0x0
 
@@ -284,7 +358,7 @@
 
     if-ge v0, v4, :cond_1
 
-    .line 235
+    .line 257
     aget-object v4, v3, v0
 
     invoke-virtual {v4}, Ljava/lang/String;->length()I
@@ -293,7 +367,7 @@
 
     if-lez v4, :cond_0
 
-    .line 236
+    .line 258
     new-instance v4, Lcom/google/android/mms/pdu/EncodedStringValue;
 
     aget-object v5, v3, v0
@@ -302,23 +376,23 @@
 
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 234
+    .line 256
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 240
+    .line 262
     :cond_1
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 241
+    .line 263
     .local v1, "len":I
     if-lez v1, :cond_2
 
-    .line 242
+    .line 264
     new-array v4, v1, [Lcom/google/android/mms/pdu/EncodedStringValue;
 
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -329,7 +403,7 @@
 
     return-object v4
 
-    .line 244
+    .line 266
     :cond_2
     const/4 v4, 0x0
 
@@ -345,10 +419,10 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 163
+    .line 185
     if-nez p1, :cond_0
 
-    .line 164
+    .line 186
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string/jumbo v3, "Text-string is null."
@@ -357,49 +431,49 @@
 
     throw v2
 
-    .line 167
+    .line 189
     :cond_0
     iget-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
     if-nez v2, :cond_1
 
-    .line 168
+    .line 190
     array-length v2, p1
 
     new-array v2, v2, [B
 
     iput-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
-    .line 169
+    .line 191
     iget-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
     array-length v3, p1
 
     invoke-static {p1, v4, v2, v4, v3}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    .line 162
+    .line 184
     :goto_0
     return-void
 
-    .line 171
+    .line 193
     :cond_1
     new-instance v1, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 173
+    .line 195
     .local v1, "newTextString":Ljava/io/ByteArrayOutputStream;
     :try_start_0
     iget-object v2, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
     invoke-virtual {v1, v2}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
-    .line 174
+    .line 196
     invoke-virtual {v1, p1}, Ljava/io/ByteArrayOutputStream;->write([B)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 181
+    .line 203
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v2
@@ -408,21 +482,21 @@
 
     goto :goto_0
 
-    .line 175
+    .line 197
     :catch_0
     move-exception v0
 
-    .line 176
+    .line 198
     .local v0, "e":Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 177
+    .line 199
     new-instance v2, Ljava/lang/NullPointerException;
 
-    .line 178
+    .line 200
     const-string/jumbo v3, "appendTextString: failed when write a new Text-string"
 
-    .line 177
+    .line 199
     invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v2
@@ -439,25 +513,25 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 191
+    .line 213
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    .line 192
+    .line 214
     iget-object v3, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
     array-length v2, v3
 
-    .line 193
+    .line 215
     .local v2, "len":I
     new-array v0, v2, [B
 
-    .line 194
+    .line 216
     .local v0, "dstBytes":[B
     iget-object v3, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
     invoke-static {v3, v4, v0, v4, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    .line 197
+    .line 219
     :try_start_0
     new-instance v3, Lcom/google/android/mms/pdu/EncodedStringValue;
 
@@ -469,11 +543,11 @@
 
     return-object v3
 
-    .line 198
+    .line 220
     :catch_0
     move-exception v1
 
-    .line 199
+    .line 221
     .local v1, "e":Ljava/lang/Exception;
     const-string/jumbo v3, "EncodedStringValue"
 
@@ -497,10 +571,10 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 200
+    .line 222
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 201
+    .line 223
     new-instance v3, Ljava/lang/CloneNotSupportedException;
 
     invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
@@ -516,22 +590,24 @@
     .locals 1
 
     .prologue
-    .line 88
+    .line 108
     iget v0, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
 
     return v0
 .end method
 
 .method public getString()Ljava/lang/String;
-    .locals 6
+    .locals 7
 
     .prologue
-    .line 136
+    const/4 v6, 0x0
+
+    .line 156
     iget v3, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
 
     if-nez v3, :cond_0
 
-    .line 137
+    .line 157
     new-instance v3, Ljava/lang/String;
 
     iget-object v4, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
@@ -540,7 +616,7 @@
 
     return-object v3
 
-    .line 140
+    .line 160
     :cond_0
     :try_start_0
     iget v3, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
@@ -549,7 +625,7 @@
 
     move-result-object v2
 
-    .line 141
+    .line 161
     .local v2, "name":Ljava/lang/String;
     new-instance v3, Ljava/lang/String;
 
@@ -561,14 +637,19 @@
 
     return-object v3
 
-    .line 142
+    .line 162
     .end local v2    # "name":Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .line 147
+    .line 167
     .local v0, "e":Ljava/io/UnsupportedEncodingException;
+    const/4 v3, 0x4
+
     :try_start_1
+    iput v3, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
+
+    .line 168
     new-instance v3, Ljava/lang/String;
 
     iget-object v4, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
@@ -581,12 +662,15 @@
 
     return-object v3
 
-    .line 148
+    .line 169
     :catch_1
     move-exception v1
 
-    .line 149
+    .line 170
     .local v1, "e2":Ljava/io/UnsupportedEncodingException;
+    iput v6, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
+
+    .line 171
     new-instance v3, Ljava/lang/String;
 
     iget-object v4, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
@@ -602,14 +686,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 107
+    .line 127
     iget-object v1, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
     array-length v1, v1
 
     new-array v0, v1, [B
 
-    .line 109
+    .line 129
     .local v0, "byteArray":[B
     iget-object v1, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
@@ -619,7 +703,7 @@
 
     invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    .line 110
+    .line 130
     return-object v0
 .end method
 
@@ -628,10 +712,10 @@
     .param p1, "charset"    # I
 
     .prologue
-    .line 98
+    .line 118
     iput p1, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
 
-    .line 96
+    .line 116
     return-void
 .end method
 
@@ -642,10 +726,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 120
+    .line 140
     if-nez p1, :cond_0
 
-    .line 121
+    .line 141
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "EncodedStringValue: Text-string is null."
@@ -654,7 +738,7 @@
 
     throw v0
 
-    .line 124
+    .line 144
     :cond_0
     array-length v0, p1
 
@@ -662,14 +746,14 @@
 
     iput-object v0, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
-    .line 125
+    .line 145
     iget-object v0, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mData:[B
 
     array-length v1, p1
 
     invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    .line 119
+    .line 139
     return-void
 .end method
 
@@ -678,7 +762,7 @@
     .param p1, "pattern"    # Ljava/lang/String;
 
     .prologue
-    .line 213
+    .line 235
     invoke-virtual {p0}, Lcom/google/android/mms/pdu/EncodedStringValue;->getString()Ljava/lang/String;
 
     move-result-object v4
@@ -687,13 +771,13 @@
 
     move-result-object v3
 
-    .line 214
+    .line 236
     .local v3, "temp":[Ljava/lang/String;
     array-length v4, v3
 
     new-array v2, v4, [Lcom/google/android/mms/pdu/EncodedStringValue;
 
-    .line 215
+    .line 237
     .local v2, "ret":[Lcom/google/android/mms/pdu/EncodedStringValue;
     const/4 v1, 0x0
 
@@ -703,42 +787,42 @@
 
     if-ge v1, v4, :cond_0
 
-    .line 217
+    .line 239
     :try_start_0
     new-instance v4, Lcom/google/android/mms/pdu/EncodedStringValue;
 
     iget v5, p0, Lcom/google/android/mms/pdu/EncodedStringValue;->mCharacterSet:I
 
-    .line 218
+    .line 240
     aget-object v6, v3, v1
 
     invoke-virtual {v6}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v6
 
-    .line 217
+    .line 239
     invoke-direct {v4, v5, v6}, Lcom/google/android/mms/pdu/EncodedStringValue;-><init>(I[B)V
 
     aput-object v4, v2, v1
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 215
+    .line 237
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 219
+    .line 241
     :catch_0
     move-exception v0
 
-    .line 221
+    .line 243
     .local v0, "e":Ljava/lang/NullPointerException;
     const/4 v4, 0x0
 
     return-object v4
 
-    .line 224
+    .line 246
     .end local v0    # "e":Ljava/lang/NullPointerException;
     :cond_0
     return-object v2

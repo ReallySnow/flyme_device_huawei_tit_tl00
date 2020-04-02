@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 970
+    .line 345
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,25 +30,25 @@
     .param p0, "changes"    # I
 
     .prologue
-    .line 973
+    .line 348
     and-int/lit16 v0, p0, 0x4000
 
     if-eqz v0, :cond_0
 
-    .line 976
+    .line 351
     invoke-static {}, Landroid/graphics/Canvas;->freeCaches()V
 
-    .line 978
+    .line 353
     invoke-static {}, Landroid/graphics/Canvas;->freeTextLayoutCaches()V
 
-    .line 979
+    .line 354
     invoke-static {}, Landroid/content/res/flymetheme/iconfilter/IconFilter;->getInstance()Landroid/content/res/flymetheme/iconfilter/IconFilter;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/content/res/flymetheme/iconfilter/IconFilter;->cleanFilter()V
 
-    .line 981
+    .line 356
     :cond_0
     const v0, 0x8000
 
@@ -56,16 +56,16 @@
 
     if-eqz v0, :cond_1
 
-    .line 984
+    .line 359
     invoke-static {}, Landroid/graphics/Canvas;->freeCaches()V
 
-    .line 986
+    .line 361
     invoke-static {}, Landroid/graphics/Canvas;->freeTextLayoutCaches()V
 
-    .line 988
+    .line 363
     invoke-static {}, Landroid/content/res/flymetheme/FlymeFontsHelper;->cleanflymeTypeface()V
 
-    .line 972
+    .line 347
     :cond_1
     return-void
 .end method

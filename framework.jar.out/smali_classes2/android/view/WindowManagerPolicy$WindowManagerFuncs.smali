@@ -38,25 +38,10 @@
 .method public abstract getCameraLensCoverState()I
 .end method
 
-.method public abstract getDockedDividerInsetsLw()I
-.end method
-
 .method public abstract getLidState()I
 .end method
 
-.method public abstract getStackBounds(ILandroid/graphics/Rect;)V
-.end method
-
 .method public abstract getWindowManagerLock()Ljava/lang/Object;
-.end method
-
-.method public abstract lockDeviceNow()V
-.end method
-
-.method public abstract overridePlayingAppAnimationsLw(Landroid/view/animation/Animation;)V
-.end method
-
-.method public abstract reboot(Z)V
 .end method
 
 .method public abstract rebootSafeMode(Z)V
@@ -71,7 +56,7 @@
 .method public abstract shutdown(Z)V
 .end method
 
-.method public abstract switchInputMethod(Z)V
+.method public abstract switchKeyboardLayout(II)V
 .end method
 
 .method public abstract unregisterPointerEventListener(Landroid/view/WindowManagerPolicy$PointerEventListener;)V

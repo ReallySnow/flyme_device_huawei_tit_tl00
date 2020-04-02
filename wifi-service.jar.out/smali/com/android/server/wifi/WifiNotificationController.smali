@@ -12,7 +12,9 @@
 
 
 # static fields
-.field private static final ICON_NETWORKS_AVAILABLE:I = 0x10806e8
+.field private static final ACTION_TURN_WIFI_OFF:Ljava/lang/String; = "com.android.server.WifiService.ACTION_TURN_WIFI_OFF"
+
+.field private static final ICON_NETWORKS_AVAILABLE:I = 0x1080651
 
 .field private static final NUM_SCANS_BEFORE_ACTUALLY_SCANNING:I = 0x3
 
@@ -22,11 +24,9 @@
 
 .field private final mContext:Landroid/content/Context;
 
-.field private mDetailedState:Landroid/net/NetworkInfo$DetailedState;
-
-.field private mFrameworkFacade:Lcom/android/server/wifi/FrameworkFacade;
-
 .field private mNetworkInfo:Landroid/net/NetworkInfo;
+
+.field private mNotificationBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mNotificationBuilder:Landroid/app/Notification$Builder;
 
@@ -54,23 +54,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/server/wifi/WifiNotificationController;)Landroid/net/NetworkInfo$DetailedState;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wifi/WifiNotificationController;->mDetailedState:Landroid/net/NetworkInfo$DetailedState;
-
-    return-object v0
-.end method
-
-.method static synthetic -get2(Lcom/android/server/wifi/WifiNotificationController;)Lcom/android/server/wifi/FrameworkFacade;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wifi/WifiNotificationController;->mFrameworkFacade:Lcom/android/server/wifi/FrameworkFacade;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/server/wifi/WifiNotificationController;)Landroid/net/NetworkInfo;
+.method static synthetic -get1(Lcom/android/server/wifi/WifiNotificationController;)Landroid/net/NetworkInfo;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wifi/WifiNotificationController;->mNetworkInfo:Landroid/net/NetworkInfo;
@@ -78,7 +62,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/wifi/WifiNotificationController;)Lcom/android/server/wifi/WifiStateMachine;
+.method static synthetic -get2(Lcom/android/server/wifi/WifiNotificationController;)Lcom/android/server/wifi/WifiStateMachine;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wifi/WifiNotificationController;->mWifiStateMachine:Lcom/android/server/wifi/WifiStateMachine;
@@ -86,15 +70,7 @@
     return-object v0
 .end method
 
-.method static synthetic -set0(Lcom/android/server/wifi/WifiNotificationController;Landroid/net/NetworkInfo$DetailedState;)Landroid/net/NetworkInfo$DetailedState;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/wifi/WifiNotificationController;->mDetailedState:Landroid/net/NetworkInfo$DetailedState;
-
-    return-object p1
-.end method
-
-.method static synthetic -set1(Lcom/android/server/wifi/WifiNotificationController;Landroid/net/NetworkInfo;)Landroid/net/NetworkInfo;
+.method static synthetic -set0(Lcom/android/server/wifi/WifiNotificationController;Landroid/net/NetworkInfo;)Landroid/net/NetworkInfo;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wifi/WifiNotificationController;->mNetworkInfo:Landroid/net/NetworkInfo;
@@ -102,7 +78,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set2(Lcom/android/server/wifi/WifiNotificationController;Z)Z
+.method static synthetic -set1(Lcom/android/server/wifi/WifiNotificationController;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationEnabled:Z
@@ -110,7 +86,7 @@
     return p1
 .end method
 
-.method static synthetic -set3(Lcom/android/server/wifi/WifiNotificationController;I)I
+.method static synthetic -set2(Lcom/android/server/wifi/WifiNotificationController;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/wifi/WifiNotificationController;->mWifiState:I
@@ -137,74 +113,67 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/server/wifi/WifiStateMachine;Lcom/android/server/wifi/FrameworkFacade;Landroid/app/Notification$Builder;)V
+.method constructor <init>(Landroid/content/Context;Lcom/android/server/wifi/WifiStateMachine;)V
     .locals 6
     .param p1, "context"    # Landroid/content/Context;
-    .param p2, "looper"    # Landroid/os/Looper;
-    .param p3, "wsm"    # Lcom/android/server/wifi/WifiStateMachine;
-    .param p4, "framework"    # Lcom/android/server/wifi/FrameworkFacade;
-    .param p5, "builder"    # Landroid/app/Notification$Builder;
+    .param p2, "wsm"    # Lcom/android/server/wifi/WifiStateMachine;
 
     .prologue
-    .line 98
+    .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 100
+    .line 101
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    .line 109
     iput-object p1, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
 
-    .line 101
-    iput-object p3, p0, Lcom/android/server/wifi/WifiNotificationController;->mWifiStateMachine:Lcom/android/server/wifi/WifiStateMachine;
+    .line 110
+    iput-object p2, p0, Lcom/android/server/wifi/WifiNotificationController;->mWifiStateMachine:Lcom/android/server/wifi/WifiStateMachine;
 
-    .line 102
-    iput-object p4, p0, Lcom/android/server/wifi/WifiNotificationController;->mFrameworkFacade:Lcom/android/server/wifi/FrameworkFacade;
-
-    .line 103
-    iput-object p5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
-
-    .line 104
+    .line 111
     const/4 v1, 0x4
 
     iput v1, p0, Lcom/android/server/wifi/WifiNotificationController;->mWifiState:I
 
-    .line 105
-    sget-object v1, Landroid/net/NetworkInfo$DetailedState;->IDLE:Landroid/net/NetworkInfo$DetailedState;
-
-    iput-object v1, p0, Lcom/android/server/wifi/WifiNotificationController;->mDetailedState:Landroid/net/NetworkInfo$DetailedState;
-
-    .line 107
+    .line 113
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 108
+    .line 114
     .local v0, "filter":Landroid/content/IntentFilter;
     const-string/jumbo v1, "android.net.wifi.WIFI_STATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 109
+    .line 115
     const-string/jumbo v1, "android.net.wifi.STATE_CHANGE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 110
+    .line 116
     const-string/jumbo v1, "android.net.wifi.SCAN_RESULTS"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 112
+    .line 118
     iget-object v1, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
 
-    .line 113
+    .line 119
     new-instance v2, Lcom/android/server/wifi/WifiNotificationController$1;
 
     invoke-direct {v2, p0}, Lcom/android/server/wifi/WifiNotificationController$1;-><init>(Lcom/android/server/wifi/WifiNotificationController;)V
 
-    .line 112
+    .line 118
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 147
-    iget-object v1, p0, Lcom/android/server/wifi/WifiNotificationController;->mFrameworkFacade:Lcom/android/server/wifi/FrameworkFacade;
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
 
     .line 148
     const-string/jumbo v2, "wifi_networks_available_repeat_delay"
@@ -212,7 +181,7 @@
     const/16 v3, 0x384
 
     .line 147
-    invoke-virtual {v1, p1, v2, v3}, Lcom/android/server/wifi/FrameworkFacade;->getIntegerSetting(Landroid/content/Context;Ljava/lang/String;I)I
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
@@ -229,22 +198,20 @@
     .line 149
     new-instance v1, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;
 
-    .line 150
     new-instance v2, Landroid/os/Handler;
 
-    invoke-direct {v2, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v2}, Landroid/os/Handler;-><init>()V
 
-    .line 149
     invoke-direct {v1, p0, v2}, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;-><init>(Lcom/android/server/wifi/WifiNotificationController;Landroid/os/Handler;)V
 
     iput-object v1, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationEnabledSettingObserver:Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;
 
-    .line 151
+    .line 150
     iget-object v1, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationEnabledSettingObserver:Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;
 
     invoke-virtual {v1}, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->register()V
 
-    .line 99
+    .line 108
     return-void
 .end method
 
@@ -268,7 +235,7 @@
 
     monitor-enter p0
 
-    .line 160
+    .line 159
     :try_start_0
     iget-boolean v4, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationEnabled:Z
     :try_end_0
@@ -280,7 +247,7 @@
 
     return-void
 
-    .line 161
+    .line 160
     :cond_0
     :try_start_1
     iget v4, p0, Lcom/android/server/wifi/WifiNotificationController;->mWifiState:I
@@ -293,39 +260,39 @@
 
     return-void
 
-    .line 163
+    .line 162
     :cond_1
     :try_start_2
     sget-object v3, Landroid/net/NetworkInfo$State;->DISCONNECTED:Landroid/net/NetworkInfo$State;
 
-    .line 164
+    .line 163
     .local v3, "state":Landroid/net/NetworkInfo$State;
     if-eqz p1, :cond_2
 
-    .line 165
+    .line 164
     invoke-virtual {p1}, Landroid/net/NetworkInfo;->getState()Landroid/net/NetworkInfo$State;
 
     move-result-object v3
 
-    .line 167
+    .line 166
     :cond_2
     sget-object v4, Landroid/net/NetworkInfo$State;->DISCONNECTED:Landroid/net/NetworkInfo$State;
 
     if-eq v3, v4, :cond_3
 
-    .line 168
+    .line 167
     sget-object v4, Landroid/net/NetworkInfo$State;->UNKNOWN:Landroid/net/NetworkInfo$State;
 
-    if-ne v3, v4, :cond_8
+    if-ne v3, v4, :cond_7
+
+    .line 168
+    :cond_3
+    if-eqz p2, :cond_7
 
     .line 169
-    :cond_3
-    if-eqz p2, :cond_8
-
-    .line 170
     const/4 v1, 0x0
 
-    .line 171
+    .line 170
     .local v1, "numOpenNetworks":I
     invoke-interface {p2}, Ljava/util/List;->size()I
 
@@ -335,22 +302,22 @@
 
     .local v0, "i":I
     :goto_0
-    if-ltz v0, :cond_6
+    if-ltz v0, :cond_5
 
-    .line 172
+    .line 171
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/net/wifi/ScanResult;
 
-    .line 176
+    .line 175
     .local v2, "scanResult":Landroid/net/wifi/ScanResult;
     iget-object v4, v2, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_4
 
-    .line 177
+    .line 176
     iget-object v4, v2, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
 
     const-string/jumbo v5, "[ESS]"
@@ -359,45 +326,33 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    .line 175
+    if-eqz v4, :cond_4
 
-    .line 178
-    iget-object v4, v2, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
-
-    const-string/jumbo v5, "[WPS][ESS]"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    .line 176
-    if-eqz v4, :cond_5
-
-    .line 179
-    :cond_4
+    .line 177
     add-int/lit8 v1, v1, 0x1
 
-    .line 171
-    :cond_5
+    .line 170
+    :cond_4
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 183
+    .line 181
     .end local v2    # "scanResult":Landroid/net/wifi/ScanResult;
-    :cond_6
-    if-lez v1, :cond_8
+    :cond_5
+    if-lez v1, :cond_7
 
-    .line 184
+    .line 182
     iget v4, p0, Lcom/android/server/wifi/WifiNotificationController;->mNumScansSinceNetworkStateChange:I
 
     add-int/lit8 v4, v4, 0x1
 
     iput v4, p0, Lcom/android/server/wifi/WifiNotificationController;->mNumScansSinceNetworkStateChange:I
 
-    if-lt v4, v6, :cond_7
+    if-lt v4, v6, :cond_6
 
-    .line 192
+    .line 190
     const/4 v4, 0x1
 
     const/4 v5, 0x0
@@ -408,16 +363,16 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :cond_7
+    :cond_6
     monitor-exit p0
 
-    .line 194
+    .line 192
     return-void
 
-    .line 200
+    .line 198
     .end local v0    # "i":I
     .end local v1    # "numOpenNetworks":I
-    :cond_8
+    :cond_7
     const/4 v4, 0x0
 
     const/4 v5, 0x0
@@ -433,7 +388,7 @@
 
     monitor-exit p0
 
-    .line 155
+    .line 154
     return-void
 
     .end local v3    # "state":Landroid/net/NetworkInfo$State;
@@ -451,18 +406,18 @@
     .prologue
     monitor-enter p0
 
-    .line 208
+    .line 206
     const-wide/16 v0, 0x0
 
     :try_start_0
     iput-wide v0, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationRepeatTime:J
 
-    .line 209
+    .line 207
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/wifi/WifiNotificationController;->mNumScansSinceNetworkStateChange:I
 
-    .line 210
+    .line 208
     const/4 v0, 0x0
 
     const/4 v1, 0x0
@@ -477,7 +432,7 @@
 
     monitor-exit p0
 
-    .line 207
+    .line 205
     return-void
 
     :catchall_0
@@ -496,232 +451,349 @@
     .param p4, "delay"    # I
 
     .prologue
-    const/4 v10, 0x0
-
-    const v9, 0x10806e8
-
-    const/4 v8, 0x0
-
-    .line 232
+    .line 230
     if-nez p1, :cond_0
 
-    iget-boolean v3, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationShown:Z
+    iget-boolean v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationShown:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v5, :cond_1
 
-    .line 236
+    .line 234
     :cond_0
-    iget-object v3, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
 
-    .line 237
-    const-string/jumbo v4, "notification"
+    .line 235
+    const-string/jumbo v6, "notification"
 
-    .line 236
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    .line 234
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/app/NotificationManager;
 
-    .line 240
+    .line 237
     .local v1, "notificationManager":Landroid/app/NotificationManager;
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
-    .line 243
+    .line 240
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v4
+    move-result-wide v6
 
-    iget-wide v6, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationRepeatTime:J
+    iget-wide v8, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationRepeatTime:J
 
-    cmp-long v3, v4, v6
+    cmp-long v5, v6, v8
 
-    if-gez v3, :cond_2
+    if-gez v5, :cond_2
 
-    .line 244
+    .line 241
     return-void
 
-    .line 232
+    .line 230
     .end local v1    # "notificationManager":Landroid/app/NotificationManager;
     :cond_1
     if-nez p3, :cond_0
 
-    .line 233
+    .line 231
     return-void
 
-    .line 247
+    .line 244
     .restart local v1    # "notificationManager":Landroid/app/NotificationManager;
     :cond_2
-    iget-object v3, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
 
-    if-nez v3, :cond_3
+    if-nez v5, :cond_3
+
+    .line 245
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+
+    .line 246
+    const v6, 0x104003d
+
+    .line 245
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    .line 247
+    .local v4, "wifiOffText":Ljava/lang/CharSequence;
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+
+    .line 248
+    new-instance v6, Landroid/content/Intent;
+
+    const-string/jumbo v7, "com.android.server.WifiService.ACTION_TURN_WIFI_OFF"
+
+    invoke-direct {v6, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 249
-    new-instance v3, Landroid/app/Notification$Builder;
+    iget-object v7, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
 
-    iget-object v4, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+    invoke-virtual {v7}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    invoke-direct {v3, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+    move-result-object v7
+
+    .line 248
+    invoke-virtual {v6, v7}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v6
+
+    .line 247
+    const/4 v7, 0x0
 
     .line 250
-    const-wide/16 v4, 0x0
+    const/high16 v8, 0x8000000
 
-    .line 249
-    invoke-virtual {v3, v4, v5}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v9}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
-
-    move-result-object v3
-
-    .line 252
-    const/4 v4, 0x1
-
-    .line 249
-    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setAutoCancel(Z)Landroid/app/Notification$Builder;
+    .line 247
+    invoke-static {v5, v7, v6, v8}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v3
 
     .line 253
-    iget-object v4, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+    .local v3, "wifiOffPi":Landroid/app/PendingIntent;
+    new-instance v5, Landroid/app/Notification$Builder;
 
-    invoke-static {v4}, Landroid/app/TaskStackBuilder;->create(Landroid/content/Context;)Landroid/app/TaskStackBuilder;
+    iget-object v6, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
 
-    move-result-object v4
+    invoke-direct {v5, v6}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 254
+    const-wide/16 v6, 0x0
+
+    .line 253
+    invoke-virtual {v5, v6, v7}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
+
+    move-result-object v5
 
     .line 255
-    new-instance v5, Landroid/content/Intent;
-
-    const-string/jumbo v6, "android.net.wifi.PICK_WIFI_NETWORK"
-
-    invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    const v6, 0x1080651
 
     .line 253
-    invoke-virtual {v4, v5}, Landroid/app/TaskStackBuilder;->addNextIntentWithParentStack(Landroid/content/Intent;)Landroid/app/TaskStackBuilder;
+    invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
-    move-result-object v4
+    move-result-object v5
 
     .line 256
-    sget-object v5, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+    const/4 v6, 0x1
 
     .line 253
-    invoke-virtual {v4, v10, v10, v8, v5}, Landroid/app/TaskStackBuilder;->getPendingIntent(IILandroid/os/Bundle;Landroid/os/UserHandle;)Landroid/app/PendingIntent;
+    invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setAutoCancel(Z)Landroid/app/Notification$Builder;
 
-    move-result-object v4
-
-    .line 249
-    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
-
-    move-result-object v3
+    move-result-object v5
 
     .line 257
-    iget-object v4, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-static {v6}, Landroid/app/TaskStackBuilder;->create(Landroid/content/Context;)Landroid/app/TaskStackBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    .line 258
-    const v5, 0x106005b
+    .line 259
+    new-instance v7, Landroid/content/Intent;
+
+    const-string/jumbo v8, "android.net.wifi.PICK_WIFI_NETWORK"
+
+    invoke-direct {v7, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 257
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v6, v7}, Landroid/app/TaskStackBuilder;->addNextIntentWithParentStack(Landroid/content/Intent;)Landroid/app/TaskStackBuilder;
 
-    move-result v4
+    move-result-object v6
 
-    .line 249
-    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
+    .line 260
+    sget-object v7, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
 
-    move-result-object v3
+    const/4 v8, 0x0
 
-    iput-object v3, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
+    .line 257
+    invoke-virtual {v6, v8, v9, v10, v7}, Landroid/app/TaskStackBuilder;->getPendingIntent(IILandroid/os/Bundle;Landroid/os/UserHandle;)Landroid/app/PendingIntent;
+
+    move-result-object v6
+
+    .line 253
+    invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
+
+    move-result-object v5
 
     .line 261
+    new-instance v6, Landroid/app/Notification$Action$Builder;
+
+    const/4 v7, 0x0
+
+    invoke-direct {v6, v7, v4, v3}, Landroid/app/Notification$Action$Builder;-><init>(Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
+
+    invoke-virtual {v6}, Landroid/app/Notification$Action$Builder;->build()Landroid/app/Notification$Action;
+
+    move-result-object v6
+
+    .line 253
+    invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->addAction(Landroid/app/Notification$Action;)Landroid/app/Notification$Builder;
+
+    move-result-object v5
+
+    .line 263
+    iget-object v6, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    .line 264
+    const v7, 0x1060070
+
+    .line 263
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v6
+
+    .line 253
+    invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
+
+    .line 267
+    .end local v3    # "wifiOffPi":Landroid/app/PendingIntent;
+    .end local v4    # "wifiOffText":Ljava/lang/CharSequence;
     :cond_3
-    iget-object v3, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v5
 
-    .line 262
-    const v4, 0x1140017
+    .line 268
+    const v6, 0x1140005
 
-    .line 261
-    invoke-virtual {v3, v4, p2}, Landroid/content/res/Resources;->getQuantityText(II)Ljava/lang/CharSequence;
+    .line 267
+    invoke-virtual {v5, v6, p2}, Landroid/content/res/Resources;->getQuantityText(II)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    .line 263
+    .line 269
     .local v2, "title":Ljava/lang/CharSequence;
-    iget-object v3, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v5
 
-    .line 264
-    const v4, 0x1140018
+    .line 270
+    const v6, 0x1140006
 
-    .line 263
-    invoke-virtual {v3, v4, p2}, Landroid/content/res/Resources;->getQuantityText(II)Ljava/lang/CharSequence;
+    .line 269
+    invoke-virtual {v5, v6, p2}, Landroid/content/res/Resources;->getQuantityText(II)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 265
+    .line 271
     .local v0, "details":Ljava/lang/CharSequence;
-    iget-object v3, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
 
-    invoke-virtual {v3, v2}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    .line 266
-    iget-object v3, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
-
-    invoke-virtual {v3, v2}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    .line 267
-    iget-object v3, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
-
-    invoke-virtual {v3, v0}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    .line 269
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    iget-wide v6, p0, Lcom/android/server/wifi/WifiNotificationController;->NOTIFICATION_REPEAT_DELAY_MS:J
-
-    add-long/2addr v4, v6
-
-    iput-wide v4, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationRepeatTime:J
+    invoke-virtual {v5, v2}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     .line 272
-    iget-object v3, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
 
-    invoke-virtual {v3}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+    invoke-virtual {v5, v2}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    move-result-object v3
+    .line 273
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
 
-    sget-object v4, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    invoke-virtual {v5, v0}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 271
-    invoke-virtual {v1, v8, v9, v3, v4}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
+    .line 275
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v6
+
+    iget-wide v8, p0, Lcom/android/server/wifi/WifiNotificationController;->NOTIFICATION_REPEAT_DELAY_MS:J
+
+    add-long/2addr v6, v8
+
+    iput-wide v6, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationRepeatTime:J
+
+    .line 278
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBuilder:Landroid/app/Notification$Builder;
+
+    invoke-virtual {v5}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+
+    move-result-object v5
+
+    sget-object v6, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     .line 277
+    const/4 v7, 0x0
+
+    const v8, 0x1080651
+
+    invoke-virtual {v1, v7, v8, v5, v6}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
+
+    .line 280
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    if-nez v5, :cond_4
+
+    .line 281
+    new-instance v5, Lcom/android/server/wifi/WifiNotificationController$2;
+
+    invoke-direct {v5, p0}, Lcom/android/server/wifi/WifiNotificationController$2;-><init>(Lcom/android/server/wifi/WifiNotificationController;)V
+
+    iput-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    .line 294
+    :cond_4
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+
+    iget-object v6, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    .line 295
+    new-instance v7, Landroid/content/IntentFilter;
+
+    const-string/jumbo v8, "com.android.server.WifiService.ACTION_TURN_WIFI_OFF"
+
+    invoke-direct {v7, v8}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    .line 294
+    invoke-virtual {v5, v6, v7}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    .line 303
     .end local v0    # "details":Ljava/lang/CharSequence;
     .end local v2    # "title":Ljava/lang/CharSequence;
     :goto_0
     iput-boolean p1, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationShown:Z
 
-    .line 223
+    .line 221
     return-void
 
-    .line 274
-    :cond_4
-    sget-object v3, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    .line 297
+    :cond_5
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v1, v8, v9, v3}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
+    if-eqz v5, :cond_6
+
+    .line 298
+    iget-object v5, p0, Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
+
+    iget-object v6, p0, Lcom/android/server/wifi/WifiNotificationController;->mNotificationBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    .line 300
+    :cond_6
+    sget-object v5, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    const/4 v6, 0x0
+
+    const v7, 0x1080651
+
+    invoke-virtual {v1, v6, v7, v5}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
     goto :goto_0
 .end method
@@ -735,7 +807,7 @@
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 281
+    .line 307
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -758,7 +830,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 282
+    .line 308
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -781,7 +853,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 283
+    .line 309
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -804,7 +876,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 284
+    .line 310
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -827,6 +899,6 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 280
+    .line 306
     return-void
 .end method

@@ -6,19 +6,19 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcyanogenmod/providers/CMSettings$CMSettingNotFoundException;,
+        Lcyanogenmod/providers/CMSettings$NameValueCache;,
+        Lcyanogenmod/providers/CMSettings$Validator;,
+        Lcyanogenmod/providers/CMSettings$DiscreteValueValidator;,
+        Lcyanogenmod/providers/CMSettings$InclusiveIntegerRangeValidator;,
+        Lcyanogenmod/providers/CMSettings$InclusiveFloatRangeValidator;,
+        Lcyanogenmod/providers/CMSettings$DelimitedListValidator;,
+        Lcyanogenmod/providers/CMSettings$System;,
+        Lcyanogenmod/providers/CMSettings$Secure;,
+        Lcyanogenmod/providers/CMSettings$Global;,
         Lcyanogenmod/providers/CMSettings$1;,
         Lcyanogenmod/providers/CMSettings$2;,
-        Lcyanogenmod/providers/CMSettings$3;,
-        Lcyanogenmod/providers/CMSettings$CMSettingNotFoundException;,
-        Lcyanogenmod/providers/CMSettings$DelimitedListValidator;,
-        Lcyanogenmod/providers/CMSettings$DiscreteValueValidator;,
-        Lcyanogenmod/providers/CMSettings$Global;,
-        Lcyanogenmod/providers/CMSettings$InclusiveFloatRangeValidator;,
-        Lcyanogenmod/providers/CMSettings$InclusiveIntegerRangeValidator;,
-        Lcyanogenmod/providers/CMSettings$NameValueCache;,
-        Lcyanogenmod/providers/CMSettings$Secure;,
-        Lcyanogenmod/providers/CMSettings$System;,
-        Lcyanogenmod/providers/CMSettings$Validator;
+        Lcyanogenmod/providers/CMSettings$3;
     }
 .end annotation
 
@@ -100,7 +100,7 @@
     .locals 4
 
     .prologue
-    .line 301
+    .line 300
     new-instance v0, Lcyanogenmod/providers/CMSettings$DiscreteValueValidator;
 
     const/4 v1, 0x2
@@ -121,24 +121,24 @@
 
     invoke-direct {v0, v1}, Lcyanogenmod/providers/CMSettings$DiscreteValueValidator;-><init>([Ljava/lang/String;)V
 
-    .line 300
+    .line 299
     sput-object v0, Lcyanogenmod/providers/CMSettings;->sBooleanValidator:Lcyanogenmod/providers/CMSettings$Validator;
 
-    .line 303
+    .line 302
     new-instance v0, Lcyanogenmod/providers/CMSettings$1;
 
     invoke-direct {v0}, Lcyanogenmod/providers/CMSettings$1;-><init>()V
 
     sput-object v0, Lcyanogenmod/providers/CMSettings;->sNonNegativeIntegerValidator:Lcyanogenmod/providers/CMSettings$Validator;
 
-    .line 314
+    .line 313
     new-instance v0, Lcyanogenmod/providers/CMSettings$2;
 
     invoke-direct {v0}, Lcyanogenmod/providers/CMSettings$2;-><init>()V
 
     sput-object v0, Lcyanogenmod/providers/CMSettings;->sUriValidator:Lcyanogenmod/providers/CMSettings$Validator;
 
-    .line 327
+    .line 326
     new-instance v0, Lcyanogenmod/providers/CMSettings$InclusiveIntegerRangeValidator;
 
     const/high16 v1, -0x80000000
@@ -147,17 +147,17 @@
 
     invoke-direct {v0, v1, v2}, Lcyanogenmod/providers/CMSettings$InclusiveIntegerRangeValidator;-><init>(II)V
 
-    .line 326
+    .line 325
     sput-object v0, Lcyanogenmod/providers/CMSettings;->sColorValidator:Lcyanogenmod/providers/CMSettings$Validator;
 
-    .line 329
+    .line 328
     new-instance v0, Lcyanogenmod/providers/CMSettings$3;
 
     invoke-direct {v0}, Lcyanogenmod/providers/CMSettings$3;-><init>()V
 
     sput-object v0, Lcyanogenmod/providers/CMSettings;->sAlwaysTrueValidator:Lcyanogenmod/providers/CMSettings$Validator;
 
-    .line 50
+    .line 49
     return-void
 .end method
 
@@ -165,7 +165,7 @@
     .locals 0
 
     .prologue
-    .line 50
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -119,7 +119,7 @@
     throw v1
 .end method
 
-.method public connectPorts(Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)I
+.method public connectPorts(Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)V
     .locals 6
     .param p1, "token"    # Landroid/os/IBinder;
     .param p2, "pfd"    # Landroid/os/ParcelFileDescriptor;
@@ -217,12 +217,8 @@
 
     monitor-exit v5
 
-    .line 273
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v4
-
-    return v4
+    .line 258
+    return-void
 
     .line 261
     .end local v0    # "client":Landroid/media/midi/MidiDeviceServer$OutputPortClient;
@@ -249,7 +245,7 @@
     .locals 1
 
     .prologue
-    .line 278
+    .line 277
     iget-object v0, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
     invoke-static {v0}, Landroid/media/midi/MidiDeviceServer;->-get1(Landroid/media/midi/MidiDeviceServer;)Landroid/media/midi/MidiDeviceInfo;
@@ -798,7 +794,7 @@
     .param p1, "deviceInfo"    # Landroid/media/midi/MidiDeviceInfo;
 
     .prologue
-    .line 283
+    .line 282
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
@@ -807,7 +803,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 284
+    .line 283
     new-instance v0, Ljava/lang/SecurityException;
 
     const-string/jumbo v1, "setDeviceInfo should only be called by MidiService"
@@ -816,7 +812,7 @@
 
     throw v0
 
-    .line 286
+    .line 285
     :cond_0
     iget-object v0, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
@@ -826,7 +822,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 287
+    .line 286
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "setDeviceInfo should only be called once"
@@ -835,12 +831,12 @@
 
     throw v0
 
-    .line 289
+    .line 288
     :cond_1
     iget-object v0, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
     invoke-static {v0, p1}, Landroid/media/midi/MidiDeviceServer;->-set0(Landroid/media/midi/MidiDeviceServer;Landroid/media/midi/MidiDeviceInfo;)Landroid/media/midi/MidiDeviceInfo;
 
-    .line 282
+    .line 281
     return-void
 .end method

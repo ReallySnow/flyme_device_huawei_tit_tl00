@@ -6,16 +6,17 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;,
+        Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarMainPanel;,
+        Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;,
+        Lcom/android/internal/widget/FloatingToolbar$ViewFader;,
         Lcom/android/internal/widget/FloatingToolbar$1;,
-        Lcom/android/internal/widget/FloatingToolbar$2;,
-        Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+        Lcom/android/internal/widget/FloatingToolbar$2;
     }
 .end annotation
 
 
 # static fields
-.field public static final FLOATING_TOOLBAR_TAG:Ljava/lang/String; = "floating_toolbar"
-
 .field private static final NO_OP_MENUITEM_CLICK_LISTENER:Landroid/view/MenuItem$OnMenuItemClickListener;
 
 
@@ -28,7 +29,7 @@
 
 .field private mMenuItemClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-.field private final mOrientationChangeHandler:Landroid/view/View$OnLayoutChangeListener;
+.field private final mOrientationChangeHandler:Landroid/content/ComponentCallbacks;
 
 .field private final mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
@@ -48,8 +49,6 @@
 .field private mSuggestedWidth:I
 
 .field private mWidthChanged:Z
-
-.field private final mWindow:Landroid/view/Window;
 
 
 # direct methods
@@ -120,19 +119,31 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap4(Landroid/view/ViewGroup;)Landroid/widget/PopupWindow;
+.method static synthetic -wrap4(Landroid/view/View;)Landroid/widget/PopupWindow;
     .locals 1
-    .param p0, "content"    # Landroid/view/ViewGroup;
+    .param p0, "content"    # Landroid/view/View;
 
     .prologue
-    invoke-static {p0}, Lcom/android/internal/widget/FloatingToolbar;->createPopupWindow(Landroid/view/ViewGroup;)Landroid/widget/PopupWindow;
+    invoke-static {p0}, Lcom/android/internal/widget/FloatingToolbar;->createPopupWindow(Landroid/view/View;)Landroid/widget/PopupWindow;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method static synthetic -wrap5(Landroid/view/MenuItem;)Z
+.method static synthetic -wrap5(Landroid/content/Context;)Landroid/widget/TextView;
+    .locals 1
+    .param p0, "context"    # Landroid/content/Context;
+
+    .prologue
+    invoke-static {p0}, Lcom/android/internal/widget/FloatingToolbar;->createOverflowMenuItemButton(Landroid/content/Context;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap6(Landroid/view/MenuItem;)Z
     .locals 1
     .param p0, "menuItem"    # Landroid/view/MenuItem;
 
@@ -144,19 +155,43 @@
     return v0
 .end method
 
+.method static synthetic -wrap7(Landroid/content/Context;)I
+    .locals 1
+    .param p0, "context"    # Landroid/content/Context;
+
+    .prologue
+    invoke-static {p0}, Lcom/android/internal/widget/FloatingToolbar;->getEstimatedOpenOverflowButtonWidth(Landroid/content/Context;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap8(Landroid/content/Context;)I
+    .locals 1
+    .param p0, "context"    # Landroid/content/Context;
+
+    .prologue
+    invoke-static {p0}, Lcom/android/internal/widget/FloatingToolbar;->getEstimatedToolbarHeight(Landroid/content/Context;)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 85
+    .line 77
     new-instance v0, Lcom/android/internal/widget/FloatingToolbar$1;
 
     invoke-direct {v0}, Lcom/android/internal/widget/FloatingToolbar$1;-><init>()V
 
-    .line 84
+    .line 76
     sput-object v0, Lcom/android/internal/widget/FloatingToolbar;->NO_OP_MENUITEM_CLICK_LISTENER:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    .line 77
+    .line 71
     return-void
 .end method
 
@@ -166,70 +201,61 @@
     .param p2, "window"    # Landroid/view/Window;
 
     .prologue
-    .line 128
+    .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 96
+    .line 87
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mContentRect:Landroid/graphics/Rect;
 
-    .line 97
+    .line 88
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mPreviousContentRect:Landroid/graphics/Rect;
 
-    .line 100
+    .line 91
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mShowingMenuItems:Ljava/util/List;
 
-    .line 101
+    .line 92
     sget-object v0, Lcom/android/internal/widget/FloatingToolbar;->NO_OP_MENUITEM_CLICK_LISTENER:Landroid/view/MenuItem$OnMenuItemClickListener;
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mMenuItemClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    .line 104
+    .line 95
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mWidthChanged:Z
 
-    .line 106
+    .line 97
     new-instance v0, Lcom/android/internal/widget/FloatingToolbar$2;
 
     invoke-direct {v0, p0}, Lcom/android/internal/widget/FloatingToolbar$2;-><init>(Lcom/android/internal/widget/FloatingToolbar;)V
 
-    iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mOrientationChangeHandler:Landroid/view/View$OnLayoutChangeListener;
+    iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mOrientationChangeHandler:Landroid/content/ComponentCallbacks;
 
-    .line 129
+    .line 114
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    .line 115
+    invoke-static {p2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar;->applyDefaultTheme(Landroid/content/Context;)Landroid/content/Context;
+    .line 116
+    invoke-static {p1}, Lcom/android/internal/widget/FloatingToolbar;->applyDefaultTheme(Landroid/content/Context;)Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mContext:Landroid/content/Context;
 
-    .line 130
-    invoke-static {p2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/Window;
-
-    iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mWindow:Landroid/view/Window;
-
-    .line 131
+    .line 117
     new-instance v0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mContext:Landroid/content/Context;
@@ -242,7 +268,7 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
-    .line 128
+    .line 113
     return-void
 .end method
 
@@ -255,7 +281,7 @@
 
     const/4 v5, 0x0
 
-    .line 1706
+    .line 1518
     new-array v3, v6, [I
 
     const/high16 v4, 0x1160000
@@ -266,31 +292,31 @@
 
     move-result-object v0
 
-    .line 1707
+    .line 1519
     .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v5, v6}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v1
 
-    .line 1708
+    .line 1520
     .local v1, "isLightTheme":Z
     if-eqz v1, :cond_0
 
     const v2, 0x1030237
 
-    .line 1709
+    .line 1521
     .local v2, "themeId":I
     :goto_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 1710
+    .line 1522
     new-instance v3, Landroid/view/ContextThemeWrapper;
 
     invoke-direct {v3, p0, v2}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
     return-object v3
 
-    .line 1708
+    .line 1520
     .end local v2    # "themeId":I
     :cond_0
     const v2, 0x1030224
@@ -300,70 +326,54 @@
 .end method
 
 .method private static createContentContainer(Landroid/content/Context;)Landroid/view/ViewGroup;
-    .locals 5
+    .locals 3
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    const/4 v4, -0x2
-
-    .line 1649
+    .line 1463
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 1650
-    const v2, 0x109005b
+    .line 1464
+    const v1, 0x1090059
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    .line 1649
-    invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    .line 1463
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    .line 1651
-    .local v0, "contentContainer":Landroid/view/ViewGroup;
-    new-instance v1, Landroid/view/ViewGroup$LayoutParams;
-
-    invoke-direct {v1, v4, v4}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 1653
-    const-string/jumbo v1, "floating_toolbar"
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setTag(Ljava/lang/Object;)V
-
-    .line 1654
     return-object v0
 .end method
 
 .method private static createEnterAnimation(Landroid/view/View;)Landroid/animation/AnimatorSet;
-    .locals 7
+    .locals 9
     .param p0, "view"    # Landroid/view/View;
 
     .prologue
-    const/4 v5, 0x1
+    const/4 v8, 0x2
+
+    const/4 v7, 0x1
 
     const/4 v6, 0x0
 
-    .line 1679
+    .line 1489
     new-instance v0, Landroid/animation/AnimatorSet;
 
     invoke-direct {v0}, Landroid/animation/AnimatorSet;-><init>()V
 
-    .line 1680
+    .line 1490
     .local v0, "animation":Landroid/animation/AnimatorSet;
-    new-array v1, v5, [Landroid/animation/Animator;
+    new-array v1, v8, [Landroid/animation/Animator;
 
-    .line 1681
+    .line 1491
     sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    const/4 v3, 0x2
-
-    new-array v3, v3, [F
+    new-array v3, v8, [F
 
     const/4 v4, 0x0
 
@@ -371,7 +381,7 @@
 
     const/high16 v4, 0x3f800000    # 1.0f
 
-    aput v4, v3, v5
+    aput v4, v3, v7
 
     invoke-static {p0, v2, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
@@ -385,10 +395,33 @@
 
     aput-object v2, v1, v6
 
-    .line 1680
+    .line 1493
+    sget-object v2, Landroid/view/View;->X:Landroid/util/Property;
+
+    new-array v3, v8, [F
+
+    invoke-virtual {p0}, Landroid/view/View;->getX()F
+
+    move-result v4
+
+    aput v4, v3, v6
+
+    invoke-virtual {p0}, Landroid/view/View;->getX()F
+
+    move-result v4
+
+    aput v4, v3, v7
+
+    invoke-static {p0, v2, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v2
+
+    aput-object v2, v1, v7
+
+    .line 1490
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    .line 1682
+    .line 1494
     return-object v0
 .end method
 
@@ -403,16 +436,16 @@
 
     const/4 v6, 0x0
 
-    .line 1694
+    .line 1506
     new-instance v0, Landroid/animation/AnimatorSet;
 
     invoke-direct {v0}, Landroid/animation/AnimatorSet;-><init>()V
 
-    .line 1695
+    .line 1507
     .local v0, "animation":Landroid/animation/AnimatorSet;
     new-array v1, v5, [Landroid/animation/Animator;
 
-    .line 1696
+    .line 1508
     sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
     const/4 v3, 0x2
@@ -439,18 +472,18 @@
 
     aput-object v2, v1, v6
 
-    .line 1695
+    .line 1507
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    .line 1697
+    .line 1509
     int-to-long v2, p1
 
     invoke-virtual {v0, v2, v3}, Landroid/animation/AnimatorSet;->setStartDelay(J)V
 
-    .line 1698
+    .line 1510
     invoke-virtual {v0, p2}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    .line 1699
+    .line 1511
     return-object v0
 .end method
 
@@ -462,66 +495,66 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 1632
+    .line 1438
     invoke-static {p1}, Lcom/android/internal/widget/FloatingToolbar;->isIconOnlyMenuItem(Landroid/view/MenuItem;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 1633
+    .line 1439
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    .line 1634
-    const v3, 0x109005d
+    .line 1440
+    const v3, 0x109005b
 
-    .line 1633
+    .line 1439
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 1636
+    .line 1442
     .local v0, "imageMenuItemButton":Landroid/view/View;
-    const v2, 0x102005b
+    const v2, 0x1020054
 
-    .line 1635
+    .line 1441
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
     check-cast v2, Landroid/widget/ImageButton;
 
-    .line 1637
+    .line 1443
     invoke-interface {p1}, Landroid/view/MenuItem;->getIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
-    .line 1635
+    .line 1441
     invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1638
+    .line 1444
     return-object v0
 
-    .line 1641
+    .line 1447
     .end local v0    # "imageMenuItemButton":Landroid/view/View;
     :cond_0
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    .line 1642
-    const v3, 0x109005c
+    .line 1448
+    const v3, 0x109005a
 
-    .line 1641
+    .line 1447
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/Button;
 
-    .line 1643
+    .line 1449
     .local v1, "menuItemButton":Landroid/widget/Button;
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
@@ -529,174 +562,138 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1644
+    .line 1450
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 1645
+    .line 1451
     return-object v1
 .end method
 
-.method private static createPopupWindow(Landroid/view/ViewGroup;)Landroid/widget/PopupWindow;
+.method private static createOverflowMenuItemButton(Landroid/content/Context;)Landroid/widget/TextView;
+    .locals 3
+    .param p0, "context"    # Landroid/content/Context;
+
+    .prologue
+    .line 1458
+    invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    .line 1459
+    const v1, 0x109005e
+
+    const/4 v2, 0x0
+
+    .line 1458
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    return-object v0
+.end method
+
+.method private static createPopupWindow(Landroid/view/View;)Landroid/widget/PopupWindow;
     .locals 5
-    .param p0, "content"    # Landroid/view/ViewGroup;
+    .param p0, "content"    # Landroid/view/View;
 
     .prologue
     const/4 v4, -0x2
 
     const/4 v3, 0x0
 
-    .line 1658
+    .line 1468
     new-instance v0, Landroid/widget/LinearLayout;
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
     invoke-direct {v0, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 1659
+    .line 1469
     .local v0, "popupContentHolder":Landroid/view/ViewGroup;
     new-instance v1, Landroid/widget/PopupWindow;
 
     invoke-direct {v1, v0}, Landroid/widget/PopupWindow;-><init>(Landroid/view/View;)V
 
-    .line 1662
+    .line 1472
     .local v1, "popupWindow":Landroid/widget/PopupWindow;
     invoke-virtual {v1, v3}, Landroid/widget/PopupWindow;->setClippingEnabled(Z)V
 
-    .line 1664
+    .line 1474
     const/16 v2, 0x3ed
 
-    .line 1663
+    .line 1473
     invoke-virtual {v1, v2}, Landroid/widget/PopupWindow;->setWindowLayoutType(I)V
 
-    .line 1665
+    .line 1475
     invoke-virtual {v1, v3}, Landroid/widget/PopupWindow;->setAnimationStyle(I)V
 
-    .line 1666
+    .line 1476
     new-instance v2, Landroid/graphics/drawable/ColorDrawable;
 
     invoke-direct {v2, v3}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
     invoke-virtual {v1, v2}, Landroid/widget/PopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1667
+    .line 1477
     new-instance v2, Landroid/view/ViewGroup$LayoutParams;
 
     invoke-direct {v2, v4, v4}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {p0, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1669
+    .line 1479
     invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 1670
+    .line 1480
     return-object v1
 .end method
 
-.method private doShow()V
-    .locals 4
+.method private static getEstimatedOpenOverflowButtonWidth(Landroid/content/Context;)I
+    .locals 2
+    .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 235
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mMenu:Landroid/view/Menu;
-
-    invoke-direct {p0, v1}, Lcom/android/internal/widget/FloatingToolbar;->getVisibleAndEnabledMenuItems(Landroid/view/Menu;)Ljava/util/List;
+    .line 1530
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 236
-    .local v0, "menuItems":Ljava/util/List;, "Ljava/util/List<Landroid/view/MenuItem;>;"
-    invoke-direct {p0, v0}, Lcom/android/internal/widget/FloatingToolbar;->isCurrentlyShowing(Ljava/util/List;)Z
+    .line 1531
+    const v1, 0x105009b
 
-    move-result v1
+    .line 1530
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    if-eqz v1, :cond_0
+    move-result v0
 
-    iget-boolean v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mWidthChanged:Z
+    return v0
+.end method
 
-    if-eqz v1, :cond_1
+.method private static getEstimatedToolbarHeight(Landroid/content/Context;)I
+    .locals 2
+    .param p0, "context"    # Landroid/content/Context;
 
-    .line 237
-    :cond_0
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    .prologue
+    .line 1526
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v1}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->dismiss()V
+    move-result-object v0
 
-    .line 238
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    const v1, 0x1050094
 
-    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mMenuItemClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    iget v3, p0, Lcom/android/internal/widget/FloatingToolbar;->mSuggestedWidth:I
+    move-result v0
 
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->layoutMenuItems(Ljava/util/List;Landroid/view/MenuItem$OnMenuItemClickListener;I)V
-
-    .line 239
-    invoke-direct {p0, v0}, Lcom/android/internal/widget/FloatingToolbar;->getShowingMenuItemsReferences(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mShowingMenuItems:Ljava/util/List;
-
-    .line 241
-    :cond_1
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
-
-    invoke-virtual {v1}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->isShowing()Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    .line 242
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
-
-    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mContentRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v1, v2}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->show(Landroid/graphics/Rect;)V
-
-    .line 246
-    :cond_2
-    :goto_0
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mWidthChanged:Z
-
-    .line 247
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPreviousContentRect:Landroid/graphics/Rect;
-
-    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mContentRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v1, v2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    .line 234
-    return-void
-
-    .line 243
-    :cond_3
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPreviousContentRect:Landroid/graphics/Rect;
-
-    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mContentRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v1, v2}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    .line 244
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
-
-    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mContentRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v1, v2}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->updateCoordinates(Landroid/graphics/Rect;)V
-
-    goto :goto_0
+    return v0
 .end method
 
 .method private getShowingMenuItemsReferences(Ljava/util/List;)Ljava/util/List;
@@ -716,13 +713,13 @@
     .end annotation
 
     .prologue
-    .line 278
+    .line 262
     .local p1, "menuItems":Ljava/util/List;, "Ljava/util/List<Landroid/view/MenuItem;>;"
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 279
+    .line 263
     .local v2, "references":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -742,7 +739,7 @@
 
     check-cast v0, Landroid/view/MenuItem;
 
-    .line 280
+    .line 264
     .local v0, "menuItem":Landroid/view/MenuItem;
     invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar;->isIconOnlyMenuItem(Landroid/view/MenuItem;)Z
 
@@ -750,7 +747,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 281
+    .line 265
     invoke-interface {v0}, Landroid/view/MenuItem;->getIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
@@ -759,7 +756,7 @@
 
     goto :goto_0
 
-    .line 283
+    .line 267
     :cond_0
     invoke-interface {v0}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
@@ -769,7 +766,7 @@
 
     goto :goto_0
 
-    .line 286
+    .line 270
     .end local v0    # "menuItem":Landroid/view/MenuItem;
     :cond_1
     return-object v2
@@ -791,12 +788,12 @@
     .end annotation
 
     .prologue
-    .line 262
+    .line 246
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 263
+    .line 247
     .local v2, "menuItems":Ljava/util/List;, "Ljava/util/List<Landroid/view/MenuItem;>;"
     const/4 v0, 0x0
 
@@ -810,12 +807,12 @@
 
     if-ge v0, v4, :cond_2
 
-    .line 264
+    .line 248
     invoke-interface {p1, v0}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    .line 265
+    .line 249
     .local v1, "menuItem":Landroid/view/MenuItem;
     invoke-interface {v1}, Landroid/view/MenuItem;->isVisible()Z
 
@@ -829,23 +826,23 @@
 
     if-eqz v4, :cond_0
 
-    .line 266
+    .line 250
     invoke-interface {v1}, Landroid/view/MenuItem;->getSubMenu()Landroid/view/SubMenu;
 
     move-result-object v3
 
-    .line 267
+    .line 251
     .local v3, "subMenu":Landroid/view/Menu;
     if-eqz v3, :cond_1
 
-    .line 268
+    .line 252
     invoke-direct {p0, v3}, Lcom/android/internal/widget/FloatingToolbar;->getVisibleAndEnabledMenuItems(Landroid/view/Menu;)Ljava/util/List;
 
     move-result-object v4
 
     invoke-interface {v2, v4}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 263
+    .line 247
     .end local v3    # "subMenu":Landroid/view/Menu;
     :cond_0
     :goto_1
@@ -853,14 +850,14 @@
 
     goto :goto_0
 
-    .line 270
+    .line 254
     .restart local v3    # "subMenu":Landroid/view/Menu;
     :cond_1
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    .line 274
+    .line 258
     .end local v1    # "menuItem":Landroid/view/MenuItem;
     .end local v3    # "subMenu":Landroid/view/Menu;
     :cond_2
@@ -880,7 +877,7 @@
     .end annotation
 
     .prologue
-    .line 254
+    .line 238
     .local p1, "menuItems":Ljava/util/List;, "Ljava/util/List<Landroid/view/MenuItem;>;"
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mShowingMenuItems:Ljava/util/List;
 
@@ -900,7 +897,7 @@
     .param p0, "menuItem"    # Landroid/view/MenuItem;
 
     .prologue
-    .line 1622
+    .line 1428
     invoke-interface {p0}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -917,67 +914,30 @@
 
     if-eqz v0, :cond_0
 
-    .line 1623
+    .line 1429
     const/4 v0, 0x1
 
     return v0
 
-    .line 1625
+    .line 1431
     :cond_0
     const/4 v0, 0x0
 
     return v0
 .end method
 
-.method private registerOrientationHandler()V
-    .locals 2
-
-    .prologue
-    .line 290
-    invoke-direct {p0}, Lcom/android/internal/widget/FloatingToolbar;->unregisterOrientationHandler()V
-
-    .line 291
-    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mOrientationChangeHandler:Landroid/view/View$OnLayoutChangeListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
-
-    .line 289
-    return-void
-.end method
-
-.method private unregisterOrientationHandler()V
-    .locals 2
-
-    .prologue
-    .line 295
-    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mOrientationChangeHandler:Landroid/view/View$OnLayoutChangeListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->removeOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
-
-    .line 294
-    return-void
-.end method
-
 
 # virtual methods
 .method public dismiss()V
-    .locals 1
+    .locals 2
 
     .prologue
     .line 208
-    invoke-direct {p0}, Lcom/android/internal/widget/FloatingToolbar;->unregisterOrientationHandler()V
+    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mOrientationChangeHandler:Landroid/content/ComponentCallbacks;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterComponentCallbacks(Landroid/content/ComponentCallbacks;)V
 
     .line 209
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
@@ -1034,7 +994,7 @@
     .param p1, "rect"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 164
+    .line 150
     iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mContentRect:Landroid/graphics/Rect;
 
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1045,7 +1005,7 @@
 
     invoke-virtual {v1, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 165
+    .line 151
     return-object p0
 .end method
 
@@ -1054,7 +1014,7 @@
     .param p1, "menu"    # Landroid/view/Menu;
 
     .prologue
-    .line 140
+    .line 126
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -1063,7 +1023,7 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mMenu:Landroid/view/Menu;
 
-    .line 141
+    .line 127
     return-object p0
 .end method
 
@@ -1072,17 +1032,17 @@
     .param p1, "menuItemClickListener"    # Landroid/view/MenuItem$OnMenuItemClickListener;
 
     .prologue
-    .line 149
+    .line 135
     if-eqz p1, :cond_0
 
-    .line 150
+    .line 136
     iput-object p1, p0, Lcom/android/internal/widget/FloatingToolbar;->mMenuItemClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    .line 154
+    .line 140
     :goto_0
     return-object p0
 
-    .line 152
+    .line 138
     :cond_0
     sget-object v0, Lcom/android/internal/widget/FloatingToolbar;->NO_OP_MENUITEM_CLICK_LISTENER:Landroid/view/MenuItem$OnMenuItemClickListener;
 
@@ -1096,7 +1056,7 @@
     .param p1, "suggestedWidth"    # I
 
     .prologue
-    .line 177
+    .line 163
     iget v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mSuggestedWidth:I
 
     sub-int v1, p1, v1
@@ -1105,7 +1065,7 @@
 
     move-result v0
 
-    .line 178
+    .line 164
     .local v0, "difference":I
     int-to-double v2, v0
 
@@ -1126,13 +1086,13 @@
     :goto_0
     iput-boolean v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mWidthChanged:Z
 
-    .line 180
+    .line 166
     iput p1, p0, Lcom/android/internal/widget/FloatingToolbar;->mSuggestedWidth:I
 
-    .line 181
+    .line 167
     return-object p0
 
-    .line 178
+    .line 164
     :cond_0
     const/4 v1, 0x0
 
@@ -1140,24 +1100,125 @@
 .end method
 
 .method public show()Lcom/android/internal/widget/FloatingToolbar;
-    .locals 0
+    .locals 4
 
     .prologue
+    .line 174
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mOrientationChangeHandler:Landroid/content/ComponentCallbacks;
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterComponentCallbacks(Landroid/content/ComponentCallbacks;)V
+
+    .line 175
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mOrientationChangeHandler:Landroid/content/ComponentCallbacks;
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->registerComponentCallbacks(Landroid/content/ComponentCallbacks;)V
+
+    .line 176
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mMenu:Landroid/view/Menu;
+
+    invoke-direct {p0, v1}, Lcom/android/internal/widget/FloatingToolbar;->getVisibleAndEnabledMenuItems(Landroid/view/Menu;)Ljava/util/List;
+
+    move-result-object v0
+
+    .line 177
+    .local v0, "menuItems":Ljava/util/List;, "Ljava/util/List<Landroid/view/MenuItem;>;"
+    invoke-direct {p0, v0}, Lcom/android/internal/widget/FloatingToolbar;->isCurrentlyShowing(Ljava/util/List;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mWidthChanged:Z
+
+    if-eqz v1, :cond_1
+
+    .line 178
+    :cond_0
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+
+    invoke-virtual {v1}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->dismiss()V
+
+    .line 179
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+
+    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mMenuItemClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
+
+    iget v3, p0, Lcom/android/internal/widget/FloatingToolbar;->mSuggestedWidth:I
+
+    invoke-virtual {v1, v0, v2, v3}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->layoutMenuItems(Ljava/util/List;Landroid/view/MenuItem$OnMenuItemClickListener;I)V
+
+    .line 180
+    invoke-direct {p0, v0}, Lcom/android/internal/widget/FloatingToolbar;->getShowingMenuItemsReferences(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mShowingMenuItems:Ljava/util/List;
+
+    .line 182
+    :cond_1
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+
+    invoke-virtual {v1}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->isShowing()Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    .line 183
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+
+    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mContentRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v1, v2}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->show(Landroid/graphics/Rect;)V
+
+    .line 187
+    :cond_2
+    :goto_0
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mWidthChanged:Z
+
     .line 188
-    invoke-direct {p0}, Lcom/android/internal/widget/FloatingToolbar;->registerOrientationHandler()V
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPreviousContentRect:Landroid/graphics/Rect;
+
+    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mContentRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     .line 189
-    invoke-direct {p0}, Lcom/android/internal/widget/FloatingToolbar;->doShow()V
-
-    .line 190
     return-object p0
+
+    .line 184
+    :cond_3
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPreviousContentRect:Landroid/graphics/Rect;
+
+    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mContentRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    .line 185
+    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+
+    iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar;->mContentRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v1, v2}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->updateCoordinates(Landroid/graphics/Rect;)V
+
+    goto :goto_0
 .end method
 
 .method public updateLayout()Lcom/android/internal/widget/FloatingToolbar;
     .locals 1
 
     .prologue
-    .line 198
+    .line 197
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar;->mPopup:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->isShowing()Z
@@ -1167,7 +1228,7 @@
     if-eqz v0, :cond_0
 
     .line 199
-    invoke-direct {p0}, Lcom/android/internal/widget/FloatingToolbar;->doShow()V
+    invoke-virtual {p0}, Lcom/android/internal/widget/FloatingToolbar;->show()Lcom/android/internal/widget/FloatingToolbar;
 
     .line 201
     :cond_0

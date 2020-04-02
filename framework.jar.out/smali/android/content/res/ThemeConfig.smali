@@ -11,12 +11,12 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/content/res/ThemeConfig$1;,
         Landroid/content/res/ThemeConfig$AppTheme;,
         Landroid/content/res/ThemeConfig$Builder;,
         Landroid/content/res/ThemeConfig$JsonSerializer;,
+        Landroid/content/res/ThemeConfig$SystemConfig;,
         Landroid/content/res/ThemeConfig$SystemAppTheme;,
-        Landroid/content/res/ThemeConfig$SystemConfig;
+        Landroid/content/res/ThemeConfig$1;
     }
 .end annotation
 
@@ -54,14 +54,6 @@
 .field public static final SYSTEM_DEFAULT:Ljava/lang/String; = "system"
 
 .field public static final TAG:Ljava/lang/String;
-
-.field private static final THEME_FONT_PACKAGE_NAME_PERSISTENCE_PROPERTY:Ljava/lang/String; = "themeFontPackPkgName"
-
-.field private static final THEME_ICONPACK_PACKAGE_NAME_PERSISTENCE_PROPERTY:Ljava/lang/String; = "themeIconPackPkgName"
-
-.field private static final THEME_PACKAGE_NAME_PERSISTENCE_PROPERTY:Ljava/lang/String; = "persist.sys.themePackageName"
-
-.field public static final THEME_PKG_CONFIGURATION_PERSISTENCE_PROPERTY:Ljava/lang/String; = "themeConfig"
 
 .field private static final mSystemAppTheme:Landroid/content/res/ThemeConfig$SystemAppTheme;
 
@@ -110,12 +102,12 @@
 
     sput-object v0, Landroid/content/res/ThemeConfig;->mSystemAppTheme:Landroid/content/res/ThemeConfig$SystemAppTheme;
 
-    .line 252
+    .line 223
     new-instance v0, Landroid/content/res/ThemeConfig$1;
 
     invoke-direct {v0}, Landroid/content/res/ThemeConfig$1;-><init>()V
 
-    .line 251
+    .line 222
     sput-object v0, Landroid/content/res/ThemeConfig;->CREATOR:Landroid/os/Parcelable$Creator;
 
     .line 47
@@ -136,23 +128,23 @@
     .end annotation
 
     .prologue
-    .line 94
+    .line 65
     .local p1, "appThemes":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/content/res/ThemeConfig$AppTheme;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 92
+    .line 63
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v0, p0, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
-    .line 95
+    .line 66
     iget-object v0, p0, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
-    .line 94
+    .line 65
     return-void
 .end method
 
@@ -161,7 +153,7 @@
     .param p0, "json"    # Ljava/lang/String;
 
     .prologue
-    .line 192
+    .line 163
     invoke-static {p0}, Landroid/content/res/ThemeConfig$JsonSerializer;->fromJson(Ljava/lang/String;)Landroid/content/res/ThemeConfig;
 
     move-result-object v0
@@ -174,7 +166,7 @@
     .param p0, "resolver"    # Landroid/content/ContentResolver;
 
     .prologue
-    .line 201
+    .line 172
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Landroid/content/res/ThemeConfig;->getBootThemeForUser(Landroid/content/ContentResolver;I)Landroid/content/res/ThemeConfig;
@@ -190,78 +182,78 @@
     .param p1, "userHandle"    # I
 
     .prologue
-    .line 205
+    .line 176
     sget-object v0, Landroid/content/res/ThemeConfig;->mSystemConfig:Landroid/content/res/ThemeConfig$SystemConfig;
 
-    .line 208
+    .line 179
     .local v0, "bootTheme":Landroid/content/res/ThemeConfig;
     :try_start_0
     const-string/jumbo v7, "themeConfig"
 
-    .line 207
+    .line 178
     invoke-static {p0, v7, p1}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 209
+    .line 180
     .local v5, "json":Ljava/lang/String;
     invoke-static {v5}, Landroid/content/res/ThemeConfig;->fromJson(Ljava/lang/String;)Landroid/content/res/ThemeConfig;
 
     move-result-object v0
 
-    .line 212
+    .line 183
     if-nez v0, :cond_0
 
-    .line 214
+    .line 185
     const-string/jumbo v7, "persist.sys.themePackageName"
 
-    .line 213
+    .line 184
     invoke-static {p0, v7, p1}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 216
+    .line 187
     .local v6, "overlayPkgName":Ljava/lang/String;
     const-string/jumbo v7, "themeIconPackPkgName"
 
-    .line 215
+    .line 186
     invoke-static {p0, v7, p1}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 218
+    .line 189
     .local v4, "iconPackPkgName":Ljava/lang/String;
     const-string/jumbo v7, "themeFontPackPkgName"
 
-    .line 217
+    .line 188
     invoke-static {p0, v7, p1}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 220
+    .line 191
     .local v3, "fontPkgName":Ljava/lang/String;
     new-instance v1, Landroid/content/res/ThemeConfig$Builder;
 
     invoke-direct {v1}, Landroid/content/res/ThemeConfig$Builder;-><init>()V
 
-    .line 221
+    .line 192
     .local v1, "builder":Landroid/content/res/ThemeConfig$Builder;
     invoke-virtual {v1, v6}, Landroid/content/res/ThemeConfig$Builder;->defaultOverlay(Ljava/lang/String;)Landroid/content/res/ThemeConfig$Builder;
 
-    .line 222
+    .line 193
     invoke-virtual {v1, v4}, Landroid/content/res/ThemeConfig$Builder;->defaultIcon(Ljava/lang/String;)Landroid/content/res/ThemeConfig$Builder;
 
-    .line 223
+    .line 194
     invoke-virtual {v1, v3}, Landroid/content/res/ThemeConfig$Builder;->defaultFont(Ljava/lang/String;)Landroid/content/res/ThemeConfig$Builder;
 
-    .line 224
+    .line 195
     invoke-virtual {v1}, Landroid/content/res/ThemeConfig$Builder;->build()Landroid/content/res/ThemeConfig;
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
-    .line 229
+    .line 200
     .end local v1    # "builder":Landroid/content/res/ThemeConfig$Builder;
     .end local v3    # "fontPkgName":Ljava/lang/String;
     .end local v4    # "iconPackPkgName":Ljava/lang/String;
@@ -271,11 +263,11 @@
     :goto_0
     return-object v0
 
-    .line 226
+    .line 197
     :catch_0
     move-exception v2
 
-    .line 227
+    .line 198
     .local v2, "e":Ljava/lang/SecurityException;
     sget-object v7, Landroid/content/res/ThemeConfig;->TAG:Ljava/lang/String;
 
@@ -290,7 +282,7 @@
     .locals 3
 
     .prologue
-    .line 147
+    .line 118
     iget-object v1, p0, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
     const-string/jumbo v2, "default"
@@ -301,13 +293,13 @@
 
     check-cast v0, Landroid/content/res/ThemeConfig$AppTheme;
 
-    .line 148
+    .line 119
     .local v0, "theme":Landroid/content/res/ThemeConfig$AppTheme;
     if-nez v0, :cond_0
 
     sget-object v0, Landroid/content/res/ThemeConfig;->mSystemAppTheme:Landroid/content/res/ThemeConfig$SystemAppTheme;
 
-    .line 149
+    .line 120
     :cond_0
     return-object v0
 .end method
@@ -316,7 +308,7 @@
     .locals 1
 
     .prologue
-    .line 237
+    .line 208
     sget-object v0, Landroid/content/res/ThemeConfig;->mSystemConfig:Landroid/content/res/ThemeConfig$SystemConfig;
 
     return-object v0
@@ -327,7 +319,7 @@
     .param p1, "pkgName"    # Ljava/lang/String;
 
     .prologue
-    .line 141
+    .line 112
     iget-object v1, p0, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -336,7 +328,7 @@
 
     check-cast v0, Landroid/content/res/ThemeConfig$AppTheme;
 
-    .line 142
+    .line 113
     .local v0, "theme":Landroid/content/res/ThemeConfig$AppTheme;
     if-nez v0, :cond_0
 
@@ -344,7 +336,7 @@
 
     move-result-object v0
 
-    .line 143
+    .line 114
     :cond_0
     return-object v0
 .end method
@@ -355,7 +347,7 @@
     .locals 3
 
     .prologue
-    .line 274
+    .line 245
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
     :try_end_0
@@ -365,11 +357,11 @@
 
     return-object v1
 
-    .line 275
+    .line 246
     :catch_0
     move-exception v0
 
-    .line 276
+    .line 247
     .local v0, "e":Ljava/lang/CloneNotSupportedException;
     sget-object v1, Landroid/content/res/ThemeConfig;->TAG:Ljava/lang/String;
 
@@ -377,7 +369,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 277
+    .line 248
     const/4 v1, 0x0
 
     return-object v1
@@ -388,18 +380,18 @@
     .param p1, "o"    # Landroid/content/res/ThemeConfig;
 
     .prologue
-    .line 266
+    .line 237
     if-nez p1, :cond_0
 
     const/4 v1, -0x1
 
     return v1
 
-    .line 267
+    .line 238
     :cond_0
     const/4 v0, 0x0
 
-    .line 268
+    .line 239
     .local v0, "n":I
     iget-object v1, p0, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
@@ -413,11 +405,11 @@
 
     const/4 v0, 0x0
 
-    .line 269
+    .line 240
     :goto_0
     return v0
 
-    .line 268
+    .line 239
     :cond_1
     const/4 v0, 0x1
 
@@ -429,7 +421,7 @@
     .param p1, "o"    # Ljava/lang/Object;
 
     .prologue
-    .line 265
+    .line 236
     check-cast p1, Landroid/content/res/ThemeConfig;
 
     .end local p1    # "o":Ljava/lang/Object;
@@ -444,7 +436,7 @@
     .locals 1
 
     .prologue
-    .line 242
+    .line 213
     const/4 v0, 0x0
 
     return v0
@@ -455,15 +447,15 @@
     .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
-    .line 154
+    .line 125
     if-ne p1, p0, :cond_0
 
-    .line 155
+    .line 126
     const/4 v3, 0x1
 
     return v3
 
-    .line 157
+    .line 128
     :cond_0
     instance-of v3, p1, Landroid/content/res/ThemeConfig;
 
@@ -471,33 +463,33 @@
 
     move-object v2, p1
 
-    .line 158
+    .line 129
     check-cast v2, Landroid/content/res/ThemeConfig;
 
-    .line 160
+    .line 131
     .local v2, "o":Landroid/content/res/ThemeConfig;
     iget-object v3, p0, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
     if-nez v3, :cond_1
 
-    .line 161
+    .line 132
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
-    .line 162
+    .line 133
     .local v0, "currThemes":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/content/res/ThemeConfig$AppTheme;>;"
     :goto_0
     iget-object v3, v2, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
     if-nez v3, :cond_2
 
-    .line 163
+    .line 134
     new-instance v1, Landroid/util/ArrayMap;
 
     invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
 
-    .line 165
+    .line 136
     .local v1, "newThemes":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/content/res/ThemeConfig$AppTheme;>;"
     :goto_1
     invoke-interface {v0, v1}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
@@ -506,7 +498,7 @@
 
     return v3
 
-    .line 161
+    .line 132
     .end local v0    # "currThemes":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/content/res/ThemeConfig$AppTheme;>;"
     .end local v1    # "newThemes":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/content/res/ThemeConfig$AppTheme;>;"
     :cond_1
@@ -515,14 +507,16 @@
     .restart local v0    # "currThemes":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/content/res/ThemeConfig$AppTheme;>;"
     goto :goto_0
 
-    .line 163
+    .line 134
     :cond_2
     iget-object v1, v2, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
+    .restart local v1    # "newThemes":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/content/res/ThemeConfig$AppTheme;>;"
     goto :goto_1
 
-    .line 167
+    .line 138
     .end local v0    # "currThemes":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/content/res/ThemeConfig$AppTheme;>;"
+    .end local v1    # "newThemes":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/content/res/ThemeConfig$AppTheme;>;"
     .end local v2    # "o":Landroid/content/res/ThemeConfig;
     :cond_3
     const/4 v3, 0x0
@@ -544,7 +538,7 @@
     .end annotation
 
     .prologue
-    .line 137
+    .line 108
     iget-object v0, p0, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
@@ -558,12 +552,12 @@
     .locals 2
 
     .prologue
-    .line 127
+    .line 98
     invoke-direct {p0}, Landroid/content/res/ThemeConfig;->getDefaultTheme()Landroid/content/res/ThemeConfig$AppTheme;
 
     move-result-object v0
 
-    .line 128
+    .line 99
     .local v0, "defaultTheme":Landroid/content/res/ThemeConfig$AppTheme;
     iget-object v1, v0, Landroid/content/res/ThemeConfig$AppTheme;->mFontPkgName:Ljava/lang/String;
 
@@ -575,12 +569,12 @@
     .param p1, "appPkgName"    # Ljava/lang/String;
 
     .prologue
-    .line 132
+    .line 103
     invoke-direct {p0, p1}, Landroid/content/res/ThemeConfig;->getThemeFor(Ljava/lang/String;)Landroid/content/res/ThemeConfig$AppTheme;
 
     move-result-object v0
 
-    .line 133
+    .line 104
     .local v0, "theme":Landroid/content/res/ThemeConfig$AppTheme;
     iget-object v1, v0, Landroid/content/res/ThemeConfig$AppTheme;->mFontPkgName:Ljava/lang/String;
 
@@ -591,12 +585,12 @@
     .locals 2
 
     .prologue
-    .line 117
+    .line 88
     invoke-direct {p0}, Landroid/content/res/ThemeConfig;->getDefaultTheme()Landroid/content/res/ThemeConfig$AppTheme;
 
     move-result-object v0
 
-    .line 118
+    .line 89
     .local v0, "theme":Landroid/content/res/ThemeConfig$AppTheme;
     iget-object v1, v0, Landroid/content/res/ThemeConfig$AppTheme;->mIconPkgName:Ljava/lang/String;
 
@@ -608,12 +602,12 @@
     .param p1, "appPkgName"    # Ljava/lang/String;
 
     .prologue
-    .line 122
+    .line 93
     invoke-direct {p0, p1}, Landroid/content/res/ThemeConfig;->getThemeFor(Ljava/lang/String;)Landroid/content/res/ThemeConfig$AppTheme;
 
     move-result-object v0
 
-    .line 123
+    .line 94
     .local v0, "theme":Landroid/content/res/ThemeConfig$AppTheme;
     iget-object v1, v0, Landroid/content/res/ThemeConfig$AppTheme;->mIconPkgName:Ljava/lang/String;
 
@@ -624,7 +618,7 @@
     .locals 1
 
     .prologue
-    .line 108
+    .line 79
     const-string/jumbo v0, "com.android.systemui.navbar"
 
     invoke-virtual {p0, v0}, Landroid/content/res/ThemeConfig;->getOverlayPkgNameForApp(Ljava/lang/String;)Ljava/lang/String;
@@ -638,7 +632,7 @@
     .locals 1
 
     .prologue
-    .line 104
+    .line 75
     const-string/jumbo v0, "com.android.systemui"
 
     invoke-virtual {p0, v0}, Landroid/content/res/ThemeConfig;->getOverlayPkgNameForApp(Ljava/lang/String;)Ljava/lang/String;
@@ -652,12 +646,12 @@
     .locals 2
 
     .prologue
-    .line 99
+    .line 70
     invoke-direct {p0}, Landroid/content/res/ThemeConfig;->getDefaultTheme()Landroid/content/res/ThemeConfig$AppTheme;
 
     move-result-object v0
 
-    .line 100
+    .line 71
     .local v0, "theme":Landroid/content/res/ThemeConfig$AppTheme;
     iget-object v1, v0, Landroid/content/res/ThemeConfig$AppTheme;->mOverlayPkgName:Ljava/lang/String;
 
@@ -669,12 +663,12 @@
     .param p1, "appPkgName"    # Ljava/lang/String;
 
     .prologue
-    .line 112
+    .line 83
     invoke-direct {p0, p1}, Landroid/content/res/ThemeConfig;->getThemeFor(Ljava/lang/String;)Landroid/content/res/ThemeConfig$AppTheme;
 
     move-result-object v0
 
-    .line 113
+    .line 84
     .local v0, "theme":Landroid/content/res/ThemeConfig$AppTheme;
     iget-object v1, v0, Landroid/content/res/ThemeConfig$AppTheme;->mOverlayPkgName:Ljava/lang/String;
 
@@ -685,7 +679,7 @@
     .locals 2
 
     .prologue
-    .line 183
+    .line 154
     iget-object v1, p0, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->hashCode()I
@@ -694,7 +688,7 @@
 
     add-int/lit16 v0, v1, 0x20f
 
-    .line 184
+    .line 155
     .local v0, "hash":I
     return v0
 .end method
@@ -703,7 +697,7 @@
     .locals 1
 
     .prologue
-    .line 188
+    .line 159
     invoke-static {p0}, Landroid/content/res/ThemeConfig$JsonSerializer;->toJson(Landroid/content/res/ThemeConfig;)Ljava/lang/String;
 
     move-result-object v0
@@ -715,28 +709,28 @@
     .locals 2
 
     .prologue
-    .line 172
+    .line 143
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 173
+    .line 144
     .local v0, "result":Ljava/lang/StringBuilder;
     iget-object v1, p0, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
     if-eqz v1, :cond_0
 
-    .line 174
+    .line 145
     const-string/jumbo v1, "themes:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 175
+    .line 146
     iget-object v1, p0, Landroid/content/res/ThemeConfig;->mThemes:Ljava/util/Map;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 177
+    .line 148
     :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -751,15 +745,15 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 247
+    .line 218
     invoke-static {p0}, Landroid/content/res/ThemeConfig$JsonSerializer;->toJson(Landroid/content/res/ThemeConfig;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 248
+    .line 219
     .local v0, "json":Ljava/lang/String;
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 246
+    .line 217
     return-void
 .end method

@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
     .prologue
-    .line 123
+    .line 108
     iput-object p1, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 1
 
     .prologue
-    .line 197
+    .line 182
     iget-object v0, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
     invoke-static {v0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->-get1(Landroid/hardware/camera2/legacy/LegacyCameraDevice;)Landroid/os/ConditionVariable;
@@ -50,7 +50,7 @@
 
     invoke-virtual {v0}, Landroid/os/ConditionVariable;->close()V
 
-    .line 196
+    .line 181
     return-void
 .end method
 
@@ -60,14 +60,14 @@
     .param p2, "holder"    # Landroid/hardware/camera2/legacy/RequestHolder;
 
     .prologue
-    .line 227
+    .line 212
     iget-object v1, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
     invoke-static {v1, p2}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->-wrap0(Landroid/hardware/camera2/legacy/LegacyCameraDevice;Landroid/hardware/camera2/legacy/RequestHolder;)Landroid/hardware/camera2/impl/CaptureResultExtras;
 
     move-result-object v0
 
-    .line 229
+    .line 214
     .local v0, "extras":Landroid/hardware/camera2/impl/CaptureResultExtras;
     iget-object v1, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
@@ -81,7 +81,7 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 226
+    .line 211
     return-void
 .end method
 
@@ -91,14 +91,14 @@
     .param p2, "timestamp"    # J
 
     .prologue
-    .line 206
+    .line 191
     iget-object v0, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
     invoke-static {v0, p1}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->-wrap0(Landroid/hardware/camera2/legacy/LegacyCameraDevice;Landroid/hardware/camera2/legacy/RequestHolder;)Landroid/hardware/camera2/impl/CaptureResultExtras;
 
     move-result-object v3
 
-    .line 208
+    .line 193
     .local v3, "extras":Landroid/hardware/camera2/impl/CaptureResultExtras;
     iget-object v0, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
@@ -118,7 +118,7 @@
 
     invoke-virtual {v6, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 205
+    .line 190
     return-void
 .end method
 
@@ -126,29 +126,28 @@
     .locals 0
 
     .prologue
-    .line 164
+    .line 149
     return-void
 .end method
 
-.method public onError(ILjava/lang/Object;Landroid/hardware/camera2/legacy/RequestHolder;)V
+.method public onError(ILandroid/hardware/camera2/legacy/RequestHolder;)V
     .locals 3
     .param p1, "errorCode"    # I
-    .param p2, "errorArg"    # Ljava/lang/Object;
-    .param p3, "holder"    # Landroid/hardware/camera2/legacy/RequestHolder;
+    .param p2, "holder"    # Landroid/hardware/camera2/legacy/RequestHolder;
 
     .prologue
-    .line 129
+    .line 114
     packed-switch p1, :pswitch_data_0
 
-    .line 145
+    .line 130
     :goto_0
     iget-object v1, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
-    invoke-static {v1, p3, p1, p2}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->-wrap1(Landroid/hardware/camera2/legacy/LegacyCameraDevice;Landroid/hardware/camera2/legacy/RequestHolder;ILjava/lang/Object;)Landroid/hardware/camera2/impl/CaptureResultExtras;
+    invoke-static {v1, p2}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->-wrap0(Landroid/hardware/camera2/legacy/LegacyCameraDevice;Landroid/hardware/camera2/legacy/RequestHolder;)Landroid/hardware/camera2/impl/CaptureResultExtras;
 
     move-result-object v0
 
-    .line 146
+    .line 131
     .local v0, "extras":Landroid/hardware/camera2/impl/CaptureResultExtras;
     iget-object v1, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
@@ -158,14 +157,14 @@
 
     new-instance v2, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1$1;
 
-    invoke-direct {v2, p0, p3, p1, v0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1$1;-><init>(Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;Landroid/hardware/camera2/legacy/RequestHolder;ILandroid/hardware/camera2/impl/CaptureResultExtras;)V
+    invoke-direct {v2, p0, p2, p1, v0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1$1;-><init>(Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;Landroid/hardware/camera2/legacy/RequestHolder;ILandroid/hardware/camera2/impl/CaptureResultExtras;)V
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 125
+    .line 110
     return-void
 
-    .line 137
+    .line 122
     .end local v0    # "extras":Landroid/hardware/camera2/impl/CaptureResultExtras;
     :pswitch_0
     iget-object v1, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
@@ -178,7 +177,7 @@
 
     goto :goto_0
 
-    .line 129
+    .line 114
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -191,7 +190,7 @@
     .locals 2
 
     .prologue
-    .line 177
+    .line 162
     iget-object v0, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
     invoke-static {v0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->-get1(Landroid/hardware/camera2/legacy/LegacyCameraDevice;)Landroid/os/ConditionVariable;
@@ -200,7 +199,7 @@
 
     invoke-virtual {v0}, Landroid/os/ConditionVariable;->open()V
 
-    .line 179
+    .line 164
     iget-object v0, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
 
     invoke-static {v0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->-get2(Landroid/hardware/camera2/legacy/LegacyCameraDevice;)Landroid/os/Handler;
@@ -213,28 +212,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 172
-    return-void
-.end method
-
-.method public onRepeatingRequestError(J)V
-    .locals 3
-    .param p1, "lastFrameNumber"    # J
-
-    .prologue
-    .line 248
-    iget-object v0, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;->this$0:Landroid/hardware/camera2/legacy/LegacyCameraDevice;
-
-    invoke-static {v0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->-get2(Landroid/hardware/camera2/legacy/LegacyCameraDevice;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1$5;
-
-    invoke-direct {v1, p0, p1, p2}, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1$5;-><init>(Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;J)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    .line 247
+    .line 157
     return-void
 .end method

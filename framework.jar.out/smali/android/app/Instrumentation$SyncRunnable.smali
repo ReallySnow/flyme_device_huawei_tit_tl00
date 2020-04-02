@@ -29,13 +29,13 @@
     .param p1, "target"    # Ljava/lang/Runnable;
 
     .prologue
-    .line 1954
+    .line 1899
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1955
+    .line 1900
     iput-object p1, p0, Landroid/app/Instrumentation$SyncRunnable;->mTarget:Ljava/lang/Runnable;
 
-    .line 1954
+    .line 1899
     return-void
 .end method
 
@@ -45,31 +45,31 @@
     .locals 1
 
     .prologue
-    .line 1959
+    .line 1904
     iget-object v0, p0, Landroid/app/Instrumentation$SyncRunnable;->mTarget:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 1960
+    .line 1905
     monitor-enter p0
 
-    .line 1961
+    .line 1906
     const/4 v0, 0x1
 
     :try_start_0
     iput-boolean v0, p0, Landroid/app/Instrumentation$SyncRunnable;->mComplete:Z
 
-    .line 1962
+    .line 1907
     invoke-virtual {p0}, Landroid/app/Instrumentation$SyncRunnable;->notifyAll()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    .line 1958
+    .line 1903
     return-void
 
-    .line 1960
+    .line 1905
     :catchall_0
     move-exception v0
 
@@ -82,10 +82,10 @@
     .locals 2
 
     .prologue
-    .line 1967
+    .line 1912
     monitor-enter p0
 
-    .line 1968
+    .line 1913
     :goto_0
     :try_start_0
     iget-boolean v1, p0, Landroid/app/Instrumentation$SyncRunnable;->mComplete:Z
@@ -94,7 +94,7 @@
 
     if-nez v1, :cond_0
 
-    .line 1970
+    .line 1915
     :try_start_1
     invoke-virtual {p0}, Landroid/app/Instrumentation$SyncRunnable;->wait()V
     :try_end_1
@@ -103,7 +103,7 @@
 
     goto :goto_0
 
-    .line 1971
+    .line 1916
     :catch_0
     move-exception v0
 
@@ -114,10 +114,10 @@
     :cond_0
     monitor-exit p0
 
-    .line 1966
+    .line 1911
     return-void
 
-    .line 1967
+    .line 1912
     :catchall_0
     move-exception v1
 

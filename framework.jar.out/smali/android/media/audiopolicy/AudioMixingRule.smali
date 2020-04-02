@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;,
+        Landroid/media/audiopolicy/AudioMixingRule$AttributeMatchCriterion;,
         Landroid/media/audiopolicy/AudioMixingRule$Builder;
     }
 .end annotation
@@ -17,15 +17,11 @@
 
 .field public static final RULE_EXCLUDE_ATTRIBUTE_USAGE:I = 0x8001
 
-.field public static final RULE_EXCLUDE_UID:I = 0x8004
-
 .field private static final RULE_EXCLUSION_MASK:I = 0x8000
 
 .field public static final RULE_MATCH_ATTRIBUTE_CAPTURE_PRESET:I = 0x2
 
 .field public static final RULE_MATCH_ATTRIBUTE_USAGE:I = 0x1
-
-.field public static final RULE_MATCH_UID:I = 0x4
 
 
 # instance fields
@@ -34,7 +30,7 @@
         value = {
             "Ljava/util/ArrayList",
             "<",
-            "Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;",
+            "Landroid/media/audiopolicy/AudioMixingRule$AttributeMatchCriterion;",
             ">;"
         }
     .end annotation
@@ -46,10 +42,10 @@
 # direct methods
 .method static synthetic -wrap0(I)Z
     .locals 1
-    .param p0, "match_rule"    # I
+    .param p0, "rule"    # I
 
     .prologue
-    invoke-static {p0}, Landroid/media/audiopolicy/AudioMixingRule;->isAudioAttributeRule(I)Z
+    invoke-static {p0}, Landroid/media/audiopolicy/AudioMixingRule;->isPlayerRule(I)Z
 
     move-result v0
 
@@ -61,7 +57,7 @@
     .param p0, "rule"    # I
 
     .prologue
-    invoke-static {p0}, Landroid/media/audiopolicy/AudioMixingRule;->isPlayerRule(I)Z
+    invoke-static {p0}, Landroid/media/audiopolicy/AudioMixingRule;->isValidIntRule(I)Z
 
     move-result v0
 
@@ -69,30 +65,6 @@
 .end method
 
 .method static synthetic -wrap2(I)Z
-    .locals 1
-    .param p0, "rule"    # I
-
-    .prologue
-    invoke-static {p0}, Landroid/media/audiopolicy/AudioMixingRule;->isValidAttributesSystemApiRule(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap3(I)Z
-    .locals 1
-    .param p0, "rule"    # I
-
-    .prologue
-    invoke-static {p0}, Landroid/media/audiopolicy/AudioMixingRule;->isValidRule(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap4(I)Z
     .locals 1
     .param p0, "rule"    # I
 
@@ -112,23 +84,23 @@
             "(I",
             "Ljava/util/ArrayList",
             "<",
-            "Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;",
+            "Landroid/media/audiopolicy/AudioMixingRule$AttributeMatchCriterion;",
             ">;)V"
         }
     .end annotation
 
     .prologue
-    .line 45
-    .local p2, "criteria":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;>;"
+    .line 44
+    .local p2, "criteria":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/media/audiopolicy/AudioMixingRule$AttributeMatchCriterion;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
+    .line 45
     iput-object p2, p0, Landroid/media/audiopolicy/AudioMixingRule;->mCriteria:Ljava/util/ArrayList;
 
-    .line 47
+    .line 46
     iput p1, p0, Landroid/media/audiopolicy/AudioMixingRule;->mTargetMixType:I
 
-    .line 45
+    .line 44
     return-void
 .end method
 
@@ -143,134 +115,62 @@
     return-void
 .end method
 
-.method private static isAudioAttributeRule(I)Z
-    .locals 1
-    .param p0, "match_rule"    # I
-
-    .prologue
-    .line 194
-    packed-switch p0, :pswitch_data_0
-
-    .line 199
-    const/4 v0, 0x0
-
-    return v0
-
-    .line 197
-    :pswitch_0
-    const/4 v0, 0x1
-
-    return v0
-
-    .line 194
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
-.end method
-
 .method private static isPlayerRule(I)Z
     .locals 2
     .param p0, "rule"    # I
 
     .prologue
-    .line 183
-    const v1, -0x8001
+    const/4 v0, 0x1
 
-    and-int v0, p0, v1
+    .line 133
+    if-eq p0, v0, :cond_0
 
-    .line 184
-    .local v0, "match_rule":I
-    packed-switch v0, :pswitch_data_0
+    .line 134
+    const v1, 0x8001
 
-    .line 189
-    :pswitch_0
-    const/4 v1, 0x0
+    if-ne p0, v1, :cond_1
 
-    return v1
+    .line 133
+    :cond_0
+    :goto_0
+    return v0
 
-    .line 187
-    :pswitch_1
-    const/4 v1, 0x1
+    .line 134
+    :cond_1
+    const/4 v0, 0x0
 
-    return v1
-
-    .line 184
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    goto :goto_0
 .end method
 
-.method private static isValidAttributesSystemApiRule(I)Z
+.method private static isValidIntRule(I)Z
     .locals 1
     .param p0, "rule"    # I
 
     .prologue
-    .line 161
-    packed-switch p0, :pswitch_data_0
+    .line 121
+    sparse-switch p0, :sswitch_data_0
 
-    .line 166
+    .line 128
     const/4 v0, 0x0
 
     return v0
 
-    .line 164
-    :pswitch_0
+    .line 126
+    :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
-    .line 161
+    .line 121
     nop
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
-.end method
-
-.method private static isValidRule(I)Z
-    .locals 2
-    .param p0, "rule"    # I
-
-    .prologue
-    .line 171
-    const v1, -0x8001
-
-    and-int v0, p0, v1
-
-    .line 172
-    .local v0, "match_rule":I
-    packed-switch v0, :pswitch_data_0
-
-    .line 178
-    :pswitch_0
-    const/4 v1, 0x0
-
-    return v1
-
-    .line 176
-    :pswitch_1
-    const/4 v1, 0x1
-
-    return v1
-
-    .line 172
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_0
+        0x8001 -> :sswitch_0
+        0x8002 -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method private static isValidSystemApiRule(I)Z
@@ -278,30 +178,27 @@
     .param p0, "rule"    # I
 
     .prologue
-    .line 150
+    .line 111
     packed-switch p0, :pswitch_data_0
 
-    .line 156
-    :pswitch_0
+    .line 116
     const/4 v0, 0x0
 
     return v0
 
-    .line 154
-    :pswitch_1
+    .line 114
+    :pswitch_0
     const/4 v0, 0x1
 
     return v0
 
-    .line 150
+    .line 111
     nop
 
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_1
         :pswitch_0
-        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -314,13 +211,13 @@
             "()",
             "Ljava/util/ArrayList",
             "<",
-            "Landroid/media/audiopolicy/AudioMixingRule$AudioMixMatchCriterion;",
+            "Landroid/media/audiopolicy/AudioMixingRule$AttributeMatchCriterion;",
             ">;"
         }
     .end annotation
 
     .prologue
-    .line 141
+    .line 103
     iget-object v0, p0, Landroid/media/audiopolicy/AudioMixingRule;->mCriteria:Ljava/util/ArrayList;
 
     return-object v0
@@ -330,7 +227,7 @@
     .locals 1
 
     .prologue
-    .line 139
+    .line 101
     iget v0, p0, Landroid/media/audiopolicy/AudioMixingRule;->mTargetMixType:I
 
     return v0
@@ -340,7 +237,7 @@
     .locals 3
 
     .prologue
-    .line 145
+    .line 107
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;

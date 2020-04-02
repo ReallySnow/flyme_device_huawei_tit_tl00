@@ -26,41 +26,39 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.IWallpaperManager"
 
-.field static final TRANSACTION_clearWallpaper_6:I = 0x7
+.field static final TRANSACTION_clearKeyguardWallpaper:I = 0x9
 
-.field static final TRANSACTION_getHeightHint:I = 0xb
+.field static final TRANSACTION_clearWallpaper:I = 0x8
 
-.field static final TRANSACTION_getName:I = 0xd
+.field static final TRANSACTION_getHeightHint:I = 0xd
 
-.field static final TRANSACTION_getWallpaperIdForUser_4:I = 0x5
+.field static final TRANSACTION_getKeyguardWallpaper:I = 0x6
 
-.field static final TRANSACTION_getWallpaperInfo_5:I = 0x6
+.field static final TRANSACTION_getName:I = 0xf
 
-.field static final TRANSACTION_getWallpaper_3:I = 0x4
+.field static final TRANSACTION_getWallpaper:I = 0x5
 
-.field static final TRANSACTION_getWidthHint:I = 0xa
+.field static final TRANSACTION_getWallpaperInfo:I = 0x7
 
-.field static final TRANSACTION_hasNamedWallpaper_7:I = 0x8
+.field static final TRANSACTION_getWidthHint:I = 0xc
 
-.field static final TRANSACTION_isSetWallpaperAllowed:I = 0x10
+.field static final TRANSACTION_hasNamedWallpaper:I = 0xa
 
-.field static final TRANSACTION_isWallpaperBackupEligible:I = 0x11
+.field static final TRANSACTION_isWallpaperSupported:I = 0x11
 
-.field static final TRANSACTION_isWallpaperSupported:I = 0xf
+.field static final TRANSACTION_setDimensionHints:I = 0xb
 
-.field static final TRANSACTION_setDimensionHints:I = 0x9
+.field static final TRANSACTION_setDisplayPadding:I = 0xe
 
-.field static final TRANSACTION_setDisplayPadding:I = 0xc
-
-.field static final TRANSACTION_setLockWallpaperCallback_17:I = 0x12
+.field static final TRANSACTION_setKeyguardWallpaper:I = 0x2
 
 .field static final TRANSACTION_setWallpaper:I = 0x1
 
-.field static final TRANSACTION_setWallpaperComponent:I = 0x3
+.field static final TRANSACTION_setWallpaperComponent:I = 0x4
 
-.field static final TRANSACTION_setWallpaperComponentChecked:I = 0x2
+.field static final TRANSACTION_setWallpaperComponentChecked:I = 0x3
 
-.field static final TRANSACTION_settingsRestored:I = 0xe
+.field static final TRANSACTION_settingsRestored:I = 0x10
 
 
 # direct methods
@@ -136,7 +134,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 27
+    .locals 16
     .param p1, "code"    # I
     .param p2, "data"    # Landroid/os/Parcel;
     .param p3, "reply"    # Landroid/os/Parcel;
@@ -151,33 +149,33 @@
     .line 39
     sparse-switch p1, :sswitch_data_0
 
-    .line 303
+    .line 273
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v4
+    move-result v15
 
-    return v4
+    return v15
 
     .line 43
     :sswitch_0
-    const-string/jumbo v4, "android.app.IWallpaperManager"
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 44
-    const/4 v4, 0x1
+    const/4 v15, 0x1
 
-    return v4
+    return v15
 
     .line 48
     :sswitch_1
-    const-string/jumbo v4, "android.app.IWallpaperManager"
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 50
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -188,1032 +186,817 @@
     .local v5, "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
+
+    .line 53
+    .local v8, "_arg1":Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5, v8}, Landroid/app/IWallpaperManager$Stub;->setWallpaper(Ljava/lang/String;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
+
+    move-result-object v12
 
     .line 54
-    .local v6, "_arg1":Ljava/lang/String;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    .line 55
-    sget-object v4, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/graphics/Rect;
-
-    .line 61
-    :goto_0
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    const/4 v8, 0x1
-
-    .line 63
-    .local v8, "_arg3":Z
-    :goto_1
-    new-instance v9, Landroid/os/Bundle;
-
-    invoke-direct {v9}, Landroid/os/Bundle;-><init>()V
-
-    .line 65
-    .local v9, "_arg4":Landroid/os/Bundle;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v10
-
-    .line 67
-    .local v10, "_arg5":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v4
-
-    invoke-static {v4}, Landroid/app/IWallpaperManagerCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IWallpaperManagerCallback;
-
-    move-result-object v11
-
-    .line 69
-    .local v11, "_arg6":Landroid/app/IWallpaperManagerCallback;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v12
-
-    .local v12, "_arg7":I
-    move-object/from16 v4, p0
-
-    .line 70
-    invoke-virtual/range {v4 .. v12}, Landroid/app/IWallpaperManager$Stub;->setWallpaper(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/Rect;ZLandroid/os/Bundle;ILandroid/app/IWallpaperManagerCallback;I)Landroid/os/ParcelFileDescriptor;
-
-    move-result-object v24
-
-    .line 71
-    .local v24, "_result":Landroid/os/ParcelFileDescriptor;
+    .local v12, "_result":Landroid/os/ParcelFileDescriptor;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 72
-    if-eqz v24, :cond_2
+    .line 55
+    if-eqz v12, :cond_0
 
-    .line 73
-    const/4 v4, 0x1
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 74
-    const/4 v4, 0x1
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1, v4}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 79
-    :goto_2
-    if-eqz v9, :cond_3
-
-    .line 80
-    const/4 v4, 0x1
+    .line 56
+    const/4 v15, 0x1
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 81
-    const/4 v4, 0x1
+    .line 57
+    const/4 v15, 0x1
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v9, v0, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {v12, v0, v15}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 86
-    :goto_3
-    const/4 v4, 0x1
+    .line 62
+    :goto_0
+    const/4 v15, 0x1
 
-    return v4
+    return v15
 
-    .line 58
-    .end local v8    # "_arg3":Z
-    .end local v9    # "_arg4":Landroid/os/Bundle;
-    .end local v10    # "_arg5":I
-    .end local v11    # "_arg6":Landroid/app/IWallpaperManagerCallback;
-    .end local v12    # "_arg7":I
-    .end local v24    # "_result":Landroid/os/ParcelFileDescriptor;
+    .line 60
     :cond_0
-    const/4 v7, 0x0
+    const/4 v15, 0x0
 
-    .local v7, "_arg2":Landroid/graphics/Rect;
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
+
     goto :goto_0
 
-    .line 61
-    .end local v7    # "_arg2":Landroid/graphics/Rect;
-    :cond_1
-    const/4 v8, 0x0
+    .line 66
+    .end local v5    # "_arg0":Ljava/lang/String;
+    .end local v8    # "_arg1":Ljava/lang/String;
+    .end local v12    # "_result":Landroid/os/ParcelFileDescriptor;
+    :sswitch_2
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
-    .restart local v8    # "_arg3":Z
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 68
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 70
+    .restart local v5    # "_arg0":Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v8
+
+    .line 71
+    .restart local v8    # "_arg1":Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5, v8}, Landroid/app/IWallpaperManager$Stub;->setKeyguardWallpaper(Ljava/lang/String;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
+
+    move-result-object v12
+
+    .line 72
+    .restart local v12    # "_result":Landroid/os/ParcelFileDescriptor;
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 73
+    if-eqz v12, :cond_1
+
+    .line 74
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 75
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v12, v0, v15}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 80
+    :goto_1
+    const/4 v15, 0x1
+
+    return v15
+
+    .line 78
+    :cond_1
+    const/4 v15, 0x0
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
+
     goto :goto_1
 
-    .line 77
-    .restart local v9    # "_arg4":Landroid/os/Bundle;
-    .restart local v10    # "_arg5":I
-    .restart local v11    # "_arg6":Landroid/app/IWallpaperManagerCallback;
-    .restart local v12    # "_arg7":I
-    .restart local v24    # "_result":Landroid/os/ParcelFileDescriptor;
-    :cond_2
-    const/4 v4, 0x0
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_2
-
     .line 84
-    :cond_3
-    const/4 v4, 0x0
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_3
-
-    .line 90
     .end local v5    # "_arg0":Ljava/lang/String;
-    .end local v6    # "_arg1":Ljava/lang/String;
-    .end local v8    # "_arg3":Z
-    .end local v9    # "_arg4":Landroid/os/Bundle;
-    .end local v10    # "_arg5":I
-    .end local v11    # "_arg6":Landroid/app/IWallpaperManagerCallback;
-    .end local v12    # "_arg7":I
-    .end local v24    # "_result":Landroid/os/ParcelFileDescriptor;
-    :sswitch_2
-    const-string/jumbo v4, "android.app.IWallpaperManager"
+    .end local v8    # "_arg1":Ljava/lang/String;
+    .end local v12    # "_result":Landroid/os/ParcelFileDescriptor;
+    :sswitch_3
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 92
+    .line 86
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v15
 
-    if-eqz v4, :cond_4
+    if-eqz v15, :cond_2
 
-    .line 93
-    sget-object v4, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
+    .line 87
+    sget-object v15, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
 
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v15, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/ComponentName;
+
+    .line 93
+    :goto_2
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v8
+
+    .line 94
+    .restart local v8    # "_arg1":Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3, v8}, Landroid/app/IWallpaperManager$Stub;->setWallpaperComponentChecked(Landroid/content/ComponentName;Ljava/lang/String;)V
+
+    .line 95
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 96
+    const/4 v15, 0x1
+
+    return v15
+
+    .line 90
+    .end local v8    # "_arg1":Ljava/lang/String;
+    :cond_2
+    const/4 v3, 0x0
+
+    .local v3, "_arg0":Landroid/content/ComponentName;
+    goto :goto_2
+
+    .line 100
+    .end local v3    # "_arg0":Landroid/content/ComponentName;
+    :sswitch_4
+    const-string/jumbo v15, "android.app.IWallpaperManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 102
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v15
+
+    if-eqz v15, :cond_3
+
+    .line 103
+    sget-object v15, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v15, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/ComponentName;
+
+    .line 108
+    :goto_3
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Landroid/app/IWallpaperManager$Stub;->setWallpaperComponent(Landroid/content/ComponentName;)V
+
+    .line 109
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 110
+    const/4 v15, 0x1
+
+    return v15
+
+    .line 106
+    :cond_3
+    const/4 v3, 0x0
+
+    .restart local v3    # "_arg0":Landroid/content/ComponentName;
+    goto :goto_3
+
+    .line 114
+    .end local v3    # "_arg0":Landroid/content/ComponentName;
+    :sswitch_5
+    const-string/jumbo v15, "android.app.IWallpaperManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 116
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v15
 
-    check-cast v15, Landroid/content/ComponentName;
+    invoke-static {v15}, Landroid/app/IWallpaperManagerCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IWallpaperManagerCallback;
 
-    .line 99
-    :goto_4
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v6
+    .line 118
+    .local v2, "_arg0":Landroid/app/IWallpaperManagerCallback;
+    new-instance v7, Landroid/os/Bundle;
 
-    .line 101
-    .restart local v6    # "_arg1":Ljava/lang/String;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
 
-    move-result v18
-
-    .line 102
-    .local v18, "_arg2":I
+    .line 119
+    .local v7, "_arg1":Landroid/os/Bundle;
     move-object/from16 v0, p0
 
-    move/from16 v1, v18
+    invoke-virtual {v0, v2, v7}, Landroid/app/IWallpaperManager$Stub;->getWallpaper(Landroid/app/IWallpaperManagerCallback;Landroid/os/Bundle;)Landroid/os/ParcelFileDescriptor;
 
-    invoke-virtual {v0, v15, v6, v1}, Landroid/app/IWallpaperManager$Stub;->setWallpaperComponentChecked(Landroid/content/ComponentName;Ljava/lang/String;I)V
+    move-result-object v12
 
-    .line 103
+    .line 120
+    .restart local v12    # "_result":Landroid/os/ParcelFileDescriptor;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 104
-    const/4 v4, 0x1
+    .line 121
+    if-eqz v12, :cond_4
 
-    return v4
+    .line 122
+    const/4 v15, 0x1
 
-    .line 96
-    .end local v6    # "_arg1":Ljava/lang/String;
-    .end local v18    # "_arg2":I
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 123
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v12, v0, v15}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 128
+    :goto_4
+    if-eqz v7, :cond_5
+
+    .line 129
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 130
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v7, v0, v15}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 135
+    :goto_5
+    const/4 v15, 0x1
+
+    return v15
+
+    .line 126
     :cond_4
     const/4 v15, 0x0
 
-    .local v15, "_arg0":Landroid/content/ComponentName;
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
+
     goto :goto_4
 
-    .line 108
-    .end local v15    # "_arg0":Landroid/content/ComponentName;
-    :sswitch_3
-    const-string/jumbo v4, "android.app.IWallpaperManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 110
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_5
-
-    .line 111
-    sget-object v4, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v15
-
-    check-cast v15, Landroid/content/ComponentName;
-
-    .line 116
-    :goto_5
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v15}, Landroid/app/IWallpaperManager$Stub;->setWallpaperComponent(Landroid/content/ComponentName;)V
-
-    .line 117
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 118
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 114
+    .line 133
     :cond_5
     const/4 v15, 0x0
 
-    .restart local v15    # "_arg0":Landroid/content/ComponentName;
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
+
     goto :goto_5
 
-    .line 122
-    .end local v15    # "_arg0":Landroid/content/ComponentName;
-    :sswitch_4
-    const-string/jumbo v4, "android.app.IWallpaperManager"
+    .line 139
+    .end local v2    # "_arg0":Landroid/app/IWallpaperManagerCallback;
+    .end local v7    # "_arg1":Landroid/os/Bundle;
+    .end local v12    # "_result":Landroid/os/ParcelFileDescriptor;
+    :sswitch_6
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 124
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v4
-
-    invoke-static {v4}, Landroid/app/IWallpaperManagerCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IWallpaperManagerCallback;
-
-    move-result-object v14
-
-    .line 126
-    .local v14, "_arg0":Landroid/app/IWallpaperManagerCallback;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v17
-
-    .line 128
-    .local v17, "_arg1":I
-    new-instance v19, Landroid/os/Bundle;
-
-    invoke-direct/range {v19 .. v19}, Landroid/os/Bundle;-><init>()V
-
-    .line 130
-    .local v19, "_arg2":Landroid/os/Bundle;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v21
-
-    .line 131
-    .local v21, "_arg3":I
-    move-object/from16 v0, p0
-
-    move/from16 v1, v17
-
-    move-object/from16 v2, v19
-
-    move/from16 v3, v21
-
-    invoke-virtual {v0, v14, v1, v2, v3}, Landroid/app/IWallpaperManager$Stub;->getWallpaper(Landroid/app/IWallpaperManagerCallback;ILandroid/os/Bundle;I)Landroid/os/ParcelFileDescriptor;
-
-    move-result-object v24
-
-    .line 132
-    .restart local v24    # "_result":Landroid/os/ParcelFileDescriptor;
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 133
-    if-eqz v24, :cond_6
-
-    .line 134
-    const/4 v4, 0x1
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 135
-    const/4 v4, 0x1
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1, v4}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 140
-    :goto_6
-    if-eqz v19, :cond_7
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 141
-    const/4 v4, 0x1
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-object/from16 v0, p3
+    move-result-object v15
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-static {v15}, Landroid/app/IWallpaperManagerCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IWallpaperManagerCallback;
 
-    .line 142
-    const/4 v4, 0x1
+    move-result-object v2
 
-    move-object/from16 v0, v19
+    .line 143
+    .restart local v2    # "_arg0":Landroid/app/IWallpaperManagerCallback;
+    new-instance v7, Landroid/os/Bundle;
 
-    move-object/from16 v1, p3
+    invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
 
-    invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
+    .line 144
+    .restart local v7    # "_arg1":Landroid/os/Bundle;
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2, v7}, Landroid/app/IWallpaperManager$Stub;->getKeyguardWallpaper(Landroid/app/IWallpaperManagerCallback;Landroid/os/Bundle;)Landroid/os/ParcelFileDescriptor;
+
+    move-result-object v12
+
+    .line 145
+    .restart local v12    # "_result":Landroid/os/ParcelFileDescriptor;
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 146
+    if-eqz v12, :cond_6
 
     .line 147
-    :goto_7
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 138
-    :cond_6
-    const/4 v4, 0x0
+    const/4 v15, 0x1
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 148
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v12, v0, v15}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 153
+    :goto_6
+    if-eqz v7, :cond_7
+
+    .line 154
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 155
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v7, v0, v15}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 160
+    :goto_7
+    const/4 v15, 0x1
+
+    return v15
+
+    .line 151
+    :cond_6
+    const/4 v15, 0x0
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_6
 
-    .line 145
+    .line 158
     :cond_7
-    const/4 v4, 0x0
+    const/4 v15, 0x0
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_7
 
-    .line 151
-    .end local v14    # "_arg0":Landroid/app/IWallpaperManagerCallback;
-    .end local v17    # "_arg1":I
-    .end local v19    # "_arg2":Landroid/os/Bundle;
-    .end local v21    # "_arg3":I
-    .end local v24    # "_result":Landroid/os/ParcelFileDescriptor;
-    :sswitch_5
-    const-string/jumbo v4, "android.app.IWallpaperManager"
+    .line 164
+    .end local v2    # "_arg0":Landroid/app/IWallpaperManagerCallback;
+    .end local v7    # "_arg1":Landroid/os/Bundle;
+    .end local v12    # "_result":Landroid/os/ParcelFileDescriptor;
+    :sswitch_7
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 153
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v13
-
-    .line 155
-    .local v13, "_arg0":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v17
-
-    .line 156
-    .restart local v17    # "_arg1":I
-    move-object/from16 v0, p0
-
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v13, v1}, Landroid/app/IWallpaperManager$Stub;->getWallpaperIdForUser(II)I
-
-    move-result v22
-
-    .line 157
-    .local v22, "_result":I
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 158
-    move-object/from16 v0, p3
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 159
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 163
-    .end local v13    # "_arg0":I
-    .end local v17    # "_arg1":I
-    .end local v22    # "_result":I
-    :sswitch_6
-    const-string/jumbo v4, "android.app.IWallpaperManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 165
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->getWallpaperInfo()Landroid/app/WallpaperInfo;
 
-    move-result v13
+    move-result-object v11
 
     .line 166
-    .restart local v13    # "_arg0":I
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v13}, Landroid/app/IWallpaperManager$Stub;->getWallpaperInfo(I)Landroid/app/WallpaperInfo;
-
-    move-result-object v23
-
-    .line 167
-    .local v23, "_result":Landroid/app/WallpaperInfo;
+    .local v11, "_result":Landroid/app/WallpaperInfo;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 167
+    if-eqz v11, :cond_8
+
     .line 168
-    if-eqz v23, :cond_8
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 169
-    const/4 v4, 0x1
+    const/4 v15, 0x1
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v11, v0, v15}, Landroid/app/WallpaperInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 170
-    const/4 v4, 0x1
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1, v4}, Landroid/app/WallpaperInfo;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 175
+    .line 174
     :goto_8
-    const/4 v4, 0x1
+    const/4 v15, 0x1
 
-    return v4
+    return v15
 
-    .line 173
+    .line 172
     :cond_8
-    const/4 v4, 0x0
+    const/4 v15, 0x0
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_8
 
-    .line 179
-    .end local v13    # "_arg0":I
-    .end local v23    # "_result":Landroid/app/WallpaperInfo;
-    :sswitch_7
-    const-string/jumbo v4, "android.app.IWallpaperManager"
+    .line 178
+    .end local v11    # "_result":Landroid/app/WallpaperInfo;
+    :sswitch_8
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 180
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
 
     .line 181
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 183
     .restart local v5    # "_arg0":Ljava/lang/String;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v17
-
-    .line 185
-    .restart local v17    # "_arg1":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v18
-
-    .line 186
-    .restart local v18    # "_arg2":I
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    invoke-virtual {v0, v5}, Landroid/app/IWallpaperManager$Stub;->clearWallpaper(Ljava/lang/String;)V
 
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v5, v1, v2}, Landroid/app/IWallpaperManager$Stub;->clearWallpaper(Ljava/lang/String;II)V
-
-    .line 187
+    .line 182
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 188
-    const/4 v4, 0x1
+    .line 183
+    const/4 v15, 0x1
 
-    return v4
+    return v15
 
-    .line 192
+    .line 187
     .end local v5    # "_arg0":Ljava/lang/String;
-    .end local v17    # "_arg1":I
-    .end local v18    # "_arg2":I
-    :sswitch_8
-    const-string/jumbo v4, "android.app.IWallpaperManager"
+    :sswitch_9
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 188
+    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->clearKeyguardWallpaper()V
+
+    .line 189
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 190
+    const/4 v15, 0x1
+
+    return v15
 
     .line 194
+    :sswitch_a
+    const-string/jumbo v15, "android.app.IWallpaperManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 196
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 195
+    .line 197
     .restart local v5    # "_arg0":Ljava/lang/String;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5}, Landroid/app/IWallpaperManager$Stub;->hasNamedWallpaper(Ljava/lang/String;)Z
 
-    move-result v26
+    move-result v14
 
-    .line 196
-    .local v26, "_result":Z
+    .line 198
+    .local v14, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 197
-    if-eqz v26, :cond_9
+    .line 199
+    if-eqz v14, :cond_9
 
-    const/4 v4, 0x1
+    const/4 v15, 0x1
 
     :goto_9
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 198
-    const/4 v4, 0x1
+    .line 200
+    const/4 v15, 0x1
 
-    return v4
+    return v15
 
-    .line 197
+    .line 199
     :cond_9
-    const/4 v4, 0x0
+    const/4 v15, 0x0
 
     goto :goto_9
 
-    .line 202
+    .line 204
     .end local v5    # "_arg0":Ljava/lang/String;
-    .end local v26    # "_result":Z
-    :sswitch_9
-    const-string/jumbo v4, "android.app.IWallpaperManager"
+    .end local v14    # "_result":Z
+    :sswitch_b
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 204
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v13
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 206
-    .restart local v13    # "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v17
+    move-result v1
 
     .line 208
-    .restart local v17    # "_arg1":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v20
-
-    .line 209
-    .local v20, "_arg2":Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    move/from16 v1, v17
-
-    move-object/from16 v2, v20
-
-    invoke-virtual {v0, v13, v1, v2}, Landroid/app/IWallpaperManager$Stub;->setDimensionHints(IILjava/lang/String;)V
-
-    .line 210
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 211
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 215
-    .end local v13    # "_arg0":I
-    .end local v17    # "_arg1":I
-    .end local v20    # "_arg2":Ljava/lang/String;
-    :sswitch_a
-    const-string/jumbo v4, "android.app.IWallpaperManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 216
-    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->getWidthHint()I
-
-    move-result v22
-
-    .line 217
-    .restart local v22    # "_result":I
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 218
-    move-object/from16 v0, p3
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 219
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 223
-    .end local v22    # "_result":I
-    :sswitch_b
-    const-string/jumbo v4, "android.app.IWallpaperManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 224
-    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->getHeightHint()I
-
-    move-result v22
-
-    .line 225
-    .restart local v22    # "_result":I
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 226
-    move-object/from16 v0, p3
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 227
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 231
-    .end local v22    # "_result":I
-    :sswitch_c
-    const-string/jumbo v4, "android.app.IWallpaperManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 233
+    .local v1, "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_a
+    .line 210
+    .local v6, "_arg1":I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    .line 234
-    sget-object v4, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
+    move-result-object v9
+
+    .line 211
+    .local v9, "_arg2":Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v1, v6, v9}, Landroid/app/IWallpaperManager$Stub;->setDimensionHints(IILjava/lang/String;)V
+
+    .line 212
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 213
+    const/4 v15, 0x1
+
+    return v15
+
+    .line 217
+    .end local v1    # "_arg0":I
+    .end local v6    # "_arg1":I
+    .end local v9    # "_arg2":Ljava/lang/String;
+    :sswitch_c
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
 
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v16
+    .line 218
+    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->getWidthHint()I
 
-    check-cast v16, Landroid/graphics/Rect;
+    move-result v10
 
-    .line 240
+    .line 219
+    .local v10, "_result":I
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 220
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v10}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 221
+    const/4 v15, 0x1
+
+    return v15
+
+    .line 225
+    .end local v10    # "_result":I
+    :sswitch_d
+    const-string/jumbo v15, "android.app.IWallpaperManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 226
+    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->getHeightHint()I
+
+    move-result v10
+
+    .line 227
+    .restart local v10    # "_result":I
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 228
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v10}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 229
+    const/4 v15, 0x1
+
+    return v15
+
+    .line 233
+    .end local v10    # "_result":I
+    :sswitch_e
+    const-string/jumbo v15, "android.app.IWallpaperManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 235
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v15
+
+    if-eqz v15, :cond_a
+
+    .line 236
+    sget-object v15, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v15, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/graphics/Rect;
+
+    .line 242
     :goto_a
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v6
-
-    .line 241
-    .restart local v6    # "_arg1":Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1, v6}, Landroid/app/IWallpaperManager$Stub;->setDisplayPadding(Landroid/graphics/Rect;Ljava/lang/String;)V
-
-    .line 242
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+    move-result-object v8
 
     .line 243
-    const/4 v4, 0x1
+    .restart local v8    # "_arg1":Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    return v4
+    invoke-virtual {v0, v4, v8}, Landroid/app/IWallpaperManager$Stub;->setDisplayPadding(Landroid/graphics/Rect;Ljava/lang/String;)V
 
-    .line 237
-    .end local v6    # "_arg1":Ljava/lang/String;
+    .line 244
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 245
+    const/4 v15, 0x1
+
+    return v15
+
+    .line 239
+    .end local v8    # "_arg1":Ljava/lang/String;
     :cond_a
-    const/16 v16, 0x0
+    const/4 v4, 0x0
 
-    .local v16, "_arg0":Landroid/graphics/Rect;
+    .local v4, "_arg0":Landroid/graphics/Rect;
     goto :goto_a
 
-    .line 247
-    .end local v16    # "_arg0":Landroid/graphics/Rect;
-    :sswitch_d
-    const-string/jumbo v4, "android.app.IWallpaperManager"
+    .line 249
+    .end local v4    # "_arg0":Landroid/graphics/Rect;
+    :sswitch_f
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 248
-    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->getName()Ljava/lang/String;
-
-    move-result-object v25
-
-    .line 249
-    .local v25, "_result":Ljava/lang/String;
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 250
-    move-object/from16 v0, p3
+    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->getName()Ljava/lang/String;
 
-    move-object/from16 v1, v25
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-result-object v13
 
     .line 251
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 255
-    .end local v25    # "_result":Ljava/lang/String;
-    :sswitch_e
-    const-string/jumbo v4, "android.app.IWallpaperManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 256
-    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->settingsRestored()V
-
-    .line 257
+    .local v13, "_result":Ljava/lang/String;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 258
-    const/4 v4, 0x1
+    .line 252
+    move-object/from16 v0, p3
 
-    return v4
+    invoke-virtual {v0, v13}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 262
-    :sswitch_f
-    const-string/jumbo v4, "android.app.IWallpaperManager"
+    .line 253
+    const/4 v15, 0x1
+
+    return v15
+
+    .line 257
+    .end local v13    # "_result":Ljava/lang/String;
+    :sswitch_10
+    const-string/jumbo v15, "android.app.IWallpaperManager"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 258
+    invoke-virtual/range {p0 .. p0}, Landroid/app/IWallpaperManager$Stub;->settingsRestored()V
+
+    .line 259
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 260
+    const/4 v15, 0x1
+
+    return v15
 
     .line 264
+    :sswitch_11
+    const-string/jumbo v15, "android.app.IWallpaperManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 266
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 265
+    .line 267
     .restart local v5    # "_arg0":Ljava/lang/String;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5}, Landroid/app/IWallpaperManager$Stub;->isWallpaperSupported(Ljava/lang/String;)Z
 
-    move-result v26
+    move-result v14
 
-    .line 266
-    .restart local v26    # "_result":Z
+    .line 268
+    .restart local v14    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 267
-    if-eqz v26, :cond_b
+    .line 269
+    if-eqz v14, :cond_b
 
-    const/4 v4, 0x1
+    const/4 v15, 0x1
 
     :goto_b
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 268
-    const/4 v4, 0x1
+    .line 270
+    const/4 v15, 0x1
 
-    return v4
+    return v15
 
-    .line 267
+    .line 269
     :cond_b
-    const/4 v4, 0x0
+    const/4 v15, 0x0
 
     goto :goto_b
 
-    .line 272
-    .end local v5    # "_arg0":Ljava/lang/String;
-    .end local v26    # "_result":Z
-    :sswitch_10
-    const-string/jumbo v4, "android.app.IWallpaperManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 274
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 275
-    .restart local v5    # "_arg0":Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v5}, Landroid/app/IWallpaperManager$Stub;->isSetWallpaperAllowed(Ljava/lang/String;)Z
-
-    move-result v26
-
-    .line 276
-    .restart local v26    # "_result":Z
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 277
-    if-eqz v26, :cond_c
-
-    const/4 v4, 0x1
-
-    :goto_c
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 278
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 277
-    :cond_c
-    const/4 v4, 0x0
-
-    goto :goto_c
-
-    .line 282
-    .end local v5    # "_arg0":Ljava/lang/String;
-    .end local v26    # "_result":Z
-    :sswitch_11
-    const-string/jumbo v4, "android.app.IWallpaperManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 284
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v13
-
-    .line 286
-    .restart local v13    # "_arg0":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v17
-
-    .line 287
-    .restart local v17    # "_arg1":I
-    move-object/from16 v0, p0
-
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v13, v1}, Landroid/app/IWallpaperManager$Stub;->isWallpaperBackupEligible(II)Z
-
-    move-result v26
-
-    .line 288
-    .restart local v26    # "_result":Z
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 289
-    if-eqz v26, :cond_d
-
-    const/4 v4, 0x1
-
-    :goto_d
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 290
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 289
-    :cond_d
-    const/4 v4, 0x0
-
-    goto :goto_d
-
-    .line 294
-    .end local v13    # "_arg0":I
-    .end local v17    # "_arg1":I
-    .end local v26    # "_result":Z
-    :sswitch_12
-    const-string/jumbo v4, "android.app.IWallpaperManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 296
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v4
-
-    invoke-static {v4}, Landroid/app/IWallpaperManagerCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IWallpaperManagerCallback;
-
-    move-result-object v14
-
-    .line 297
-    .restart local v14    # "_arg0":Landroid/app/IWallpaperManagerCallback;
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v14}, Landroid/app/IWallpaperManager$Stub;->setLockWallpaperCallback(Landroid/app/IWallpaperManagerCallback;)Z
-
-    move-result v26
-
-    .line 298
-    .restart local v26    # "_result":Z
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 299
-    if-eqz v26, :cond_e
-
-    const/4 v4, 0x1
-
-    :goto_e
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 300
-    const/4 v4, 0x1
-
-    return v4
-
-    .line 299
-    :cond_e
-    const/4 v4, 0x0
-
-    goto :goto_e
-
     .line 39
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -1233,7 +1016,6 @@
         0xf -> :sswitch_f
         0x10 -> :sswitch_10
         0x11 -> :sswitch_11
-        0x12 -> :sswitch_12
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

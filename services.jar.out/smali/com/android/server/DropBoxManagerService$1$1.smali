@@ -24,7 +24,7 @@
     .param p1, "this$1"    # Lcom/android/server/DropBoxManagerService$1;
 
     .prologue
-    .line 113
+    .line 117
     iput-object p1, p0, Lcom/android/server/DropBoxManagerService$1$1;->this$1:Lcom/android/server/DropBoxManagerService$1;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 116
+    .line 120
     :try_start_0
     iget-object v1, p0, Lcom/android/server/DropBoxManagerService$1$1;->this$1:Lcom/android/server/DropBoxManagerService$1;
 
@@ -46,7 +46,7 @@
 
     invoke-static {v1}, Lcom/android/server/DropBoxManagerService;->-wrap1(Lcom/android/server/DropBoxManagerService;)V
 
-    .line 117
+    .line 121
     iget-object v1, p0, Lcom/android/server/DropBoxManagerService$1$1;->this$1:Lcom/android/server/DropBoxManagerService$1;
 
     iget-object v1, v1, Lcom/android/server/DropBoxManagerService$1;->this$0:Lcom/android/server/DropBoxManagerService;
@@ -55,15 +55,15 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 114
+    .line 118
     :goto_0
     return-void
 
-    .line 118
+    .line 122
     :catch_0
     move-exception v0
 
-    .line 119
+    .line 123
     .local v0, "e":Ljava/io/IOException;
     const-string/jumbo v1, "DropBoxManagerService"
 

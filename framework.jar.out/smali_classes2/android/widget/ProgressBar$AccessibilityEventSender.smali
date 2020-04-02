@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/widget/ProgressBar;
 
     .prologue
-    .line 2008
+    .line 1912
     iput-object p1, p0, Landroid/widget/ProgressBar$AccessibilityEventSender;->this$0:Landroid/widget/ProgressBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,13 +51,13 @@
     .locals 2
 
     .prologue
-    .line 2010
+    .line 1914
     iget-object v0, p0, Landroid/widget/ProgressBar$AccessibilityEventSender;->this$0:Landroid/widget/ProgressBar;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->sendAccessibilityEvent(I)V
 
-    .line 2009
+    .line 1913
     return-void
 .end method

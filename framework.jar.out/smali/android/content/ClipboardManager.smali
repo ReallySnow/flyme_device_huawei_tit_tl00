@@ -6,9 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/content/ClipboardManager$OnPrimaryClipChangedListener;,
         Landroid/content/ClipboardManager$1;,
-        Landroid/content/ClipboardManager$2;,
-        Landroid/content/ClipboardManager$OnPrimaryClipChangedListener;
+        Landroid/content/ClipboardManager$2;
     }
 .end annotation
 
@@ -169,12 +169,12 @@
     .param p1, "what"    # Landroid/content/ClipboardManager$OnPrimaryClipChangedListener;
 
     .prologue
-    .line 164
+    .line 163
     iget-object v2, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedListeners:Ljava/util/ArrayList;
 
     monitor-enter v2
 
-    .line 165
+    .line 164
     :try_start_0
     iget-object v1, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedListeners:Ljava/util/ArrayList;
 
@@ -186,13 +186,13 @@
 
     if-nez v1, :cond_0
 
-    .line 167
+    .line 166
     :try_start_1
     invoke-static {}, Landroid/content/ClipboardManager;->getService()Landroid/content/IClipboard;
 
     move-result-object v1
 
-    .line 168
+    .line 167
     iget-object v3, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedServiceListener:Landroid/content/IOnPrimaryClipChangedListener$Stub;
 
     iget-object v4, p0, Landroid/content/ClipboardManager;->mContext:Landroid/content/Context;
@@ -201,14 +201,15 @@
 
     move-result-object v4
 
-    .line 167
+    .line 166
     invoke-interface {v1, v3, v4}, Landroid/content/IClipboard;->addPrimaryClipChangedListener(Landroid/content/IOnPrimaryClipChangedListener;Ljava/lang/String;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 173
+    .line 171
     :cond_0
+    :goto_0
     :try_start_2
     iget-object v1, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedListeners:Ljava/util/ArrayList;
 
@@ -218,39 +219,30 @@
 
     monitor-exit v2
 
-    .line 163
+    .line 162
     return-void
 
-    .line 169
-    :catch_0
-    move-exception v0
-
-    .line 170
-    .local v0, "e":Landroid/os/RemoteException;
-    :try_start_3
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v1
-
-    throw v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    .line 164
-    .end local v0    # "e":Landroid/os/RemoteException;
+    .line 163
     :catchall_0
     move-exception v1
 
     monitor-exit v2
 
     throw v1
+
+    .line 168
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    goto :goto_0
 .end method
 
 .method public getPrimaryClip()Landroid/content/ClipData;
     .locals 3
 
     .prologue
-    .line 134
+    .line 133
     :try_start_0
     invoke-static {}, Landroid/content/ClipboardManager;->getService()Landroid/content/IClipboard;
 
@@ -270,24 +262,22 @@
 
     return-object v1
 
-    .line 135
+    .line 134
     :catch_0
     move-exception v0
 
-    .line 136
+    .line 135
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const/4 v1, 0x0
 
-    move-result-object v1
-
-    throw v1
+    return-object v1
 .end method
 
 .method public getPrimaryClipDescription()Landroid/content/ClipDescription;
     .locals 3
 
     .prologue
-    .line 146
+    .line 145
     :try_start_0
     invoke-static {}, Landroid/content/ClipboardManager;->getService()Landroid/content/IClipboard;
 
@@ -307,17 +297,15 @@
 
     return-object v1
 
-    .line 147
+    .line 146
     :catch_0
     move-exception v0
 
-    .line 148
+    .line 147
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const/4 v1, 0x0
 
-    move-result-object v1
-
-    throw v1
+    return-object v1
 .end method
 
 .method public getText()Ljava/lang/CharSequence;
@@ -328,12 +316,12 @@
 
     const/4 v2, 0x0
 
-    .line 196
+    .line 193
     invoke-virtual {p0}, Landroid/content/ClipboardManager;->getPrimaryClip()Landroid/content/ClipData;
 
     move-result-object v0
 
-    .line 197
+    .line 194
     .local v0, "clip":Landroid/content/ClipData;
     if-eqz v0, :cond_0
 
@@ -343,7 +331,7 @@
 
     if-lez v1, :cond_0
 
-    .line 198
+    .line 195
     invoke-virtual {v0, v2}, Landroid/content/ClipData;->getItemAt(I)Landroid/content/ClipData$Item;
 
     move-result-object v1
@@ -356,7 +344,7 @@
 
     return-object v1
 
-    .line 200
+    .line 197
     :cond_0
     return-object v3
 .end method
@@ -365,7 +353,7 @@
     .locals 3
 
     .prologue
-    .line 157
+    .line 156
     :try_start_0
     invoke-static {}, Landroid/content/ClipboardManager;->getService()Landroid/content/IClipboard;
 
@@ -385,24 +373,22 @@
 
     return v1
 
-    .line 158
+    .line 157
     :catch_0
     move-exception v0
 
-    .line 159
+    .line 158
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const/4 v1, 0x0
 
-    move-result-object v1
-
-    throw v1
+    return v1
 .end method
 
 .method public hasText()Z
     .locals 3
 
     .prologue
-    .line 217
+    .line 214
     :try_start_0
     invoke-static {}, Landroid/content/ClipboardManager;->getService()Landroid/content/IClipboard;
 
@@ -422,17 +408,15 @@
 
     return v1
 
-    .line 218
+    .line 215
     :catch_0
     move-exception v0
 
-    .line 219
+    .line 216
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const/4 v1, 0x0
 
-    move-result-object v1
-
-    throw v1
+    return v1
 .end method
 
 .method public removePrimaryClipChangedListener(Landroid/content/ClipboardManager$OnPrimaryClipChangedListener;)V
@@ -440,18 +424,18 @@
     .param p1, "what"    # Landroid/content/ClipboardManager$OnPrimaryClipChangedListener;
 
     .prologue
-    .line 178
+    .line 176
     iget-object v2, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedListeners:Ljava/util/ArrayList;
 
     monitor-enter v2
 
-    .line 179
+    .line 177
     :try_start_0
     iget-object v1, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 180
+    .line 178
     iget-object v1, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -462,62 +446,54 @@
 
     if-nez v1, :cond_0
 
-    .line 182
+    .line 180
     :try_start_1
     invoke-static {}, Landroid/content/ClipboardManager;->getService()Landroid/content/IClipboard;
 
     move-result-object v1
 
-    .line 183
+    .line 181
     iget-object v3, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedServiceListener:Landroid/content/IOnPrimaryClipChangedListener$Stub;
 
-    .line 182
+    .line 180
     invoke-interface {v1, v3}, Landroid/content/IClipboard;->removePrimaryClipChangedListener(Landroid/content/IOnPrimaryClipChangedListener;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_0
+    :goto_0
     monitor-exit v2
 
-    .line 177
+    .line 175
     return-void
 
-    .line 184
-    :catch_0
-    move-exception v0
-
-    .line 185
-    .local v0, "e":Landroid/os/RemoteException;
-    :try_start_2
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v1
-
-    throw v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    .line 178
-    .end local v0    # "e":Landroid/os/RemoteException;
+    .line 176
     :catchall_0
     move-exception v1
 
     monitor-exit v2
 
     throw v1
+
+    .line 182
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    goto :goto_0
 .end method
 
 .method reportPrimaryClipChanged()V
     .locals 5
 
     .prologue
-    .line 226
+    .line 223
     iget-object v4, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedListeners:Ljava/util/ArrayList;
 
     monitor-enter v4
 
-    .line 227
+    .line 224
     :try_start_0
     iget-object v3, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedListeners:Ljava/util/ArrayList;
 
@@ -527,16 +503,16 @@
 
     move-result v0
 
-    .line 228
+    .line 225
     .local v0, "N":I
     if-gtz v0, :cond_0
 
     monitor-exit v4
 
-    .line 229
+    .line 226
     return-void
 
-    .line 231
+    .line 228
     :cond_0
     :try_start_1
     iget-object v3, p0, Landroid/content/ClipboardManager;->mPrimaryClipChangedListeners:Ljava/util/ArrayList;
@@ -550,7 +526,7 @@
     .local v2, "listeners":[Ljava/lang/Object;
     monitor-exit v4
 
-    .line 234
+    .line 231
     const/4 v1, 0x0
 
     .local v1, "i":I
@@ -559,19 +535,19 @@
 
     if-ge v1, v3, :cond_1
 
-    .line 235
+    .line 232
     aget-object v3, v2, v1
 
     check-cast v3, Landroid/content/ClipboardManager$OnPrimaryClipChangedListener;
 
     invoke-interface {v3}, Landroid/content/ClipboardManager$OnPrimaryClipChangedListener;->onPrimaryClipChanged()V
 
-    .line 234
+    .line 231
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 226
+    .line 223
     .end local v0    # "N":I
     .end local v1    # "i":I
     .end local v2    # "listeners":[Ljava/lang/Object;
@@ -582,7 +558,7 @@
 
     throw v3
 
-    .line 223
+    .line 220
     .restart local v0    # "N":I
     .restart local v1    # "i":I
     .restart local v2    # "listeners":[Ljava/lang/Object;
@@ -599,10 +575,8 @@
     if-eqz p1, :cond_0
 
     .line 121
-    const/4 v1, 0x1
-
     :try_start_0
-    invoke-virtual {p1, v1}, Landroid/content/ClipData;->prepareToLeaveProcess(Z)V
+    invoke-virtual {p1}, Landroid/content/ClipData;->prepareToLeaveProcess()V
 
     .line 123
     :cond_0
@@ -621,19 +595,15 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 118
+    :goto_0
     return-void
 
     .line 124
     :catch_0
     move-exception v0
 
-    .line 125
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v1
-
-    throw v1
+    goto :goto_0
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)V
@@ -641,7 +611,7 @@
     .param p1, "text"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 209
+    .line 206
     const/4 v0, 0x0
 
     invoke-static {v0, p1}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
@@ -650,6 +620,6 @@
 
     invoke-virtual {p0, v0}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
 
-    .line 208
+    .line 205
     return-void
 .end method

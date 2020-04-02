@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->updateExternalMediaStatus(ZZ)V
+    value = Lcom/android/server/pm/PackageManagerService;->unloadPrivatePackages(Landroid/os/storage/VolumeInfo;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,25 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
-.field final synthetic val$mediaStatus:Z
-
-.field final synthetic val$reportStatus:Z
+.field final synthetic val$vol:Landroid/os/storage/VolumeInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;ZZ)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
     .locals 0
     .param p1, "this$0"    # Lcom/android/server/pm/PackageManagerService;
-    .param p2, "val$mediaStatus"    # Z
-    .param p3, "val$reportStatus"    # Z
+    .param p2, "val$vol"    # Landroid/os/storage/VolumeInfo;
 
     .prologue
-    .line 19340
+    .line 16933
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$23;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iput-boolean p2, p0, Lcom/android/server/pm/PackageManagerService$23;->val$mediaStatus:Z
-
-    iput-boolean p3, p0, Lcom/android/server/pm/PackageManagerService$23;->val$reportStatus:Z
+    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$23;->val$vol:Landroid/os/storage/VolumeInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,20 +43,16 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 2
 
     .prologue
-    .line 19342
+    .line 16936
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$23;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iget-boolean v1, p0, Lcom/android/server/pm/PackageManagerService$23;->val$mediaStatus:Z
+    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$23;->val$vol:Landroid/os/storage/VolumeInfo;
 
-    iget-boolean v2, p0, Lcom/android/server/pm/PackageManagerService$23;->val$reportStatus:Z
+    invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService;->-wrap43(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
 
-    const/4 v3, 0x1
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap44(Lcom/android/server/pm/PackageManagerService;ZZZ)V
-
-    .line 19341
+    .line 16935
     return-void
 .end method

@@ -90,17 +90,23 @@
     return-void
 .end method
 
+.method private native requestCancel()V
+.end method
+
 
 # virtual methods
 .method public requestCancelDecode()V
     .locals 1
 
     .prologue
-    .line 382
+    .line 370
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/BitmapFactory$Options;->mCancel:Z
 
-    .line 381
+    .line 371
+    invoke-direct {p0}, Landroid/graphics/BitmapFactory$Options;->requestCancel()V
+
+    .line 369
     return-void
 .end method

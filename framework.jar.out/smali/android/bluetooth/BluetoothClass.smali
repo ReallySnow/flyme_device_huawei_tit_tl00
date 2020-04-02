@@ -9,9 +9,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/bluetooth/BluetoothClass$1;,
+        Landroid/bluetooth/BluetoothClass$Service;,
         Landroid/bluetooth/BluetoothClass$Device;,
-        Landroid/bluetooth/BluetoothClass$Service;
+        Landroid/bluetooth/BluetoothClass$1;
     }
 .end annotation
 

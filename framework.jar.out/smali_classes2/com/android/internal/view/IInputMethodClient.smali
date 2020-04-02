@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract onUnbindMethod(II)V
+.method public abstract onUnbindMethod(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

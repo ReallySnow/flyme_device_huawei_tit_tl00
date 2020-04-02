@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.ICameraServiceListener"
 
-.field static final TRANSACTION_onStatusChanged_0:I = 0x1
+.field static final TRANSACTION_onStatusChanged:I = 0x1
 
 .field static final TRANSACTION_onTorchStatusChanged:I = 0x2
 
@@ -121,7 +121,7 @@
     .line 39
     sparse-switch p1, :sswitch_data_0
 
-    .line 67
+    .line 69
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
@@ -159,9 +159,12 @@
     invoke-virtual {p0, v0, v1}, Landroid/hardware/ICameraServiceListener$Stub;->onStatusChanged(II)V
 
     .line 54
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 55
     return v4
 
-    .line 58
+    .line 59
     .end local v0    # "_arg0":I
     .end local v1    # "_arg1":I
     :sswitch_2
@@ -169,22 +172,25 @@
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 60
+    .line 61
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 62
+    .line 63
     .restart local v0    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 63
+    .line 64
     .local v2, "_arg1":Ljava/lang/String;
     invoke-virtual {p0, v0, v2}, Landroid/hardware/ICameraServiceListener$Stub;->onTorchStatusChanged(ILjava/lang/String;)V
 
-    .line 64
+    .line 65
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 66
     return v4
 
     .line 39

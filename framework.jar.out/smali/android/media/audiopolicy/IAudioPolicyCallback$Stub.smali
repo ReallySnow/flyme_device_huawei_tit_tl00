@@ -118,9 +118,7 @@
     .end annotation
 
     .prologue
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     .line 41
     sparse-switch p1, :sswitch_data_0
@@ -134,30 +132,30 @@
 
     .line 45
     :sswitch_0
-    const-string/jumbo v5, "android.media.audiopolicy.IAudioPolicyCallback"
+    const-string/jumbo v4, "android.media.audiopolicy.IAudioPolicyCallback"
 
-    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 46
-    return v4
+    return v5
 
     .line 50
     :sswitch_1
-    const-string/jumbo v5, "android.media.audiopolicy.IAudioPolicyCallback"
+    const-string/jumbo v4, "android.media.audiopolicy.IAudioPolicyCallback"
 
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 52
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
 
     .line 53
-    sget-object v5, Landroid/media/AudioFocusInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v4, Landroid/media/AudioFocusInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v4, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -174,7 +172,7 @@
     invoke-virtual {p0, v0, v2}, Landroid/media/audiopolicy/IAudioPolicyCallback$Stub;->notifyAudioFocusGrant(Landroid/media/AudioFocusInfo;I)V
 
     .line 61
-    return v4
+    return v5
 
     .line 56
     .end local v2    # "_arg1":I
@@ -187,21 +185,21 @@
     .line 65
     .end local v0    # "_arg0":Landroid/media/AudioFocusInfo;
     :sswitch_2
-    const-string/jumbo v5, "android.media.audiopolicy.IAudioPolicyCallback"
+    const-string/jumbo v4, "android.media.audiopolicy.IAudioPolicyCallback"
 
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 67
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_2
+    if-eqz v4, :cond_1
 
     .line 68
-    sget-object v5, Landroid/media/AudioFocusInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v4, Landroid/media/AudioFocusInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v4, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -211,34 +209,42 @@
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_2
 
-    move v3, v4
+    const/4 v3, 0x1
 
     .line 75
     .local v3, "_arg1":Z
-    :cond_1
+    :goto_2
     invoke-virtual {p0, v0, v3}, Landroid/media/audiopolicy/IAudioPolicyCallback$Stub;->notifyAudioFocusLoss(Landroid/media/AudioFocusInfo;Z)V
 
     .line 76
-    return v4
+    return v5
 
     .line 71
     .end local v3    # "_arg1":Z
-    :cond_2
+    :cond_1
     const/4 v0, 0x0
 
     .restart local v0    # "_arg0":Landroid/media/AudioFocusInfo;
     goto :goto_1
 
-    .line 80
+    .line 74
     .end local v0    # "_arg0":Landroid/media/AudioFocusInfo;
-    :sswitch_3
-    const-string/jumbo v5, "android.media.audiopolicy.IAudioPolicyCallback"
+    :cond_2
+    const/4 v3, 0x0
 
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    .restart local v3    # "_arg1":Z
+    goto :goto_2
+
+    .line 80
+    .end local v3    # "_arg1":Z
+    :sswitch_3
+    const-string/jumbo v4, "android.media.audiopolicy.IAudioPolicyCallback"
+
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 82
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -256,9 +262,11 @@
     invoke-virtual {p0, v1, v2}, Landroid/media/audiopolicy/IAudioPolicyCallback$Stub;->notifyMixStateUpdate(Ljava/lang/String;I)V
 
     .line 86
-    return v4
+    return v5
 
     .line 41
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1

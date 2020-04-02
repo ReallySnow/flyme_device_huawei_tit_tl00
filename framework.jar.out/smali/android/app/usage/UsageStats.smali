@@ -28,11 +28,15 @@
 
 
 # instance fields
+.field public mBeginIdleTime:J
+
 .field public mBeginTimeStamp:J
 
 .field public mEndTimeStamp:J
 
 .field public mLastEvent:I
+
+.field public mLastTimeSystemUsed:J
 
 .field public mLastTimeUsed:J
 
@@ -48,7 +52,7 @@
     .locals 1
 
     .prologue
-    .line 163
+    .line 202
     new-instance v0, Landroid/app/usage/UsageStats$1;
 
     invoke-direct {v0}, Landroid/app/usage/UsageStats$1;-><init>()V
@@ -63,7 +67,7 @@
     .locals 0
 
     .prologue
-    .line 67
+    .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -74,45 +78,55 @@
     .param p1, "stats"    # Landroid/app/usage/UsageStats;
 
     .prologue
-    .line 70
+    .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 71
+    .line 85
     iget-object v0, p1, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
-    .line 72
+    .line 86
     iget-wide v0, p1, Landroid/app/usage/UsageStats;->mBeginTimeStamp:J
 
     iput-wide v0, p0, Landroid/app/usage/UsageStats;->mBeginTimeStamp:J
 
-    .line 73
+    .line 87
     iget-wide v0, p1, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
 
     iput-wide v0, p0, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
 
-    .line 74
+    .line 88
     iget-wide v0, p1, Landroid/app/usage/UsageStats;->mLastTimeUsed:J
 
     iput-wide v0, p0, Landroid/app/usage/UsageStats;->mLastTimeUsed:J
 
-    .line 75
+    .line 89
     iget-wide v0, p1, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
     iput-wide v0, p0, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
-    .line 76
+    .line 90
     iget v0, p1, Landroid/app/usage/UsageStats;->mLaunchCount:I
 
     iput v0, p0, Landroid/app/usage/UsageStats;->mLaunchCount:I
 
-    .line 77
+    .line 91
     iget v0, p1, Landroid/app/usage/UsageStats;->mLastEvent:I
 
     iput v0, p0, Landroid/app/usage/UsageStats;->mLastEvent:I
 
-    .line 70
+    .line 92
+    iget-wide v0, p1, Landroid/app/usage/UsageStats;->mBeginIdleTime:J
+
+    iput-wide v0, p0, Landroid/app/usage/UsageStats;->mBeginIdleTime:J
+
+    .line 93
+    iget-wide v0, p1, Landroid/app/usage/UsageStats;->mLastTimeSystemUsed:J
+
+    iput-wide v0, p0, Landroid/app/usage/UsageStats;->mLastTimeSystemUsed:J
+
+    .line 84
     return-void
 .end method
 
@@ -123,7 +137,7 @@
     .param p1, "right"    # Landroid/app/usage/UsageStats;
 
     .prologue
-    .line 128
+    .line 163
     iget-object v0, p0, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
     iget-object v1, p1, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
@@ -134,7 +148,7 @@
 
     if-nez v0, :cond_0
 
-    .line 129
+    .line 164
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -147,34 +161,34 @@
 
     move-result-object v1
 
-    .line 130
+    .line 165
     iget-object v2, p0, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
-    .line 129
+    .line 164
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 130
+    .line 165
     const-string/jumbo v2, "\' with UsageStats for package \'"
 
-    .line 129
+    .line 164
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 130
+    .line 165
     iget-object v2, p1, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
-    .line 129
+    .line 164
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 130
+    .line 165
     const-string/jumbo v2, "\'."
 
-    .line 129
+    .line 164
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -187,7 +201,7 @@
 
     throw v0
 
-    .line 133
+    .line 168
     :cond_0
     iget-wide v0, p1, Landroid/app/usage/UsageStats;->mBeginTimeStamp:J
 
@@ -197,17 +211,27 @@
 
     if-lez v0, :cond_1
 
-    .line 138
+    .line 173
     iget v0, p1, Landroid/app/usage/UsageStats;->mLastEvent:I
 
     iput v0, p0, Landroid/app/usage/UsageStats;->mLastEvent:I
 
-    .line 139
+    .line 174
     iget-wide v0, p1, Landroid/app/usage/UsageStats;->mLastTimeUsed:J
 
     iput-wide v0, p0, Landroid/app/usage/UsageStats;->mLastTimeUsed:J
 
-    .line 141
+    .line 175
+    iget-wide v0, p1, Landroid/app/usage/UsageStats;->mBeginIdleTime:J
+
+    iput-wide v0, p0, Landroid/app/usage/UsageStats;->mBeginIdleTime:J
+
+    .line 176
+    iget-wide v0, p1, Landroid/app/usage/UsageStats;->mLastTimeSystemUsed:J
+
+    iput-wide v0, p0, Landroid/app/usage/UsageStats;->mLastTimeSystemUsed:J
+
+    .line 178
     :cond_1
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mBeginTimeStamp:J
 
@@ -219,7 +243,7 @@
 
     iput-wide v0, p0, Landroid/app/usage/UsageStats;->mBeginTimeStamp:J
 
-    .line 142
+    .line 179
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
 
     iget-wide v2, p1, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
@@ -230,7 +254,7 @@
 
     iput-wide v0, p0, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
 
-    .line 143
+    .line 180
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
     iget-wide v2, p1, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
@@ -239,7 +263,7 @@
 
     iput-wide v0, p0, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
-    .line 144
+    .line 181
     iget v0, p0, Landroid/app/usage/UsageStats;->mLaunchCount:I
 
     iget v1, p1, Landroid/app/usage/UsageStats;->mLaunchCount:I
@@ -248,7 +272,7 @@
 
     iput v0, p0, Landroid/app/usage/UsageStats;->mLaunchCount:I
 
-    .line 127
+    .line 162
     return-void
 .end method
 
@@ -256,17 +280,27 @@
     .locals 1
 
     .prologue
-    .line 149
+    .line 186
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public getBeginIdleTime()J
+    .locals 2
+
+    .prologue
+    .line 145
+    iget-wide v0, p0, Landroid/app/usage/UsageStats;->mBeginIdleTime:J
+
+    return-wide v0
 .end method
 
 .method public getFirstTimeStamp()J
     .locals 2
 
     .prologue
-    .line 91
+    .line 107
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mBeginTimeStamp:J
 
     return-wide v0
@@ -276,8 +310,18 @@
     .locals 2
 
     .prologue
-    .line 101
+    .line 117
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
+
+    return-wide v0
+.end method
+
+.method public getLastTimeSystemUsed()J
+    .locals 2
+
+    .prologue
+    .line 136
+    iget-wide v0, p0, Landroid/app/usage/UsageStats;->mLastTimeSystemUsed:J
 
     return-wide v0
 .end method
@@ -286,7 +330,7 @@
     .locals 2
 
     .prologue
-    .line 110
+    .line 126
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mLastTimeUsed:J
 
     return-wide v0
@@ -296,7 +340,7 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 97
     iget-object v0, p0, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
     return-object v0
@@ -306,7 +350,7 @@
     .locals 2
 
     .prologue
-    .line 117
+    .line 152
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
     return-wide v0
@@ -318,41 +362,51 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 154
+    .line 191
     iget-object v0, p0, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 155
+    .line 192
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mBeginTimeStamp:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 156
+    .line 193
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 157
+    .line 194
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mLastTimeUsed:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 158
+    .line 195
     iget-wide v0, p0, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 159
+    .line 196
     iget v0, p0, Landroid/app/usage/UsageStats;->mLaunchCount:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 160
+    .line 197
     iget v0, p0, Landroid/app/usage/UsageStats;->mLastEvent:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 153
+    .line 198
+    iget-wide v0, p0, Landroid/app/usage/UsageStats;->mBeginIdleTime:J
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
+
+    .line 199
+    iget-wide v0, p0, Landroid/app/usage/UsageStats;->mLastTimeSystemUsed:J
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
+
+    .line 190
     return-void
 .end method

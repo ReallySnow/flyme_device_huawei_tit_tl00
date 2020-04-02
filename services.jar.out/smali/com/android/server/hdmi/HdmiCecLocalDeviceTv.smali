@@ -98,8 +98,6 @@
     .end annotation
 .end field
 
-.field private mSelectRequestBuffer:Lcom/android/server/hdmi/SelectRequestBuffer;
-
 .field private mSkipRoutingControl:Z
 
 .field private final mStandbyHandler:Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;
@@ -138,14 +136,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;)Lcom/android/server/hdmi/SelectRequestBuffer;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSelectRequestBuffer:Lcom/android/server/hdmi/SelectRequestBuffer;
-
-    return-object v0
-.end method
-
 .method static synthetic -wrap0(Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;Ljava/lang/String;I)V
     .locals 0
     .param p1, "inputId"    # Ljava/lang/String;
@@ -167,14 +157,6 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->resetSelectRequestBuffer()V
-
-    return-void
-.end method
-
 .method constructor <init>(Lcom/android/server/hdmi/HdmiControlService;)V
     .locals 4
     .param p1, "service"    # Lcom/android/server/hdmi/HdmiControlService;
@@ -186,7 +168,7 @@
 
     const/4 v1, 0x0
 
-    .line 184
+    .line 181
     invoke-direct {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecLocalDevice;-><init>(Lcom/android/server/hdmi/HdmiControlService;I)V
 
     .line 73
@@ -250,17 +232,17 @@
 
     iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mTvInputCallback:Landroid/media/tv/TvInputManager$TvInputCallback;
 
-    .line 160
+    .line 159
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mTvInputs:Ljava/util/HashMap;
 
-    .line 185
+    .line 182
     iput v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mPrevPortId:I
 
-    .line 186
+    .line 183
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     const-string/jumbo v1, "hdmi_control_auto_device_off_enabled"
@@ -271,7 +253,7 @@
 
     iput-boolean v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAutoDeviceOff:Z
 
-    .line 188
+    .line 185
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     const-string/jumbo v1, "hdmi_control_auto_wakeup_enabled"
@@ -282,14 +264,14 @@
 
     iput-boolean v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAutoWakeup:Z
 
-    .line 189
+    .line 186
     new-instance v0, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;
 
     invoke-direct {v0, p1, p0}, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;-><init>(Lcom/android/server/hdmi/HdmiControlService;Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;)V
 
     iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mStandbyHandler:Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;
 
-    .line 183
+    .line 180
     return-void
 .end method
 
@@ -300,10 +282,10 @@
     .end annotation
 
     .prologue
-    .line 1264
+    .line 1237
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1265
+    .line 1238
     invoke-virtual {p1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
     move-result v1
@@ -312,18 +294,18 @@
 
     move-result-object v0
 
-    .line 1266
+    .line 1239
     .local v0, "oldDeviceInfo":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-eqz v0, :cond_0
 
-    .line 1267
+    .line 1240
     invoke-virtual {p1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getId()I
 
     move-result v1
 
     invoke-direct {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1269
+    .line 1242
     :cond_0
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
@@ -333,10 +315,10 @@
 
     invoke-virtual {v1, v2, p1}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
-    .line 1270
+    .line 1243
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateSafeDeviceInfoList()V
 
-    .line 1271
+    .line 1244
     return-object v0
 .end method
 
@@ -348,10 +330,10 @@
     .end annotation
 
     .prologue
-    .line 164
+    .line 163
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 165
+    .line 164
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mTvInputs:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -360,7 +342,7 @@
 
     invoke-virtual {v0, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 163
+    .line 162
     return-void
 .end method
 
@@ -370,23 +352,23 @@
     .param p2, "shouldCheckArcFeatureEnabled"    # Z
 
     .prologue
-    .line 1132
+    .line 1106
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
-    .line 1133
+    .line 1107
     .local v0, "avr":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-eqz v0, :cond_1
 
-    .line 1134
+    .line 1108
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
     move-result v1
 
     if-ne p1, v1, :cond_1
 
-    .line 1135
+    .line 1109
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPhysicalAddress()I
 
     move-result v1
@@ -395,10 +377,10 @@
 
     move-result v1
 
-    .line 1133
+    .line 1107
     if-eqz v1, :cond_1
 
-    .line 1136
+    .line 1110
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPhysicalAddress()I
 
     move-result v1
@@ -407,13 +389,13 @@
 
     move-result v1
 
-    .line 1133
+    .line 1107
     if-eqz v1, :cond_1
 
-    .line 1137
+    .line 1111
     if-eqz p2, :cond_0
 
-    .line 1138
+    .line 1112
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPortId()I
 
     move-result v1
@@ -424,13 +406,13 @@
 
     return v1
 
-    .line 1140
+    .line 1114
     :cond_0
     const/4 v1, 0x1
 
     return v1
 
-    .line 1143
+    .line 1117
     :cond_1
     const/4 v1, 0x0
 
@@ -442,7 +424,7 @@
     .param p1, "recordSource"    # [B
 
     .prologue
-    .line 1782
+    .line 1755
     if-eqz p1, :cond_0
 
     invoke-static {p1}, Landroid/hardware/hdmi/HdmiRecordSources;->checkRecordSource([B)Z
@@ -467,36 +449,36 @@
 
     const/4 v2, 0x0
 
-    .line 1775
+    .line 1748
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getCecDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
-    .line 1776
+    .line 1749
     .local v0, "device":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-eqz v0, :cond_1
 
-    .line 1777
+    .line 1750
     invoke-static {p1}, Lcom/android/server/hdmi/HdmiUtils;->getTypeFromAddress(I)I
 
     move-result v3
 
     if-ne v3, v1, :cond_0
 
-    .line 1776
+    .line 1749
     :goto_0
     return v1
 
     :cond_0
     move v1, v2
 
-    .line 1777
+    .line 1750
     goto :goto_0
 
     :cond_1
     move v1, v2
 
-    .line 1776
+    .line 1749
     goto :goto_0
 .end method
 
@@ -506,15 +488,15 @@
     .param p2, "recordSource"    # [B
 
     .prologue
-    .line 1817
+    .line 1790
     if-eqz p2, :cond_0
 
-    .line 1818
+    .line 1791
     invoke-static {p1, p2}, Landroid/hardware/hdmi/HdmiTimerRecordSources;->checkTimerRecordSource(I[B)Z
 
     move-result v0
 
-    .line 1817
+    .line 1790
     :goto_0
     return v0
 
@@ -530,10 +512,10 @@
     .end annotation
 
     .prologue
-    .line 839
+    .line 812
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 840
+    .line 813
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSafeExternalInputs:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -554,7 +536,7 @@
 
     check-cast v0, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 841
+    .line 814
     .local v0, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     const/4 v2, 0x2
 
@@ -562,17 +544,17 @@
 
     goto :goto_0
 
-    .line 843
+    .line 816
     .end local v0    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_0
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
     invoke-virtual {v2}, Landroid/util/SparseArray;->clear()V
 
-    .line 844
+    .line 817
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateSafeDeviceInfoList()V
 
-    .line 838
+    .line 811
     return-void
 .end method
 
@@ -582,28 +564,28 @@
     .end annotation
 
     .prologue
-    .line 1675
+    .line 1648
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1676
+    .line 1649
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
-    .line 1677
+    .line 1650
     .local v0, "avr":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v0, :cond_0
 
-    .line 1678
+    .line 1651
     return-void
 
-    .line 1682
+    .line 1655
     :cond_0
     const-class v1, Lcom/android/server/hdmi/RequestArcInitiationAction;
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1683
+    .line 1656
     const-class v1, Lcom/android/server/hdmi/RequestArcTerminationAction;
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->hasAction(Ljava/lang/Class;)Z
@@ -618,7 +600,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 1684
+    .line 1657
     new-instance v1, Lcom/android/server/hdmi/RequestArcTerminationAction;
 
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
@@ -629,7 +611,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 1674
+    .line 1647
     :cond_1
     return-void
 .end method
@@ -640,46 +622,46 @@
     .end annotation
 
     .prologue
-    .line 1660
+    .line 1633
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1661
+    .line 1634
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    .line 1662
+    .line 1635
     return-void
 
-    .line 1666
+    .line 1639
     :cond_0
     const-class v0, Lcom/android/server/hdmi/SystemAudioActionFromAvr;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1667
+    .line 1640
     const-class v0, Lcom/android/server/hdmi/SystemAudioActionFromTv;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1668
+    .line 1641
     const-class v0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1669
+    .line 1642
     const-class v0, Lcom/android/server/hdmi/SystemAudioStatusAction;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1670
+    .line 1643
     const-class v0, Lcom/android/server/hdmi/VolumeControlAction;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1659
+    .line 1632
     return-void
 .end method
 
@@ -687,7 +669,7 @@
     .locals 2
 
     .prologue
-    .line 469
+    .line 452
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActiveSource()Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     move-result-object v1
@@ -698,7 +680,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 470
+    .line 453
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActiveSource()Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     move-result-object v1
@@ -707,7 +689,7 @@
 
     return v1
 
-    .line 472
+    .line 455
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePath()I
 
@@ -717,18 +699,18 @@
 
     move-result-object v0
 
-    .line 473
+    .line 456
     .local v0, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-eqz v0, :cond_1
 
-    .line 474
+    .line 457
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
     move-result v1
 
     return v1
 
-    .line 476
+    .line 459
     :cond_1
     const/4 v1, -0x1
 
@@ -748,12 +730,12 @@
     .end annotation
 
     .prologue
-    .line 1343
+    .line 1316
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1344
+    .line 1317
     .local v2, "infoList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/hdmi/HdmiDeviceInfo;>;"
     const/4 v0, 0x0
 
@@ -767,7 +749,7 @@
 
     if-ge v0, v3, :cond_2
 
-    .line 1345
+    .line 1318
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
     invoke-virtual {v3, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -776,7 +758,7 @@
 
     check-cast v1, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1346
+    .line 1319
     .local v1, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
@@ -788,14 +770,14 @@
 
     if-eqz v3, :cond_1
 
-    .line 1344
+    .line 1317
     :cond_0
     :goto_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1349
+    .line 1322
     :cond_1
     invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->isSourceType()Z
 
@@ -809,12 +791,12 @@
 
     if-nez v3, :cond_0
 
-    .line 1350
+    .line 1323
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    .line 1353
+    .line 1326
     .end local v1    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_2
     return-object v2
@@ -827,7 +809,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 668
+    .line 650
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePath()I
 
     move-result v1
@@ -838,7 +820,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 669
+    .line 651
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePortId()I
@@ -849,11 +831,11 @@
 
     move-result v0
 
-    .line 670
+    .line 652
     .local v0, "newPath":I
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActivePath(I)V
 
-    .line 671
+    .line 653
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePath()I
 
     move-result v1
@@ -862,12 +844,12 @@
 
     invoke-virtual {p0, v1, v0, v3, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->startRoutingControl(IIZLandroid/hardware/hdmi/IHdmiControlCallback;)V
 
-    .line 672
+    .line 654
     const/4 v1, 0x1
 
     return v1
 
-    .line 674
+    .line 656
     .end local v0    # "newPath":I
     :cond_0
     return v3
@@ -879,10 +861,10 @@
     .end annotation
 
     .prologue
-    .line 300
+    .line 283
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 302
+    .line 285
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiControlService;->isControlEnabled()Z
@@ -899,7 +881,7 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 303
+    .line 286
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
@@ -910,20 +892,20 @@
 
     invoke-virtual {p0, v1, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateActiveSource(II)V
 
-    .line 304
+    .line 287
     iget-boolean v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSkipRoutingControl:Z
 
     if-eqz v1, :cond_0
 
-    .line 305
+    .line 288
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSkipRoutingControl:Z
 
-    .line 306
+    .line 289
     return-void
 
-    .line 309
+    .line 292
     :cond_0
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
@@ -933,18 +915,18 @@
 
     move-result v2
 
-    .line 308
+    .line 291
     invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildActiveSource(II)Lcom/android/server/hdmi/HdmiCecMessage;
 
     move-result-object v0
 
-    .line 310
+    .line 293
     .local v0, "activeSource":Lcom/android/server/hdmi/HdmiCecMessage;
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v1, v0}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 299
+    .line 282
     .end local v0    # "activeSource":Lcom/android/server/hdmi/HdmiCecMessage;
     :cond_1
     return-void
@@ -955,7 +937,7 @@
     .param p1, "info"    # Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     .prologue
-    .line 1361
+    .line 1334
     invoke-virtual {p1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPhysicalAddress()I
 
     move-result v0
@@ -970,11 +952,11 @@
 
     const/4 v0, 0x0
 
-    .line 1360
+    .line 1333
     :goto_0
     return v0
 
-    .line 1361
+    .line 1334
     :cond_0
     const/4 v0, 0x1
 
@@ -997,15 +979,15 @@
     .end annotation
 
     .prologue
-    .line 218
+    .line 214
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 219
+    .line 215
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 220
+    .line 216
     .local v0, "addresses":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -1031,7 +1013,7 @@
 
     check-cast v1, Lcom/android/server/hdmi/HdmiCecLocalDevice;
 
-    .line 221
+    .line 217
     .local v1, "device":Lcom/android/server/hdmi/HdmiCecLocalDevice;
     invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->getDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
@@ -1049,7 +1031,7 @@
 
     goto :goto_0
 
-    .line 223
+    .line 219
     .end local v1    # "device":Lcom/android/server/hdmi/HdmiCecLocalDevice;
     :cond_0
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
@@ -1065,28 +1047,28 @@
     .param p1, "result"    # I
 
     .prologue
-    .line 480
+    .line 463
     if-nez p0, :cond_0
 
-    .line 481
+    .line 464
     return-void
 
-    .line 484
+    .line 467
     :cond_0
     :try_start_0
     invoke-interface {p0, p1}, Landroid/hardware/hdmi/IHdmiControlCallback;->onComplete(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 479
+    .line 462
     :goto_0
     return-void
 
-    .line 485
+    .line 468
     :catch_0
     move-exception v0
 
-    .line 486
+    .line 469
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "HdmiCecLocalDeviceTv"
 
@@ -1119,19 +1101,19 @@
     .param p2, "status"    # I
 
     .prologue
-    .line 1387
+    .line 1360
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->hideDevicesBehindLegacySwitch(Landroid/hardware/hdmi/HdmiDeviceInfo;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1388
+    .line 1361
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/hdmi/HdmiControlService;->invokeDeviceEventListeners(Landroid/hardware/hdmi/HdmiDeviceInfo;I)V
 
-    .line 1386
+    .line 1359
     :cond_0
     return-void
 .end method
@@ -1150,7 +1132,7 @@
     .end annotation
 
     .prologue
-    .line 1365
+    .line 1338
     .local p1, "switches":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/Integer;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -1174,7 +1156,7 @@
 
     move-result v0
 
-    .line 1366
+    .line 1339
     .local v0, "switchPath":I
     invoke-static {v0, p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isParentPath(II)Z
 
@@ -1182,12 +1164,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 1367
+    .line 1340
     const/4 v2, 0x1
 
     return v2
 
-    .line 1370
+    .line 1343
     .end local v0    # "switchPath":I
     :cond_1
     const/4 v2, 0x0
@@ -1200,7 +1182,7 @@
     .param p1, "physicalAddress"    # I
 
     .prologue
-    .line 1038
+    .line 1011
     const v0, 0xf000
 
     and-int/2addr v0, p1
@@ -1223,7 +1205,7 @@
     .param p1, "address"    # I
 
     .prologue
-    .line 1393
+    .line 1366
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLocalDeviceAddresses:Ljava/util/List;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1244,7 +1226,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1245
+    .line 1218
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiControlService;->isControlEnabled()Z
@@ -1253,7 +1235,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 1246
+    .line 1219
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v1
@@ -1262,14 +1244,14 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 1247
+    .line 1220
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getDestination()I
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 1248
+    .line 1221
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getDestination()I
 
     move-result v1
@@ -1278,7 +1260,7 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 1249
+    .line 1222
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
@@ -1288,7 +1270,7 @@
 
     const/4 v0, 0x1
 
-    .line 1245
+    .line 1218
     :cond_1
     return v0
 .end method
@@ -1301,7 +1283,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1376
+    .line 1349
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -1310,21 +1292,21 @@
 
     if-gt v0, v4, :cond_2
 
-    .line 1377
+    .line 1350
     shr-int v4, p1, v0
 
     and-int/lit8 v1, v4, 0xf
 
-    .line 1378
+    .line 1351
     .local v1, "nibble":I
     if-eqz v1, :cond_1
 
-    .line 1379
+    .line 1352
     shr-int v4, p0, v0
 
     and-int/lit8 v2, v4, 0xf
 
-    .line 1380
+    .line 1353
     .local v2, "parentNibble":I
     if-nez v2, :cond_0
 
@@ -1343,14 +1325,14 @@
     :cond_0
     return v3
 
-    .line 1376
+    .line 1349
     .end local v2    # "parentNibble":I
     :cond_1
     add-int/lit8 v0, v0, 0x4
 
     goto :goto_0
 
-    .line 1383
+    .line 1356
     .end local v1    # "nibble":I
     :cond_2
     return v3
@@ -1364,13 +1346,13 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 687
+    .line 669
     if-nez p1, :cond_0
 
-    .line 688
+    .line 670
     return v4
 
-    .line 690
+    .line 672
     :cond_0
     const/16 v2, 0xc
 
@@ -1378,40 +1360,40 @@
     :goto_0
     if-ltz v2, :cond_3
 
-    .line 691
+    .line 673
     shr-int v3, p1, v2
 
     and-int/lit8 v0, v3, 0xf
 
-    .line 692
+    .line 674
     .local v0, "curActivePath":I
     if-nez v0, :cond_1
 
-    .line 693
+    .line 675
     const/4 v3, 0x1
 
     return v3
 
-    .line 695
+    .line 677
     :cond_1
     shr-int v3, p0, v2
 
     and-int/lit8 v1, v3, 0xf
 
-    .line 696
+    .line 678
     .local v1, "curPath":I
     if-eq v1, v0, :cond_2
 
-    .line 697
+    .line 679
     return v4
 
-    .line 690
+    .line 672
     :cond_2
     add-int/lit8 v2, v2, -0x4
 
     goto :goto_0
 
-    .line 701
+    .line 683
     .end local v0    # "curActivePath":I
     .end local v1    # "curPath":I
     :cond_3
@@ -1424,28 +1406,28 @@
     .end annotation
 
     .prologue
-    .line 789
+    .line 763
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 790
+    .line 764
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->clearDeviceInfoList()V
 
-    .line 791
+    .line 765
     new-instance v0, Lcom/android/server/hdmi/DeviceDiscoveryAction;
 
-    .line 792
+    .line 766
     new-instance v1, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$2;
 
     invoke-direct {v1, p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$2;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;)V
 
-    .line 791
+    .line 765
     invoke-direct {v0, p0, v1}, Lcom/android/server/hdmi/DeviceDiscoveryAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceDiscoveryCallback;)V
 
-    .line 823
+    .line 794
     .local v0, "action":Lcom/android/server/hdmi/DeviceDiscoveryAction;
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 788
+    .line 762
     return-void
 .end method
 
@@ -1454,14 +1436,14 @@
     .param p1, "enabled"    # Z
 
     .prologue
-    .line 964
+    .line 937
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->getAudioManager()Landroid/media/AudioManager;
 
     move-result-object v1
 
-    .line 966
+    .line 939
     if-eqz p1, :cond_0
 
     const/4 v0, 0x1
@@ -1471,16 +1453,16 @@
 
     const-string/jumbo v3, ""
 
-    .line 965
+    .line 938
     const/high16 v4, 0x40000
 
-    .line 964
+    .line 937
     invoke-virtual {v1, v4, v0, v2, v3}, Landroid/media/AudioManager;->setWiredDeviceConnectionState(IILjava/lang/String;Ljava/lang/String;)V
 
-    .line 962
+    .line 935
     return-void
 
-    .line 966
+    .line 939
     :cond_0
     const/4 v0, 0x0
 
@@ -1492,14 +1474,14 @@
     .param p1, "portId"    # I
 
     .prologue
-    .line 1604
+    .line 1577
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mCecSwitches:Landroid/util/ArraySet;
 
     invoke-virtual {v2}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .line 1605
+    .line 1578
     .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Integer;>;"
     :cond_0
     :goto_0
@@ -1509,7 +1491,7 @@
 
     if-nez v2, :cond_1
 
-    .line 1606
+    .line 1579
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -1520,7 +1502,7 @@
 
     move-result v1
 
-    .line 1607
+    .line 1580
     .local v1, "path":I
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->pathToPortId(I)I
 
@@ -1528,12 +1510,12 @@
 
     if-ne v2, p1, :cond_0
 
-    .line 1608
+    .line 1581
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
     goto :goto_0
 
-    .line 1603
+    .line 1576
     .end local v1    # "path":I
     :cond_1
     return-void
@@ -1546,10 +1528,10 @@
     .end annotation
 
     .prologue
-    .line 1285
+    .line 1258
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1286
+    .line 1259
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -1558,20 +1540,20 @@
 
     check-cast v0, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1287
+    .line 1260
     .local v0, "deviceInfo":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-eqz v0, :cond_0
 
-    .line 1288
+    .line 1261
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->remove(I)V
 
-    .line 1290
+    .line 1263
     :cond_0
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateSafeDeviceInfoList()V
 
-    .line 1291
+    .line 1264
     return-object v0
 .end method
 
@@ -1582,33 +1564,15 @@
     .end annotation
 
     .prologue
-    .line 170
+    .line 169
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 171
+    .line 170
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mTvInputs:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 169
-    return-void
-.end method
-
-.method private resetSelectRequestBuffer()V
-    .locals 1
-    .annotation runtime Lcom/android/server/hdmi/HdmiAnnotations$ServiceThreadOnly;
-    .end annotation
-
-    .prologue
-    .line 235
-    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
-
-    .line 236
-    sget-object v0, Lcom/android/server/hdmi/SelectRequestBuffer;->EMPTY_BUFFER:Lcom/android/server/hdmi/SelectRequestBuffer;
-
-    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setSelectRequestBuffer(Lcom/android/server/hdmi/SelectRequestBuffer;)V
-
-    .line 234
+    .line 168
     return-void
 .end method
 
@@ -1619,14 +1583,14 @@
     .param p3, "recordSource"    # [B
 
     .prologue
-    .line 1849
+    .line 1822
     const/4 v0, 0x0
 
-    .line 1850
+    .line 1823
     .local v0, "message":Lcom/android/server/hdmi/HdmiCecMessage;
     packed-switch p2, :pswitch_data_0
 
-    .line 1864
+    .line 1837
     const-string/jumbo v1, "HdmiCecLocalDeviceTv"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1649,16 +1613,16 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1866
+    .line 1839
     const/16 v1, 0xa1
 
-    .line 1865
+    .line 1838
     invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceClearTimerRecordingResult(II)V
 
-    .line 1867
+    .line 1840
     return-void
 
-    .line 1852
+    .line 1825
     :pswitch_0
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
@@ -1666,7 +1630,7 @@
 
     move-result-object v0
 
-    .line 1870
+    .line 1843
     .local v0, "message":Lcom/android/server/hdmi/HdmiCecMessage;
     :goto_0
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
@@ -1677,10 +1641,10 @@
 
     invoke-virtual {v1, v0, v2}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;)V
 
-    .line 1848
+    .line 1821
     return-void
 
-    .line 1856
+    .line 1829
     .local v0, "message":Lcom/android/server/hdmi/HdmiCecMessage;
     :pswitch_1
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
@@ -1692,7 +1656,7 @@
     .local v0, "message":Lcom/android/server/hdmi/HdmiCecMessage;
     goto :goto_0
 
-    .line 1860
+    .line 1833
     .local v0, "message":Lcom/android/server/hdmi/HdmiCecMessage;
     :pswitch_2
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
@@ -1704,7 +1668,7 @@
     .local v0, "message":Lcom/android/server/hdmi/HdmiCecMessage;
     goto :goto_0
 
-    .line 1850
+    .line 1823
     nop
 
     :pswitch_data_0
@@ -1723,17 +1687,17 @@
     .end annotation
 
     .prologue
-    .line 935
+    .line 908
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 936
+    .line 909
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v2, p1}, Lcom/android/server/hdmi/HdmiControlService;->getPortInfo(I)Landroid/hardware/hdmi/HdmiPortInfo;
 
     move-result-object v1
 
-    .line 937
+    .line 910
     .local v1, "portInfo":Landroid/hardware/hdmi/HdmiPortInfo;
     invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiPortInfo;->isArcSupported()Z
 
@@ -1741,32 +1705,32 @@
 
     if-nez v2, :cond_0
 
-    .line 938
+    .line 911
     return-void
 
-    .line 940
+    .line 913
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
-    .line 941
+    .line 914
     .local v0, "avr":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v0, :cond_2
 
-    .line 942
+    .line 915
     if-eqz p2, :cond_1
 
-    .line 945
+    .line 918
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcFeatureEnabled:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v2, p1, p2}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    .line 947
+    .line 920
     :cond_1
     return-void
 
-    .line 951
+    .line 924
     :cond_2
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPortId()I
 
@@ -1774,10 +1738,10 @@
 
     if-ne v2, p1, :cond_3
 
-    .line 952
+    .line 925
     invoke-virtual {p0, p1, p2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->changeArcFeatureEnabled(IZ)V
 
-    .line 934
+    .line 907
     :cond_3
     return-void
 .end method
@@ -1787,7 +1751,7 @@
     .param p1, "on"    # Z
 
     .prologue
-    .line 884
+    .line 857
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiControlService;->getAudioManager()Landroid/media/AudioManager;
@@ -1798,7 +1762,7 @@
 
     move-result v0
 
-    .line 885
+    .line 858
     .local v0, "device":I
     const-string/jumbo v1, "[A]UpdateSystemAudio mode[on=%b] output=[%X]"
 
@@ -1824,7 +1788,7 @@
 
     invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 883
+    .line 856
     return-void
 .end method
 
@@ -1834,43 +1798,43 @@
     .end annotation
 
     .prologue
-    .line 1327
+    .line 1300
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1328
+    .line 1301
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
     invoke-static {v2}, Lcom/android/server/hdmi/HdmiUtils;->sparseArrayToList(Landroid/util/SparseArray;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 1329
+    .line 1302
     .local v0, "copiedDevices":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/hdmi/HdmiDeviceInfo;>;"
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getInputDevices()Ljava/util/List;
 
     move-result-object v1
 
-    .line 1330
+    .line 1303
     .local v1, "externalInputs":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/hdmi/HdmiDeviceInfo;>;"
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1331
+    .line 1304
     :try_start_0
     iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSafeAllDeviceInfos:Ljava/util/List;
 
-    .line 1332
+    .line 1305
     iput-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSafeExternalInputs:Ljava/util/List;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v3
 
-    .line 1326
+    .line 1299
     return-void
 
-    .line 1330
+    .line 1303
     :catchall_0
     move-exception v2
 
@@ -1890,15 +1854,15 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1462
+    .line 1435
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1463
+    .line 1436
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addDeviceInfo(Landroid/hardware/hdmi/HdmiDeviceInfo;)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
-    .line 1464
+    .line 1437
     .local v0, "old":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-virtual {p1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
@@ -1908,22 +1872,22 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 1466
+    .line 1439
     return-void
 
-    .line 1468
+    .line 1441
     :cond_0
     if-nez v0, :cond_2
 
-    .line 1469
+    .line 1442
     invoke-direct {p0, p1, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeDeviceEventListener(Landroid/hardware/hdmi/HdmiDeviceInfo;I)V
 
-    .line 1461
+    .line 1434
     :cond_1
     :goto_0
     return-void
 
-    .line 1470
+    .line 1443
     :cond_2
     invoke-virtual {v0, p1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->equals(Ljava/lang/Object;)Z
 
@@ -1931,12 +1895,12 @@
 
     if-nez v1, :cond_1
 
-    .line 1471
+    .line 1444
     const/4 v1, 0x2
 
     invoke-direct {p0, v0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeDeviceEventListener(Landroid/hardware/hdmi/HdmiDeviceInfo;I)V
 
-    .line 1472
+    .line 1445
     invoke-direct {p0, p1, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeDeviceEventListener(Landroid/hardware/hdmi/HdmiDeviceInfo;I)V
 
     goto :goto_0
@@ -1948,12 +1912,12 @@
     .param p2, "result"    # I
 
     .prologue
-    .line 1241
+    .line 1214
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/hdmi/HdmiControlService;->invokeClearTimerRecordingResult(II)V
 
-    .line 1240
+    .line 1213
     return-void
 .end method
 
@@ -1963,12 +1927,12 @@
     .param p2, "result"    # I
 
     .prologue
-    .line 1233
+    .line 1206
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/hdmi/HdmiControlService;->invokeOneTouchRecordResult(II)V
 
-    .line 1232
+    .line 1205
     return-void
 .end method
 
@@ -1978,12 +1942,12 @@
     .param p2, "result"    # I
 
     .prologue
-    .line 1237
+    .line 1210
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/hdmi/HdmiControlService;->invokeTimerRecordingResult(II)V
 
-    .line 1236
+    .line 1209
     return-void
 .end method
 
@@ -1994,32 +1958,32 @@
     .end annotation
 
     .prologue
-    .line 576
+    .line 558
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 578
+    .line 560
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
-    .line 577
+    .line 559
     invoke-static {v1, p1}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildSetMenuLanguageCommand(ILjava/lang/String;)Lcom/android/server/hdmi/HdmiCecMessage;
 
     move-result-object v0
 
-    .line 579
+    .line 561
     .local v0, "command":Lcom/android/server/hdmi/HdmiCecMessage;
     if-eqz v0, :cond_0
 
-    .line 580
+    .line 562
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v1, v0}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 581
+    .line 563
     const/4 v1, 0x1
 
     return v1
 
-    .line 583
+    .line 565
     :cond_0
     const/4 v1, 0x0
 
@@ -2034,10 +1998,10 @@
     .end annotation
 
     .prologue
-    .line 985
+    .line 958
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 987
+    .line 960
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcFeatureEnabled:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
@@ -2046,36 +2010,36 @@
 
     if-eq v0, p2, :cond_0
 
-    .line 988
+    .line 961
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcFeatureEnabled:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    .line 989
+    .line 962
     if-eqz p2, :cond_1
 
-    .line 990
+    .line 963
     iget-boolean v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcEstablished:Z
 
     if-nez v0, :cond_0
 
-    .line 991
+    .line 964
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->startArcAction(Z)V
 
-    .line 984
+    .line 957
     :cond_0
     :goto_0
     return-void
 
-    .line 994
+    .line 967
     :cond_1
     iget-boolean v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcEstablished:Z
 
     if-eqz v0, :cond_0
 
-    .line 995
+    .line 968
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->startArcAction(Z)V
@@ -2092,10 +2056,10 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1085
+    .line 1058
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1086
+    .line 1059
     const-string/jumbo v0, "[A]:Change mute:%b"
 
     const/4 v1, 0x1
@@ -2110,18 +2074,18 @@
 
     invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 1087
+    .line 1060
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1088
+    .line 1061
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSystemAudioMute:Z
 
     if-ne v0, p1, :cond_0
 
-    .line 1089
+    .line 1062
     const-string/jumbo v0, "No need to change mute."
 
     const/4 v2, 0x0
@@ -2134,30 +2098,30 @@
 
     monitor-exit v1
 
-    .line 1090
+    .line 1063
     return-void
 
     :cond_0
     monitor-exit v1
 
-    .line 1093
+    .line 1066
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isSystemAudioActivated()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 1094
+    .line 1067
     const-string/jumbo v0, "[A]:System audio is not activated."
 
     new-array v1, v3, [Ljava/lang/Object;
 
     invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 1095
+    .line 1068
     return-void
 
-    .line 1087
+    .line 1060
     :catchall_0
     move-exception v0
 
@@ -2165,31 +2129,38 @@
 
     throw v0
 
-    .line 1099
+    .line 1072
     :cond_1
     const-class v0, Lcom/android/server/hdmi/VolumeControlAction;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1100
+    .line 1073
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
-    move-result v0
-
-    .line 1101
-    invoke-static {p1}, Lcom/android/server/hdmi/HdmiCecKeycode;->getMuteKey(Z)I
-
     move-result v1
 
-    .line 1100
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->sendUserControlPressedAndReleased(II)V
+    .line 1074
+    if-eqz p1, :cond_2
 
-    .line 1084
+    const/16 v0, 0x65
+
+    .line 1073
+    :goto_0
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->sendUserControlPressedAndReleased(II)V
+
+    .line 1057
     return-void
+
+    .line 1075
+    :cond_2
+    const/16 v0, 0x66
+
+    goto :goto_0
 .end method
 
 .method changeSystemAudioMode(ZLandroid/hardware/hdmi/IHdmiControlCallback;)V
@@ -2204,10 +2175,10 @@
 
     const/4 v2, 0x0
 
-    .line 850
+    .line 823
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 851
+    .line 824
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiControlService;->isControlEnabled()Z
@@ -2224,40 +2195,40 @@
 
     if-eqz v1, :cond_1
 
-    .line 852
+    .line 825
     :cond_0
     invoke-virtual {p0, v2, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setSystemAudioMode(ZZ)V
 
-    .line 853
+    .line 826
     const/4 v1, 0x6
 
     invoke-static {p2, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeCallback(Landroid/hardware/hdmi/IHdmiControlCallback;I)V
 
-    .line 854
+    .line 827
     return-void
 
-    .line 856
+    .line 829
     :cond_1
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
-    .line 857
+    .line 830
     .local v0, "avr":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v0, :cond_2
 
-    .line 858
+    .line 831
     invoke-virtual {p0, v2, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setSystemAudioMode(ZZ)V
 
-    .line 859
+    .line 832
     const/4 v1, 0x3
 
     invoke-static {p2, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeCallback(Landroid/hardware/hdmi/IHdmiControlCallback;I)V
 
-    .line 860
+    .line 833
     return-void
 
-    .line 864
+    .line 837
     :cond_2
     new-instance v1, Lcom/android/server/hdmi/SystemAudioActionFromTv;
 
@@ -2267,10 +2238,10 @@
 
     invoke-direct {v1, p0, v2, p1, p2}, Lcom/android/server/hdmi/SystemAudioActionFromTv;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;IZLandroid/hardware/hdmi/IHdmiControlCallback;)V
 
-    .line 863
+    .line 836
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 849
+    .line 822
     return-void
 .end method
 
@@ -2287,10 +2258,10 @@
 
     const/4 v5, 0x0
 
-    .line 1056
+    .line 1029
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1057
+    .line 1030
     if-eqz p2, :cond_0
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isSystemAudioActivated()Z
@@ -2299,38 +2270,38 @@
 
     if-eqz v3, :cond_0
 
-    .line 1061
+    .line 1034
     add-int v2, p1, p2
 
-    .line 1062
+    .line 1035
     .local v2, "targetVolume":I
     invoke-static {v2, p3}, Lcom/android/server/hdmi/VolumeControlAction;->scaleToCecVolume(II)I
 
     move-result v1
 
-    .line 1063
+    .line 1036
     .local v1, "cecVolume":I
     iget-object v6, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLock:Ljava/lang/Object;
 
     monitor-enter v6
 
-    .line 1066
+    .line 1039
     :try_start_0
     iget v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSystemAudioVolume:I
 
     if-ne v1, v3, :cond_1
 
-    .line 1068
+    .line 1041
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
-    .line 1069
+    .line 1042
     iget v4, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSystemAudioVolume:I
 
     invoke-static {v4, p3}, Lcom/android/server/hdmi/VolumeControlAction;->scaleToCustomVolume(II)I
 
     move-result v4
 
-    .line 1068
+    .line 1041
     const/4 v5, 0x0
 
     invoke-virtual {v3, v5, v4}, Lcom/android/server/hdmi/HdmiControlService;->setAudioStatus(ZI)V
@@ -2339,10 +2310,10 @@
 
     monitor-exit v6
 
-    .line 1070
+    .line 1043
     return-void
 
-    .line 1058
+    .line 1031
     .end local v1    # "cecVolume":I
     .end local v2    # "targetVolume":I
     :cond_0
@@ -2353,14 +2324,14 @@
     :cond_1
     monitor-exit v6
 
-    .line 1074
+    .line 1047
     const-class v3, Lcom/android/server/hdmi/VolumeControlAction;
 
     invoke-virtual {p0, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActions(Ljava/lang/Class;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 1075
+    .line 1048
     .local v0, "actions":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/hdmi/VolumeControlAction;>;"
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
@@ -2368,10 +2339,10 @@
 
     if-eqz v3, :cond_3
 
-    .line 1076
+    .line 1049
     new-instance v6, Lcom/android/server/hdmi/VolumeControlAction;
 
-    .line 1077
+    .line 1050
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v3
@@ -2384,17 +2355,17 @@
 
     move v3, v4
 
-    .line 1076
+    .line 1049
     :goto_0
     invoke-direct {v6, p0, v7, v3}, Lcom/android/server/hdmi/VolumeControlAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;IZ)V
 
     invoke-virtual {p0, v6}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 1055
+    .line 1028
     :goto_1
     return-void
 
-    .line 1063
+    .line 1036
     .end local v0    # "actions":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/hdmi/VolumeControlAction;>;"
     :catchall_0
     move-exception v3
@@ -2407,10 +2378,10 @@
     :cond_2
     move v3, v5
 
-    .line 1077
+    .line 1050
     goto :goto_0
 
-    .line 1079
+    .line 1052
     :cond_3
     invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -2440,10 +2411,10 @@
     .end annotation
 
     .prologue
-    .line 1823
+    .line 1796
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1824
+    .line 1797
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->isControlEnabled()Z
@@ -2452,22 +2423,22 @@
 
     if-nez v0, :cond_0
 
-    .line 1825
+    .line 1798
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     const-string/jumbo v1, "Can not start one touch record. CEC control is disabled."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1826
+    .line 1799
     const/16 v0, 0xa2
 
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceClearTimerRecordingResult(II)V
 
-    .line 1827
+    .line 1800
     return-void
 
-    .line 1830
+    .line 1803
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->checkRecorder(I)Z
 
@@ -2475,7 +2446,7 @@
 
     if-nez v0, :cond_1
 
-    .line 1831
+    .line 1804
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2498,16 +2469,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1833
+    .line 1806
     const/16 v0, 0xa0
 
-    .line 1832
+    .line 1805
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceClearTimerRecordingResult(II)V
 
-    .line 1834
+    .line 1807
     return-void
 
-    .line 1837
+    .line 1810
     :cond_1
     invoke-direct {p0, p2, p3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->checkTimerRecordingSource(I[B)Z
 
@@ -2515,7 +2486,7 @@
 
     if-nez v0, :cond_2
 
-    .line 1838
+    .line 1811
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2542,20 +2513,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1840
+    .line 1813
     const/16 v0, 0xa1
 
-    .line 1839
+    .line 1812
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceClearTimerRecordingResult(II)V
 
-    .line 1841
+    .line 1814
     return-void
 
-    .line 1844
+    .line 1817
     :cond_2
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->sendClearTimerMessage(II[B)V
 
-    .line 1822
+    .line 1795
     return-void
 .end method
 
@@ -2569,10 +2540,10 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 267
+    .line 250
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 268
+    .line 251
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
     invoke-virtual {v3, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -2581,31 +2552,31 @@
 
     check-cast v2, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 269
+    .line 252
     .local v2, "targetDevice":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v2, :cond_0
 
-    .line 270
+    .line 253
     const/4 v3, 0x3
 
     invoke-static {p2, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeCallback(Landroid/hardware/hdmi/IHdmiControlCallback;I)V
 
-    .line 271
+    .line 254
     return-void
 
-    .line 273
+    .line 256
     :cond_0
     invoke-virtual {v2}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
     move-result v1
 
-    .line 274
+    .line 257
     .local v1, "targetAddress":I
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActiveSource()Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     move-result-object v0
 
-    .line 275
+    .line 258
     .local v0, "active":Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
     invoke-virtual {v2}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getDevicePowerStatus()I
 
@@ -2613,33 +2584,33 @@
 
     if-nez v3, :cond_1
 
-    .line 276
+    .line 259
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->isValid()Z
 
     move-result v3
 
-    .line 275
+    .line 258
     if-eqz v3, :cond_1
 
-    .line 277
+    .line 260
     iget v3, v0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
 
     if-ne v1, v3, :cond_1
 
-    .line 278
+    .line 261
     invoke-static {p2, v4}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeCallback(Landroid/hardware/hdmi/IHdmiControlCallback;I)V
 
-    .line 279
+    .line 262
     return-void
 
-    .line 281
+    .line 264
     :cond_1
     if-nez v1, :cond_2
 
-    .line 282
+    .line 265
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->handleSelectInternalSource()V
 
-    .line 284
+    .line 267
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v3}, Lcom/android/server/hdmi/HdmiControlService;->getPhysicalAddress()I
@@ -2648,7 +2619,7 @@
 
     invoke-virtual {p0, v1, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActiveSource(II)V
 
-    .line 285
+    .line 268
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v3}, Lcom/android/server/hdmi/HdmiControlService;->getPhysicalAddress()I
@@ -2657,13 +2628,13 @@
 
     invoke-virtual {p0, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActivePath(I)V
 
-    .line 286
+    .line 269
     invoke-static {p2, v4}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeCallback(Landroid/hardware/hdmi/IHdmiControlCallback;I)V
 
-    .line 287
+    .line 270
     return-void
 
-    .line 289
+    .line 272
     :cond_2
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -2673,31 +2644,31 @@
 
     if-nez v3, :cond_3
 
-    .line 290
+    .line 273
     invoke-virtual {p0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActiveSource(Landroid/hardware/hdmi/HdmiDeviceInfo;)V
 
-    .line 291
+    .line 274
     const/4 v3, 0x6
 
     invoke-static {p2, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeCallback(Landroid/hardware/hdmi/IHdmiControlCallback;I)V
 
-    .line 292
+    .line 275
     return-void
 
-    .line 294
+    .line 277
     :cond_3
     const-class v3, Lcom/android/server/hdmi/DeviceSelectAction;
 
     invoke-virtual {p0, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 295
+    .line 278
     new-instance v3, Lcom/android/server/hdmi/DeviceSelectAction;
 
     invoke-direct {v3, p0, v2, p2}, Lcom/android/server/hdmi/DeviceSelectAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;Landroid/hardware/hdmi/HdmiDeviceInfo;Landroid/hardware/hdmi/IHdmiControlCallback;)V
 
     invoke-virtual {p0, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 266
+    .line 249
     return-void
 .end method
 
@@ -2709,69 +2680,69 @@
     .end annotation
 
     .prologue
-    .line 1635
+    .line 1608
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1636
+    .line 1609
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mTvInputCallback:Landroid/media/tv/TvInputManager$TvInputCallback;
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->unregisterTvInputCallback(Landroid/media/tv/TvInputManager$TvInputCallback;)V
 
-    .line 1641
+    .line 1614
     const-class v0, Lcom/android/server/hdmi/DeviceDiscoveryAction;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1642
+    .line 1615
     const-class v0, Lcom/android/server/hdmi/HotplugDetectionAction;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1643
+    .line 1616
     const-class v0, Lcom/android/server/hdmi/PowerStatusMonitorAction;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1645
+    .line 1618
     const-class v0, Lcom/android/server/hdmi/OneTouchRecordAction;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1646
+    .line 1619
     const-class v0, Lcom/android/server/hdmi/TimerRecordingAction;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1648
+    .line 1621
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->disableSystemAudioIfExist()V
 
-    .line 1649
+    .line 1622
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->disableArcIfExist()V
 
-    .line 1651
+    .line 1624
     invoke-super {p0, p1, p2}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->disableDevice(ZLcom/android/server/hdmi/HdmiCecLocalDevice$PendingActionClearedCallback;)V
 
-    .line 1652
+    .line 1625
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->clearDeviceInfoList()V
 
-    .line 1653
+    .line 1626
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActiveSource()Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->invalidate()V
 
-    .line 1654
+    .line 1627
     const v0, 0xffff
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActivePath(I)V
 
-    .line 1655
+    .line 1628
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->checkIfPendingActionsCleared()V
 
-    .line 1634
+    .line 1607
     return-void
 .end method
 
@@ -2782,10 +2753,10 @@
     .end annotation
 
     .prologue
-    .line 252
+    .line 235
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 253
+    .line 236
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->isPowerStandby()Z
@@ -2802,12 +2773,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 254
+    .line 237
     const/4 v0, 0x1
 
     return v0
 
-    .line 256
+    .line 239
     :cond_0
     invoke-super {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->onMessage(Lcom/android/server/hdmi/HdmiCecMessage;)Z
 
@@ -2823,15 +2794,15 @@
     .end annotation
 
     .prologue
-    .line 1712
+    .line 1685
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1713
+    .line 1686
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->displayOsd(I)V
 
-    .line 1711
+    .line 1684
     return-void
 .end method
 
@@ -2843,15 +2814,15 @@
     .end annotation
 
     .prologue
-    .line 1718
+    .line 1691
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1719
+    .line 1692
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/hdmi/HdmiControlService;->displayOsd(II)V
 
-    .line 1717
+    .line 1690
     return-void
 .end method
 
@@ -2867,10 +2838,10 @@
 
     const/4 v4, 0x0
 
-    .line 387
+    .line 370
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 389
+    .line 372
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v2, p1}, Lcom/android/server/hdmi/HdmiControlService;->isValidPortId(I)Z
@@ -2879,13 +2850,13 @@
 
     if-nez v2, :cond_0
 
-    .line 390
+    .line 373
     invoke-static {p2, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeCallback(Landroid/hardware/hdmi/IHdmiControlCallback;I)V
 
-    .line 391
+    .line 374
     return-void
 
-    .line 393
+    .line 376
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePortId()I
 
@@ -2893,19 +2864,19 @@
 
     if-ne p1, v2, :cond_1
 
-    .line 394
+    .line 377
     invoke-static {p2, v4}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeCallback(Landroid/hardware/hdmi/IHdmiControlCallback;I)V
 
-    .line 395
+    .line 378
     return-void
 
-    .line 397
+    .line 380
     :cond_1
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mActiveSource:Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     invoke-virtual {v2}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->invalidate()V
 
-    .line 398
+    .line 381
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v2}, Lcom/android/server/hdmi/HdmiControlService;->isControlEnabled()Z
@@ -2914,16 +2885,16 @@
 
     if-nez v2, :cond_2
 
-    .line 399
+    .line 382
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActivePortId(I)V
 
-    .line 400
+    .line 383
     invoke-static {p2, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeCallback(Landroid/hardware/hdmi/IHdmiControlCallback;I)V
 
-    .line 401
+    .line 384
     return-void
 
-    .line 403
+    .line 386
     :cond_2
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePortId()I
 
@@ -2933,7 +2904,7 @@
 
     if-eq v2, v3, :cond_3
 
-    .line 404
+    .line 387
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePortId()I
@@ -2944,23 +2915,23 @@
 
     move-result v1
 
-    .line 405
+    .line 388
     .local v1, "oldPath":I
     :goto_0
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActivePath(I)V
 
-    .line 406
+    .line 389
     iget-boolean v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSkipRoutingControl:Z
 
     if-eqz v2, :cond_4
 
-    .line 407
+    .line 390
     iput-boolean v4, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSkipRoutingControl:Z
 
-    .line 408
+    .line 391
     return-void
 
-    .line 404
+    .line 387
     .end local v1    # "oldPath":I
     :cond_3
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
@@ -2971,10 +2942,10 @@
 
     move-result v1
 
+    .restart local v1    # "oldPath":I
     goto :goto_0
 
-    .line 410
-    .restart local v1    # "oldPath":I
+    .line 393
     :cond_4
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -2982,13 +2953,13 @@
 
     move-result v0
 
-    .line 411
+    .line 394
     .local v0, "newPath":I
     const/4 v2, 0x1
 
     invoke-virtual {p0, v1, v0, v2, p2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->startRoutingControl(IIZLandroid/hardware/hdmi/IHdmiControlCallback;)V
 
-    .line 386
+    .line 369
     return-void
 .end method
 
@@ -2997,10 +2968,10 @@
     .param p1, "pw"    # Lcom/android/internal/util/IndentingPrintWriter;
 
     .prologue
-    .line 1935
+    .line 1908
     invoke-super {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->dump(Lcom/android/internal/util/IndentingPrintWriter;)V
 
-    .line 1936
+    .line 1909
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -3023,7 +2994,7 @@
 
     invoke-virtual {p1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1937
+    .line 1910
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -3046,7 +3017,7 @@
 
     invoke-virtual {p1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1938
+    .line 1911
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -3069,7 +3040,7 @@
 
     invoke-virtual {p1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1939
+    .line 1912
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -3092,7 +3063,7 @@
 
     invoke-virtual {p1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1940
+    .line 1913
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -3115,7 +3086,7 @@
 
     invoke-virtual {p1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1941
+    .line 1914
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -3138,7 +3109,7 @@
 
     invoke-virtual {p1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1942
+    .line 1915
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -3161,7 +3132,7 @@
 
     invoke-virtual {p1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1943
+    .line 1916
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -3184,15 +3155,15 @@
 
     invoke-virtual {p1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1944
+    .line 1917
     const-string/jumbo v2, "CEC devices:"
 
     invoke-virtual {p1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1945
+    .line 1918
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    .line 1946
+    .line 1919
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSafeAllDeviceInfos:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -3213,18 +3184,18 @@
 
     check-cast v0, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1947
+    .line 1920
     .local v0, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-virtual {p1, v0}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/Object;)V
 
     goto :goto_0
 
-    .line 1949
+    .line 1922
     .end local v0    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_0
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
-    .line 1934
+    .line 1907
     return-void
 .end method
 
@@ -3234,10 +3205,10 @@
     .end annotation
 
     .prologue
-    .line 1628
+    .line 1601
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1629
+    .line 1602
     iget-boolean v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAutoWakeup:Z
 
     return v0
@@ -3249,10 +3220,10 @@
     .end annotation
 
     .prologue
-    .line 1398
+    .line 1371
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1399
+    .line 1372
     const/4 v0, 0x5
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getCecDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
@@ -3269,10 +3240,10 @@
     .end annotation
 
     .prologue
-    .line 1413
+    .line 1386
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1414
+    .line 1387
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
     invoke-static {p1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->idForCecDevice(I)I
@@ -3295,10 +3266,10 @@
     .end annotation
 
     .prologue
-    .line 1537
+    .line 1510
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1538
+    .line 1511
     const/4 v2, 0x0
 
     invoke-virtual {p0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getDeviceInfoList(Z)Ljava/util/List;
@@ -3323,7 +3294,7 @@
 
     check-cast v0, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1539
+    .line 1512
     .local v0, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPhysicalAddress()I
 
@@ -3331,10 +3302,10 @@
 
     if-ne v2, p1, :cond_0
 
-    .line 1540
+    .line 1513
     return-object v0
 
-    .line 1543
+    .line 1516
     .end local v0    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_1
     const/4 v2, 0x0
@@ -3359,13 +3330,13 @@
     .end annotation
 
     .prologue
-    .line 1303
+    .line 1276
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1304
+    .line 1277
     if-eqz p1, :cond_0
 
-    .line 1305
+    .line 1278
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
     invoke-static {v3}, Lcom/android/server/hdmi/HdmiUtils;->sparseArrayToList(Landroid/util/SparseArray;)Ljava/util/List;
@@ -3374,13 +3345,13 @@
 
     return-object v3
 
-    .line 1307
+    .line 1280
     :cond_0
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1308
+    .line 1281
     .local v2, "infoList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/hdmi/HdmiDeviceInfo;>;"
     const/4 v0, 0x0
 
@@ -3394,7 +3365,7 @@
 
     if-ge v0, v3, :cond_2
 
-    .line 1309
+    .line 1282
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
     invoke-virtual {v3, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -3403,7 +3374,7 @@
 
     check-cast v1, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1310
+    .line 1283
     .local v1, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
@@ -3415,16 +3386,16 @@
 
     if-nez v3, :cond_1
 
-    .line 1311
+    .line 1284
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1308
+    .line 1281
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1314
+    .line 1287
     .end local v1    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_2
     return-object v2
@@ -3435,7 +3406,7 @@
     .param p1, "physicalAddress"    # I
 
     .prologue
-    .line 341
+    .line 324
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->pathToPortId(I)I
@@ -3451,10 +3422,10 @@
     .end annotation
 
     .prologue
-    .line 431
+    .line 414
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 432
+    .line 415
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->getPowerStatus()I
@@ -3468,7 +3439,7 @@
     .locals 1
 
     .prologue
-    .line 241
+    .line 224
     const/4 v0, 0x0
 
     return v0
@@ -3478,12 +3449,12 @@
     .locals 2
 
     .prologue
-    .line 348
+    .line 331
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 349
+    .line 332
     :try_start_0
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mPrevPortId:I
     :try_end_0
@@ -3493,7 +3464,7 @@
 
     return v1
 
-    .line 348
+    .line 331
     :catchall_0
     move-exception v1
 
@@ -3506,7 +3477,7 @@
     .locals 1
 
     .prologue
-    .line 1422
+    .line 1395
     const/4 v0, 0x5
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getSafeCecDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
@@ -3521,12 +3492,12 @@
     .param p1, "logicalAddress"    # I
 
     .prologue
-    .line 1433
+    .line 1406
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1434
+    .line 1407
     :try_start_0
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSafeAllDeviceInfos:Ljava/util/List;
 
@@ -3548,7 +3519,7 @@
 
     check-cast v0, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1435
+    .line 1408
     .local v0, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->isCecDevice()Z
 
@@ -3566,10 +3537,10 @@
 
     monitor-exit v3
 
-    .line 1436
+    .line 1409
     return-object v0
 
-    .line 1439
+    .line 1412
     .end local v0    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_1
     const/4 v2, 0x0
@@ -3578,7 +3549,7 @@
 
     return-object v2
 
-    .line 1433
+    .line 1406
     .end local v1    # "info$iterator":Ljava/util/Iterator;
     :catchall_0
     move-exception v2
@@ -3601,12 +3572,12 @@
     .end annotation
 
     .prologue
-    .line 1444
+    .line 1417
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1445
+    .line 1418
     .local v2, "infoList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/hardware/hdmi/HdmiDeviceInfo;>;"
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSafeAllDeviceInfos:Ljava/util/List;
 
@@ -3629,7 +3600,7 @@
 
     check-cast v0, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1446
+    .line 1419
     .local v0, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
@@ -3641,12 +3612,12 @@
 
     if-nez v3, :cond_0
 
-    .line 1449
+    .line 1422
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 1451
+    .line 1424
     .end local v0    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_1
     return-object v2
@@ -3657,12 +3628,12 @@
     .param p1, "path"    # I
 
     .prologue
-    .line 1555
+    .line 1528
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1556
+    .line 1529
     :try_start_0
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSafeAllDeviceInfos:Ljava/util/List;
 
@@ -3684,7 +3655,7 @@
 
     check-cast v0, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1557
+    .line 1530
     .local v0, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPhysicalAddress()I
     :try_end_0
@@ -3696,10 +3667,10 @@
 
     monitor-exit v3
 
-    .line 1558
+    .line 1531
     return-object v0
 
-    .line 1561
+    .line 1534
     .end local v0    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_1
     const/4 v2, 0x0
@@ -3708,7 +3679,7 @@
 
     return-object v2
 
-    .line 1555
+    .line 1528
     .end local v1    # "info$iterator":Ljava/util/Iterator;
     :catchall_0
     move-exception v2
@@ -3731,7 +3702,7 @@
     .end annotation
 
     .prologue
-    .line 1322
+    .line 1295
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSafeExternalInputs:Ljava/util/List;
 
     return-object v0
@@ -3741,7 +3712,7 @@
     .locals 3
 
     .prologue
-    .line 898
+    .line 871
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     const-string/jumbo v1, "hdmi_system_audio_enabled"
@@ -3762,21 +3733,21 @@
     .end annotation
 
     .prologue
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     const/4 v8, 0x1
 
     const/4 v7, 0x0
 
-    .line 493
+    .line 476
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 494
+    .line 477
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v2
 
-    .line 495
+    .line 478
     .local v2, "logicalAddress":I
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
@@ -3786,24 +3757,24 @@
 
     move-result v3
 
-    .line 496
+    .line 479
     .local v3, "physicalAddress":I
     invoke-virtual {p0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getCecDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v1
 
-    .line 497
+    .line 480
     .local v1, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v1, :cond_1
 
-    .line 498
+    .line 481
     invoke-direct {p0, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->handleNewDeviceAtTheTailOfActivePath(I)Z
 
     move-result v4
 
     if-nez v4, :cond_0
 
-    .line 499
+    .line 482
     const-string/jumbo v4, "Device info %X not found; buffering the command"
 
     new-array v5, v8, [Ljava/lang/Object;
@@ -3816,17 +3787,17 @@
 
     invoke-static {v4, v5}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 500
+    .line 483
     iget-object v4, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDelayedMessageBuffer:Lcom/android/server/hdmi/DelayedMessageBuffer;
 
     invoke-virtual {v4, p1}, Lcom/android/server/hdmi/DelayedMessageBuffer;->add(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 511
+    .line 493
     :cond_0
     :goto_0
     return v8
 
-    .line 502
+    .line 485
     :cond_1
     invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getId()I
 
@@ -3838,41 +3809,7 @@
 
     if-nez v4, :cond_2
 
-    .line 503
-    invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getDeviceType()I
-
-    move-result v4
-
-    const/4 v5, 0x5
-
-    if-ne v4, v5, :cond_3
-
-    .line 504
-    :cond_2
-    invoke-virtual {p0, v2, v7}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateDevicePowerStatus(II)V
-
-    .line 505
-    invoke-static {v2, v3}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->of(II)Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
-
-    move-result-object v0
-
-    .line 506
-    .local v0, "activeSource":Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
-    invoke-static {p0, v6}, Lcom/android/server/hdmi/ActiveSourceHandler;->create(Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;Landroid/hardware/hdmi/IHdmiControlCallback;)Lcom/android/server/hdmi/ActiveSourceHandler;
-
-    move-result-object v4
-
-    invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getDeviceType()I
-
-    move-result v5
-
-    invoke-virtual {v4, v0, v5}, Lcom/android/server/hdmi/ActiveSourceHandler;->process(Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;I)V
-
-    goto :goto_0
-
-    .line 508
-    .end local v0    # "activeSource":Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
-    :cond_3
+    .line 486
     const-string/jumbo v4, "Input not ready for device: %X; buffering the command"
 
     new-array v5, v8, [Ljava/lang/Object;
@@ -3889,10 +3826,33 @@
 
     invoke-static {v4, v5}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 509
+    .line 487
     iget-object v4, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDelayedMessageBuffer:Lcom/android/server/hdmi/DelayedMessageBuffer;
 
     invoke-virtual {v4, p1}, Lcom/android/server/hdmi/DelayedMessageBuffer;->add(Lcom/android/server/hdmi/HdmiCecMessage;)V
+
+    goto :goto_0
+
+    .line 489
+    :cond_2
+    invoke-virtual {p0, v2, v7}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateDevicePowerStatus(II)V
+
+    .line 490
+    invoke-static {v2, v3}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->of(II)Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
+
+    move-result-object v0
+
+    .line 491
+    .local v0, "activeSource":Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
+    invoke-static {p0, v5}, Lcom/android/server/hdmi/ActiveSourceHandler;->create(Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;Landroid/hardware/hdmi/IHdmiControlCallback;)Lcom/android/server/hdmi/ActiveSourceHandler;
+
+    move-result-object v4
+
+    invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getDeviceType()I
+
+    move-result v5
+
+    invoke-virtual {v4, v0, v5}, Lcom/android/server/hdmi/ActiveSourceHandler;->process(Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;I)V
 
     goto :goto_0
 .end method
@@ -3904,10 +3864,10 @@
     .end annotation
 
     .prologue
-    .line 567
+    .line 549
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 568
+    .line 550
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->getLanguage()Ljava/lang/String;
@@ -3920,7 +3880,7 @@
 
     if-nez v0, :cond_0
 
-    .line 569
+    .line 551
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3947,7 +3907,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 571
+    .line 553
     :cond_0
     const/4 v0, 0x1
 
@@ -3961,10 +3921,10 @@
     .end annotation
 
     .prologue
-    .line 753
+    .line 727
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 755
+    .line 729
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->handleTextViewOn(Lcom/android/server/hdmi/HdmiCecMessage;)Z
 
     move-result v0
@@ -3985,10 +3945,10 @@
 
     const/4 v4, 0x1
 
-    .line 517
+    .line 499
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 521
+    .line 503
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActiveSource()Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     move-result-object v2
@@ -4001,10 +3961,10 @@
 
     if-eq v2, v3, :cond_0
 
-    .line 522
+    .line 504
     return v4
 
-    .line 524
+    .line 506
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isProhibitMode()Z
 
@@ -4012,20 +3972,20 @@
 
     if-eqz v2, :cond_1
 
-    .line 525
+    .line 507
     return v4
 
-    .line 527
+    .line 509
     :cond_1
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getPrevPortId()I
 
     move-result v1
 
-    .line 528
+    .line 510
     .local v1, "portId":I
     if-eq v1, v5, :cond_4
 
-    .line 531
+    .line 513
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v2
@@ -4034,14 +3994,14 @@
 
     move-result-object v0
 
-    .line 532
+    .line 514
     .local v0, "inactiveSource":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v0, :cond_2
 
-    .line 533
+    .line 515
     return v4
 
-    .line 535
+    .line 517
     :cond_2
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -4055,33 +4015,33 @@
 
     if-ne v2, v1, :cond_3
 
-    .line 536
+    .line 518
     return v4
 
-    .line 540
+    .line 522
     :cond_3
     invoke-virtual {p0, v1, v6}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->doManualPortSwitching(ILandroid/hardware/hdmi/IHdmiControlCallback;)V
 
-    .line 541
+    .line 523
     invoke-virtual {p0, v5}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setPrevPortId(I)V
 
-    .line 549
+    .line 531
     .end local v0    # "inactiveSource":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :goto_0
     return v4
 
-    .line 545
+    .line 527
     :cond_4
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mActiveSource:Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     invoke-virtual {v2}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->invalidate()V
 
-    .line 546
+    .line 528
     const v2, 0xffff
 
     invoke-virtual {p0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActivePath(I)V
 
-    .line 547
+    .line 529
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     sget-object v3, Landroid/hardware/hdmi/HdmiDeviceInfo;->INACTIVE_DEVICE:Landroid/hardware/hdmi/HdmiDeviceInfo;
@@ -4100,10 +4060,10 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1107
+    .line 1081
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1109
+    .line 1083
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v1
@@ -4114,22 +4074,22 @@
 
     if-nez v1, :cond_2
 
-    .line 1110
+    .line 1084
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v1
 
     if-nez v1, :cond_0
 
-    .line 1112
+    .line 1086
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDelayedMessageBuffer:Lcom/android/server/hdmi/DelayedMessageBuffer;
 
     invoke-virtual {v1, p1}, Lcom/android/server/hdmi/DelayedMessageBuffer;->add(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 1113
+    .line 1087
     return v3
 
-    .line 1115
+    .line 1089
     :cond_0
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -4137,7 +4097,7 @@
 
     invoke-virtual {v1, p1, v2}, Lcom/android/server/hdmi/HdmiControlService;->maySendFeatureAbortCommand(Lcom/android/server/hdmi/HdmiCecMessage;I)V
 
-    .line 1116
+    .line 1090
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v1
@@ -4148,35 +4108,35 @@
 
     if-nez v1, :cond_1
 
-    .line 1117
+    .line 1091
     invoke-virtual {p0, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->displayOsd(I)V
 
-    .line 1119
+    .line 1093
     :cond_1
     return v3
 
-    .line 1124
+    .line 1098
     :cond_2
     const-class v1, Lcom/android/server/hdmi/RequestArcInitiationAction;
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1125
+    .line 1099
     new-instance v0, Lcom/android/server/hdmi/SetArcTransmissionStateAction;
 
-    .line 1126
+    .line 1100
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v1
 
-    .line 1125
+    .line 1099
     invoke-direct {v0, p0, v1, v3}, Lcom/android/server/hdmi/SetArcTransmissionStateAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;IZ)V
 
-    .line 1127
+    .line 1101
     .local v0, "action":Lcom/android/server/hdmi/SetArcTransmissionStateAction;
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 1128
+    .line 1102
     return v3
 .end method
 
@@ -4185,7 +4145,7 @@
     .param p1, "message"    # Lcom/android/server/hdmi/HdmiCecMessage;
 
     .prologue
-    .line 1902
+    .line 1875
     const/4 v0, 0x1
 
     return v0
@@ -4196,7 +4156,7 @@
     .param p1, "message"    # Lcom/android/server/hdmi/HdmiCecMessage;
 
     .prologue
-    .line 631
+    .line 613
     const/4 v0, 0x1
 
     return v0
@@ -4209,14 +4169,14 @@
     .end annotation
 
     .prologue
-    .line 1203
+    .line 1176
     const-class v5, Lcom/android/server/hdmi/OneTouchRecordAction;
 
     invoke-virtual {p0, v5}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActions(Ljava/lang/Class;)Ljava/util/List;
 
     move-result-object v1
 
-    .line 1204
+    .line 1177
     .local v1, "actions":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/hdmi/OneTouchRecordAction;>;"
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
@@ -4224,7 +4184,7 @@
 
     if-nez v5, :cond_1
 
-    .line 1206
+    .line 1179
     const/4 v5, 0x0
 
     invoke-interface {v1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -4233,7 +4193,7 @@
 
     check-cast v0, Lcom/android/server/hdmi/OneTouchRecordAction;
 
-    .line 1207
+    .line 1180
     .local v0, "action":Lcom/android/server/hdmi/OneTouchRecordAction;
     invoke-virtual {v0}, Lcom/android/server/hdmi/OneTouchRecordAction;->getRecorderAddress()I
 
@@ -4245,18 +4205,18 @@
 
     if-eq v5, v6, :cond_0
 
-    .line 1209
+    .line 1182
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v5
 
-    .line 1210
+    .line 1183
     const/16 v6, 0x30
 
-    .line 1208
+    .line 1181
     invoke-virtual {p0, v5, v6}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceOneTouchRecordResult(II)V
 
-    .line 1212
+    .line 1185
     :cond_0
     invoke-super {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->handleRecordTvScreen(Lcom/android/server/hdmi/HdmiCecMessage;)Z
 
@@ -4264,14 +4224,14 @@
 
     return v5
 
-    .line 1215
+    .line 1188
     .end local v0    # "action":Lcom/android/server/hdmi/OneTouchRecordAction;
     :cond_1
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v4
 
-    .line 1216
+    .line 1189
     .local v4, "recorderAddress":I
     iget-object v5, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -4279,24 +4239,24 @@
 
     move-result-object v3
 
-    .line 1217
+    .line 1190
     .local v3, "recordSource":[B
     invoke-virtual {p0, v4, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->startOneTouchRecord(I[B)I
 
     move-result v2
 
-    .line 1218
+    .line 1191
     .local v2, "reason":I
     const/4 v5, -0x1
 
     if-eq v2, v5, :cond_2
 
-    .line 1219
+    .line 1192
     iget-object v5, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v5, p1, v2}, Lcom/android/server/hdmi/HdmiControlService;->maySendFeatureAbortCommand(Lcom/android/server/hdmi/HdmiCecMessage;I)V
 
-    .line 1221
+    .line 1194
     :cond_2
     const/4 v5, 0x1
 
@@ -4310,10 +4270,10 @@
     .end annotation
 
     .prologue
-    .line 1492
+    .line 1465
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1494
+    .line 1467
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePath()I
 
     move-result v1
@@ -4324,7 +4284,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1495
+    .line 1468
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePortId()I
@@ -4335,7 +4295,7 @@
 
     move-result v0
 
-    .line 1496
+    .line 1469
     .local v0, "newPath":I
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePath()I
 
@@ -4347,7 +4307,7 @@
 
     invoke-virtual {p0, v1, v0, v2, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->startRoutingControl(IIZLandroid/hardware/hdmi/IHdmiControlCallback;)V
 
-    .line 1491
+    .line 1464
     .end local v0    # "newPath":I
     :cond_0
     return-void
@@ -4364,27 +4324,27 @@
 
     const/4 v3, 0x0
 
-    .line 723
+    .line 705
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 725
+    .line 707
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
     move-result-object v1
 
-    .line 726
+    .line 708
     .local v1, "params":[B
     aget-byte v5, v1, v3
 
     and-int/lit16 v0, v5, 0x80
 
-    .line 727
+    .line 709
     .local v0, "mute":I
     aget-byte v5, v1, v3
 
     and-int/lit8 v2, v5, 0x7f
 
-    .line 728
+    .line 710
     .local v2, "volume":I
     const/16 v5, 0x80
 
@@ -4395,7 +4355,7 @@
     :cond_0
     invoke-virtual {p0, v3, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setAudioStatus(ZI)V
 
-    .line 729
+    .line 711
     return v4
 .end method
 
@@ -4408,10 +4368,10 @@
     .prologue
     const/4 v7, 0x1
 
-    .line 589
+    .line 571
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 590
+    .line 572
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
     move-result-object v3
@@ -4420,13 +4380,13 @@
 
     move-result v2
 
-    .line 591
+    .line 573
     .local v2, "path":I
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v1
 
-    .line 592
+    .line 574
     .local v1, "address":I
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
@@ -4436,7 +4396,7 @@
 
     aget-byte v4, v3, v5
 
-    .line 594
+    .line 576
     .local v4, "type":I
     invoke-virtual {p0, v1, v4, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateCecSwitchInfo(III)Z
 
@@ -4446,7 +4406,7 @@
 
     return v7
 
-    .line 597
+    .line 579
     :cond_0
     const-class v3, Lcom/android/server/hdmi/DeviceDiscoveryAction;
 
@@ -4456,7 +4416,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 598
+    .line 580
     const-string/jumbo v3, "HdmiCecLocalDeviceTv"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -4479,10 +4439,10 @@
 
     invoke-static {v3, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 599
+    .line 581
     return v7
 
-    .line 602
+    .line 584
     :cond_1
     invoke-virtual {p0, v1, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isInDeviceList(II)Z
 
@@ -4490,10 +4450,10 @@
 
     if-nez v3, :cond_2
 
-    .line 603
+    .line 585
     invoke-direct {p0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->handleNewDeviceAtTheTailOfActivePath(I)Z
 
-    .line 608
+    .line 590
     :cond_2
     new-instance v0, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
@@ -4501,28 +4461,28 @@
 
     move-result v3
 
-    .line 609
+    .line 591
     invoke-static {v1}, Lcom/android/server/hdmi/HdmiUtils;->getDefaultDeviceName(I)Ljava/lang/String;
 
     move-result-object v6
 
     const v5, 0xffffff
 
-    .line 608
+    .line 590
     invoke-direct/range {v0 .. v6}, Landroid/hardware/hdmi/HdmiDeviceInfo;-><init>(IIIIILjava/lang/String;)V
 
-    .line 610
+    .line 592
     .local v0, "deviceInfo":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addCecDevice(Landroid/hardware/hdmi/HdmiDeviceInfo;)V
 
-    .line 611
+    .line 593
     invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->of(II)Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     move-result-object v3
 
     invoke-virtual {p0, v3, v4}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->startNewDeviceAction(Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;I)V
 
-    .line 612
+    .line 594
     return v7
 .end method
 
@@ -4531,7 +4491,7 @@
     .param p1, "command"    # Lcom/android/server/hdmi/HdmiCecMessage;
 
     .prologue
-    .line 617
+    .line 599
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
     move-result-object v1
@@ -4542,7 +4502,7 @@
 
     and-int/lit16 v0, v1, 0xff
 
-    .line 618
+    .line 600
     .local v0, "newStatus":I
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
@@ -4550,7 +4510,7 @@
 
     invoke-virtual {p0, v1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateDevicePowerStatus(II)V
 
-    .line 619
+    .line 601
     const/4 v1, 0x1
 
     return v1
@@ -4563,10 +4523,10 @@
     .end annotation
 
     .prologue
-    .line 555
+    .line 537
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 557
+    .line 539
     iget v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActiveSource()Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
@@ -4577,10 +4537,10 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 558
+    .line 540
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
-    .line 559
+    .line 541
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePath()I
@@ -4591,10 +4551,10 @@
 
     move-result-object v1
 
-    .line 558
+    .line 540
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 561
+    .line 543
     :cond_0
     const/4 v0, 0x1
 
@@ -4610,21 +4570,21 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 707
+    .line 689
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 709
+    .line 691
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
     move-result-object v2
 
-    .line 710
+    .line 692
     .local v2, "params":[B
     invoke-static {v2}, Lcom/android/server/hdmi/HdmiUtils;->twoBytesToInt([B)I
 
     move-result v0
 
-    .line 711
+    .line 693
     .local v0, "currentPath":I
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePath()I
 
@@ -4636,24 +4596,24 @@
 
     if-eqz v3, :cond_0
 
-    .line 712
+    .line 694
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mActiveSource:Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     invoke-virtual {v3}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->invalidate()V
 
-    .line 713
+    .line 695
     const-class v3, Lcom/android/server/hdmi/RoutingControlAction;
 
     invoke-virtual {p0, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 714
+    .line 696
     const/4 v3, 0x2
 
     invoke-static {v2, v3}, Lcom/android/server/hdmi/HdmiUtils;->twoBytesToInt([BI)I
 
     move-result v1
 
-    .line 715
+    .line 697
     .local v1, "newPath":I
     new-instance v3, Lcom/android/server/hdmi/RoutingControlAction;
 
@@ -4663,7 +4623,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 717
+    .line 699
     .end local v1    # "newPath":I
     :cond_0
     return v5
@@ -4678,22 +4638,22 @@
     .prologue
     const/4 v10, 0x1
 
-    .line 761
+    .line 735
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v9
 
-    .line 762
+    .line 736
     .local v9, "source":I
     invoke-virtual {p0, v9}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getCecDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v7
 
-    .line 764
+    .line 738
     .local v7, "deviceInfo":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v7, :cond_0
 
-    .line 765
+    .line 739
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -4716,14 +4676,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 766
+    .line 740
     return v10
 
-    .line 768
+    .line 742
     :cond_0
     const/4 v6, 0x0
 
-    .line 770
+    .line 744
     .local v6, "osdName":Ljava/lang/String;
     :try_start_0
     new-instance v6, Ljava/lang/String;
@@ -4739,7 +4699,7 @@
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 776
+    .line 750
     .local v6, "osdName":Ljava/lang/String;
     invoke-virtual {v7}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getDisplayName()Ljava/lang/String;
 
@@ -4751,7 +4711,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 777
+    .line 751
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -4774,15 +4734,15 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 778
+    .line 752
     return v10
 
-    .line 771
+    .line 745
     .end local v6    # "osdName":Ljava/lang/String;
     :catch_0
     move-exception v8
 
-    .line 772
+    .line 746
     .local v8, "e":Ljava/io/UnsupportedEncodingException;
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
@@ -4806,10 +4766,10 @@
 
     invoke-static {v0, v1, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 773
+    .line 747
     return v10
 
-    .line 781
+    .line 755
     .end local v8    # "e":Ljava/io/UnsupportedEncodingException;
     .restart local v6    # "osdName":Ljava/lang/String;
     :cond_1
@@ -4819,7 +4779,7 @@
 
     move-result v1
 
-    .line 782
+    .line 756
     invoke-virtual {v7}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPhysicalAddress()I
 
     move-result v2
@@ -4828,7 +4788,7 @@
 
     move-result v3
 
-    .line 783
+    .line 757
     invoke-virtual {v7}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getDeviceType()I
 
     move-result v4
@@ -4837,12 +4797,12 @@
 
     move-result v5
 
-    .line 781
+    .line 755
     invoke-direct/range {v0 .. v6}, Landroid/hardware/hdmi/HdmiDeviceInfo;-><init>(IIIIILjava/lang/String;)V
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addCecDevice(Landroid/hardware/hdmi/HdmiDeviceInfo;)V
 
-    .line 784
+    .line 758
     return v10
 .end method
 
@@ -4857,33 +4817,32 @@
 
     const/4 v3, 0x1
 
-    .line 1168
+    .line 1142
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1169
+    .line 1143
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isMessageForSystemAudio(Lcom/android/server/hdmi/HdmiCecMessage;)Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 1170
+    .line 1144
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v1
 
     if-nez v1, :cond_0
 
-    .line 1172
+    .line 1146
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDelayedMessageBuffer:Lcom/android/server/hdmi/DelayedMessageBuffer;
 
     invoke-virtual {v1, p1}, Lcom/android/server/hdmi/DelayedMessageBuffer;->add(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 1177
-    :goto_0
+    .line 1147
     return v3
 
-    .line 1174
+    .line 1149
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -4909,25 +4868,21 @@
 
     invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiLogger;->warning(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 1175
+    .line 1150
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     const/4 v2, 0x4
 
     invoke-virtual {v1, p1, v2}, Lcom/android/server/hdmi/HdmiControlService;->maySendFeatureAbortCommand(Lcom/android/server/hdmi/HdmiCecMessage;I)V
 
-    goto :goto_0
+    .line 1151
+    return v3
 
-    .line 1179
+    .line 1153
     :cond_1
-    const-class v1, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;
-
-    invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
-
-    .line 1180
     new-instance v0, Lcom/android/server/hdmi/SystemAudioActionFromAvr;
 
-    .line 1181
+    .line 1154
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v1
@@ -4936,14 +4891,14 @@
 
     move-result v2
 
-    .line 1180
+    .line 1153
     invoke-direct {v0, p0, v1, v2, v4}, Lcom/android/server/hdmi/SystemAudioActionFromAvr;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;IZLandroid/hardware/hdmi/IHdmiControlCallback;)V
 
-    .line 1182
+    .line 1155
     .local v0, "action":Lcom/android/server/hdmi/SystemAudioActionFromAvr;
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 1183
+    .line 1156
     return v3
 .end method
 
@@ -4956,17 +4911,17 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1189
+    .line 1162
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1190
+    .line 1163
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isMessageForSystemAudio(Lcom/android/server/hdmi/HdmiCecMessage;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1191
+    .line 1164
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -4991,10 +4946,10 @@
 
     invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->warning(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 1193
+    .line 1166
     return v2
 
-    .line 1195
+    .line 1168
     :cond_0
     invoke-static {p1}, Lcom/android/server/hdmi/HdmiUtils;->parseCommandParamSystemAudioStatus(Lcom/android/server/hdmi/HdmiCecMessage;)Z
 
@@ -5002,7 +4957,7 @@
 
     invoke-virtual {p0, v0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setSystemAudioMode(ZZ)V
 
-    .line 1196
+    .line 1169
     return v2
 .end method
 
@@ -5017,10 +4972,10 @@
 
     const/4 v2, 0x0
 
-    .line 1150
+    .line 1124
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1151
+    .line 1125
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiControlService;->isPowerStandbyOrTransient()Z
@@ -5029,34 +4984,34 @@
 
     if-eqz v1, :cond_0
 
-    .line 1152
+    .line 1126
     invoke-virtual {p0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setArcStatus(Z)Z
 
-    .line 1153
+    .line 1127
     return v3
 
-    .line 1158
+    .line 1132
     :cond_0
     const-class v1, Lcom/android/server/hdmi/RequestArcTerminationAction;
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1159
+    .line 1133
     new-instance v0, Lcom/android/server/hdmi/SetArcTransmissionStateAction;
 
-    .line 1160
+    .line 1134
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
     move-result v1
 
-    .line 1159
+    .line 1133
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/hdmi/SetArcTransmissionStateAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;IZ)V
 
-    .line 1161
+    .line 1135
     .local v0, "action":Lcom/android/server/hdmi/SetArcTransmissionStateAction;
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 1162
+    .line 1136
     return v3
 .end method
 
@@ -5067,10 +5022,10 @@
     .end annotation
 
     .prologue
-    .line 735
+    .line 717
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 744
+    .line 718
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->isPowerStandbyOrTransient()Z
@@ -5083,12 +5038,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 745
+    .line 719
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->wakeUp()V
 
-    .line 747
+    .line 721
     :cond_0
     const/4 v0, 0x1
 
@@ -5100,12 +5055,12 @@
     .param p1, "message"    # Lcom/android/server/hdmi/HdmiCecMessage;
 
     .prologue
-    .line 1226
+    .line 1199
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
     move-result-object v0
 
-    .line 1227
+    .line 1200
     .local v0, "params":[B
     const/4 v2, 0x0
 
@@ -5113,7 +5068,7 @@
 
     and-int/lit16 v1, v2, 0xff
 
-    .line 1228
+    .line 1201
     .local v1, "timerClearedStatusData":I
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
@@ -5121,7 +5076,7 @@
 
     invoke-virtual {p0, v2, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceTimerRecordingResult(II)V
 
-    .line 1229
+    .line 1202
     const/4 v2, 0x1
 
     return v2
@@ -5132,7 +5087,7 @@
     .param p1, "message"    # Lcom/android/server/hdmi/HdmiCecMessage;
 
     .prologue
-    .line 625
+    .line 607
     const/4 v0, 0x1
 
     return v0
@@ -5142,7 +5097,7 @@
     .locals 1
 
     .prologue
-    .line 1418
+    .line 1391
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getSafeAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
@@ -5166,15 +5121,15 @@
     .end annotation
 
     .prologue
-    .line 974
+    .line 947
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 975
+    .line 948
     iget-boolean v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcEstablished:Z
 
     if-eqz v1, :cond_1
 
-    .line 976
+    .line 949
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -5187,7 +5142,7 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 977
+    .line 950
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcFeatureEnabled:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v1, v0}, Landroid/util/SparseBooleanArray;->valueAt(I)Z
@@ -5200,13 +5155,13 @@
 
     return v1
 
-    .line 976
+    .line 949
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 980
+    .line 953
     .end local v0    # "i":I
     :cond_1
     const/4 v1, 0x0
@@ -5221,10 +5176,10 @@
     .end annotation
 
     .prologue
-    .line 1003
+    .line 976
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1004
+    .line 977
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcFeatureEnabled:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
@@ -5241,10 +5196,10 @@
     .end annotation
 
     .prologue
-    .line 958
+    .line 931
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 959
+    .line 932
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->isConnected(I)Z
@@ -5264,22 +5219,22 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1576
+    .line 1549
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1577
+    .line 1550
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getCecDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
-    .line 1578
+    .line 1551
     .local v0, "device":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v0, :cond_0
 
-    .line 1579
+    .line 1552
     return v1
 
-    .line 1581
+    .line 1554
     :cond_0
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPhysicalAddress()I
 
@@ -5300,10 +5255,10 @@
     .end annotation
 
     .prologue
-    .line 177
+    .line 176
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 178
+    .line 177
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mTvInputs:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -5321,7 +5276,7 @@
     .locals 1
 
     .prologue
-    .line 1707
+    .line 1680
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->isPowerStandbyOrTransient()Z
@@ -5335,7 +5290,7 @@
     .locals 1
 
     .prologue
-    .line 1703
+    .line 1676
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->isProhibitMode()Z
@@ -5349,25 +5304,25 @@
     .locals 2
 
     .prologue
-    .line 889
+    .line 862
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->hasSystemAudioDevice()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 890
+    .line 863
     const/4 v0, 0x0
 
     return v0
 
-    .line 892
+    .line 865
     :cond_0
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 893
+    .line 866
     :try_start_0
     iget-boolean v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSystemAudioActivated:Z
     :try_end_0
@@ -5377,7 +5332,7 @@
 
     return v1
 
-    .line 892
+    .line 865
     :catchall_0
     move-exception v1
 
@@ -5393,10 +5348,10 @@
     .end annotation
 
     .prologue
-    .line 1508
+    .line 1481
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1510
+    .line 1483
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePortId()I
 
     move-result v2
@@ -5405,7 +5360,7 @@
 
     if-eq v2, v3, :cond_2
 
-    .line 1511
+    .line 1484
     if-nez p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isProhibitMode()Z
@@ -5414,12 +5369,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 1507
+    .line 1480
     :cond_0
     :goto_0
     return-void
 
-    .line 1512
+    .line 1485
     :cond_1
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -5431,11 +5386,11 @@
 
     move-result v1
 
-    .line 1513
+    .line 1486
     .local v1, "newPath":I
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActivePath(I)V
 
-    .line 1514
+    .line 1487
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePath()I
 
     move-result v2
@@ -5446,7 +5401,7 @@
 
     goto :goto_0
 
-    .line 1517
+    .line 1490
     .end local v1    # "newPath":I
     :cond_2
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
@@ -5455,14 +5410,14 @@
 
     move-result v0
 
-    .line 1518
+    .line 1491
     .local v0, "activePath":I
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActivePath(I)V
 
-    .line 1519
+    .line 1492
     if-nez p1, :cond_0
 
-    .line 1520
+    .line 1493
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDelayedMessageBuffer:Lcom/android/server/hdmi/DelayedMessageBuffer;
 
     const/16 v3, 0x82
@@ -5473,7 +5428,7 @@
 
     if-nez v2, :cond_0
 
-    .line 1521
+    .line 1494
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     iget v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
@@ -5499,17 +5454,17 @@
 
     const/4 v5, 0x0
 
-    .line 195
+    .line 192
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 196
+    .line 193
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v3}, Lcom/android/server/hdmi/HdmiControlService;->getPortInfo()Ljava/util/List;
 
     move-result-object v2
 
-    .line 197
+    .line 194
     .local v2, "ports":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/hdmi/HdmiPortInfo;>;"
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -5529,7 +5484,7 @@
 
     check-cast v0, Landroid/hardware/hdmi/HdmiPortInfo;
 
-    .line 198
+    .line 195
     .local v0, "port":Landroid/hardware/hdmi/HdmiPortInfo;
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcFeatureEnabled:Landroid/util/SparseBooleanArray;
 
@@ -5545,7 +5500,7 @@
 
     goto :goto_0
 
-    .line 200
+    .line 197
     .end local v0    # "port":Landroid/hardware/hdmi/HdmiPortInfo;
     :cond_0
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
@@ -5554,10 +5509,10 @@
 
     invoke-virtual {v3, v6}, Lcom/android/server/hdmi/HdmiControlService;->registerTvInputCallback(Landroid/media/tv/TvInputManager$TvInputCallback;)V
 
-    .line 201
+    .line 198
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
-    .line 202
+    .line 199
     iget v6, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
     iget-object v7, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
@@ -5568,17 +5523,17 @@
 
     iget v8, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceType:I
 
-    .line 201
+    .line 198
     invoke-static {v6, v7, v8}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildReportPhysicalAddressCommand(III)Lcom/android/server/hdmi/HdmiCecMessage;
 
     move-result-object v6
 
     invoke-virtual {v3, v6}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 203
+    .line 200
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
-    .line 204
+    .line 201
     iget v6, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
     iget-object v7, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
@@ -5587,14 +5542,14 @@
 
     move-result v7
 
-    .line 203
+    .line 200
     invoke-static {v6, v7}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildDeviceVendorIdCommand(II)Lcom/android/server/hdmi/HdmiCecMessage;
 
     move-result-object v6
 
     invoke-virtual {v3, v6}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 205
+    .line 202
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mCecSwitches:Landroid/util/ArraySet;
 
     iget-object v6, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
@@ -5609,12 +5564,12 @@
 
     invoke-virtual {v3, v6}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 206
+    .line 203
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mTvInputs:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->clear()V
 
-    .line 207
+    .line 204
     const/4 v3, 0x3
 
     if-ne p2, v3, :cond_2
@@ -5624,38 +5579,35 @@
     :goto_1
     iput-boolean v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSkipRoutingControl:Z
 
-    .line 208
+    .line 205
     if-eqz p2, :cond_1
 
-    .line 209
+    .line 206
     if-eq p2, v4, :cond_1
 
     move v5, v4
 
-    .line 208
+    .line 205
     :cond_1
     invoke-virtual {p0, v5}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->launchRoutingControl(Z)V
 
-    .line 210
+    .line 207
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->initLocalDeviceAddresses()Ljava/util/List;
 
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLocalDeviceAddresses:Ljava/util/List;
 
-    .line 211
-    invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->resetSelectRequestBuffer()V
-
-    .line 212
+    .line 208
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->launchDeviceDiscovery()V
 
-    .line 194
+    .line 191
     return-void
 
     :cond_2
     move v3, v5
 
-    .line 207
+    .line 204
     goto :goto_1
 .end method
 
@@ -5667,16 +5619,16 @@
     .end annotation
 
     .prologue
-    .line 1587
+    .line 1560
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1589
+    .line 1562
     if-nez p2, :cond_0
 
-    .line 1590
+    .line 1563
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeCecSwitches(I)V
 
-    .line 1593
+    .line 1566
     :cond_0
     const-class v1, Lcom/android/server/hdmi/HotplugDetectionAction;
 
@@ -5684,7 +5636,7 @@
 
     move-result-object v0
 
-    .line 1594
+    .line 1567
     .local v0, "hotplugActions":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/hdmi/HotplugDetectionAction;>;"
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
@@ -5692,7 +5644,7 @@
 
     if-nez v1, :cond_1
 
-    .line 1598
+    .line 1571
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -5703,11 +5655,11 @@
 
     invoke-virtual {v1}, Lcom/android/server/hdmi/HotplugDetectionAction;->pollAllDevicesNow()V
 
-    .line 1600
+    .line 1573
     :cond_1
     invoke-direct {p0, p1, p2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateArcFeatureStatus(IZ)V
 
-    .line 1586
+    .line 1559
     return-void
 .end method
 
@@ -5718,10 +5670,51 @@
     .end annotation
 
     .prologue
-    .line 828
+    .line 799
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 829
+    .line 800
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getSystemAudioModeSetting()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isSystemAudioActivated()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 803
+    :cond_0
+    :goto_0
+    invoke-virtual {p1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPortId()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isArcFeatureEnabled(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 804
+    const-class v0, Lcom/android/server/hdmi/SetArcTransmissionStateAction;
+
+    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->hasAction(Ljava/lang/Class;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 798
+    :cond_1
+    :goto_1
+    return-void
+
+    .line 801
+    :cond_2
     new-instance v0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;
 
     invoke-virtual {p1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
@@ -5732,38 +5725,15 @@
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 830
-    invoke-virtual {p1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPortId()I
+    goto :goto_0
 
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isArcFeatureEnabled(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 831
-    const-class v0, Lcom/android/server/hdmi/SetArcTransmissionStateAction;
-
-    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->hasAction(Ljava/lang/Class;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 827
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 832
-    :cond_1
+    .line 805
+    :cond_3
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->startArcAction(Z)V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method protected onStandby(ZI)V
@@ -5774,10 +5744,10 @@
     .end annotation
 
     .prologue
-    .line 1691
+    .line 1664
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1693
+    .line 1666
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->isControlEnabled()Z
@@ -5786,10 +5756,10 @@
 
     if-nez v0, :cond_0
 
-    .line 1694
+    .line 1667
     return-void
 
-    .line 1696
+    .line 1669
     :cond_0
     if-nez p1, :cond_1
 
@@ -5797,22 +5767,22 @@
 
     if-eqz v0, :cond_1
 
-    .line 1697
+    .line 1670
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
-    .line 1698
+    .line 1671
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
     const/16 v2, 0xf
 
-    .line 1697
+    .line 1670
     invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildStandby(II)Lcom/android/server/hdmi/HdmiCecMessage;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 1690
+    .line 1663
     :cond_1
     return-void
 .end method
@@ -5823,15 +5793,15 @@
     .end annotation
 
     .prologue
-    .line 1917
+    .line 1890
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1918
+    .line 1891
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDelayedMessageBuffer:Lcom/android/server/hdmi/DelayedMessageBuffer;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/DelayedMessageBuffer;->processAllMessages()V
 
-    .line 1916
+    .line 1889
     return-void
 .end method
 
@@ -5842,15 +5812,15 @@
     .end annotation
 
     .prologue
-    .line 1929
+    .line 1902
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1930
+    .line 1903
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDelayedMessageBuffer:Lcom/android/server/hdmi/DelayedMessageBuffer;
 
     invoke-virtual {v0, p1}, Lcom/android/server/hdmi/DelayedMessageBuffer;->processActiveSource(I)V
 
-    .line 1928
+    .line 1901
     return-void
 .end method
 
@@ -5861,15 +5831,15 @@
     .end annotation
 
     .prologue
-    .line 1923
+    .line 1896
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1924
+    .line 1897
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDelayedMessageBuffer:Lcom/android/server/hdmi/DelayedMessageBuffer;
 
     invoke-virtual {v0, p1}, Lcom/android/server/hdmi/DelayedMessageBuffer;->processMessagesForDevice(I)V
 
-    .line 1922
+    .line 1895
     return-void
 .end method
 
@@ -5880,10 +5850,10 @@
     .end annotation
 
     .prologue
-    .line 1483
+    .line 1456
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1484
+    .line 1457
     invoke-static {p1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->idForCecDevice(I)I
 
     move-result v1
@@ -5892,18 +5862,18 @@
 
     move-result-object v0
 
-    .line 1486
+    .line 1459
     .local v0, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mCecMessageCache:Lcom/android/server/hdmi/HdmiCecMessageCache;
 
     invoke-virtual {v1, p1}, Lcom/android/server/hdmi/HdmiCecMessageCache;->flushMessagesFrom(I)V
 
-    .line 1487
+    .line 1460
     const/4 v1, 0x2
 
     invoke-direct {p0, v0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeDeviceEventListener(Landroid/hardware/hdmi/HdmiDeviceInfo;I)V
 
-    .line 1482
+    .line 1455
     return-void
 .end method
 
@@ -5915,17 +5885,17 @@
     .end annotation
 
     .prologue
-    .line 444
+    .line 427
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 445
+    .line 428
     invoke-static {p1}, Lcom/android/server/hdmi/HdmiCecKeycode;->isSupportedKeycode(I)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 446
+    .line 429
     const-string/jumbo v2, "HdmiCecLocalDeviceTv"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5948,10 +5918,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 447
+    .line 430
     return-void
 
-    .line 449
+    .line 432
     :cond_0
     const-class v2, Lcom/android/server/hdmi/SendKeyAction;
 
@@ -5959,19 +5929,19 @@
 
     move-result-object v0
 
-    .line 450
+    .line 433
     .local v0, "action":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/hdmi/SendKeyAction;>;"
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->findKeyReceiverAddress()I
 
     move-result v1
 
-    .line 451
+    .line 434
     .local v1, "logicalAddress":I
     iget v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
     if-ne v1, v2, :cond_1
 
-    .line 452
+    .line 435
     const-string/jumbo v2, "HdmiCecLocalDeviceTv"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -6004,10 +5974,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 453
+    .line 436
     return-void
 
-    .line 455
+    .line 438
     :cond_1
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
@@ -6015,7 +5985,7 @@
 
     if-nez v2, :cond_2
 
-    .line 456
+    .line 439
     const/4 v2, 0x0
 
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -6026,30 +5996,30 @@
 
     invoke-virtual {v2, p1, p2}, Lcom/android/server/hdmi/SendKeyAction;->processKeyEvent(IZ)V
 
-    .line 443
+    .line 426
     :goto_0
     return-void
 
-    .line 458
+    .line 441
     :cond_2
     if-eqz p2, :cond_3
 
-    .line 459
+    .line 442
     const/4 v2, -0x1
 
     if-eq v1, v2, :cond_3
 
-    .line 460
+    .line 443
     new-instance v2, Lcom/android/server/hdmi/SendKeyAction;
 
     invoke-direct {v2, p0, v1, p1}, Lcom/android/server/hdmi/SendKeyAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;II)V
 
     invoke-virtual {p0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 461
+    .line 444
     return-void
 
-    .line 464
+    .line 447
     :cond_3
     const-string/jumbo v2, "HdmiCecLocalDeviceTv"
 
@@ -6091,7 +6061,7 @@
     .param p1, "deviceId"    # I
 
     .prologue
-    .line 1907
+    .line 1880
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mDeviceInfos:Landroid/util/SparseArray;
 
     invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -6100,20 +6070,20 @@
 
     check-cast v1, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1908
+    .line 1881
     .local v1, "targetDevice":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v1, :cond_0
 
-    .line 1909
+    .line 1882
     return-void
 
-    .line 1911
+    .line 1884
     :cond_0
     invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
     move-result v0
 
-    .line 1912
+    .line 1885
     .local v0, "targetAddress":I
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -6125,7 +6095,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 1906
+    .line 1879
     return-void
 .end method
 
@@ -6136,10 +6106,10 @@
     .end annotation
 
     .prologue
-    .line 908
+    .line 881
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 910
+    .line 883
     const-string/jumbo v1, "Set Arc Status[old:%b new:%b]"
 
     const/4 v2, 0x2
@@ -6166,20 +6136,20 @@
 
     invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 911
+    .line 884
     iget-boolean v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcEstablished:Z
 
-    .line 913
+    .line 886
     .local v0, "oldStatus":Z
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setAudioReturnChannel(Z)V
 
-    .line 915
+    .line 888
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->notifyArcStatusToAudioService(Z)V
 
-    .line 917
+    .line 890
     iput-boolean p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mArcEstablished:Z
 
-    .line 918
+    .line 891
     return v0
 .end method
 
@@ -6190,19 +6160,19 @@
     .end annotation
 
     .prologue
-    .line 926
+    .line 899
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 927
+    .line 900
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
-    .line 928
+    .line 901
     .local v0, "avr":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-eqz v0, :cond_0
 
-    .line 929
+    .line 902
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPortId()I
@@ -6211,7 +6181,7 @@
 
     invoke-virtual {v1, v2, p1}, Lcom/android/server/hdmi/HdmiControlService;->setAudioReturnChannel(IZ)V
 
-    .line 925
+    .line 898
     :cond_0
     return-void
 .end method
@@ -6222,51 +6192,51 @@
     .param p2, "volume"    # I
 
     .prologue
-    .line 1042
+    .line 1015
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1043
+    .line 1016
     :try_start_0
     iput-boolean p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSystemAudioMute:Z
 
-    .line 1044
+    .line 1017
     iput p2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSystemAudioVolume:I
 
-    .line 1045
+    .line 1018
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiControlService;->getAudioManager()Landroid/media/AudioManager;
 
     move-result-object v1
 
-    .line 1046
+    .line 1019
     const/4 v3, 0x3
 
-    .line 1045
+    .line 1018
     invoke-virtual {v1, v3}, Landroid/media/AudioManager;->getStreamMaxVolume(I)I
 
     move-result v0
 
-    .line 1047
+    .line 1020
     .local v0, "maxVolume":I
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
-    .line 1048
+    .line 1021
     invoke-static {p2, v0}, Lcom/android/server/hdmi/VolumeControlAction;->scaleToCustomVolume(II)I
 
     move-result v3
 
-    .line 1047
+    .line 1020
     invoke-virtual {v1, p1, v3}, Lcom/android/server/hdmi/HdmiControlService;->setAudioStatus(ZI)V
 
-    .line 1050
+    .line 1023
     if-eqz p1, :cond_0
 
     const/16 p2, 0x65
 
-    .line 1049
+    .line 1022
     .end local p2    # "volume":I
     :cond_0
     const/4 v1, 0x2
@@ -6277,10 +6247,10 @@
 
     monitor-exit v2
 
-    .line 1041
+    .line 1014
     return-void
 
-    .line 1042
+    .line 1015
     .end local v0    # "maxVolume":I
     :catchall_0
     move-exception v1
@@ -6297,13 +6267,13 @@
     .end annotation
 
     .prologue
-    .line 1616
+    .line 1589
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1617
+    .line 1590
     iput-boolean p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAutoDeviceOff:Z
 
-    .line 1615
+    .line 1588
     return-void
 .end method
 
@@ -6314,13 +6284,13 @@
     .end annotation
 
     .prologue
-    .line 1622
+    .line 1595
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1623
+    .line 1596
     iput-boolean p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAutoWakeup:Z
 
-    .line 1621
+    .line 1594
     return-void
 .end method
 
@@ -6329,14 +6299,14 @@
     .param p1, "addr"    # I
 
     .prologue
-    .line 246
+    .line 229
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     const-string/jumbo v1, "Preferred addres will not be stored for TV"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 245
+    .line 228
     return-void
 .end method
 
@@ -6345,12 +6315,12 @@
     .param p1, "portId"    # I
 
     .prologue
-    .line 358
+    .line 341
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 359
+    .line 342
     :try_start_0
     iput p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mPrevPortId:I
     :try_end_0
@@ -6358,10 +6328,10 @@
 
     monitor-exit v0
 
-    .line 357
+    .line 340
     return-void
 
-    .line 358
+    .line 341
     :catchall_0
     move-exception v1
 
@@ -6370,30 +6340,13 @@
     throw v1
 .end method
 
-.method public setSelectRequestBuffer(Lcom/android/server/hdmi/SelectRequestBuffer;)V
-    .locals 0
-    .param p1, "requestBuffer"    # Lcom/android/server/hdmi/SelectRequestBuffer;
-    .annotation runtime Lcom/android/server/hdmi/HdmiAnnotations$ServiceThreadOnly;
-    .end annotation
-
-    .prologue
-    .line 229
-    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
-
-    .line 230
-    iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSelectRequestBuffer:Lcom/android/server/hdmi/SelectRequestBuffer;
-
-    .line 228
-    return-void
-.end method
-
 .method setSystemAudioMode(ZZ)V
     .locals 4
     .param p1, "on"    # Z
     .param p2, "updateSetting"    # Z
 
     .prologue
-    .line 869
+    .line 842
     const-string/jumbo v0, "System Audio Mode change[old:%b new:%b]"
 
     const/4 v1, 0x2
@@ -6420,35 +6373,35 @@
 
     invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 871
+    .line 844
     if-eqz p2, :cond_0
 
-    .line 872
+    .line 845
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     const-string/jumbo v1, "hdmi_system_audio_enabled"
 
     invoke-virtual {v0, v1, p1}, Lcom/android/server/hdmi/HdmiControlService;->writeBooleanSetting(Ljava/lang/String;Z)V
 
-    .line 874
+    .line 847
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateAudioManagerForSystemAudio(Z)V
 
-    .line 875
+    .line 848
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 876
+    .line 849
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSystemAudioActivated:Z
 
     if-eq v0, p1, :cond_1
 
-    .line 877
+    .line 850
     iput-boolean p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mSystemAudioActivated:Z
 
-    .line 878
+    .line 851
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->announceSystemAudioModeChange(Z)V
@@ -6458,10 +6411,10 @@
     :cond_1
     monitor-exit v1
 
-    .line 868
+    .line 841
     return-void
 
-    .line 875
+    .line 848
     :catchall_0
     move-exception v0
 
@@ -6477,29 +6430,29 @@
     .end annotation
 
     .prologue
-    .line 1009
+    .line 982
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1010
+    .line 983
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getAvrDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
-    .line 1011
+    .line 984
     .local v0, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v0, :cond_0
 
-    .line 1012
+    .line 985
     const-string/jumbo v1, "HdmiCecLocalDeviceTv"
 
     const-string/jumbo v2, "Failed to start arc action; No AVR device."
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1013
+    .line 986
     return-void
 
-    .line 1015
+    .line 988
     :cond_0
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
@@ -6511,14 +6464,14 @@
 
     if-nez v1, :cond_3
 
-    .line 1016
+    .line 989
     const-string/jumbo v1, "HdmiCecLocalDeviceTv"
 
     const-string/jumbo v2, "Failed to start arc action; ARC configuration check failed."
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1017
+    .line 990
     if-eqz p1, :cond_1
 
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getPhysicalAddress()I
@@ -6531,12 +6484,12 @@
 
     if-eqz v1, :cond_2
 
-    .line 1020
+    .line 993
     :cond_1
     :goto_0
     return-void
 
-    .line 1018
+    .line 991
     :cond_2
     const/4 v1, 0x1
 
@@ -6544,16 +6497,16 @@
 
     goto :goto_0
 
-    .line 1024
+    .line 997
     :cond_3
     if-eqz p1, :cond_5
 
-    .line 1025
+    .line 998
     const-class v1, Lcom/android/server/hdmi/RequestArcTerminationAction;
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1026
+    .line 999
     const-class v1, Lcom/android/server/hdmi/RequestArcInitiationAction;
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->hasAction(Ljava/lang/Class;)Z
@@ -6562,7 +6515,7 @@
 
     if-nez v1, :cond_4
 
-    .line 1027
+    .line 1000
     new-instance v1, Lcom/android/server/hdmi/RequestArcInitiationAction;
 
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
@@ -6573,18 +6526,18 @@
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 1008
+    .line 981
     :cond_4
     :goto_1
     return-void
 
-    .line 1030
+    .line 1003
     :cond_5
     const-class v1, Lcom/android/server/hdmi/RequestArcInitiationAction;
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1031
+    .line 1004
     const-class v1, Lcom/android/server/hdmi/RequestArcTerminationAction;
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->hasAction(Ljava/lang/Class;)Z
@@ -6593,7 +6546,7 @@
 
     if-nez v1, :cond_4
 
-    .line 1032
+    .line 1005
     new-instance v1, Lcom/android/server/hdmi/RequestArcTerminationAction;
 
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
@@ -6613,7 +6566,7 @@
     .param p2, "deviceType"    # I
 
     .prologue
-    .line 648
+    .line 630
     const-class v2, Lcom/android/server/hdmi/NewDeviceAction;
 
     invoke-virtual {p0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActions(Ljava/lang/Class;)Ljava/util/List;
@@ -6638,7 +6591,7 @@
 
     check-cast v0, Lcom/android/server/hdmi/NewDeviceAction;
 
-    .line 657
+    .line 639
     .local v0, "action":Lcom/android/server/hdmi/NewDeviceAction;
     invoke-virtual {v0, p1}, Lcom/android/server/hdmi/NewDeviceAction;->isActionOf(Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;)Z
 
@@ -6646,25 +6599,25 @@
 
     if-eqz v2, :cond_0
 
-    .line 658
+    .line 640
     return-void
 
-    .line 662
+    .line 644
     .end local v0    # "action":Lcom/android/server/hdmi/NewDeviceAction;
     :cond_1
     new-instance v2, Lcom/android/server/hdmi/NewDeviceAction;
 
     iget v3, p1, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
 
-    .line 663
+    .line 645
     iget v4, p1, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
 
-    .line 662
+    .line 644
     invoke-direct {v2, p0, v3, v4, p2}, Lcom/android/server/hdmi/NewDeviceAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;III)V
 
     invoke-virtual {p0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 647
+    .line 629
     return-void
 .end method
 
@@ -6678,10 +6631,10 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1725
+    .line 1698
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1726
+    .line 1699
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->isControlEnabled()Z
@@ -6690,22 +6643,22 @@
 
     if-nez v0, :cond_0
 
-    .line 1727
+    .line 1700
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     const-string/jumbo v1, "Can not start one touch record. CEC control is disabled."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1728
+    .line 1701
     const/16 v0, 0x33
 
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceOneTouchRecordResult(II)V
 
-    .line 1729
+    .line 1702
     return v3
 
-    .line 1732
+    .line 1705
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->checkRecorder(I)Z
 
@@ -6713,7 +6666,7 @@
 
     if-nez v0, :cond_1
 
-    .line 1733
+    .line 1706
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -6736,16 +6689,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1735
+    .line 1708
     const/16 v0, 0x31
 
-    .line 1734
+    .line 1707
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceOneTouchRecordResult(II)V
 
-    .line 1736
+    .line 1709
     return v3
 
-    .line 1739
+    .line 1712
     :cond_1
     invoke-direct {p0, p2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->checkRecordSource([B)Z
 
@@ -6753,7 +6706,7 @@
 
     if-nez v0, :cond_2
 
-    .line 1740
+    .line 1713
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -6780,18 +6733,18 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1742
+    .line 1715
     const/16 v0, 0x32
 
-    .line 1741
+    .line 1714
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceOneTouchRecordResult(II)V
 
-    .line 1743
+    .line 1716
     const/4 v0, 0x2
 
     return v0
 
-    .line 1746
+    .line 1719
     :cond_2
     new-instance v0, Lcom/android/server/hdmi/OneTouchRecordAction;
 
@@ -6799,7 +6752,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 1747
+    .line 1720
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -6822,12 +6775,12 @@
 
     move-result-object v1
 
-    .line 1748
+    .line 1721
     invoke-static {p2}, Ljava/util/Arrays;->toString([B)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 1747
+    .line 1720
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -6838,7 +6791,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1749
+    .line 1722
     const/4 v0, -0x1
 
     return v0
@@ -6854,16 +6807,16 @@
     .end annotation
 
     .prologue
-    .line 417
+    .line 400
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 418
+    .line 401
     if-ne p1, p2, :cond_0
 
-    .line 419
+    .line 402
     return-void
 
-    .line 422
+    .line 405
     :cond_0
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
 
@@ -6871,26 +6824,26 @@
 
     move-result-object v0
 
-    .line 423
+    .line 406
     .local v0, "routingChange":Lcom/android/server/hdmi/HdmiCecMessage;
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v1, v0}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 424
+    .line 407
     const-class v1, Lcom/android/server/hdmi/RoutingControlAction;
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 426
+    .line 409
     new-instance v1, Lcom/android/server/hdmi/RoutingControlAction;
 
     invoke-direct {v1, p0, p2, p3, p4}, Lcom/android/server/hdmi/RoutingControlAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;IZLandroid/hardware/hdmi/IHdmiControlCallback;)V
 
-    .line 425
+    .line 408
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 416
+    .line 399
     return-void
 .end method
 
@@ -6903,10 +6856,10 @@
     .end annotation
 
     .prologue
-    .line 1787
+    .line 1760
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1788
+    .line 1761
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->isControlEnabled()Z
@@ -6915,23 +6868,23 @@
 
     if-nez v0, :cond_0
 
-    .line 1789
+    .line 1762
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     const-string/jumbo v1, "Can not start one touch record. CEC control is disabled."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1791
+    .line 1764
     const/4 v0, 0x3
 
-    .line 1790
+    .line 1763
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceTimerRecordingResult(II)V
 
-    .line 1792
+    .line 1765
     return-void
 
-    .line 1795
+    .line 1768
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->checkRecorder(I)Z
 
@@ -6939,7 +6892,7 @@
 
     if-nez v0, :cond_1
 
-    .line 1796
+    .line 1769
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -6962,16 +6915,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1798
+    .line 1771
     const/4 v0, 0x1
 
-    .line 1797
+    .line 1770
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceTimerRecordingResult(II)V
 
-    .line 1799
+    .line 1772
     return-void
 
-    .line 1802
+    .line 1775
     :cond_1
     invoke-direct {p0, p2, p3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->checkTimerRecordingSource(I[B)Z
 
@@ -6979,7 +6932,7 @@
 
     if-nez v0, :cond_2
 
-    .line 1803
+    .line 1776
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -7006,25 +6959,25 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1806
+    .line 1779
     const/4 v0, 0x2
 
-    .line 1804
+    .line 1777
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceTimerRecordingResult(II)V
 
-    .line 1807
+    .line 1780
     return-void
 
-    .line 1811
+    .line 1784
     :cond_2
     new-instance v0, Lcom/android/server/hdmi/TimerRecordingAction;
 
     invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/server/hdmi/TimerRecordingAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;II[B)V
 
-    .line 1810
+    .line 1783
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    .line 1812
+    .line 1785
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -7051,20 +7004,20 @@
 
     move-result-object v1
 
-    .line 1813
+    .line 1786
     const-string/jumbo v2, ", RecordSource:"
 
-    .line 1812
+    .line 1785
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 1813
+    .line 1786
     invoke-static {p3}, Ljava/util/Arrays;->toString([B)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 1812
+    .line 1785
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -7075,7 +7028,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1786
+    .line 1759
     return-void
 .end method
 
@@ -7086,10 +7039,10 @@
     .end annotation
 
     .prologue
-    .line 1754
+    .line 1727
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 1755
+    .line 1728
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->isControlEnabled()Z
@@ -7098,22 +7051,22 @@
 
     if-nez v0, :cond_0
 
-    .line 1756
+    .line 1729
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     const-string/jumbo v1, "Can not stop one touch record. CEC control is disabled."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1757
+    .line 1730
     const/16 v0, 0x33
 
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceOneTouchRecordResult(II)V
 
-    .line 1758
+    .line 1731
     return-void
 
-    .line 1761
+    .line 1734
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->checkRecorder(I)Z
 
@@ -7121,7 +7074,7 @@
 
     if-nez v0, :cond_1
 
-    .line 1762
+    .line 1735
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -7144,22 +7097,22 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1764
+    .line 1737
     const/16 v0, 0x31
 
-    .line 1763
+    .line 1736
     invoke-virtual {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceOneTouchRecordResult(II)V
 
-    .line 1765
+    .line 1738
     return-void
 
-    .line 1769
+    .line 1742
     :cond_1
     const-class v0, Lcom/android/server/hdmi/OneTouchRecordAction;
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->removeAction(Ljava/lang/Class;)V
 
-    .line 1770
+    .line 1743
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mAddress:I
@@ -7170,7 +7123,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 1771
+    .line 1744
     const-string/jumbo v0, "HdmiCecLocalDeviceTv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -7193,7 +7146,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1753
+    .line 1726
     return-void
 .end method
 
@@ -7205,21 +7158,21 @@
     .end annotation
 
     .prologue
-    .line 365
+    .line 348
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 367
+    .line 350
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActivePath(I)V
 
-    .line 370
+    .line 353
     if-eqz p2, :cond_1
 
-    .line 371
+    .line 354
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActiveSource()Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     move-result-object v0
 
-    .line 372
+    .line 355
     .local v0, "activeSource":Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
     iget v2, v0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
 
@@ -7227,11 +7180,11 @@
 
     move-result-object v1
 
-    .line 373
+    .line 356
     .local v1, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v1, :cond_0
 
-    .line 374
+    .line 357
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePortId()I
@@ -7242,10 +7195,10 @@
 
     move-result-object v1
 
-    .line 375
+    .line 358
     if-nez v1, :cond_0
 
-    .line 378
+    .line 361
     new-instance v1, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     .end local v1    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
@@ -7255,14 +7208,14 @@
 
     invoke-direct {v1, p1, v2}, Landroid/hardware/hdmi/HdmiDeviceInfo;-><init>(II)V
 
-    .line 381
+    .line 364
     .restart local v1    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_0
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v2, v1}, Lcom/android/server/hdmi/HdmiControlService;->invokeInputChangeListener(Landroid/hardware/hdmi/HdmiDeviceInfo;)V
 
-    .line 364
+    .line 347
     .end local v0    # "activeSource":Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
     .end local v1    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_1
@@ -7277,17 +7230,17 @@
     .end annotation
 
     .prologue
-    .line 316
+    .line 299
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 317
+    .line 300
     invoke-static {p1, p2}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->of(II)Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateActiveSource(Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;)V
 
-    .line 315
+    .line 298
     return-void
 .end method
 
@@ -7298,10 +7251,10 @@
     .end annotation
 
     .prologue
-    .line 322
+    .line 305
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->assertRunOnServiceThread()V
 
-    .line 324
+    .line 307
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mActiveSource:Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     invoke-virtual {v1, p1}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->equals(Ljava/lang/Object;)Z
@@ -7310,17 +7263,17 @@
 
     if-eqz v1, :cond_0
 
-    .line 325
+    .line 308
     return-void
 
-    .line 327
+    .line 310
     :cond_0
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setActiveSource(Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;)V
 
-    .line 328
+    .line 311
     iget v0, p1, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
 
-    .line 329
+    .line 312
     .local v0, "logicalAddress":I
     invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getCecDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
@@ -7332,7 +7285,7 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 330
+    .line 313
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
     iget v2, p1, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
@@ -7347,14 +7300,14 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 331
+    .line 314
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePortId()I
 
     move-result v1
 
     invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setPrevPortId(I)V
 
-    .line 321
+    .line 304
     :cond_1
     return-void
 .end method
@@ -7366,17 +7319,17 @@
     .param p3, "path"    # I
 
     .prologue
-    .line 635
+    .line 617
     const/16 v0, 0xf
 
     if-ne p1, v0, :cond_0
 
-    .line 636
+    .line 618
     const/4 v0, 0x6
 
     if-ne p2, v0, :cond_0
 
-    .line 637
+    .line 619
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mCecSwitches:Landroid/util/ArraySet;
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -7385,21 +7338,21 @@
 
     invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 638
+    .line 620
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->updateSafeDeviceInfoList()V
 
-    .line 639
+    .line 621
     const/4 v0, 0x1
 
     return v0
 
-    .line 641
+    .line 623
     :cond_0
     const/4 v0, 0x5
 
     if-ne p2, v0, :cond_1
 
-    .line 642
+    .line 624
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->mCecSwitches:Landroid/util/ArraySet;
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -7408,7 +7361,7 @@
 
     invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 644
+    .line 626
     :cond_1
     const/4 v0, 0x0
 
@@ -7421,16 +7374,16 @@
     .param p2, "newPowerStatus"    # I
 
     .prologue
-    .line 1882
+    .line 1855
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getCecDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v0
 
-    .line 1883
+    .line 1856
     .local v0, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-nez v0, :cond_0
 
-    .line 1884
+    .line 1857
     const-string/jumbo v2, "HdmiCecLocalDeviceTv"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -7453,10 +7406,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1885
+    .line 1858
     return-void
 
-    .line 1888
+    .line 1861
     :cond_0
     invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getDevicePowerStatus()I
 
@@ -7464,24 +7417,24 @@
 
     if-ne v2, p2, :cond_1
 
-    .line 1889
+    .line 1862
     return-void
 
-    .line 1892
+    .line 1865
     :cond_1
     invoke-static {v0, p2}, Lcom/android/server/hdmi/HdmiUtils;->cloneHdmiDeviceInfo(Landroid/hardware/hdmi/HdmiDeviceInfo;I)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v1
 
-    .line 1894
+    .line 1867
     .local v1, "newInfo":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-direct {p0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->addDeviceInfo(Landroid/hardware/hdmi/HdmiDeviceInfo;)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .line 1896
+    .line 1869
     const/4 v2, 0x3
 
     invoke-direct {p0, v1, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->invokeDeviceEventListener(Landroid/hardware/hdmi/HdmiDeviceInfo;I)V
 
-    .line 1881
+    .line 1854
     return-void
 .end method

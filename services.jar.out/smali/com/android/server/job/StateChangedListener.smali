@@ -7,8 +7,5 @@
 .method public abstract onControllerStateChanged()V
 .end method
 
-.method public abstract onDeviceIdleStateChanged(Z)V
-.end method
-
 .method public abstract onRunJobNow(Lcom/android/server/job/controllers/JobStatus;)V
 .end method

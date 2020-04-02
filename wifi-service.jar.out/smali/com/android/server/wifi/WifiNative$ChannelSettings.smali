@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field public dwell_time_ms:I
+.field dwell_time_ms:I
 
-.field public frequency:I
+.field frequency:I
 
-.field public passive:Z
+.field passive:Z
 
 
 # direct methods
@@ -27,7 +27,7 @@
     .locals 0
 
     .prologue
-    .line 1683
+    .line 1430
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -109,14 +109,13 @@
     return p1
 .end method
 
-.method static synthetic -wrap0(Landroid/service/dreams/DreamService;Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
+.method static synthetic -wrap0(Landroid/service/dreams/DreamService;Landroid/os/IBinder;Z)V
     .locals 0
     .param p1, "windowToken"    # Landroid/os/IBinder;
     .param p2, "canDoze"    # Z
-    .param p3, "started"    # Landroid/os/IRemoteCallback;
 
     .prologue
-    invoke-direct {p0, p1, p2, p3}, Landroid/service/dreams/DreamService;->attach(Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
+    invoke-direct {p0, p1, p2}, Landroid/service/dreams/DreamService;->attach(Landroid/os/IBinder;Z)V
 
     return-void
 .end method
@@ -147,10 +146,10 @@
 
     const/4 v2, 0x0
 
-    .line 196
+    .line 194
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 154
+    .line 152
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -195,31 +194,31 @@
 
     iput-object v0, p0, Landroid/service/dreams/DreamService;->TAG:Ljava/lang/String;
 
-    .line 178
+    .line 176
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Landroid/service/dreams/DreamService;->mHandler:Landroid/os/Handler;
 
-    .line 182
+    .line 180
     iput-boolean v3, p0, Landroid/service/dreams/DreamService;->mLowProfile:Z
 
-    .line 184
+    .line 182
     iput-boolean v3, p0, Landroid/service/dreams/DreamService;->mScreenBright:Z
 
-    .line 191
+    .line 189
     iput v2, p0, Landroid/service/dreams/DreamService;->mDozeScreenState:I
 
-    .line 192
+    .line 190
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/service/dreams/DreamService;->mDozeScreenBrightness:I
 
-    .line 194
+    .line 192
     iput-boolean v2, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
-    .line 197
+    .line 195
     const-string/jumbo v0, "dreams"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -232,7 +231,7 @@
 
     iput-object v0, p0, Landroid/service/dreams/DreamService;->mSandman:Landroid/service/dreams/IDreamManager;
 
-    .line 196
+    .line 194
     return-void
 .end method
 
@@ -243,7 +242,7 @@
     .param p3, "mask"    # I
 
     .prologue
-    .line 1062
+    .line 1051
     not-int v0, p3
 
     and-int/2addr v0, p1
@@ -261,19 +260,18 @@
     .param p2, "mask"    # I
 
     .prologue
-    const/4 v0, 0x0
-
-    .line 1055
+    .line 1044
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     if-nez v1, :cond_1
 
-    .line 1056
-    .local v0, "v":Landroid/view/View;
+    const/4 v0, 0x0
+
+    .line 1045
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 1057
+    .line 1046
     invoke-virtual {v0}, Landroid/view/View;->getSystemUiVisibility()I
 
     move-result v1
@@ -284,12 +282,11 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    .line 1054
+    .line 1043
     :cond_0
     return-void
 
-    .line 1055
-    .end local v0    # "v":Landroid/view/View;
+    .line 1044
     :cond_1
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
@@ -297,6 +294,7 @@
 
     move-result-object v0
 
+    .local v0, "v":Landroid/view/View;
     goto :goto_0
 .end method
 
@@ -306,19 +304,19 @@
     .param p2, "mask"    # I
 
     .prologue
-    .line 1041
+    .line 1030
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     if-eqz v1, :cond_0
 
-    .line 1042
+    .line 1031
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
 
-    .line 1043
+    .line 1032
     .local v0, "lp":Landroid/view/WindowManager$LayoutParams;
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
@@ -328,12 +326,12 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 1044
+    .line 1033
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v1, v0}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 1045
+    .line 1034
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v1}, Landroid/view/Window;->getWindowManager()Landroid/view/WindowManager;
@@ -348,17 +346,16 @@
 
     invoke-interface {v1, v2, v0}, Landroid/view/WindowManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1040
+    .line 1029
     .end local v0    # "lp":Landroid/view/WindowManager$LayoutParams;
     :cond_0
     return-void
 .end method
 
-.method private final attach(Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
+.method private final attach(Landroid/os/IBinder;Z)V
     .locals 11
     .param p1, "windowToken"    # Landroid/os/IBinder;
     .param p2, "canDoze"    # Z
-    .param p3, "started"    # Landroid/os/IRemoteCallback;
 
     .prologue
     const/16 v10, 0x7e7
@@ -369,12 +366,12 @@
 
     const/4 v5, 0x1
 
-    .line 949
+    .line 946
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
     if-eqz v3, :cond_0
 
-    .line 950
+    .line 947
     iget-object v3, p0, Landroid/service/dreams/DreamService;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -399,10 +396,10 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 951
+    .line 948
     return-void
 
-    .line 953
+    .line 950
     :cond_0
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mFinished:Z
 
@@ -412,7 +409,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 954
+    .line 951
     :cond_1
     iget-object v3, p0, Landroid/service/dreams/DreamService;->TAG:Ljava/lang/String;
 
@@ -420,7 +417,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 956
+    .line 953
     :try_start_0
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mSandman:Landroid/service/dreams/IDreamManager;
 
@@ -430,18 +427,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 960
+    .line 957
     :goto_0
     return-void
 
-    .line 963
+    .line 960
     :cond_2
     iput-object p1, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
-    .line 964
+    .line 961
     iput-boolean p2, p0, Landroid/service/dreams/DreamService;->mCanDoze:Z
 
-    .line 965
+    .line 962
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mWindowless:Z
 
     if-eqz v3, :cond_3
@@ -450,30 +447,30 @@
 
     if-eqz v3, :cond_7
 
-    .line 968
+    .line 965
     :cond_3
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mWindowless:Z
 
     if-nez v3, :cond_6
 
-    .line 969
+    .line 966
     new-instance v3, Lcom/android/internal/policy/PhoneWindow;
 
     invoke-direct {v3, p0}, Lcom/android/internal/policy/PhoneWindow;-><init>(Landroid/content/Context;)V
 
     iput-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
-    .line 970
+    .line 967
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v3, p0}, Landroid/view/Window;->setCallback(Landroid/view/Window$Callback;)V
 
-    .line 971
+    .line 968
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v3, v5}, Landroid/view/Window;->requestFeature(I)Z
 
-    .line 972
+    .line 969
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     new-instance v6, Landroid/graphics/drawable/ColorDrawable;
@@ -484,14 +481,14 @@
 
     invoke-virtual {v3, v6}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 973
+    .line 970
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     const/4 v6, -0x1
 
     invoke-virtual {v3, v6}, Landroid/view/Window;->setFormat(I)V
 
-    .line 975
+    .line 972
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v3, :cond_4
@@ -504,7 +501,7 @@
 
     new-array v7, v7, [Ljava/lang/Object;
 
-    .line 976
+    .line 973
     aput-object p1, v7, v4
 
     invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -513,14 +510,14 @@
 
     aput-object v8, v7, v5
 
-    .line 975
+    .line 972
     invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
     invoke-static {v3, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 978
+    .line 975
     :cond_4
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
@@ -528,42 +525,42 @@
 
     move-result-object v2
 
-    .line 979
+    .line 976
     .local v2, "lp":Landroid/view/WindowManager$LayoutParams;
     iput v10, v2, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 980
+    .line 977
     iput-object p1, v2, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 981
-    const v3, 0x10302f8
+    .line 978
+    const v3, 0x10302f9
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 982
+    .line 979
     iget v6, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 987
+    .line 984
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mFullscreen:Z
 
     if-eqz v3, :cond_8
 
     const/16 v3, 0x400
 
-    .line 982
+    .line 979
     :goto_1
     const v7, 0x490101
 
     or-int/2addr v7, v3
 
-    .line 988
+    .line 985
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mScreenBright:Z
 
     if-eqz v3, :cond_9
 
     const/16 v3, 0x80
 
-    .line 982
+    .line 979
     :goto_2
     or-int/2addr v3, v7
 
@@ -571,37 +568,37 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 990
+    .line 987
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v3, v2}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 993
+    .line 990
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     const/high16 v6, -0x80000000
 
     invoke-virtual {v3, v6}, Landroid/view/Window;->clearFlags(I)V
 
-    .line 994
+    .line 991
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     const-string/jumbo v6, "dream"
 
     invoke-virtual {v3, v9, p1, v6, v5}, Landroid/view/Window;->setWindowManager(Landroid/view/WindowManager;Landroid/os/IBinder;Ljava/lang/String;Z)V
 
-    .line 997
+    .line 994
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mLowProfile:Z
 
     if-eqz v3, :cond_5
 
     move v4, v5
 
-    .line 996
+    .line 993
     :cond_5
     invoke-direct {p0, v4, v5}, Landroid/service/dreams/DreamService;->applySystemUiVisibilityFlags(II)V
 
-    .line 1001
+    .line 998
     :try_start_1
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->getWindowManager()Landroid/view/WindowManager;
 
@@ -623,21 +620,21 @@
     :try_end_1
     .catch Landroid/view/WindowManager$BadTokenException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 1016
+    .line 1013
     .end local v2    # "lp":Landroid/view/WindowManager$LayoutParams;
     :cond_6
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mHandler:Landroid/os/Handler;
 
     new-instance v4, Landroid/service/dreams/DreamService$1;
 
-    invoke-direct {v4, p0, p3}, Landroid/service/dreams/DreamService$1;-><init>(Landroid/service/dreams/DreamService;Landroid/os/IRemoteCallback;)V
+    invoke-direct {v4, p0}, Landroid/service/dreams/DreamService$1;-><init>(Landroid/service/dreams/DreamService;)V
 
     invoke-virtual {v3, v4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 948
+    .line 945
     return-void
 
-    .line 966
+    .line 963
     :cond_7
     new-instance v3, Ljava/lang/IllegalStateException;
 
@@ -651,20 +648,20 @@
     :cond_8
     move v3, v4
 
-    .line 987
+    .line 984
     goto :goto_1
 
     :cond_9
     move v3, v4
 
-    .line 988
+    .line 985
     goto :goto_2
 
-    .line 1002
+    .line 999
     :catch_0
     move-exception v1
 
-    .line 1006
+    .line 1003
     .local v1, "ex":Landroid/view/WindowManager$BadTokenException;
     iget-object v3, p0, Landroid/service/dreams/DreamService;->TAG:Ljava/lang/String;
 
@@ -672,13 +669,13 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1008
+    .line 1005
     iput-object v9, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
-    .line 1009
+    .line 1006
     return-void
 
-    .line 957
+    .line 954
     .end local v1    # "ex":Landroid/view/WindowManager$BadTokenException;
     .end local v2    # "lp":Landroid/view/WindowManager$LayoutParams;
     :catch_1
@@ -693,7 +690,7 @@
     .param p0, "value"    # I
 
     .prologue
-    .line 1100
+    .line 1089
     const/4 v0, 0x0
 
     const/16 v1, 0xff
@@ -713,12 +710,12 @@
 
     const/4 v4, 0x0
 
-    .line 918
+    .line 916
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mStarted:Z
 
     if-eqz v0, :cond_1
 
-    .line 919
+    .line 917
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -729,20 +726,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 920
+    .line 918
     :cond_0
     iput-boolean v5, p0, Landroid/service/dreams/DreamService;->mStarted:Z
 
-    .line 921
+    .line 919
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->onDreamingStopped()V
 
-    .line 924
+    .line 922
     :cond_1
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     if-eqz v0, :cond_3
 
-    .line 926
+    .line 924
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_2
@@ -753,7 +750,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 927
+    .line 925
     :cond_2
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
@@ -769,23 +766,23 @@
 
     invoke-interface {v0, v1}, Landroid/view/WindowManager;->removeViewImmediate(Landroid/view/View;)V
 
-    .line 928
+    .line 926
     iput-object v4, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
-    .line 931
+    .line 929
     :cond_3
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
     if-eqz v0, :cond_4
 
-    .line 933
+    .line 931
     invoke-static {}, Landroid/view/WindowManagerGlobal;->getInstance()Landroid/view/WindowManagerGlobal;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
-    .line 934
+    .line 932
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -796,16 +793,16 @@
 
     const-string/jumbo v3, "Dream"
 
-    .line 933
+    .line 931
     invoke-virtual {v0, v1, v2, v3}, Landroid/view/WindowManagerGlobal;->closeAll(Landroid/os/IBinder;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 935
+    .line 933
     iput-object v4, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
-    .line 936
+    .line 934
     iput-boolean v5, p0, Landroid/service/dreams/DreamService;->mCanDoze:Z
 
-    .line 917
+    .line 915
     :cond_4
     return-void
 .end method
@@ -818,15 +815,14 @@
     .prologue
     const/4 v1, 0x0
 
-    const/4 v0, 0x0
-
-    .line 1050
+    .line 1039
     iget-object v2, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     if-nez v2, :cond_0
 
-    .line 1051
-    .local v0, "v":Landroid/view/View;
+    const/4 v0, 0x0
+
+    .line 1040
     :goto_0
     if-nez v0, :cond_1
 
@@ -834,8 +830,7 @@
     :goto_1
     return p2
 
-    .line 1050
-    .end local v0    # "v":Landroid/view/View;
+    .line 1039
     .restart local p2    # "defaultValue":Z
     :cond_0
     iget-object v2, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
@@ -844,10 +839,11 @@
 
     move-result-object v0
 
+    .local v0, "v":Landroid/view/View;
     goto :goto_0
 
-    .line 1051
-    .restart local v0    # "v":Landroid/view/View;
+    .line 1040
+    .end local v0    # "v":Landroid/view/View;
     :cond_1
     invoke-virtual {v0}, Landroid/view/View;->getSystemUiVisibility()I
 
@@ -875,7 +871,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1037
+    .line 1026
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     if-nez v1, :cond_0
@@ -912,12 +908,12 @@
     .locals 5
 
     .prologue
-    .line 633
+    .line 631
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mDozing:Z
 
     if-eqz v1, :cond_0
 
-    .line 635
+    .line 633
     :try_start_0
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mSandman:Landroid/service/dreams/IDreamManager;
 
@@ -931,12 +927,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 632
+    .line 630
     :cond_0
     :goto_0
     return-void
 
-    .line 636
+    .line 634
     :catch_0
     move-exception v0
 
@@ -949,7 +945,7 @@
     .param p1, "fromSystem"    # Z
 
     .prologue
-    .line 871
+    .line 869
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v1, :cond_0
@@ -970,34 +966,34 @@
 
     move-result-object v2
 
-    .line 872
+    .line 870
     const-string/jumbo v3, ", mWaking="
 
-    .line 871
+    .line 869
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 872
+    .line 870
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mWaking:Z
 
-    .line 871
+    .line 869
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 872
+    .line 870
     const-string/jumbo v3, ", mFinished="
 
-    .line 871
+    .line 869
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 872
+    .line 870
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mFinished:Z
 
-    .line 871
+    .line 869
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -1008,7 +1004,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 874
+    .line 872
     :cond_0
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mWaking:Z
 
@@ -1018,33 +1014,33 @@
 
     if-eqz v1, :cond_2
 
-    .line 870
+    .line 868
     :cond_1
     :goto_0
     return-void
 
-    .line 875
+    .line 873
     :cond_2
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/service/dreams/DreamService;->mWaking:Z
 
-    .line 880
+    .line 878
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->onWakeUp()V
 
-    .line 884
+    .line 882
     if-nez p1, :cond_1
 
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mFinished:Z
 
     if-nez v1, :cond_1
 
-    .line 885
+    .line 883
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
     if-nez v1, :cond_3
 
-    .line 886
+    .line 884
     iget-object v1, p0, Landroid/service/dreams/DreamService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v2, "WakeUp was called before the dream was attached."
@@ -1053,7 +1049,7 @@
 
     goto :goto_0
 
-    .line 889
+    .line 887
     :cond_3
     :try_start_0
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mSandman:Landroid/service/dreams/IDreamManager;
@@ -1068,7 +1064,7 @@
 
     goto :goto_0
 
-    .line 890
+    .line 888
     :catch_0
     move-exception v0
 
@@ -1084,14 +1080,14 @@
     .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    .line 453
+    .line 451
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
     invoke-virtual {v0, p1, p2}, Landroid/view/Window;->addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 452
+    .line 450
     return-void
 .end method
 
@@ -1099,7 +1095,7 @@
     .locals 1
 
     .prologue
-    .line 593
+    .line 591
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mCanDoze:Z
 
     return v0
@@ -1110,12 +1106,12 @@
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
-    .line 262
+    .line 260
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mInteractive:Z
 
     if-nez v0, :cond_1
 
-    .line 263
+    .line 261
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -1126,16 +1122,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 264
+    .line 262
     :cond_0
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->wakeUp()V
 
-    .line 265
+    .line 263
     const/4 v0, 0x1
 
     return v0
 
-    .line 267
+    .line 265
     :cond_1
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
@@ -1153,12 +1149,12 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 212
+    .line 210
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mInteractive:Z
 
     if-nez v0, :cond_1
 
-    .line 213
+    .line 211
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -1169,14 +1165,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 214
+    .line 212
     :cond_0
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->wakeUp()V
 
-    .line 215
+    .line 213
     return v2
 
-    .line 216
+    .line 214
     :cond_1
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
@@ -1186,7 +1182,7 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 217
+    .line 215
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_2
@@ -1197,14 +1193,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 218
+    .line 216
     :cond_2
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->wakeUp()V
 
-    .line 219
+    .line 217
     return v2
 
-    .line 221
+    .line 219
     :cond_3
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
@@ -1220,12 +1216,12 @@
     .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
-    .line 227
+    .line 225
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mInteractive:Z
 
     if-nez v0, :cond_1
 
-    .line 228
+    .line 226
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -1236,16 +1232,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 229
+    .line 227
     :cond_0
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->wakeUp()V
 
-    .line 230
+    .line 228
     const/4 v0, 0x1
 
     return v0
 
-    .line 232
+    .line 230
     :cond_1
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
@@ -1261,7 +1257,7 @@
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
     .prologue
-    .line 273
+    .line 271
     const/4 v0, 0x0
 
     return v0
@@ -1272,12 +1268,12 @@
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
-    .line 240
+    .line 238
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mInteractive:Z
 
     if-nez v0, :cond_1
 
-    .line 241
+    .line 239
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -1288,16 +1284,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 242
+    .line 240
     :cond_0
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->wakeUp()V
 
-    .line 243
+    .line 241
     const/4 v0, 0x1
 
     return v0
 
-    .line 245
+    .line 243
     :cond_1
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
@@ -1313,12 +1309,12 @@
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
-    .line 251
+    .line 249
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mInteractive:Z
 
     if-nez v0, :cond_1
 
-    .line 252
+    .line 250
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -1329,16 +1325,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 253
+    .line 251
     :cond_0
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->wakeUp()V
 
-    .line 254
+    .line 252
     const/4 v0, 0x1
 
     return v0
 
-    .line 256
+    .line 254
     :cond_1
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
@@ -1356,24 +1352,24 @@
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 1067
+    .line 1056
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/service/dreams/DreamService$2;
 
     invoke-direct {v1, p0, p1, p3}, Landroid/service/dreams/DreamService$2;-><init>(Landroid/service/dreams/DreamService;Ljava/io/FileDescriptor;[Ljava/lang/String;)V
 
-    .line 1072
+    .line 1061
     const-string/jumbo v3, ""
 
     const-wide/16 v4, 0x3e8
 
     move-object v2, p2
 
-    .line 1067
+    .line 1056
     invoke-static/range {v0 .. v5}, Lcom/android/internal/util/DumpUtils;->dumpAsync(Landroid/os/Handler;Lcom/android/internal/util/DumpUtils$Dump;Ljava/io/PrintWriter;Ljava/lang/String;J)V
 
-    .line 1066
+    .line 1055
     return-void
 .end method
 
@@ -1384,7 +1380,7 @@
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 1077
+    .line 1066
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1407,17 +1403,17 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1078
+    .line 1067
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
     if-nez v0, :cond_7
 
-    .line 1079
+    .line 1068
     const-string/jumbo v0, "stopped"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1083
+    .line 1072
     :goto_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1441,12 +1437,12 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1084
+    .line 1073
     const-string/jumbo v0, "  flags:"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1085
+    .line 1074
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->isInteractive()Z
 
     move-result v0
@@ -1457,7 +1453,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1086
+    .line 1075
     :cond_0
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->isLowProfile()Z
 
@@ -1469,7 +1465,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1087
+    .line 1076
     :cond_1
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->isFullscreen()Z
 
@@ -1481,7 +1477,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1088
+    .line 1077
     :cond_2
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->isScreenBright()Z
 
@@ -1493,7 +1489,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1089
+    .line 1078
     :cond_3
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->isWindowless()Z
 
@@ -1505,7 +1501,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1090
+    .line 1079
     :cond_4
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->isDozing()Z
 
@@ -1517,19 +1513,19 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1092
+    .line 1081
     :cond_5
     :goto_1
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
-    .line 1093
+    .line 1082
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->canDoze()Z
 
     move-result v0
 
     if-eqz v0, :cond_6
 
-    .line 1094
+    .line 1083
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1556,7 +1552,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1095
+    .line 1084
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1579,11 +1575,11 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1076
+    .line 1065
     :cond_6
     return-void
 
-    .line 1081
+    .line 1070
     :cond_7
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1615,7 +1611,7 @@
 
     goto/16 :goto_0
 
-    .line 1091
+    .line 1080
     :cond_8
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->canDoze()Z
 
@@ -1635,7 +1631,7 @@
     .param p1, "id"    # I
 
     .prologue
-    .line 466
+    .line 464
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -1653,7 +1649,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 840
+    .line 838
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v1, :cond_0
@@ -1682,36 +1678,36 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 842
+    .line 840
     :cond_0
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mFinished:Z
 
     if-nez v1, :cond_1
 
-    .line 843
+    .line 841
     iput-boolean v4, p0, Landroid/service/dreams/DreamService;->mFinished:Z
 
-    .line 845
+    .line 843
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
     if-nez v1, :cond_2
 
-    .line 846
+    .line 844
     iget-object v1, p0, Landroid/service/dreams/DreamService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v2, "Finish was called before the dream was attached."
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 855
+    .line 853
     :goto_0
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->stopSelf()V
 
-    .line 839
+    .line 837
     :cond_1
     return-void
 
-    .line 849
+    .line 847
     :cond_2
     :try_start_0
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mSandman:Landroid/service/dreams/IDreamManager;
@@ -1726,7 +1722,7 @@
 
     goto :goto_0
 
-    .line 850
+    .line 848
     :catch_0
     move-exception v0
 
@@ -1738,7 +1734,7 @@
     .locals 1
 
     .prologue
-    .line 743
+    .line 741
     iget v0, p0, Landroid/service/dreams/DreamService;->mDozeScreenBrightness:I
 
     return v0
@@ -1748,7 +1744,7 @@
     .locals 1
 
     .prologue
-    .line 690
+    .line 688
     iget v0, p0, Landroid/service/dreams/DreamService;->mDozeScreenState:I
 
     return v0
@@ -1758,7 +1754,7 @@
     .locals 1
 
     .prologue
-    .line 390
+    .line 388
     iget-object v0, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     return-object v0
@@ -1770,7 +1766,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 380
+    .line 378
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     if-eqz v1, :cond_0
@@ -1789,7 +1785,7 @@
     .locals 1
 
     .prologue
-    .line 675
+    .line 673
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDozing:Z
 
     return v0
@@ -1799,7 +1795,7 @@
     .locals 1
 
     .prologue
-    .line 538
+    .line 536
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mFullscreen:Z
 
     return v0
@@ -1809,7 +1805,7 @@
     .locals 1
 
     .prologue
-    .line 488
+    .line 486
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mInteractive:Z
 
     return v0
@@ -1819,7 +1815,7 @@
     .locals 2
 
     .prologue
-    .line 514
+    .line 512
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mLowProfile:Z
 
     const/4 v1, 0x1
@@ -1835,7 +1831,7 @@
     .locals 2
 
     .prologue
-    .line 561
+    .line 559
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mScreenBright:Z
 
     const/16 v1, 0x80
@@ -1851,7 +1847,7 @@
     .locals 1
 
     .prologue
-    .line 579
+    .line 577
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mWindowless:Z
 
     return v0
@@ -1862,7 +1858,7 @@
     .param p1, "mode"    # Landroid/view/ActionMode;
 
     .prologue
-    .line 368
+    .line 366
     return-void
 .end method
 
@@ -1871,7 +1867,7 @@
     .param p1, "mode"    # Landroid/view/ActionMode;
 
     .prologue
-    .line 363
+    .line 361
     return-void
 .end method
 
@@ -1879,7 +1875,7 @@
     .locals 0
 
     .prologue
-    .line 323
+    .line 321
     return-void
 .end method
 
@@ -1888,7 +1884,7 @@
     .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 828
+    .line 826
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -1915,7 +1911,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 829
+    .line 827
     :cond_0
     new-instance v0, Landroid/service/dreams/DreamService$DreamServiceWrapper;
 
@@ -1930,7 +1926,7 @@
     .locals 0
 
     .prologue
-    .line 313
+    .line 311
     return-void
 .end method
 
@@ -1938,7 +1934,7 @@
     .locals 2
 
     .prologue
-    .line 788
+    .line 786
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -1949,11 +1945,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 789
+    .line 787
     :cond_0
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
-    .line 787
+    .line 785
     return-void
 .end method
 
@@ -1963,7 +1959,7 @@
     .param p2, "menu"    # Landroid/view/Menu;
 
     .prologue
-    .line 285
+    .line 283
     const/4 v0, 0x0
 
     return v0
@@ -1974,7 +1970,7 @@
     .param p1, "featureId"    # I
 
     .prologue
-    .line 279
+    .line 277
     const/4 v0, 0x0
 
     return-object v0
@@ -1984,7 +1980,7 @@
     .locals 2
 
     .prologue
-    .line 901
+    .line 899
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -1995,14 +1991,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 905
+    .line 903
     :cond_0
     invoke-direct {p0}, Landroid/service/dreams/DreamService;->detach()V
 
-    .line 907
+    .line 905
     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
 
-    .line 900
+    .line 898
     return-void
 .end method
 
@@ -2010,7 +2006,7 @@
     .locals 0
 
     .prologue
-    .line 328
+    .line 326
     return-void
 .end method
 
@@ -2018,7 +2014,7 @@
     .locals 2
 
     .prologue
-    .line 796
+    .line 794
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -2029,7 +2025,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 795
+    .line 793
     :cond_0
     return-void
 .end method
@@ -2038,7 +2034,7 @@
     .locals 2
 
     .prologue
-    .line 805
+    .line 803
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     if-eqz v0, :cond_0
@@ -2049,7 +2045,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 804
+    .line 802
     :cond_0
     return-void
 .end method
@@ -2060,7 +2056,7 @@
     .param p2, "item"    # Landroid/view/MenuItem;
 
     .prologue
-    .line 303
+    .line 301
     const/4 v0, 0x0
 
     return v0
@@ -2072,7 +2068,7 @@
     .param p2, "menu"    # Landroid/view/Menu;
 
     .prologue
-    .line 297
+    .line 295
     const/4 v0, 0x0
 
     return v0
@@ -2084,7 +2080,7 @@
     .param p2, "menu"    # Landroid/view/Menu;
 
     .prologue
-    .line 333
+    .line 331
     return-void
 .end method
 
@@ -2095,7 +2091,7 @@
     .param p3, "menu"    # Landroid/view/Menu;
 
     .prologue
-    .line 291
+    .line 289
     const/4 v0, 0x0
 
     return v0
@@ -2105,7 +2101,7 @@
     .locals 1
 
     .prologue
-    .line 345
+    .line 343
     const/4 v0, 0x0
 
     return v0
@@ -2116,7 +2112,7 @@
     .param p1, "event"    # Landroid/view/SearchEvent;
 
     .prologue
-    .line 339
+    .line 337
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->onSearchRequested()Z
 
     move-result v0
@@ -2128,10 +2124,10 @@
     .locals 0
 
     .prologue
-    .line 822
+    .line 820
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->finish()V
 
-    .line 821
+    .line 819
     return-void
 .end method
 
@@ -2140,7 +2136,7 @@
     .param p1, "attrs"    # Landroid/view/WindowManager$LayoutParams;
 
     .prologue
-    .line 308
+    .line 306
     return-void
 .end method
 
@@ -2149,7 +2145,7 @@
     .param p1, "hasFocus"    # Z
 
     .prologue
-    .line 318
+    .line 316
     return-void
 .end method
 
@@ -2158,7 +2154,7 @@
     .param p1, "callback"    # Landroid/view/ActionMode$Callback;
 
     .prologue
-    .line 351
+    .line 349
     const/4 v0, 0x0
 
     return-object v0
@@ -2170,7 +2166,7 @@
     .param p2, "type"    # I
 
     .prologue
-    .line 358
+    .line 356
     const/4 v0, 0x0
 
     return-object v0
@@ -2181,14 +2177,14 @@
     .param p1, "layoutResID"    # I
 
     .prologue
-    .line 405
+    .line 403
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/view/Window;->setContentView(I)V
 
-    .line 404
+    .line 402
     return-void
 .end method
 
@@ -2197,14 +2193,14 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 421
+    .line 419
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/view/Window;->setContentView(Landroid/view/View;)V
 
-    .line 420
+    .line 418
     return-void
 .end method
 
@@ -2214,14 +2210,14 @@
     .param p2, "params"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    .line 441
+    .line 439
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
     invoke-virtual {v0, p1, p2}, Landroid/view/Window;->setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 440
+    .line 438
     return-void
 .end method
 
@@ -2230,10 +2226,10 @@
     .param p1, "dbg"    # Z
 
     .prologue
-    .line 204
+    .line 202
     iput-boolean p1, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
-    .line 203
+    .line 201
     return-void
 .end method
 
@@ -2242,29 +2238,29 @@
     .param p1, "brightness"    # I
 
     .prologue
-    .line 774
+    .line 772
     const/4 v0, -0x1
 
     if-eq p1, v0, :cond_0
 
-    .line 775
+    .line 773
     invoke-static {p1}, Landroid/service/dreams/DreamService;->clampAbsoluteBrightness(I)I
 
     move-result p1
 
-    .line 777
+    .line 775
     :cond_0
     iget v0, p0, Landroid/service/dreams/DreamService;->mDozeScreenBrightness:I
 
     if-eq v0, p1, :cond_1
 
-    .line 778
+    .line 776
     iput p1, p0, Landroid/service/dreams/DreamService;->mDozeScreenBrightness:I
 
-    .line 779
+    .line 777
     invoke-direct {p0}, Landroid/service/dreams/DreamService;->updateDoze()V
 
-    .line 773
+    .line 771
     :cond_1
     return-void
 .end method
@@ -2274,18 +2270,18 @@
     .param p1, "state"    # I
 
     .prologue
-    .line 725
+    .line 723
     iget v0, p0, Landroid/service/dreams/DreamService;->mDozeScreenState:I
 
     if-eq v0, p1, :cond_0
 
-    .line 726
+    .line 724
     iput p1, p0, Landroid/service/dreams/DreamService;->mDozeScreenState:I
 
-    .line 727
+    .line 725
     invoke-direct {p0}, Landroid/service/dreams/DreamService;->updateDoze()V
 
-    .line 724
+    .line 722
     :cond_0
     return-void
 .end method
@@ -2295,36 +2291,36 @@
     .param p1, "fullscreen"    # Z
 
     .prologue
-    .line 525
+    .line 523
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mFullscreen:Z
 
     if-eq v1, p1, :cond_0
 
-    .line 526
+    .line 524
     iput-boolean p1, p0, Landroid/service/dreams/DreamService;->mFullscreen:Z
 
-    .line 527
+    .line 525
     const/16 v0, 0x400
 
-    .line 528
+    .line 526
     .local v0, "flag":I
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mFullscreen:Z
 
     if-eqz v1, :cond_1
 
-    .line 527
+    .line 525
     const/16 v1, 0x400
 
-    .line 528
+    .line 526
     :goto_0
     invoke-direct {p0, v1, v0}, Landroid/service/dreams/DreamService;->applyWindowFlags(II)V
 
-    .line 524
+    .line 522
     .end local v0    # "flag":I
     :cond_0
     return-void
 
-    .line 528
+    .line 526
     .restart local v0    # "flag":I
     :cond_1
     const/4 v1, 0x0
@@ -2337,10 +2333,10 @@
     .param p1, "interactive"    # Z
 
     .prologue
-    .line 479
+    .line 477
     iput-boolean p1, p0, Landroid/service/dreams/DreamService;->mInteractive:Z
 
-    .line 478
+    .line 476
     return-void
 .end method
 
@@ -2349,36 +2345,36 @@
     .param p1, "lowProfile"    # Z
 
     .prologue
-    .line 500
+    .line 498
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mLowProfile:Z
 
     if-eq v1, p1, :cond_0
 
-    .line 501
+    .line 499
     iput-boolean p1, p0, Landroid/service/dreams/DreamService;->mLowProfile:Z
 
-    .line 502
+    .line 500
     const/4 v0, 0x1
 
-    .line 503
+    .line 501
     .local v0, "flag":I
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mLowProfile:Z
 
     if-eqz v1, :cond_1
 
-    .line 502
+    .line 500
     const/4 v1, 0x1
 
-    .line 503
+    .line 501
     :goto_0
     invoke-direct {p0, v1, v0}, Landroid/service/dreams/DreamService;->applySystemUiVisibilityFlags(II)V
 
-    .line 499
+    .line 497
     .end local v0    # "flag":I
     :cond_0
     return-void
 
-    .line 503
+    .line 501
     .restart local v0    # "flag":I
     :cond_1
     const/4 v1, 0x0
@@ -2391,36 +2387,36 @@
     .param p1, "screenBright"    # Z
 
     .prologue
-    .line 547
+    .line 545
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mScreenBright:Z
 
     if-eq v1, p1, :cond_0
 
-    .line 548
+    .line 546
     iput-boolean p1, p0, Landroid/service/dreams/DreamService;->mScreenBright:Z
 
-    .line 549
+    .line 547
     const/16 v0, 0x80
 
-    .line 550
+    .line 548
     .local v0, "flag":I
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mScreenBright:Z
 
     if-eqz v1, :cond_1
 
-    .line 549
+    .line 547
     const/16 v1, 0x80
 
-    .line 550
+    .line 548
     :goto_0
     invoke-direct {p0, v1, v0}, Landroid/service/dreams/DreamService;->applyWindowFlags(II)V
 
-    .line 546
+    .line 544
     .end local v0    # "flag":I
     :cond_0
     return-void
 
-    .line 550
+    .line 548
     .restart local v0    # "flag":I
     :cond_1
     const/4 v1, 0x0
@@ -2433,10 +2429,10 @@
     .param p1, "windowless"    # Z
 
     .prologue
-    .line 570
+    .line 568
     iput-boolean p1, p0, Landroid/service/dreams/DreamService;->mWindowless:Z
 
-    .line 569
+    .line 567
     return-void
 .end method
 
@@ -2444,7 +2440,7 @@
     .locals 1
 
     .prologue
-    .line 626
+    .line 624
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mCanDoze:Z
 
     if-eqz v0, :cond_0
@@ -2453,18 +2449,18 @@
 
     if-eqz v0, :cond_1
 
-    .line 625
+    .line 623
     :cond_0
     :goto_0
     return-void
 
-    .line 627
+    .line 625
     :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/service/dreams/DreamService;->mDozing:Z
 
-    .line 628
+    .line 626
     invoke-direct {p0}, Landroid/service/dreams/DreamService;->updateDoze()V
 
     goto :goto_0
@@ -2474,17 +2470,17 @@
     .locals 3
 
     .prologue
-    .line 654
+    .line 652
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mDozing:Z
 
     if-eqz v1, :cond_0
 
-    .line 655
+    .line 653
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/service/dreams/DreamService;->mDozing:Z
 
-    .line 657
+    .line 655
     :try_start_0
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mSandman:Landroid/service/dreams/IDreamManager;
 
@@ -2494,12 +2490,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 653
+    .line 651
     :cond_0
     :goto_0
     return-void
 
-    .line 658
+    .line 656
     :catch_0
     move-exception v0
 
@@ -2511,11 +2507,11 @@
     .locals 1
 
     .prologue
-    .line 867
+    .line 865
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/service/dreams/DreamService;->wakeUp(Z)V
 
-    .line 866
+    .line 864
     return-void
 .end method

@@ -124,7 +124,7 @@
     :try_start_1
     iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     .line 104
     iget-object v3, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
@@ -150,7 +150,8 @@
 
     invoke-virtual {v3, v1}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->markMessagesAsRead(Ljava/util/ArrayList;)V
 
-    .line 113
+    .line 114
+    :cond_1
     :goto_3
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
@@ -165,7 +166,7 @@
     goto :goto_0
 
     .line 108
-    :cond_1
+    :cond_2
     :try_start_2
     const-string/jumbo v1, "SMS"
 
@@ -175,7 +176,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     .line 109
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
@@ -185,12 +186,23 @@
     invoke-virtual {v1, v3}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->log(Ljava/lang/String;)V
 
     .line 111
-    :cond_2
+    :cond_3
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
-    const/4 v3, 0x0
+    invoke-static {v1}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->-get0(Lcom/android/internal/telephony/IccSmsInterfaceManager;)Ljava/util/List;
 
-    invoke-static {v1, v3}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->-set0(Lcom/android/internal/telephony/IccSmsInterfaceManager;Ljava/util/List;)Ljava/util/List;
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    .line 112
+    iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
+
+    invoke-static {v1}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->-get0(Lcom/android/internal/telephony/IccSmsInterfaceManager;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->clear()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
@@ -204,14 +216,14 @@
 
     throw v1
 
-    .line 118
+    .line 119
     .end local v0    # "ar":Landroid/os/AsyncResult;
     :pswitch_2
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 119
+    .line 120
     .restart local v0    # "ar":Landroid/os/AsyncResult;
     iget-object v3, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
@@ -219,18 +231,18 @@
 
     monitor-enter v3
 
-    .line 120
+    .line 121
     :try_start_3
     iget-object v4, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     iget-object v5, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_4
 
     :goto_4
     iput-boolean v1, v4, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mSuccess:Z
 
-    .line 121
+    .line 122
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     iget-object v1, v1, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mLock:Ljava/lang/Object;
@@ -241,7 +253,7 @@
 
     goto :goto_2
 
-    .line 119
+    .line 120
     :catchall_2
     move-exception v1
 
@@ -249,15 +261,13 @@
 
     throw v1
 
-    :cond_3
+    :cond_4
     move v1, v2
 
-    .line 120
+    .line 121
     goto :goto_4
 
     .line 92
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1

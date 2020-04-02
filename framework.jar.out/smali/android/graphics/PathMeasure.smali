@@ -12,7 +12,7 @@
 # instance fields
 .field private mPath:Landroid/graphics/Path;
 
-.field private native_instance:J
+.field private final native_instance:J
 
 
 # direct methods
@@ -58,7 +58,7 @@
     .line 53
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroid/graphics/Path;->readOnlyNI()J
+    invoke-virtual {p1}, Landroid/graphics/Path;->ni()J
 
     move-result-wide v0
 
@@ -117,17 +117,12 @@
     .end annotation
 
     .prologue
-    .line 156
+    .line 144
     iget-wide v0, p0, Landroid/graphics/PathMeasure;->native_instance:J
 
     invoke-static {v0, v1}, Landroid/graphics/PathMeasure;->native_destroy(J)V
 
-    .line 157
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Landroid/graphics/PathMeasure;->native_instance:J
-
-    .line 155
+    .line 143
     return-void
 .end method
 
@@ -212,54 +207,22 @@
 .end method
 
 .method public getSegment(FFLandroid/graphics/Path;Z)Z
-    .locals 8
+    .locals 7
     .param p1, "startD"    # F
     .param p2, "stopD"    # F
     .param p3, "dst"    # Landroid/graphics/Path;
     .param p4, "startWithMoveTo"    # Z
 
     .prologue
-    .line 126
-    invoke-virtual {p0}, Landroid/graphics/PathMeasure;->getLength()F
-
-    move-result v7
-
-    .line 127
-    .local v7, "length":F
+    .line 124
     const/4 v0, 0x0
 
-    cmpg-float v0, p1, v0
+    iput-boolean v0, p3, Landroid/graphics/Path;->isSimplePath:Z
 
-    if-gez v0, :cond_0
-
-    .line 128
-    const/4 p1, 0x0
-
-    .line 130
-    :cond_0
-    cmpl-float v0, p2, v7
-
-    if-lez v0, :cond_1
-
-    .line 131
-    move p2, v7
-
-    .line 133
-    :cond_1
-    cmpl-float v0, p1, p2
-
-    if-ltz v0, :cond_2
-
-    .line 134
-    const/4 v0, 0x0
-
-    return v0
-
-    .line 137
-    :cond_2
+    .line 125
     iget-wide v0, p0, Landroid/graphics/PathMeasure;->native_instance:J
 
-    invoke-virtual {p3}, Landroid/graphics/Path;->mutateNI()J
+    invoke-virtual {p3}, Landroid/graphics/Path;->ni()J
 
     move-result-wide v4
 
@@ -280,7 +243,7 @@
     .locals 2
 
     .prologue
-    .line 144
+    .line 132
     iget-wide v0, p0, Landroid/graphics/PathMeasure;->native_instance:J
 
     invoke-static {v0, v1}, Landroid/graphics/PathMeasure;->native_isClosed(J)Z
@@ -294,7 +257,7 @@
     .locals 2
 
     .prologue
-    .line 152
+    .line 140
     iget-wide v0, p0, Landroid/graphics/PathMeasure;->native_instance:J
 
     invoke-static {v0, v1}, Landroid/graphics/PathMeasure;->native_nextContour(J)Z
@@ -319,7 +282,7 @@
     .line 63
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroid/graphics/Path;->readOnlyNI()J
+    invoke-virtual {p1}, Landroid/graphics/Path;->ni()J
 
     move-result-wide v0
 

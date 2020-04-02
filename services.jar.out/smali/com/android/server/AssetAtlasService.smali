@@ -6,10 +6,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/AssetAtlasService$ComputeWorker;,
-        Lcom/android/server/AssetAtlasService$Configuration;,
         Lcom/android/server/AssetAtlasService$Renderer;,
-        Lcom/android/server/AssetAtlasService$WorkerResult;
+        Lcom/android/server/AssetAtlasService$Configuration;,
+        Lcom/android/server/AssetAtlasService$WorkerResult;,
+        Lcom/android/server/AssetAtlasService$ComputeWorker;
     }
 .end annotation
 
@@ -29,7 +29,7 @@
 
 .field private static final MAX_SIZE:I = 0x800
 
-.field private static final MIN_SIZE:I = 0x200
+.field private static final MIN_SIZE:I = 0x300
 
 .field private static final PACKING_THRESHOLD:F = 0.8f
 
@@ -273,18 +273,18 @@
     .end annotation
 
     .prologue
-    .line 540
+    .line 544
     invoke-direct {p0, p2}, Lcom/android/server/AssetAtlasService;->getBuildIdentifier(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 541
+    .line 545
     .local v1, "deviceBuildId":Ljava/lang/String;
     invoke-virtual {p1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 542
+    .line 546
     .local v0, "buildId":Ljava/lang/String;
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -311,17 +311,17 @@
     .end annotation
 
     .prologue
-    .line 442
+    .line 446
     .local p1, "bitmaps":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/graphics/Bitmap;>;"
     const/4 v0, 0x0
 
-    .line 444
+    .line 448
     .local v0, "config":Lcom/android/server/AssetAtlasService$Configuration;
     invoke-static {}, Lcom/android/server/AssetAtlasService;->getDataFile()Ljava/io/File;
 
     move-result-object v1
 
-    .line 445
+    .line 449
     .local v1, "dataFile":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -329,28 +329,28 @@
 
     if-eqz v2, :cond_0
 
-    .line 446
+    .line 450
     invoke-direct {p0, v1, p3}, Lcom/android/server/AssetAtlasService;->readConfiguration(Ljava/io/File;Ljava/lang/String;)Lcom/android/server/AssetAtlasService$Configuration;
 
     move-result-object v0
 
-    .line 449
+    .line 453
     .end local v0    # "config":Lcom/android/server/AssetAtlasService$Configuration;
     :cond_0
     if-nez v0, :cond_1
 
-    .line 450
+    .line 454
     invoke-static {p1, p2}, Lcom/android/server/AssetAtlasService;->computeBestConfiguration(Ljava/util/ArrayList;I)Lcom/android/server/AssetAtlasService$Configuration;
 
     move-result-object v0
 
-    .line 451
+    .line 455
     .local v0, "config":Lcom/android/server/AssetAtlasService$Configuration;
     if-eqz v0, :cond_1
 
     invoke-direct {p0, v0, v1, p3}, Lcom/android/server/AssetAtlasService;->writeConfiguration(Lcom/android/server/AssetAtlasService$Configuration;Ljava/io/File;Ljava/lang/String;)V
 
-    .line 454
+    .line 458
     .end local v0    # "config":Lcom/android/server/AssetAtlasService$Configuration;
     :cond_1
     return-object v0
@@ -371,7 +371,7 @@
     .end annotation
 
     .prologue
-    .line 357
+    .line 356
     .local p0, "bitmaps":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/graphics/Bitmap;>;"
     const-string/jumbo v8, "AssetAtlas"
 
@@ -379,12 +379,12 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 359
+    .line 358
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v12
 
-    .line 360
+    .line 359
     .local v12, "begin":J
     new-instance v8, Ljava/util/ArrayList;
 
@@ -394,7 +394,7 @@
 
     move-result-object v10
 
-    .line 363
+    .line 362
     .local v10, "results":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/AssetAtlasService$WorkerResult;>;"
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
@@ -404,16 +404,16 @@
 
     move-result v14
 
-    .line 364
+    .line 363
     .local v14, "cpuCount":I
     const/4 v8, 0x1
 
     if-ne v14, v8, :cond_1
 
-    .line 365
+    .line 364
     new-instance v4, Lcom/android/server/AssetAtlasService$ComputeWorker;
 
-    const/16 v5, 0x200
+    const/16 v5, 0x300
 
     const/16 v6, 0x800
 
@@ -429,15 +429,173 @@
 
     invoke-virtual {v4}, Lcom/android/server/AssetAtlasService$ComputeWorker;->run()V
 
-    .line 396
+    .line 394
     :cond_0
+    invoke-interface {v10}, Ljava/util/List;->size()I
+
+    move-result v8
+
+    if-nez v8, :cond_3
+
+    .line 395
+    const-string/jumbo v8, "AssetAtlas"
+
+    const-string/jumbo v9, "No atlas configuration found!"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 396
+    const/4 v8, 0x0
+
+    return-object v8
+
+    .line 366
+    :cond_1
+    add-int/lit8 v8, v14, -0x1
+
+    mul-int/lit8 v8, v8, 0x40
+
+    add-int/lit16 v5, v8, 0x300
+
+    .line 367
+    .local v5, "start":I
+    const/16 v6, 0x800
+
+    .line 368
+    .local v6, "end":I
+    mul-int/lit8 v7, v14, 0x40
+
+    .line 370
+    .local v7, "step":I
+    new-instance v11, Ljava/util/concurrent/CountDownLatch;
+
+    invoke-direct {v11, v14}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+
+    .line 372
+    .local v11, "signal":Ljava/util/concurrent/CountDownLatch;
+    const/16 v17, 0x0
+
+    .local v17, "i":I
+    :goto_0
+    move/from16 v0, v17
+
+    if-ge v0, v14, :cond_2
+
+    .line 373
+    new-instance v4, Lcom/android/server/AssetAtlasService$ComputeWorker;
+
+    move-object/from16 v8, p0
+
+    move/from16 v9, p1
+
+    invoke-direct/range {v4 .. v11}, Lcom/android/server/AssetAtlasService$ComputeWorker;-><init>(IIILjava/util/List;ILjava/util/List;Ljava/util/concurrent/CountDownLatch;)V
+
+    .line 375
+    .local v4, "worker":Lcom/android/server/AssetAtlasService$ComputeWorker;
+    new-instance v8, Ljava/lang/Thread;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "Atlas Worker #"
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    add-int/lit8 v20, v17, 0x1
+
+    move/from16 v0, v20
+
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {v8, v4, v9}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
+
+    invoke-virtual {v8}, Ljava/lang/Thread;->start()V
+
+    .line 372
+    add-int/lit8 v17, v17, 0x1
+
+    add-int/lit8 v5, v5, -0x40
+
+    add-int/lit8 v6, v6, -0x40
+
+    goto :goto_0
+
+    .line 380
+    .end local v4    # "worker":Lcom/android/server/AssetAtlasService$ComputeWorker;
+    :cond_2
+    const-wide/16 v8, 0xa
+
+    :try_start_0
+    sget-object v20, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v11, v8, v9, v0}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v18
+
+    .line 386
+    .local v18, "isAllWorkerFinished":Z
+    if-nez v18, :cond_0
+
+    .line 389
+    const-string/jumbo v8, "AssetAtlas"
+
+    const-string/jumbo v9, "Could not complete configuration computation before timeout."
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 390
+    const/4 v8, 0x0
+
+    return-object v8
+
+    .line 381
+    .end local v18    # "isAllWorkerFinished":Z
+    :catch_0
+    move-exception v16
+
+    .line 382
+    .local v16, "e":Ljava/lang/InterruptedException;
+    const-string/jumbo v8, "AssetAtlas"
+
+    const-string/jumbo v9, "Could not complete configuration computation"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 383
+    const/4 v8, 0x0
+
+    return-object v8
+
+    .line 400
+    .end local v5    # "start":I
+    .end local v6    # "end":I
+    .end local v7    # "step":I
+    .end local v11    # "signal":Ljava/util/concurrent/CountDownLatch;
+    .end local v16    # "e":Ljava/lang/InterruptedException;
+    .end local v17    # "i":I
+    :cond_3
     new-instance v8, Lcom/android/server/AssetAtlasService$2;
 
     invoke-direct {v8}, Lcom/android/server/AssetAtlasService$2;-><init>()V
 
     invoke-static {v10, v8}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 406
+    .line 410
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v8
@@ -458,7 +616,7 @@
 
     div-float v15, v8, v9
 
-    .line 407
+    .line 411
     .local v15, "delay":F
     const-string/jumbo v8, "AssetAtlas"
 
@@ -472,7 +630,7 @@
 
     move-object/from16 v20, v0
 
-    .line 408
+    .line 412
     invoke-interface {v10}, Ljava/util/List;->size()I
 
     move-result v21
@@ -493,7 +651,7 @@
 
     aput-object v21, v20, v22
 
-    .line 407
+    .line 411
     move-object/from16 v0, v20
 
     invoke-static {v9, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
@@ -502,7 +660,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 411
+    .line 415
     const/4 v8, 0x0
 
     invoke-interface {v10, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -511,7 +669,7 @@
 
     check-cast v19, Lcom/android/server/AssetAtlasService$WorkerResult;
 
-    .line 412
+    .line 416
     .local v19, "result":Lcom/android/server/AssetAtlasService$WorkerResult;
     new-instance v8, Lcom/android/server/AssetAtlasService$Configuration;
 
@@ -546,154 +704,20 @@
     invoke-direct {v8, v9, v0, v1, v2}, Lcom/android/server/AssetAtlasService$Configuration;-><init>(Landroid/graphics/Atlas$Type;III)V
 
     return-object v8
-
-    .line 367
-    .end local v15    # "delay":F
-    .end local v19    # "result":Lcom/android/server/AssetAtlasService$WorkerResult;
-    :cond_1
-    add-int/lit8 v8, v14, -0x1
-
-    mul-int/lit8 v8, v8, 0x40
-
-    add-int/lit16 v5, v8, 0x200
-
-    .line 368
-    .local v5, "start":I
-    const/16 v6, 0x800
-
-    .line 369
-    .local v6, "end":I
-    mul-int/lit8 v7, v14, 0x40
-
-    .line 371
-    .local v7, "step":I
-    new-instance v11, Ljava/util/concurrent/CountDownLatch;
-
-    invoke-direct {v11, v14}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
-
-    .line 373
-    .local v11, "signal":Ljava/util/concurrent/CountDownLatch;
-    const/16 v17, 0x0
-
-    .local v17, "i":I
-    :goto_0
-    move/from16 v0, v17
-
-    if-ge v0, v14, :cond_2
-
-    .line 374
-    new-instance v4, Lcom/android/server/AssetAtlasService$ComputeWorker;
-
-    move-object/from16 v8, p0
-
-    move/from16 v9, p1
-
-    invoke-direct/range {v4 .. v11}, Lcom/android/server/AssetAtlasService$ComputeWorker;-><init>(IIILjava/util/List;ILjava/util/List;Ljava/util/concurrent/CountDownLatch;)V
-
-    .line 376
-    .local v4, "worker":Lcom/android/server/AssetAtlasService$ComputeWorker;
-    new-instance v8, Ljava/lang/Thread;
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v20, "Atlas Worker #"
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    add-int/lit8 v20, v17, 0x1
-
-    move/from16 v0, v20
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-direct {v8, v4, v9}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
-
-    invoke-virtual {v8}, Ljava/lang/Thread;->start()V
-
-    .line 373
-    add-int/lit8 v17, v17, 0x1
-
-    add-int/lit8 v5, v5, -0x40
-
-    add-int/lit8 v6, v6, -0x40
-
-    goto :goto_0
-
-    .line 381
-    .end local v4    # "worker":Lcom/android/server/AssetAtlasService$ComputeWorker;
-    :cond_2
-    const-wide/16 v8, 0xa
-
-    :try_start_0
-    sget-object v20, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v11, v8, v9, v0}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v18
-
-    .line 387
-    .local v18, "isAllWorkerFinished":Z
-    if-nez v18, :cond_0
-
-    .line 390
-    const-string/jumbo v8, "AssetAtlas"
-
-    const-string/jumbo v9, "Could not complete configuration computation before timeout."
-
-    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 391
-    const/4 v8, 0x0
-
-    return-object v8
-
-    .line 382
-    .end local v18    # "isAllWorkerFinished":Z
-    :catch_0
-    move-exception v16
-
-    .line 383
-    .local v16, "e":Ljava/lang/InterruptedException;
-    const-string/jumbo v8, "AssetAtlas"
-
-    const-string/jumbo v9, "Could not complete configuration computation"
-
-    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 384
-    const/4 v8, 0x0
-
-    return-object v8
 .end method
 
 .method private static deleteDataFile()V
     .locals 2
 
     .prologue
-    .line 425
+    .line 429
     const-string/jumbo v0, "AssetAtlas"
 
     const-string/jumbo v1, "Current configuration inconsistent with assets list"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 426
+    .line 430
     invoke-static {}, Lcom/android/server/AssetAtlasService;->getDataFile()Ljava/io/File;
 
     move-result-object v0
@@ -704,14 +728,14 @@
 
     if-nez v0, :cond_0
 
-    .line 427
+    .line 431
     const-string/jumbo v0, "AssetAtlas"
 
     const-string/jumbo v1, "Could not delete the current configuration"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 424
+    .line 428
     :cond_0
     return-void
 .end method
@@ -723,7 +747,7 @@
     .prologue
     const/16 v3, 0x2f
 
-    .line 564
+    .line 568
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -752,7 +776,7 @@
 
     move-result-object v0
 
-    .line 565
+    .line 569
     invoke-direct {p0}, Lcom/android/server/AssetAtlasService;->getFrameworkResourcesFile()Ljava/io/File;
 
     move-result-object v1
@@ -765,7 +789,7 @@
 
     move-result-object v1
 
-    .line 564
+    .line 568
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -781,7 +805,7 @@
     .locals 3
 
     .prologue
-    .line 420
+    .line 424
     new-instance v0, Ljava/io/File;
 
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
@@ -792,7 +816,7 @@
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 421
+    .line 425
     .local v0, "systemDirectory":Ljava/io/File;
     new-instance v1, Ljava/io/File;
 
@@ -807,7 +831,7 @@
     .locals 2
 
     .prologue
-    .line 432
+    .line 436
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/android/server/AssetAtlasService;->mContext:Landroid/content/Context;
@@ -843,15 +867,13 @@
 
     move-result-object v3
 
-    .line 180
-    const/high16 v4, 0x10000000
+    const/4 v4, 0x0
 
-    .line 179
     invoke-virtual {v3, v2, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
     move-result-object v1
 
-    .line 181
+    .line 180
     .local v1, "info":Landroid/content/pm/PackageInfo;
     iget-object v3, v1, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
     :try_end_0
@@ -859,13 +881,13 @@
 
     return-object v3
 
-    .line 182
+    .line 181
     .end local v1    # "info":Landroid/content/pm/PackageInfo;
     .end local v2    # "packageName":Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .line 183
+    .line 182
     .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string/jumbo v3, "AssetAtlas"
 
@@ -873,7 +895,7 @@
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 185
+    .line 184
     const/4 v3, 0x0
 
     return-object v3
@@ -885,14 +907,14 @@
     .param p2, "versionName"    # Ljava/lang/String;
 
     .prologue
-    .line 496
+    .line 500
     const/4 v12, 0x0
 
-    .line 497
+    .line 501
     .local v12, "reader":Ljava/io/BufferedReader;
     const/4 v8, 0x0
 
-    .line 499
+    .line 503
     .local v8, "config":Lcom/android/server/AssetAtlasService$Configuration;
     :try_start_0
     new-instance v13, Ljava/io/BufferedReader;
@@ -914,7 +936,7 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 501
+    .line 505
     .end local v12    # "reader":Ljava/io/BufferedReader;
     .local v13, "reader":Ljava/io/BufferedReader;
     :try_start_1
@@ -928,7 +950,7 @@
 
     if-eqz v14, :cond_3
 
-    .line 502
+    .line 506
     invoke-virtual {v13}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v14
@@ -937,9 +959,9 @@
 
     move-result-object v3
 
-    .line 503
+    .line 507
     .local v3, "type":Landroid/graphics/Atlas$Type;
-    const/16 v14, 0x200
+    const/16 v14, 0x300
 
     const/16 v15, 0x800
 
@@ -947,9 +969,9 @@
 
     move-result v4
 
-    .line 504
+    .line 508
     .local v4, "width":I
-    const/16 v14, 0x200
+    const/16 v14, 0x300
 
     const/16 v15, 0x800
 
@@ -957,7 +979,7 @@
 
     move-result v5
 
-    .line 505
+    .line 509
     .local v5, "height":I
     const/4 v14, 0x0
 
@@ -967,7 +989,7 @@
 
     move-result v6
 
-    .line 506
+    .line 510
     .local v6, "count":I
     const/high16 v14, -0x80000000
 
@@ -977,7 +999,7 @@
 
     move-result v7
 
-    .line 508
+    .line 512
     .local v7, "flags":I
     new-instance v2, Lcom/android/server/AssetAtlasService$Configuration;
 
@@ -988,7 +1010,7 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_a
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 517
+    .line 521
     .end local v3    # "type":Landroid/graphics/Atlas$Type;
     .end local v4    # "width":I
     .end local v5    # "height":I
@@ -999,7 +1021,7 @@
     :goto_0
     if-eqz v13, :cond_0
 
-    .line 519
+    .line 523
     :try_start_2
     invoke-virtual {v13}, Ljava/io/BufferedReader;->close()V
     :try_end_2
@@ -1009,12 +1031,12 @@
     :goto_1
     move-object v12, v13
 
-    .line 525
+    .line 529
     .end local v13    # "reader":Ljava/io/BufferedReader;
     :goto_2
     return-object v2
 
-    .line 520
+    .line 524
     .restart local v13    # "reader":Ljava/io/BufferedReader;
     :catch_0
     move-exception v10
@@ -1022,7 +1044,7 @@
     .local v10, "e":Ljava/io/IOException;
     goto :goto_1
 
-    .line 514
+    .line 518
     .end local v2    # "config":Lcom/android/server/AssetAtlasService$Configuration;
     .end local v10    # "e":Ljava/io/IOException;
     .end local v13    # "reader":Ljava/io/BufferedReader;
@@ -1031,7 +1053,7 @@
     :catch_1
     move-exception v10
 
-    .line 515
+    .line 519
     .end local v12    # "reader":Ljava/io/BufferedReader;
     .restart local v10    # "e":Ljava/io/IOException;
     :goto_3
@@ -1062,10 +1084,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 517
+    .line 521
     if-eqz v12, :cond_1
 
-    .line 519
+    .line 523
     :try_start_4
     invoke-virtual {v12}, Ljava/io/BufferedReader;->close()V
     :try_end_4
@@ -1079,7 +1101,7 @@
     .restart local v2    # "config":Lcom/android/server/AssetAtlasService$Configuration;
     goto :goto_2
 
-    .line 520
+    .line 524
     .end local v2    # "config":Lcom/android/server/AssetAtlasService$Configuration;
     .restart local v10    # "e":Ljava/io/IOException;
     :catch_2
@@ -1087,13 +1109,13 @@
 
     goto :goto_4
 
-    .line 512
+    .line 516
     .end local v10    # "e":Ljava/io/IOException;
     .restart local v12    # "reader":Ljava/io/BufferedReader;
     :catch_3
     move-exception v9
 
-    .line 513
+    .line 517
     .end local v12    # "reader":Ljava/io/BufferedReader;
     .local v9, "e":Ljava/io/FileNotFoundException;
     :goto_5
@@ -1124,10 +1146,10 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 517
+    .line 521
     if-eqz v12, :cond_1
 
-    .line 519
+    .line 523
     :try_start_6
     invoke-virtual {v12}, Ljava/io/BufferedReader;->close()V
     :try_end_6
@@ -1135,21 +1157,21 @@
 
     goto :goto_4
 
-    .line 520
+    .line 524
     :catch_4
     move-exception v10
 
     .restart local v10    # "e":Ljava/io/IOException;
     goto :goto_4
 
-    .line 510
+    .line 514
     .end local v9    # "e":Ljava/io/FileNotFoundException;
     .end local v10    # "e":Ljava/io/IOException;
     .restart local v12    # "reader":Ljava/io/BufferedReader;
     :catch_5
     move-exception v11
 
-    .line 511
+    .line 515
     .end local v12    # "reader":Ljava/io/BufferedReader;
     .local v11, "e":Ljava/lang/IllegalArgumentException;
     :goto_6
@@ -1180,10 +1202,10 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    .line 517
+    .line 521
     if-eqz v12, :cond_1
 
-    .line 519
+    .line 523
     :try_start_8
     invoke-virtual {v12}, Ljava/io/BufferedReader;->close()V
     :try_end_8
@@ -1191,42 +1213,42 @@
 
     goto :goto_4
 
-    .line 520
+    .line 524
     :catch_6
     move-exception v10
 
     .restart local v10    # "e":Ljava/io/IOException;
     goto :goto_4
 
-    .line 516
+    .line 520
     .end local v10    # "e":Ljava/io/IOException;
     .end local v11    # "e":Ljava/lang/IllegalArgumentException;
     :catchall_0
     move-exception v14
 
-    .line 517
+    .line 521
     :goto_7
     if-eqz v12, :cond_2
 
-    .line 519
+    .line 523
     :try_start_9
     invoke-virtual {v12}, Ljava/io/BufferedReader;->close()V
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_7
 
-    .line 516
+    .line 520
     :cond_2
     :goto_8
     throw v14
 
-    .line 520
+    .line 524
     :catch_7
     move-exception v10
 
     .restart local v10    # "e":Ljava/io/IOException;
     goto :goto_8
 
-    .line 516
+    .line 520
     .end local v10    # "e":Ljava/io/IOException;
     .restart local v13    # "reader":Ljava/io/BufferedReader;
     :catchall_1
@@ -1238,7 +1260,7 @@
     .local v12, "reader":Ljava/io/BufferedReader;
     goto :goto_7
 
-    .line 510
+    .line 514
     .end local v12    # "reader":Ljava/io/BufferedReader;
     .restart local v13    # "reader":Ljava/io/BufferedReader;
     :catch_8
@@ -1251,7 +1273,7 @@
     .restart local v12    # "reader":Ljava/io/BufferedReader;
     goto :goto_6
 
-    .line 512
+    .line 516
     .end local v11    # "e":Ljava/lang/IllegalArgumentException;
     .end local v12    # "reader":Ljava/io/BufferedReader;
     .restart local v13    # "reader":Ljava/io/BufferedReader;
@@ -1265,7 +1287,7 @@
     .restart local v12    # "reader":Ljava/io/BufferedReader;
     goto :goto_5
 
-    .line 514
+    .line 518
     .end local v9    # "e":Ljava/io/FileNotFoundException;
     .end local v12    # "reader":Ljava/io/BufferedReader;
     .restart local v13    # "reader":Ljava/io/BufferedReader;
@@ -1301,7 +1323,7 @@
     .end annotation
 
     .prologue
-    .line 529
+    .line 533
     invoke-virtual {p0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v0
@@ -1328,10 +1350,10 @@
     .param p3, "versionName"    # Ljava/lang/String;
 
     .prologue
-    .line 461
+    .line 465
     const/4 v2, 0x0
 
-    .line 463
+    .line 467
     .local v2, "writer":Ljava/io/BufferedWriter;
     :try_start_0
     new-instance v3, Ljava/io/BufferedWriter;
@@ -1350,7 +1372,7 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 464
+    .line 468
     .end local v2    # "writer":Ljava/io/BufferedWriter;
     .local v3, "writer":Ljava/io/BufferedWriter;
     :try_start_1
@@ -1360,37 +1382,13 @@
 
     invoke-virtual {v3, v4}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
 
-    .line 465
-    invoke-virtual {v3}, Ljava/io/BufferedWriter;->newLine()V
-
-    .line 466
-    iget-object v4, p1, Lcom/android/server/AssetAtlasService$Configuration;->type:Landroid/graphics/Atlas$Type;
-
-    invoke-virtual {v4}, Landroid/graphics/Atlas$Type;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
-
-    .line 467
-    invoke-virtual {v3}, Ljava/io/BufferedWriter;->newLine()V
-
-    .line 468
-    iget v4, p1, Lcom/android/server/AssetAtlasService$Configuration;->width:I
-
-    invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
-
     .line 469
     invoke-virtual {v3}, Ljava/io/BufferedWriter;->newLine()V
 
     .line 470
-    iget v4, p1, Lcom/android/server/AssetAtlasService$Configuration;->height:I
+    iget-object v4, p1, Lcom/android/server/AssetAtlasService$Configuration;->type:Landroid/graphics/Atlas$Type;
 
-    invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/graphics/Atlas$Type;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1400,7 +1398,7 @@
     invoke-virtual {v3}, Ljava/io/BufferedWriter;->newLine()V
 
     .line 472
-    iget v4, p1, Lcom/android/server/AssetAtlasService$Configuration;->count:I
+    iget v4, p1, Lcom/android/server/AssetAtlasService$Configuration;->width:I
 
     invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -1412,7 +1410,7 @@
     invoke-virtual {v3}, Ljava/io/BufferedWriter;->newLine()V
 
     .line 474
-    iget v4, p1, Lcom/android/server/AssetAtlasService$Configuration;->flags:I
+    iget v4, p1, Lcom/android/server/AssetAtlasService$Configuration;->height:I
 
     invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -1422,15 +1420,39 @@
 
     .line 475
     invoke-virtual {v3}, Ljava/io/BufferedWriter;->newLine()V
+
+    .line 476
+    iget v4, p1, Lcom/android/server/AssetAtlasService$Configuration;->count:I
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+
+    .line 477
+    invoke-virtual {v3}, Ljava/io/BufferedWriter;->newLine()V
+
+    .line 478
+    iget v4, p1, Lcom/android/server/AssetAtlasService$Configuration;->flags:I
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+
+    .line 479
+    invoke-virtual {v3}, Ljava/io/BufferedWriter;->newLine()V
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_6
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_7
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 481
+    .line 485
     if-eqz v3, :cond_0
 
-    .line 483
+    .line 487
     :try_start_2
     invoke-virtual {v3}, Ljava/io/BufferedWriter;->close()V
     :try_end_2
@@ -1440,13 +1462,13 @@
     :goto_0
     move-object v2, v3
 
-    .line 460
+    .line 464
     .end local v3    # "writer":Ljava/io/BufferedWriter;
     :cond_1
     :goto_1
     return-void
 
-    .line 484
+    .line 488
     .restart local v3    # "writer":Ljava/io/BufferedWriter;
     :catch_0
     move-exception v1
@@ -1454,14 +1476,14 @@
     .local v1, "e":Ljava/io/IOException;
     goto :goto_0
 
-    .line 478
+    .line 482
     .end local v1    # "e":Ljava/io/IOException;
     .end local v3    # "writer":Ljava/io/BufferedWriter;
     .restart local v2    # "writer":Ljava/io/BufferedWriter;
     :catch_1
     move-exception v1
 
-    .line 479
+    .line 483
     .end local v2    # "writer":Ljava/io/BufferedWriter;
     .restart local v1    # "e":Ljava/io/IOException;
     :goto_2
@@ -1490,10 +1512,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 481
+    .line 485
     if-eqz v2, :cond_1
 
-    .line 483
+    .line 487
     :try_start_4
     invoke-virtual {v2}, Ljava/io/BufferedWriter;->close()V
     :try_end_4
@@ -1501,19 +1523,19 @@
 
     goto :goto_1
 
-    .line 484
+    .line 488
     :catch_2
     move-exception v1
 
     goto :goto_1
 
-    .line 476
+    .line 480
     .end local v1    # "e":Ljava/io/IOException;
     .restart local v2    # "writer":Ljava/io/BufferedWriter;
     :catch_3
     move-exception v0
 
-    .line 477
+    .line 481
     .end local v2    # "writer":Ljava/io/BufferedWriter;
     .local v0, "e":Ljava/io/FileNotFoundException;
     :goto_3
@@ -1542,10 +1564,10 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 481
+    .line 485
     if-eqz v2, :cond_1
 
-    .line 483
+    .line 487
     :try_start_6
     invoke-virtual {v2}, Ljava/io/BufferedWriter;->close()V
     :try_end_6
@@ -1553,42 +1575,42 @@
 
     goto :goto_1
 
-    .line 484
+    .line 488
     :catch_4
     move-exception v1
 
     .restart local v1    # "e":Ljava/io/IOException;
     goto :goto_1
 
-    .line 480
+    .line 484
     .end local v0    # "e":Ljava/io/FileNotFoundException;
     .end local v1    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v4
 
-    .line 481
+    .line 485
     :goto_4
     if-eqz v2, :cond_2
 
-    .line 483
+    .line 487
     :try_start_7
     invoke-virtual {v2}, Ljava/io/BufferedWriter;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_5
 
-    .line 480
+    .line 484
     :cond_2
     :goto_5
     throw v4
 
-    .line 484
+    .line 488
     :catch_5
     move-exception v1
 
     .restart local v1    # "e":Ljava/io/IOException;
     goto :goto_5
 
-    .line 480
+    .line 484
     .end local v1    # "e":Ljava/io/IOException;
     .restart local v3    # "writer":Ljava/io/BufferedWriter;
     :catchall_1
@@ -1600,7 +1622,7 @@
     .local v2, "writer":Ljava/io/BufferedWriter;
     goto :goto_4
 
-    .line 476
+    .line 480
     .end local v2    # "writer":Ljava/io/BufferedWriter;
     .restart local v3    # "writer":Ljava/io/BufferedWriter;
     :catch_6
@@ -1613,7 +1635,7 @@
     .restart local v2    # "writer":Ljava/io/BufferedWriter;
     goto :goto_3
 
-    .line 478
+    .line 482
     .end local v0    # "e":Ljava/io/FileNotFoundException;
     .end local v2    # "writer":Ljava/io/BufferedWriter;
     .restart local v3    # "writer":Ljava/io/BufferedWriter;
@@ -1639,7 +1661,7 @@
     .end annotation
 
     .prologue
-    .line 342
+    .line 341
     iget-object v0, p0, Lcom/android/server/AssetAtlasService;->mAtlasReady:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -1668,7 +1690,7 @@
     .end annotation
 
     .prologue
-    .line 347
+    .line 346
     iget-object v0, p0, Lcom/android/server/AssetAtlasService;->mAtlasReady:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -1693,7 +1715,7 @@
     .param p1, "ppid"    # I
 
     .prologue
-    .line 337
+    .line 336
     invoke-static {}, Landroid/os/Process;->myPpid()I
 
     move-result v0
@@ -1715,6 +1737,6 @@
     .locals 0
 
     .prologue
-    .line 192
+    .line 191
     return-void
 .end method

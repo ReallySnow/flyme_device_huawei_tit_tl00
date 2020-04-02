@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Landroid/service/voice/VoiceInteractionSession;
 
     .prologue
-    .line 227
+    .line 208
     iput-object p1, p0, Landroid/service/voice/VoiceInteractionSession$2;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     invoke-direct {p0}, Landroid/service/voice/IVoiceInteractionSession$Stub;-><init>()V
@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 288
+    .line 268
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession$2;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     iget-object v0, v0, Landroid/service/voice/VoiceInteractionSession;->mHandlerCaller:Lcom/android/internal/os/HandlerCaller;
@@ -55,7 +55,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
-    .line 287
+    .line 267
     return-void
 .end method
 
@@ -63,7 +63,7 @@
     .locals 3
 
     .prologue
-    .line 298
+    .line 278
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession$2;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     iget-object v0, v0, Landroid/service/voice/VoiceInteractionSession;->mHandlerCaller:Lcom/android/internal/os/HandlerCaller;
@@ -80,20 +80,18 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
-    .line 297
+    .line 277
     return-void
 .end method
 
-.method public handleAssist(Landroid/os/Bundle;Landroid/app/assist/AssistStructure;Landroid/app/assist/AssistContent;II)V
-    .locals 8
+.method public handleAssist(Landroid/os/Bundle;Landroid/app/assist/AssistStructure;Landroid/app/assist/AssistContent;)V
+    .locals 6
     .param p1, "data"    # Landroid/os/Bundle;
     .param p2, "structure"    # Landroid/app/assist/AssistStructure;
     .param p3, "content"    # Landroid/app/assist/AssistContent;
-    .param p4, "index"    # I
-    .param p5, "count"    # I
 
     .prologue
-    .line 248
+    .line 229
     new-instance v0, Landroid/service/voice/VoiceInteractionSession$2$1;
 
     const-string/jumbo v2, "AssistStructure retriever"
@@ -106,17 +104,13 @@
 
     move-object v5, p3
 
-    move v6, p4
+    invoke-direct/range {v0 .. v5}, Landroid/service/voice/VoiceInteractionSession$2$1;-><init>(Landroid/service/voice/VoiceInteractionSession$2;Ljava/lang/String;Landroid/app/assist/AssistStructure;Landroid/os/Bundle;Landroid/app/assist/AssistContent;)V
 
-    move v7, p5
-
-    invoke-direct/range {v0 .. v7}, Landroid/service/voice/VoiceInteractionSession$2$1;-><init>(Landroid/service/voice/VoiceInteractionSession$2;Ljava/lang/String;Landroid/app/assist/AssistStructure;Landroid/os/Bundle;Landroid/app/assist/AssistContent;II)V
-
-    .line 265
+    .line 245
     .local v0, "retriever":Ljava/lang/Thread;
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 242
+    .line 223
     return-void
 .end method
 
@@ -125,7 +119,7 @@
     .param p1, "screenshot"    # Landroid/graphics/Bitmap;
 
     .prologue
-    .line 270
+    .line 250
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession$2;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     iget-object v0, v0, Landroid/service/voice/VoiceInteractionSession;->mHandlerCaller:Lcom/android/internal/os/HandlerCaller;
@@ -142,7 +136,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
-    .line 269
+    .line 249
     return-void
 .end method
 
@@ -150,7 +144,7 @@
     .locals 3
 
     .prologue
-    .line 237
+    .line 218
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession$2;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     iget-object v0, v0, Landroid/service/voice/VoiceInteractionSession;->mHandlerCaller:Lcom/android/internal/os/HandlerCaller;
@@ -167,7 +161,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
-    .line 236
+    .line 217
     return-void
 .end method
 
@@ -175,7 +169,7 @@
     .locals 3
 
     .prologue
-    .line 293
+    .line 273
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession$2;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     iget-object v0, v0, Landroid/service/voice/VoiceInteractionSession;->mHandlerCaller:Lcom/android/internal/os/HandlerCaller;
@@ -192,7 +186,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
-    .line 292
+    .line 272
     return-void
 .end method
 
@@ -203,7 +197,7 @@
     .param p3, "showCallback"    # Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;
 
     .prologue
-    .line 231
+    .line 212
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession$2;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     iget-object v0, v0, Landroid/service/voice/VoiceInteractionSession;->mHandlerCaller:Lcom/android/internal/os/HandlerCaller;
@@ -220,7 +214,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
-    .line 230
+    .line 211
     return-void
 .end method
 
@@ -230,7 +224,7 @@
     .param p2, "taskId"    # I
 
     .prologue
-    .line 282
+    .line 262
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession$2;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     iget-object v0, v0, Landroid/service/voice/VoiceInteractionSession;->mHandlerCaller:Lcom/android/internal/os/HandlerCaller;
@@ -247,7 +241,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
-    .line 281
+    .line 261
     return-void
 .end method
 
@@ -257,7 +251,7 @@
     .param p2, "taskId"    # I
 
     .prologue
-    .line 276
+    .line 256
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession$2;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     iget-object v0, v0, Landroid/service/voice/VoiceInteractionSession;->mHandlerCaller:Lcom/android/internal/os/HandlerCaller;
@@ -274,6 +268,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/os/HandlerCaller;->sendMessage(Landroid/os/Message;)V
 
-    .line 275
+    .line 255
     return-void
 .end method

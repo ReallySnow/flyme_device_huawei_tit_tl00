@@ -30,15 +30,15 @@
 
 .field static final TRANSACTION_enqueueLiveLockScreen:I = 0x1
 
-.field static final TRANSACTION_getCurrentLiveLockScreen_2:I = 0x3
+.field static final TRANSACTION_getCurrentLiveLockScreen:I = 0x3
 
-.field static final TRANSACTION_getLiveLockScreenEnabled_4:I = 0x5
+.field static final TRANSACTION_getLiveLockScreenEnabled:I = 0x5
 
-.field static final TRANSACTION_registerChangeListener_5:I = 0x6
+.field static final TRANSACTION_registerChangeListener:I = 0x6
 
 .field static final TRANSACTION_unregisterChangeListener:I = 0x7
 
-.field static final TRANSACTION_updateDefaultLiveLockScreen_3:I = 0x4
+.field static final TRANSACTION_updateDefaultLiveLockScreen:I = 0x4
 
 
 # direct methods

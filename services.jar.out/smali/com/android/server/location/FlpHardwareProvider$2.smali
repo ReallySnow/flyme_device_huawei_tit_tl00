@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/location/FlpHardwareProvider;
 
     .prologue
-    .line 433
+    .line 430
     iput-object p1, p0, Lcom/android/server/location/FlpHardwareProvider$2;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-direct {p0}, Landroid/location/IFusedGeofenceHardware$Stub;-><init>()V
@@ -39,12 +39,12 @@
     .param p1, "geofenceRequestsArray"    # [Landroid/hardware/location/GeofenceHardwareRequestParcelable;
 
     .prologue
-    .line 441
+    .line 438
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$2;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap6(Lcom/android/server/location/FlpHardwareProvider;[Landroid/hardware/location/GeofenceHardwareRequestParcelable;)V
 
-    .line 440
+    .line 437
     return-void
 .end method
 
@@ -52,7 +52,7 @@
     .locals 1
 
     .prologue
-    .line 436
+    .line 433
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$2;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap2(Lcom/android/server/location/FlpHardwareProvider;)Z
@@ -72,7 +72,7 @@
     .param p6, "sourcesToUse"    # I
 
     .prologue
-    .line 466
+    .line 463
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$2;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     move v1, p1
@@ -89,7 +89,7 @@
 
     invoke-static/range {v0 .. v6}, Lcom/android/server/location/FlpHardwareProvider;->-wrap11(Lcom/android/server/location/FlpHardwareProvider;IIIIII)V
 
-    .line 465
+    .line 462
     return-void
 .end method
 
@@ -98,12 +98,12 @@
     .param p1, "geofenceId"    # I
 
     .prologue
-    .line 451
+    .line 448
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$2;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap12(Lcom/android/server/location/FlpHardwareProvider;I)V
 
-    .line 450
+    .line 447
     return-void
 .end method
 
@@ -112,12 +112,12 @@
     .param p1, "geofenceIds"    # [I
 
     .prologue
-    .line 446
+    .line 443
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$2;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap13(Lcom/android/server/location/FlpHardwareProvider;[I)V
 
-    .line 445
+    .line 442
     return-void
 .end method
 
@@ -127,11 +127,11 @@
     .param p2, "monitorTransitions"    # I
 
     .prologue
-    .line 456
+    .line 453
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$2;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-static {v0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap15(Lcom/android/server/location/FlpHardwareProvider;II)V
 
-    .line 455
+    .line 452
     return-void
 .end method

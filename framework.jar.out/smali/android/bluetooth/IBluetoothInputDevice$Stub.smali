@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.bluetooth.IBluetoothInputDevice"
 
-.field static final TRANSACTION_connect_0:I = 0x1
+.field static final TRANSACTION_connect:I = 0x1
 
 .field static final TRANSACTION_disconnect:I = 0x2
 
@@ -38,9 +38,9 @@
 
 .field static final TRANSACTION_getIdleTime:I = 0xe
 
-.field static final TRANSACTION_getPriority_6:I = 0x7
+.field static final TRANSACTION_getPriority:I = 0x7
 
-.field static final TRANSACTION_getProtocolMode_7:I = 0x8
+.field static final TRANSACTION_getProtocolMode:I = 0x8
 
 .field static final TRANSACTION_getReport:I = 0xb
 
@@ -54,7 +54,7 @@
 
 .field static final TRANSACTION_setReport:I = 0xc
 
-.field static final TRANSACTION_virtualUnplug_8:I = 0x9
+.field static final TRANSACTION_virtualUnplug:I = 0x9
 
 
 # direct methods

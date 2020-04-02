@@ -30,7 +30,7 @@
     .param p2, "val$session"    # Landroid/media/tv/TvInputManager$Session;
 
     .prologue
-    .line 553
+    .line 434
     iput-object p1, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$1;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     iput-object p2, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$1;->val$session:Landroid/media/tv/TvInputManager$Session;
@@ -46,7 +46,7 @@
     .locals 2
 
     .prologue
-    .line 556
+    .line 437
     iget-object v0, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$1;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     invoke-static {v0}, Landroid/media/tv/TvInputManager$SessionCallbackRecord;->-get1(Landroid/media/tv/TvInputManager$SessionCallbackRecord;)Landroid/media/tv/TvInputManager$SessionCallback;
@@ -57,6 +57,6 @@
 
     invoke-virtual {v0, v1}, Landroid/media/tv/TvInputManager$SessionCallback;->onSessionCreated(Landroid/media/tv/TvInputManager$Session;)V
 
-    .line 555
+    .line 436
     return-void
 .end method

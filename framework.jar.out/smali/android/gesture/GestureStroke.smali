@@ -740,6 +740,7 @@
 
     goto :goto_1
 
+    .line 168
     .end local v2    # "count":I
     .end local v5    # "i":I
     .end local v6    # "mX":F
@@ -750,7 +751,7 @@
     :cond_1
     move v11, v12
 
-    .line 168
+    .restart local v11    # "scale":F
     goto :goto_0
 
     .line 187
@@ -758,7 +759,6 @@
     .restart local v5    # "i":I
     .restart local v6    # "mX":F
     .restart local v7    # "mY":F
-    .restart local v11    # "scale":F
     .restart local v14    # "x":F
     .restart local v15    # "y":F
     :cond_2

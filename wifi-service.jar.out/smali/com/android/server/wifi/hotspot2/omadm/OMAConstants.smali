@@ -4,93 +4,83 @@
 
 
 # static fields
-.field public static final DevDetailURN:Ljava/lang/String; = "urn:oma:mo:oma-dm-devdetail:1.0"
-
-.field public static final DevDetailXURN:Ljava/lang/String; = "urn:wfa:mo-ext:hotspot2dot0-devdetail-ext:1.0"
-
-.field public static final DevInfoURN:Ljava/lang/String; = "urn:oma:mo:oma-dm-devinfo:1.0"
+.field public static final ATTR_URN:Ljava/lang/String; = "spp:moURN"
 
 .field private static final INDENT:[B
 
-.field public static final MOVersion:Ljava/lang/String; = "1.0"
+.field public static final LOC_DEVDETAIL:Ljava/lang/String; = "urn:wfa:mo-ext:hotspot2dot0-devdetail-ext"
 
-.field public static final OMAVersion:Ljava/lang/String; = "1.2"
+.field public static final LOC_DEVINFO:Ljava/lang/String; = "urn:oma:mo:oma-dm-devinfo:1.0 urn:oma:mo:oma-dm-devdetail"
 
-.field public static final PPS_URN:Ljava/lang/String; = "urn:wfa:mo:hotspot2dot0-perprovidersubscription:1.0"
+.field public static final LOC_PPS:Ljava/lang/String; = "urn:wfa:mo:hotspot2dot0-perprovidersubscription"
 
-.field public static final SppMOAttribute:Ljava/lang/String; = "spp:moURN"
-
-.field public static final SupportedMO_URNs:[Ljava/lang/String;
-
-.field public static final SyncML:Ljava/lang/String; = "syncml:dmddf1.2"
+.field public static final RequiredSyncMLVersion:Ljava/lang/String; = "1.2"
 
 .field public static final SyncMLVersionTag:Ljava/lang/String; = "VerDTD"
 
-.field public static final TAG_Error:Ljava/lang/String; = "spp:sppError"
+.field public static final TAG_MO_Add:Ljava/lang/String; = "spp:addMO"
 
-.field public static final TAG_MOContainer:Ljava/lang/String; = "spp:moContainer"
+.field public static final TAG_MO_Container:Ljava/lang/String; = "spp:moContainer"
 
 .field public static final TAG_PostDevData:Ljava/lang/String; = "spp:sppPostDevData"
-
-.field public static final TAG_SessionID:Ljava/lang/String; = "spp:sessionID"
-
-.field public static final TAG_Status:Ljava/lang/String; = "spp:sppStatus"
 
 .field public static final TAG_SupportedMOs:Ljava/lang/String; = "spp:supportedMOList"
 
 .field public static final TAG_SupportedVersions:Ljava/lang/String; = "spp:supportedSPPVersions"
 
-.field public static final TAG_UpdateResponse:Ljava/lang/String; = "spp:sppUpdateResponse"
-
-.field public static final TAG_Version:Ljava/lang/String; = "spp:sppVersion"
+.field private static final sMOContainers:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 19
-    const/4 v0, 0x4
+    .line 34
+    new-instance v0, Ljava/util/HashSet;
 
-    new-array v0, v0, [Ljava/lang/String;
+    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    .line 20
-    const-string/jumbo v1, "urn:wfa:mo:hotspot2dot0-perprovidersubscription:1.0"
+    sput-object v0, Lcom/android/server/wifi/hotspot2/omadm/OMAConstants;->sMOContainers:Ljava/util/Set;
 
-    const/4 v2, 0x0
+    .line 37
+    sget-object v0, Lcom/android/server/wifi/hotspot2/omadm/OMAConstants;->sMOContainers:Ljava/util/Set;
 
-    aput-object v1, v0, v2
+    const-string/jumbo v1, "spp:addMO"
 
-    const-string/jumbo v1, "urn:oma:mo:oma-dm-devinfo:1.0"
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/4 v2, 0x1
+    .line 38
+    sget-object v0, Lcom/android/server/wifi/hotspot2/omadm/OMAConstants;->sMOContainers:Ljava/util/Set;
 
-    aput-object v1, v0, v2
+    const-string/jumbo v1, "spp:moContainer"
 
-    const-string/jumbo v1, "urn:oma:mo:oma-dm-devdetail:1.0"
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "urn:wfa:mo-ext:hotspot2dot0-devdetail-ext:1.0"
-
-    const/4 v2, 0x3
-
-    aput-object v1, v0, v2
-
-    .line 19
-    sput-object v0, Lcom/android/server/wifi/hotspot2/omadm/OMAConstants;->SupportedMO_URNs:[Ljava/lang/String;
-
-    .line 39
+    .line 45
     const/16 v0, 0x400
 
     new-array v0, v0, [B
 
     sput-object v0, Lcom/android/server/wifi/hotspot2/omadm/OMAConstants;->INDENT:[B
 
-    .line 9
+    .line 48
+    sget-object v0, Lcom/android/server/wifi/hotspot2/omadm/OMAConstants;->INDENT:[B
+
+    const/16 v1, 0x20
+
+    invoke-static {v0, v1}, Ljava/util/Arrays;->fill([BB)V
+
+    .line 12
     return-void
 .end method
 
@@ -98,7 +88,7 @@
     .locals 0
 
     .prologue
-    .line 10
+    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -114,12 +104,12 @@
     .end annotation
 
     .prologue
-    .line 53
+    .line 63
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 55
+    .line 65
     .local v5, "prefix":Ljava/lang/StringBuilder;
     :cond_0
     :goto_0
@@ -129,24 +119,24 @@
 
     int-to-byte v1, v6
 
-    .line 56
+    .line 66
     .local v1, "b":B
     const/16 v6, 0x2e
 
     if-ne v1, v6, :cond_1
 
-    .line 57
+    .line 67
     const/4 v6, 0x0
 
     return-object v6
 
-    .line 58
+    .line 68
     :cond_1
     const/16 v6, 0x3a
 
     if-ne v1, v6, :cond_2
 
-    .line 63
+    .line 73
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v6
@@ -157,22 +147,22 @@
 
     move-result v2
 
-    .line 64
+    .line 74
     .local v2, "length":I
     new-array v3, v2, [B
 
-    .line 65
+    .line 75
     .local v3, "octets":[B
     const/4 v4, 0x0
 
-    .line 66
+    .line 76
     .local v4, "offset":I
     :goto_1
     array-length v6, v3
 
     if-ge v4, v6, :cond_4
 
-    .line 67
+    .line 77
     array-length v6, v3
 
     sub-int/2addr v6, v4
@@ -181,18 +171,18 @@
 
     move-result v0
 
-    .line 68
+    .line 78
     .local v0, "amount":I
     if-gtz v0, :cond_3
 
-    .line 69
+    .line 79
     new-instance v6, Ljava/io/EOFException;
 
     invoke-direct {v6}, Ljava/io/EOFException;-><init>()V
 
     throw v6
 
-    .line 60
+    .line 70
     .end local v0    # "amount":I
     .end local v2    # "length":I
     .end local v3    # "octets":[B
@@ -202,14 +192,14 @@
 
     if-le v1, v6, :cond_0
 
-    .line 61
+    .line 71
     int-to-char v6, v1
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
-    .line 70
+    .line 80
     .restart local v0    # "amount":I
     .restart local v2    # "length":I
     .restart local v3    # "octets":[B
@@ -219,7 +209,7 @@
 
     goto :goto_1
 
-    .line 72
+    .line 82
     .end local v0    # "amount":I
     :cond_4
     new-instance v6, Ljava/lang/String;
@@ -242,15 +232,30 @@
     .end annotation
 
     .prologue
-    .line 49
+    .line 59
     sget-object v0, Lcom/android/server/wifi/hotspot2/omadm/OMAConstants;->INDENT:[B
 
     const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1, p0}, Ljava/io/OutputStream;->write([BII)V
 
-    .line 48
+    .line 58
     return-void
+.end method
+
+.method public static isMOContainer(Ljava/lang/String;)Z
+    .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+
+    .prologue
+    .line 42
+    sget-object v0, Lcom/android/server/wifi/hotspot2/omadm/OMAConstants;->sMOContainers:Ljava/util/Set;
+
+    invoke-interface {v0, p0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public static readURN(Ljava/io/InputStream;)Ljava/lang/String;
@@ -263,12 +268,12 @@
     .end annotation
 
     .prologue
-    .line 76
+    .line 86
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 79
+    .line 89
     .local v1, "urn":Ljava/lang/StringBuilder;
     :goto_0
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
@@ -277,20 +282,20 @@
 
     int-to-byte v0, v2
 
-    .line 80
+    .line 90
     .local v0, "b":B
     const/16 v2, 0x29
 
     if-ne v0, v2, :cond_0
 
-    .line 84
+    .line 94
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 82
+    .line 92
     :cond_0
     int-to-char v2, v0
 
@@ -310,14 +315,14 @@
     .end annotation
 
     .prologue
-    .line 42
+    .line 52
     sget-object v2, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
     move-result-object v0
 
-    .line 43
+    .line 53
     .local v0, "octets":[B
     const-string/jumbo v2, "%x:"
 
@@ -345,13 +350,13 @@
 
     move-result-object v1
 
-    .line 44
+    .line 54
     .local v1, "prefix":[B
     invoke-virtual {p1, v1}, Ljava/io/OutputStream;->write([B)V
 
-    .line 45
+    .line 55
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
 
-    .line 41
+    .line 51
     return-void
 .end method

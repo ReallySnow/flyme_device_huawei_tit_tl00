@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/media/MediaMetadata$1;,
-        Landroid/media/MediaMetadata$Builder;
+        Landroid/media/MediaMetadata$Builder;,
+        Landroid/media/MediaMetadata$1;
     }
 .end annotation
 
@@ -160,103 +160,103 @@
 
     const/4 v3, 0x1
 
-    .line 272
+    .line 235
     const/4 v0, 0x7
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 273
+    .line 236
     const-string/jumbo v1, "android.media.metadata.TITLE"
 
     aput-object v1, v0, v4
 
-    .line 274
+    .line 237
     const-string/jumbo v1, "android.media.metadata.ARTIST"
 
     aput-object v1, v0, v3
 
-    .line 275
+    .line 238
     const-string/jumbo v1, "android.media.metadata.ALBUM"
 
     aput-object v1, v0, v5
 
-    .line 276
+    .line 239
     const-string/jumbo v1, "android.media.metadata.ALBUM_ARTIST"
 
     aput-object v1, v0, v6
 
-    .line 277
+    .line 240
     const-string/jumbo v1, "android.media.metadata.WRITER"
 
     aput-object v1, v0, v7
 
-    .line 278
+    .line 241
     const-string/jumbo v1, "android.media.metadata.AUTHOR"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    .line 279
+    .line 242
     const-string/jumbo v1, "android.media.metadata.COMPOSER"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    .line 272
+    .line 235
     sput-object v0, Landroid/media/MediaMetadata;->PREFERRED_DESCRIPTION_ORDER:[Ljava/lang/String;
 
-    .line 282
+    .line 245
     new-array v0, v6, [Ljava/lang/String;
 
-    .line 283
+    .line 246
     const-string/jumbo v1, "android.media.metadata.DISPLAY_ICON"
 
     aput-object v1, v0, v4
 
-    .line 284
+    .line 247
     const-string/jumbo v1, "android.media.metadata.ART"
 
     aput-object v1, v0, v3
 
-    .line 285
+    .line 248
     const-string/jumbo v1, "android.media.metadata.ALBUM_ART"
 
     aput-object v1, v0, v5
 
-    .line 282
+    .line 245
     sput-object v0, Landroid/media/MediaMetadata;->PREFERRED_BITMAP_ORDER:[Ljava/lang/String;
 
-    .line 288
+    .line 251
     new-array v0, v6, [Ljava/lang/String;
 
-    .line 289
+    .line 252
     const-string/jumbo v1, "android.media.metadata.DISPLAY_ICON_URI"
 
     aput-object v1, v0, v4
 
-    .line 290
+    .line 253
     const-string/jumbo v1, "android.media.metadata.ART_URI"
 
     aput-object v1, v0, v3
 
-    .line 291
+    .line 254
     const-string/jumbo v1, "android.media.metadata.ALBUM_ART_URI"
 
     aput-object v1, v0, v5
 
-    .line 288
+    .line 251
     sput-object v0, Landroid/media/MediaMetadata;->PREFERRED_URI_ORDER:[Ljava/lang/String;
 
-    .line 302
+    .line 265
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     sput-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
-    .line 303
+    .line 266
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.TITLE"
@@ -267,7 +267,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 304
+    .line 267
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.ARTIST"
@@ -278,7 +278,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 305
+    .line 268
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.DURATION"
@@ -289,7 +289,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 306
+    .line 269
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.ALBUM"
@@ -300,7 +300,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 307
+    .line 270
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.AUTHOR"
@@ -311,7 +311,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 308
+    .line 271
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.WRITER"
@@ -322,7 +322,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 309
+    .line 272
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.COMPOSER"
@@ -333,7 +333,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 310
+    .line 273
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.COMPILATION"
@@ -344,7 +344,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 311
+    .line 274
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.DATE"
@@ -355,7 +355,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 312
+    .line 275
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.YEAR"
@@ -366,7 +366,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 313
+    .line 276
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.GENRE"
@@ -377,7 +377,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 314
+    .line 277
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.TRACK_NUMBER"
@@ -388,7 +388,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 315
+    .line 278
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.NUM_TRACKS"
@@ -399,7 +399,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 316
+    .line 279
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.DISC_NUMBER"
@@ -410,7 +410,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 317
+    .line 280
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.ALBUM_ARTIST"
@@ -421,7 +421,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 318
+    .line 281
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.ART"
@@ -432,7 +432,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 319
+    .line 282
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.ART_URI"
@@ -443,7 +443,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 320
+    .line 283
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.ALBUM_ART"
@@ -454,7 +454,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 321
+    .line 284
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.ALBUM_ART_URI"
@@ -465,7 +465,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 322
+    .line 285
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.USER_RATING"
@@ -476,7 +476,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 323
+    .line 286
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.RATING"
@@ -487,7 +487,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 324
+    .line 287
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.DISPLAY_TITLE"
@@ -498,7 +498,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 325
+    .line 288
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.DISPLAY_SUBTITLE"
@@ -509,7 +509,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 326
+    .line 289
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.DISPLAY_DESCRIPTION"
@@ -520,7 +520,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 327
+    .line 290
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.DISPLAY_ICON"
@@ -531,7 +531,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 328
+    .line 291
     sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
 
     const-string/jumbo v1, "android.media.metadata.DISPLAY_ICON_URI"
@@ -542,14 +542,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 334
+    .line 297
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
-    .line 335
+    .line 298
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.ART"
@@ -558,7 +558,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 336
+    .line 299
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.RATING"
@@ -567,7 +567,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 337
+    .line 300
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.USER_RATING"
@@ -576,66 +576,66 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 338
+    .line 301
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.ALBUM"
 
     invoke-virtual {v0, v3, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 339
+    .line 302
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
-    .line 340
+    .line 303
     const-string/jumbo v1, "android.media.metadata.ALBUM_ARTIST"
 
-    .line 339
+    .line 302
     const/16 v2, 0xd
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 341
+    .line 304
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.ARTIST"
 
     invoke-virtual {v0, v5, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 342
+    .line 305
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.AUTHOR"
 
     invoke-virtual {v0, v6, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 343
+    .line 306
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
-    .line 344
+    .line 307
     const-string/jumbo v1, "android.media.metadata.TRACK_NUMBER"
 
-    .line 343
+    .line 306
     invoke-virtual {v0, v4, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 345
+    .line 308
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.COMPOSER"
 
     invoke-virtual {v0, v7, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 346
+    .line 309
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
-    .line 347
+    .line 310
     const-string/jumbo v1, "android.media.metadata.COMPILATION"
 
-    .line 346
+    .line 309
     const/16 v2, 0xf
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 348
+    .line 311
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.DATE"
@@ -644,18 +644,18 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 349
+    .line 312
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
-    .line 350
+    .line 313
     const-string/jumbo v1, "android.media.metadata.DISC_NUMBER"
 
-    .line 349
+    .line 312
     const/16 v2, 0xe
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 351
+    .line 314
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.DURATION"
@@ -664,7 +664,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 352
+    .line 315
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.GENRE"
@@ -673,18 +673,18 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 353
+    .line 316
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
-    .line 354
+    .line 317
     const-string/jumbo v1, "android.media.metadata.NUM_TRACKS"
 
-    .line 353
+    .line 316
     const/16 v2, 0xa
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 355
+    .line 318
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.TITLE"
@@ -693,7 +693,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 356
+    .line 319
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.WRITER"
@@ -702,7 +702,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 357
+    .line 320
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const-string/jumbo v1, "android.media.metadata.YEAR"
@@ -711,15 +711,15 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 565
+    .line 528
     new-instance v0, Landroid/media/MediaMetadata$1;
 
     invoke-direct {v0}, Landroid/media/MediaMetadata$1;-><init>()V
 
-    .line 564
+    .line 527
     sput-object v0, Landroid/media/MediaMetadata;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 41
+    .line 38
     return-void
 .end method
 
@@ -728,17 +728,17 @@
     .param p1, "bundle"    # Landroid/os/Bundle;
 
     .prologue
-    .line 363
+    .line 326
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 364
+    .line 327
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0, p1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
     iput-object v0, p0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
 
-    .line 363
+    .line 326
     return-void
 .end method
 
@@ -753,27 +753,21 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 2
+    .locals 1
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 367
+    .line 330
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 368
+    .line 331
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Bundle;->setDefusable(Landroid/os/Bundle;Z)Landroid/os/Bundle;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
 
-    .line 367
+    .line 330
     return-void
 .end method
 
@@ -792,7 +786,7 @@
     .param p0, "editorKey"    # I
 
     .prologue
-    .line 561
+    .line 524
     sget-object v0, Landroid/media/MediaMetadata;->EDITOR_KEY_MAPPING:Landroid/util/SparseArray;
 
     const/4 v1, 0x0
@@ -813,7 +807,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 378
+    .line 341
     iget-object v0, p0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
@@ -827,7 +821,7 @@
     .locals 1
 
     .prologue
-    .line 459
+    .line 422
     const/4 v0, 0x0
 
     return v0
@@ -838,10 +832,10 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 447
+    .line 410
     const/4 v1, 0x0
 
-    .line 449
+    .line 412
     .local v1, "bmp":Landroid/graphics/Bitmap;
     :try_start_0
     iget-object v3, p0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
@@ -858,17 +852,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 454
+    .line 417
     .end local v1    # "bmp":Landroid/graphics/Bitmap;
     :goto_0
     return-object v1
 
-    .line 450
+    .line 413
     .restart local v1    # "bmp":Landroid/graphics/Bitmap;
     :catch_0
     move-exception v2
 
-    .line 452
+    .line 415
     .local v2, "e":Ljava/lang/Exception;
     const-string/jumbo v3, "MediaMetadata"
 
@@ -883,21 +877,21 @@
     .locals 17
 
     .prologue
-    .line 491
+    .line 454
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
 
     if-eqz v15, :cond_0
 
-    .line 492
+    .line 455
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
 
     return-object v15
 
-    .line 495
+    .line 458
     :cond_0
     const-string/jumbo v15, "android.media.metadata.MEDIA_ID"
 
@@ -907,21 +901,21 @@
 
     move-result-object v8
 
-    .line 497
+    .line 460
     .local v8, "mediaId":Ljava/lang/String;
     const/4 v15, 0x3
 
     new-array v12, v15, [Ljava/lang/CharSequence;
 
-    .line 498
+    .line 461
     .local v12, "text":[Ljava/lang/CharSequence;
     const/4 v4, 0x0
 
-    .line 499
+    .line 462
     .local v4, "icon":Landroid/graphics/Bitmap;
     const/4 v5, 0x0
 
-    .line 502
+    .line 465
     .local v5, "iconUri":Landroid/net/Uri;
     const-string/jumbo v15, "android.media.metadata.DISPLAY_TITLE"
 
@@ -931,7 +925,7 @@
 
     move-result-object v2
 
-    .line 503
+    .line 466
     .local v2, "displayText":Ljava/lang/CharSequence;
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -939,12 +933,12 @@
 
     if-nez v15, :cond_4
 
-    .line 506
+    .line 469
     const/4 v15, 0x0
 
     aput-object v2, v12, v15
 
-    .line 507
+    .line 470
     const-string/jumbo v15, "android.media.metadata.DISPLAY_SUBTITLE"
 
     move-object/from16 v0, p0
@@ -957,7 +951,7 @@
 
     aput-object v15, v12, v16
 
-    .line 508
+    .line 471
     const-string/jumbo v15, "android.media.metadata.DISPLAY_DESCRIPTION"
 
     move-object/from16 v0, p0
@@ -970,7 +964,7 @@
 
     aput-object v15, v12, v16
 
-    .line 523
+    .line 486
     :cond_1
     const/4 v3, 0x0
 
@@ -982,7 +976,7 @@
 
     if-ge v3, v15, :cond_2
 
-    .line 524
+    .line 487
     sget-object v15, Landroid/media/MediaMetadata;->PREFERRED_BITMAP_ORDER:[Ljava/lang/String;
 
     aget-object v15, v15, v3
@@ -993,14 +987,14 @@
 
     move-result-object v9
 
-    .line 525
+    .line 488
     .local v9, "next":Landroid/graphics/Bitmap;
     if-eqz v9, :cond_6
 
-    .line 526
+    .line 489
     move-object v4, v9
 
-    .line 532
+    .line 495
     .end local v4    # "icon":Landroid/graphics/Bitmap;
     .end local v9    # "next":Landroid/graphics/Bitmap;
     :cond_2
@@ -1013,7 +1007,7 @@
 
     if-ge v3, v15, :cond_3
 
-    .line 533
+    .line 496
     sget-object v15, Landroid/media/MediaMetadata;->PREFERRED_URI_ORDER:[Ljava/lang/String;
 
     aget-object v15, v15, v3
@@ -1024,7 +1018,7 @@
 
     move-result-object v11
 
-    .line 534
+    .line 497
     .local v11, "next":Ljava/lang/String;
     invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1032,12 +1026,12 @@
 
     if-nez v15, :cond_7
 
-    .line 535
+    .line 498
     invoke-static {v11}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v5
 
-    .line 540
+    .line 503
     .end local v5    # "iconUri":Landroid/net/Uri;
     .end local v11    # "next":Ljava/lang/String;
     :cond_3
@@ -1045,38 +1039,38 @@
 
     invoke-direct {v1}, Landroid/media/MediaDescription$Builder;-><init>()V
 
-    .line 541
+    .line 504
     .local v1, "bob":Landroid/media/MediaDescription$Builder;
     invoke-virtual {v1, v8}, Landroid/media/MediaDescription$Builder;->setMediaId(Ljava/lang/String;)Landroid/media/MediaDescription$Builder;
 
-    .line 542
+    .line 505
     const/4 v15, 0x0
 
     aget-object v15, v12, v15
 
     invoke-virtual {v1, v15}, Landroid/media/MediaDescription$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/media/MediaDescription$Builder;
 
-    .line 543
+    .line 506
     const/4 v15, 0x1
 
     aget-object v15, v12, v15
 
     invoke-virtual {v1, v15}, Landroid/media/MediaDescription$Builder;->setSubtitle(Ljava/lang/CharSequence;)Landroid/media/MediaDescription$Builder;
 
-    .line 544
+    .line 507
     const/4 v15, 0x2
 
     aget-object v15, v12, v15
 
     invoke-virtual {v1, v15}, Landroid/media/MediaDescription$Builder;->setDescription(Ljava/lang/CharSequence;)Landroid/media/MediaDescription$Builder;
 
-    .line 545
+    .line 508
     invoke-virtual {v1, v4}, Landroid/media/MediaDescription$Builder;->setIconBitmap(Landroid/graphics/Bitmap;)Landroid/media/MediaDescription$Builder;
 
-    .line 546
+    .line 509
     invoke-virtual {v1, v5}, Landroid/media/MediaDescription$Builder;->setIconUri(Landroid/net/Uri;)Landroid/media/MediaDescription$Builder;
 
-    .line 547
+    .line 510
     invoke-virtual {v1}, Landroid/media/MediaDescription$Builder;->build()Landroid/media/MediaDescription;
 
     move-result-object v15
@@ -1085,14 +1079,14 @@
 
     iput-object v15, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
 
-    .line 549
+    .line 512
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
 
     return-object v15
 
-    .line 511
+    .line 474
     .end local v1    # "bob":Landroid/media/MediaDescription$Builder;
     .end local v3    # "i":I
     .restart local v4    # "icon":Landroid/graphics/Bitmap;
@@ -1100,11 +1094,11 @@
     :cond_4
     const/4 v13, 0x0
 
-    .line 512
+    .line 475
     .local v13, "textIndex":I
     const/4 v6, 0x0
 
-    .line 513
+    .line 476
     .local v6, "keyIndex":I
     :goto_2
     array-length v15, v12
@@ -1117,7 +1111,7 @@
 
     if-ge v6, v15, :cond_1
 
-    .line 514
+    .line 477
     sget-object v15, Landroid/media/MediaMetadata;->PREFERRED_DESCRIPTION_ORDER:[Ljava/lang/String;
 
     add-int/lit8 v7, v6, 0x1
@@ -1132,7 +1126,7 @@
 
     move-result-object v10
 
-    .line 515
+    .line 478
     .local v10, "next":Ljava/lang/CharSequence;
     invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1140,7 +1134,7 @@
 
     if-nez v15, :cond_5
 
-    .line 517
+    .line 480
     add-int/lit8 v14, v13, 0x1
 
     .end local v13    # "textIndex":I
@@ -1158,7 +1152,7 @@
     .restart local v6    # "keyIndex":I
     goto :goto_2
 
-    .line 523
+    .line 486
     .end local v6    # "keyIndex":I
     .end local v10    # "next":Ljava/lang/CharSequence;
     .end local v13    # "textIndex":I
@@ -1169,7 +1163,7 @@
 
     goto :goto_0
 
-    .line 532
+    .line 495
     .end local v4    # "icon":Landroid/graphics/Bitmap;
     .end local v9    # "next":Landroid/graphics/Bitmap;
     .restart local v11    # "next":Ljava/lang/String;
@@ -1184,7 +1178,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 418
+    .line 381
     iget-object v0, p0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
 
     const-wide/16 v2, 0x0
@@ -1201,10 +1195,10 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 429
+    .line 392
     const/4 v2, 0x0
 
-    .line 431
+    .line 394
     .local v2, "rating":Landroid/media/Rating;
     :try_start_0
     iget-object v3, p0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
@@ -1221,17 +1215,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 436
+    .line 399
     .end local v2    # "rating":Landroid/media/Rating;
     :goto_0
     return-object v2
 
-    .line 432
+    .line 395
     .restart local v2    # "rating":Landroid/media/Rating;
     :catch_0
     move-exception v1
 
-    .line 434
+    .line 397
     .local v1, "e":Ljava/lang/Exception;
     const-string/jumbo v3, "MediaMetadata"
 
@@ -1249,23 +1243,23 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 403
+    .line 366
     invoke-virtual {p0, p1}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 404
+    .line 367
     .local v0, "text":Ljava/lang/CharSequence;
     if-eqz v0, :cond_0
 
-    .line 405
+    .line 368
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     return-object v1
 
-    .line 407
+    .line 370
     :cond_0
     return-object v1
 .end method
@@ -1275,7 +1269,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 390
+    .line 353
     iget-object v0, p0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
@@ -1298,7 +1292,7 @@
     .end annotation
 
     .prologue
-    .line 482
+    .line 445
     iget-object v0, p0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
@@ -1312,7 +1306,7 @@
     .locals 1
 
     .prologue
-    .line 473
+    .line 436
     iget-object v0, p0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0}, Landroid/os/Bundle;->size()I
@@ -1328,11 +1322,11 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 464
+    .line 427
     iget-object v0, p0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 463
+    .line 426
     return-void
 .end method

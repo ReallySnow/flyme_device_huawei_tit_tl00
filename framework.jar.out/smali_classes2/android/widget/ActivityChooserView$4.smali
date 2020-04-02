@@ -1,5 +1,5 @@
 .class Landroid/widget/ActivityChooserView$4;
-.super Landroid/widget/ForwardingListener;
+.super Landroid/widget/ListPopupWindow$ForwardingListener;
 .source "ActivityChooserView.java"
 
 
@@ -28,14 +28,14 @@
     .line 264
     iput-object p1, p0, Landroid/widget/ActivityChooserView$4;->this$0:Landroid/widget/ActivityChooserView;
 
-    invoke-direct {p0, p2}, Landroid/widget/ForwardingListener;-><init>(Landroid/view/View;)V
+    invoke-direct {p0, p2}, Landroid/widget/ListPopupWindow$ForwardingListener;-><init>(Landroid/view/View;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getPopup()Lcom/android/internal/view/menu/ShowableListMenu;
+.method public getPopup()Landroid/widget/ListPopupWindow;
     .locals 1
 
     .prologue

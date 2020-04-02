@@ -141,7 +141,7 @@
     .param p2, "error"    # I
 
     .prologue
-    .line 366
+    .line 357
     iget-object v0, p0, Landroid/bluetooth/le/BluetoothLeAdvertiser;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/bluetooth/le/BluetoothLeAdvertiser$1;
@@ -150,7 +150,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 365
+    .line 356
     return-void
 .end method
 
@@ -160,7 +160,7 @@
     .param p2, "settings"    # Landroid/bluetooth/le/AdvertiseSettings;
 
     .prologue
-    .line 376
+    .line 367
     iget-object v0, p0, Landroid/bluetooth/le/BluetoothLeAdvertiser;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/bluetooth/le/BluetoothLeAdvertiser$2;
@@ -169,7 +169,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 375
+    .line 366
     return-void
 .end method
 

@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.os.IBatteryPropertiesListener"
 
-.field static final TRANSACTION_batteryPropertiesChanged_0:I = 0x1
+.field static final TRANSACTION_batteryPropertiesChanged:I = 0x1
 
 
 # direct methods

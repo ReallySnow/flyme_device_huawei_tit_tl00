@@ -36,25 +36,25 @@
     .param p5, "data"    # [B
 
     .prologue
-    .line 217
+    .line 216
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 219
+    .line 218
     iput-boolean p1, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mTriggerAvailable:Z
 
-    .line 220
+    .line 219
     iput-boolean p2, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mCaptureAvailable:Z
 
-    .line 221
+    .line 220
     iput p4, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mCaptureSession:I
 
-    .line 222
+    .line 221
     iput-object p3, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mAudioFormat:Landroid/media/AudioFormat;
 
-    .line 223
+    .line 222
     iput-object p5, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mData:[B
 
-    .line 218
+    .line 217
     return-void
 .end method
 
@@ -78,7 +78,7 @@
     .locals 1
 
     .prologue
-    .line 232
+    .line 231
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mAudioFormat:Landroid/media/AudioFormat;
 
     return-object v0
@@ -88,12 +88,12 @@
     .locals 1
 
     .prologue
-    .line 272
+    .line 271
     iget-boolean v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mCaptureAvailable:Z
 
     if-eqz v0, :cond_0
 
-    .line 273
+    .line 272
     iget v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mCaptureSession:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -102,7 +102,7 @@
 
     return-object v0
 
-    .line 275
+    .line 274
     :cond_0
     const/4 v0, 0x0
 
@@ -113,17 +113,17 @@
     .locals 1
 
     .prologue
-    .line 245
+    .line 244
     iget-boolean v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mTriggerAvailable:Z
 
     if-eqz v0, :cond_0
 
-    .line 246
+    .line 245
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$EventPayload;->mData:[B
 
     return-object v0
 
-    .line 248
+    .line 247
     :cond_0
     const/4 v0, 0x0
 

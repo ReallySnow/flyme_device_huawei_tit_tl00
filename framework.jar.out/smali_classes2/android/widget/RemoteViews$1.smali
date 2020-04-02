@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 157
+    .line 148
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
     return-void
@@ -40,7 +40,7 @@
     .locals 1
 
     .prologue
-    .line 159
+    .line 150
     invoke-virtual {p0}, Landroid/widget/RemoteViews$1;->initialValue()[Ljava/lang/Object;
 
     move-result-object v0
@@ -52,7 +52,7 @@
     .locals 1
 
     .prologue
-    .line 160
+    .line 151
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;

@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/hardware/fingerprint/FingerprintManager;
 
     .prologue
-    .line 181
+    .line 180
     iput-object p1, p0, Landroid/hardware/fingerprint/FingerprintManager$OnEnrollCancelListener;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,11 +51,11 @@
     .locals 1
 
     .prologue
-    .line 184
+    .line 183
     iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$OnEnrollCancelListener;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
     invoke-static {v0}, Landroid/hardware/fingerprint/FingerprintManager;->-wrap3(Landroid/hardware/fingerprint/FingerprintManager;)V
 
-    .line 183
+    .line 182
     return-void
 .end method

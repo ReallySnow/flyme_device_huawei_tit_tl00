@@ -1402,7 +1402,6 @@
     .end local v15    # "newBitmap":Landroid/graphics/Bitmap;
     .end local v19    # "resources":Landroid/content/res/Resources;
     .end local v21    # "tanslateY":F
-    .end local p1    # "dr":Landroid/graphics/drawable/Drawable;
     :cond_0
     :goto_1
     return-object v20
@@ -1416,7 +1415,6 @@
     .restart local v15    # "newBitmap":Landroid/graphics/Bitmap;
     .restart local v18    # "resColor":Ljava/lang/String;
     .restart local v19    # "resources":Landroid/content/res/Resources;
-    .restart local p1    # "dr":Landroid/graphics/drawable/Drawable;
     :cond_1
     :try_start_3
     invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->length()I
@@ -1502,7 +1500,6 @@
     .end local v15    # "newBitmap":Landroid/graphics/Bitmap;
     .end local v19    # "resources":Landroid/content/res/Resources;
     .end local v21    # "tanslateY":F
-    .end local p1    # "dr":Landroid/graphics/drawable/Drawable;
     :goto_2
     const/4 v15, 0x0
 
@@ -1512,7 +1509,6 @@
     .line 310
     .end local v15    # "newBitmap":Landroid/graphics/Bitmap;
     .end local v20    # "result":Landroid/graphics/drawable/Drawable;
-    .restart local p1    # "dr":Landroid/graphics/drawable/Drawable;
     :catch_1
     move-exception v13
 
@@ -1536,11 +1532,12 @@
 
     if-nez v5, :cond_0
 
-    .line 315
-    check-cast p1, Landroid/graphics/drawable/BitmapDrawable;
+    move-object/from16 v5, v20
 
-    .end local p1    # "dr":Landroid/graphics/drawable/Drawable;
-    invoke-virtual/range {p1 .. p1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+    .line 315
+    check-cast v5, Landroid/graphics/drawable/BitmapDrawable;
+
+    invoke-virtual {v5}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v5
 
@@ -1554,7 +1551,6 @@
     .line 307
     .end local v13    # "e":Ljava/lang/Exception;
     .end local v20    # "result":Landroid/graphics/drawable/Drawable;
-    .restart local p1    # "dr":Landroid/graphics/drawable/Drawable;
     :catch_2
     move-exception v14
 
@@ -1578,11 +1574,12 @@
 
     if-nez v5, :cond_0
 
-    .line 315
-    check-cast p1, Landroid/graphics/drawable/BitmapDrawable;
+    move-object/from16 v5, v20
 
-    .end local p1    # "dr":Landroid/graphics/drawable/Drawable;
-    invoke-virtual/range {p1 .. p1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+    .line 315
+    check-cast v5, Landroid/graphics/drawable/BitmapDrawable;
+
+    invoke-virtual {v5}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v5
 
@@ -1596,7 +1593,6 @@
     .line 313
     .end local v14    # "er":Ljava/lang/OutOfMemoryError;
     .end local v20    # "result":Landroid/graphics/drawable/Drawable;
-    .restart local p1    # "dr":Landroid/graphics/drawable/Drawable;
     :catchall_0
     move-exception v5
 

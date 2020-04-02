@@ -15,14 +15,6 @@
 
 
 # virtual methods
-.method public abstract addRestrictBackgroundWhitelistedUid(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract addUidPolicy(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -63,22 +55,6 @@
     .end annotation
 .end method
 
-.method public abstract getRestrictBackgroundByCaller()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getRestrictBackgroundWhitelistedUids()[I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getUidPolicy(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -111,14 +87,6 @@
     .end annotation
 .end method
 
-.method public abstract onTetheringChanged(Ljava/lang/String;Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract registerListener(Landroid/net/INetworkPolicyListener;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -127,23 +95,7 @@
     .end annotation
 .end method
 
-.method public abstract removeRestrictBackgroundWhitelistedUid(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract removeUidPolicy(II)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setConnectivityListener(Landroid/net/INetworkPolicyListener;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -184,6 +136,14 @@
 .end method
 
 .method public abstract snoozeLimit(Landroid/net/NetworkTemplate;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract snoozeWarning(Landroid/net/NetworkTemplate;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

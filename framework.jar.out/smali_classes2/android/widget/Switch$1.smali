@@ -29,7 +29,7 @@
     .param p1, "$anonymous0"    # Ljava/lang/String;
 
     .prologue
-    .line 1441
+    .line 1432
     invoke-direct {p0, p1}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -42,7 +42,7 @@
     .param p1, "object"    # Landroid/widget/Switch;
 
     .prologue
-    .line 1444
+    .line 1435
     invoke-static {p1}, Landroid/widget/Switch;->-get0(Landroid/widget/Switch;)F
 
     move-result v0
@@ -59,7 +59,7 @@
     .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
-    .line 1443
+    .line 1434
     check-cast p1, Landroid/widget/Switch;
 
     .end local p1    # "object":Ljava/lang/Object;
@@ -76,10 +76,10 @@
     .param p2, "value"    # F
 
     .prologue
-    .line 1449
+    .line 1440
     invoke-static {p1, p2}, Landroid/widget/Switch;->-wrap0(Landroid/widget/Switch;F)V
 
-    .line 1448
+    .line 1439
     return-void
 .end method
 
@@ -89,7 +89,7 @@
     .param p2, "value"    # F
 
     .prologue
-    .line 1448
+    .line 1439
     check-cast p1, Landroid/widget/Switch;
 
     .end local p1    # "object":Ljava/lang/Object;

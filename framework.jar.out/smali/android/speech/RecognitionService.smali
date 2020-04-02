@@ -6,10 +6,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/speech/RecognitionService$1;,
+        Landroid/speech/RecognitionService$StartListeningArgs;,
         Landroid/speech/RecognitionService$Callback;,
         Landroid/speech/RecognitionService$RecognitionServiceBinder;,
-        Landroid/speech/RecognitionService$StartListeningArgs;
+        Landroid/speech/RecognitionService$1;
     }
 .end annotation
 
@@ -138,11 +138,10 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 178
+    .line 177
     const-string/jumbo v1, "android.permission.RECORD_AUDIO"
 
-    .line 177
-    invoke-static {p0, v1}, Landroid/content/PermissionChecker;->checkCallingOrSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+    invoke-virtual {p0, v1}, Landroid/speech/RecognitionService;->checkCallingOrSelfPermission(Ljava/lang/String;)I
 
     move-result v1
 

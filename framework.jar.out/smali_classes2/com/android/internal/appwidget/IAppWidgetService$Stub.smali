@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.appwidget.IAppWidgetService"
 
-.field static final TRANSACTION_allocateAppWidgetId_2:I = 0x3
+.field static final TRANSACTION_allocateAppWidgetId:I = 0x3
 
 .field static final TRANSACTION_bindAppWidgetId:I = 0x14
 
@@ -62,9 +62,9 @@
 
 .field static final TRANSACTION_setBindAppWidgetPermission:I = 0x13
 
-.field static final TRANSACTION_startListening_0:I = 0x1
+.field static final TRANSACTION_startListening:I = 0x1
 
-.field static final TRANSACTION_stopListening_1:I = 0x2
+.field static final TRANSACTION_stopListening:I = 0x2
 
 .field static final TRANSACTION_unbindRemoteViewsService:I = 0x16
 
@@ -163,7 +163,7 @@
     .line 39
     sparse-switch p1, :sswitch_data_0
 
-    .line 431
+    .line 426
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
@@ -214,65 +214,49 @@
 
     .line 56
     .local v5, "_arg2":I
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createIntArray()[I
+    new-instance v19, Ljava/util/ArrayList;
 
-    move-result-object v19
+    invoke-direct/range {v19 .. v19}, Ljava/util/ArrayList;-><init>()V
 
     .line 57
-    .local v19, "_arg3":[I
+    .local v19, "_arg3":Ljava/util/List;, "Ljava/util/List<Landroid/widget/RemoteViews;>;"
     move-object/from16 v0, p0
 
     move-object/from16 v1, v19
 
-    invoke-virtual {v0, v10, v12, v5, v1}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->startListening(Lcom/android/internal/appwidget/IAppWidgetHost;Ljava/lang/String;I[I)Landroid/content/pm/ParceledListSlice;
+    invoke-virtual {v0, v10, v12, v5, v1}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->startListening(Lcom/android/internal/appwidget/IAppWidgetHost;Ljava/lang/String;ILjava/util/List;)[I
 
-    move-result-object v23
+    move-result-object v27
 
     .line 58
-    .local v23, "_result":Landroid/content/pm/ParceledListSlice;
+    .local v27, "_result":[I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 59
-    if-eqz v23, :cond_0
-
-    .line 60
-    const/4 v2, 0x1
-
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    move-object/from16 v1, v27
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeIntArray([I)V
+
+    .line 60
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
     .line 61
     const/4 v2, 0x1
 
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/pm/ParceledListSlice;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 66
-    :goto_0
-    const/4 v2, 0x1
-
     return v2
 
-    .line 64
-    :cond_0
-    const/4 v2, 0x0
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_0
-
-    .line 70
+    .line 65
     .end local v5    # "_arg2":I
     .end local v10    # "_arg0":Lcom/android/internal/appwidget/IAppWidgetHost;
     .end local v12    # "_arg1":Ljava/lang/String;
-    .end local v19    # "_arg3":[I
-    .end local v23    # "_result":Landroid/content/pm/ParceledListSlice;
+    .end local v19    # "_arg3":Ljava/util/List;, "Ljava/util/List<Landroid/widget/RemoteViews;>;"
+    .end local v27    # "_result":[I
     :sswitch_2
     const-string/jumbo v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -280,32 +264,32 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 72
+    .line 67
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 74
+    .line 69
     .local v3, "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 75
+    .line 70
     .local v4, "_arg1":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3, v4}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->stopListening(Ljava/lang/String;I)V
 
-    .line 76
+    .line 71
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 77
+    .line 72
     const/4 v2, 0x1
 
     return v2
 
-    .line 81
+    .line 76
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     :sswitch_3
@@ -315,18 +299,18 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 83
+    .line 78
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 85
+    .line 80
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 86
+    .line 81
     .restart local v4    # "_arg1":I
     move-object/from16 v0, p0
 
@@ -334,23 +318,23 @@
 
     move-result v20
 
-    .line 87
+    .line 82
     .local v20, "_result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 88
+    .line 83
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 89
+    .line 84
     const/4 v2, 0x1
 
     return v2
 
-    .line 93
+    .line 88
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v20    # "_result":I
@@ -361,32 +345,32 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 95
+    .line 90
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 97
+    .line 92
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 98
+    .line 93
     .restart local v4    # "_arg1":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3, v4}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->deleteAppWidgetId(Ljava/lang/String;I)V
 
-    .line 99
+    .line 94
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 100
+    .line 95
     const/4 v2, 0x1
 
     return v2
 
-    .line 104
+    .line 99
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     :sswitch_5
@@ -396,32 +380,32 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 106
+    .line 101
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 108
+    .line 103
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 109
+    .line 104
     .restart local v4    # "_arg1":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3, v4}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->deleteHost(Ljava/lang/String;I)V
 
-    .line 110
+    .line 105
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 111
+    .line 106
     const/4 v2, 0x1
 
     return v2
 
-    .line 115
+    .line 110
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     :sswitch_6
@@ -431,18 +415,18 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 116
+    .line 111
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->deleteAllHosts()V
 
-    .line 117
+    .line 112
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 118
+    .line 113
     const/4 v2, 0x1
 
     return v2
 
-    .line 122
+    .line 117
     :sswitch_7
     const-string/jumbo v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -450,18 +434,18 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 124
+    .line 119
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 126
+    .line 121
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 127
+    .line 122
     .restart local v4    # "_arg1":I
     move-object/from16 v0, p0
 
@@ -469,21 +453,21 @@
 
     move-result-object v25
 
-    .line 128
+    .line 123
     .local v25, "_result":Landroid/widget/RemoteViews;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 129
-    if-eqz v25, :cond_1
+    .line 124
+    if-eqz v25, :cond_0
 
-    .line 130
+    .line 125
     const/4 v2, 0x1
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 131
+    .line 126
     const/4 v2, 0x1
 
     move-object/from16 v0, v25
@@ -492,23 +476,23 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 136
-    :goto_1
+    .line 131
+    :goto_0
     const/4 v2, 0x1
 
     return v2
 
-    .line 134
-    :cond_1
+    .line 129
+    :cond_0
     const/4 v2, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 140
+    .line 135
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v25    # "_result":Landroid/widget/RemoteViews;
@@ -519,18 +503,18 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 142
+    .line 137
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 144
+    .line 139
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 145
+    .line 140
     .restart local v4    # "_arg1":I
     move-object/from16 v0, p0
 
@@ -538,23 +522,23 @@
 
     move-result-object v27
 
-    .line 146
-    .local v27, "_result":[I
+    .line 141
+    .restart local v27    # "_result":[I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 147
+    .line 142
     move-object/from16 v0, p3
 
     move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 148
+    .line 143
     const/4 v2, 0x1
 
     return v2
 
-    .line 152
+    .line 147
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v27    # "_result":[I
@@ -565,24 +549,24 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 154
+    .line 149
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 156
+    .line 151
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 158
+    .line 153
     .restart local v4    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    .line 159
+    .line 154
     .restart local v5    # "_arg2":I
     move-object/from16 v0, p0
 
@@ -590,21 +574,21 @@
 
     move-result-object v22
 
-    .line 160
+    .line 155
     .local v22, "_result":Landroid/content/IntentSender;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 161
-    if-eqz v22, :cond_2
+    .line 156
+    if-eqz v22, :cond_1
 
-    .line 162
+    .line 157
     const/4 v2, 0x1
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 163
+    .line 158
     const/4 v2, 0x1
 
     move-object/from16 v0, v22
@@ -613,23 +597,23 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/IntentSender;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 168
-    :goto_2
+    .line 163
+    :goto_1
     const/4 v2, 0x1
 
     return v2
 
-    .line 166
-    :cond_2
+    .line 161
+    :cond_1
     const/4 v2, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 172
+    .line 167
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v5    # "_arg2":I
@@ -641,26 +625,26 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 174
+    .line 169
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 176
+    .line 171
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v13
 
-    .line 178
+    .line 173
     .local v13, "_arg1":[I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
-    .line 179
+    .line 174
     sget-object v2, Landroid/widget/RemoteViews;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -671,30 +655,30 @@
 
     check-cast v16, Landroid/widget/RemoteViews;
 
-    .line 184
-    :goto_3
+    .line 179
+    :goto_2
     move-object/from16 v0, p0
 
     move-object/from16 v1, v16
 
     invoke-virtual {v0, v3, v13, v1}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->updateAppWidgetIds(Ljava/lang/String;[ILandroid/widget/RemoteViews;)V
 
-    .line 185
+    .line 180
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 186
+    .line 181
     const/4 v2, 0x1
 
     return v2
 
-    .line 182
-    :cond_3
+    .line 177
+    :cond_2
     const/16 v16, 0x0
 
     .local v16, "_arg2":Landroid/widget/RemoteViews;
-    goto :goto_3
+    goto :goto_2
 
-    .line 190
+    .line 185
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v13    # "_arg1":[I
     .end local v16    # "_arg2":Landroid/widget/RemoteViews;
@@ -705,26 +689,26 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 192
+    .line 187
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 194
+    .line 189
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 196
+    .line 191
     .restart local v4    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
-    .line 197
+    .line 192
     sget-object v2, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -735,28 +719,28 @@
 
     check-cast v15, Landroid/os/Bundle;
 
-    .line 202
-    :goto_4
+    .line 197
+    :goto_3
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3, v4, v15}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->updateAppWidgetOptions(Ljava/lang/String;ILandroid/os/Bundle;)V
 
-    .line 203
+    .line 198
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 204
+    .line 199
     const/4 v2, 0x1
 
     return v2
 
-    .line 200
-    :cond_4
+    .line 195
+    :cond_3
     const/4 v15, 0x0
 
     .local v15, "_arg2":Landroid/os/Bundle;
-    goto :goto_4
+    goto :goto_3
 
-    .line 208
+    .line 203
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v15    # "_arg2":Landroid/os/Bundle;
@@ -767,18 +751,18 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 210
+    .line 205
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 212
+    .line 207
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 213
+    .line 208
     .restart local v4    # "_arg1":I
     move-object/from16 v0, p0
 
@@ -786,21 +770,21 @@
 
     move-result-object v24
 
-    .line 214
+    .line 209
     .local v24, "_result":Landroid/os/Bundle;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 215
-    if-eqz v24, :cond_5
+    .line 210
+    if-eqz v24, :cond_4
 
-    .line 216
+    .line 211
     const/4 v2, 0x1
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 217
+    .line 212
     const/4 v2, 0x1
 
     move-object/from16 v0, v24
@@ -809,23 +793,23 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 222
-    :goto_5
+    .line 217
+    :goto_4
     const/4 v2, 0x1
 
     return v2
 
-    .line 220
-    :cond_5
+    .line 215
+    :cond_4
     const/4 v2, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_5
+    goto :goto_4
 
-    .line 226
+    .line 221
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v24    # "_result":Landroid/os/Bundle;
@@ -836,26 +820,26 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 228
+    .line 223
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 230
+    .line 225
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v13
 
-    .line 232
+    .line 227
     .restart local v13    # "_arg1":[I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
-    .line 233
+    .line 228
     sget-object v2, Landroid/widget/RemoteViews;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -866,30 +850,30 @@
 
     check-cast v16, Landroid/widget/RemoteViews;
 
-    .line 238
-    :goto_6
+    .line 233
+    :goto_5
     move-object/from16 v0, p0
 
     move-object/from16 v1, v16
 
     invoke-virtual {v0, v3, v13, v1}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->partiallyUpdateAppWidgetIds(Ljava/lang/String;[ILandroid/widget/RemoteViews;)V
 
-    .line 239
+    .line 234
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 240
+    .line 235
     const/4 v2, 0x1
 
     return v2
 
-    .line 236
-    :cond_6
+    .line 231
+    :cond_5
     const/16 v16, 0x0
 
     .restart local v16    # "_arg2":Landroid/widget/RemoteViews;
-    goto :goto_6
+    goto :goto_5
 
-    .line 244
+    .line 239
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v13    # "_arg1":[I
     .end local v16    # "_arg2":Landroid/widget/RemoteViews;
@@ -900,14 +884,14 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 246
+    .line 241
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_6
 
-    .line 247
+    .line 242
     sget-object v2, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -918,15 +902,15 @@
 
     check-cast v9, Landroid/content/ComponentName;
 
-    .line 253
-    :goto_7
+    .line 248
+    :goto_6
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_7
 
-    .line 254
+    .line 249
     sget-object v2, Landroid/widget/RemoteViews;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -937,36 +921,36 @@
 
     check-cast v11, Landroid/widget/RemoteViews;
 
-    .line 259
-    :goto_8
+    .line 254
+    :goto_7
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v9, v11}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->updateAppWidgetProvider(Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V
 
-    .line 260
+    .line 255
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 261
+    .line 256
     const/4 v2, 0x1
 
     return v2
 
-    .line 250
-    :cond_7
+    .line 245
+    :cond_6
     const/4 v9, 0x0
 
     .local v9, "_arg0":Landroid/content/ComponentName;
-    goto :goto_7
+    goto :goto_6
 
-    .line 257
+    .line 252
     .end local v9    # "_arg0":Landroid/content/ComponentName;
-    :cond_8
+    :cond_7
     const/4 v11, 0x0
 
     .local v11, "_arg1":Landroid/widget/RemoteViews;
-    goto :goto_8
+    goto :goto_7
 
-    .line 265
+    .line 260
     .end local v11    # "_arg1":Landroid/widget/RemoteViews;
     :sswitch_f
     const-string/jumbo v2, "com.android.internal.appwidget.IAppWidgetService"
@@ -975,38 +959,38 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 267
+    .line 262
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 269
+    .line 264
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v13
 
-    .line 271
+    .line 266
     .restart local v13    # "_arg1":[I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    .line 272
+    .line 267
     .restart local v5    # "_arg2":I
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3, v13, v5}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->notifyAppWidgetViewDataChanged(Ljava/lang/String;[II)V
 
-    .line 273
+    .line 268
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 274
+    .line 269
     const/4 v2, 0x1
 
     return v2
 
-    .line 278
+    .line 273
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v5    # "_arg2":I
     .end local v13    # "_arg1":[I
@@ -1017,18 +1001,18 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 280
+    .line 275
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
 
-    .line 282
+    .line 277
     .local v8, "_arg0":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 283
+    .line 278
     .restart local v4    # "_arg1":I
     move-object/from16 v0, p0
 
@@ -1036,21 +1020,21 @@
 
     move-result-object v23
 
-    .line 284
-    .restart local v23    # "_result":Landroid/content/pm/ParceledListSlice;
+    .line 279
+    .local v23, "_result":Landroid/content/pm/ParceledListSlice;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 285
-    if-eqz v23, :cond_9
+    .line 280
+    if-eqz v23, :cond_8
 
-    .line 286
+    .line 281
     const/4 v2, 0x1
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 287
+    .line 282
     const/4 v2, 0x1
 
     move-object/from16 v0, v23
@@ -1059,23 +1043,23 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/pm/ParceledListSlice;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 292
-    :goto_9
+    .line 287
+    :goto_8
     const/4 v2, 0x1
 
     return v2
 
-    .line 290
-    :cond_9
+    .line 285
+    :cond_8
     const/4 v2, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_8
 
-    .line 296
+    .line 291
     .end local v4    # "_arg1":I
     .end local v8    # "_arg0":I
     .end local v23    # "_result":Landroid/content/pm/ParceledListSlice;
@@ -1086,18 +1070,18 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 298
+    .line 293
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 300
+    .line 295
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 301
+    .line 296
     .restart local v4    # "_arg1":I
     move-object/from16 v0, p0
 
@@ -1105,21 +1089,21 @@
 
     move-result-object v21
 
-    .line 302
+    .line 297
     .local v21, "_result":Landroid/appwidget/AppWidgetProviderInfo;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 303
-    if-eqz v21, :cond_a
+    .line 298
+    if-eqz v21, :cond_9
 
-    .line 304
+    .line 299
     const/4 v2, 0x1
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 305
+    .line 300
     const/4 v2, 0x1
 
     move-object/from16 v0, v21
@@ -1128,23 +1112,23 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/appwidget/AppWidgetProviderInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 310
-    :goto_a
+    .line 305
+    :goto_9
     const/4 v2, 0x1
 
     return v2
 
-    .line 308
-    :cond_a
+    .line 303
+    :cond_9
     const/4 v2, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_a
+    goto :goto_9
 
-    .line 314
+    .line 309
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v21    # "_result":Landroid/appwidget/AppWidgetProviderInfo;
@@ -1155,18 +1139,18 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 316
+    .line 311
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 318
+    .line 313
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 319
+    .line 314
     .restart local v4    # "_arg1":I
     move-object/from16 v0, p0
 
@@ -1174,32 +1158,32 @@
 
     move-result v26
 
-    .line 320
+    .line 315
     .local v26, "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 321
-    if-eqz v26, :cond_b
+    .line 316
+    if-eqz v26, :cond_a
 
     const/4 v2, 0x1
 
-    :goto_b
+    :goto_a
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 322
+    .line 317
     const/4 v2, 0x1
 
     return v2
 
-    .line 321
-    :cond_b
+    .line 316
+    :cond_a
     const/4 v2, 0x0
 
-    goto :goto_b
+    goto :goto_a
 
-    .line 326
+    .line 321
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v26    # "_result":Z
@@ -1210,54 +1194,56 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 328
+    .line 323
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 330
+    .line 325
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 332
+    .line 327
     .restart local v4    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_b
 
     const/16 v17, 0x1
 
-    .line 333
+    .line 328
     .local v17, "_arg2":Z
-    :goto_c
+    :goto_b
     move-object/from16 v0, p0
 
     move/from16 v1, v17
 
     invoke-virtual {v0, v3, v4, v1}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->setBindAppWidgetPermission(Ljava/lang/String;IZ)V
 
-    .line 334
+    .line 329
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 335
+    .line 330
     const/4 v2, 0x1
 
     return v2
 
-    .line 332
+    .line 327
     .end local v17    # "_arg2":Z
-    :cond_c
+    :cond_b
     const/16 v17, 0x0
 
-    goto :goto_c
+    .restart local v17    # "_arg2":Z
+    goto :goto_b
 
-    .line 339
+    .line 334
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
+    .end local v17    # "_arg2":Z
     :sswitch_14
     const-string/jumbo v2, "com.android.internal.appwidget.IAppWidgetService"
 
@@ -1265,32 +1251,32 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 341
+    .line 336
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 343
+    .line 338
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 345
+    .line 340
     .restart local v4    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    .line 347
+    .line 342
     .restart local v5    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_c
 
-    .line 348
+    .line 343
     sget-object v2, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -1301,15 +1287,15 @@
 
     check-cast v6, Landroid/content/ComponentName;
 
-    .line 354
-    :goto_d
+    .line 349
+    :goto_c
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_d
 
-    .line 355
+    .line 350
     sget-object v2, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -1320,58 +1306,58 @@
 
     check-cast v7, Landroid/os/Bundle;
 
-    :goto_e
+    :goto_d
     move-object/from16 v2, p0
 
-    .line 360
+    .line 355
     invoke-virtual/range {v2 .. v7}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->bindAppWidgetId(Ljava/lang/String;IILandroid/content/ComponentName;Landroid/os/Bundle;)Z
 
     move-result v26
 
-    .line 361
+    .line 356
     .restart local v26    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 362
-    if-eqz v26, :cond_f
+    .line 357
+    if-eqz v26, :cond_e
 
     const/4 v2, 0x1
 
-    :goto_f
+    :goto_e
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 363
+    .line 358
     const/4 v2, 0x1
 
     return v2
 
-    .line 351
+    .line 346
     .end local v26    # "_result":Z
-    :cond_d
+    :cond_c
     const/4 v6, 0x0
 
     .local v6, "_arg3":Landroid/content/ComponentName;
-    goto :goto_d
+    goto :goto_c
 
-    .line 358
+    .line 353
     .end local v6    # "_arg3":Landroid/content/ComponentName;
-    :cond_e
+    :cond_d
     const/4 v7, 0x0
 
     .local v7, "_arg4":Landroid/os/Bundle;
+    goto :goto_d
+
+    .line 357
+    .end local v7    # "_arg4":Landroid/os/Bundle;
+    .restart local v26    # "_result":Z
+    :cond_e
+    const/4 v2, 0x0
+
     goto :goto_e
 
     .line 362
-    .end local v7    # "_arg4":Landroid/os/Bundle;
-    .restart local v26    # "_result":Z
-    :cond_f
-    const/4 v2, 0x0
-
-    goto :goto_f
-
-    .line 367
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v5    # "_arg2":I
@@ -1383,26 +1369,26 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 369
+    .line 364
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 371
+    .line 366
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 373
+    .line 368
     .restart local v4    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_f
 
-    .line 374
+    .line 369
     sget-object v2, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -1413,13 +1399,13 @@
 
     check-cast v14, Landroid/content/Intent;
 
-    .line 380
-    :goto_10
+    .line 375
+    :goto_f
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v18
 
-    .line 381
+    .line 376
     .local v18, "_arg3":Landroid/os/IBinder;
     move-object/from16 v0, p0
 
@@ -1427,23 +1413,23 @@
 
     invoke-virtual {v0, v3, v4, v14, v1}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->bindRemoteViewsService(Ljava/lang/String;ILandroid/content/Intent;Landroid/os/IBinder;)V
 
-    .line 382
+    .line 377
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 383
+    .line 378
     const/4 v2, 0x1
 
     return v2
 
-    .line 377
+    .line 372
     .end local v18    # "_arg3":Landroid/os/IBinder;
-    :cond_10
+    :cond_f
     const/4 v14, 0x0
 
     .local v14, "_arg2":Landroid/content/Intent;
-    goto :goto_10
+    goto :goto_f
 
-    .line 387
+    .line 382
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v14    # "_arg2":Landroid/content/Intent;
@@ -1454,26 +1440,26 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 389
+    .line 384
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 391
+    .line 386
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 393
+    .line 388
     .restart local v4    # "_arg1":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_10
 
-    .line 394
+    .line 389
     sget-object v2, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -1484,28 +1470,28 @@
 
     check-cast v14, Landroid/content/Intent;
 
-    .line 399
-    :goto_11
+    .line 394
+    :goto_10
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3, v4, v14}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->unbindRemoteViewsService(Ljava/lang/String;ILandroid/content/Intent;)V
 
-    .line 400
+    .line 395
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 401
+    .line 396
     const/4 v2, 0x1
 
     return v2
 
-    .line 397
-    :cond_11
+    .line 392
+    :cond_10
     const/4 v14, 0x0
 
     .restart local v14    # "_arg2":Landroid/content/Intent;
-    goto :goto_11
+    goto :goto_10
 
-    .line 405
+    .line 400
     .end local v3    # "_arg0":Ljava/lang/String;
     .end local v4    # "_arg1":I
     .end local v14    # "_arg2":Landroid/content/Intent;
@@ -1516,14 +1502,14 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 407
+    .line 402
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_11
 
-    .line 408
+    .line 403
     sget-object v2, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -1534,39 +1520,39 @@
 
     check-cast v9, Landroid/content/ComponentName;
 
-    .line 413
-    :goto_12
+    .line 408
+    :goto_11
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v9}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->getAppWidgetIds(Landroid/content/ComponentName;)[I
 
     move-result-object v27
 
-    .line 414
+    .line 409
     .restart local v27    # "_result":[I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 415
+    .line 410
     move-object/from16 v0, p3
 
     move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 416
+    .line 411
     const/4 v2, 0x1
 
     return v2
 
-    .line 411
+    .line 406
     .end local v27    # "_result":[I
-    :cond_12
+    :cond_11
     const/4 v9, 0x0
 
     .restart local v9    # "_arg0":Landroid/content/ComponentName;
-    goto :goto_12
+    goto :goto_11
 
-    .line 420
+    .line 415
     .end local v9    # "_arg0":Landroid/content/ComponentName;
     :sswitch_18
     const-string/jumbo v2, "com.android.internal.appwidget.IAppWidgetService"
@@ -1575,18 +1561,18 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 422
+    .line 417
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 424
+    .line 419
     .restart local v3    # "_arg0":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 425
+    .line 420
     .restart local v4    # "_arg1":I
     move-object/from16 v0, p0
 
@@ -1594,30 +1580,30 @@
 
     move-result v26
 
-    .line 426
+    .line 421
     .restart local v26    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 427
-    if-eqz v26, :cond_13
+    .line 422
+    if-eqz v26, :cond_12
 
     const/4 v2, 0x1
 
-    :goto_13
+    :goto_12
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 428
+    .line 423
     const/4 v2, 0x1
 
     return v2
 
-    .line 427
-    :cond_13
+    .line 422
+    :cond_12
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_12
 
     .line 39
     :sswitch_data_0

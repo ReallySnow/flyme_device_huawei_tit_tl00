@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract onFilterComplete(I)V
+.method public abstract onFilterComplete(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

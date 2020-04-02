@@ -30,18 +30,18 @@
     .param p3, "targetSdk"    # I
 
     .prologue
-    .line 205
+    .line 156
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 206
+    .line 157
     iput-object p1, p0, Landroid/content/pm/PackageParser$SplitPermissionInfo;->rootPerm:Ljava/lang/String;
 
-    .line 207
+    .line 158
     iput-object p2, p0, Landroid/content/pm/PackageParser$SplitPermissionInfo;->newPerms:[Ljava/lang/String;
 
-    .line 208
+    .line 159
     iput p3, p0, Landroid/content/pm/PackageParser$SplitPermissionInfo;->targetSdk:I
 
-    .line 205
+    .line 156
     return-void
 .end method

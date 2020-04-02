@@ -6,19 +6,15 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/media/tv/TvInputService$Session;,
         Landroid/media/tv/TvInputService$HardwareSession;,
-        Landroid/media/tv/TvInputService$OverlayViewCleanUpTask;,
-        Landroid/media/tv/TvInputService$RecordingSession;,
-        Landroid/media/tv/TvInputService$ServiceHandler;,
-        Landroid/media/tv/TvInputService$Session;
+        Landroid/media/tv/TvInputService$ServiceHandler;
     }
 .end annotation
 
 
 # static fields
 .field private static final DEBUG:Z = false
-
-.field private static final DETACH_OVERLAY_VIEW_TIMEOUT_MS:I = 0x1388
 
 .field public static final SERVICE_INTERFACE:Ljava/lang/String; = "android.media.tv.TvInputService"
 
@@ -77,10 +73,10 @@
     .locals 2
 
     .prologue
-    .line 77
+    .line 75
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 103
+    .line 99
     new-instance v0, Landroid/media/tv/TvInputService$ServiceHandler;
 
     const/4 v1, 0x0
@@ -89,15 +85,15 @@
 
     iput-object v0, p0, Landroid/media/tv/TvInputService;->mServiceHandler:Landroid/os/Handler;
 
-    .line 105
+    .line 101
     new-instance v0, Landroid/os/RemoteCallbackList;
 
     invoke-direct {v0}, Landroid/os/RemoteCallbackList;-><init>()V
 
-    .line 104
+    .line 100
     iput-object v0, p0, Landroid/media/tv/TvInputService;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    .line 77
+    .line 75
     return-void
 .end method
 
@@ -106,21 +102,21 @@
     .param p0, "keyCode"    # I
 
     .prologue
-    .line 1933
+    .line 1569
     sparse-switch p0, :sswitch_data_0
 
-    .line 1948
+    .line 1584
     const/4 v0, 0x0
 
     return v0
 
-    .line 1946
+    .line 1582
     :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
-    .line 1933
+    .line 1569
     nop
 
     :sswitch_data_0
@@ -145,12 +141,12 @@
     .param p1, "inputId"    # Ljava/lang/String;
 
     .prologue
-    .line 262
+    .line 233
     iget-object v1, p0, Landroid/media/tv/TvInputService;->mTvInputManager:Landroid/media/tv/TvInputManager;
 
     if-nez v1, :cond_0
 
-    .line 263
+    .line 234
     const-string/jumbo v1, "tv_input"
 
     invoke-virtual {p0, v1}, Landroid/media/tv/TvInputService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -161,7 +157,7 @@
 
     iput-object v1, p0, Landroid/media/tv/TvInputService;->mTvInputManager:Landroid/media/tv/TvInputManager;
 
-    .line 265
+    .line 236
     :cond_0
     iget-object v1, p0, Landroid/media/tv/TvInputService;->mTvInputManager:Landroid/media/tv/TvInputManager;
 
@@ -169,7 +165,7 @@
 
     move-result-object v0
 
-    .line 266
+    .line 237
     .local v0, "info":Landroid/media/tv/TvInputInfo;
     if-eqz v0, :cond_1
 
@@ -193,21 +189,10 @@
     .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 111
+    .line 107
     new-instance v0, Landroid/media/tv/TvInputService$1;
 
     invoke-direct {v0, p0}, Landroid/media/tv/TvInputService$1;-><init>(Landroid/media/tv/TvInputService;)V
-
-    return-object v0
-.end method
-
-.method public onCreateRecordingSession(Ljava/lang/String;)Landroid/media/tv/TvInputService$RecordingSession;
-    .locals 1
-    .param p1, "inputId"    # Ljava/lang/String;
-
-    .prologue
-    .line 202
-    const/4 v0, 0x0
 
     return-object v0
 .end method
@@ -220,7 +205,7 @@
     .param p1, "hardwareInfo"    # Landroid/media/tv/TvInputHardwareInfo;
 
     .prologue
-    .line 216
+    .line 187
     const/4 v0, 0x0
 
     return-object v0
@@ -231,7 +216,7 @@
     .param p1, "hardwareInfo"    # Landroid/media/tv/TvInputHardwareInfo;
 
     .prologue
-    .line 230
+    .line 201
     const/4 v0, 0x0
 
     return-object v0
@@ -242,7 +227,7 @@
     .param p1, "deviceInfo"    # Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     .prologue
-    .line 244
+    .line 215
     const/4 v0, 0x0
 
     return-object v0
@@ -253,7 +238,7 @@
     .param p1, "deviceInfo"    # Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     .prologue
-    .line 258
+    .line 229
     const/4 v0, 0x0
 
     return-object v0

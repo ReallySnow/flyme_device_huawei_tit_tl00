@@ -26,17 +26,17 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.IActivityController"
 
-.field static final TRANSACTION_activityResuming_1:I = 0x2
+.field static final TRANSACTION_activityResuming:I = 0x2
 
-.field static final TRANSACTION_activityStarting_0:I = 0x1
+.field static final TRANSACTION_activityStarting:I = 0x1
 
-.field static final TRANSACTION_appCrashed_2:I = 0x3
+.field static final TRANSACTION_appCrashed:I = 0x3
 
-.field static final TRANSACTION_appEarlyNotResponding_3:I = 0x4
+.field static final TRANSACTION_appEarlyNotResponding:I = 0x4
 
 .field static final TRANSACTION_appNotResponding:I = 0x5
 
-.field static final TRANSACTION_systemNotResponding_5:I = 0x6
+.field static final TRANSACTION_systemNotResponding:I = 0x6
 
 
 # direct methods

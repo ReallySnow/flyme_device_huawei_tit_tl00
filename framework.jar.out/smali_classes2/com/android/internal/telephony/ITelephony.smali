@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract addProtectedSmsAddress(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract answerRingingCall()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -40,22 +48,6 @@
 .end method
 
 .method public abstract canChangeDtmfToneLength()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract carrierActionSetMeteredApnsEnabled(IZ)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract carrierActionSetRadioEnabled(IZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -111,14 +103,6 @@
     .end annotation
 .end method
 
-.method public abstract disableVisualVoicemailSmsFilter(Ljava/lang/String;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract enableDataConnectivity()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -144,14 +128,6 @@
 .end method
 
 .method public abstract enableVideoCalling(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract enableVisualVoicemailSmsFilter(Ljava/lang/String;ILandroid/telephony/VisualVoicemailSmsFilterSettings;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -191,15 +167,7 @@
     .end annotation
 .end method
 
-.method public abstract getActivePhoneTypeForSlot(I)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getAidForAppType(II)Ljava/lang/String;
+.method public abstract getActivePhoneTypeForSubscriber(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -227,17 +195,7 @@
     .end annotation
 .end method
 
-.method public abstract getAllowedCarriers(I)Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)",
-            "Ljava/util/List",
-            "<",
-            "Landroid/service/carrier/CarrierIdentifier;",
-            ">;"
-        }
-    .end annotation
-
+.method public abstract getAtr()[B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -245,7 +203,7 @@
     .end annotation
 .end method
 
-.method public abstract getAtr(I)[B
+.method public abstract getAtrUsingSubId(I)[B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -269,7 +227,7 @@
     .end annotation
 .end method
 
-.method public abstract getCallStateForSlot(I)I
+.method public abstract getCallStateForSubscriber(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -297,7 +255,7 @@
     .end annotation
 .end method
 
-.method public abstract getCarrierPrivilegeStatus(I)I
+.method public abstract getCarrierPrivilegeStatus()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -362,14 +320,6 @@
 .end method
 
 .method public abstract getCdmaMin(I)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getCdmaPrlVersion(I)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -449,23 +399,7 @@
     .end annotation
 .end method
 
-.method public abstract getDeviceSoftwareVersionForSlot(ILjava/lang/String;)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getEsn(I)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getImeiForSlot(ILjava/lang/String;)Ljava/lang/String;
+.method public abstract getIccOperatorNumericForData(I)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -529,6 +463,14 @@
     .end annotation
 .end method
 
+.method public abstract getModemActivityInfo()Landroid/telephony/ModemActivityInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getNeighboringCellInfo(Ljava/lang/String;)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -565,24 +507,6 @@
     .end annotation
 .end method
 
-.method public abstract getPackagesWithCarrierPrivileges()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getPcscfAddress(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -607,14 +531,6 @@
     .end annotation
 .end method
 
-.method public abstract getServiceStateForSubscriber(ILjava/lang/String;)Landroid/telephony/ServiceState;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getSubIdForPhoneAccount(Landroid/telecom/PhoneAccount;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -623,41 +539,7 @@
     .end annotation
 .end method
 
-.method public abstract getSystemVisualVoicemailSmsFilterSettings(Ljava/lang/String;I)Landroid/telephony/VisualVoicemailSmsFilterSettings;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getTelephonyHistograms()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/telephony/TelephonyHistogram;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getTetherApnRequired()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getVisualVoicemailSmsFilterSettings(Ljava/lang/String;I)Landroid/telephony/VisualVoicemailSmsFilterSettings;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -682,22 +564,6 @@
 .end method
 
 .method public abstract getVoiceNetworkTypeForSubscriber(ILjava/lang/String;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getVoicemailRingtoneUri(Landroid/telecom/PhoneAccountHandle;)Landroid/net/Uri;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getVtDataUsage()J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -737,7 +603,7 @@
     .end annotation
 .end method
 
-.method public abstract iccCloseLogicalChannel(II)Z
+.method public abstract iccCloseLogicalChannel(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -745,7 +611,7 @@
     .end annotation
 .end method
 
-.method public abstract iccExchangeSimIO(IIIIIILjava/lang/String;)[B
+.method public abstract iccCloseLogicalChannelUsingSubId(II)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -753,7 +619,7 @@
     .end annotation
 .end method
 
-.method public abstract iccOpenLogicalChannel(ILjava/lang/String;)Landroid/telephony/IccOpenLogicalChannelResponse;
+.method public abstract iccExchangeSimIO(IIIIILjava/lang/String;)[B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -761,7 +627,7 @@
     .end annotation
 .end method
 
-.method public abstract iccOpenLogicalChannelWithP2(ILjava/lang/String;B)Landroid/telephony/IccOpenLogicalChannelResponse;
+.method public abstract iccExchangeSimIOUsingSubId(IIIIIILjava/lang/String;)[B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -769,7 +635,7 @@
     .end annotation
 .end method
 
-.method public abstract iccTransmitApduBasicChannel(IIIIIILjava/lang/String;)Ljava/lang/String;
+.method public abstract iccOpenLogicalChannel(Ljava/lang/String;)Landroid/telephony/IccOpenLogicalChannelResponse;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -777,7 +643,55 @@
     .end annotation
 .end method
 
-.method public abstract iccTransmitApduLogicalChannel(IIIIIIILjava/lang/String;)Ljava/lang/String;
+.method public abstract iccOpenLogicalChannelUsingSubId(ILjava/lang/String;)Landroid/telephony/IccOpenLogicalChannelResponse;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract iccOpenLogicalChannelUsingSubIdWithP2(ILjava/lang/String;B)Landroid/telephony/IccOpenLogicalChannelResponse;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract iccOpenLogicalChannelWithP2(Ljava/lang/String;B)Landroid/telephony/IccOpenLogicalChannelResponse;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract iccTransmitApduBasicChannel(IIIIILjava/lang/String;)Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract iccTransmitApduBasicChannelUsingSubId(IIIIIILjava/lang/String;)Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract iccTransmitApduLogicalChannel(IIIIIILjava/lang/String;)Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract iccTransmitApduLogicalChannelUsingSubId(IIIIIIILjava/lang/String;)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -833,14 +747,6 @@
     .end annotation
 .end method
 
-.method public abstract isImsRegisteredForSubscriber(I)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract isOffhook(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -889,6 +795,14 @@
     .end annotation
 .end method
 
+.method public abstract isSimPinEnabled(Ljava/lang/String;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isTtyModeSupported()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -906,22 +820,6 @@
 .end method
 
 .method public abstract isVideoTelephonyAvailable()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract isVisualVoicemailEnabled(Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract isVoicemailVibrationEnabled(Landroid/telecom/PhoneAccountHandle;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1001,7 +899,7 @@
     .end annotation
 .end method
 
-.method public abstract requestModemActivityInfo(Landroid/os/ResultReceiver;)V
+.method public abstract revokeProtectedSmsAddress(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1009,25 +907,7 @@
     .end annotation
 .end method
 
-.method public abstract sendEnvelopeWithStatus(ILjava/lang/String;)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setAllowedCarriers(ILjava/util/List;)I
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/List",
-            "<",
-            "Landroid/service/carrier/CarrierIdentifier;",
-            ">;)I"
-        }
-    .end annotation
-
+.method public abstract sendEnvelopeWithStatus(Ljava/lang/String;)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1083,15 +963,7 @@
     .end annotation
 .end method
 
-.method public abstract setOperatorBrandOverride(ILjava/lang/String;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setPolicyDataEnabled(ZI)V
+.method public abstract setOperatorBrandOverride(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1139,10 +1011,10 @@
     .end annotation
 .end method
 
-.method public abstract setRoamingOverride(ILjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Z
+.method public abstract setRoamingOverride(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(I",
+            "(",
             "Ljava/util/List",
             "<",
             "Ljava/lang/String;",
@@ -1162,14 +1034,6 @@
         }
     .end annotation
 
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setVisualVoicemailEnabled(Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

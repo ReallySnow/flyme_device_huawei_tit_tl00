@@ -23,7 +23,7 @@
     .param p4, "endRadius"    # F
 
     .prologue
-    .line 71
+    .line 55
     new-instance v0, Landroid/animation/RevealAnimator;
 
     move-object v1, p0

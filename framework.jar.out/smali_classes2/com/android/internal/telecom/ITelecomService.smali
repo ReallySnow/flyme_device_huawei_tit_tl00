@@ -23,14 +23,6 @@
     .end annotation
 .end method
 
-.method public abstract acceptRingingCallWithVideoState(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract addNewIncomingCall(Landroid/telecom/PhoneAccountHandle;Landroid/os/Bundle;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -63,22 +55,6 @@
     .end annotation
 .end method
 
-.method public abstract createManageBlockedNumbersIntent()Landroid/content/Intent;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract dumpCallAnalytics()Landroid/telecom/TelecomAnalytics;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract enablePhoneAccount(Landroid/telecom/PhoneAccountHandle;Z)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -88,6 +64,14 @@
 .end method
 
 .method public abstract endCall()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getActiveSubscription()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -393,6 +377,14 @@
 .end method
 
 .method public abstract silenceRinger(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract switchToOtherActiveSub(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -37,19 +37,19 @@
     .param p1, "this$0"    # Lcom/android/internal/telephony/ServiceStateTracker;
 
     .prologue
-    .line 248
+    .line 221
     iput-object p1, p0, Lcom/android/internal/telephony/ServiceStateTracker$CellInfoResult;->this$0:Lcom/android/internal/telephony/ServiceStateTracker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 250
+    .line 223
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/telephony/ServiceStateTracker$CellInfoResult;->lockObj:Ljava/lang/Object;
 
-    .line 248
+    .line 221
     return-void
 .end method
 

@@ -1,4 +1,4 @@
-.class public Lcom/android/internal/telephony/uicc/UiccCarrierPrivilegeRules$TLV;
+.class Lcom/android/internal/telephony/uicc/UiccCarrierPrivilegeRules$TLV;
 .super Ljava/lang/Object;
 .source "UiccCarrierPrivilegeRules.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
+    accessFlags = 0xa
     name = "TLV"
 .end annotation
 
@@ -50,38 +50,18 @@
     .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
-    .line 158
+    .line 163
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 159
+    .line 164
     iput-object p1, p0, Lcom/android/internal/telephony/uicc/UiccCarrierPrivilegeRules$TLV;->tag:Ljava/lang/String;
 
-    .line 158
+    .line 163
     return-void
 .end method
 
 
 # virtual methods
-.method public getValue()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 163
-    iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccCarrierPrivilegeRules$TLV;->value:Ljava/lang/String;
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, ""
-
-    return-object v0
-
-    .line 164
-    :cond_0
-    iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccCarrierPrivilegeRules$TLV;->value:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 .method public parse(Ljava/lang/String;Z)Ljava/lang/String;
     .locals 4
     .param p1, "data"    # Ljava/lang/String;

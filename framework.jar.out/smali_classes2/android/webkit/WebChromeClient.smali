@@ -6,6 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/webkit/WebChromeClient$WebViewMediaPlayerController;,
+        Landroid/webkit/WebChromeClient$WebViewMediaPlayerStatusListener;,
         Landroid/webkit/WebChromeClient$CustomViewCallback;,
         Landroid/webkit/WebChromeClient$FileChooserParams;
     }
@@ -29,7 +31,7 @@
     .locals 1
 
     .prologue
-    .line 397
+    .line 381
     const/4 v0, 0x0
 
     return-object v0
@@ -39,7 +41,7 @@
     .locals 1
 
     .prologue
-    .line 408
+    .line 392
     const/4 v0, 0x0
 
     return-object v0
@@ -58,7 +60,7 @@
     .end annotation
 
     .prologue
-    .line 413
+    .line 397
     .local p1, "callback":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<[Ljava/lang/String;>;"
     return-void
 .end method
@@ -68,7 +70,7 @@
     .param p1, "window"    # Landroid/webkit/WebView;
 
     .prologue
-    .line 162
+    .line 153
     return-void
 .end method
 
@@ -81,7 +83,7 @@
     .end annotation
 
     .prologue
-    .line 372
+    .line 356
     return-void
 .end method
 
@@ -90,7 +92,7 @@
     .param p1, "consoleMessage"    # Landroid/webkit/ConsoleMessage;
 
     .prologue
-    .line 382
+    .line 366
     invoke-virtual {p1}, Landroid/webkit/ConsoleMessage;->message()Ljava/lang/String;
 
     move-result-object v0
@@ -99,15 +101,15 @@
 
     move-result v1
 
-    .line 383
+    .line 367
     invoke-virtual {p1}, Landroid/webkit/ConsoleMessage;->sourceId()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 382
+    .line 366
     invoke-virtual {p0, v0, v1, v2}, Landroid/webkit/WebChromeClient;->onConsoleMessage(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 384
+    .line 368
     const/4 v0, 0x0
 
     return v0
@@ -121,7 +123,7 @@
     .param p4, "resultMsg"    # Landroid/os/Message;
 
     .prologue
-    .line 144
+    .line 135
     const/4 v0, 0x0
 
     return v0
@@ -139,10 +141,10 @@
     .end annotation
 
     .prologue
-    .line 264
+    .line 255
     invoke-interface {p9, p3, p4}, Landroid/webkit/WebStorage$QuotaUpdater;->updateQuota(J)V
 
-    .line 261
+    .line 252
     return-void
 .end method
 
@@ -150,7 +152,7 @@
     .locals 0
 
     .prologue
-    .line 319
+    .line 303
     return-void
 .end method
 
@@ -160,12 +162,12 @@
     .param p2, "callback"    # Landroid/webkit/GeolocationPermissions$Callback;
 
     .prologue
-    .line 310
+    .line 294
     const/16 v0, 0x36
 
     invoke-static {v0}, Landroid/util/SeempLog;->record(I)I
 
-    .line 309
+    .line 293
     return-void
 .end method
 
@@ -173,7 +175,7 @@
     .locals 0
 
     .prologue
-    .line 114
+    .line 105
     return-void
 .end method
 
@@ -185,7 +187,7 @@
     .param p4, "result"    # Landroid/webkit/JsResult;
 
     .prologue
-    .line 176
+    .line 167
     const/4 v0, 0x0
 
     return v0
@@ -199,7 +201,7 @@
     .param p4, "result"    # Landroid/webkit/JsResult;
 
     .prologue
-    .line 234
+    .line 225
     const/4 v0, 0x0
 
     return v0
@@ -213,7 +215,7 @@
     .param p4, "result"    # Landroid/webkit/JsResult;
 
     .prologue
-    .line 194
+    .line 185
     const/4 v0, 0x0
 
     return v0
@@ -228,7 +230,7 @@
     .param p5, "result"    # Landroid/webkit/JsPromptResult;
 
     .prologue
-    .line 213
+    .line 204
     const/4 v0, 0x0
 
     return v0
@@ -238,7 +240,7 @@
     .locals 1
 
     .prologue
-    .line 359
+    .line 343
     const/4 v0, 0x1
 
     return v0
@@ -249,10 +251,10 @@
     .param p1, "request"    # Landroid/webkit/PermissionRequest;
 
     .prologue
-    .line 332
+    .line 316
     invoke-virtual {p1}, Landroid/webkit/PermissionRequest;->deny()V
 
-    .line 331
+    .line 315
     return-void
 .end method
 
@@ -261,7 +263,7 @@
     .param p1, "request"    # Landroid/webkit/PermissionRequest;
 
     .prologue
-    .line 341
+    .line 325
     return-void
 .end method
 
@@ -284,10 +286,10 @@
     .end annotation
 
     .prologue
-    .line 287
+    .line 278
     invoke-interface {p5, p3, p4}, Landroid/webkit/WebStorage$QuotaUpdater;->updateQuota(J)V
 
-    .line 286
+    .line 277
     return-void
 .end method
 
@@ -327,7 +329,7 @@
     .param p1, "view"    # Landroid/webkit/WebView;
 
     .prologue
-    .line 153
+    .line 144
     return-void
 .end method
 
@@ -340,7 +342,7 @@
     .end annotation
 
     .prologue
-    .line 106
+    .line 97
     return-void
 .end method
 
@@ -350,7 +352,7 @@
     .param p2, "callback"    # Landroid/webkit/WebChromeClient$CustomViewCallback;
 
     .prologue
-    .line 91
+    .line 82
     return-void
 .end method
 
@@ -372,21 +374,11 @@
     .end annotation
 
     .prologue
-    .line 436
+    .line 420
     .local p2, "filePathCallback":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<[Landroid/net/Uri;>;"
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public onThemeColorChanged(Landroid/webkit/WebView;I)V
-    .locals 0
-    .param p1, "view"    # Landroid/webkit/WebView;
-    .param p2, "color"    # I
-
-    .prologue
-    .line 67
-    return-void
 .end method
 
 .method public openFileChooser(Landroid/webkit/ValueCallback;Ljava/lang/String;Ljava/lang/String;)V
@@ -410,13 +402,13 @@
     .end annotation
 
     .prologue
-    .line 536
+    .line 520
     .local p1, "uploadFile":Landroid/webkit/ValueCallback;, "Landroid/webkit/ValueCallback<Landroid/net/Uri;>;"
     const/4 v0, 0x0
 
     invoke-interface {p1, v0}, Landroid/webkit/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
-    .line 535
+    .line 519
     return-void
 .end method
 
@@ -425,6 +417,23 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 547
+    .line 531
+    return-void
+.end method
+
+.method public getWebViewMediaPlayerStatusListener()Landroid/webkit/WebChromeClient$WebViewMediaPlayerStatusListener;
+    .locals 1
+
+    .prologue
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public setContentVideoViewControllerCallback(Landroid/webkit/WebChromeClient$WebViewMediaPlayerController;)V
+    .locals 0
+    .param p1, "callback"    # Landroid/webkit/WebChromeClient$WebViewMediaPlayerController;
+
+    .prologue
     return-void
 .end method

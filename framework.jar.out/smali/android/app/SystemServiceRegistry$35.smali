@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/telephony/SubscriptionManager;",
+        "Landroid/telephony/CarrierConfigManager;",
         ">;"
     }
 .end annotation
@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 440
+    .line 426
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,19 +36,15 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/telephony/SubscriptionManager;
-    .locals 2
+.method public createService(Landroid/app/ContextImpl;)Landroid/telephony/CarrierConfigManager;
+    .locals 1
     .param p1, "ctx"    # Landroid/app/ContextImpl;
 
     .prologue
-    .line 443
-    new-instance v0, Landroid/telephony/SubscriptionManager;
+    .line 429
+    new-instance v0, Landroid/telephony/CarrierConfigManager;
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/telephony/SubscriptionManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0}, Landroid/telephony/CarrierConfigManager;-><init>()V
 
     return-object v0
 .end method
@@ -58,8 +54,8 @@
     .param p1, "ctx"    # Landroid/app/ContextImpl;
 
     .prologue
-    .line 442
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$35;->createService(Landroid/app/ContextImpl;)Landroid/telephony/SubscriptionManager;
+    .line 428
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$35;->createService(Landroid/app/ContextImpl;)Landroid/telephony/CarrierConfigManager;
 
     move-result-object v0
 

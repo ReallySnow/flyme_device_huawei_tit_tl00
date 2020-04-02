@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 287
+    .line 269
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,12 +49,12 @@
 
     const/4 v2, 0x1
 
-    .line 290
+    .line 271
     new-instance v0, Landroid/net/wifi/RttManager$RttCapabilities;
 
     invoke-direct {v0}, Landroid/net/wifi/RttManager$RttCapabilities;-><init>()V
 
-    .line 291
+    .line 272
     .local v0, "capabilities":Landroid/net/wifi/RttManager$RttCapabilities;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -67,7 +67,7 @@
     :goto_0
     iput-boolean v1, v0, Landroid/net/wifi/RttManager$RttCapabilities;->oneSidedRttSupported:Z
 
-    .line 292
+    .line 273
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -79,7 +79,7 @@
     :goto_1
     iput-boolean v1, v0, Landroid/net/wifi/RttManager$RttCapabilities;->twoSided11McRttSupported:Z
 
-    .line 293
+    .line 274
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -91,99 +91,56 @@
     :goto_2
     iput-boolean v1, v0, Landroid/net/wifi/RttManager$RttCapabilities;->lciSupported:Z
 
-    .line 294
+    .line 275
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     if-ne v1, v2, :cond_3
 
-    move v1, v2
-
     :goto_3
-    iput-boolean v1, v0, Landroid/net/wifi/RttManager$RttCapabilities;->lcrSupported:Z
+    iput-boolean v2, v0, Landroid/net/wifi/RttManager$RttCapabilities;->lcrSupported:Z
 
-    .line 295
+    .line 276
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/net/wifi/RttManager$RttCapabilities;->preambleSupported:I
 
-    .line 296
+    .line 277
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/net/wifi/RttManager$RttCapabilities;->bwSupported:I
 
-    .line 297
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    if-ne v1, v2, :cond_4
-
-    move v1, v2
-
-    :goto_4
-    iput-boolean v1, v0, Landroid/net/wifi/RttManager$RttCapabilities;->responderSupported:Z
-
-    .line 298
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    if-ne v1, v2, :cond_5
-
-    :goto_5
-    iput-boolean v2, v0, Landroid/net/wifi/RttManager$RttCapabilities;->secureRttSupported:Z
-
-    .line 299
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    iput v1, v0, Landroid/net/wifi/RttManager$RttCapabilities;->mcVersion:I
-
-    .line 300
+    .line 278
     return-object v0
 
     :cond_0
     move v1, v3
 
-    .line 291
+    .line 272
     goto :goto_0
 
     :cond_1
     move v1, v3
 
-    .line 292
+    .line 273
     goto :goto_1
 
     :cond_2
     move v1, v3
 
-    .line 293
+    .line 274
     goto :goto_2
 
     :cond_3
-    move v1, v3
-
-    .line 294
-    goto :goto_3
-
-    :cond_4
-    move v1, v3
-
-    .line 297
-    goto :goto_4
-
-    :cond_5
     move v2, v3
 
-    .line 298
-    goto :goto_5
+    .line 275
+    goto :goto_3
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -191,7 +148,7 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 289
+    .line 270
     invoke-virtual {p0, p1}, Landroid/net/wifi/RttManager$RttCapabilities$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/RttManager$RttCapabilities;
 
     move-result-object v0
@@ -204,7 +161,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 305
+    .line 283
     new-array v0, p1, [Landroid/net/wifi/RttManager$RttCapabilities;
 
     return-object v0
@@ -215,7 +172,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 304
+    .line 282
     invoke-virtual {p0, p1}, Landroid/net/wifi/RttManager$RttCapabilities$1;->newArray(I)[Landroid/net/wifi/RttManager$RttCapabilities;
 
     move-result-object v0

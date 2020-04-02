@@ -27,7 +27,7 @@
     .param p1, "this$1"    # Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;
 
     .prologue
-    .line 179
+    .line 164
     iput-object p1, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1$2;->this$1:Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 186
+    .line 171
     :try_start_0
     iget-object v1, p0, Landroid/hardware/camera2/legacy/LegacyCameraDevice$1$2;->this$1:Landroid/hardware/camera2/legacy/LegacyCameraDevice$1;
 
@@ -55,21 +55,21 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 181
+    .line 166
     return-void
 
-    .line 187
+    .line 172
     :catch_0
     move-exception v0
 
-    .line 188
+    .line 173
     .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    .line 189
+    .line 174
     const-string/jumbo v2, "Received remote exception during onCameraIdle callback: "
 
-    .line 188
+    .line 173
     invoke-direct {v1, v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v1

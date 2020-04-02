@@ -30,7 +30,7 @@
     .param p2, "val$thisConnection"    # Landroid/content/ServiceConnection;
 
     .prologue
-    .line 189
+    .line 158
     iput-object p1, p0, Landroid/media/browse/MediaBrowser$1;->this$0:Landroid/media/browse/MediaBrowser;
 
     iput-object p2, p0, Landroid/media/browse/MediaBrowser$1;->val$thisConnection:Landroid/content/ServiceConnection;
@@ -46,23 +46,23 @@
     .locals 2
 
     .prologue
-    .line 193
+    .line 162
     iget-object v0, p0, Landroid/media/browse/MediaBrowser$1;->val$thisConnection:Landroid/content/ServiceConnection;
 
     iget-object v1, p0, Landroid/media/browse/MediaBrowser$1;->this$0:Landroid/media/browse/MediaBrowser;
 
-    invoke-static {v1}, Landroid/media/browse/MediaBrowser;->-get7(Landroid/media/browse/MediaBrowser;)Landroid/media/browse/MediaBrowser$MediaServiceConnection;
+    invoke-static {v1}, Landroid/media/browse/MediaBrowser;->-get6(Landroid/media/browse/MediaBrowser;)Landroid/media/browse/MediaBrowser$MediaServiceConnection;
 
     move-result-object v1
 
     if-ne v0, v1, :cond_0
 
-    .line 194
+    .line 163
     iget-object v0, p0, Landroid/media/browse/MediaBrowser$1;->this$0:Landroid/media/browse/MediaBrowser;
 
     invoke-static {v0}, Landroid/media/browse/MediaBrowser;->-wrap3(Landroid/media/browse/MediaBrowser;)V
 
-    .line 195
+    .line 164
     iget-object v0, p0, Landroid/media/browse/MediaBrowser$1;->this$0:Landroid/media/browse/MediaBrowser;
 
     invoke-static {v0}, Landroid/media/browse/MediaBrowser;->-get0(Landroid/media/browse/MediaBrowser;)Landroid/media/browse/MediaBrowser$ConnectionCallback;
@@ -71,7 +71,7 @@
 
     invoke-virtual {v0}, Landroid/media/browse/MediaBrowser$ConnectionCallback;->onConnectionFailed()V
 
-    .line 191
+    .line 160
     :cond_0
     return-void
 .end method

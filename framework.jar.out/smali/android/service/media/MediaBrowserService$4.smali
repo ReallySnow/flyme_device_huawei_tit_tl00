@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/service/media/MediaBrowserService;->performLoadItem(Ljava/lang/String;Landroid/service/media/MediaBrowserService$ConnectionRecord;Landroid/os/ResultReceiver;)V
+    value = Landroid/service/media/MediaBrowserService;->performLoadItem(Ljava/lang/String;Landroid/os/ResultReceiver;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -38,7 +38,7 @@
     .param p4, "val$receiver"    # Landroid/os/ResultReceiver;
 
     .prologue
-    .line 698
+    .line 505
     iput-object p2, p0, Landroid/service/media/MediaBrowserService$4;->this$0:Landroid/service/media/MediaBrowserService;
 
     iput-object p4, p0, Landroid/service/media/MediaBrowserService$4;->val$receiver:Landroid/os/ResultReceiver;
@@ -50,45 +50,43 @@
 
 
 # virtual methods
-.method onResultSent(Landroid/media/browse/MediaBrowser$MediaItem;I)V
+.method onResultSent(Landroid/media/browse/MediaBrowser$MediaItem;)V
     .locals 3
     .param p1, "item"    # Landroid/media/browse/MediaBrowser$MediaItem;
-    .param p2, "flag"    # I
 
     .prologue
-    .line 701
+    .line 508
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 702
+    .line 509
     .local v0, "bundle":Landroid/os/Bundle;
     const-string/jumbo v1, "media_item"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 703
+    .line 510
     iget-object v1, p0, Landroid/service/media/MediaBrowserService$4;->val$receiver:Landroid/os/ResultReceiver;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2, v0}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
-    .line 700
+    .line 507
     return-void
 .end method
 
-.method bridge synthetic onResultSent(Ljava/lang/Object;I)V
+.method bridge synthetic onResultSent(Ljava/lang/Object;)V
     .locals 0
     .param p1, "item"    # Ljava/lang/Object;
-    .param p2, "flag"    # I
 
     .prologue
-    .line 700
+    .line 507
     check-cast p1, Landroid/media/browse/MediaBrowser$MediaItem;
 
     .end local p1    # "item":Ljava/lang/Object;
-    invoke-virtual {p0, p1, p2}, Landroid/service/media/MediaBrowserService$4;->onResultSent(Landroid/media/browse/MediaBrowser$MediaItem;I)V
+    invoke-virtual {p0, p1}, Landroid/service/media/MediaBrowserService$4;->onResultSent(Landroid/media/browse/MediaBrowser$MediaItem;)V
 
     return-void
 .end method

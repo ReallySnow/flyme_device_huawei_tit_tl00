@@ -15,6 +15,8 @@
 
 
 # static fields
+.field public static final DATE_TYPE:I = 0xa
+
 .field public static final ANCHOR_TYPE:I = 0x1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -53,15 +55,15 @@
     .locals 1
 
     .prologue
-    .line 489
+    .line 454
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 490
+    .line 455
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/webkit/WebView$HitTestResult;->mType:I
 
-    .line 489
+    .line 454
     return-void
 .end method
 
@@ -71,7 +73,7 @@
     .locals 1
 
     .prologue
-    .line 527
+    .line 492
     iget-object v0, p0, Landroid/webkit/WebView$HitTestResult;->mExtra:Ljava/lang/String;
 
     return-object v0
@@ -81,7 +83,7 @@
     .locals 1
 
     .prologue
-    .line 516
+    .line 481
     iget v0, p0, Landroid/webkit/WebView$HitTestResult;->mType:I
 
     return v0
@@ -92,10 +94,10 @@
     .param p1, "extra"    # Ljava/lang/String;
 
     .prologue
-    .line 506
+    .line 471
     iput-object p1, p0, Landroid/webkit/WebView$HitTestResult;->mExtra:Ljava/lang/String;
 
-    .line 505
+    .line 470
     return-void
 .end method
 
@@ -104,9 +106,9 @@
     .param p1, "type"    # I
 
     .prologue
-    .line 498
+    .line 463
     iput p1, p0, Landroid/webkit/WebView$HitTestResult;->mType:I
 
-    .line 497
+    .line 462
     return-void
 .end method

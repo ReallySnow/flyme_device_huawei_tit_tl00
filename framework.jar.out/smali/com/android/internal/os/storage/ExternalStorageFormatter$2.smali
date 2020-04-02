@@ -27,7 +27,7 @@
     .param p2, "val$mountService"    # Landroid/os/storage/IMountService;
 
     .prologue
-    .line 140
+    .line 143
     iput-object p1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter$2;->this$0:Lcom/android/internal/os/storage/ExternalStorageFormatter;
 
     iput-object p2, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter$2;->val$mountService:Landroid/os/storage/IMountService;
@@ -43,7 +43,7 @@
     .locals 3
 
     .prologue
-    .line 145
+    .line 148
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter$2;->val$mountService:Landroid/os/storage/IMountService;
 
@@ -57,14 +57,21 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 143
+    .line 146
     :goto_0
     return-void
 
-    .line 146
+    .line 149
     :catch_0
     move-exception v0
 
+    .line 150
     .local v0, "e":Landroid/os/RemoteException;
+    const-string/jumbo v1, "ExtStorageFormatter"
+
+    const-string/jumbo v2, "Failed talking with mount service"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
     goto :goto_0
 .end method

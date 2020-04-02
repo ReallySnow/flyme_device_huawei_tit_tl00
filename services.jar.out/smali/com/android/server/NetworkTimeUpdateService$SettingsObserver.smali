@@ -27,16 +27,16 @@
     .param p2, "msg"    # I
 
     .prologue
-    .line 307
+    .line 295
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 308
+    .line 296
     iput-object p1, p0, Lcom/android/server/NetworkTimeUpdateService$SettingsObserver;->mHandler:Landroid/os/Handler;
 
-    .line 309
+    .line 297
     iput p2, p0, Lcom/android/server/NetworkTimeUpdateService$SettingsObserver;->mMsg:I
 
-    .line 306
+    .line 294
     return-void
 .end method
 
@@ -47,12 +47,12 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 313
+    .line 301
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 314
+    .line 302
     .local v0, "resolver":Landroid/content/ContentResolver;
     const-string/jumbo v1, "auto_time"
 
@@ -60,13 +60,13 @@
 
     move-result-object v1
 
-    .line 315
+    .line 303
     const/4 v2, 0x0
 
-    .line 314
+    .line 302
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 312
+    .line 300
     return-void
 .end method
 
@@ -75,7 +75,7 @@
     .param p1, "selfChange"    # Z
 
     .prologue
-    .line 320
+    .line 308
     iget-object v0, p0, Lcom/android/server/NetworkTimeUpdateService$SettingsObserver;->mHandler:Landroid/os/Handler;
 
     iget v1, p0, Lcom/android/server/NetworkTimeUpdateService$SettingsObserver;->mMsg:I
@@ -86,6 +86,6 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 319
+    .line 307
     return-void
 .end method

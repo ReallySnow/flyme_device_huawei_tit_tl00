@@ -1,4 +1,4 @@
-.class public Lcom/android/internal/telephony/InboundSmsTracker;
+.class public final Lcom/android/internal/telephony/InboundSmsTracker;
 .super Ljava/lang/Object;
 .source "InboundSmsTracker.java"
 
@@ -24,13 +24,9 @@
 
 .field private final mDestPort:I
 
-.field private final mDisplayAddress:Ljava/lang/String;
-
 .field private final mIs3gpp2:Z
 
 .field private final mIs3gpp2WapPdu:Z
-
-.field private final mMessageBody:Ljava/lang/String;
 
 .field private final mMessageCount:I
 
@@ -44,7 +40,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/database/Cursor;Z)V
+.method constructor <init>(Landroid/database/Cursor;Z)V
     .locals 12
     .param p1, "cursor"    # Landroid/database/Cursor;
     .param p2, "isCurrentFormat3gpp2"    # Z
@@ -60,10 +56,10 @@
 
     const/4 v6, 0x0
 
-    .line 147
+    .line 125
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 148
+    .line 126
     invoke-interface {p1, v6}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v4
@@ -74,23 +70,23 @@
 
     iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mPdu:[B
 
-    .line 150
+    .line 128
     invoke-interface {p1, v10}, Landroid/database/Cursor;->isNull(I)Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
-    .line 151
+    .line 129
     iput v7, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDestPort:I
 
-    .line 152
+    .line 130
     iput-boolean p2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
-    .line 153
+    .line 131
     iput-boolean v6, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2WapPdu:Z
 
-    .line 167
+    .line 145
     :goto_0
     invoke-interface {p1, v11}, Landroid/database/Cursor;->getLong(I)J
 
@@ -98,25 +94,7 @@
 
     iput-wide v8, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mTimestamp:J
 
-    .line 168
-    const/4 v4, 0x6
-
-    invoke-interface {p1, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
-
-    .line 169
-    const/16 v4, 0x9
-
-    invoke-interface {p1, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDisplayAddress:Ljava/lang/String;
-
-    .line 171
+    .line 147
     const/4 v4, 0x5
 
     invoke-interface {p1, v4}, Landroid/database/Cursor;->isNull(I)Z
@@ -125,33 +103,38 @@
 
     if-eqz v4, :cond_4
 
-    .line 173
+    .line 149
     const/4 v4, 0x7
 
     invoke-interface {p1, v4}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v2
 
-    .line 174
+    .line 150
     .local v2, "rowId":J
+    const/4 v4, 0x0
+
+    iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
+
+    .line 151
     iput v7, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mReferenceNumber:I
 
-    .line 175
+    .line 152
     invoke-virtual {p0}, Lcom/android/internal/telephony/InboundSmsTracker;->getIndexOffset()I
 
     move-result v4
 
     iput v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mSequenceNumber:I
 
-    .line 176
+    .line 153
     iput v5, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageCount:I
 
-    .line 177
+    .line 154
     const-string/jumbo v4, "_id=?"
 
     iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDeleteWhere:Ljava/lang/String;
 
-    .line 178
+    .line 155
     new-array v4, v5, [Ljava/lang/String;
 
     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
@@ -162,27 +145,18 @@
 
     iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDeleteWhereArgs:[Ljava/lang/String;
 
-    .line 197
+    .line 125
     .end local v2    # "rowId":J
     :goto_1
-    const/16 v4, 0x8
-
-    invoke-interface {p1, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageBody:Ljava/lang/String;
-
-    .line 147
     return-void
 
-    .line 155
+    .line 133
     :cond_0
     invoke-interface {p1, v10}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v0
 
-    .line 156
+    .line 134
     .local v0, "destPort":I
     const/high16 v4, 0x20000
 
@@ -190,10 +164,10 @@
 
     if-eqz v4, :cond_1
 
-    .line 157
+    .line 135
     iput-boolean v6, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
-    .line 163
+    .line 141
     :goto_2
     const/high16 v4, 0x80000
 
@@ -206,7 +180,7 @@
     :goto_3
     iput-boolean v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2WapPdu:Z
 
-    .line 164
+    .line 142
     invoke-static {v0}, Lcom/android/internal/telephony/InboundSmsTracker;->getRealDestPort(I)I
 
     move-result v4
@@ -215,7 +189,7 @@
 
     goto :goto_0
 
-    .line 158
+    .line 136
     :cond_1
     const/high16 v4, 0x40000
 
@@ -223,12 +197,12 @@
 
     if-eqz v4, :cond_2
 
-    .line 159
+    .line 137
     iput-boolean v5, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
     goto :goto_2
 
-    .line 161
+    .line 139
     :cond_2
     iput-boolean p2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
@@ -237,12 +211,21 @@
     :cond_3
     move v4, v6
 
-    .line 163
+    .line 141
     goto :goto_3
 
-    .line 181
+    .line 158
     .end local v0    # "destPort":I
     :cond_4
+    const/4 v4, 0x6
+
+    invoke-interface {p1, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
+
+    .line 159
     const/4 v4, 0x4
 
     invoke-interface {p1, v4}, Landroid/database/Cursor;->getInt(I)I
@@ -251,7 +234,7 @@
 
     iput v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mReferenceNumber:I
 
-    .line 182
+    .line 160
     const/4 v4, 0x5
 
     invoke-interface {p1, v4}, Landroid/database/Cursor;->getInt(I)I
@@ -260,14 +243,14 @@
 
     iput v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageCount:I
 
-    .line 185
+    .line 163
     invoke-interface {p1, v5}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v4
 
     iput v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mSequenceNumber:I
 
-    .line 186
+    .line 164
     iget v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mSequenceNumber:I
 
     invoke-virtual {p0}, Lcom/android/internal/telephony/InboundSmsTracker;->getIndexOffset()I
@@ -276,7 +259,7 @@
 
     sub-int v1, v4, v7
 
-    .line 188
+    .line 166
     .local v1, "index":I
     if-ltz v1, :cond_5
 
@@ -284,7 +267,7 @@
 
     if-lt v1, v4, :cond_6
 
-    .line 189
+    .line 167
     :cond_5
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
@@ -304,18 +287,18 @@
 
     move-result-object v5
 
-    .line 190
+    .line 168
     const-string/jumbo v6, " of "
 
-    .line 189
+    .line 167
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    .line 190
+    .line 168
     iget v6, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageCount:I
 
-    .line 189
+    .line 167
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -328,20 +311,20 @@
 
     throw v4
 
-    .line 193
+    .line 171
     :cond_6
-    const-string/jumbo v4, "address=? AND reference_number=? AND count=? AND deleted=0"
+    const-string/jumbo v4, "address=? AND reference_number=? AND count=?"
 
     iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDeleteWhere:Ljava/lang/String;
 
-    .line 194
+    .line 172
     new-array v4, v11, [Ljava/lang/String;
 
     iget-object v7, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
 
     aput-object v7, v4, v6
 
-    .line 195
+    .line 173
     iget v6, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mReferenceNumber:I
 
     invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -358,145 +341,130 @@
 
     aput-object v5, v4, v10
 
-    .line 194
+    .line 172
     iput-object v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDeleteWhereArgs:[Ljava/lang/String;
 
     goto/16 :goto_1
 .end method
 
-.method public constructor <init>([BJIZLjava/lang/String;Ljava/lang/String;IIIZLjava/lang/String;)V
+.method public constructor <init>([BJIZLjava/lang/String;IIIZ)V
     .locals 0
     .param p1, "pdu"    # [B
     .param p2, "timestamp"    # J
     .param p4, "destPort"    # I
     .param p5, "is3gpp2"    # Z
     .param p6, "address"    # Ljava/lang/String;
-    .param p7, "displayAddress"    # Ljava/lang/String;
-    .param p8, "referenceNumber"    # I
-    .param p9, "sequenceNumber"    # I
-    .param p10, "messageCount"    # I
-    .param p11, "is3gpp2WapPdu"    # Z
-    .param p12, "messageBody"    # Ljava/lang/String;
+    .param p7, "referenceNumber"    # I
+    .param p8, "sequenceNumber"    # I
+    .param p9, "messageCount"    # I
+    .param p10, "is3gpp2WapPdu"    # Z
 
     .prologue
-    .line 124
+    .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 127
+    .line 108
     iput-object p1, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mPdu:[B
 
-    .line 128
+    .line 109
     iput-wide p2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mTimestamp:J
 
-    .line 129
+    .line 110
     iput p4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDestPort:I
 
-    .line 130
+    .line 111
     iput-boolean p5, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
-    .line 131
-    iput-boolean p11, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2WapPdu:Z
+    .line 112
+    iput-boolean p10, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2WapPdu:Z
 
-    .line 132
-    iput-object p12, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageBody:Ljava/lang/String;
-
-    .line 134
-    iput-object p7, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDisplayAddress:Ljava/lang/String;
-
-    .line 136
+    .line 114
     iput-object p6, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
 
-    .line 137
-    iput p8, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mReferenceNumber:I
+    .line 115
+    iput p7, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mReferenceNumber:I
 
-    .line 138
-    iput p9, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mSequenceNumber:I
+    .line 116
+    iput p8, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mSequenceNumber:I
 
-    .line 139
-    iput p10, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageCount:I
+    .line 117
+    iput p9, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageCount:I
 
-    .line 126
+    .line 107
     return-void
 .end method
 
-.method public constructor <init>([BJIZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method constructor <init>([BJIZZ)V
     .locals 2
     .param p1, "pdu"    # [B
     .param p2, "timestamp"    # J
     .param p4, "destPort"    # I
     .param p5, "is3gpp2"    # Z
     .param p6, "is3gpp2WapPdu"    # Z
-    .param p7, "address"    # Ljava/lang/String;
-    .param p8, "displayAddress"    # Ljava/lang/String;
-    .param p9, "messageBody"    # Ljava/lang/String;
 
     .prologue
-    .line 89
+    .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 91
+    .line 76
     iput-object p1, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mPdu:[B
 
-    .line 92
+    .line 77
     iput-wide p2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mTimestamp:J
 
-    .line 93
+    .line 78
     iput p4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDestPort:I
 
-    .line 94
+    .line 79
     iput-boolean p5, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
-    .line 95
+    .line 80
     iput-boolean p6, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2WapPdu:Z
 
-    .line 96
-    iput-object p9, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageBody:Ljava/lang/String;
+    .line 82
+    const/4 v0, 0x0
 
-    .line 97
-    iput-object p7, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
 
-    .line 98
-    iput-object p8, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDisplayAddress:Ljava/lang/String;
-
-    .line 100
+    .line 83
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mReferenceNumber:I
 
-    .line 101
+    .line 84
     invoke-virtual {p0}, Lcom/android/internal/telephony/InboundSmsTracker;->getIndexOffset()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mSequenceNumber:I
 
-    .line 102
+    .line 85
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageCount:I
 
-    .line 90
+    .line 75
     return-void
 .end method
 
-.method public static getRealDestPort(I)I
+.method static getRealDestPort(I)I
     .locals 1
     .param p0, "destPort"    # I
 
     .prologue
-    .line 238
+    .line 213
     const/high16 v0, 0x10000
 
     and-int/2addr v0, p0
 
     if-eqz v0, :cond_0
 
-    .line 239
+    .line 214
     const/4 v0, -0x1
 
     return v0
 
-    .line 241
+    .line 216
     :cond_0
     const v0, 0xffff
 
@@ -507,26 +475,26 @@
 
 
 # virtual methods
-.method public getAddress()Ljava/lang/String;
+.method getAddress()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 306
+    .line 280
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getContentValues()Landroid/content/ContentValues;
+.method getContentValues()Landroid/content/ContentValues;
     .locals 6
 
     .prologue
-    .line 201
+    .line 178
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
-    .line 202
+    .line 179
     .local v1, "values":Landroid/content/ContentValues;
     const-string/jumbo v2, "pdu"
 
@@ -538,7 +506,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 203
+    .line 180
     const-string/jumbo v2, "date"
 
     iget-wide v4, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mTimestamp:J
@@ -549,40 +517,40 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    .line 207
+    .line 184
     iget v2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDestPort:I
 
     const/4 v3, -0x1
 
     if-ne v2, v3, :cond_2
 
-    .line 208
+    .line 185
     const/high16 v0, 0x10000
 
-    .line 212
+    .line 189
     .local v0, "destPort":I
     :goto_0
     iget-boolean v2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
     if-eqz v2, :cond_3
 
-    .line 213
+    .line 190
     const/high16 v2, 0x40000
 
     or-int/2addr v0, v2
 
-    .line 217
+    .line 194
     :goto_1
     iget-boolean v2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2WapPdu:Z
 
     if-eqz v2, :cond_0
 
-    .line 218
+    .line 195
     const/high16 v2, 0x80000
 
     or-int/2addr v0, v2
 
-    .line 220
+    .line 197
     :cond_0
     const-string/jumbo v2, "destination_port"
 
@@ -592,26 +560,19 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 221
+    .line 198
     iget-object v2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
 
     if-eqz v2, :cond_1
 
-    .line 222
+    .line 199
     const-string/jumbo v2, "address"
 
     iget-object v3, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 223
-    const-string/jumbo v2, "display_originating_addr"
-
-    iget-object v3, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDisplayAddress:Ljava/lang/String;
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 224
+    .line 200
     const-string/jumbo v2, "reference_number"
 
     iget v3, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mReferenceNumber:I
@@ -622,7 +583,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 225
+    .line 201
     const-string/jumbo v2, "sequence"
 
     iget v3, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mSequenceNumber:I
@@ -633,7 +594,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 226
+    .line 202
     const-string/jumbo v2, "count"
 
     iget v3, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageCount:I
@@ -644,18 +605,11 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 228
+    .line 204
     :cond_1
-    const-string/jumbo v2, "message_body"
-
-    iget-object v3, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageBody:Ljava/lang/String;
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 229
     return-object v1
 
-    .line 210
+    .line 187
     .end local v0    # "destPort":I
     :cond_2
     iget v2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDestPort:I
@@ -667,7 +621,7 @@
     .restart local v0    # "destPort":I
     goto :goto_0
 
-    .line 215
+    .line 192
     :cond_3
     const/high16 v2, 0x20000
 
@@ -676,51 +630,41 @@
     goto :goto_1
 .end method
 
-.method public getDeleteWhere()Ljava/lang/String;
+.method getDeleteWhere()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 330
+    .line 296
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDeleteWhere:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getDeleteWhereArgs()[Ljava/lang/String;
+.method getDeleteWhereArgs()[Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 334
+    .line 300
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDeleteWhereArgs:[Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getDestPort()I
+.method getDestPort()I
     .locals 1
 
     .prologue
-    .line 285
+    .line 259
     iget v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDestPort:I
 
     return v0
 .end method
 
-.method public getDisplayAddress()Ljava/lang/String;
+.method getFormat()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 310
-    iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDisplayAddress:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getFormat()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 293
+    .line 267
     iget-boolean v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
     if-eqz v0, :cond_0
@@ -736,11 +680,11 @@
     goto :goto_0
 .end method
 
-.method public getIndexOffset()I
+.method getIndexOffset()I
     .locals 1
 
     .prologue
-    .line 302
+    .line 276
     iget-boolean v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
     if-eqz v0, :cond_0
@@ -760,89 +704,79 @@
     goto :goto_0
 .end method
 
-.method public getMessageBody()Ljava/lang/String;
+.method getMessageCount()I
     .locals 1
 
     .prologue
-    .line 314
-    iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageBody:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getMessageCount()I
-    .locals 1
-
-    .prologue
-    .line 326
+    .line 292
     iget v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mMessageCount:I
 
     return v0
 .end method
 
-.method public getPdu()[B
+.method getPdu()[B
     .locals 1
 
     .prologue
-    .line 277
+    .line 251
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mPdu:[B
 
     return-object v0
 .end method
 
-.method public getReferenceNumber()I
+.method getReferenceNumber()I
     .locals 1
 
     .prologue
-    .line 318
+    .line 284
     iget v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mReferenceNumber:I
 
     return v0
 .end method
 
-.method public getSequenceNumber()I
+.method getSequenceNumber()I
     .locals 1
 
     .prologue
-    .line 322
+    .line 288
     iget v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mSequenceNumber:I
 
     return v0
 .end method
 
-.method public getTimestamp()J
+.method getTimestamp()J
     .locals 2
 
     .prologue
-    .line 281
+    .line 255
     iget-wide v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mTimestamp:J
 
     return-wide v0
 .end method
 
-.method public is3gpp2()Z
+.method is3gpp2()Z
     .locals 1
 
     .prologue
-    .line 289
+    .line 263
     iget-boolean v0, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mIs3gpp2:Z
 
     return v0
 .end method
 
-.method public setDeleteWhere(Ljava/lang/String;[Ljava/lang/String;)V
+.method setDeleteWhere(Ljava/lang/String;[Ljava/lang/String;)V
     .locals 0
     .param p1, "deleteWhere"    # Ljava/lang/String;
     .param p2, "deleteWhereArgs"    # [Ljava/lang/String;
 
     .prologue
-    .line 251
+    .line 226
     iput-object p1, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDeleteWhere:Ljava/lang/String;
 
-    .line 252
+    .line 227
     iput-object p2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDeleteWhereArgs:[Ljava/lang/String;
 
-    .line 250
+    .line 225
     return-void
 .end method
 
@@ -850,14 +784,14 @@
     .locals 4
 
     .prologue
-    .line 256
+    .line 231
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string/jumbo v1, "SmsTracker{timestamp="
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 257
+    .line 232
     .local v0, "builder":Ljava/lang/StringBuilder;
     new-instance v1, Ljava/util/Date;
 
@@ -867,7 +801,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 258
+    .line 233
     const-string/jumbo v1, " destPort="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -878,7 +812,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 259
+    .line 234
     const-string/jumbo v1, " is3gpp2="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -889,12 +823,12 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 260
+    .line 235
     iget-object v1, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mAddress:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
-    .line 261
+    .line 236
     const-string/jumbo v1, " address="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -905,18 +839,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 262
-    const-string/jumbo v1, " display_originating_addr="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDisplayAddress:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 263
+    .line 237
     const-string/jumbo v1, " refNumber="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -927,7 +850,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 264
+    .line 238
     const-string/jumbo v1, " seqNumber="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -938,7 +861,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 265
+    .line 239
     const-string/jumbo v1, " msgCount="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -949,13 +872,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 267
+    .line 241
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/InboundSmsTracker;->mDeleteWhere:Ljava/lang/String;
 
     if-eqz v1, :cond_1
 
-    .line 268
+    .line 242
     const-string/jumbo v1, " deleteWhere("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -966,7 +889,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 269
+    .line 243
     const-string/jumbo v1, ") deleteArgs=("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -981,18 +904,18 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 270
+    .line 244
     const/16 v1, 0x29
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 272
+    .line 246
     :cond_1
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 273
+    .line 247
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

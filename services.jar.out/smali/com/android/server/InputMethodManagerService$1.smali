@@ -3,7 +3,7 @@
 .source "InputMethodManagerService.java"
 
 # interfaces
-.implements Landroid/content/ServiceConnection;
+.implements Lorg/cyanogenmod/internal/util/QSUtils$OnQSChanged;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/InputMethodManagerService;
 
     .prologue
-    .line 225
+    .line 209
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$1;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,21 +37,15 @@
 
 
 # virtual methods
-.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 0
-    .param p1, "name"    # Landroid/content/ComponentName;
-    .param p2, "service"    # Landroid/os/IBinder;
+.method public onQSChanged()V
+    .locals 1
 
     .prologue
-    .line 226
-    return-void
-.end method
+    .line 212
+    iget-object v0, p0, Lcom/android/server/InputMethodManagerService$1;->this$0:Lcom/android/server/InputMethodManagerService;
 
-.method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 0
-    .param p1, "name"    # Landroid/content/ComponentName;
+    invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->-wrap1(Lcom/android/server/InputMethodManagerService;)V
 
-    .prologue
-    .line 229
+    .line 211
     return-void
 .end method

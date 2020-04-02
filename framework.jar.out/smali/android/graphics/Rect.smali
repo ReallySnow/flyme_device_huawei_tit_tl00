@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/graphics/Rect$1;,
-        Landroid/graphics/Rect$UnflattenHelper;
+        Landroid/graphics/Rect$UnflattenHelper;,
+        Landroid/graphics/Rect$1;
     }
 .end annotation
 
@@ -43,14 +43,14 @@
     .locals 1
 
     .prologue
-    .line 606
+    .line 573
     new-instance v0, Landroid/graphics/Rect$1;
 
     invoke-direct {v0}, Landroid/graphics/Rect$1;-><init>()V
 
     sput-object v0, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 39
+    .line 34
     return-void
 .end method
 
@@ -58,7 +58,7 @@
     .locals 0
 
     .prologue
-    .line 63
+    .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -72,22 +72,22 @@
     .param p4, "bottom"    # I
 
     .prologue
-    .line 75
+    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 76
+    .line 71
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
-    .line 77
+    .line 72
     iput p2, p0, Landroid/graphics/Rect;->top:I
 
-    .line 78
+    .line 73
     iput p3, p0, Landroid/graphics/Rect;->right:I
 
-    .line 79
+    .line 74
     iput p4, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 75
+    .line 70
     return-void
 .end method
 
@@ -98,13 +98,13 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 89
+    .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 90
+    .line 85
     if-nez p1, :cond_0
 
-    .line 91
+    .line 86
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
     iput v0, p0, Landroid/graphics/Rect;->right:I
@@ -113,27 +113,27 @@
 
     iput v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 89
+    .line 84
     :goto_0
     return-void
 
-    .line 93
+    .line 88
     :cond_0
     iget v0, p1, Landroid/graphics/Rect;->left:I
 
     iput v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 94
+    .line 89
     iget v0, p1, Landroid/graphics/Rect;->top:I
 
     iput v0, p0, Landroid/graphics/Rect;->top:I
 
-    .line 95
+    .line 90
     iget v0, p1, Landroid/graphics/Rect;->right:I
 
     iput v0, p0, Landroid/graphics/Rect;->right:I
 
-    .line 96
+    .line 91
     iget v0, p1, Landroid/graphics/Rect;->bottom:I
 
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
@@ -149,7 +149,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 507
+    .line 474
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     iget v2, p1, Landroid/graphics/Rect;->right:I
@@ -185,12 +185,12 @@
     .param p0, "str"    # Ljava/lang/String;
 
     .prologue
-    .line 173
+    .line 168
     invoke-static {p0}, Landroid/graphics/Rect$UnflattenHelper;->getMatcher(Ljava/lang/String;)Ljava/util/regex/Matcher;
 
     move-result-object v0
 
-    .line 174
+    .line 169
     .local v0, "matcher":Ljava/util/regex/Matcher;
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
 
@@ -198,12 +198,12 @@
 
     if-nez v1, :cond_0
 
-    .line 175
+    .line 170
     const/4 v1, 0x0
 
     return-object v1
 
-    .line 177
+    .line 172
     :cond_0
     new-instance v1, Landroid/graphics/Rect;
 
@@ -217,7 +217,7 @@
 
     move-result v2
 
-    .line 178
+    .line 173
     const/4 v3, 0x2
 
     invoke-virtual {v0, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -228,7 +228,7 @@
 
     move-result v3
 
-    .line 179
+    .line 174
     const/4 v4, 0x3
 
     invoke-virtual {v0, v4}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -239,7 +239,7 @@
 
     move-result v4
 
-    .line 180
+    .line 175
     const/4 v5, 0x4
 
     invoke-virtual {v0, v5}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -250,7 +250,7 @@
 
     move-result v5
 
-    .line 177
+    .line 172
     invoke-direct {v1, v2, v3, v4, v5}, Landroid/graphics/Rect;-><init>(IIII)V
 
     return-object v1
@@ -262,7 +262,7 @@
     .locals 2
 
     .prologue
-    .line 222
+    .line 217
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     iget v1, p0, Landroid/graphics/Rect;->right:I
@@ -278,7 +278,7 @@
     .locals 2
 
     .prologue
-    .line 231
+    .line 226
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     iget v1, p0, Landroid/graphics/Rect;->bottom:I
@@ -298,7 +298,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 369
+    .line 336
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     iget v2, p0, Landroid/graphics/Rect;->right:I
@@ -311,7 +311,7 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 370
+    .line 337
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     if-lt p1, v1, :cond_0
@@ -330,7 +330,7 @@
 
     const/4 v0, 0x1
 
-    .line 369
+    .line 336
     :cond_0
     return v0
 .end method
@@ -345,7 +345,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 387
+    .line 354
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     iget v2, p0, Landroid/graphics/Rect;->right:I
@@ -358,7 +358,7 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 389
+    .line 356
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     if-gt v1, p1, :cond_0
@@ -367,7 +367,7 @@
 
     if-gt v1, p2, :cond_0
 
-    .line 390
+    .line 357
     iget v1, p0, Landroid/graphics/Rect;->right:I
 
     if-lt v1, p3, :cond_0
@@ -378,7 +378,7 @@
 
     const/4 v0, 0x1
 
-    .line 387
+    .line 354
     :cond_0
     return v0
 .end method
@@ -390,7 +390,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 403
+    .line 370
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     iget v2, p0, Landroid/graphics/Rect;->right:I
@@ -403,7 +403,7 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 405
+    .line 372
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     iget v2, p1, Landroid/graphics/Rect;->left:I
@@ -430,7 +430,7 @@
 
     const/4 v0, 0x1
 
-    .line 403
+    .line 370
     :cond_0
     return v0
 .end method
@@ -439,7 +439,7 @@
     .locals 1
 
     .prologue
-    .line 591
+    .line 558
     const/4 v0, 0x0
 
     return v0
@@ -454,12 +454,12 @@
 
     const/4 v2, 0x0
 
-    .line 102
+    .line 97
     if-ne p0, p1, :cond_0
 
     return v1
 
-    .line 103
+    .line 98
     :cond_0
     if-eqz p1, :cond_1
 
@@ -479,10 +479,10 @@
     :cond_2
     move-object v0, p1
 
-    .line 105
+    .line 100
     check-cast v0, Landroid/graphics/Rect;
 
-    .line 106
+    .line 101
     .local v0, "r":Landroid/graphics/Rect;
     iget v3, p0, Landroid/graphics/Rect;->left:I
 
@@ -521,7 +521,7 @@
     .locals 2
 
     .prologue
-    .line 238
+    .line 233
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     iget v1, p0, Landroid/graphics/Rect;->right:I
@@ -541,7 +541,7 @@
     .locals 2
 
     .prologue
-    .line 245
+    .line 240
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     iget v1, p0, Landroid/graphics/Rect;->bottom:I
@@ -563,42 +563,42 @@
     .prologue
     const/16 v2, 0x20
 
-    .line 155
+    .line 150
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 158
+    .line 153
     .local v0, "sb":Ljava/lang/StringBuilder;
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 159
+    .line 154
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 160
+    .line 155
     iget v1, p0, Landroid/graphics/Rect;->top:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 161
+    .line 156
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 162
+    .line 157
     iget v1, p0, Landroid/graphics/Rect;->right:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 163
+    .line 158
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 164
+    .line 159
     iget v1, p0, Landroid/graphics/Rect;->bottom:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 165
+    .line 160
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -610,10 +610,10 @@
     .locals 3
 
     .prologue
-    .line 111
+    .line 106
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 112
+    .line 107
     .local v0, "result":I
     mul-int/lit8 v1, v0, 0x1f
 
@@ -621,21 +621,21 @@
 
     add-int v0, v1, v2
 
-    .line 113
+    .line 108
     mul-int/lit8 v1, v0, 0x1f
 
     iget v2, p0, Landroid/graphics/Rect;->right:I
 
     add-int v0, v1, v2
 
-    .line 114
+    .line 109
     mul-int/lit8 v1, v0, 0x1f
 
     iget v2, p0, Landroid/graphics/Rect;->bottom:I
 
     add-int v0, v1, v2
 
-    .line 115
+    .line 110
     return v0
 .end method
 
@@ -643,7 +643,7 @@
     .locals 2
 
     .prologue
-    .line 213
+    .line 208
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
     iget v1, p0, Landroid/graphics/Rect;->top:I
@@ -659,120 +659,35 @@
     .param p2, "dy"    # I
 
     .prologue
-    .line 323
+    .line 318
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     add-int/2addr v0, p1
 
     iput v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 324
+    .line 319
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     add-int/2addr v0, p2
 
     iput v0, p0, Landroid/graphics/Rect;->top:I
 
-    .line 325
+    .line 320
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
     sub-int/2addr v0, p1
 
     iput v0, p0, Landroid/graphics/Rect;->right:I
 
-    .line 326
+    .line 321
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
     sub-int/2addr v0, p2
 
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 322
-    return-void
-.end method
-
-.method public inset(IIII)V
-    .locals 1
-    .param p1, "left"    # I
-    .param p2, "top"    # I
-    .param p3, "right"    # I
-    .param p4, "bottom"    # I
-
-    .prologue
-    .line 351
-    iget v0, p0, Landroid/graphics/Rect;->left:I
-
-    add-int/2addr v0, p1
-
-    iput v0, p0, Landroid/graphics/Rect;->left:I
-
-    .line 352
-    iget v0, p0, Landroid/graphics/Rect;->top:I
-
-    add-int/2addr v0, p2
-
-    iput v0, p0, Landroid/graphics/Rect;->top:I
-
-    .line 353
-    iget v0, p0, Landroid/graphics/Rect;->right:I
-
-    sub-int/2addr v0, p3
-
-    iput v0, p0, Landroid/graphics/Rect;->right:I
-
-    .line 354
-    iget v0, p0, Landroid/graphics/Rect;->bottom:I
-
-    sub-int/2addr v0, p4
-
-    iput v0, p0, Landroid/graphics/Rect;->bottom:I
-
-    .line 350
-    return-void
-.end method
-
-.method public inset(Landroid/graphics/Rect;)V
-    .locals 2
-    .param p1, "insets"    # Landroid/graphics/Rect;
-
-    .prologue
-    .line 336
-    iget v0, p0, Landroid/graphics/Rect;->left:I
-
-    iget v1, p1, Landroid/graphics/Rect;->left:I
-
-    add-int/2addr v0, v1
-
-    iput v0, p0, Landroid/graphics/Rect;->left:I
-
-    .line 337
-    iget v0, p0, Landroid/graphics/Rect;->top:I
-
-    iget v1, p1, Landroid/graphics/Rect;->top:I
-
-    add-int/2addr v0, v1
-
-    iput v0, p0, Landroid/graphics/Rect;->top:I
-
-    .line 338
-    iget v0, p0, Landroid/graphics/Rect;->right:I
-
-    iget v1, p1, Landroid/graphics/Rect;->right:I
-
-    sub-int/2addr v0, v1
-
-    iput v0, p0, Landroid/graphics/Rect;->right:I
-
-    .line 339
-    iget v0, p0, Landroid/graphics/Rect;->bottom:I
-
-    iget v1, p1, Landroid/graphics/Rect;->bottom:I
-
-    sub-int/2addr v0, v1
-
-    iput v0, p0, Landroid/graphics/Rect;->bottom:I
-
-    .line 335
+    .line 317
     return-void
 .end method
 
@@ -784,7 +699,7 @@
     .param p4, "bottom"    # I
 
     .prologue
-    .line 428
+    .line 395
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     if-ge v0, p3, :cond_4
@@ -801,14 +716,14 @@
 
     if-ge p2, v0, :cond_4
 
-    .line 429
+    .line 396
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     if-ge v0, p1, :cond_0
 
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
-    .line 430
+    .line 397
     :cond_0
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
@@ -816,7 +731,7 @@
 
     iput p2, p0, Landroid/graphics/Rect;->top:I
 
-    .line 431
+    .line 398
     :cond_1
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
@@ -824,7 +739,7 @@
 
     iput p3, p0, Landroid/graphics/Rect;->right:I
 
-    .line 432
+    .line 399
     :cond_2
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
@@ -832,13 +747,13 @@
 
     iput p4, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 433
+    .line 400
     :cond_3
     const/4 v0, 0x1
 
     return v0
 
-    .line 435
+    .line 402
     :cond_4
     const/4 v0, 0x0
 
@@ -850,7 +765,7 @@
     .param p1, "r"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 451
+    .line 418
     iget v0, p1, Landroid/graphics/Rect;->left:I
 
     iget v1, p1, Landroid/graphics/Rect;->top:I
@@ -876,7 +791,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 493
+    .line 460
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     if-ge v1, p3, :cond_0
@@ -905,7 +820,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 197
+    .line 192
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     iget v2, p0, Landroid/graphics/Rect;->right:I
@@ -934,35 +849,35 @@
     .param p2, "dy"    # I
 
     .prologue
-    .line 293
+    .line 288
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     add-int/2addr v0, p1
 
     iput v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 294
+    .line 289
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     add-int/2addr v0, p2
 
     iput v0, p0, Landroid/graphics/Rect;->top:I
 
-    .line 295
+    .line 290
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
     add-int/2addr v0, p1
 
     iput v0, p0, Landroid/graphics/Rect;->right:I
 
-    .line 296
+    .line 291
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
     add-int/2addr v0, p2
 
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 292
+    .line 287
     return-void
 .end method
 
@@ -972,7 +887,7 @@
     .param p2, "newTop"    # I
 
     .prologue
-    .line 307
+    .line 302
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
     iget v1, p0, Landroid/graphics/Rect;->left:I
@@ -983,7 +898,7 @@
 
     iput v0, p0, Landroid/graphics/Rect;->right:I
 
-    .line 308
+    .line 303
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
     iget v1, p0, Landroid/graphics/Rect;->top:I
@@ -994,13 +909,13 @@
 
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 309
+    .line 304
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
-    .line 310
+    .line 305
     iput p2, p0, Landroid/graphics/Rect;->top:I
 
-    .line 306
+    .line 301
     return-void
 .end method
 
@@ -1011,7 +926,7 @@
     .prologue
     const/16 v1, 0x2c
 
-    .line 188
+    .line 183
     const/16 v0, 0x5b
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(C)V
@@ -1022,7 +937,7 @@
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(C)V
 
-    .line 189
+    .line 184
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
@@ -1035,7 +950,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 190
+    .line 185
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(C)V
 
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
@@ -1046,7 +961,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(C)V
 
-    .line 187
+    .line 182
     return-void
 .end method
 
@@ -1055,35 +970,35 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 631
+    .line 598
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 632
+    .line 599
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/graphics/Rect;->top:I
 
-    .line 633
+    .line 600
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/graphics/Rect;->right:I
 
-    .line 634
+    .line 601
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 630
+    .line 597
     return-void
 .end method
 
@@ -1094,14 +1009,14 @@
     .prologue
     const/high16 v1, 0x3f000000    # 0.5f
 
-    .line 642
+    .line 609
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v0, p1, v0
 
     if-eqz v0, :cond_0
 
-    .line 643
+    .line 610
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     int-to-float v0, v0
@@ -1114,7 +1029,7 @@
 
     iput v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 644
+    .line 611
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     int-to-float v0, v0
@@ -1127,7 +1042,7 @@
 
     iput v0, p0, Landroid/graphics/Rect;->top:I
 
-    .line 645
+    .line 612
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
     int-to-float v0, v0
@@ -1140,7 +1055,7 @@
 
     iput v0, p0, Landroid/graphics/Rect;->right:I
 
-    .line 646
+    .line 613
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
     int-to-float v0, v0
@@ -1153,7 +1068,92 @@
 
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 641
+    .line 608
+    :cond_0
+    return-void
+.end method
+
+.method public scaleRoundIn(F)V
+    .locals 2
+    .param p1, "scale"    # F
+
+    .prologue
+    .line 622
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    cmpl-float v0, p1, v0
+
+    if-eqz v0, :cond_0
+
+    .line 623
+    iget v0, p0, Landroid/graphics/Rect;->left:I
+
+    int-to-float v0, v0
+
+    mul-float/2addr v0, p1
+
+    float-to-double v0, v0
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v0
+
+    double-to-int v0, v0
+
+    iput v0, p0, Landroid/graphics/Rect;->left:I
+
+    .line 624
+    iget v0, p0, Landroid/graphics/Rect;->top:I
+
+    int-to-float v0, v0
+
+    mul-float/2addr v0, p1
+
+    float-to-double v0, v0
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v0
+
+    double-to-int v0, v0
+
+    iput v0, p0, Landroid/graphics/Rect;->top:I
+
+    .line 625
+    iget v0, p0, Landroid/graphics/Rect;->right:I
+
+    int-to-float v0, v0
+
+    mul-float/2addr v0, p1
+
+    float-to-double v0, v0
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->floor(D)D
+
+    move-result-wide v0
+
+    double-to-int v0, v0
+
+    iput v0, p0, Landroid/graphics/Rect;->right:I
+
+    .line 626
+    iget v0, p0, Landroid/graphics/Rect;->bottom:I
+
+    int-to-float v0, v0
+
+    mul-float/2addr v0, p1
+
+    float-to-double v0, v0
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->floor(D)D
+
+    move-result-wide v0
+
+    double-to-int v0, v0
+
+    iput v0, p0, Landroid/graphics/Rect;->bottom:I
+
+    .line 621
     :cond_0
     return-void
 .end method
@@ -1166,19 +1166,19 @@
     .param p4, "bottom"    # I
 
     .prologue
-    .line 266
+    .line 261
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
-    .line 267
+    .line 262
     iput p2, p0, Landroid/graphics/Rect;->top:I
 
-    .line 268
+    .line 263
     iput p3, p0, Landroid/graphics/Rect;->right:I
 
-    .line 269
+    .line 264
     iput p4, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 265
+    .line 260
     return-void
 .end method
 
@@ -1187,27 +1187,27 @@
     .param p1, "src"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 279
+    .line 274
     iget v0, p1, Landroid/graphics/Rect;->left:I
 
     iput v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 280
+    .line 275
     iget v0, p1, Landroid/graphics/Rect;->top:I
 
     iput v0, p0, Landroid/graphics/Rect;->top:I
 
-    .line 281
+    .line 276
     iget v0, p1, Landroid/graphics/Rect;->right:I
 
     iput v0, p0, Landroid/graphics/Rect;->right:I
 
-    .line 282
+    .line 277
     iget v0, p1, Landroid/graphics/Rect;->bottom:I
 
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 278
+    .line 273
     return-void
 .end method
 
@@ -1217,7 +1217,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 252
+    .line 247
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
     iput v0, p0, Landroid/graphics/Rect;->top:I
@@ -1226,7 +1226,7 @@
 
     iput v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 251
+    .line 246
     return-void
 .end method
 
@@ -1236,7 +1236,7 @@
     .param p2, "b"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 468
+    .line 435
     iget v0, p1, Landroid/graphics/Rect;->left:I
 
     iget v1, p2, Landroid/graphics/Rect;->right:I
@@ -1261,7 +1261,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 469
+    .line 436
     iget v0, p1, Landroid/graphics/Rect;->left:I
 
     iget v1, p2, Landroid/graphics/Rect;->left:I
@@ -1272,7 +1272,7 @@
 
     iput v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 470
+    .line 437
     iget v0, p1, Landroid/graphics/Rect;->top:I
 
     iget v1, p2, Landroid/graphics/Rect;->top:I
@@ -1283,7 +1283,7 @@
 
     iput v0, p0, Landroid/graphics/Rect;->top:I
 
-    .line 471
+    .line 438
     iget v0, p1, Landroid/graphics/Rect;->right:I
 
     iget v1, p2, Landroid/graphics/Rect;->right:I
@@ -1294,7 +1294,7 @@
 
     iput v0, p0, Landroid/graphics/Rect;->right:I
 
-    .line 472
+    .line 439
     iget v0, p1, Landroid/graphics/Rect;->bottom:I
 
     iget v1, p2, Landroid/graphics/Rect;->bottom:I
@@ -1305,12 +1305,12 @@
 
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 473
+    .line 440
     const/4 v0, 0x1
 
     return v0
 
-    .line 475
+    .line 442
     :cond_0
     const/4 v0, 0x0
 
@@ -1321,26 +1321,26 @@
     .locals 3
 
     .prologue
-    .line 575
+    .line 542
     iget v1, p0, Landroid/graphics/Rect;->left:I
 
     iget v2, p0, Landroid/graphics/Rect;->right:I
 
     if-le v1, v2, :cond_0
 
-    .line 576
+    .line 543
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
-    .line 577
+    .line 544
     .local v0, "temp":I
     iget v1, p0, Landroid/graphics/Rect;->right:I
 
     iput v1, p0, Landroid/graphics/Rect;->left:I
 
-    .line 578
+    .line 545
     iput v0, p0, Landroid/graphics/Rect;->right:I
 
-    .line 580
+    .line 547
     .end local v0    # "temp":I
     :cond_0
     iget v1, p0, Landroid/graphics/Rect;->top:I
@@ -1349,19 +1349,19 @@
 
     if-le v1, v2, :cond_1
 
-    .line 581
+    .line 548
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
-    .line 582
+    .line 549
     .restart local v0    # "temp":I
     iget v1, p0, Landroid/graphics/Rect;->bottom:I
 
     iput v1, p0, Landroid/graphics/Rect;->top:I
 
-    .line 583
+    .line 550
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 574
+    .line 541
     .end local v0    # "temp":I
     :cond_1
     return-void
@@ -1371,7 +1371,7 @@
     .locals 2
 
     .prologue
-    .line 131
+    .line 126
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x20
@@ -1392,12 +1392,12 @@
     .prologue
     const/16 v1, 0x2c
 
-    .line 139
+    .line 134
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    .line 140
+    .line 135
     const/16 v0, 0x5b
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -1408,7 +1408,7 @@
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 141
+    .line 136
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
@@ -1421,7 +1421,7 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 142
+    .line 137
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
@@ -1432,7 +1432,7 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 143
+    .line 138
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -1444,14 +1444,14 @@
     .locals 2
 
     .prologue
-    .line 120
+    .line 115
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x20
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 121
+    .line 116
     .local v0, "sb":Ljava/lang/StringBuilder;
     const-string/jumbo v1, "Rect("
 
@@ -1465,7 +1465,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 122
+    .line 117
     iget v1, p0, Landroid/graphics/Rect;->top:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
@@ -1478,7 +1478,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 123
+    .line 118
     const-string/jumbo v1, ", "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1491,7 +1491,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 124
+    .line 119
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1505,47 +1505,47 @@
     .param p2, "y"    # I
 
     .prologue
-    .line 555
+    .line 522
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     if-ge p1, v0, :cond_2
 
-    .line 556
+    .line 523
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
-    .line 560
+    .line 527
     :cond_0
     :goto_0
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     if-ge p2, v0, :cond_3
 
-    .line 561
+    .line 528
     iput p2, p0, Landroid/graphics/Rect;->top:I
 
-    .line 554
+    .line 521
     :cond_1
     :goto_1
     return-void
 
-    .line 557
+    .line 524
     :cond_2
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
     if-le p1, v0, :cond_0
 
-    .line 558
+    .line 525
     iput p1, p0, Landroid/graphics/Rect;->right:I
 
     goto :goto_0
 
-    .line 562
+    .line 529
     :cond_3
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
     if-le p2, v0, :cond_1
 
-    .line 563
+    .line 530
     iput p2, p0, Landroid/graphics/Rect;->bottom:I
 
     goto :goto_1
@@ -1559,12 +1559,12 @@
     .param p4, "bottom"    # I
 
     .prologue
-    .line 521
+    .line 488
     if-ge p1, p3, :cond_3
 
     if-ge p2, p4, :cond_3
 
-    .line 522
+    .line 489
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     iget v1, p0, Landroid/graphics/Rect;->right:I
@@ -1577,14 +1577,14 @@
 
     if-ge v0, v1, :cond_4
 
-    .line 523
+    .line 490
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     if-le v0, p1, :cond_0
 
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
-    .line 524
+    .line 491
     :cond_0
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
@@ -1592,7 +1592,7 @@
 
     iput p2, p0, Landroid/graphics/Rect;->top:I
 
-    .line 525
+    .line 492
     :cond_1
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
@@ -1600,7 +1600,7 @@
 
     iput p3, p0, Landroid/graphics/Rect;->right:I
 
-    .line 526
+    .line 493
     :cond_2
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
@@ -1608,22 +1608,22 @@
 
     iput p4, p0, Landroid/graphics/Rect;->bottom:I
 
-    .line 520
+    .line 487
     :cond_3
     :goto_0
     return-void
 
-    .line 528
+    .line 495
     :cond_4
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
-    .line 529
+    .line 496
     iput p2, p0, Landroid/graphics/Rect;->top:I
 
-    .line 530
+    .line 497
     iput p3, p0, Landroid/graphics/Rect;->right:I
 
-    .line 531
+    .line 498
     iput p4, p0, Landroid/graphics/Rect;->bottom:I
 
     goto :goto_0
@@ -1634,7 +1634,7 @@
     .param p1, "r"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 544
+    .line 511
     iget v0, p1, Landroid/graphics/Rect;->left:I
 
     iget v1, p1, Landroid/graphics/Rect;->top:I
@@ -1645,7 +1645,7 @@
 
     invoke-virtual {p0, v0, v1, v2, v3}, Landroid/graphics/Rect;->union(IIII)V
 
-    .line 543
+    .line 510
     return-void
 .end method
 
@@ -1653,7 +1653,7 @@
     .locals 2
 
     .prologue
-    .line 205
+    .line 200
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
     iget v1, p0, Landroid/graphics/Rect;->left:I
@@ -1669,26 +1669,26 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 600
+    .line 567
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 601
+    .line 568
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 602
+    .line 569
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 603
+    .line 570
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 599
+    .line 566
     return-void
 .end method

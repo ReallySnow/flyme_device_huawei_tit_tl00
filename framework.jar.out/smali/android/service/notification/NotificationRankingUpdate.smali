@@ -28,17 +28,11 @@
 
 
 # instance fields
-.field private final mImportance:[I
-
-.field private final mImportanceExplanation:Landroid/os/Bundle;
+.field private final mFirstAmbientIndex:I
 
 .field private final mInterceptedKeys:[Ljava/lang/String;
 
 .field private final mKeys:[Ljava/lang/String;
-
-.field private final mOverrideGroupKeys:Landroid/os/Bundle;
-
-.field private final mSuppressedVisualEffects:Landroid/os/Bundle;
 
 .field private final mVisibilityOverrides:Landroid/os/Bundle;
 
@@ -48,12 +42,12 @@
     .locals 1
 
     .prologue
-    .line 75
+    .line 61
     new-instance v0, Landroid/service/notification/NotificationRankingUpdate$1;
 
     invoke-direct {v0}, Landroid/service/notification/NotificationRankingUpdate$1;-><init>()V
 
-    .line 74
+    .line 60
     sput-object v0, Landroid/service/notification/NotificationRankingUpdate;->CREATOR:Landroid/os/Parcelable$Creator;
 
     .line 25
@@ -65,105 +59,65 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 47
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
+    .line 41
     invoke-virtual {p1}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mKeys:[Ljava/lang/String;
 
-    .line 49
+    .line 42
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mFirstAmbientIndex:I
+
+    .line 43
     invoke-virtual {p1}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mInterceptedKeys:[Ljava/lang/String;
 
-    .line 50
+    .line 44
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mVisibilityOverrides:Landroid/os/Bundle;
 
-    .line 51
-    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mSuppressedVisualEffects:Landroid/os/Bundle;
-
-    .line 52
-    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mKeys:[Ljava/lang/String;
-
-    array-length v0, v0
-
-    new-array v0, v0, [I
-
-    iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mImportance:[I
-
-    .line 53
-    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mImportance:[I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readIntArray([I)V
-
-    .line 54
-    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mImportanceExplanation:Landroid/os/Bundle;
-
-    .line 55
-    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverrideGroupKeys:Landroid/os/Bundle;
-
-    .line 47
+    .line 40
     return-void
 .end method
 
-.method public constructor <init>([Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;[ILandroid/os/Bundle;Landroid/os/Bundle;)V
+.method public constructor <init>([Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;I)V
     .locals 0
     .param p1, "keys"    # [Ljava/lang/String;
     .param p2, "interceptedKeys"    # [Ljava/lang/String;
     .param p3, "visibilityOverrides"    # Landroid/os/Bundle;
-    .param p4, "suppressedVisualEffects"    # Landroid/os/Bundle;
-    .param p5, "importance"    # [I
-    .param p6, "explanation"    # Landroid/os/Bundle;
-    .param p7, "overrideGroupKeys"    # Landroid/os/Bundle;
+    .param p4, "firstAmbientIndex"    # I
 
     .prologue
-    .line 35
+    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
+    .line 34
     iput-object p1, p0, Landroid/service/notification/NotificationRankingUpdate;->mKeys:[Ljava/lang/String;
 
-    .line 39
+    .line 35
+    iput p4, p0, Landroid/service/notification/NotificationRankingUpdate;->mFirstAmbientIndex:I
+
+    .line 36
     iput-object p2, p0, Landroid/service/notification/NotificationRankingUpdate;->mInterceptedKeys:[Ljava/lang/String;
 
-    .line 40
+    .line 37
     iput-object p3, p0, Landroid/service/notification/NotificationRankingUpdate;->mVisibilityOverrides:Landroid/os/Bundle;
 
-    .line 41
-    iput-object p4, p0, Landroid/service/notification/NotificationRankingUpdate;->mSuppressedVisualEffects:Landroid/os/Bundle;
-
-    .line 42
-    iput-object p5, p0, Landroid/service/notification/NotificationRankingUpdate;->mImportance:[I
-
-    .line 43
-    iput-object p6, p0, Landroid/service/notification/NotificationRankingUpdate;->mImportanceExplanation:Landroid/os/Bundle;
-
-    .line 44
-    iput-object p7, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverrideGroupKeys:Landroid/os/Bundle;
-
-    .line 37
+    .line 33
     return-void
 .end method
 
@@ -173,37 +127,27 @@
     .locals 1
 
     .prologue
-    .line 60
+    .line 49
     const/4 v0, 0x0
 
     return v0
 .end method
 
-.method public getImportance()[I
+.method public getFirstAmbientIndex()I
     .locals 1
 
     .prologue
-    .line 102
-    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mImportance:[I
+    .line 76
+    iget v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mFirstAmbientIndex:I
 
-    return-object v0
-.end method
-
-.method public getImportanceExplanation()Landroid/os/Bundle;
-    .locals 1
-
-    .prologue
-    .line 106
-    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mImportanceExplanation:Landroid/os/Bundle;
-
-    return-object v0
+    return v0
 .end method
 
 .method public getInterceptedKeys()[Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 90
+    .line 80
     iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mInterceptedKeys:[Ljava/lang/String;
 
     return-object v0
@@ -213,28 +157,8 @@
     .locals 1
 
     .prologue
-    .line 86
+    .line 72
     iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mKeys:[Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getOverrideGroupKeys()Landroid/os/Bundle;
-    .locals 1
-
-    .prologue
-    .line 110
-    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverrideGroupKeys:Landroid/os/Bundle;
-
-    return-object v0
-.end method
-
-.method public getSuppressedVisualEffects()Landroid/os/Bundle;
-    .locals 1
-
-    .prologue
-    .line 98
-    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mSuppressedVisualEffects:Landroid/os/Bundle;
 
     return-object v0
 .end method
@@ -243,7 +167,7 @@
     .locals 1
 
     .prologue
-    .line 94
+    .line 84
     iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mVisibilityOverrides:Landroid/os/Bundle;
 
     return-object v0
@@ -255,41 +179,26 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 65
+    .line 54
     iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mKeys:[Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    .line 66
+    .line 55
+    iget v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mFirstAmbientIndex:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 56
     iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mInterceptedKeys:[Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    .line 67
+    .line 57
     iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mVisibilityOverrides:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 68
-    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mSuppressedVisualEffects:Landroid/os/Bundle;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
-
-    .line 69
-    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mImportance:[I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
-
-    .line 70
-    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mImportanceExplanation:Landroid/os/Bundle;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
-
-    .line 71
-    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverrideGroupKeys:Landroid/os/Bundle;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
-
-    .line 64
+    .line 53
     return-void
 .end method

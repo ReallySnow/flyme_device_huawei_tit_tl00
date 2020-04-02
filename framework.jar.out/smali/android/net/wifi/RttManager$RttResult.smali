@@ -93,8 +93,6 @@
 
 .field public rxRate:I
 
-.field public secure:Z
-
 .field public status:I
 
 .field public successMeasurementFrameNumber:I
@@ -114,7 +112,7 @@
     .locals 0
 
     .prologue
-    .line 571
+    .line 542
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

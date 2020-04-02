@@ -24,16 +24,16 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/LayerDrawable$LayerState;Landroid/graphics/drawable/RippleDrawable;Landroid/content/res/Resources;)V
-    .locals 3
+    .locals 2
     .param p1, "orig"    # Landroid/graphics/drawable/LayerDrawable$LayerState;
     .param p2, "owner"    # Landroid/graphics/drawable/RippleDrawable;
     .param p3, "res"    # Landroid/content/res/Resources;
 
     .prologue
-    .line 991
+    .line 998
     invoke-direct {p0, p1, p2, p3}, Landroid/graphics/drawable/LayerDrawable$LayerState;-><init>(Landroid/graphics/drawable/LayerDrawable$LayerState;Landroid/graphics/drawable/LayerDrawable;Landroid/content/res/Resources;)V
 
-    .line 987
+    .line 994
     const v1, -0xff01
 
     invoke-static {v1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
@@ -42,12 +42,12 @@
 
     iput-object v1, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mColor:Landroid/content/res/ColorStateList;
 
-    .line 988
+    .line 995
     const/4 v1, -0x1
 
     iput v1, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mMaxRadius:I
 
-    .line 993
+    .line 1000
     if-eqz p1, :cond_0
 
     instance-of v1, p1, Landroid/graphics/drawable/RippleDrawable$RippleState;
@@ -56,71 +56,27 @@
 
     move-object v0, p1
 
-    .line 994
+    .line 1001
     check-cast v0, Landroid/graphics/drawable/RippleDrawable$RippleState;
 
-    .line 995
+    .line 1002
     .local v0, "origs":Landroid/graphics/drawable/RippleDrawable$RippleState;
     iget-object v1, v0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mTouchThemeAttrs:[I
 
     iput-object v1, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mTouchThemeAttrs:[I
 
-    .line 996
+    .line 1003
     iget-object v1, v0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mColor:Landroid/content/res/ColorStateList;
 
     iput-object v1, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mColor:Landroid/content/res/ColorStateList;
 
-    .line 997
+    .line 1004
     iget v1, v0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mMaxRadius:I
 
     iput v1, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mMaxRadius:I
 
-    .line 999
-    iget v1, v0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mDensity:I
-
-    iget v2, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mDensity:I
-
-    if-eq v1, v2, :cond_0
-
-    .line 1000
-    iget v1, p1, Landroid/graphics/drawable/LayerDrawable$LayerState;->mDensity:I
-
-    iget v2, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mDensity:I
-
-    invoke-direct {p0, v1, v2}, Landroid/graphics/drawable/RippleDrawable$RippleState;->applyDensityScaling(II)V
-
-    .line 990
+    .line 997
     .end local v0    # "origs":Landroid/graphics/drawable/RippleDrawable$RippleState;
-    :cond_0
-    return-void
-.end method
-
-.method private applyDensityScaling(II)V
-    .locals 2
-    .param p1, "sourceDensity"    # I
-    .param p2, "targetDensity"    # I
-
-    .prologue
-    .line 1013
-    iget v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mMaxRadius:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
-
-    .line 1015
-    iget v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mMaxRadius:I
-
-    const/4 v1, 0x1
-
-    .line 1014
-    invoke-static {v0, p1, p2, v1}, Landroid/graphics/drawable/Drawable;->scaleFromDensity(IIIZ)I
-
-    move-result v0
-
-    iput v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mMaxRadius:I
-
-    .line 1012
     :cond_0
     return-void
 .end method
@@ -131,12 +87,12 @@
     .locals 1
 
     .prologue
-    .line 1021
+    .line 1010
     iget-object v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mTouchThemeAttrs:[I
 
     if-nez v0, :cond_1
 
-    .line 1022
+    .line 1011
     iget-object v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mColor:Landroid/content/res/ColorStateList;
 
     if-eqz v0, :cond_0
@@ -147,16 +103,16 @@
 
     move-result v0
 
-    .line 1021
+    .line 1010
     if-nez v0, :cond_1
 
-    .line 1023
+    .line 1012
     :cond_0
     invoke-super {p0}, Landroid/graphics/drawable/LayerDrawable$LayerState;->canApplyTheme()Z
 
     move-result v0
 
-    .line 1021
+    .line 1010
     :goto_0
     return v0
 
@@ -170,12 +126,12 @@
     .locals 2
 
     .prologue
-    .line 1038
+    .line 1027
     invoke-super {p0}, Landroid/graphics/drawable/LayerDrawable$LayerState;->getChangingConfigurations()I
 
     move-result v1
 
-    .line 1039
+    .line 1028
     iget-object v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mColor:Landroid/content/res/ColorStateList;
 
     if-eqz v0, :cond_0
@@ -186,13 +142,13 @@
 
     move-result v0
 
-    .line 1038
+    .line 1027
     :goto_0
     or-int/2addr v0, v1
 
     return v0
 
-    .line 1039
+    .line 1028
     :cond_0
     const/4 v0, 0x0
 
@@ -205,7 +161,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1028
+    .line 1017
     new-instance v0, Landroid/graphics/drawable/RippleDrawable;
 
     invoke-direct {v0, p0, v1, v1}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/graphics/drawable/RippleDrawable$RippleState;Landroid/content/res/Resources;Landroid/graphics/drawable/RippleDrawable;)V
@@ -218,7 +174,7 @@
     .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
-    .line 1033
+    .line 1022
     new-instance v0, Landroid/graphics/drawable/RippleDrawable;
 
     const/4 v1, 0x0
@@ -226,20 +182,4 @@
     invoke-direct {v0, p0, p1, v1}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/graphics/drawable/RippleDrawable$RippleState;Landroid/content/res/Resources;Landroid/graphics/drawable/RippleDrawable;)V
 
     return-object v0
-.end method
-
-.method protected onDensityChanged(II)V
-    .locals 0
-    .param p1, "sourceDensity"    # I
-    .param p2, "targetDensity"    # I
-
-    .prologue
-    .line 1007
-    invoke-super {p0, p1, p2}, Landroid/graphics/drawable/LayerDrawable$LayerState;->onDensityChanged(II)V
-
-    .line 1009
-    invoke-direct {p0, p1, p2}, Landroid/graphics/drawable/RippleDrawable$RippleState;->applyDensityScaling(II)V
-
-    .line 1006
-    return-void
 .end method

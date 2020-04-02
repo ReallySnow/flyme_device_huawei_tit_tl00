@@ -15,8 +15,6 @@
 
 
 # static fields
-.field public static final OSEN:I = 0x2
-
 .field public static final RSN:I = 0x1
 
 .field public static final WPA:I = 0x0
@@ -31,8 +29,8 @@
     .locals 3
 
     .prologue
-    .line 138
-    const/4 v0, 0x3
+    .line 112
+    const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -48,15 +46,9 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "OSEN"
-
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
-
     sput-object v0, Landroid/net/wifi/WifiConfiguration$Protocol;->strings:[Ljava/lang/String;
 
-    .line 124
+    .line 102
     return-void
 .end method
 
@@ -64,7 +56,7 @@
     .locals 0
 
     .prologue
-    .line 125
+    .line 103
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

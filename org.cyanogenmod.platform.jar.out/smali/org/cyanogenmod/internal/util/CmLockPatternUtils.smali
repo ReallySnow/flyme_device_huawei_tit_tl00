@@ -129,8 +129,6 @@
     .end annotation
 
     .prologue
-    const/4 v0, 0x0
-
     const/4 v5, 0x0
 
     .line 56
@@ -162,7 +160,7 @@
 
     .line 62
     .local v0, "hasThirdPartyKeyguardPermission":Z
-    :cond_0
+    :goto_0
     if-nez v0, :cond_1
 
     .line 63
@@ -216,6 +214,14 @@
 
     throw v2
 
+    .line 59
+    .end local v0    # "hasThirdPartyKeyguardPermission":Z
+    :cond_0
+    const/4 v0, 0x0
+
+    .restart local v0    # "hasThirdPartyKeyguardPermission":Z
+    goto :goto_0
+
     .line 68
     .end local v0    # "hasThirdPartyKeyguardPermission":Z
     .end local v1    # "pm":Landroid/content/pm/PackageManager;
@@ -229,7 +235,7 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1
     invoke-direct {p0}, Lorg/cyanogenmod/internal/util/CmLockPatternUtils;->getCurrentUser()I
 
     move-result v4
@@ -255,7 +261,7 @@
     :cond_2
     const-string/jumbo v2, ""
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public shouldPassToSecurityView(I)Z

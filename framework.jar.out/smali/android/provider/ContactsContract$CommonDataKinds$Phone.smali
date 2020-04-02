@@ -28,8 +28,6 @@
 
 .field public static final CONTENT_URI:Landroid/net/Uri;
 
-.field public static final ENTERPRISE_CONTENT_FILTER_URI:Landroid/net/Uri;
-
 .field public static final ENTERPRISE_CONTENT_URI:Landroid/net/Uri;
 
 .field public static final NORMALIZED_NUMBER:Ljava/lang/String; = "data4"
@@ -86,20 +84,20 @@
     .locals 2
 
     .prologue
-    .line 5969
+    .line 5842
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 5970
+    .line 5843
     const-string/jumbo v1, "phones"
 
-    .line 5969
+    .line 5842
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 5984
+    .line 5857
     sget-object v0, Landroid/provider/ContactsContract$Data;->ENTERPRISE_CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "phones"
@@ -108,35 +106,23 @@
 
     move-result-object v0
 
-    .line 5983
+    .line 5856
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->ENTERPRISE_CONTENT_URI:Landroid/net/Uri;
 
-    .line 5992
+    .line 5865
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 5993
+    .line 5866
     const-string/jumbo v1, "filter"
 
-    .line 5992
+    .line 5865
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->CONTENT_FILTER_URI:Landroid/net/Uri;
 
-    .line 6001
-    sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->CONTENT_URI:Landroid/net/Uri;
-
-    const-string/jumbo v1, "filter_enterprise"
-
-    .line 6000
-    invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->ENTERPRISE_CONTENT_FILTER_URI:Landroid/net/Uri;
-
-    .line 5948
+    .line 5821
     return-void
 .end method
 
@@ -144,7 +130,7 @@
     .locals 0
 
     .prologue
-    .line 5953
+    .line 5826
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -159,7 +145,7 @@
     .end annotation
 
     .prologue
-    .line 6070
+    .line 5935
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -181,7 +167,7 @@
     .end annotation
 
     .prologue
-    .line 6060
+    .line 5925
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -200,7 +186,7 @@
     .param p2, "label"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 6110
+    .line 5975
     if-eqz p1, :cond_0
 
     const/16 v1, 0x13
@@ -214,13 +200,13 @@
 
     if-eqz v1, :cond_2
 
-    .line 6113
+    .line 5978
     :cond_1
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->getTypeLabelResource(I)I
 
     move-result v0
 
-    .line 6114
+    .line 5979
     .local v0, "labelRes":I
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -228,7 +214,7 @@
 
     return-object v1
 
-    .line 6111
+    .line 5976
     .end local v0    # "labelRes":I
     :cond_2
     return-object p2
@@ -239,135 +225,135 @@
     .param p0, "type"    # I
 
     .prologue
-    .line 6078
+    .line 5943
     packed-switch p0, :pswitch_data_0
 
-    .line 6099
-    const v0, 0x10402b7
+    .line 5964
+    const v0, 0x104029a
 
     return v0
 
-    .line 6079
+    .line 5944
     :pswitch_0
-    const v0, 0x10402b8
+    const v0, 0x104029b
 
     return v0
 
-    .line 6080
+    .line 5945
     :pswitch_1
-    const v0, 0x10402b9
+    const v0, 0x104029c
 
     return v0
 
-    .line 6081
+    .line 5946
     :pswitch_2
-    const v0, 0x10402ba
+    const v0, 0x104029d
 
     return v0
 
-    .line 6082
+    .line 5947
     :pswitch_3
-    const v0, 0x10402bb
+    const v0, 0x104029e
 
     return v0
 
-    .line 6083
+    .line 5948
     :pswitch_4
-    const v0, 0x10402bc
+    const v0, 0x104029f
 
     return v0
 
-    .line 6084
+    .line 5949
     :pswitch_5
-    const v0, 0x10402bd
+    const v0, 0x10402a0
 
     return v0
 
-    .line 6085
+    .line 5950
     :pswitch_6
-    const v0, 0x10402be
+    const v0, 0x10402a1
 
     return v0
 
-    .line 6086
+    .line 5951
     :pswitch_7
-    const v0, 0x10402bf
+    const v0, 0x10402a2
 
     return v0
 
-    .line 6087
+    .line 5952
     :pswitch_8
-    const v0, 0x10402c0
+    const v0, 0x10402a3
 
     return v0
 
-    .line 6088
+    .line 5953
     :pswitch_9
-    const v0, 0x10402c1
+    const v0, 0x10402a4
 
     return v0
 
-    .line 6089
+    .line 5954
     :pswitch_a
-    const v0, 0x10402c2
+    const v0, 0x10402a5
 
     return v0
 
-    .line 6090
+    .line 5955
     :pswitch_b
-    const v0, 0x10402c3
+    const v0, 0x10402a6
 
     return v0
 
-    .line 6091
+    .line 5956
     :pswitch_c
-    const v0, 0x10402c4
+    const v0, 0x10402a7
 
     return v0
 
-    .line 6092
+    .line 5957
     :pswitch_d
-    const v0, 0x10402c5
+    const v0, 0x10402a8
 
     return v0
 
-    .line 6093
+    .line 5958
     :pswitch_e
-    const v0, 0x10402c6
+    const v0, 0x10402a9
 
     return v0
 
-    .line 6094
+    .line 5959
     :pswitch_f
-    const v0, 0x10402c7
+    const v0, 0x10402aa
 
     return v0
 
-    .line 6095
+    .line 5960
     :pswitch_10
-    const v0, 0x10402c8
+    const v0, 0x10402ab
 
     return v0
 
-    .line 6096
+    .line 5961
     :pswitch_11
-    const v0, 0x10402c9
+    const v0, 0x10402ac
 
     return v0
 
-    .line 6097
+    .line 5962
     :pswitch_12
-    const v0, 0x10402ca
+    const v0, 0x10402ad
 
     return v0
 
-    .line 6098
+    .line 5963
     :pswitch_13
-    const v0, 0x10402cb
+    const v0, 0x10402ae
 
     return v0
 
-    .line 6078
+    .line 5943
     nop
 
     :pswitch_data_0

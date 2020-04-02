@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Landroid/accounts/AccountManager;
 
     .prologue
-    .line 2594
+    .line 2515
     iput-object p1, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,14 +40,14 @@
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 2597
+    .line 2517
     iget-object v3, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
     invoke-virtual {v3}, Landroid/accounts/AccountManager;->getAccounts()[Landroid/accounts/Account;
 
     move-result-object v0
 
-    .line 2599
+    .line 2519
     .local v0, "accounts":[Landroid/accounts/Account;
     iget-object v3, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
@@ -57,7 +57,7 @@
 
     monitor-enter v5
 
-    .line 2601
+    .line 2521
     :try_start_0
     iget-object v3, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
@@ -69,7 +69,7 @@
 
     move-result-object v3
 
-    .line 2600
+    .line 2520
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -88,7 +88,7 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 2602
+    .line 2522
     .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/accounts/OnAccountsUpdateListener;Landroid/os/Handler;>;"
     iget-object v6, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
@@ -110,7 +110,7 @@
 
     goto :goto_0
 
-    .line 2599
+    .line 2519
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/accounts/OnAccountsUpdateListener;Landroid/os/Handler;>;"
     .end local v2    # "entry$iterator":Ljava/util/Iterator;
     :catchall_0
@@ -124,6 +124,6 @@
     :cond_0
     monitor-exit v5
 
-    .line 2596
+    .line 2516
     return-void
 .end method

@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     .prologue
-    .line 481
+    .line 464
     iput-object p1, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-direct {p0}, Lcyanogenmod/hardware/ICMHardwareService$Stub;-><init>()V
@@ -37,7 +37,7 @@
     .param p1, "feature"    # I
 
     .prologue
-    .line 484
+    .line 467
     invoke-virtual {p0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->getSupportedFeatures()I
 
     move-result v0
@@ -64,29 +64,29 @@
     .param p1, "feature"    # I
 
     .prologue
-    .line 496
+    .line 479
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 497
+    .line 480
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 496
+    .line 479
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 498
+    .line 481
     invoke-direct {p0, p1}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 499
+    .line 482
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -117,12 +117,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 500
+    .line 483
     const/4 v0, 0x0
 
     return v0
 
-    .line 502
+    .line 485
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -141,22 +141,22 @@
     .locals 3
 
     .prologue
-    .line 816
+    .line 799
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 817
+    .line 800
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 816
+    .line 799
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 818
+    .line 801
     const/high16 v0, 0x20000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -165,7 +165,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 819
+    .line 802
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
@@ -178,7 +178,7 @@
 
     return v0
 
-    .line 821
+    .line 804
     :cond_0
     const/4 v0, 0x0
 
@@ -189,22 +189,22 @@
     .locals 3
 
     .prologue
-    .line 806
+    .line 789
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 807
+    .line 790
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 806
+    .line 789
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 808
+    .line 791
     const/high16 v0, 0x20000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -213,7 +213,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 809
+    .line 792
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
@@ -226,7 +226,7 @@
 
     return v0
 
-    .line 811
+    .line 794
     :cond_0
     const/4 v0, 0x0
 
@@ -237,22 +237,22 @@
     .locals 3
 
     .prologue
-    .line 796
+    .line 779
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 797
+    .line 780
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 796
+    .line 779
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 798
+    .line 781
     const/high16 v0, 0x20000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -261,7 +261,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 799
+    .line 782
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
@@ -274,7 +274,7 @@
 
     return v0
 
-    .line 801
+    .line 784
     :cond_0
     const/4 v0, 0x0
 
@@ -287,20 +287,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 698
+    .line 681
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 699
+    .line 682
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 698
+    .line 681
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 700
+    .line 683
     const/16 v0, 0x2000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -309,7 +309,7 @@
 
     if-nez v0, :cond_0
 
-    .line 701
+    .line 684
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -318,10 +318,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 702
+    .line 685
     return-object v2
 
-    .line 704
+    .line 687
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -348,20 +348,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 709
+    .line 692
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 710
+    .line 693
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 709
+    .line 692
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 711
+    .line 694
     const/16 v0, 0x2000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -370,7 +370,7 @@
 
     if-nez v0, :cond_0
 
-    .line 712
+    .line 695
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -379,10 +379,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 713
+    .line 696
     return-object v2
 
-    .line 715
+    .line 698
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -409,22 +409,22 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 846
+    .line 829
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 847
+    .line 830
     const-string/jumbo v2, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v3, 0x0
 
-    .line 846
+    .line 829
     invoke-virtual {v0, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 848
+    .line 831
     const/high16 v0, 0x40000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -433,7 +433,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 849
+    .line 832
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
@@ -446,7 +446,7 @@
 
     return-object v0
 
-    .line 851
+    .line 834
     :cond_0
     new-instance v0, Lcyanogenmod/hardware/HSIC;
 
@@ -469,20 +469,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 518
+    .line 501
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 519
+    .line 502
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 518
+    .line 501
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 520
+    .line 503
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -491,7 +491,7 @@
 
     if-nez v0, :cond_0
 
-    .line 521
+    .line 504
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -500,10 +500,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 522
+    .line 505
     return-object v2
 
-    .line 524
+    .line 507
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -525,20 +525,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 555
+    .line 538
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 556
+    .line 539
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 555
+    .line 538
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 557
+    .line 540
     const/16 v0, 0x8
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -547,7 +547,7 @@
 
     if-nez v0, :cond_0
 
-    .line 558
+    .line 541
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -556,10 +556,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 559
+    .line 542
     return-object v2
 
-    .line 561
+    .line 544
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -580,20 +580,20 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 676
+    .line 659
     iget-object v4, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v4}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v4
 
-    .line 677
+    .line 660
     const-string/jumbo v5, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 676
+    .line 659
     invoke-virtual {v4, v5, v6}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 678
+    .line 661
     const/16 v4, 0x2000
 
     invoke-direct {p0, v4}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -602,7 +602,7 @@
 
     if-nez v4, :cond_0
 
-    .line 679
+    .line 662
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v4
@@ -611,10 +611,10 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 680
+    .line 663
     return-object v6
 
-    .line 682
+    .line 665
     :cond_0
     iget-object v4, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -626,20 +626,20 @@
 
     move-result-object v1
 
-    .line 683
+    .line 666
     .local v1, "modes":[Lcyanogenmod/hardware/DisplayMode;
     if-nez v1, :cond_1
 
-    .line 684
+    .line 667
     return-object v6
 
-    .line 686
+    .line 669
     :cond_1
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 687
+    .line 670
     .local v3, "remapped":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcyanogenmod/hardware/DisplayMode;>;"
     const/4 v4, 0x0
 
@@ -650,7 +650,7 @@
 
     aget-object v0, v1, v4
 
-    .line 688
+    .line 671
     .local v0, "mode":Lcyanogenmod/hardware/DisplayMode;
     iget-object v6, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -658,20 +658,20 @@
 
     move-result-object v2
 
-    .line 689
+    .line 672
     .local v2, "r":Lcyanogenmod/hardware/DisplayMode;
     if-eqz v2, :cond_2
 
-    .line 690
+    .line 673
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 687
+    .line 670
     :cond_2
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 693
+    .line 676
     .end local v0    # "mode":Lcyanogenmod/hardware/DisplayMode;
     .end local v2    # "r":Lcyanogenmod/hardware/DisplayMode;
     :cond_3
@@ -696,20 +696,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 610
+    .line 593
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 611
+    .line 594
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 610
+    .line 593
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 612
+    .line 595
     const/16 v0, 0x40
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -718,7 +718,7 @@
 
     if-nez v0, :cond_0
 
-    .line 613
+    .line 596
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -727,10 +727,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 614
+    .line 597
     return-object v2
 
-    .line 616
+    .line 599
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -749,22 +749,22 @@
     .locals 3
 
     .prologue
-    .line 621
+    .line 604
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 622
+    .line 605
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 621
+    .line 604
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 623
+    .line 606
     const/16 v0, 0x40
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -773,7 +773,7 @@
 
     if-nez v0, :cond_0
 
-    .line 624
+    .line 607
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -782,12 +782,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 625
+    .line 608
     const-wide/16 v0, 0x0
 
     return-wide v0
 
-    .line 627
+    .line 610
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -808,20 +808,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 599
+    .line 582
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 600
+    .line 583
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 599
+    .line 582
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 601
+    .line 584
     const/16 v0, 0x40
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -830,7 +830,7 @@
 
     if-nez v0, :cond_0
 
-    .line 602
+    .line 585
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -839,10 +839,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 603
+    .line 586
     return-object v2
 
-    .line 605
+    .line 588
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -861,22 +861,22 @@
     .locals 3
 
     .prologue
-    .line 544
+    .line 527
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 545
+    .line 528
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 544
+    .line 527
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 546
+    .line 529
     const/16 v0, 0x8
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -885,7 +885,7 @@
 
     if-nez v0, :cond_0
 
-    .line 547
+    .line 530
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -894,12 +894,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 548
+    .line 531
     const/4 v0, 0x0
 
     return v0
 
-    .line 550
+    .line 533
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -920,22 +920,22 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 836
+    .line 819
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 837
+    .line 820
     const-string/jumbo v2, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v3, 0x0
 
-    .line 836
+    .line 819
     invoke-virtual {v0, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 838
+    .line 821
     const/high16 v0, 0x40000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -944,7 +944,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 839
+    .line 822
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
@@ -957,7 +957,7 @@
 
     return-object v0
 
-    .line 841
+    .line 824
     :cond_0
     new-instance v0, Lcyanogenmod/hardware/HSIC;
 
@@ -988,23 +988,23 @@
 
     const/4 v4, 0x0
 
-    .line 866
+    .line 849
     iget-object v1, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v1}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v1
 
-    .line 867
+    .line 850
     const-string/jumbo v2, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v3, 0x0
 
-    .line 866
+    .line 849
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 868
-    const/high16 v1, 0x40000
+    .line 851
+    const/high16 v1, 0x20000
 
     invoke-direct {p0, v1}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
 
@@ -1012,7 +1012,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 869
+    .line 852
     iget-object v1, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v1}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
@@ -1023,13 +1023,13 @@
 
     move-result-object v0
 
-    .line 870
+    .line 853
     .local v0, "r":Ljava/util/List;, "Ljava/util/List<Landroid/util/Range<Ljava/lang/Float;>;>;"
     const/16 v1, 0xa
 
     new-array v2, v1, [F
 
-    .line 871
+    .line 854
     invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1066,7 +1066,7 @@
 
     aput v1, v2, v5
 
-    .line 872
+    .line 855
     invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1103,7 +1103,7 @@
 
     aput v1, v2, v7
 
-    .line 873
+    .line 856
     invoke-interface {v0, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1142,7 +1142,7 @@
 
     aput v1, v2, v3
 
-    .line 874
+    .line 857
     invoke-interface {v0, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1183,7 +1183,7 @@
 
     aput v1, v2, v3
 
-    .line 875
+    .line 858
     invoke-interface {v0, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1224,10 +1224,10 @@
 
     aput v1, v2, v3
 
-    .line 870
+    .line 853
     return-object v2
 
-    .line 877
+    .line 860
     .end local v0    # "r":Ljava/util/List;, "Ljava/util/List<Landroid/util/Range<Ljava/lang/Float;>;>;"
     :cond_0
     const/16 v1, 0xa
@@ -1243,20 +1243,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 632
+    .line 615
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 633
+    .line 616
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 632
+    .line 615
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 634
+    .line 617
     const/16 v0, 0x80
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -1265,7 +1265,7 @@
 
     if-nez v0, :cond_0
 
-    .line 635
+    .line 618
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -1274,10 +1274,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 636
+    .line 619
     return-object v2
 
-    .line 638
+    .line 621
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -1296,22 +1296,22 @@
     .locals 3
 
     .prologue
-    .line 489
+    .line 472
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 490
+    .line 473
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 489
+    .line 472
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 491
+    .line 474
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
@@ -1329,22 +1329,22 @@
     .locals 3
 
     .prologue
-    .line 766
+    .line 749
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 767
+    .line 750
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 766
+    .line 749
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 768
+    .line 751
     const v0, 0x8000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -1353,7 +1353,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 769
+    .line 752
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get3(Lorg/cyanogenmod/platform/internal/CMHardwareService;)I
@@ -1362,66 +1362,11 @@
 
     return v0
 
-    .line 771
+    .line 754
     :cond_0
     const/4 v0, -0x1
 
     return v0
-.end method
-
-.method public getTouchscreenGestures()[Lcyanogenmod/hardware/TouchscreenGesture;
-    .locals 3
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 882
-    iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
-
-    invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
-
-    move-result-object v0
-
-    .line 883
-    const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
-
-    .line 882
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 884
-    const/high16 v0, 0x80000
-
-    invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 885
-    invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "Touchscreen gestures are not supported"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 886
-    return-object v2
-
-    .line 888
-    :cond_0
-    iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
-
-    invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;->getTouchscreenGestures()[Lcyanogenmod/hardware/TouchscreenGesture;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public getUniqueDeviceId()Ljava/lang/String;
@@ -1430,20 +1375,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 643
+    .line 626
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 644
+    .line 627
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 643
+    .line 626
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 645
+    .line 628
     const/high16 v0, 0x10000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -1452,7 +1397,7 @@
 
     if-nez v0, :cond_0
 
-    .line 646
+    .line 629
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -1461,10 +1406,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 647
+    .line 630
     return-object v2
 
-    .line 649
+    .line 632
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -1485,20 +1430,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 577
+    .line 560
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 578
+    .line 561
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 577
+    .line 560
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 579
+    .line 562
     const/16 v0, 0x400
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -1507,7 +1452,7 @@
 
     if-nez v0, :cond_0
 
-    .line 580
+    .line 563
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -1516,10 +1461,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 581
+    .line 564
     return-object v2
 
-    .line 583
+    .line 566
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -1538,22 +1483,22 @@
     .locals 3
 
     .prologue
-    .line 665
+    .line 648
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 666
+    .line 649
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 665
+    .line 648
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 667
+    .line 650
     const/16 v0, 0x100
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -1562,7 +1507,7 @@
 
     if-nez v0, :cond_0
 
-    .line 668
+    .line 651
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -1571,12 +1516,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 669
+    .line 652
     const/4 v0, 0x0
 
     return v0
 
-    .line 671
+    .line 654
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -1598,20 +1543,20 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 751
+    .line 734
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 752
+    .line 735
     const-string/jumbo v1, "cyanogenmod.permission.MANAGE_PERSISTENT_STORAGE"
 
-    .line 751
+    .line 734
     invoke-virtual {v0, v1, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 753
+    .line 736
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -1620,7 +1565,7 @@
 
     if-nez v0, :cond_1
 
-    .line 754
+    .line 737
     :cond_0
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
@@ -1646,10 +1591,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 755
+    .line 738
     return-object v3
 
-    .line 753
+    .line 736
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -1659,7 +1604,7 @@
 
     if-gt v0, v1, :cond_0
 
-    .line 757
+    .line 740
     const/16 v0, 0x4000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -1668,7 +1613,7 @@
 
     if-nez v0, :cond_2
 
-    .line 758
+    .line 741
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -1677,10 +1622,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 759
+    .line 742
     return-object v3
 
-    .line 761
+    .line 744
     :cond_2
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -1700,22 +1645,22 @@
     .param p1, "callback"    # Lcyanogenmod/hardware/IThermalListenerCallback;
 
     .prologue
-    .line 776
+    .line 759
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 777
+    .line 760
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 776
+    .line 759
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 778
+    .line 761
     const v0, 0x8000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -1724,7 +1669,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 779
+    .line 762
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get4(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/os/RemoteCallbackList;
@@ -1737,7 +1682,7 @@
 
     return v0
 
-    .line 781
+    .line 764
     :cond_0
     const/4 v0, 0x0
 
@@ -1748,22 +1693,22 @@
     .locals 3
 
     .prologue
-    .line 654
+    .line 637
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 655
+    .line 638
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 654
+    .line 637
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 656
+    .line 639
     const/16 v0, 0x100
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -1772,7 +1717,7 @@
 
     if-nez v0, :cond_0
 
-    .line 657
+    .line 640
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -1781,12 +1726,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 658
+    .line 641
     const/4 v0, 0x0
 
     return v0
 
-    .line 660
+    .line 643
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -1807,29 +1752,29 @@
     .param p2, "enable"    # Z
 
     .prologue
-    .line 507
+    .line 490
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 508
+    .line 491
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 507
+    .line 490
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 509
+    .line 492
     invoke-direct {p0, p1}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 510
+    .line 493
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -1860,12 +1805,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 511
+    .line 494
     const/4 v0, 0x0
 
     return v0
 
-    .line 513
+    .line 496
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -1885,22 +1830,22 @@
     .param p1, "value"    # I
 
     .prologue
-    .line 826
+    .line 809
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 827
+    .line 810
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 826
+    .line 809
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 828
+    .line 811
     const/high16 v0, 0x20000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -1909,7 +1854,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 829
+    .line 812
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
@@ -1922,7 +1867,7 @@
 
     return v0
 
-    .line 831
+    .line 814
     :cond_0
     const/4 v0, 0x0
 
@@ -1936,22 +1881,22 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 529
+    .line 512
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 530
+    .line 513
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 529
+    .line 512
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 531
+    .line 514
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -1960,7 +1905,7 @@
 
     if-nez v0, :cond_0
 
-    .line 532
+    .line 515
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -1969,10 +1914,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 533
+    .line 516
     return v3
 
-    .line 535
+    .line 518
     :cond_0
     array-length v0, p1
 
@@ -1980,7 +1925,7 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 536
+    .line 519
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -1989,10 +1934,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 537
+    .line 520
     return v3
 
-    .line 539
+    .line 522
     :cond_1
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -2013,22 +1958,22 @@
     .param p2, "rgb"    # [I
 
     .prologue
-    .line 566
+    .line 549
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 567
+    .line 550
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 566
+    .line 549
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 568
+    .line 551
     const/16 v0, 0x8
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -2037,7 +1982,7 @@
 
     if-nez v0, :cond_0
 
-    .line 569
+    .line 552
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -2046,12 +1991,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 570
+    .line 553
     const/4 v0, 0x0
 
     return v0
 
-    .line 572
+    .line 555
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -2072,22 +2017,22 @@
     .param p2, "makeDefault"    # Z
 
     .prologue
-    .line 720
+    .line 703
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 721
+    .line 704
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 720
+    .line 703
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 722
+    .line 705
     const/16 v0, 0x2000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -2096,7 +2041,7 @@
 
     if-nez v0, :cond_0
 
-    .line 723
+    .line 706
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -2105,12 +2050,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 724
+    .line 707
     const/4 v0, 0x0
 
     return v0
 
-    .line 726
+    .line 709
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -2132,20 +2077,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 856
+    .line 839
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 857
+    .line 840
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
-    .line 856
+    .line 839
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 858
+    .line 841
     const/high16 v0, 0x40000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -2156,7 +2101,7 @@
 
     if-eqz p1, :cond_0
 
-    .line 859
+    .line 842
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
@@ -2169,68 +2114,9 @@
 
     return v0
 
-    .line 861
+    .line 844
     :cond_0
     const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public setTouchscreenGestureEnabled(Lcyanogenmod/hardware/TouchscreenGesture;Z)Z
-    .locals 3
-    .param p1, "gesture"    # Lcyanogenmod/hardware/TouchscreenGesture;
-    .param p2, "state"    # Z
-
-    .prologue
-    .line 893
-    iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
-
-    invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
-
-    move-result-object v0
-
-    .line 894
-    const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
-
-    const/4 v2, 0x0
-
-    .line 893
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 895
-    const/high16 v0, 0x80000
-
-    invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 896
-    invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "Touchscreen gestures are not supported"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 897
-    const/4 v0, 0x0
-
-    return v0
-
-    .line 899
-    :cond_0
-    iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
-
-    invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get1(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;
-
-    move-result-object v0
-
-    invoke-interface {v0, p1, p2}, Lorg/cyanogenmod/platform/internal/CMHardwareService$CMHardwareInterface;->setTouchscreenGestureEnabled(Lcyanogenmod/hardware/TouchscreenGesture;Z)Z
-
-    move-result v0
 
     return v0
 .end method
@@ -2240,22 +2126,22 @@
     .param p1, "intensity"    # I
 
     .prologue
-    .line 588
+    .line 571
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 589
+    .line 572
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 588
+    .line 571
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 590
+    .line 573
     const/16 v0, 0x400
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -2264,7 +2150,7 @@
 
     if-nez v0, :cond_0
 
-    .line 591
+    .line 574
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -2273,12 +2159,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 592
+    .line 575
     const/4 v0, 0x0
 
     return v0
 
-    .line 594
+    .line 577
     :cond_0
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
@@ -2298,22 +2184,22 @@
     .param p1, "callback"    # Lcyanogenmod/hardware/IThermalListenerCallback;
 
     .prologue
-    .line 786
+    .line 769
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 787
+    .line 770
     const-string/jumbo v1, "cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS"
 
     const/4 v2, 0x0
 
-    .line 786
+    .line 769
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 788
+    .line 771
     const v0, 0x8000
 
     invoke-direct {p0, v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->isSupported(I)Z
@@ -2322,7 +2208,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 789
+    .line 772
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v0}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get4(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/os/RemoteCallbackList;
@@ -2335,7 +2221,7 @@
 
     return v0
 
-    .line 791
+    .line 774
     :cond_0
     const/4 v0, 0x0
 
@@ -2352,20 +2238,20 @@
 
     const/4 v4, 0x0
 
-    .line 731
+    .line 714
     iget-object v1, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 
     invoke-static {v1}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get2(Lorg/cyanogenmod/platform/internal/CMHardwareService;)Landroid/content/Context;
 
     move-result-object v1
 
-    .line 732
+    .line 715
     const-string/jumbo v2, "cyanogenmod.permission.MANAGE_PERSISTENT_STORAGE"
 
-    .line 731
+    .line 714
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 733
+    .line 716
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -2374,7 +2260,7 @@
 
     if-nez v1, :cond_1
 
-    .line 734
+    .line 717
     :cond_0
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
@@ -2400,10 +2286,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 735
+    .line 718
     return v4
 
-    .line 733
+    .line 716
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -2413,7 +2299,7 @@
 
     if-gt v1, v2, :cond_0
 
-    .line 738
+    .line 721
     if-eqz p2, :cond_4
 
     array-length v1, p2
@@ -2426,7 +2312,7 @@
 
     if-nez v1, :cond_4
 
-    .line 739
+    .line 722
     :cond_2
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
@@ -2459,10 +2345,10 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 740
+    .line 723
     return v4
 
-    .line 742
+    .line 725
     :cond_4
     const/16 v0, 0x4000
 
@@ -2472,7 +2358,7 @@
 
     if-nez v0, :cond_5
 
-    .line 743
+    .line 726
     invoke-static {}, Lorg/cyanogenmod/platform/internal/CMHardwareService;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -2481,10 +2367,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 744
+    .line 727
     return v4
 
-    .line 746
+    .line 729
     :cond_5
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMHardwareService$1;->this$0:Lorg/cyanogenmod/platform/internal/CMHardwareService;
 

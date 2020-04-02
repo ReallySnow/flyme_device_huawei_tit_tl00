@@ -23,8 +23,6 @@
 
 .field imeActionLabel:Ljava/lang/CharSequence;
 
-.field imeHintLocales:Landroid/os/LocaleList;
-
 .field imeOptions:I
 
 .field onEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
@@ -37,14 +35,14 @@
     .locals 1
 
     .prologue
-    .line 5663
+    .line 5083
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 5664
+    .line 5084
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/widget/Editor$InputContentType;->imeOptions:I
 
-    .line 5663
+    .line 5083
     return-void
 .end method

@@ -305,10 +305,6 @@
 
 .field public static final TextAppearance_Material_Widget_Button:I = 0x1030215
 
-.field public static final TextAppearance_Material_Widget_Button_Borderless_Colored:I = 0x10302df
-
-.field public static final TextAppearance_Material_Widget_Button_Colored:I = 0x10302de
-
 .field public static final TextAppearance_Material_Widget_Button_Inverse:I = 0x10302d4
 
 .field public static final TextAppearance_Material_Widget_DropDownHint:I = 0x1030216
@@ -576,8 +572,6 @@
 .field public static final Theme_Material_Light_Dialog:I = 0x1030239
 
 .field public static final Theme_Material_Light_DialogWhenLarge:I = 0x103023f
-
-.field public static final Theme_Material_Light_DialogWhenLarge_DarkActionBar:I = 0x10302d8
 
 .field public static final Theme_Material_Light_DialogWhenLarge_NoActionBar:I = 0x1030240
 
@@ -1248,8 +1242,6 @@
 
 .field public static final Widget_Material_CompoundButton_Star:I = 0x1030265
 
-.field public static final Widget_Material_CompoundButton_Switch:I = 0x10302da
-
 .field public static final Widget_Material_DatePicker:I = 0x1030266
 
 .field public static final Widget_Material_DropDownItem:I = 0x1030267
@@ -1318,8 +1310,6 @@
 
 .field public static final Widget_Material_Light_CompoundButton_Star:I = 0x10302a6
 
-.field public static final Widget_Material_Light_CompoundButton_Switch:I = 0x10302db
-
 .field public static final Widget_Material_Light_DatePicker:I = 0x10302a7
 
 .field public static final Widget_Material_Light_DropDownItem:I = 0x10302a8
@@ -1345,8 +1335,6 @@
 .field public static final Widget_Material_Light_ListView_DropDown:I = 0x10302b2
 
 .field public static final Widget_Material_Light_MediaRouteButton:I = 0x10302b3
-
-.field public static final Widget_Material_Light_NumberPicker:I = 0x10302dd
 
 .field public static final Widget_Material_Light_PopupMenu:I = 0x10302b4
 
@@ -1412,8 +1400,6 @@
 
 .field public static final Widget_Material_MediaRouteButton:I = 0x1030272
 
-.field public static final Widget_Material_NumberPicker:I = 0x10302dc
-
 .field public static final Widget_Material_PopupMenu:I = 0x1030273
 
 .field public static final Widget_Material_PopupMenu_Overflow:I = 0x1030274
@@ -1441,8 +1427,6 @@
 .field public static final Widget_Material_SearchView:I = 0x103027f
 
 .field public static final Widget_Material_SeekBar:I = 0x1030280
-
-.field public static final Widget_Material_SeekBar_Discrete:I = 0x10302d9
 
 .field public static final Widget_Material_SegmentedButton:I = 0x1030281
 
@@ -1520,7 +1504,7 @@
     .locals 0
 
     .prologue
-    .line 15128
+    .line 14830
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

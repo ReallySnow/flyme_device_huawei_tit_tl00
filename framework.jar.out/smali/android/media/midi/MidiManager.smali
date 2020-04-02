@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/media/midi/MidiManager$DeviceCallback;,
         Landroid/media/midi/MidiManager$DeviceListener;,
+        Landroid/media/midi/MidiManager$DeviceCallback;,
         Landroid/media/midi/MidiManager$OnDeviceOpenedListener;
     }
 .end annotation
@@ -107,21 +107,21 @@
     .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 225
+    .line 227
     if-eqz p3, :cond_0
 
-    .line 226
+    .line 228
     new-instance v0, Landroid/media/midi/MidiManager$1;
 
     invoke-direct {v0, p0, p2, p1}, Landroid/media/midi/MidiManager$1;-><init>(Landroid/media/midi/MidiManager;Landroid/media/midi/MidiManager$OnDeviceOpenedListener;Landroid/media/midi/MidiDevice;)V
 
     invoke-virtual {p3, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 224
+    .line 226
     :goto_0
     return-void
 
-    .line 232
+    .line 234
     :cond_0
     invoke-interface {p2, p1}, Landroid/media/midi/MidiManager$OnDeviceOpenedListener;->onDeviceOpened(Landroid/media/midi/MidiDevice;)V
 
@@ -141,7 +141,7 @@
     .param p7, "callback"    # Landroid/media/midi/MidiDeviceServer$Callback;
 
     .prologue
-    .line 316
+    .line 318
     :try_start_0
     new-instance v11, Landroid/media/midi/MidiDeviceServer;
 
@@ -151,7 +151,7 @@
 
     invoke-direct {v11, v1, p1, p2, v0}, Landroid/media/midi/MidiDeviceServer;-><init>(Landroid/media/midi/IMidiManager;[Landroid/media/midi/MidiReceiver;ILandroid/media/midi/MidiDeviceServer$Callback;)V
 
-    .line 318
+    .line 320
     .local v11, "server":Landroid/media/midi/MidiDeviceServer;
     iget-object v1, p0, Landroid/media/midi/MidiManager;->mService:Landroid/media/midi/IMidiManager;
 
@@ -159,7 +159,7 @@
 
     move-result-object v2
 
-    .line 319
+    .line 321
     array-length v3, p1
 
     move v4, p2
@@ -172,16 +172,16 @@
 
     move/from16 v8, p6
 
-    .line 318
+    .line 320
     invoke-interface/range {v1 .. v8}, Landroid/media/midi/IMidiManager;->registerDeviceServer(Landroid/media/midi/IMidiDeviceServer;II[Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;I)Landroid/media/midi/MidiDeviceInfo;
 
     move-result-object v9
 
-    .line 321
+    .line 323
     .local v9, "deviceInfo":Landroid/media/midi/MidiDeviceInfo;
     if-nez v9, :cond_0
 
-    .line 322
+    .line 324
     const-string/jumbo v1, "MidiManager"
 
     const-string/jumbo v2, "registerVirtualDevice failed"
@@ -190,35 +190,40 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 323
+    .line 325
     const/4 v1, 0x0
 
     return-object v1
 
-    .line 325
+    .line 327
     :cond_0
     return-object v11
 
-    .line 326
+    .line 328
     .end local v9    # "deviceInfo":Landroid/media/midi/MidiDeviceInfo;
     .end local v11    # "server":Landroid/media/midi/MidiDeviceServer;
     :catch_0
     move-exception v10
 
-    .line 327
+    .line 329
     .local v10, "e":Landroid/os/RemoteException;
-    invoke-virtual {v10}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "MidiManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "RemoteException in createVirtualDevice"
 
-    throw v1
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 330
+    const/4 v1, 0x0
+
+    return-object v1
 .end method
 
 .method public getDevices()[Landroid/media/midi/MidiDeviceInfo;
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 217
+    .line 218
     :try_start_0
     iget-object v1, p0, Landroid/media/midi/MidiManager;->mService:Landroid/media/midi/IMidiManager;
 
@@ -230,17 +235,24 @@
 
     return-object v1
 
-    .line 218
+    .line 219
     :catch_0
     move-exception v0
 
-    .line 219
+    .line 220
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "MidiManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "RemoteException in getDevices"
 
-    throw v1
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 221
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Landroid/media/midi/MidiDeviceInfo;
+
+    return-object v1
 .end method
 
 .method public openBluetoothDevice(Landroid/bluetooth/BluetoothDevice;Landroid/media/midi/MidiManager$OnDeviceOpenedListener;Landroid/os/Handler;)V
@@ -250,20 +262,20 @@
     .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 284
+    .line 286
     move-object v3, p2
 
-    .line 285
+    .line 287
     .local v3, "listenerF":Landroid/media/midi/MidiManager$OnDeviceOpenedListener;
     move-object v2, p3
 
-    .line 287
+    .line 289
     .local v2, "handlerF":Landroid/os/Handler;
     new-instance v0, Landroid/media/midi/MidiManager$3;
 
-    invoke-direct {v0, p0, p2, p3}, Landroid/media/midi/MidiManager$3;-><init>(Landroid/media/midi/MidiManager;Landroid/media/midi/MidiManager$OnDeviceOpenedListener;Landroid/os/Handler;)V
+    invoke-direct {v0, p0, v3, v2}, Landroid/media/midi/MidiManager$3;-><init>(Landroid/media/midi/MidiManager;Landroid/media/midi/MidiManager$OnDeviceOpenedListener;Landroid/os/Handler;)V
 
-    .line 305
+    .line 307
     .local v0, "callback":Landroid/media/midi/IMidiDeviceOpenCallback;
     :try_start_0
     iget-object v4, p0, Landroid/media/midi/MidiManager;->mService:Landroid/media/midi/IMidiManager;
@@ -274,20 +286,23 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 283
+    .line 285
+    :goto_0
     return-void
 
-    .line 306
+    .line 308
     :catch_0
     move-exception v1
 
-    .line 307
+    .line 309
     .local v1, "e":Landroid/os/RemoteException;
-    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v4, "MidiManager"
 
-    move-result-object v4
+    const-string/jumbo v5, "RemoteException in openDevice"
 
-    throw v4
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method public openDevice(Landroid/media/midi/MidiDeviceInfo;Landroid/media/midi/MidiManager$OnDeviceOpenedListener;Landroid/os/Handler;)V
@@ -297,24 +312,24 @@
     .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 248
+    .line 250
     move-object v1, p1
 
-    .line 249
+    .line 251
     .local v1, "deviceInfoF":Landroid/media/midi/MidiDeviceInfo;
     move-object v4, p2
 
-    .line 250
+    .line 252
     .local v4, "listenerF":Landroid/media/midi/MidiManager$OnDeviceOpenedListener;
     move-object v3, p3
 
-    .line 252
+    .line 254
     .local v3, "handlerF":Landroid/os/Handler;
     new-instance v0, Landroid/media/midi/MidiManager$2;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Landroid/media/midi/MidiManager$2;-><init>(Landroid/media/midi/MidiManager;Landroid/media/midi/MidiDeviceInfo;Landroid/media/midi/MidiManager$OnDeviceOpenedListener;Landroid/os/Handler;)V
+    invoke-direct {v0, p0, v1, v4, v3}, Landroid/media/midi/MidiManager$2;-><init>(Landroid/media/midi/MidiManager;Landroid/media/midi/MidiDeviceInfo;Landroid/media/midi/MidiManager$OnDeviceOpenedListener;Landroid/os/Handler;)V
 
-    .line 266
+    .line 268
     .local v0, "callback":Landroid/media/midi/IMidiDeviceOpenCallback;
     :try_start_0
     iget-object v5, p0, Landroid/media/midi/MidiManager;->mService:Landroid/media/midi/IMidiManager;
@@ -325,20 +340,23 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 247
+    .line 249
+    :goto_0
     return-void
 
-    .line 267
+    .line 269
     :catch_0
     move-exception v2
 
-    .line 268
+    .line 270
     .local v2, "e":Landroid/os/RemoteException;
-    invoke-virtual {v2}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v5, "MidiManager"
 
-    move-result-object v5
+    const-string/jumbo v6, "RemoteException in openDevice"
 
-    throw v5
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method public registerDeviceCallback(Landroid/media/midi/MidiManager$DeviceCallback;Landroid/os/Handler;)V
@@ -363,7 +381,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 191
+    .line 192
     iget-object v2, p0, Landroid/media/midi/MidiManager;->mDeviceListeners:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v2, p1, v0}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -377,11 +395,14 @@
 
     .line 189
     .local v1, "e":Landroid/os/RemoteException;
-    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v2, "MidiManager"
 
-    move-result-object v2
+    const-string/jumbo v3, "RemoteException in registerDeviceListener"
 
-    throw v2
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 190
+    return-void
 .end method
 
 .method public unregisterDeviceCallback(Landroid/media/midi/MidiManager$DeviceCallback;)V
@@ -389,7 +410,7 @@
     .param p1, "callback"    # Landroid/media/midi/MidiManager$DeviceCallback;
 
     .prologue
-    .line 200
+    .line 201
     iget-object v2, p0, Landroid/media/midi/MidiManager;->mDeviceListeners:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -398,11 +419,11 @@
 
     check-cast v0, Landroid/media/midi/MidiManager$DeviceListener;
 
-    .line 201
+    .line 202
     .local v0, "deviceListener":Landroid/media/midi/MidiManager$DeviceListener;
     if-eqz v0, :cond_0
 
-    .line 203
+    .line 204
     :try_start_0
     iget-object v2, p0, Landroid/media/midi/MidiManager;->mService:Landroid/media/midi/IMidiManager;
 
@@ -412,19 +433,22 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 199
+    .line 200
     :cond_0
+    :goto_0
     return-void
 
-    .line 204
+    .line 205
     :catch_0
     move-exception v1
 
-    .line 205
+    .line 206
     .local v1, "e":Landroid/os/RemoteException;
-    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v2, "MidiManager"
 
-    move-result-object v2
+    const-string/jumbo v3, "RemoteException in unregisterDeviceListener"
 
-    throw v2
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

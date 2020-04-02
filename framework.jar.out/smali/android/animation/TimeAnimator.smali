@@ -36,7 +36,16 @@
 
 
 # virtual methods
-.method animateBasedOnTime(J)Z
+.method animateValue(F)V
+    .locals 0
+    .param p1, "fraction"    # F
+
+    .prologue
+    .line 69
+    return-void
+.end method
+
+.method animationFrame(J)Z
     .locals 9
     .param p1, "currentTime"    # J
 
@@ -94,15 +103,6 @@
     goto :goto_0
 .end method
 
-.method animateValue(F)V
-    .locals 0
-    .param p1, "fraction"    # F
-
-    .prologue
-    .line 69
-    return-void
-.end method
-
 .method initAnimation()V
     .locals 0
 
@@ -139,7 +139,7 @@
     iput-boolean v2, p0, Landroid/animation/TimeAnimator;->mStartTimeCommitted:Z
 
     .line 55
-    invoke-virtual {p0, v0, v1}, Landroid/animation/TimeAnimator;->animateBasedOnTime(J)Z
+    invoke-virtual {p0, v0, v1}, Landroid/animation/TimeAnimator;->animationFrame(J)Z
 
     .line 51
     return-void

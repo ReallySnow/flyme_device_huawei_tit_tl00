@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private mAssets:Landroid/content/res/AssetManager;
+.field private final mAssets:Landroid/content/res/AssetManager;
 
 .field mData:[I
 
@@ -34,47 +34,43 @@
     .param p4, "len"    # I
 
     .prologue
-    .line 1220
+    .line 1159
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 82
+    .line 75
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
     iput-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 1221
+    .line 1160
     iput-object p1, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
 
-    .line 1222
+    .line 1161
     iget-object v0, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/content/res/Resources;->mMetrics:Landroid/util/DisplayMetrics;
 
     iput-object v0, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
 
-    .line 1223
+    .line 1162
     iget-object v0, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/content/res/Resources;->mAssets:Landroid/content/res/AssetManager;
 
     iput-object v0, p0, Landroid/content/res/TypedArray;->mAssets:Landroid/content/res/AssetManager;
 
-    .line 1224
+    .line 1163
     iput-object p2, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 1225
+    .line 1164
     iput-object p3, p0, Landroid/content/res/TypedArray;->mIndices:[I
 
-    .line 1226
+    .line 1165
     iput p4, p0, Landroid/content/res/TypedArray;->mLength:I
 
-    .line 1220
+    .line 1159
     return-void
 .end method
 
@@ -86,67 +82,62 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1191
+    .line 1131
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 1192
+    .line 1132
     .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
     aget v1, v0, v2
 
-    .line 1193
+    .line 1133
     .local v1, "type":I
     if-nez v1, :cond_0
 
-    .line 1194
+    .line 1134
     return v3
 
-    .line 1196
+    .line 1136
     :cond_0
     iput v1, p2, Landroid/util/TypedValue;->type:I
 
-    .line 1197
+    .line 1137
     add-int/lit8 v2, p1, 0x1
 
     aget v2, v0, v2
 
     iput v2, p2, Landroid/util/TypedValue;->data:I
 
-    .line 1198
+    .line 1138
     add-int/lit8 v2, p1, 0x2
 
     aget v2, v0, v2
 
     iput v2, p2, Landroid/util/TypedValue;->assetCookie:I
 
-    .line 1199
+    .line 1139
     add-int/lit8 v2, p1, 0x3
 
     aget v2, v0, v2
 
     iput v2, p2, Landroid/util/TypedValue;->resourceId:I
 
-    .line 1201
+    .line 1140
     add-int/lit8 v2, p1, 0x4
 
     aget v2, v0, v2
 
-    .line 1200
-    invoke-static {v2}, Landroid/content/pm/ActivityInfo;->activityInfoConfigNativeToJava(I)I
-
-    move-result v2
-
     iput v2, p2, Landroid/util/TypedValue;->changingConfigurations:I
 
-    .line 1202
+    .line 1141
     add-int/lit8 v2, p1, 0x5
 
     aget v2, v0, v2
 
     iput v2, p2, Landroid/util/TypedValue;->density:I
 
-    .line 1203
+    .line 1142
     const/4 v2, 0x3
 
     if-ne v1, v2, :cond_1
@@ -158,12 +149,12 @@
     :goto_0
     iput-object v2, p2, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
-    .line 1204
+    .line 1143
     const/4 v2, 0x1
 
     return v2
 
-    .line 1203
+    .line 1142
     :cond_1
     const/4 v2, 0x0
 
@@ -177,44 +168,44 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1208
+    .line 1147
     iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 1209
+    .line 1148
     .local v1, "data":[I
     add-int/lit8 v2, p1, 0x2
 
     aget v0, v1, v2
 
-    .line 1210
+    .line 1149
     .local v0, "cookie":I
     if-gez v0, :cond_1
 
-    .line 1211
+    .line 1150
     iget-object v2, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
 
     if-eqz v2, :cond_0
 
-    .line 1212
+    .line 1151
     iget-object v2, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
 
-    .line 1213
+    .line 1152
     add-int/lit8 v3, p1, 0x1
 
     aget v3, v1, v3
 
-    .line 1212
+    .line 1151
     invoke-virtual {v2, v3}, Landroid/content/res/XmlBlock$Parser;->getPooledString(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
     return-object v2
 
-    .line 1215
+    .line 1154
     :cond_0
     return-object v3
 
-    .line 1217
+    .line 1156
     :cond_1
     iget-object v2, p0, Landroid/content/res/TypedArray;->mAssets:Landroid/content/res/AssetManager;
 
@@ -235,7 +226,7 @@
     .param p1, "len"    # I
 
     .prologue
-    .line 47
+    .line 44
     iget-object v2, p0, Landroid/content/res/Resources;->mTypedArrayPool:Landroid/util/Pools$SynchronizedPool;
 
     invoke-virtual {v2}, Landroid/util/Pools$SynchronizedPool;->acquire()Ljava/lang/Object;
@@ -244,29 +235,22 @@
 
     check-cast v0, Landroid/content/res/TypedArray;
 
-    .line 48
+    .line 45
     .local v0, "attrs":Landroid/content/res/TypedArray;
     if-eqz v0, :cond_1
 
-    .line 49
+    .line 46
     iput p1, v0, Landroid/content/res/TypedArray;->mLength:I
 
-    .line 50
+    .line 47
     const/4 v2, 0x0
 
     iput-boolean v2, v0, Landroid/content/res/TypedArray;->mRecycled:Z
 
-    .line 54
-    invoke-virtual {p0}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
-
-    move-result-object v2
-
-    iput-object v2, v0, Landroid/content/res/TypedArray;->mAssets:Landroid/content/res/AssetManager;
-
-    .line 56
+    .line 49
     mul-int/lit8 v1, p1, 0x6
 
-    .line 57
+    .line 50
     .local v1, "fullLen":I
     iget-object v2, v0, Landroid/content/res/TypedArray;->mData:[I
 
@@ -274,41 +258,41 @@
 
     if-lt v2, v1, :cond_0
 
-    .line 58
+    .line 51
     return-object v0
 
-    .line 61
+    .line 54
     :cond_0
     new-array v2, v1, [I
 
     iput-object v2, v0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 62
+    .line 55
     add-int/lit8 v2, p1, 0x1
 
     new-array v2, v2, [I
 
     iput-object v2, v0, Landroid/content/res/TypedArray;->mIndices:[I
 
-    .line 63
+    .line 56
     return-object v0
 
-    .line 66
+    .line 59
     .end local v1    # "fullLen":I
     :cond_1
     new-instance v2, Landroid/content/res/TypedArray;
 
-    .line 67
+    .line 60
     mul-int/lit8 v3, p1, 0x6
 
     new-array v3, v3, [I
 
-    .line 68
+    .line 61
     add-int/lit8 v4, p1, 0x1
 
     new-array v4, v4, [I
 
-    .line 66
+    .line 59
     invoke-direct {v2, p0, v3, v4, p1}, Landroid/content/res/TypedArray;-><init>(Landroid/content/res/Resources;[I[II)V
 
     return-object v2
@@ -320,7 +304,7 @@
     .locals 1
 
     .prologue
-    .line 1112
+    .line 1053
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/content/res/TypedArray;->extractThemeAttrs([I)[I
@@ -337,12 +321,12 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 1120
+    .line 1061
     iget-boolean v6, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v6, :cond_0
 
-    .line 1121
+    .line 1062
     new-instance v6, Ljava/lang/RuntimeException;
 
     const-string/jumbo v7, "Cannot make calls to a recycled instance!"
@@ -351,21 +335,21 @@
 
     throw v6
 
-    .line 1124
+    .line 1065
     :cond_0
     const/4 v2, 0x0
 
-    .line 1126
+    .line 1067
     .local v2, "attrs":[I
     iget-object v3, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 1127
+    .line 1068
     .local v3, "data":[I
     invoke-virtual {p0}, Landroid/content/res/TypedArray;->length()I
 
     move-result v0
 
-    .line 1128
+    .line 1069
     .local v0, "N":I
     const/4 v4, 0x0
 
@@ -374,10 +358,10 @@
     :goto_0
     if-ge v4, v0, :cond_5
 
-    .line 1129
+    .line 1070
     mul-int/lit8 v5, v4, 0x6
 
-    .line 1130
+    .line 1071
     .local v5, "index":I
     add-int/lit8 v6, v5, 0x0
 
@@ -387,46 +371,46 @@
 
     if-eq v6, v7, :cond_2
 
-    .line 1128
+    .line 1069
     :cond_1
     :goto_1
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 1136
+    .line 1077
     :cond_2
     add-int/lit8 v6, v5, 0x0
 
     aput v8, v3, v6
 
-    .line 1138
+    .line 1079
     add-int/lit8 v6, v5, 0x1
 
     aget v1, v3, v6
 
-    .line 1139
+    .line 1080
     .local v1, "attr":I
     if-eqz v1, :cond_1
 
-    .line 1145
+    .line 1086
     if-nez v2, :cond_3
 
-    .line 1146
+    .line 1087
     if-eqz p1, :cond_4
 
     array-length v6, p1
 
     if-ne v6, v0, :cond_4
 
-    .line 1147
+    .line 1088
     move-object v2, p1
 
-    .line 1148
+    .line 1089
     .local v2, "attrs":[I
-    invoke-static {p1, v8}, Ljava/util/Arrays;->fill([II)V
+    invoke-static {v2, v8}, Ljava/util/Arrays;->fill([II)V
 
-    .line 1154
+    .line 1095
     .end local v2    # "attrs":[I
     :cond_3
     :goto_2
@@ -434,14 +418,14 @@
 
     goto :goto_1
 
-    .line 1150
+    .line 1091
     :cond_4
     new-array v2, v0, [I
 
     .restart local v2    # "attrs":[I
     goto :goto_2
 
-    .line 1157
+    .line 1098
     .end local v1    # "attr":I
     .end local v2    # "attrs":[I
     .end local v5    # "index":I
@@ -457,12 +441,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 309
+    .line 299
     iget-boolean v4, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v4, :cond_0
 
-    .line 310
+    .line 300
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string/jumbo v4, "Cannot make calls to a recycled instance!"
@@ -471,38 +455,38 @@
 
     throw v3
 
-    .line 313
+    .line 303
     :cond_0
     mul-int/lit8 p1, p1, 0x6
 
-    .line 314
+    .line 304
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 315
+    .line 305
     .local v0, "data":[I
     add-int/lit8 v4, p1, 0x0
 
     aget v1, v0, v4
 
-    .line 316
+    .line 306
     .local v1, "type":I
     if-nez v1, :cond_1
 
-    .line 317
+    .line 307
     return p2
 
-    .line 318
+    .line 308
     :cond_1
     const/16 v4, 0x10
 
     if-lt v1, v4, :cond_3
 
-    .line 319
+    .line 309
     const/16 v4, 0x1f
 
     if-gt v1, v4, :cond_3
 
-    .line 320
+    .line 310
     add-int/lit8 v4, p1, 0x1
 
     aget v4, v0, v4
@@ -514,11 +498,11 @@
     :cond_2
     return v3
 
-    .line 323
+    .line 313
     :cond_3
     iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 324
+    .line 314
     .local v2, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
@@ -526,10 +510,10 @@
 
     if-eqz v3, :cond_4
 
-    .line 325
+    .line 315
     invoke-static {v2}, Landroid/os/StrictMode;->noteResourceMismatch(Ljava/lang/Object;)V
 
-    .line 326
+    .line 316
     invoke-virtual {v2}, Landroid/util/TypedValue;->coerceToString()Ljava/lang/CharSequence;
 
     move-result-object v3
@@ -540,7 +524,7 @@
 
     return v3
 
-    .line 330
+    .line 320
     :cond_4
     new-instance v3, Ljava/lang/RuntimeException;
 
@@ -575,12 +559,12 @@
     .locals 8
 
     .prologue
-    .line 1170
+    .line 1111
     iget-boolean v6, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v6, :cond_0
 
-    .line 1171
+    .line 1112
     new-instance v6, Ljava/lang/RuntimeException;
 
     const-string/jumbo v7, "Cannot make calls to a recycled instance!"
@@ -589,21 +573,21 @@
 
     throw v6
 
-    .line 1174
+    .line 1115
     :cond_0
     const/4 v1, 0x0
 
-    .line 1176
+    .line 1117
     .local v1, "changingConfig":I
     iget-object v2, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 1177
+    .line 1118
     .local v2, "data":[I
     invoke-virtual {p0}, Landroid/content/res/TypedArray;->length()I
 
     move-result v0
 
-    .line 1178
+    .line 1119
     .local v0, "N":I
     const/4 v3, 0x0
 
@@ -611,41 +595,36 @@
     :goto_0
     if-ge v3, v0, :cond_2
 
-    .line 1179
+    .line 1120
     mul-int/lit8 v4, v3, 0x6
 
-    .line 1180
+    .line 1121
     .local v4, "index":I
     add-int/lit8 v6, v4, 0x0
 
     aget v5, v2, v6
 
-    .line 1181
+    .line 1122
     .local v5, "type":I
     if-nez v5, :cond_1
 
-    .line 1178
+    .line 1119
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 1185
+    .line 1125
     :cond_1
     add-int/lit8 v6, v4, 0x4
 
     aget v6, v2, v6
 
-    .line 1184
-    invoke-static {v6}, Landroid/content/pm/ActivityInfo;->activityInfoConfigNativeToJava(I)I
-
-    move-result v6
-
     or-int/2addr v1, v6
 
     goto :goto_1
 
-    .line 1187
+    .line 1127
     .end local v4    # "index":I
     .end local v5    # "type":I
     :cond_2
@@ -653,205 +632,191 @@
 .end method
 
 .method public getColor(II)I
-    .locals 8
+    .locals 7
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
     .prologue
-    .line 434
-    iget-boolean v5, p0, Landroid/content/res/TypedArray;->mRecycled:Z
+    .line 424
+    iget-boolean v4, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
 
-    .line 435
-    new-instance v5, Ljava/lang/RuntimeException;
+    .line 425
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v6, "Cannot make calls to a recycled instance!"
+    const-string/jumbo v5, "Cannot make calls to a recycled instance!"
 
-    invoke-direct {v5, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v5
+    throw v4
 
-    .line 438
+    .line 428
     :cond_0
-    move v0, p1
-
-    .line 439
-    .local v0, "attrIndex":I
     mul-int/lit8 p1, p1, 0x6
 
-    .line 441
-    iget-object v2, p0, Landroid/content/res/TypedArray;->mData:[I
+    .line 429
+    iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 442
-    .local v2, "data":[I
-    add-int/lit8 v5, p1, 0x0
+    .line 430
+    .local v1, "data":[I
+    add-int/lit8 v4, p1, 0x0
 
-    aget v3, v2, v5
+    aget v2, v1, v4
 
-    .line 443
-    .local v3, "type":I
-    if-nez v3, :cond_1
+    .line 431
+    .local v2, "type":I
+    if-nez v2, :cond_1
 
-    .line 444
+    .line 432
     return p2
 
-    .line 445
+    .line 433
     :cond_1
-    const/16 v5, 0x10
+    const/16 v4, 0x10
 
-    if-lt v3, v5, :cond_2
+    if-lt v2, v4, :cond_2
 
-    .line 446
-    const/16 v5, 0x1f
+    .line 434
+    const/16 v4, 0x1f
 
-    if-gt v3, v5, :cond_2
+    if-gt v2, v4, :cond_2
 
-    .line 447
-    add-int/lit8 v5, p1, 0x1
+    .line 435
+    add-int/lit8 v4, p1, 0x1
 
-    aget v5, v2, v5
+    aget v4, v1, v4
 
-    return v5
+    return v4
 
-    .line 448
+    .line 436
     :cond_2
-    const/4 v5, 0x3
+    const/4 v4, 0x3
 
-    if-ne v3, v5, :cond_4
+    if-ne v2, v4, :cond_4
 
-    .line 449
-    iget-object v4, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
+    .line 437
+    iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 450
-    .local v4, "value":Landroid/util/TypedValue;
-    invoke-direct {p0, p1, v4}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
+    .line 438
+    .local v3, "value":Landroid/util/TypedValue;
+    invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_3
+    if-eqz v4, :cond_3
 
-    .line 451
-    iget-object v5, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
+    .line 439
+    iget-object v4, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
 
-    .line 452
-    iget v6, v4, Landroid/util/TypedValue;->resourceId:I
+    .line 440
+    iget v5, v3, Landroid/util/TypedValue;->resourceId:I
 
-    iget-object v7, p0, Landroid/content/res/TypedArray;->mTheme:Landroid/content/res/Resources$Theme;
+    iget-object v6, p0, Landroid/content/res/TypedArray;->mTheme:Landroid/content/res/Resources$Theme;
 
-    .line 451
-    invoke-virtual {v5, v4, v6, v7}, Landroid/content/res/Resources;->loadColorStateList(Landroid/util/TypedValue;ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
+    .line 439
+    invoke-virtual {v4, v3, v5, v6}, Landroid/content/res/Resources;->loadColorStateList(Landroid/util/TypedValue;ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 453
-    .local v1, "csl":Landroid/content/res/ColorStateList;
-    invoke-virtual {v1}, Landroid/content/res/ColorStateList;->getDefaultColor()I
+    .line 441
+    .local v0, "csl":Landroid/content/res/ColorStateList;
+    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
 
-    move-result v5
+    move-result v4
 
-    return v5
+    return v4
 
-    .line 455
-    .end local v1    # "csl":Landroid/content/res/ColorStateList;
+    .line 443
+    .end local v0    # "csl":Landroid/content/res/ColorStateList;
     :cond_3
     return p2
 
-    .line 456
-    .end local v4    # "value":Landroid/util/TypedValue;
+    .line 444
+    .end local v3    # "value":Landroid/util/TypedValue;
     :cond_4
-    const/4 v5, 0x2
+    const/4 v4, 0x2
 
-    if-ne v3, v5, :cond_5
+    if-ne v2, v4, :cond_5
 
-    .line 457
-    iget-object v4, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
+    .line 445
+    iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 458
-    .restart local v4    # "value":Landroid/util/TypedValue;
-    invoke-direct {p0, p1, v4}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
+    .line 446
+    .restart local v3    # "value":Landroid/util/TypedValue;
+    mul-int/lit8 v4, p1, 0x6
 
-    .line 459
-    new-instance v5, Ljava/lang/UnsupportedOperationException;
+    invoke-direct {p0, v4, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
-    .line 460
-    new-instance v6, Ljava/lang/StringBuilder;
+    .line 447
+    new-instance v4, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    .line 448
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "Failed to resolve attribute at index "
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "Failed to resolve attribute at index "
 
-    move-result-object v6
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, ": "
+    move-result-object v5
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v6, ": "
 
-    move-result-object v6
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v6
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 459
-    invoke-direct {v5, v6}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    move-result-object v5
 
-    throw v5
+    .line 447
+    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    .line 463
-    .end local v4    # "value":Landroid/util/TypedValue;
+    throw v4
+
+    .line 451
+    .end local v3    # "value":Landroid/util/TypedValue;
     :cond_5
-    new-instance v5, Ljava/lang/UnsupportedOperationException;
+    new-instance v4, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Can\'t convert value at index "
+    const-string/jumbo v6, "Can\'t convert to color: type=0x"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    .line 464
-    const-string/jumbo v7, " to color: type=0x"
-
-    .line 463
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 452
+    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 464
-    invoke-static {v3}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    .line 451
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v5
 
-    .line 463
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v6
-
-    invoke-direct {v5, v6}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v5
+    throw v4
 .end method
 
 .method public getColorStateList(I)Landroid/content/res/ColorStateList;
@@ -859,12 +824,12 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 521
+    .line 475
     iget-boolean v1, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v1, :cond_0
 
-    .line 522
+    .line 476
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string/jumbo v2, "Cannot make calls to a recycled instance!"
@@ -873,11 +838,11 @@
 
     throw v1
 
-    .line 525
+    .line 479
     :cond_0
     iget-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 526
+    .line 480
     .local v0, "value":Landroid/util/TypedValue;
     mul-int/lit8 v1, p1, 0x6
 
@@ -887,17 +852,17 @@
 
     if-eqz v1, :cond_2
 
-    .line 527
+    .line 481
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_1
 
-    .line 528
+    .line 482
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
-    .line 529
+    .line 483
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -926,12 +891,12 @@
 
     move-result-object v2
 
-    .line 528
+    .line 482
     invoke-direct {v1, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 531
+    .line 485
     :cond_1
     iget-object v1, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
 
@@ -945,105 +910,7 @@
 
     return-object v1
 
-    .line 533
-    :cond_2
-    const/4 v1, 0x0
-
-    return-object v1
-.end method
-
-.method public getComplexColor(I)Landroid/content/res/ComplexColor;
-    .locals 4
-    .param p1, "index"    # I
-
-    .prologue
-    .line 486
-    iget-boolean v1, p0, Landroid/content/res/TypedArray;->mRecycled:Z
-
-    if-eqz v1, :cond_0
-
     .line 487
-    new-instance v1, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v2, "Cannot make calls to a recycled instance!"
-
-    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 490
-    :cond_0
-    iget-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
-
-    .line 491
-    .local v0, "value":Landroid/util/TypedValue;
-    mul-int/lit8 v1, p1, 0x6
-
-    invoke-direct {p0, v1, v0}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    .line 492
-    iget v1, v0, Landroid/util/TypedValue;->type:I
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_1
-
-    .line 493
-    new-instance v1, Ljava/lang/UnsupportedOperationException;
-
-    .line 494
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Failed to resolve attribute at index "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ": "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 493
-    invoke-direct {v1, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 496
-    :cond_1
-    iget-object v1, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
-
-    iget v2, v0, Landroid/util/TypedValue;->resourceId:I
-
-    iget-object v3, p0, Landroid/content/res/TypedArray;->mTheme:Landroid/content/res/Resources$Theme;
-
-    invoke-virtual {v1, v0, v2, v3}, Landroid/content/res/Resources;->loadComplexColor(Landroid/util/TypedValue;ILandroid/content/res/Resources$Theme;)Landroid/content/res/ComplexColor;
-
-    move-result-object v1
-
-    return-object v1
-
-    .line 498
     :cond_2
     const/4 v1, 0x0
 
@@ -1051,483 +918,441 @@
 .end method
 
 .method public getDimension(IF)F
-    .locals 7
+    .locals 6
     .param p1, "index"    # I
     .param p2, "defValue"    # F
 
     .prologue
-    .line 600
-    iget-boolean v4, p0, Landroid/content/res/TypedArray;->mRecycled:Z
+    .line 552
+    iget-boolean v3, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 601
-    new-instance v4, Ljava/lang/RuntimeException;
+    .line 553
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v5, "Cannot make calls to a recycled instance!"
+    const-string/jumbo v4, "Cannot make calls to a recycled instance!"
 
-    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v3
 
-    .line 604
+    .line 556
     :cond_0
-    move v0, p1
-
-    .line 605
-    .local v0, "attrIndex":I
     mul-int/lit8 p1, p1, 0x6
 
-    .line 607
-    iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
+    .line 557
+    iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 608
-    .local v1, "data":[I
-    add-int/lit8 v4, p1, 0x0
+    .line 558
+    .local v0, "data":[I
+    add-int/lit8 v3, p1, 0x0
 
-    aget v2, v1, v4
+    aget v1, v0, v3
 
-    .line 609
-    .local v2, "type":I
-    if-nez v2, :cond_1
+    .line 559
+    .local v1, "type":I
+    if-nez v1, :cond_1
 
-    .line 610
+    .line 560
     return p2
 
-    .line 611
+    .line 561
     :cond_1
-    const/4 v4, 0x5
+    const/4 v3, 0x5
 
-    if-ne v2, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    .line 613
-    add-int/lit8 v4, p1, 0x1
+    .line 563
+    add-int/lit8 v3, p1, 0x1
 
-    aget v4, v1, v4
+    aget v3, v0, v3
 
-    iget-object v5, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
+    iget-object v4, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
 
-    .line 612
-    invoke-static {v4, v5}, Landroid/util/TypedValue;->complexToDimension(ILandroid/util/DisplayMetrics;)F
+    .line 562
+    invoke-static {v3, v4}, Landroid/util/TypedValue;->complexToDimension(ILandroid/util/DisplayMetrics;)F
 
-    move-result v4
+    move-result v3
 
-    return v4
+    return v3
 
-    .line 614
+    .line 564
     :cond_2
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    if-ne v2, v4, :cond_3
+    if-ne v1, v3, :cond_3
 
-    .line 615
-    iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
+    .line 565
+    iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 616
-    .local v3, "value":Landroid/util/TypedValue;
-    invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
+    .line 566
+    .local v2, "value":Landroid/util/TypedValue;
+    mul-int/lit8 v3, p1, 0x6
 
-    .line 617
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
+    invoke-direct {p0, v3, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
-    .line 618
-    new-instance v5, Ljava/lang/StringBuilder;
+    .line 567
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    .line 568
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "Failed to resolve attribute at index "
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v5, "Failed to resolve attribute at index "
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, ": "
+    move-result-object v4
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v5, ": "
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 617
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    move-result-object v4
 
-    throw v4
+    .line 567
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    .line 621
-    .end local v3    # "value":Landroid/util/TypedValue;
+    throw v3
+
+    .line 571
+    .end local v2    # "value":Landroid/util/TypedValue;
     :cond_3
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Can\'t convert value at index "
+    const-string/jumbo v5, "Can\'t convert to dimension: type=0x"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 622
-    const-string/jumbo v6, " to dimension: type=0x"
-
-    .line 621
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 572
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 622
-    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    .line 571
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    .line 621
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v5
-
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v4
+    throw v3
 .end method
 
 .method public getDimensionPixelOffset(II)I
-    .locals 7
+    .locals 6
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
     .prologue
-    .line 649
-    iget-boolean v4, p0, Landroid/content/res/TypedArray;->mRecycled:Z
+    .line 599
+    iget-boolean v3, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 650
-    new-instance v4, Ljava/lang/RuntimeException;
+    .line 600
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v5, "Cannot make calls to a recycled instance!"
+    const-string/jumbo v4, "Cannot make calls to a recycled instance!"
 
-    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v3
 
-    .line 653
+    .line 603
     :cond_0
-    move v0, p1
-
-    .line 654
-    .local v0, "attrIndex":I
     mul-int/lit8 p1, p1, 0x6
 
-    .line 656
-    iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
+    .line 604
+    iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 657
-    .local v1, "data":[I
-    add-int/lit8 v4, p1, 0x0
+    .line 605
+    .local v0, "data":[I
+    add-int/lit8 v3, p1, 0x0
 
-    aget v2, v1, v4
+    aget v1, v0, v3
 
-    .line 658
-    .local v2, "type":I
-    if-nez v2, :cond_1
+    .line 606
+    .local v1, "type":I
+    if-nez v1, :cond_1
 
-    .line 659
+    .line 607
     return p2
 
-    .line 660
+    .line 608
     :cond_1
-    const/4 v4, 0x5
+    const/4 v3, 0x5
 
-    if-ne v2, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    .line 662
-    add-int/lit8 v4, p1, 0x1
+    .line 610
+    add-int/lit8 v3, p1, 0x1
 
-    aget v4, v1, v4
+    aget v3, v0, v3
 
-    iget-object v5, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
+    iget-object v4, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
 
-    .line 661
-    invoke-static {v4, v5}, Landroid/util/TypedValue;->complexToDimensionPixelOffset(ILandroid/util/DisplayMetrics;)I
+    .line 609
+    invoke-static {v3, v4}, Landroid/util/TypedValue;->complexToDimensionPixelOffset(ILandroid/util/DisplayMetrics;)I
 
-    move-result v4
+    move-result v3
 
-    return v4
+    return v3
 
-    .line 663
+    .line 611
     :cond_2
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    if-ne v2, v4, :cond_3
+    if-ne v1, v3, :cond_3
 
-    .line 664
-    iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
+    .line 612
+    iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 665
-    .local v3, "value":Landroid/util/TypedValue;
-    invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
+    .line 613
+    .local v2, "value":Landroid/util/TypedValue;
+    mul-int/lit8 v3, p1, 0x6
 
-    .line 666
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
+    invoke-direct {p0, v3, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
-    .line 667
-    new-instance v5, Ljava/lang/StringBuilder;
+    .line 614
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    .line 615
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "Failed to resolve attribute at index "
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v5, "Failed to resolve attribute at index "
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, ": "
+    move-result-object v4
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v5, ": "
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 666
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    move-result-object v4
 
-    throw v4
+    .line 614
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    .line 670
-    .end local v3    # "value":Landroid/util/TypedValue;
+    throw v3
+
+    .line 618
+    .end local v2    # "value":Landroid/util/TypedValue;
     :cond_3
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Can\'t convert value at index "
+    const-string/jumbo v5, "Can\'t convert to dimension: type=0x"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 671
-    const-string/jumbo v6, " to dimension: type=0x"
-
-    .line 670
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 619
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 671
-    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    .line 618
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    .line 670
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v5
-
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v4
+    throw v3
 .end method
 
 .method public getDimensionPixelSize(II)I
-    .locals 7
+    .locals 6
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
     .prologue
-    .line 699
-    iget-boolean v4, p0, Landroid/content/res/TypedArray;->mRecycled:Z
+    .line 647
+    iget-boolean v3, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 700
-    new-instance v4, Ljava/lang/RuntimeException;
+    .line 648
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v5, "Cannot make calls to a recycled instance!"
+    const-string/jumbo v4, "Cannot make calls to a recycled instance!"
 
-    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v3
 
-    .line 703
+    .line 651
     :cond_0
-    move v0, p1
-
-    .line 704
-    .local v0, "attrIndex":I
     mul-int/lit8 p1, p1, 0x6
 
-    .line 706
-    iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
+    .line 652
+    iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 707
-    .local v1, "data":[I
-    add-int/lit8 v4, p1, 0x0
+    .line 653
+    .local v0, "data":[I
+    add-int/lit8 v3, p1, 0x0
 
-    aget v2, v1, v4
+    aget v1, v0, v3
 
-    .line 708
-    .local v2, "type":I
-    if-nez v2, :cond_1
+    .line 654
+    .local v1, "type":I
+    if-nez v1, :cond_1
 
-    .line 709
+    .line 655
     return p2
 
-    .line 710
+    .line 656
     :cond_1
-    const/4 v4, 0x5
+    const/4 v3, 0x5
 
-    if-ne v2, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    .line 712
-    add-int/lit8 v4, p1, 0x1
+    .line 658
+    add-int/lit8 v3, p1, 0x1
 
-    aget v4, v1, v4
+    aget v3, v0, v3
 
-    iget-object v5, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
+    iget-object v4, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
 
-    .line 711
-    invoke-static {v4, v5}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
+    .line 657
+    invoke-static {v3, v4}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
 
-    move-result v4
+    move-result v3
 
-    return v4
+    return v3
 
-    .line 713
+    .line 659
     :cond_2
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    if-ne v2, v4, :cond_3
+    if-ne v1, v3, :cond_3
 
-    .line 714
-    iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
+    .line 660
+    iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 715
-    .local v3, "value":Landroid/util/TypedValue;
-    invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
+    .line 661
+    .local v2, "value":Landroid/util/TypedValue;
+    mul-int/lit8 v3, p1, 0x6
 
-    .line 716
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
+    invoke-direct {p0, v3, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
-    .line 717
-    new-instance v5, Ljava/lang/StringBuilder;
+    .line 662
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    .line 663
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "Failed to resolve attribute at index "
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v5, "Failed to resolve attribute at index "
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, ": "
+    move-result-object v4
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v5, ": "
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 716
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    move-result-object v4
 
-    throw v4
+    .line 662
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    .line 720
-    .end local v3    # "value":Landroid/util/TypedValue;
+    throw v3
+
+    .line 666
+    .end local v2    # "value":Landroid/util/TypedValue;
     :cond_3
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Can\'t convert value at index "
+    const-string/jumbo v5, "Can\'t convert to dimension: type=0x"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 721
-    const-string/jumbo v6, " to dimension: type=0x"
-
-    .line 720
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 667
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 721
-    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    .line 666
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    .line 720
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v5
-
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v4
+    throw v3
 .end method
 
 .method public getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1535,12 +1360,12 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 918
+    .line 860
     iget-boolean v1, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v1, :cond_0
 
-    .line 919
+    .line 861
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string/jumbo v2, "Cannot make calls to a recycled instance!"
@@ -1549,11 +1374,11 @@
 
     throw v1
 
-    .line 922
+    .line 864
     :cond_0
     iget-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 923
+    .line 865
     .local v0, "value":Landroid/util/TypedValue;
     mul-int/lit8 v1, p1, 0x6
 
@@ -1563,17 +1388,17 @@
 
     if-eqz v1, :cond_2
 
-    .line 924
+    .line 866
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_1
 
-    .line 925
+    .line 867
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
-    .line 926
+    .line 868
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1602,12 +1427,12 @@
 
     move-result-object v2
 
-    .line 925
+    .line 867
     invoke-direct {v1, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 928
+    .line 870
     :cond_1
     iget-object v1, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
 
@@ -1621,7 +1446,7 @@
 
     return-object v1
 
-    .line 930
+    .line 872
     :cond_2
     const/4 v1, 0x0
 
@@ -1634,12 +1459,12 @@
     .param p2, "defValue"    # F
 
     .prologue
-    .line 385
+    .line 375
     iget-boolean v4, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v4, :cond_0
 
-    .line 386
+    .line 376
     new-instance v4, Ljava/lang/RuntimeException;
 
     const-string/jumbo v5, "Cannot make calls to a recycled instance!"
@@ -1648,33 +1473,33 @@
 
     throw v4
 
-    .line 389
+    .line 379
     :cond_0
     mul-int/lit8 p1, p1, 0x6
 
-    .line 390
+    .line 380
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 391
+    .line 381
     .local v0, "data":[I
     add-int/lit8 v4, p1, 0x0
 
     aget v2, v0, v4
 
-    .line 392
+    .line 382
     .local v2, "type":I
     if-nez v2, :cond_1
 
-    .line 393
+    .line 383
     return p2
 
-    .line 394
+    .line 384
     :cond_1
     const/4 v4, 0x4
 
     if-ne v2, v4, :cond_2
 
-    .line 395
+    .line 385
     add-int/lit8 v4, p1, 0x1
 
     aget v4, v0, v4
@@ -1685,18 +1510,18 @@
 
     return v4
 
-    .line 396
+    .line 386
     :cond_2
     const/16 v4, 0x10
 
     if-lt v2, v4, :cond_3
 
-    .line 397
+    .line 387
     const/16 v4, 0x1f
 
     if-gt v2, v4, :cond_3
 
-    .line 398
+    .line 388
     add-int/lit8 v4, p1, 0x1
 
     aget v4, v0, v4
@@ -1705,11 +1530,11 @@
 
     return v4
 
-    .line 401
+    .line 391
     :cond_3
     iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 402
+    .line 392
     .local v3, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
@@ -1717,19 +1542,19 @@
 
     if-eqz v4, :cond_4
 
-    .line 403
+    .line 393
     invoke-virtual {v3}, Landroid/util/TypedValue;->coerceToString()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 404
+    .line 394
     .local v1, "str":Ljava/lang/CharSequence;
     if-eqz v1, :cond_4
 
-    .line 405
+    .line 395
     invoke-static {v3}, Landroid/os/StrictMode;->noteResourceMismatch(Ljava/lang/Object;)V
 
-    .line 406
+    .line 396
     invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -1740,7 +1565,7 @@
 
     return v4
 
-    .line 411
+    .line 401
     .end local v1    # "str":Ljava/lang/CharSequence;
     :cond_4
     new-instance v4, Ljava/lang/RuntimeException;
@@ -1773,167 +1598,153 @@
 .end method
 
 .method public getFraction(IIIF)F
-    .locals 7
+    .locals 6
     .param p1, "index"    # I
     .param p2, "base"    # I
     .param p3, "pbase"    # I
     .param p4, "defValue"    # F
 
     .prologue
-    .line 821
-    iget-boolean v4, p0, Landroid/content/res/TypedArray;->mRecycled:Z
+    .line 765
+    iget-boolean v3, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 822
-    new-instance v4, Ljava/lang/RuntimeException;
+    .line 766
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v5, "Cannot make calls to a recycled instance!"
+    const-string/jumbo v4, "Cannot make calls to a recycled instance!"
 
-    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v3
 
-    .line 825
+    .line 769
     :cond_0
-    move v0, p1
-
-    .line 826
-    .local v0, "attrIndex":I
     mul-int/lit8 p1, p1, 0x6
 
-    .line 828
-    iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
+    .line 770
+    iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 829
-    .local v1, "data":[I
-    add-int/lit8 v4, p1, 0x0
+    .line 771
+    .local v0, "data":[I
+    add-int/lit8 v3, p1, 0x0
 
-    aget v2, v1, v4
+    aget v1, v0, v3
 
-    .line 830
-    .local v2, "type":I
-    if-nez v2, :cond_1
+    .line 772
+    .local v1, "type":I
+    if-nez v1, :cond_1
 
-    .line 831
+    .line 773
     return p4
 
-    .line 832
+    .line 774
     :cond_1
-    const/4 v4, 0x6
+    const/4 v3, 0x6
 
-    if-ne v2, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    .line 834
-    add-int/lit8 v4, p1, 0x1
+    .line 776
+    add-int/lit8 v3, p1, 0x1
 
-    aget v4, v1, v4
+    aget v3, v0, v3
 
-    int-to-float v5, p2
+    int-to-float v4, p2
 
-    int-to-float v6, p3
+    int-to-float v5, p3
 
-    .line 833
-    invoke-static {v4, v5, v6}, Landroid/util/TypedValue;->complexToFraction(IFF)F
+    .line 775
+    invoke-static {v3, v4, v5}, Landroid/util/TypedValue;->complexToFraction(IFF)F
 
-    move-result v4
+    move-result v3
 
-    return v4
+    return v3
 
-    .line 835
+    .line 777
     :cond_2
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    if-ne v2, v4, :cond_3
+    if-ne v1, v3, :cond_3
 
-    .line 836
-    iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
+    .line 778
+    iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 837
-    .local v3, "value":Landroid/util/TypedValue;
-    invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
+    .line 779
+    .local v2, "value":Landroid/util/TypedValue;
+    mul-int/lit8 v3, p1, 0x6
 
-    .line 838
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
+    invoke-direct {p0, v3, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
-    .line 839
-    new-instance v5, Ljava/lang/StringBuilder;
+    .line 780
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    .line 781
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "Failed to resolve attribute at index "
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v5, "Failed to resolve attribute at index "
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, ": "
+    move-result-object v4
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v5, ": "
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 838
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    move-result-object v4
 
-    throw v4
+    .line 780
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    .line 842
-    .end local v3    # "value":Landroid/util/TypedValue;
+    throw v3
+
+    .line 784
+    .end local v2    # "value":Landroid/util/TypedValue;
     :cond_3
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Can\'t convert value at index "
+    const-string/jumbo v5, "Can\'t convert to fraction: type=0x"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 843
-    const-string/jumbo v6, " to fraction: type=0x"
-
-    .line 842
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 785
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 843
-    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    .line 784
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    .line 842
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v5
-
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v4
+    throw v3
 .end method
 
 .method public getIndex(I)I
@@ -1941,12 +1752,12 @@
     .param p1, "at"    # I
 
     .prologue
-    .line 121
+    .line 114
     iget-boolean v0, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 122
+    .line 115
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cannot make calls to a recycled instance!"
@@ -1955,7 +1766,7 @@
 
     throw v0
 
-    .line 125
+    .line 118
     :cond_0
     iget-object v0, p0, Landroid/content/res/TypedArray;->mIndices:[I
 
@@ -1970,12 +1781,12 @@
     .locals 2
 
     .prologue
-    .line 103
+    .line 96
     iget-boolean v0, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 104
+    .line 97
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cannot make calls to a recycled instance!"
@@ -1984,7 +1795,7 @@
 
     throw v0
 
-    .line 107
+    .line 100
     :cond_0
     iget-object v0, p0, Landroid/content/res/TypedArray;->mIndices:[I
 
@@ -2001,12 +1812,12 @@
     .param p2, "defValue"    # I
 
     .prologue
-    .line 348
+    .line 338
     iget-boolean v3, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v3, :cond_0
 
-    .line 349
+    .line 339
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string/jumbo v4, "Cannot make calls to a recycled instance!"
@@ -2015,49 +1826,49 @@
 
     throw v3
 
-    .line 352
+    .line 342
     :cond_0
     mul-int/lit8 p1, p1, 0x6
 
-    .line 353
+    .line 343
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 354
+    .line 344
     .local v0, "data":[I
     add-int/lit8 v3, p1, 0x0
 
     aget v1, v0, v3
 
-    .line 355
+    .line 345
     .local v1, "type":I
     if-nez v1, :cond_1
 
-    .line 356
+    .line 346
     return p2
 
-    .line 357
+    .line 347
     :cond_1
     const/16 v3, 0x10
 
     if-lt v1, v3, :cond_2
 
-    .line 358
+    .line 348
     const/16 v3, 0x1f
 
     if-gt v1, v3, :cond_2
 
-    .line 359
+    .line 349
     add-int/lit8 v3, p1, 0x1
 
     aget v3, v0, v3
 
     return v3
 
-    .line 362
+    .line 352
     :cond_2
     iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 363
+    .line 353
     .local v2, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
@@ -2065,10 +1876,10 @@
 
     if-eqz v3, :cond_3
 
-    .line 364
+    .line 354
     invoke-static {v2}, Landroid/os/StrictMode;->noteResourceMismatch(Ljava/lang/Object;)V
 
-    .line 365
+    .line 355
     invoke-virtual {v2}, Landroid/util/TypedValue;->coerceToString()Ljava/lang/CharSequence;
 
     move-result-object v3
@@ -2079,7 +1890,7 @@
 
     return v3
 
-    .line 369
+    .line 359
     :cond_3
     new-instance v3, Ljava/lang/RuntimeException;
 
@@ -2111,564 +1922,17 @@
 .end method
 
 .method public getInteger(II)I
-    .locals 7
+    .locals 6
     .param p1, "index"    # I
     .param p2, "defValue"    # I
 
     .prologue
-    .line 552
-    iget-boolean v4, p0, Landroid/content/res/TypedArray;->mRecycled:Z
-
-    if-eqz v4, :cond_0
-
-    .line 553
-    new-instance v4, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v5, "Cannot make calls to a recycled instance!"
-
-    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v4
-
-    .line 556
-    :cond_0
-    move v0, p1
-
-    .line 557
-    .local v0, "attrIndex":I
-    mul-int/lit8 p1, p1, 0x6
-
-    .line 559
-    iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
-
-    .line 560
-    .local v1, "data":[I
-    add-int/lit8 v4, p1, 0x0
-
-    aget v2, v1, v4
-
-    .line 561
-    .local v2, "type":I
-    if-nez v2, :cond_1
-
-    .line 562
-    return p2
-
-    .line 563
-    :cond_1
-    const/16 v4, 0x10
-
-    if-lt v2, v4, :cond_2
-
-    .line 564
-    const/16 v4, 0x1f
-
-    if-gt v2, v4, :cond_2
-
-    .line 565
-    add-int/lit8 v4, p1, 0x1
-
-    aget v4, v1, v4
-
-    return v4
-
-    .line 566
-    :cond_2
-    const/4 v4, 0x2
-
-    if-ne v2, v4, :cond_3
-
-    .line 567
-    iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
-
-    .line 568
-    .local v3, "value":Landroid/util/TypedValue;
-    invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
-
-    .line 569
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
-
-    .line 570
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Failed to resolve attribute at index "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ": "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 569
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v4
-
-    .line 573
-    .end local v3    # "value":Landroid/util/TypedValue;
-    :cond_3
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Can\'t convert value at index "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 574
-    const-string/jumbo v6, " to integer: type=0x"
-
-    .line 573
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 574
-    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 573
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v4
-.end method
-
-.method public getLayoutDimension(II)I
-    .locals 4
-    .param p1, "index"    # I
-    .param p2, "defValue"    # I
-
-    .prologue
-    .line 784
-    iget-boolean v2, p0, Landroid/content/res/TypedArray;->mRecycled:Z
-
-    if-eqz v2, :cond_0
-
-    .line 785
-    new-instance v2, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v3, "Cannot make calls to a recycled instance!"
-
-    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 788
-    :cond_0
-    mul-int/lit8 p1, p1, 0x6
-
-    .line 789
-    iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
-
-    .line 790
-    .local v0, "data":[I
-    add-int/lit8 v2, p1, 0x0
-
-    aget v1, v0, v2
-
-    .line 791
-    .local v1, "type":I
-    const/16 v2, 0x10
-
-    if-lt v1, v2, :cond_1
-
-    .line 792
-    const/16 v2, 0x1f
-
-    if-gt v1, v2, :cond_1
-
-    .line 793
-    add-int/lit8 v2, p1, 0x1
-
-    aget v2, v0, v2
-
-    return v2
-
-    .line 794
-    :cond_1
-    const/4 v2, 0x5
-
-    if-ne v1, v2, :cond_2
-
-    .line 796
-    add-int/lit8 v2, p1, 0x1
-
-    aget v2, v0, v2
-
-    iget-object v3, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
-
-    .line 795
-    invoke-static {v2, v3}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
-
-    move-result v2
-
-    return v2
-
-    .line 799
-    :cond_2
-    return p2
-.end method
-
-.method public getLayoutDimension(ILjava/lang/String;)I
-    .locals 7
-    .param p1, "index"    # I
-    .param p2, "name"    # Ljava/lang/String;
-
-    .prologue
-    .line 743
-    iget-boolean v4, p0, Landroid/content/res/TypedArray;->mRecycled:Z
-
-    if-eqz v4, :cond_0
-
-    .line 744
-    new-instance v4, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v5, "Cannot make calls to a recycled instance!"
-
-    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v4
-
-    .line 747
-    :cond_0
-    move v0, p1
-
-    .line 748
-    .local v0, "attrIndex":I
-    mul-int/lit8 p1, p1, 0x6
-
-    .line 750
-    iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
-
-    .line 751
-    .local v1, "data":[I
-    add-int/lit8 v4, p1, 0x0
-
-    aget v2, v1, v4
-
-    .line 752
-    .local v2, "type":I
-    const/16 v4, 0x10
-
-    if-lt v2, v4, :cond_1
-
-    .line 753
-    const/16 v4, 0x1f
-
-    if-gt v2, v4, :cond_1
-
-    .line 754
-    add-int/lit8 v4, p1, 0x1
-
-    aget v4, v1, v4
-
-    return v4
-
-    .line 755
-    :cond_1
-    const/4 v4, 0x5
-
-    if-ne v2, v4, :cond_2
-
-    .line 757
-    add-int/lit8 v4, p1, 0x1
-
-    aget v4, v1, v4
-
-    iget-object v5, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
-
-    .line 756
-    invoke-static {v4, v5}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
-
-    move-result v4
-
-    return v4
-
-    .line 758
-    :cond_2
-    const/4 v4, 0x2
-
-    if-ne v2, v4, :cond_3
-
-    .line 759
-    iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
-
-    .line 760
-    .local v3, "value":Landroid/util/TypedValue;
-    invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
-
-    .line 761
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
-
-    .line 762
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Failed to resolve attribute at index "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ": "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 761
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v4
-
-    .line 765
-    .end local v3    # "value":Landroid/util/TypedValue;
-    :cond_3
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p0}, Landroid/content/res/TypedArray;->getPositionDescription()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 766
-    const-string/jumbo v6, ": You must supply a "
-
-    .line 765
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 766
-    const-string/jumbo v6, " attribute."
-
-    .line 765
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v4
-.end method
-
-.method public getNonConfigurationString(II)Ljava/lang/String;
-    .locals 8
-    .param p1, "index"    # I
-    .param p2, "allowedChangingConfigs"    # I
-
-    .prologue
-    const/4 v5, 0x0
-
-    .line 263
-    iget-boolean v6, p0, Landroid/content/res/TypedArray;->mRecycled:Z
-
-    if-eqz v6, :cond_0
-
-    .line 264
-    new-instance v5, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v6, "Cannot make calls to a recycled instance!"
-
-    invoke-direct {v5, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v5
-
-    .line 267
-    :cond_0
-    mul-int/lit8 p1, p1, 0x6
-
-    .line 268
-    iget-object v2, p0, Landroid/content/res/TypedArray;->mData:[I
-
-    .line 269
-    .local v2, "data":[I
-    add-int/lit8 v6, p1, 0x0
-
-    aget v3, v2, v6
-
-    .line 271
-    .local v3, "type":I
-    add-int/lit8 v6, p1, 0x4
-
-    aget v6, v2, v6
-
-    .line 270
-    invoke-static {v6}, Landroid/content/pm/ActivityInfo;->activityInfoConfigNativeToJava(I)I
-
-    move-result v0
-
-    .line 272
-    .local v0, "changingConfigs":I
-    not-int v6, p2
-
-    and-int/2addr v6, v0
-
-    if-eqz v6, :cond_1
-
-    .line 273
-    return-object v5
-
-    .line 275
-    :cond_1
-    if-nez v3, :cond_2
-
-    .line 276
-    return-object v5
-
-    .line 277
-    :cond_2
-    const/4 v6, 0x3
-
-    if-ne v3, v6, :cond_3
-
-    .line 278
-    invoke-direct {p0, p1}, Landroid/content/res/TypedArray;->loadStringValueAt(I)Ljava/lang/CharSequence;
-
-    move-result-object v5
-
-    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
-
-    .line 281
-    :cond_3
-    iget-object v4, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
-
-    .line 282
-    .local v4, "v":Landroid/util/TypedValue;
-    invoke-direct {p0, p1, v4}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_5
-
-    .line 283
-    invoke-virtual {v4}, Landroid/util/TypedValue;->coerceToString()Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    .line 284
-    .local v1, "cs":Ljava/lang/CharSequence;
-    if-eqz v1, :cond_4
-
-    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    :cond_4
-    return-object v5
-
-    .line 288
-    .end local v1    # "cs":Ljava/lang/CharSequence;
-    :cond_5
-    new-instance v5, Ljava/lang/RuntimeException;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "getNonConfigurationString of bad type: 0x"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    .line 289
-    invoke-static {v3}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 288
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {v5, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v5
-.end method
-
-.method public getNonResourceString(I)Ljava/lang/String;
-    .locals 5
-    .param p1, "index"    # I
-
-    .prologue
-    .line 231
+    .line 506
     iget-boolean v3, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v3, :cond_0
 
-    .line 232
+    .line 507
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string/jumbo v4, "Cannot make calls to a recycled instance!"
@@ -2677,43 +1941,567 @@
 
     throw v3
 
-    .line 235
+    .line 510
     :cond_0
     mul-int/lit8 p1, p1, 0x6
 
-    .line 236
+    .line 511
+    iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
+
+    .line 512
+    .local v0, "data":[I
+    add-int/lit8 v3, p1, 0x0
+
+    aget v1, v0, v3
+
+    .line 513
+    .local v1, "type":I
+    if-nez v1, :cond_1
+
+    .line 514
+    return p2
+
+    .line 515
+    :cond_1
+    const/16 v3, 0x10
+
+    if-lt v1, v3, :cond_2
+
+    .line 516
+    const/16 v3, 0x1f
+
+    if-gt v1, v3, :cond_2
+
+    .line 517
+    add-int/lit8 v3, p1, 0x1
+
+    aget v3, v0, v3
+
+    return v3
+
+    .line 518
+    :cond_2
+    const/4 v3, 0x2
+
+    if-ne v1, v3, :cond_3
+
+    .line 519
+    iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
+
+    .line 520
+    .local v2, "value":Landroid/util/TypedValue;
+    mul-int/lit8 v3, p1, 0x6
+
+    invoke-direct {p0, v3, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
+
+    .line 521
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
+
+    .line 522
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Failed to resolve attribute at index "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ": "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 521
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    .line 525
+    .end local v2    # "value":Landroid/util/TypedValue;
+    :cond_3
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Can\'t convert to integer: type=0x"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    .line 526
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 525
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+.end method
+
+.method public getLayoutDimension(II)I
+    .locals 4
+    .param p1, "index"    # I
+    .param p2, "defValue"    # I
+
+    .prologue
+    .line 728
+    iget-boolean v2, p0, Landroid/content/res/TypedArray;->mRecycled:Z
+
+    if-eqz v2, :cond_0
+
+    .line 729
+    new-instance v2, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v3, "Cannot make calls to a recycled instance!"
+
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 732
+    :cond_0
+    mul-int/lit8 p1, p1, 0x6
+
+    .line 733
+    iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
+
+    .line 734
+    .local v0, "data":[I
+    add-int/lit8 v2, p1, 0x0
+
+    aget v1, v0, v2
+
+    .line 735
+    .local v1, "type":I
+    const/16 v2, 0x10
+
+    if-lt v1, v2, :cond_1
+
+    .line 736
+    const/16 v2, 0x1f
+
+    if-gt v1, v2, :cond_1
+
+    .line 737
+    add-int/lit8 v2, p1, 0x1
+
+    aget v2, v0, v2
+
+    return v2
+
+    .line 738
+    :cond_1
+    const/4 v2, 0x5
+
+    if-ne v1, v2, :cond_2
+
+    .line 740
+    add-int/lit8 v2, p1, 0x1
+
+    aget v2, v0, v2
+
+    iget-object v3, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
+
+    .line 739
+    invoke-static {v2, v3}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
+
+    move-result v2
+
+    return v2
+
+    .line 743
+    :cond_2
+    return p2
+.end method
+
+.method public getLayoutDimension(ILjava/lang/String;)I
+    .locals 6
+    .param p1, "index"    # I
+    .param p2, "name"    # Ljava/lang/String;
+
+    .prologue
+    .line 689
+    iget-boolean v3, p0, Landroid/content/res/TypedArray;->mRecycled:Z
+
+    if-eqz v3, :cond_0
+
+    .line 690
+    new-instance v3, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v4, "Cannot make calls to a recycled instance!"
+
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    .line 693
+    :cond_0
+    mul-int/lit8 p1, p1, 0x6
+
+    .line 694
+    iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
+
+    .line 695
+    .local v0, "data":[I
+    add-int/lit8 v3, p1, 0x0
+
+    aget v1, v0, v3
+
+    .line 696
+    .local v1, "type":I
+    const/16 v3, 0x10
+
+    if-lt v1, v3, :cond_1
+
+    .line 697
+    const/16 v3, 0x1f
+
+    if-gt v1, v3, :cond_1
+
+    .line 698
+    add-int/lit8 v3, p1, 0x1
+
+    aget v3, v0, v3
+
+    return v3
+
+    .line 699
+    :cond_1
+    const/4 v3, 0x5
+
+    if-ne v1, v3, :cond_2
+
+    .line 701
+    add-int/lit8 v3, p1, 0x1
+
+    aget v3, v0, v3
+
+    iget-object v4, p0, Landroid/content/res/TypedArray;->mMetrics:Landroid/util/DisplayMetrics;
+
+    .line 700
+    invoke-static {v3, v4}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
+
+    move-result v3
+
+    return v3
+
+    .line 702
+    :cond_2
+    const/4 v3, 0x2
+
+    if-ne v1, v3, :cond_3
+
+    .line 703
+    iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
+
+    .line 704
+    .local v2, "value":Landroid/util/TypedValue;
+    mul-int/lit8 v3, p1, 0x6
+
+    invoke-direct {p0, v3, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
+
+    .line 705
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
+
+    .line 706
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Failed to resolve attribute at index "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ": "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 705
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    .line 709
+    .end local v2    # "value":Landroid/util/TypedValue;
+    :cond_3
+    new-instance v3, Ljava/lang/UnsupportedOperationException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0}, Landroid/content/res/TypedArray;->getPositionDescription()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    .line 710
+    const-string/jumbo v5, ": You must supply a "
+
+    .line 709
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    .line 710
+    const-string/jumbo v5, " attribute."
+
+    .line 709
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+.end method
+
+.method public getNonConfigurationString(II)Ljava/lang/String;
+    .locals 7
+    .param p1, "index"    # I
+    .param p2, "allowedChangingConfigs"    # I
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 255
+    iget-boolean v5, p0, Landroid/content/res/TypedArray;->mRecycled:Z
+
+    if-eqz v5, :cond_0
+
+    .line 256
+    new-instance v4, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v5, "Cannot make calls to a recycled instance!"
+
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    .line 259
+    :cond_0
+    mul-int/lit8 p1, p1, 0x6
+
+    .line 260
     iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 237
+    .line 261
+    .local v1, "data":[I
+    add-int/lit8 v5, p1, 0x0
+
+    aget v2, v1, v5
+
+    .line 262
+    .local v2, "type":I
+    add-int/lit8 v5, p1, 0x4
+
+    aget v5, v1, v5
+
+    not-int v6, p2
+
+    and-int/2addr v5, v6
+
+    if-eqz v5, :cond_1
+
+    .line 263
+    return-object v4
+
+    .line 265
+    :cond_1
+    if-nez v2, :cond_2
+
+    .line 266
+    return-object v4
+
+    .line 267
+    :cond_2
+    const/4 v5, 0x3
+
+    if-ne v2, v5, :cond_3
+
+    .line 268
+    invoke-direct {p0, p1}, Landroid/content/res/TypedArray;->loadStringValueAt(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    return-object v4
+
+    .line 271
+    :cond_3
+    iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
+
+    .line 272
+    .local v3, "v":Landroid/util/TypedValue;
+    invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    .line 273
+    invoke-virtual {v3}, Landroid/util/TypedValue;->coerceToString()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    .line 274
+    .local v0, "cs":Ljava/lang/CharSequence;
+    if-eqz v0, :cond_4
+
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    :cond_4
+    return-object v4
+
+    .line 278
+    .end local v0    # "cs":Ljava/lang/CharSequence;
+    :cond_5
+    new-instance v4, Ljava/lang/RuntimeException;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "getNonConfigurationString of bad type: 0x"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    .line 279
+    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    .line 278
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+.end method
+
+.method public getNonResourceString(I)Ljava/lang/String;
+    .locals 5
+    .param p1, "index"    # I
+
+    .prologue
+    .line 224
+    iget-boolean v3, p0, Landroid/content/res/TypedArray;->mRecycled:Z
+
+    if-eqz v3, :cond_0
+
+    .line 225
+    new-instance v3, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v4, "Cannot make calls to a recycled instance!"
+
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    .line 228
+    :cond_0
+    mul-int/lit8 p1, p1, 0x6
+
+    .line 229
+    iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
+
+    .line 230
     .local v1, "data":[I
     add-int/lit8 v3, p1, 0x0
 
     aget v2, v1, v3
 
-    .line 238
+    .line 231
     .local v2, "type":I
     const/4 v3, 0x3
 
     if-ne v2, v3, :cond_1
 
-    .line 239
+    .line 232
     add-int/lit8 v3, p1, 0x2
 
     aget v0, v1, v3
 
-    .line 240
+    .line 233
     .local v0, "cookie":I
     if-gez v0, :cond_1
 
-    .line 241
+    .line 234
     iget-object v3, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
 
-    .line 242
+    .line 235
     add-int/lit8 v4, p1, 0x1
 
     aget v4, v1, v4
 
-    .line 241
+    .line 234
     invoke-virtual {v3, v4}, Landroid/content/res/XmlBlock$Parser;->getPooledString(I)Ljava/lang/CharSequence;
 
     move-result-object v3
@@ -2724,7 +2512,7 @@
 
     return-object v3
 
-    .line 245
+    .line 238
     .end local v0    # "cookie":I
     :cond_1
     const/4 v3, 0x0
@@ -2736,12 +2524,12 @@
     .locals 2
 
     .prologue
-    .line 1070
+    .line 1012
     iget-boolean v0, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 1071
+    .line 1013
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cannot make calls to a recycled instance!"
@@ -2750,7 +2538,7 @@
 
     throw v0
 
-    .line 1074
+    .line 1016
     :cond_0
     iget-object v0, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
 
@@ -2777,12 +2565,12 @@
     .param p2, "defValue"    # I
 
     .prologue
-    .line 863
+    .line 805
     iget-boolean v2, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v2, :cond_0
 
-    .line 864
+    .line 806
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string/jumbo v3, "Cannot make calls to a recycled instance!"
@@ -2791,14 +2579,14 @@
 
     throw v2
 
-    .line 867
+    .line 809
     :cond_0
     mul-int/lit8 p1, p1, 0x6
 
-    .line 868
+    .line 810
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 869
+    .line 811
     .local v0, "data":[I
     add-int/lit8 v2, p1, 0x0
 
@@ -2806,19 +2594,19 @@
 
     if-eqz v2, :cond_1
 
-    .line 870
+    .line 812
     add-int/lit8 v2, p1, 0x3
 
     aget v1, v0, v2
 
-    .line 871
+    .line 813
     .local v1, "resid":I
     if-eqz v1, :cond_1
 
-    .line 872
+    .line 814
     return v1
 
-    .line 875
+    .line 817
     .end local v1    # "resid":I
     :cond_1
     return p2
@@ -2828,12 +2616,12 @@
     .locals 2
 
     .prologue
-    .line 134
+    .line 127
     iget-boolean v0, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 135
+    .line 128
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cannot make calls to a recycled instance!"
@@ -2842,7 +2630,7 @@
 
     throw v0
 
-    .line 138
+    .line 131
     :cond_0
     iget-object v0, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
 
@@ -2856,12 +2644,12 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 192
+    .line 185
     iget-boolean v5, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v5, :cond_0
 
-    .line 193
+    .line 186
     new-instance v4, Ljava/lang/RuntimeException;
 
     const-string/jumbo v5, "Cannot make calls to a recycled instance!"
@@ -2870,33 +2658,33 @@
 
     throw v4
 
-    .line 196
+    .line 189
     :cond_0
     mul-int/lit8 p1, p1, 0x6
 
-    .line 197
+    .line 190
     iget-object v1, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 198
+    .line 191
     .local v1, "data":[I
     add-int/lit8 v5, p1, 0x0
 
     aget v2, v1, v5
 
-    .line 199
+    .line 192
     .local v2, "type":I
     if-nez v2, :cond_1
 
-    .line 200
+    .line 193
     return-object v4
 
-    .line 201
+    .line 194
     :cond_1
     const/4 v5, 0x3
 
     if-ne v2, v5, :cond_2
 
-    .line 202
+    .line 195
     invoke-direct {p0, p1}, Landroid/content/res/TypedArray;->loadStringValueAt(I)Ljava/lang/CharSequence;
 
     move-result-object v4
@@ -2907,11 +2695,11 @@
 
     return-object v4
 
-    .line 205
+    .line 198
     :cond_2
     iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 206
+    .line 199
     .local v3, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v3}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
@@ -2919,12 +2707,12 @@
 
     if-eqz v5, :cond_4
 
-    .line 207
+    .line 200
     invoke-virtual {v3}, Landroid/util/TypedValue;->coerceToString()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 208
+    .line 201
     .local v0, "cs":Ljava/lang/CharSequence;
     if-eqz v0, :cond_3
 
@@ -2935,7 +2723,7 @@
     :cond_3
     return-object v4
 
-    .line 212
+    .line 205
     .end local v0    # "cs":Ljava/lang/CharSequence;
     :cond_4
     new-instance v4, Ljava/lang/RuntimeException;
@@ -2972,12 +2760,12 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 155
+    .line 148
     iget-boolean v3, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v3, :cond_0
 
-    .line 156
+    .line 149
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string/jumbo v4, "Cannot make calls to a recycled instance!"
@@ -2986,46 +2774,46 @@
 
     throw v3
 
-    .line 159
+    .line 152
     :cond_0
     mul-int/lit8 p1, p1, 0x6
 
-    .line 160
+    .line 153
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 161
+    .line 154
     .local v0, "data":[I
     add-int/lit8 v3, p1, 0x0
 
     aget v1, v0, v3
 
-    .line 162
+    .line 155
     .local v1, "type":I
     if-nez v1, :cond_1
 
-    .line 163
+    .line 156
     const/4 v3, 0x0
 
     return-object v3
 
-    .line 164
+    .line 157
     :cond_1
     const/4 v3, 0x3
 
     if-ne v1, v3, :cond_2
 
-    .line 165
+    .line 158
     invoke-direct {p0, p1}, Landroid/content/res/TypedArray;->loadStringValueAt(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
     return-object v3
 
-    .line 168
+    .line 161
     :cond_2
     iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 169
+    .line 162
     .local v2, "v":Landroid/util/TypedValue;
     invoke-direct {p0, p1, v2}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
 
@@ -3033,14 +2821,14 @@
 
     if-eqz v3, :cond_3
 
-    .line 170
+    .line 163
     invoke-virtual {v2}, Landroid/util/TypedValue;->coerceToString()Ljava/lang/CharSequence;
 
     move-result-object v3
 
     return-object v3
 
-    .line 174
+    .line 167
     :cond_3
     new-instance v3, Ljava/lang/RuntimeException;
 
@@ -3076,58 +2864,6 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 949
-    iget-boolean v1, p0, Landroid/content/res/TypedArray;->mRecycled:Z
-
-    if-eqz v1, :cond_0
-
-    .line 950
-    new-instance v1, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v2, "Cannot make calls to a recycled instance!"
-
-    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 953
-    :cond_0
-    iget-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
-
-    .line 954
-    .local v0, "value":Landroid/util/TypedValue;
-    mul-int/lit8 v1, p1, 0x6
-
-    invoke-direct {p0, v1, v0}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 955
-    iget-object v1, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
-
-    iget v2, v0, Landroid/util/TypedValue;->resourceId:I
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    return-object v1
-
-    .line 957
-    :cond_1
-    const/4 v1, 0x0
-
-    return-object v1
-.end method
-
-.method public getThemeAttributeId(II)I
-    .locals 3
-    .param p1, "index"    # I
-    .param p2, "defValue"    # I
-
-    .prologue
     .line 891
     iget-boolean v1, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
@@ -3144,12 +2880,64 @@
 
     .line 895
     :cond_0
-    mul-int/lit8 p1, p1, 0x6
+    iget-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 896
-    iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
+    .local v0, "value":Landroid/util/TypedValue;
+    mul-int/lit8 v1, p1, 0x6
+
+    invoke-direct {p0, v1, v0}, Landroid/content/res/TypedArray;->getValueAt(ILandroid/util/TypedValue;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
 
     .line 897
+    iget-object v1, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
+
+    iget v2, v0, Landroid/util/TypedValue;->resourceId:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    return-object v1
+
+    .line 899
+    :cond_1
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+.method public getThemeAttributeId(II)I
+    .locals 3
+    .param p1, "index"    # I
+    .param p2, "defValue"    # I
+
+    .prologue
+    .line 833
+    iget-boolean v1, p0, Landroid/content/res/TypedArray;->mRecycled:Z
+
+    if-eqz v1, :cond_0
+
+    .line 834
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v2, "Cannot make calls to a recycled instance!"
+
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 837
+    :cond_0
+    mul-int/lit8 p1, p1, 0x6
+
+    .line 838
+    iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
+
+    .line 839
     .local v0, "data":[I
     add-int/lit8 v1, p1, 0x0
 
@@ -3159,14 +2947,14 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 898
+    .line 840
     add-int/lit8 v1, p1, 0x1
 
     aget v1, v0, v1
 
     return v1
 
-    .line 900
+    .line 842
     :cond_1
     return p2
 .end method
@@ -3176,12 +2964,12 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 987
+    .line 929
     iget-boolean v0, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 988
+    .line 930
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cannot make calls to a recycled instance!"
@@ -3190,11 +2978,11 @@
 
     throw v0
 
-    .line 991
+    .line 933
     :cond_0
     mul-int/lit8 p1, p1, 0x6
 
-    .line 992
+    .line 934
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     add-int/lit8 v1, p1, 0x0
@@ -3210,12 +2998,12 @@
     .param p2, "outValue"    # Landroid/util/TypedValue;
 
     .prologue
-    .line 971
+    .line 913
     iget-boolean v0, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 972
+    .line 914
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cannot make calls to a recycled instance!"
@@ -3224,7 +3012,7 @@
 
     throw v0
 
-    .line 975
+    .line 917
     :cond_0
     mul-int/lit8 v0, p1, 0x6
 
@@ -3242,12 +3030,12 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1007
+    .line 949
     iget-boolean v3, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v3, :cond_0
 
-    .line 1008
+    .line 950
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string/jumbo v3, "Cannot make calls to a recycled instance!"
@@ -3256,20 +3044,20 @@
 
     throw v2
 
-    .line 1011
+    .line 953
     :cond_0
     mul-int/lit8 p1, p1, 0x6
 
-    .line 1012
+    .line 954
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 1013
+    .line 955
     .local v0, "data":[I
     add-int/lit8 v3, p1, 0x0
 
     aget v1, v0, v3
 
-    .line 1014
+    .line 956
     .local v1, "type":I
     if-eqz v1, :cond_1
 
@@ -3288,12 +3076,12 @@
 
     const/4 v2, 0x1
 
-    .line 1028
+    .line 970
     iget-boolean v4, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v4, :cond_0
 
-    .line 1029
+    .line 971
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string/jumbo v3, "Cannot make calls to a recycled instance!"
@@ -3302,31 +3090,31 @@
 
     throw v2
 
-    .line 1032
+    .line 974
     :cond_0
     mul-int/lit8 p1, p1, 0x6
 
-    .line 1033
+    .line 975
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
-    .line 1034
+    .line 976
     .local v0, "data":[I
     add-int/lit8 v4, p1, 0x0
 
     aget v1, v0, v4
 
-    .line 1035
+    .line 977
     .local v1, "type":I
     if-nez v1, :cond_1
 
-    .line 1036
+    .line 978
     add-int/lit8 v4, p1, 0x1
 
     aget v4, v0, v4
 
     if-ne v4, v2, :cond_2
 
-    .line 1035
+    .line 977
     :cond_1
     :goto_0
     return v2
@@ -3334,7 +3122,7 @@
     :cond_2
     move v2, v3
 
-    .line 1036
+    .line 978
     goto :goto_0
 .end method
 
@@ -3342,12 +3130,12 @@
     .locals 2
 
     .prologue
-    .line 90
+    .line 83
     iget-boolean v0, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 91
+    .line 84
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Cannot make calls to a recycled instance!"
@@ -3356,7 +3144,7 @@
 
     throw v0
 
-    .line 94
+    .line 87
     :cond_0
     iget v0, p0, Landroid/content/res/TypedArray;->mLength:I
 
@@ -3368,12 +3156,12 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 1052
+    .line 994
     iget-boolean v1, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v1, :cond_0
 
-    .line 1053
+    .line 995
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string/jumbo v2, "Cannot make calls to a recycled instance!"
@@ -3382,11 +3170,11 @@
 
     throw v1
 
-    .line 1056
+    .line 998
     :cond_0
     iget-object v0, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
-    .line 1057
+    .line 999
     .local v0, "value":Landroid/util/TypedValue;
     mul-int/lit8 v1, p1, 0x6
 
@@ -3396,10 +3184,10 @@
 
     if-eqz v1, :cond_1
 
-    .line 1058
+    .line 1000
     return-object v0
 
-    .line 1060
+    .line 1002
     :cond_1
     const/4 v1, 0x0
 
@@ -3412,12 +3200,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1084
+    .line 1026
     iget-boolean v0, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 1085
+    .line 1027
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3446,29 +3234,26 @@
 
     throw v0
 
-    .line 1088
+    .line 1030
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/content/res/TypedArray;->mRecycled:Z
 
-    .line 1091
+    .line 1033
     iput-object v1, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
 
-    .line 1092
+    .line 1034
     iput-object v1, p0, Landroid/content/res/TypedArray;->mTheme:Landroid/content/res/Resources$Theme;
 
-    .line 1093
-    iput-object v1, p0, Landroid/content/res/TypedArray;->mAssets:Landroid/content/res/AssetManager;
-
-    .line 1095
+    .line 1036
     iget-object v0, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
 
     iget-object v0, v0, Landroid/content/res/Resources;->mTypedArrayPool:Landroid/util/Pools$SynchronizedPool;
 
     invoke-virtual {v0, p0}, Landroid/util/Pools$SynchronizedPool;->release(Ljava/lang/Object;)Z
 
-    .line 1083
+    .line 1025
     return-void
 .end method
 
@@ -3476,7 +3261,7 @@
     .locals 1
 
     .prologue
-    .line 1231
+    .line 1170
     iget-object v0, p0, Landroid/content/res/TypedArray;->mData:[I
 
     invoke-static {v0}, Ljava/util/Arrays;->toString([I)Ljava/lang/String;

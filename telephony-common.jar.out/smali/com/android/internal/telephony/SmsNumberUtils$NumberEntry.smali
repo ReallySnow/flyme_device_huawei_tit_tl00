@@ -28,12 +28,12 @@
     .param p1, "number"    # Ljava/lang/String;
 
     .prologue
-    .line 107
+    .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 108
+    .line 111
     iput-object p1, p0, Lcom/android/internal/telephony/SmsNumberUtils$NumberEntry;->number:Ljava/lang/String;
 
-    .line 107
+    .line 110
     return-void
 .end method

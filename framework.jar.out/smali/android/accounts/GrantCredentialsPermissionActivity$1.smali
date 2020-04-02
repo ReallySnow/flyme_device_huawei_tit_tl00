@@ -40,7 +40,7 @@
     .param p2, "val$authTokenTypeView"    # Landroid/widget/TextView;
 
     .prologue
-    .line 90
+    .line 92
     iput-object p1, p0, Landroid/accounts/GrantCredentialsPermissionActivity$1;->this$0:Landroid/accounts/GrantCredentialsPermissionActivity;
 
     iput-object p2, p0, Landroid/accounts/GrantCredentialsPermissionActivity$1;->val$authTokenTypeView:Landroid/widget/TextView;
@@ -65,7 +65,7 @@
     .end annotation
 
     .prologue
-    .line 93
+    .line 95
     .local p1, "future":Landroid/accounts/AccountManagerFuture;, "Landroid/accounts/AccountManagerFuture<Ljava/lang/String;>;"
     :try_start_0
     invoke-interface {p1}, Landroid/accounts/AccountManagerFuture;->getResult()Ljava/lang/Object;
@@ -74,7 +74,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 94
+    .line 96
     .local v0, "authTokenLabel":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -82,7 +82,7 @@
 
     if-nez v4, :cond_0
 
-    .line 95
+    .line 97
     iget-object v4, p0, Landroid/accounts/GrantCredentialsPermissionActivity$1;->this$0:Landroid/accounts/GrantCredentialsPermissionActivity;
 
     new-instance v5, Landroid/accounts/GrantCredentialsPermissionActivity$1$1;
@@ -97,20 +97,20 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .line 91
+    .line 93
     .end local v0    # "authTokenLabel":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
-    .line 104
+    .line 106
     :catch_0
     move-exception v2
 
     .local v2, "e":Landroid/accounts/OperationCanceledException;
     goto :goto_0
 
-    .line 105
+    .line 107
     .end local v2    # "e":Landroid/accounts/OperationCanceledException;
     :catch_1
     move-exception v3
@@ -118,7 +118,7 @@
     .local v3, "e":Ljava/io/IOException;
     goto :goto_0
 
-    .line 106
+    .line 108
     .end local v3    # "e":Ljava/io/IOException;
     :catch_2
     move-exception v1

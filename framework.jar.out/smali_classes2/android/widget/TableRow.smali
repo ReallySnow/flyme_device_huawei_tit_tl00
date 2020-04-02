@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/widget/TableRow$ChildrenTracker;,
-        Landroid/widget/TableRow$LayoutParams;
+        Landroid/widget/TableRow$LayoutParams;,
+        Landroid/widget/TableRow$ChildrenTracker;
     }
 .end annotation
 

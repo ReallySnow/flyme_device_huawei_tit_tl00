@@ -727,7 +727,7 @@
     move-result-object v1
 
     .line 194
-    .local v1, "actualDefaultUri":Landroid/net/Uri;
+    .end local v1    # "actualDefaultUri":Landroid/net/Uri;
     :goto_3
     if-nez v1, :cond_b
 
@@ -801,7 +801,6 @@
     return-object v2
 
     .line 175
-    .end local v1    # "actualDefaultUri":Landroid/net/Uri;
     .end local v9    # "setting":Ljava/lang/String;
     .end local v12    # "uriString":Ljava/lang/String;
     .restart local v8    # "manager":Landroid/telephony/TelephonyManager;
@@ -835,7 +834,7 @@
     .end local v8    # "manager":Landroid/telephony/TelephonyManager;
     .end local v10    # "state1":Z
     .end local v11    # "state2":Z
-    .local v1, "actualDefaultUri":Landroid/net/Uri;
+    .restart local v1    # "actualDefaultUri":Landroid/net/Uri;
     .restart local v9    # "setting":Ljava/lang/String;
     .restart local v12    # "uriString":Ljava/lang/String;
     :cond_7
@@ -844,7 +843,7 @@
     goto :goto_3
 
     .line 208
-    .local v1, "actualDefaultUri":Landroid/net/Uri;
+    .end local v1    # "actualDefaultUri":Landroid/net/Uri;
     :cond_8
     const-string/jumbo v2, "MzRingtoneManager"
 
@@ -901,6 +900,7 @@
     move-result-object v1
 
     .line 223
+    .local v1, "actualDefaultUri":Landroid/net/Uri;
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -1278,7 +1278,6 @@
     move-result v14
 
     .line 475
-    .local v14, "externalMediaMounted":Z
     :goto_1
     if-eqz v14, :cond_2
 
@@ -1324,7 +1323,6 @@
     .line 482
     .end local v2    # "uri":Landroid/net/Uri;
     .end local v13    # "externalCursor":Landroid/database/Cursor;
-    .end local v14    # "externalMediaMounted":Z
     .end local v18    # "status":Ljava/lang/String;
     :cond_2
     const/4 v3, 0x2
@@ -1398,10 +1396,11 @@
     :cond_4
     const/4 v14, 0x1
 
+    .local v14, "externalMediaMounted":Z
     goto :goto_1
 
     .line 476
-    .restart local v14    # "externalMediaMounted":Z
+    .end local v14    # "externalMediaMounted":Z
     :cond_5
     const/4 v8, 0x0
 
@@ -1411,7 +1410,6 @@
     .line 491
     .end local v8    # "externalwhereClause":Ljava/lang/String;
     .end local v13    # "externalCursor":Landroid/database/Cursor;
-    .end local v14    # "externalMediaMounted":Z
     .end local v18    # "status":Ljava/lang/String;
     .restart local v11    # "allCursor":Landroid/database/Cursor;
     .restart local v12    # "cursors":[Landroid/database/Cursor;

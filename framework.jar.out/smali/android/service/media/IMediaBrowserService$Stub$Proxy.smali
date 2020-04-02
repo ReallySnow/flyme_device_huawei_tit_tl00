@@ -27,117 +27,19 @@
     .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
-    .line 149
+    .line 116
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 151
+    .line 118
     iput-object p1, p0, Landroid/service/media/IMediaBrowserService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    .line 149
+    .line 116
     return-void
 .end method
 
 
 # virtual methods
-.method public addSubscription(Ljava/lang/String;Landroid/os/IBinder;Landroid/os/Bundle;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
-    .locals 5
-    .param p1, "uri"    # Ljava/lang/String;
-    .param p2, "token"    # Landroid/os/IBinder;
-    .param p3, "options"    # Landroid/os/Bundle;
-    .param p4, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 241
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 243
-    .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
-    const-string/jumbo v2, "android.service.media.IMediaBrowserService"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 244
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 245
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 246
-    if-eqz p3, :cond_1
-
-    .line 247
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 248
-    const/4 v2, 0x0
-
-    invoke-virtual {p3, v0, v2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 253
-    :goto_0
-    if-eqz p4, :cond_0
-
-    invoke-interface {p4}, Landroid/service/media/IMediaBrowserServiceCallbacks;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v1
-
-    :cond_0
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 254
-    iget-object v1, p0, Landroid/service/media/IMediaBrowserService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v2, 0x6
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 257
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 239
-    return-void
-
-    .line 251
-    :cond_1
-    const/4 v2, 0x0
-
-    :try_start_1
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    .line 256
-    :catchall_0
-    move-exception v1
-
-    .line 257
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 256
-    throw v1
-.end method
-
-.method public addSubscriptionDeprecated(Ljava/lang/String;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
+.method public addSubscription(Ljava/lang/String;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
     .locals 5
     .param p1, "uri"    # Ljava/lang/String;
     .param p2, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
@@ -150,22 +52,22 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 195
+    .line 162
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 197
+    .line 164
     .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string/jumbo v2, "android.service.media.IMediaBrowserService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 198
+    .line 165
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 199
+    .line 166
     if-eqz p2, :cond_0
 
     invoke-interface {p2}, Landroid/service/media/IMediaBrowserServiceCallbacks;->asBinder()Landroid/os/IBinder;
@@ -175,7 +77,7 @@
     :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 200
+    .line 167
     iget-object v1, p0, Landroid/service/media/IMediaBrowserService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x3
@@ -188,20 +90,20 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 203
+    .line 170
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 193
+    .line 160
     return-void
 
-    .line 202
+    .line 169
     :catchall_0
     move-exception v1
 
-    .line 203
+    .line 170
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 202
+    .line 169
     throw v1
 .end method
 
@@ -209,7 +111,7 @@
     .locals 1
 
     .prologue
-    .line 155
+    .line 122
     iget-object v0, p0, Landroid/service/media/IMediaBrowserService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     return-object v0
@@ -229,35 +131,35 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 163
+    .line 130
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 165
+    .line 132
     .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string/jumbo v2, "android.service.media.IMediaBrowserService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 166
+    .line 133
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 167
+    .line 134
     if-eqz p2, :cond_1
 
-    .line 168
+    .line 135
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 169
+    .line 136
     const/4 v2, 0x0
 
     invoke-virtual {p2, v0, v2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 174
+    .line 141
     :goto_0
     if-eqz p3, :cond_0
 
@@ -268,7 +170,7 @@
     :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 175
+    .line 142
     iget-object v1, p0, Landroid/service/media/IMediaBrowserService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x1
@@ -281,13 +183,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 178
+    .line 145
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 161
+    .line 128
     return-void
 
-    .line 172
+    .line 139
     :cond_1
     const/4 v2, 0x0
 
@@ -298,14 +200,14 @@
 
     goto :goto_0
 
-    .line 177
+    .line 144
     :catchall_0
     move-exception v1
 
-    .line 178
+    .line 145
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 177
+    .line 144
     throw v1
 .end method
 
@@ -321,19 +223,19 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 183
+    .line 150
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 185
+    .line 152
     .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string/jumbo v2, "android.service.media.IMediaBrowserService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 186
+    .line 153
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/service/media/IMediaBrowserServiceCallbacks;->asBinder()Landroid/os/IBinder;
@@ -343,7 +245,7 @@
     :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 187
+    .line 154
     iget-object v1, p0, Landroid/service/media/IMediaBrowserService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x2
@@ -356,20 +258,20 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 190
+    .line 157
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 181
+    .line 148
     return-void
 
-    .line 189
+    .line 156
     :catchall_0
     move-exception v1
 
-    .line 190
+    .line 157
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 189
+    .line 156
     throw v1
 .end method
 
@@ -377,17 +279,16 @@
     .locals 1
 
     .prologue
-    .line 159
+    .line 126
     const-string/jumbo v0, "android.service.media.IMediaBrowserService"
 
     return-object v0
 .end method
 
-.method public getMediaItem(Ljava/lang/String;Landroid/os/ResultReceiver;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
+.method public getMediaItem(Ljava/lang/String;Landroid/os/ResultReceiver;)V
     .locals 5
     .param p1, "uri"    # Ljava/lang/String;
     .param p2, "cb"    # Landroid/os/ResultReceiver;
-    .param p3, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -395,48 +296,36 @@
     .end annotation
 
     .prologue
-    const/4 v1, 0x0
-
-    .line 221
+    .line 188
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 223
+    .line 190
     .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
-    const-string/jumbo v2, "android.service.media.IMediaBrowserService"
+    const-string/jumbo v1, "android.service.media.IMediaBrowserService"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 224
+    .line 191
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 225
-    if-eqz p2, :cond_1
+    .line 192
+    if-eqz p2, :cond_0
 
-    .line 226
-    const/4 v2, 0x1
+    .line 193
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 227
-    const/4 v2, 0x0
+    .line 194
+    const/4 v1, 0x0
 
-    invoke-virtual {p2, v0, v2}, Landroid/os/ResultReceiver;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {p2, v0, v1}, Landroid/os/ResultReceiver;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 232
+    .line 199
     :goto_0
-    if-eqz p3, :cond_0
-
-    invoke-interface {p3}, Landroid/service/media/IMediaBrowserServiceCallbacks;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v1
-
-    :cond_0
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 233
     iget-object v1, p0, Landroid/service/media/IMediaBrowserService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x5
@@ -449,107 +338,35 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 236
+    .line 202
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 219
+    .line 186
     return-void
 
-    .line 230
-    :cond_1
-    const/4 v2, 0x0
+    .line 197
+    :cond_0
+    const/4 v1, 0x0
 
     :try_start_1
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    .line 235
+    .line 201
     :catchall_0
     move-exception v1
 
-    .line 236
+    .line 202
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 235
+    .line 201
     throw v1
 .end method
 
-.method public removeSubscription(Ljava/lang/String;Landroid/os/IBinder;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
-    .locals 5
-    .param p1, "uri"    # Ljava/lang/String;
-    .param p2, "token"    # Landroid/os/IBinder;
-    .param p3, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 262
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 264
-    .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
-    const-string/jumbo v2, "android.service.media.IMediaBrowserService"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 265
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 266
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 267
-    if-eqz p3, :cond_0
-
-    invoke-interface {p3}, Landroid/service/media/IMediaBrowserServiceCallbacks;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v1
-
-    :cond_0
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 268
-    iget-object v1, p0, Landroid/service/media/IMediaBrowserService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v2, 0x7
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 271
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 260
-    return-void
-
-    .line 270
-    :catchall_0
-    move-exception v1
-
-    .line 271
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 270
-    throw v1
-.end method
-
-.method public removeSubscriptionDeprecated(Ljava/lang/String;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
+.method public removeSubscription(Ljava/lang/String;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
     .locals 5
     .param p1, "uri"    # Ljava/lang/String;
     .param p2, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
@@ -562,22 +379,22 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 208
+    .line 175
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 210
+    .line 177
     .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string/jumbo v2, "android.service.media.IMediaBrowserService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 211
+    .line 178
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 212
+    .line 179
     if-eqz p2, :cond_0
 
     invoke-interface {p2}, Landroid/service/media/IMediaBrowserServiceCallbacks;->asBinder()Landroid/os/IBinder;
@@ -587,7 +404,7 @@
     :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 213
+    .line 180
     iget-object v1, p0, Landroid/service/media/IMediaBrowserService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x4
@@ -600,19 +417,19 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 216
+    .line 183
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 206
+    .line 173
     return-void
 
-    .line 215
+    .line 182
     :catchall_0
     move-exception v1
 
-    .line 216
+    .line 183
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 215
+    .line 182
     throw v1
 .end method

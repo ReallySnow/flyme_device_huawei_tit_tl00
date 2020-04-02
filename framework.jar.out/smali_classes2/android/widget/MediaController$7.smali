@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/widget/MediaController;
 
     .prologue
-    .line 644
+    .line 663
     iput-object p1, p0, Landroid/widget/MediaController$7;->this$0:Landroid/widget/MediaController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,10 +42,10 @@
     .param p1, "v"    # Landroid/view/View;
 
     .prologue
-    .line 647
+    .line 666
     iget-object v1, p0, Landroid/widget/MediaController$7;->this$0:Landroid/widget/MediaController;
 
-    invoke-static {v1}, Landroid/widget/MediaController;->-get4(Landroid/widget/MediaController;)Landroid/widget/MediaController$MediaPlayerControl;
+    invoke-static {v1}, Landroid/widget/MediaController;->-get5(Landroid/widget/MediaController;)Landroid/widget/MediaController$MediaPlayerControl;
 
     move-result-object v1
 
@@ -53,31 +53,31 @@
 
     move-result v0
 
-    .line 648
+    .line 667
     .local v0, "pos":I
-    add-int/lit16 v0, v0, -0x1388
+    add-int/lit16 v0, v0, 0x3a98
 
-    .line 649
+    .line 668
     iget-object v1, p0, Landroid/widget/MediaController$7;->this$0:Landroid/widget/MediaController;
 
-    invoke-static {v1}, Landroid/widget/MediaController;->-get4(Landroid/widget/MediaController;)Landroid/widget/MediaController$MediaPlayerControl;
+    invoke-static {v1}, Landroid/widget/MediaController;->-get5(Landroid/widget/MediaController;)Landroid/widget/MediaController$MediaPlayerControl;
 
     move-result-object v1
 
     invoke-interface {v1, v0}, Landroid/widget/MediaController$MediaPlayerControl;->seekTo(I)V
 
-    .line 650
+    .line 669
     iget-object v1, p0, Landroid/widget/MediaController$7;->this$0:Landroid/widget/MediaController;
 
     invoke-static {v1}, Landroid/widget/MediaController;->-wrap0(Landroid/widget/MediaController;)I
 
-    .line 652
+    .line 671
     iget-object v1, p0, Landroid/widget/MediaController$7;->this$0:Landroid/widget/MediaController;
 
     const/16 v2, 0xbb8
 
     invoke-virtual {v1, v2}, Landroid/widget/MediaController;->show(I)V
 
-    .line 646
+    .line 665
     return-void
 .end method

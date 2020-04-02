@@ -55,28 +55,28 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 243
+    .line 244
     iput-object p1, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->this$0:Lcom/android/internal/telephony/meizu/MzIccProvider;
 
-    .line 244
+    .line 245
     invoke-direct {p0, p2}, Landroid/database/CrossProcessCursorWrapper;-><init>(Landroid/database/Cursor;)V
 
-    .line 240
+    .line 241
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v2, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->sortList:Ljava/util/ArrayList;
 
-    .line 241
+    .line 242
     const/4 v2, -0x1
 
     iput v2, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mPos:I
 
-    .line 245
+    .line 246
     iput-object p2, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mCursor:Landroid/database/Cursor;
 
-    .line 246
+    .line 247
     iget-object v2, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mCursor:Landroid/database/Cursor;
 
     if-eqz v2, :cond_0
@@ -89,10 +89,10 @@
 
     if-lez v2, :cond_0
 
-    .line 247
+    .line 248
     const/4 v0, 0x0
 
-    .line 248
+    .line 249
     .local v0, "i":I
     iget-object v2, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mCursor:Landroid/database/Cursor;
 
@@ -107,12 +107,12 @@
 
     if-nez v2, :cond_0
 
-    .line 249
+    .line 250
     new-instance v1, Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;
 
     invoke-direct {v1, p1, v3}, Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;-><init>(Lcom/android/internal/telephony/meizu/MzIccProvider;Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;)V
 
-    .line 250
+    .line 251
     .local v1, "sortEntry":Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;
     invoke-static {}, Lcom/android/internal/telephony/meizu/MzIccProvider;->-get0()I
 
@@ -124,15 +124,15 @@
 
     iput-object v2, v1, Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;->key:Ljava/lang/String;
 
-    .line 251
+    .line 252
     iput v0, v1, Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;->order:I
 
-    .line 252
+    .line 253
     iget-object v2, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->sortList:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 248
+    .line 249
     iget-object v2, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
@@ -141,7 +141,7 @@
 
     goto :goto_0
 
-    .line 255
+    .line 256
     .end local v0    # "i":I
     .end local v1    # "sortEntry":Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;
     :cond_0
@@ -149,7 +149,7 @@
 
     invoke-static {v2, p0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 243
+    .line 244
     return-void
 .end method
 
@@ -165,20 +165,20 @@
 
     const/16 v10, 0x61
 
-    const/4 v7, -0x1
-
     const/4 v8, 0x1
+
+    const/4 v7, -0x1
 
     const/4 v6, 0x0
 
-    .line 260
+    .line 261
     iget-object v4, p1, Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;->key:Ljava/lang/String;
 
-    .line 261
+    .line 262
     .local v4, "name0":Ljava/lang/String;
     iget-object v5, p2, Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;->key:Ljava/lang/String;
 
-    .line 264
+    .line 265
     .local v5, "name1":Ljava/lang/String;
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -192,7 +192,7 @@
 
     if-eqz v9, :cond_1
 
-    .line 277
+    .line 278
     :cond_0
     invoke-static {v4, v5}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
@@ -203,75 +203,75 @@
     :goto_0
     return v6
 
-    .line 265
+    .line 266
     :cond_1
     invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 266
+    .line 267
     invoke-virtual {v5, v6}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    .line 267
+    .line 268
     .local v2, "ch1":C
     if-lt v2, v10, :cond_2
 
     if-gt v2, v11, :cond_2
 
-    move v3, v8
+    const/4 v3, 0x1
 
-    .line 268
+    .line 269
     .local v3, "ch1Cansort":Z
     :goto_1
     if-nez v3, :cond_3
 
     return v8
 
+    .line 268
     .end local v3    # "ch1Cansort":Z
     :cond_2
-    move v3, v6
+    const/4 v3, 0x0
 
-    .line 267
+    .restart local v3    # "ch1Cansort":Z
     goto :goto_1
 
-    .line 270
-    .restart local v3    # "ch1Cansort":Z
+    .line 271
     :cond_3
     invoke-virtual {v4}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 271
+    .line 272
     invoke-virtual {v4, v6}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    .line 272
+    .line 273
     .local v0, "ch0":C
     if-lt v0, v10, :cond_4
 
     if-gt v0, v11, :cond_4
 
-    move v1, v8
+    const/4 v1, 0x1
 
-    .line 273
+    .line 274
     .local v1, "ch0Cansort":Z
     :goto_2
     if-nez v1, :cond_5
 
     return v7
 
+    .line 273
     .end local v1    # "ch0Cansort":Z
     :cond_4
-    move v1, v6
+    const/4 v1, 0x0
 
-    .line 272
+    .restart local v1    # "ch0Cansort":Z
     goto :goto_2
 
-    .line 275
-    .restart local v1    # "ch0Cansort":Z
+    .line 276
     :cond_5
     invoke-virtual {v4, v5}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
@@ -279,7 +279,7 @@
 
     return v6
 
-    .line 277
+    .line 278
     .end local v0    # "ch0":C
     .end local v1    # "ch0Cansort":Z
     .end local v2    # "ch1":C
@@ -307,7 +307,7 @@
     .param p2, "entry2"    # Ljava/lang/Object;
 
     .prologue
-    .line 259
+    .line 260
     check-cast p1, Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;
 
     .end local p1    # "entry1":Ljava/lang/Object;
@@ -325,7 +325,7 @@
     .locals 1
 
     .prologue
-    .line 317
+    .line 318
     iget v0, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mPos:I
 
     return v0
@@ -336,7 +336,7 @@
     .param p1, "offset"    # I
 
     .prologue
-    .line 313
+    .line 314
     iget v0, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mPos:I
 
     add-int/2addr v0, p1
@@ -352,7 +352,7 @@
     .locals 1
 
     .prologue
-    .line 297
+    .line 298
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->moveToPosition(I)Z
@@ -366,7 +366,7 @@
     .locals 1
 
     .prologue
-    .line 301
+    .line 302
     invoke-virtual {p0}, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->getCount()I
 
     move-result v0
@@ -384,7 +384,7 @@
     .locals 1
 
     .prologue
-    .line 305
+    .line 306
     iget v0, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mPos:I
 
     add-int/lit8 v0, v0, 0x1
@@ -401,7 +401,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 282
+    .line 283
     if-ltz p1, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->sortList:Ljava/util/ArrayList;
@@ -412,10 +412,10 @@
 
     if-ge p1, v1, :cond_0
 
-    .line 283
+    .line 284
     iput p1, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mPos:I
 
-    .line 284
+    .line 285
     iget-object v1, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->sortList:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -426,7 +426,7 @@
 
     iget v0, v1, Lcom/android/internal/telephony/meizu/MzIccProvider$SortEntry;->order:I
 
-    .line 285
+    .line 286
     .local v0, "order":I
     iget-object v1, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mCursor:Landroid/database/Cursor;
 
@@ -436,17 +436,17 @@
 
     return v1
 
-    .line 287
+    .line 288
     .end local v0    # "order":I
     :cond_0
     if-gez p1, :cond_1
 
-    .line 288
+    .line 289
     const/4 v1, -0x1
 
     iput v1, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mPos:I
 
-    .line 290
+    .line 291
     :cond_1
     iget-object v1, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->sortList:Ljava/util/ArrayList;
 
@@ -456,7 +456,7 @@
 
     if-lt p1, v1, :cond_2
 
-    .line 291
+    .line 292
     iget-object v1, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->sortList:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -465,7 +465,7 @@
 
     iput v1, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mPos:I
 
-    .line 293
+    .line 294
     :cond_2
     iget-object v1, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mCursor:Landroid/database/Cursor;
 
@@ -480,7 +480,7 @@
     .locals 1
 
     .prologue
-    .line 309
+    .line 310
     iget v0, p0, Lcom/android/internal/telephony/meizu/MzIccProvider$SortCursor;->mPos:I
 
     add-int/lit8 v0, v0, -0x1

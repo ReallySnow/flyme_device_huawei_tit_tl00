@@ -39,7 +39,7 @@
     .param p5, "val$showImeSwitcher"    # Z
 
     .prologue
-    .line 599
+    .line 415
     iput-object p1, p0, Lcom/android/server/statusbar/StatusBarManagerService$4;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
     iput-object p2, p0, Lcom/android/server/statusbar/StatusBarManagerService$4;->val$token:Landroid/os/IBinder;
@@ -61,7 +61,7 @@
     .locals 6
 
     .prologue
-    .line 601
+    .line 417
     iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$4;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
     invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
@@ -70,7 +70,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 603
+    .line 419
     :try_start_0
     iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$4;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
@@ -90,12 +90,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 600
+    .line 416
     :cond_0
     :goto_0
     return-void
 
-    .line 604
+    .line 420
     :catch_0
     move-exception v0
 

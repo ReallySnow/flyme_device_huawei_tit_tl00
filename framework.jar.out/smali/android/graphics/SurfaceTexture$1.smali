@@ -30,7 +30,7 @@
     .param p5, "val$listener"    # Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
 
     .prologue
-    .line 204
+    .line 200
     iput-object p1, p0, Landroid/graphics/SurfaceTexture$1;->this$0:Landroid/graphics/SurfaceTexture;
 
     iput-object p5, p0, Landroid/graphics/SurfaceTexture$1;->val$listener:Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
@@ -47,13 +47,13 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 207
+    .line 203
     iget-object v0, p0, Landroid/graphics/SurfaceTexture$1;->val$listener:Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
 
     iget-object v1, p0, Landroid/graphics/SurfaceTexture$1;->this$0:Landroid/graphics/SurfaceTexture;
 
     invoke-interface {v0, v1}, Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;->onFrameAvailable(Landroid/graphics/SurfaceTexture;)V
 
-    .line 206
+    .line 202
     return-void
 .end method

@@ -36,7 +36,7 @@
     .param p4, "val$videoCall"    # Landroid/telecom/InCallService$VideoCall;
 
     .prologue
-    .line 1622
+    .line 1349
     iput-object p1, p0, Landroid/telecom/Call$6;->this$0:Landroid/telecom/Call;
 
     iput-object p2, p0, Landroid/telecom/Call$6;->val$callback:Landroid/telecom/Call$Callback;
@@ -56,7 +56,7 @@
     .locals 3
 
     .prologue
-    .line 1625
+    .line 1352
     iget-object v0, p0, Landroid/telecom/Call$6;->val$callback:Landroid/telecom/Call$Callback;
 
     iget-object v1, p0, Landroid/telecom/Call$6;->val$call:Landroid/telecom/Call;
@@ -65,6 +65,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/telecom/Call$Callback;->onVideoCallChanged(Landroid/telecom/Call;Landroid/telecom/InCallService$VideoCall;)V
 
-    .line 1624
+    .line 1351
     return-void
 .end method

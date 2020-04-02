@@ -35,8 +35,6 @@
 
 .field private static final MD5_BYTE_SIZE:I = 0x10
 
-.field private static final STASH_FILE:Ljava/lang/String;
-
 .field private static final STATE_VERSION:I = 0x1
 
 .field private static final SYNC_REQUEST_LATCH_TIMEOUT_SECONDS:I = 0x1
@@ -51,53 +49,18 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    .prologue
-    .line 79
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 80
-    const-string/jumbo v1, "/backup/unadded_account_syncsettings.json"
-
-    .line 79
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->STASH_FILE:Ljava/lang/String;
-
-    .line 57
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 85
+    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 86
+    .line 81
     iput-object p1, p0, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->mContext:Landroid/content/Context;
 
-    .line 87
+    .line 82
     iget-object v0, p0, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
@@ -106,274 +69,8 @@
 
     iput-object v0, p0, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->mAccountManager:Landroid/accounts/AccountManager;
 
-    .line 85
+    .line 80
     return-void
-.end method
-
-.method public static accountAdded(Landroid/content/Context;)V
-    .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-
-    .prologue
-    .line 347
-    new-instance v0, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;
-
-    invoke-direct {v0, p0}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;-><init>(Landroid/content/Context;)V
-
-    .line 348
-    .local v0, "helper":Lcom/android/server/backup/AccountSyncSettingsBackupHelper;
-    invoke-direct {v0}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->accountAddedInternal()V
-
-    .line 346
-    return-void
-.end method
-
-.method private accountAddedInternal()V
-    .locals 12
-
-    .prologue
-    const/4 v9, 0x0
-
-    .line 322
-    const/4 v0, 0x0
-
-    .local v0, "fIn":Ljava/io/FileInputStream;
-    :try_start_0
-    new-instance v1, Ljava/io/FileInputStream;
-
-    new-instance v8, Ljava/io/File;
-
-    sget-object v10, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->STASH_FILE:Ljava/lang/String;
-
-    invoke-direct {v8, v10}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-direct {v1, v8}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_2
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    .line 323
-    .end local v0    # "fIn":Ljava/io/FileInputStream;
-    .local v1, "fIn":Ljava/io/FileInputStream;
-    :try_start_1
-    new-instance v3, Ljava/io/DataInputStream;
-
-    invoke-direct {v3, v1}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
-
-    .line 324
-    .local v3, "in":Ljava/io/DataInputStream;
-    invoke-virtual {v3}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
-    :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_8
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
-
-    move-result-object v6
-
-    .line 332
-    .local v6, "jsonString":Ljava/lang/String;
-    if-eqz v1, :cond_0
-
-    :try_start_2
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_2
-    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_7
-
-    :cond_0
-    :goto_0
-    if-eqz v9, :cond_4
-
-    :try_start_3
-    throw v9
-    :try_end_3
-    .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_7
-
-    .line 325
-    :catch_0
-    move-exception v2
-
-    .local v2, "fnfe":Ljava/io/FileNotFoundException;
-    move-object v0, v1
-
-    .line 328
-    .end local v1    # "fIn":Ljava/io/FileInputStream;
-    .end local v3    # "in":Ljava/io/DataInputStream;
-    .end local v6    # "jsonString":Ljava/lang/String;
-    :goto_1
-    return-void
-
-    .line 332
-    .end local v2    # "fnfe":Ljava/io/FileNotFoundException;
-    .restart local v1    # "fIn":Ljava/io/FileInputStream;
-    .restart local v3    # "in":Ljava/io/DataInputStream;
-    .restart local v6    # "jsonString":Ljava/lang/String;
-    :catch_1
-    move-exception v9
-
-    goto :goto_0
-
-    .end local v1    # "fIn":Ljava/io/FileInputStream;
-    .end local v3    # "in":Ljava/io/DataInputStream;
-    .end local v6    # "jsonString":Ljava/lang/String;
-    .restart local v0    # "fIn":Ljava/io/FileInputStream;
-    :catch_2
-    move-exception v8
-
-    .end local v0    # "fIn":Ljava/io/FileInputStream;
-    :goto_2
-    :try_start_4
-    throw v8
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    :catchall_0
-    move-exception v9
-
-    move-object v11, v9
-
-    move-object v9, v8
-
-    move-object v8, v11
-
-    :goto_3
-    if-eqz v0, :cond_1
-
-    :try_start_5
-    invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
-    :try_end_5
-    .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_4
-    .catch Ljava/io/FileNotFoundException; {:try_start_5 .. :try_end_5} :catch_3
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_5
-
-    :cond_1
-    :goto_4
-    if-eqz v9, :cond_3
-
-    :try_start_6
-    throw v9
-
-    .line 325
-    :catch_3
-    move-exception v2
-
-    .restart local v2    # "fnfe":Ljava/io/FileNotFoundException;
-    goto :goto_1
-
-    .line 332
-    .end local v2    # "fnfe":Ljava/io/FileNotFoundException;
-    :catch_4
-    move-exception v10
-
-    if-nez v9, :cond_2
-
-    move-object v9, v10
-
-    goto :goto_4
-
-    :cond_2
-    if-eq v9, v10, :cond_1
-
-    invoke-virtual {v9, v10}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
-
-    goto :goto_4
-
-    .line 329
-    :catch_5
-    move-exception v4
-
-    .line 331
-    .local v4, "ioe":Ljava/io/IOException;
-    :goto_5
-    return-void
-
-    .line 332
-    .end local v4    # "ioe":Ljava/io/IOException;
-    :cond_3
-    throw v8
-    :try_end_6
-    .catch Ljava/io/FileNotFoundException; {:try_start_6 .. :try_end_6} :catch_3
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_5
-
-    .line 335
-    .restart local v1    # "fIn":Ljava/io/FileInputStream;
-    .restart local v3    # "in":Ljava/io/DataInputStream;
-    .restart local v6    # "jsonString":Ljava/lang/String;
-    :cond_4
-    :try_start_7
-    new-instance v7, Lorg/json/JSONArray;
-
-    invoke-direct {v7, v6}, Lorg/json/JSONArray;-><init>(Ljava/lang/String;)V
-
-    .line 336
-    .local v7, "unaddedAccountsJSONArray":Lorg/json/JSONArray;
-    invoke-direct {p0, v7}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->restoreFromJsonArray(Lorg/json/JSONArray;)V
-    :try_end_7
-    .catch Lorg/json/JSONException; {:try_start_7 .. :try_end_7} :catch_6
-
-    .line 319
-    .end local v7    # "unaddedAccountsJSONArray":Lorg/json/JSONArray;
-    :goto_6
-    return-void
-
-    .line 337
-    :catch_6
-    move-exception v5
-
-    .line 339
-    .local v5, "jse":Lorg/json/JSONException;
-    const-string/jumbo v8, "AccountSyncSettingsBackupHelper"
-
-    const-string/jumbo v9, "there was an error with the stashed sync settings"
-
-    invoke-static {v8, v9, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_6
-
-    .line 329
-    .end local v5    # "jse":Lorg/json/JSONException;
-    :catch_7
-    move-exception v4
-
-    .restart local v4    # "ioe":Ljava/io/IOException;
-    move-object v0, v1
-
-    .end local v1    # "fIn":Ljava/io/FileInputStream;
-    .local v0, "fIn":Ljava/io/FileInputStream;
-    goto :goto_5
-
-    .line 332
-    .end local v3    # "in":Ljava/io/DataInputStream;
-    .end local v4    # "ioe":Ljava/io/IOException;
-    .end local v6    # "jsonString":Ljava/lang/String;
-    .local v0, "fIn":Ljava/io/FileInputStream;
-    :catchall_1
-    move-exception v8
-
-    goto :goto_3
-
-    .end local v0    # "fIn":Ljava/io/FileInputStream;
-    .restart local v1    # "fIn":Ljava/io/FileInputStream;
-    :catchall_2
-    move-exception v8
-
-    move-object v0, v1
-
-    .end local v1    # "fIn":Ljava/io/FileInputStream;
-    .local v0, "fIn":Ljava/io/FileInputStream;
-    goto :goto_3
-
-    .end local v0    # "fIn":Ljava/io/FileInputStream;
-    .restart local v1    # "fIn":Ljava/io/FileInputStream;
-    :catch_8
-    move-exception v8
-
-    move-object v0, v1
-
-    .end local v1    # "fIn":Ljava/io/FileInputStream;
-    .restart local v0    # "fIn":Ljava/io/FileInputStream;
-    goto :goto_2
 .end method
 
 .method private generateMd5Checksum([B)[B
@@ -388,13 +85,13 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 233
+    .line 226
     if-nez p1, :cond_0
 
-    .line 234
+    .line 227
     return-object v1
 
-    .line 237
+    .line 230
     :cond_0
     const-string/jumbo v1, "MD5"
 
@@ -402,7 +99,7 @@
 
     move-result-object v0
 
-    .line 238
+    .line 231
     .local v0, "md5":Ljava/security/MessageDigest;
     invoke-virtual {v0, p1}, Ljava/security/MessageDigest;->digest([B)[B
 
@@ -411,7 +108,7 @@
     return-object v1
 .end method
 
-.method private getAccounts()Ljava/util/HashSet;
+.method private getAccountsHashSet()Ljava/util/HashSet;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -424,20 +121,20 @@
     .end annotation
 
     .prologue
-    .line 357
+    .line 292
     iget-object v3, p0, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->mAccountManager:Landroid/accounts/AccountManager;
 
     invoke-virtual {v3}, Landroid/accounts/AccountManager;->getAccounts()[Landroid/accounts/Account;
 
     move-result-object v2
 
-    .line 358
+    .line 293
     .local v2, "accounts":[Landroid/accounts/Account;
     new-instance v1, Ljava/util/HashSet;
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
-    .line 359
+    .line 294
     .local v1, "accountHashSet":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroid/accounts/Account;>;"
     const/4 v3, 0x0
 
@@ -448,16 +145,16 @@
 
     aget-object v0, v2, v3
 
-    .line 360
+    .line 295
     .local v0, "account":Landroid/accounts/Account;
     invoke-virtual {v1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 359
+    .line 294
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 362
+    .line 297
     .end local v0    # "account":Landroid/accounts/Account;
     :cond_0
     return-object v1
@@ -477,10 +174,10 @@
 
     const/4 v7, 0x1
 
-    .line 192
+    .line 187
     new-instance v0, Ljava/io/DataInputStream;
 
-    .line 193
+    .line 188
     new-instance v5, Ljava/io/FileInputStream;
 
     invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
@@ -489,44 +186,44 @@
 
     invoke-direct {v5, v6}, Ljava/io/FileInputStream;-><init>(Ljava/io/FileDescriptor;)V
 
-    .line 192
+    .line 187
     invoke-direct {v0, v5}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 195
+    .line 190
     .local v0, "dataInput":Ljava/io/DataInputStream;
     new-array v3, v8, [B
 
-    .line 197
+    .line 192
     .local v3, "oldMd5Checksum":[B
     :try_start_0
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v4
 
-    .line 198
+    .line 193
     .local v4, "stateVersion":I
     if-gt v4, v7, :cond_0
 
-    .line 202
+    .line 197
     const/4 v2, 0x0
 
     .local v2, "i":I
     :goto_0
     if-ge v2, v8, :cond_1
 
-    .line 203
+    .line 198
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readByte()B
 
     move-result v5
 
     aput-byte v5, v3, v2
 
-    .line 202
+    .line 197
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 206
+    .line 201
     .end local v2    # "i":I
     :cond_0
     const-string/jumbo v5, "AccountSyncSettingsBackupHelper"
@@ -545,26 +242,26 @@
 
     move-result-object v6
 
-    .line 207
+    .line 202
     const-string/jumbo v7, " (support only up to version "
 
-    .line 206
+    .line 201
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    .line 207
+    .line 202
     const/4 v7, 0x1
 
-    .line 206
+    .line 201
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    .line 207
+    .line 202
     const-string/jumbo v7, ")"
 
-    .line 206
+    .line 201
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
@@ -576,19 +273,37 @@
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 213
-    .end local v4    # "stateVersion":I
+    .line 207
     :cond_1
+    invoke-virtual {v0}, Ljava/io/DataInputStream;->close()V
+
+    .line 209
+    .end local v4    # "stateVersion":I
     :goto_1
     return-object v3
 
-    .line 209
+    .line 204
     :catch_0
     move-exception v1
 
+    .line 207
     .local v1, "eof":Ljava/io/EOFException;
+    invoke-virtual {v0}, Ljava/io/DataInputStream;->close()V
+
     goto :goto_1
+
+    .line 206
+    .end local v1    # "eof":Ljava/io/EOFException;
+    :catchall_0
+    move-exception v5
+
+    .line 207
+    invoke-virtual {v0}, Ljava/io/DataInputStream;->close()V
+
+    .line 206
+    throw v5
 .end method
 
 .method private restoreExistingAccountSyncSettingsFromJSON(Lorg/json/JSONObject;)V
@@ -603,14 +318,14 @@
     .prologue
     const/4 v10, 0x0
 
-    .line 397
+    .line 332
     const-string/jumbo v9, "authorities"
 
     invoke-virtual {p1, v9}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v3
 
-    .line 398
+    .line 333
     .local v3, "authorities":Lorg/json/JSONArray;
     const-string/jumbo v9, "name"
 
@@ -618,7 +333,7 @@
 
     move-result-object v1
 
-    .line 399
+    .line 334
     .local v1, "accountName":Ljava/lang/String;
     const-string/jumbo v9, "type"
 
@@ -626,13 +341,13 @@
 
     move-result-object v2
 
-    .line 401
+    .line 336
     .local v2, "accountType":Ljava/lang/String;
     new-instance v0, Landroid/accounts/Account;
 
     invoke-direct {v0, v1, v2}, Landroid/accounts/Account;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 402
+    .line 337
     .local v0, "account":Landroid/accounts/Account;
     const/4 v6, 0x0
 
@@ -644,14 +359,14 @@
 
     if-ge v6, v9, :cond_2
 
-    .line 403
+    .line 338
     invoke-virtual {v3, v6}, Lorg/json/JSONArray;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Lorg/json/JSONObject;
 
-    .line 404
+    .line 339
     .local v4, "authority":Lorg/json/JSONObject;
     const-string/jumbo v9, "name"
 
@@ -659,7 +374,7 @@
 
     move-result-object v5
 
-    .line 405
+    .line 340
     .local v5, "authorityName":Ljava/lang/String;
     const-string/jumbo v9, "syncEnabled"
 
@@ -667,7 +382,7 @@
 
     move-result v7
 
-    .line 406
+    .line 341
     .local v7, "wasSyncEnabled":Z
     const-string/jumbo v9, "syncState"
 
@@ -675,398 +390,41 @@
 
     move-result v8
 
-    .line 408
+    .line 343
     .local v8, "wasSyncable":I
     invoke-static {v0, v5, v7, v10}, Landroid/content/ContentResolver;->setSyncAutomaticallyAsUser(Landroid/accounts/Account;Ljava/lang/String;ZI)V
 
-    .line 411
+    .line 346
     if-nez v7, :cond_0
 
-    .line 415
+    .line 350
     if-nez v8, :cond_1
 
     move v9, v10
 
-    .line 412
+    .line 347
     :goto_1
     invoke-static {v0, v5, v9}, Landroid/content/ContentResolver;->setIsSyncable(Landroid/accounts/Account;Ljava/lang/String;I)V
 
-    .line 402
+    .line 337
     :cond_0
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    .line 416
+    .line 351
     :cond_1
     const/4 v9, 0x2
 
     goto :goto_1
 
-    .line 395
+    .line 330
     .end local v4    # "authority":Lorg/json/JSONObject;
     .end local v5    # "authorityName":Ljava/lang/String;
     .end local v7    # "wasSyncEnabled":Z
     .end local v8    # "wasSyncable":I
     :cond_2
     return-void
-.end method
-
-.method private restoreFromJsonArray(Lorg/json/JSONArray;)V
-    .locals 21
-    .param p1, "accountJSONArray"    # Lorg/json/JSONArray;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lorg/json/JSONException;
-        }
-    .end annotation
-
-    .prologue
-    .line 277
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->getAccounts()Ljava/util/HashSet;
-
-    move-result-object v7
-
-    .line 278
-    .local v7, "currentAccounts":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroid/accounts/Account;>;"
-    new-instance v16, Lorg/json/JSONArray;
-
-    invoke-direct/range {v16 .. v16}, Lorg/json/JSONArray;-><init>()V
-
-    .line 279
-    .local v16, "unaddedAccountsJSONArray":Lorg/json/JSONArray;
-    const/4 v10, 0x0
-
-    .local v10, "i":I
-    :goto_0
-    invoke-virtual/range {p1 .. p1}, Lorg/json/JSONArray;->length()I
-
-    move-result v17
-
-    move/from16 v0, v17
-
-    if-ge v10, v0, :cond_1
-
-    .line 280
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v10}, Lorg/json/JSONArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lorg/json/JSONObject;
-
-    .line 281
-    .local v4, "accountJSON":Lorg/json/JSONObject;
-    const-string/jumbo v17, "name"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v4, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 282
-    .local v5, "accountName":Ljava/lang/String;
-    const-string/jumbo v17, "type"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v4, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 284
-    .local v6, "accountType":Ljava/lang/String;
-    const/4 v2, 0x0
-
-    .line 286
-    .local v2, "account":Landroid/accounts/Account;
-    :try_start_0
-    new-instance v3, Landroid/accounts/Account;
-
-    invoke-direct {v3, v5, v6}, Landroid/accounts/Account;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_6
-
-    .line 293
-    .end local v2    # "account":Landroid/accounts/Account;
-    .local v3, "account":Landroid/accounts/Account;
-    invoke-virtual {v7, v3}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_0
-
-    .line 295
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v4}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->restoreExistingAccountSyncSettingsFromJSON(Lorg/json/JSONObject;)V
-
-    move-object v2, v3
-
-    .line 279
-    .end local v3    # "account":Landroid/accounts/Account;
-    :goto_1
-    add-int/lit8 v10, v10, 0x1
-
-    goto :goto_0
-
-    .line 297
-    .restart local v3    # "account":Landroid/accounts/Account;
-    :cond_0
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v4}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
-
-    move-object v2, v3
-
-    .end local v3    # "account":Landroid/accounts/Account;
-    .local v2, "account":Landroid/accounts/Account;
-    goto :goto_1
-
-    .line 301
-    .end local v2    # "account":Landroid/accounts/Account;
-    .end local v4    # "accountJSON":Lorg/json/JSONObject;
-    .end local v5    # "accountName":Ljava/lang/String;
-    .end local v6    # "accountType":Ljava/lang/String;
-    :cond_1
-    invoke-virtual/range {v16 .. v16}, Lorg/json/JSONArray;->length()I
-
-    move-result v17
-
-    if-lez v17, :cond_7
-
-    .line 302
-    const/16 v18, 0x0
-
-    const/4 v8, 0x0
-
-    .local v8, "fOutput":Ljava/io/FileOutputStream;
-    :try_start_1
-    new-instance v9, Ljava/io/FileOutputStream;
-
-    sget-object v17, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->STASH_FILE:Ljava/lang/String;
-
-    move-object/from16 v0, v17
-
-    invoke-direct {v9, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_2
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    .line 303
-    .end local v8    # "fOutput":Ljava/io/FileOutputStream;
-    .local v9, "fOutput":Ljava/io/FileOutputStream;
-    :try_start_2
-    invoke-virtual/range {v16 .. v16}, Lorg/json/JSONArray;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    .line 304
-    .local v13, "jsonString":Ljava/lang/String;
-    new-instance v14, Ljava/io/DataOutputStream;
-
-    invoke-direct {v14, v9}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
-
-    .line 305
-    .local v14, "out":Ljava/io/DataOutputStream;
-    invoke-virtual {v14, v13}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
-    :try_end_2
-    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_5
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
-
-    .line 309
-    if-eqz v9, :cond_2
-
-    :try_start_3
-    invoke-virtual {v9}, Ljava/io/FileOutputStream;->close()V
-    :try_end_3
-    .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_1
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
-
-    :cond_2
-    :goto_2
-    if-eqz v18, :cond_3
-
-    :try_start_4
-    throw v18
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
-
-    .line 306
-    :catch_0
-    move-exception v12
-
-    .local v12, "ioe":Ljava/io/IOException;
-    move-object v8, v9
-
-    .line 308
-    .end local v9    # "fOutput":Ljava/io/FileOutputStream;
-    .end local v13    # "jsonString":Ljava/lang/String;
-    .end local v14    # "out":Ljava/io/DataOutputStream;
-    :goto_3
-    const-string/jumbo v17, "AccountSyncSettingsBackupHelper"
-
-    const-string/jumbo v18, "unable to write the sync settings to the stash file"
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    invoke-static {v0, v1, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 276
-    .end local v12    # "ioe":Ljava/io/IOException;
-    :cond_3
-    :goto_4
-    return-void
-
-    .line 309
-    .restart local v9    # "fOutput":Ljava/io/FileOutputStream;
-    .restart local v13    # "jsonString":Ljava/lang/String;
-    .restart local v14    # "out":Ljava/io/DataOutputStream;
-    :catch_1
-    move-exception v18
-
-    goto :goto_2
-
-    .end local v9    # "fOutput":Ljava/io/FileOutputStream;
-    .end local v13    # "jsonString":Ljava/lang/String;
-    .end local v14    # "out":Ljava/io/DataOutputStream;
-    .restart local v8    # "fOutput":Ljava/io/FileOutputStream;
-    :catch_2
-    move-exception v17
-
-    .end local v8    # "fOutput":Ljava/io/FileOutputStream;
-    :goto_5
-    :try_start_5
-    throw v17
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    :catchall_0
-    move-exception v18
-
-    move-object/from16 v20, v18
-
-    move-object/from16 v18, v17
-
-    move-object/from16 v17, v20
-
-    :goto_6
-    if-eqz v8, :cond_4
-
-    :try_start_6
-    invoke-virtual {v8}, Ljava/io/FileOutputStream;->close()V
-    :try_end_6
-    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_4
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
-
-    :cond_4
-    :goto_7
-    if-eqz v18, :cond_6
-
-    :try_start_7
-    throw v18
-
-    .line 306
-    :catch_3
-    move-exception v12
-
-    .restart local v12    # "ioe":Ljava/io/IOException;
-    goto :goto_3
-
-    .line 309
-    .end local v12    # "ioe":Ljava/io/IOException;
-    :catch_4
-    move-exception v19
-
-    if-nez v18, :cond_5
-
-    move-object/from16 v18, v19
-
-    goto :goto_7
-
-    :cond_5
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    if-eq v0, v1, :cond_4
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
-
-    goto :goto_7
-
-    :cond_6
-    throw v17
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_3
-
-    .line 311
-    :cond_7
-    new-instance v15, Ljava/io/File;
-
-    sget-object v17, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->STASH_FILE:Ljava/lang/String;
-
-    move-object/from16 v0, v17
-
-    invoke-direct {v15, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .line 312
-    .local v15, "stashFile":Ljava/io/File;
-    invoke-virtual {v15}, Ljava/io/File;->exists()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_3
-
-    invoke-virtual {v15}, Ljava/io/File;->delete()Z
-
-    goto :goto_4
-
-    .line 309
-    .end local v15    # "stashFile":Ljava/io/File;
-    .restart local v8    # "fOutput":Ljava/io/FileOutputStream;
-    :catchall_1
-    move-exception v17
-
-    goto :goto_6
-
-    .end local v8    # "fOutput":Ljava/io/FileOutputStream;
-    .restart local v9    # "fOutput":Ljava/io/FileOutputStream;
-    :catchall_2
-    move-exception v17
-
-    move-object v8, v9
-
-    .end local v9    # "fOutput":Ljava/io/FileOutputStream;
-    .local v8, "fOutput":Ljava/io/FileOutputStream;
-    goto :goto_6
-
-    .end local v8    # "fOutput":Ljava/io/FileOutputStream;
-    .restart local v9    # "fOutput":Ljava/io/FileOutputStream;
-    :catch_5
-    move-exception v17
-
-    move-object v8, v9
-
-    .end local v9    # "fOutput":Ljava/io/FileOutputStream;
-    .restart local v8    # "fOutput":Ljava/io/FileOutputStream;
-    goto :goto_5
-
-    .line 287
-    .end local v8    # "fOutput":Ljava/io/FileOutputStream;
-    .local v2, "account":Landroid/accounts/Account;
-    .restart local v4    # "accountJSON":Lorg/json/JSONObject;
-    .restart local v5    # "accountName":Ljava/lang/String;
-    .restart local v6    # "accountType":Ljava/lang/String;
-    :catch_6
-    move-exception v11
-
-    .local v11, "iae":Ljava/lang/IllegalArgumentException;
-    goto/16 :goto_1
 .end method
 
 .method private serializeAccountSyncSettingsToJSON()Lorg/json/JSONObject;
@@ -1078,7 +436,7 @@
     .end annotation
 
     .prologue
-    .line 127
+    .line 122
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->mAccountManager:Landroid/accounts/AccountManager;
@@ -1089,7 +447,7 @@
 
     move-result-object v6
 
-    .line 129
+    .line 124
     .local v6, "accounts":[Landroid/accounts/Account;
     move-object/from16 v0, p0
 
@@ -1101,18 +459,18 @@
 
     move-result v17
 
-    .line 128
+    .line 123
     invoke-static/range {v17 .. v17}, Landroid/content/ContentResolver;->getSyncAdapterTypesAsUser(I)[Landroid/content/SyncAdapterType;
 
     move-result-object v14
 
-    .line 133
+    .line 128
     .local v14, "syncAdapters":[Landroid/content/SyncAdapterType;
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
-    .line 135
+    .line 130
     .local v5, "accountTypeToAuthorities":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;"
     const/16 v17, 0x0
 
@@ -1131,7 +489,7 @@
 
     aget-object v13, v14, v18
 
-    .line 137
+    .line 132
     .local v13, "syncAdapter":Landroid/content/SyncAdapterType;
     invoke-virtual {v13}, Landroid/content/SyncAdapterType;->isUserVisible()Z
 
@@ -1139,7 +497,7 @@
 
     if-nez v17, :cond_0
 
-    .line 135
+    .line 130
     :goto_1
     add-int/lit8 v17, v18, 0x1
 
@@ -1147,7 +505,7 @@
 
     goto :goto_0
 
-    .line 140
+    .line 135
     :cond_0
     iget-object v0, v13, Landroid/content/SyncAdapterType;->accountType:Ljava/lang/String;
 
@@ -1161,7 +519,7 @@
 
     if-nez v17, :cond_1
 
-    .line 141
+    .line 136
     iget-object v0, v13, Landroid/content/SyncAdapterType;->accountType:Ljava/lang/String;
 
     move-object/from16 v17, v0
@@ -1176,7 +534,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 143
+    .line 138
     :cond_1
     iget-object v0, v13, Landroid/content/SyncAdapterType;->accountType:Ljava/lang/String;
 
@@ -1202,14 +560,14 @@
 
     goto :goto_1
 
-    .line 147
+    .line 142
     .end local v13    # "syncAdapter":Landroid/content/SyncAdapterType;
     :cond_2
     new-instance v12, Lorg/json/JSONObject;
 
     invoke-direct {v12}, Lorg/json/JSONObject;-><init>()V
 
-    .line 148
+    .line 143
     .local v12, "backupJSON":Lorg/json/JSONObject;
     const-string/jumbo v17, "version"
 
@@ -1221,7 +579,7 @@
 
     invoke-virtual {v12, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 149
+    .line 144
     const-string/jumbo v17, "masterSyncEnabled"
 
     invoke-static {}, Landroid/content/ContentResolver;->getMasterSyncAutomatically()Z
@@ -1234,12 +592,12 @@
 
     invoke-virtual {v12, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
-    .line 151
+    .line 146
     new-instance v4, Lorg/json/JSONArray;
 
     invoke-direct {v4}, Lorg/json/JSONArray;-><init>()V
 
-    .line 152
+    .line 147
     .local v4, "accountJSONArray":Lorg/json/JSONArray;
     const/16 v17, 0x0
 
@@ -1256,7 +614,7 @@
 
     aget-object v2, v6, v17
 
-    .line 153
+    .line 148
     .local v2, "account":Landroid/accounts/Account;
     iget-object v0, v2, Landroid/accounts/Account;->type:Ljava/lang/String;
 
@@ -1270,7 +628,7 @@
 
     check-cast v7, Ljava/util/List;
 
-    .line 157
+    .line 152
     .local v7, "authorities":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     if-eqz v7, :cond_3
 
@@ -1280,20 +638,20 @@
 
     if-eqz v19, :cond_4
 
-    .line 152
+    .line 147
     :cond_3
     :goto_3
     add-int/lit8 v17, v17, 0x1
 
     goto :goto_2
 
-    .line 161
+    .line 156
     :cond_4
     new-instance v3, Lorg/json/JSONObject;
 
     invoke-direct {v3}, Lorg/json/JSONObject;-><init>()V
 
-    .line 162
+    .line 157
     .local v3, "accountJSON":Lorg/json/JSONObject;
     const-string/jumbo v19, "name"
 
@@ -1307,7 +665,7 @@
 
     invoke-virtual {v3, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 163
+    .line 158
     const-string/jumbo v19, "type"
 
     iget-object v0, v2, Landroid/accounts/Account;->type:Ljava/lang/String;
@@ -1320,12 +678,12 @@
 
     invoke-virtual {v3, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 166
+    .line 161
     new-instance v8, Lorg/json/JSONArray;
 
     invoke-direct {v8}, Lorg/json/JSONArray;-><init>()V
 
-    .line 167
+    .line 162
     .local v8, "authoritiesJSONArray":Lorg/json/JSONArray;
     invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -1345,25 +703,25 @@
 
     check-cast v9, Ljava/lang/String;
 
-    .line 168
+    .line 163
     .local v9, "authority":Ljava/lang/String;
     invoke-static {v2, v9}, Landroid/content/ContentResolver;->getIsSyncable(Landroid/accounts/Account;Ljava/lang/String;)I
 
     move-result v16
 
-    .line 169
+    .line 164
     .local v16, "syncState":I
     invoke-static {v2, v9}, Landroid/content/ContentResolver;->getSyncAutomatically(Landroid/accounts/Account;Ljava/lang/String;)Z
 
     move-result v15
 
-    .line 171
+    .line 166
     .local v15, "syncEnabled":Z
     new-instance v11, Lorg/json/JSONObject;
 
     invoke-direct {v11}, Lorg/json/JSONObject;-><init>()V
 
-    .line 172
+    .line 167
     .local v11, "authorityJSON":Lorg/json/JSONObject;
     const-string/jumbo v19, "name"
 
@@ -1371,7 +729,7 @@
 
     invoke-virtual {v11, v0, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 173
+    .line 168
     const-string/jumbo v19, "syncState"
 
     move-object/from16 v0, v19
@@ -1380,19 +738,19 @@
 
     invoke-virtual {v11, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 174
+    .line 169
     const-string/jumbo v19, "syncEnabled"
 
     move-object/from16 v0, v19
 
     invoke-virtual {v11, v0, v15}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
-    .line 175
+    .line 170
     invoke-virtual {v8, v11}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
     goto :goto_4
 
-    .line 177
+    .line 172
     .end local v9    # "authority":Ljava/lang/String;
     .end local v11    # "authorityJSON":Lorg/json/JSONObject;
     .end local v15    # "syncEnabled":Z
@@ -1404,12 +762,12 @@
 
     invoke-virtual {v3, v0, v8}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 179
+    .line 174
     invoke-virtual {v4, v3}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
     goto :goto_3
 
-    .line 181
+    .line 176
     .end local v2    # "account":Landroid/accounts/Account;
     .end local v3    # "accountJSON":Lorg/json/JSONObject;
     .end local v7    # "authorities":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
@@ -1422,7 +780,7 @@
 
     invoke-virtual {v12, v0, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 183
+    .line 178
     return-object v12
 .end method
 
@@ -1437,10 +795,10 @@
     .end annotation
 
     .prologue
-    .line 221
+    .line 217
     new-instance v0, Ljava/io/DataOutputStream;
 
-    .line 222
+    .line 218
     new-instance v1, Ljava/io/BufferedOutputStream;
 
     new-instance v2, Ljava/io/FileOutputStream;
@@ -1453,19 +811,22 @@
 
     invoke-direct {v1, v2}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 221
+    .line 217
     invoke-direct {v0, v1}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 224
+    .line 220
     .local v0, "dataOutput":Ljava/io/DataOutputStream;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 225
+    .line 221
     invoke-virtual {v0, p2}, Ljava/io/DataOutputStream;->write([B)V
 
-    .line 220
+    .line 222
+    invoke-virtual {v0}, Ljava/io/DataOutputStream;->close()V
+
+    .line 216
     return-void
 .end method
 
@@ -1478,13 +839,13 @@
     .param p3, "newState"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
-    .line 97
+    .line 92
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->serializeAccountSyncSettingsToJSON()Lorg/json/JSONObject;
 
     move-result-object v1
 
-    .line 104
+    .line 99
     .local v1, "dataJSON":Lorg/json/JSONObject;
     invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
@@ -1496,19 +857,19 @@
 
     move-result-object v0
 
-    .line 105
+    .line 100
     .local v0, "dataBytes":[B
     invoke-direct {p0, p1}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->readOldMd5Checksum(Landroid/os/ParcelFileDescriptor;)[B
 
     move-result-object v5
 
-    .line 106
+    .line 101
     .local v5, "oldMd5Checksum":[B
     invoke-direct {p0, v0}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->generateMd5Checksum([B)[B
 
     move-result-object v4
 
-    .line 107
+    .line 102
     .local v4, "newMd5Checksum":[B
     invoke-static {v5, v4}, Ljava/util/Arrays;->equals([B[B)Z
 
@@ -1516,31 +877,31 @@
 
     if-nez v6, :cond_0
 
-    .line 108
+    .line 103
     array-length v2, v0
 
-    .line 109
+    .line 104
     .local v2, "dataSize":I
     const-string/jumbo v6, "account_data"
 
     invoke-virtual {p2, v6, v2}, Landroid/app/backup/BackupDataOutput;->writeEntityHeader(Ljava/lang/String;I)I
 
-    .line 110
+    .line 105
     invoke-virtual {p2, v0, v2}, Landroid/app/backup/BackupDataOutput;->writeEntityData([BI)I
 
-    .line 112
+    .line 107
     const-string/jumbo v6, "AccountSyncSettingsBackupHelper"
 
     const-string/jumbo v7, "Backup successful."
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 117
+    .line 112
     .end local v2    # "dataSize":I
     :goto_0
     invoke-direct {p0, p3, v4}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->writeNewMd5Checksum(Landroid/os/ParcelFileDescriptor;[B)V
 
-    .line 95
+    .line 90
     .end local v0    # "dataBytes":[B
     .end local v1    # "dataJSON":Lorg/json/JSONObject;
     .end local v4    # "newMd5Checksum":[B
@@ -1548,7 +909,7 @@
     :goto_1
     return-void
 
-    .line 114
+    .line 109
     .restart local v0    # "dataBytes":[B
     .restart local v1    # "dataJSON":Lorg/json/JSONObject;
     .restart local v4    # "newMd5Checksum":[B
@@ -1566,7 +927,7 @@
 
     goto :goto_0
 
-    .line 118
+    .line 113
     .end local v0    # "dataBytes":[B
     .end local v1    # "dataJSON":Lorg/json/JSONObject;
     .end local v4    # "newMd5Checksum":[B
@@ -1574,7 +935,7 @@
     :catch_0
     move-exception v3
 
-    .line 119
+    .line 114
     .local v3, "e":Ljava/lang/Exception;
     const-string/jumbo v6, "AccountSyncSettingsBackupHelper"
 
@@ -1602,148 +963,219 @@
 .end method
 
 .method public restoreEntity(Landroid/app/backup/BackupDataInputStream;)V
-    .locals 10
+    .locals 17
     .param p1, "data"    # Landroid/app/backup/BackupDataInputStream;
 
     .prologue
+    .line 239
+    invoke-virtual/range {p1 .. p1}, Landroid/app/backup/BackupDataInputStream;->size()I
+
+    move-result v14
+
+    new-array v8, v14, [B
+
+    .line 242
+    .local v8, "dataBytes":[B
+    :try_start_0
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v8}, Landroid/app/backup/BackupDataInputStream;->read([B)I
+
+    .line 243
+    new-instance v10, Ljava/lang/String;
+
+    const-string/jumbo v14, "UTF-8"
+
+    invoke-direct {v10, v8, v14}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+
     .line 246
-    invoke-virtual {p1}, Landroid/app/backup/BackupDataInputStream;->size()I
+    .local v10, "dataString":Ljava/lang/String;
+    new-instance v9, Lorg/json/JSONObject;
+
+    invoke-direct {v9, v10}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    .line 247
+    .local v9, "dataJSON":Lorg/json/JSONObject;
+    const-string/jumbo v14, "masterSyncEnabled"
+
+    invoke-virtual {v9, v14}, Lorg/json/JSONObject;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v13
+
+    .line 248
+    .local v13, "masterSyncEnabled":Z
+    const-string/jumbo v14, "accounts"
+
+    invoke-virtual {v9, v14}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v3
+
+    .line 250
+    .local v3, "accountJSONArray":Lorg/json/JSONArray;
+    invoke-static {}, Landroid/content/ContentResolver;->getMasterSyncAutomatically()Z
 
     move-result v7
 
-    new-array v2, v7, [B
-
-    .line 249
-    .local v2, "dataBytes":[B
-    :try_start_0
-    invoke-virtual {p1, v2}, Landroid/app/backup/BackupDataInputStream;->read([B)I
-
-    .line 250
-    new-instance v4, Ljava/lang/String;
-
-    const-string/jumbo v7, "UTF-8"
-
-    invoke-direct {v4, v2, v7}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    .line 251
+    .local v7, "currentMasterSyncEnabled":Z
+    if-eqz v7, :cond_0
 
     .line 253
-    .local v4, "dataString":Ljava/lang/String;
-    new-instance v3, Lorg/json/JSONObject;
+    const/4 v14, 0x0
 
-    invoke-direct {v3, v4}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    .line 254
-    .local v3, "dataJSON":Lorg/json/JSONObject;
-    const-string/jumbo v7, "masterSyncEnabled"
-
-    invoke-virtual {v3, v7}, Lorg/json/JSONObject;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v6
-
-    .line 255
-    .local v6, "masterSyncEnabled":Z
-    const-string/jumbo v7, "accounts"
-
-    invoke-virtual {v3, v7}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
-
-    move-result-object v0
-
-    .line 257
-    .local v0, "accountJSONArray":Lorg/json/JSONArray;
-    invoke-static {}, Landroid/content/ContentResolver;->getMasterSyncAutomatically()Z
-
-    move-result v1
-
-    .line 258
-    .local v1, "currentMasterSyncEnabled":Z
-    if-eqz v1, :cond_0
-
-    .line 260
-    const/4 v7, 0x0
-
-    invoke-static {v7}, Landroid/content/ContentResolver;->setMasterSyncAutomatically(Z)V
+    invoke-static {v14}, Landroid/content/ContentResolver;->setMasterSyncAutomatically(Z)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 264
+    .line 257
     :cond_0
     :try_start_1
-    invoke-direct {p0, v0}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->restoreFromJsonArray(Lorg/json/JSONArray;)V
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->getAccountsHashSet()Ljava/util/HashSet;
+
+    move-result-object v6
+
+    .line 258
+    .local v6, "currentAccounts":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroid/accounts/Account;>;"
+    const/4 v12, 0x0
+
+    .local v12, "i":I
+    :goto_0
+    invoke-virtual {v3}, Lorg/json/JSONArray;->length()I
+
+    move-result v14
+
+    if-ge v12, v14, :cond_2
+
+    .line 259
+    invoke-virtual {v3, v12}, Lorg/json/JSONArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lorg/json/JSONObject;
+
+    .line 260
+    .local v2, "accountJSON":Lorg/json/JSONObject;
+    const-string/jumbo v14, "name"
+
+    invoke-virtual {v2, v14}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 261
+    .local v4, "accountName":Ljava/lang/String;
+    const-string/jumbo v14, "type"
+
+    invoke-virtual {v2, v14}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 263
+    .local v5, "accountType":Ljava/lang/String;
+    new-instance v1, Landroid/accounts/Account;
+
+    invoke-direct {v1, v4, v5}, Landroid/accounts/Account;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 267
+    .local v1, "account":Landroid/accounts/Account;
+    invoke-virtual {v6, v1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_1
+
+    .line 268
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;->restoreExistingAccountSyncSettingsFromJSON(Lorg/json/JSONObject;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 267
+    .line 258
+    :cond_1
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_0
+
+    .line 277
+    .end local v1    # "account":Landroid/accounts/Account;
+    .end local v2    # "accountJSON":Lorg/json/JSONObject;
+    .end local v4    # "accountName":Ljava/lang/String;
+    .end local v5    # "accountType":Ljava/lang/String;
+    :cond_2
     :try_start_2
-    invoke-static {v6}, Landroid/content/ContentResolver;->setMasterSyncAutomatically(Z)V
+    invoke-static {v13}, Landroid/content/ContentResolver;->setMasterSyncAutomatically(Z)V
 
-    .line 269
-    const-string/jumbo v7, "AccountSyncSettingsBackupHelper"
+    .line 280
+    const-string/jumbo v14, "AccountSyncSettingsBackupHelper"
 
-    const-string/jumbo v8, "Restore successful."
+    const-string/jumbo v15, "Restore successful."
 
-    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 245
-    .end local v0    # "accountJSONArray":Lorg/json/JSONArray;
-    .end local v1    # "currentMasterSyncEnabled":Z
-    .end local v3    # "dataJSON":Lorg/json/JSONObject;
-    .end local v4    # "dataString":Ljava/lang/String;
-    .end local v6    # "masterSyncEnabled":Z
-    :goto_0
+    .line 238
+    .end local v3    # "accountJSONArray":Lorg/json/JSONArray;
+    .end local v6    # "currentAccounts":Ljava/util/HashSet;, "Ljava/util/HashSet<Landroid/accounts/Account;>;"
+    .end local v7    # "currentMasterSyncEnabled":Z
+    .end local v9    # "dataJSON":Lorg/json/JSONObject;
+    .end local v10    # "dataString":Ljava/lang/String;
+    .end local v12    # "i":I
+    .end local v13    # "masterSyncEnabled":Z
+    :goto_1
     return-void
 
-    .line 265
-    .restart local v0    # "accountJSONArray":Lorg/json/JSONArray;
-    .restart local v1    # "currentMasterSyncEnabled":Z
-    .restart local v3    # "dataJSON":Lorg/json/JSONObject;
-    .restart local v4    # "dataString":Ljava/lang/String;
-    .restart local v6    # "masterSyncEnabled":Z
+    .line 275
+    .restart local v3    # "accountJSONArray":Lorg/json/JSONArray;
+    .restart local v7    # "currentMasterSyncEnabled":Z
+    .restart local v9    # "dataJSON":Lorg/json/JSONObject;
+    .restart local v10    # "dataString":Ljava/lang/String;
+    .restart local v13    # "masterSyncEnabled":Z
     :catchall_0
-    move-exception v7
+    move-exception v14
 
-    .line 267
-    invoke-static {v6}, Landroid/content/ContentResolver;->setMasterSyncAutomatically(Z)V
+    .line 277
+    invoke-static {v13}, Landroid/content/ContentResolver;->setMasterSyncAutomatically(Z)V
 
-    .line 265
-    throw v7
+    .line 275
+    throw v14
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Lorg/json/JSONException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 270
-    .end local v0    # "accountJSONArray":Lorg/json/JSONArray;
-    .end local v1    # "currentMasterSyncEnabled":Z
-    .end local v3    # "dataJSON":Lorg/json/JSONObject;
-    .end local v4    # "dataString":Ljava/lang/String;
-    .end local v6    # "masterSyncEnabled":Z
+    .line 281
+    .end local v3    # "accountJSONArray":Lorg/json/JSONArray;
+    .end local v7    # "currentMasterSyncEnabled":Z
+    .end local v9    # "dataJSON":Lorg/json/JSONObject;
+    .end local v10    # "dataString":Ljava/lang/String;
+    .end local v13    # "masterSyncEnabled":Z
     :catch_0
-    move-exception v5
+    move-exception v11
 
-    .line 271
-    .local v5, "e":Ljava/lang/Exception;
-    const-string/jumbo v7, "AccountSyncSettingsBackupHelper"
+    .line 282
+    .local v11, "e":Ljava/lang/Exception;
+    const-string/jumbo v14, "AccountSyncSettingsBackupHelper"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "Couldn\'t restore account sync settings\n"
+    const-string/jumbo v16, "Couldn\'t restore account sync settings\n"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v15
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v15, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v15
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v15
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v14, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public writeNewStateDescription(Landroid/os/ParcelFileDescriptor;)V
@@ -1751,6 +1183,6 @@
     .param p1, "newState"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
-    .line 422
+    .line 357
     return-void
 .end method

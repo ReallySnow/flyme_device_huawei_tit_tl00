@@ -15,8 +15,6 @@
 
 
 # instance fields
-.field andPause:Z
-
 .field intents:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -36,7 +34,7 @@
     .locals 0
 
     .prologue
-    .line 453
+    .line 369
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,7 +46,7 @@
     .locals 2
 
     .prologue
-    .line 458
+    .line 373
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -77,26 +75,8 @@
 
     move-result-object v0
 
-    .line 459
-    const-string/jumbo v1, " andPause="
-
-    .line 458
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 459
-    iget-boolean v1, p0, Landroid/app/ActivityThread$NewIntentData;->andPause:Z
-
-    .line 458
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 459
     const-string/jumbo v1, "}"
 
-    .line 458
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

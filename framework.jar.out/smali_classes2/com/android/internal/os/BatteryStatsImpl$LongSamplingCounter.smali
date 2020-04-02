@@ -20,6 +20,8 @@
 # instance fields
 .field mCount:J
 
+.field mLastCount:J
+
 .field mLoadedCount:J
 
 .field mPluggedCount:J
@@ -35,16 +37,16 @@
     .param p1, "timeBase"    # Lcom/android/internal/os/BatteryStatsImpl$TimeBase;
 
     .prologue
-    .line 947
+    .line 829
     invoke-direct {p0}, Landroid/os/BatteryStats$LongCounter;-><init>()V
 
-    .line 948
+    .line 830
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mTimeBase:Lcom/android/internal/os/BatteryStatsImpl$TimeBase;
 
-    .line 949
+    .line 831
     invoke-virtual {p1, p0}, Lcom/android/internal/os/BatteryStatsImpl$TimeBase;->add(Lcom/android/internal/os/BatteryStatsImpl$TimeBaseObs;)V
 
-    .line 947
+    .line 829
     return-void
 .end method
 
@@ -54,42 +56,47 @@
     .param p2, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 938
+    .line 819
     invoke-direct {p0}, Landroid/os/BatteryStats$LongCounter;-><init>()V
 
-    .line 939
+    .line 820
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mTimeBase:Lcom/android/internal/os/BatteryStatsImpl$TimeBase;
 
-    .line 940
+    .line 821
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mPluggedCount:J
 
-    .line 941
+    .line 822
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mPluggedCount:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
-    .line 942
+    .line 823
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLoadedCount:J
 
-    .line 943
+    .line 824
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLastCount:J
+
+    .line 825
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mUnpluggedCount:J
 
-    .line 944
+    .line 826
     invoke-virtual {p1, p0}, Lcom/android/internal/os/BatteryStatsImpl$TimeBase;->add(Lcom/android/internal/os/BatteryStatsImpl$TimeBaseObs;)V
 
-    .line 938
+    .line 819
     return-void
 .end method
 
@@ -100,14 +107,14 @@
     .param p1, "count"    # J
 
     .prologue
-    .line 988
+    .line 871
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
     add-long/2addr v0, p1
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
-    .line 987
+    .line 870
     return-void
 .end method
 
@@ -115,12 +122,12 @@
     .locals 1
 
     .prologue
-    .line 1003
+    .line 886
     iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mTimeBase:Lcom/android/internal/os/BatteryStatsImpl$TimeBase;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/os/BatteryStatsImpl$TimeBase;->remove(Lcom/android/internal/os/BatteryStatsImpl$TimeBaseObs;)V
 
-    .line 1002
+    .line 885
     return-void
 .end method
 
@@ -129,52 +136,35 @@
     .param p1, "which"    # I
 
     .prologue
-    .line 970
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mTimeBase:Lcom/android/internal/os/BatteryStatsImpl$TimeBase;
-
-    invoke-virtual {v2}, Lcom/android/internal/os/BatteryStatsImpl$TimeBase;->isRunning()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
+    .line 852
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
-    .line 971
+    .line 853
     .local v0, "val":J
-    :goto_0
     const/4 v2, 0x2
 
-    if-ne p1, v2, :cond_2
+    if-ne p1, v2, :cond_1
 
-    .line 972
+    .line 854
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mUnpluggedCount:J
 
     sub-long/2addr v0, v2
 
-    .line 976
+    .line 859
     :cond_0
-    :goto_1
+    :goto_0
     return-wide v0
 
-    .line 970
-    .end local v0    # "val":J
+    .line 855
     :cond_1
-    iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mPluggedCount:J
-
-    .restart local v0    # "val":J
-    goto :goto_0
-
-    .line 973
-    :cond_2
     if-eqz p1, :cond_0
 
-    .line 974
+    .line 856
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLoadedCount:J
 
     sub-long/2addr v0, v2
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public logState(Landroid/util/Printer;Ljava/lang/String;)V
@@ -183,7 +173,7 @@
     .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
-    .line 981
+    .line 864
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -204,50 +194,66 @@
 
     move-result-object v0
 
-    .line 982
+    .line 865
     const-string/jumbo v1, " mLoadedCount="
 
-    .line 981
+    .line 864
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 982
+    .line 865
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLoadedCount:J
 
-    .line 981
+    .line 864
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 983
+    .line 865
+    const-string/jumbo v1, " mLastCount="
+
+    .line 864
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    .line 865
+    iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLastCount:J
+
+    .line 864
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    .line 866
     const-string/jumbo v1, " mUnpluggedCount="
 
-    .line 981
+    .line 864
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 983
+    .line 866
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mUnpluggedCount:J
 
-    .line 981
+    .line 864
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 984
+    .line 867
     const-string/jumbo v1, " mPluggedCount="
 
-    .line 981
+    .line 864
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 984
+    .line 867
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mPluggedCount:J
 
-    .line 981
+    .line 864
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -258,7 +264,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 980
+    .line 863
     return-void
 .end method
 
@@ -269,17 +275,17 @@
     .param p5, "baseRealtime"    # J
 
     .prologue
-    .line 960
+    .line 842
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mPluggedCount:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mUnpluggedCount:J
 
-    .line 961
+    .line 843
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mPluggedCount:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
-    .line 959
+    .line 841
     return-void
 .end method
 
@@ -290,12 +296,12 @@
     .param p5, "baseRealtime"    # J
 
     .prologue
-    .line 966
+    .line 848
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mPluggedCount:J
 
-    .line 965
+    .line 847
     return-void
 .end method
 
@@ -304,26 +310,31 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 1011
+    .line 894
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLoadedCount:J
 
-    .line 1012
+    .line 895
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLoadedCount:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
-    .line 1013
+    .line 896
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLastCount:J
+
+    .line 897
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLoadedCount:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mPluggedCount:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mUnpluggedCount:J
 
-    .line 1010
+    .line 893
     return-void
 .end method
 
@@ -334,23 +345,25 @@
     .prologue
     const-wide/16 v0, 0x0
 
-    .line 995
+    .line 878
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
-    .line 996
+    .line 879
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mUnpluggedCount:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mPluggedCount:J
 
+    iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLastCount:J
+
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLoadedCount:J
 
-    .line 997
+    .line 880
     if-eqz p1, :cond_0
 
-    .line 998
+    .line 881
     invoke-virtual {p0}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->detach()V
 
-    .line 994
+    .line 877
     :cond_0
     return-void
 .end method
@@ -360,12 +373,12 @@
     .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
-    .line 1007
+    .line 890
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 1006
+    .line 889
     return-void
 .end method
 
@@ -374,21 +387,21 @@
     .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
-    .line 953
+    .line 835
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mCount:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 954
+    .line 836
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mLoadedCount:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 955
+    .line 837
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->mUnpluggedCount:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 952
+    .line 834
     return-void
 .end method

@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/connectivity/PacManager;
 
     .prologue
-    .line 340
+    .line 336
     iput-object p1, p0, Lcom/android/server/connectivity/PacManager$3;->this$0:Lcom/android/server/connectivity/PacManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,16 +43,16 @@
     .param p2, "binder"    # Landroid/os/IBinder;
 
     .prologue
-    .line 347
+    .line 343
     invoke-static {p2}, Lcom/android/net/IProxyCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/net/IProxyCallback;
 
     move-result-object v0
 
-    .line 348
+    .line 344
     .local v0, "callbackService":Lcom/android/net/IProxyCallback;
     if-eqz v0, :cond_0
 
-    .line 350
+    .line 346
     :try_start_0
     new-instance v2, Lcom/android/server/connectivity/PacManager$3$1;
 
@@ -62,16 +62,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 346
+    .line 342
     :cond_0
     :goto_0
     return-void
 
-    .line 367
+    .line 363
     :catch_0
     move-exception v1
 
-    .line 368
+    .line 364
     .local v1, "e":Landroid/os/RemoteException;
     invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
 
@@ -83,6 +83,6 @@
     .param p1, "component"    # Landroid/content/ComponentName;
 
     .prologue
-    .line 342
+    .line 338
     return-void
 .end method

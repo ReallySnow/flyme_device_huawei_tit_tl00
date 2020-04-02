@@ -17,11 +17,3 @@
 # virtual methods
 .method public abstract onChecked(ZI)V
 .end method
-
-.method public onEarlyMatched()V
-    .locals 0
-
-    .prologue
-    .line 23
-    return-void
-.end method

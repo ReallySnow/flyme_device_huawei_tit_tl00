@@ -486,7 +486,7 @@
     move-result-object v3
 
     .line 471
-    const v4, 0x104051e
+    const v4, 0x10404e2
 
     .line 470
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -639,7 +639,7 @@
 
     .prologue
     .line 544
-    const v1, 0x102033f
+    const v1, 0x102030c
 
     invoke-virtual {p0, v1}, Landroid/accounts/ChooseTypeAndAccountActivity;->findViewById(I)Landroid/view/View;
 
@@ -780,7 +780,7 @@
 
     .prologue
     .line 402
-    const v0, 0x1030134
+    const v0, 0x103023c
 
     invoke-virtual {p0, v0}, Landroid/accounts/ChooseTypeAndAccountActivity;->setTheme(I)V
 
@@ -1639,7 +1639,7 @@
     invoke-virtual {p0, v8}, Landroid/accounts/ChooseTypeAndAccountActivity;->requestWindowFeature(I)Z
 
     .line 197
-    const v7, 0x1090034
+    const v7, 0x1090033
 
     invoke-virtual {p0, v7}, Landroid/accounts/ChooseTypeAndAccountActivity;->setContentView(I)V
 
@@ -1795,7 +1795,7 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 228
-    const v7, 0x1090042
+    const v7, 0x1090041
 
     invoke-virtual {p0, v7}, Landroid/accounts/ChooseTypeAndAccountActivity;->setContentView(I)V
 

@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	Vim help file
 " Maintainer:	Bram Moolenaar (Bram@vim.org)
-" Last Change:	2016 Sep 02
+" Last Change:	2014 Feb 12
 
 " Quit when a (custom) syntax file was already loaded
 if exists("b:current_syntax")
@@ -45,7 +45,6 @@ syn match helpVim		"VIM REFERENCE.*"
 syn match helpOption		"'[a-z]\{2,\}'"
 syn match helpOption		"'t_..'"
 syn match helpCommand		"`[^` \t]\+`"hs=s+1,he=e-1 contains=helpBacktick
-syn match helpCommand		"\(^\|[^a-z"[]\)\zs`[^`]\+`\ze\([^a-z\t."']\|$\)"hs=s+1,he=e-1 contains=helpBacktick
 syn match helpHeader		"\s*\zs.\{-}\ze\s\=\~$" nextgroup=helpIgnore
 syn match helpGraphic		".* \ze`$" nextgroup=helpIgnore
 if has("conceal")
@@ -54,7 +53,6 @@ else
   syn match helpIgnore		"." contained
 endif
 syn keyword helpNote		note Note NOTE note: Note: NOTE: Notes Notes:
-syn keyword helpWarning		WARNING: Warning:
 syn match helpSpecial		"\<N\>"
 syn match helpSpecial		"\<N\.$"me=e-1
 syn match helpSpecial		"\<N\.\s"me=e-2
@@ -170,7 +168,6 @@ hi def link helpOption		Type
 hi def link helpNotVi		Special
 hi def link helpSpecial		Special
 hi def link helpNote		Todo
-hi def link helpWarning		Todo
 
 hi def link helpComment		Comment
 hi def link helpConstant	Constant

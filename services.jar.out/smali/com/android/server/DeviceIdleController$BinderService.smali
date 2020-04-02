@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/DeviceIdleController;
 
     .prologue
-    .line 1137
+    .line 754
     iput-object p1, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-direct {p0}, Landroid/os/IDeviceIdleController$Stub;-><init>()V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public addPowerSaveTempWhitelistApp(Ljava/lang/String;JILjava/lang/String;)V
-    .locals 6
+    .locals 12
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "duration"    # J
     .param p4, "userId"    # I
@@ -57,21 +57,98 @@
     .end annotation
 
     .prologue
-    .line 1218
+    .line 811
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    move-object v1, p1
+    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
 
-    move-wide v2, p2
+    move-result-object v0
 
-    move v4, p4
+    .line 812
+    const-string/jumbo v1, "android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST"
 
-    move-object v5, p5
+    .line 813
+    const-string/jumbo v3, "No permission to change device idle whitelist"
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/DeviceIdleController;->addPowerSaveTempWhitelistAppChecked(Ljava/lang/String;JILjava/lang/String;)V
+    .line 811
+    invoke-virtual {v0, v1, v3}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1217
+    .line 814
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v2
+
+    .line 815
+    .local v2, "callingUid":I
+    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+
+    move-result-object v0
+
+    .line 816
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v1
+
+    .line 821
+    const-string/jumbo v6, "addPowerSaveTempWhitelistApp"
+
+    .line 819
+    const/4 v4, 0x0
+
+    .line 820
+    const/4 v5, 0x0
+
+    .line 821
+    const/4 v7, 0x0
+
+    move/from16 v3, p4
+
+    .line 815
+    invoke-interface/range {v0 .. v7}, Landroid/app/IActivityManager;->handleIncomingUser(IIIZZLjava/lang/String;Ljava/lang/String;)I
+
+    move-result p4
+
+    .line 822
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    .line 824
+    .local v10, "token":J
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
+
+    .line 825
+    const/4 v7, 0x1
+
+    move-object v3, p1
+
+    move-wide v4, p2
+
+    move/from16 v6, p4
+
+    move-object/from16 v8, p5
+
+    .line 824
+    invoke-virtual/range {v1 .. v8}, Lcom/android/server/DeviceIdleController;->addPowerSaveTempWhitelistAppInternal(ILjava/lang/String;JIZLjava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 827
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    .line 810
     return-void
+
+    .line 826
+    :catchall_0
+    move-exception v0
+
+    .line 827
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    .line 826
+    throw v0
 .end method
 
 .method public addPowerSaveTempWhitelistAppForMms(Ljava/lang/String;ILjava/lang/String;)J
@@ -86,7 +163,7 @@
     .end annotation
 
     .prologue
-    .line 1223
+    .line 833
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-static {v0}, Lcom/android/server/DeviceIdleController;->-get1(Lcom/android/server/DeviceIdleController;)Lcom/android/server/DeviceIdleController$Constants;
@@ -95,9 +172,8 @@
 
     iget-wide v2, v0, Lcom/android/server/DeviceIdleController$Constants;->MMS_TEMP_APP_WHITELIST_DURATION:J
 
-    .line 1224
     .local v2, "duration":J
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
+    move-object v0, p0
 
     move-object v1, p1
 
@@ -105,9 +181,10 @@
 
     move-object v5, p3
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/DeviceIdleController;->addPowerSaveTempWhitelistAppChecked(Ljava/lang/String;JILjava/lang/String;)V
+    .line 834
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/DeviceIdleController$BinderService;->addPowerSaveTempWhitelistApp(Ljava/lang/String;JILjava/lang/String;)V
 
-    .line 1225
+    .line 835
     return-wide v2
 .end method
 
@@ -123,7 +200,7 @@
     .end annotation
 
     .prologue
-    .line 1230
+    .line 840
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-static {v0}, Lcom/android/server/DeviceIdleController;->-get1(Lcom/android/server/DeviceIdleController;)Lcom/android/server/DeviceIdleController$Constants;
@@ -132,9 +209,8 @@
 
     iget-wide v2, v0, Lcom/android/server/DeviceIdleController$Constants;->SMS_TEMP_APP_WHITELIST_DURATION:J
 
-    .line 1231
     .local v2, "duration":J
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
+    move-object v0, p0
 
     move-object v1, p1
 
@@ -142,61 +218,40 @@
 
     move-object v5, p3
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/DeviceIdleController;->addPowerSaveTempWhitelistAppChecked(Ljava/lang/String;JILjava/lang/String;)V
+    .line 841
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/DeviceIdleController$BinderService;->addPowerSaveTempWhitelistApp(Ljava/lang/String;JILjava/lang/String;)V
 
-    .line 1232
+    .line 842
     return-wide v2
 .end method
 
 .method public addPowerSaveWhitelistApp(Ljava/lang/String;)V
-    .locals 5
+    .locals 3
     .param p1, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 1139
-    iget-object v2, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
+    .line 756
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-virtual {v2}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string/jumbo v3, "android.permission.DEVICE_POWER"
+    const-string/jumbo v1, "android.permission.DEVICE_POWER"
 
-    .line 1140
-    const/4 v4, 0x0
+    .line 757
+    const/4 v2, 0x0
 
-    .line 1139
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    .line 756
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1141
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    .line 758
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    move-result-wide v0
+    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->addPowerSaveWhitelistAppInternal(Ljava/lang/String;)Z
 
-    .line 1143
-    .local v0, "ident":J
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-virtual {v2, p1}, Lcom/android/server/DeviceIdleController;->addPowerSaveWhitelistAppInternal(Ljava/lang/String;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 1145
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    .line 1138
+    .line 755
     return-void
-
-    .line 1144
-    :catchall_0
-    move-exception v2
-
-    .line 1145
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    .line 1144
-    throw v2
 .end method
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
@@ -206,88 +261,52 @@
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 1257
+    .line 852
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/DeviceIdleController;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
-    .line 1256
+    .line 851
     return-void
 .end method
 
 .method public exitIdle(Ljava/lang/String;)V
-    .locals 5
+    .locals 3
     .param p1, "reason"    # Ljava/lang/String;
 
     .prologue
-    .line 1236
-    iget-object v2, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
+    .line 846
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-virtual {v2}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string/jumbo v3, "android.permission.DEVICE_POWER"
+    const-string/jumbo v1, "android.permission.DEVICE_POWER"
 
-    .line 1237
-    const/4 v4, 0x0
+    .line 847
+    const/4 v2, 0x0
 
-    .line 1236
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    .line 846
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1238
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    .line 848
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    move-result-wide v0
+    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->exitIdleInternal(Ljava/lang/String;)V
 
-    .line 1240
-    .local v0, "ident":J
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-virtual {v2, p1}, Lcom/android/server/DeviceIdleController;->exitIdleInternal(Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 1242
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    .line 1235
+    .line 845
     return-void
-
-    .line 1241
-    :catchall_0
-    move-exception v2
-
-    .line 1242
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    .line 1241
-    throw v2
 .end method
 
 .method public getAppIdTempWhitelist()[I
     .locals 1
 
     .prologue
-    .line 1193
+    .line 792
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getAppIdTempWhitelistInternal()[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getAppIdUserWhitelist()[I
-    .locals 1
-
-    .prologue
-    .line 1189
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getAppIdUserWhitelistInternal()[I
 
     move-result-object v0
 
@@ -298,7 +317,7 @@
     .locals 1
 
     .prologue
-    .line 1185
+    .line 788
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getAppIdWhitelistInternal()[I
@@ -312,7 +331,7 @@
     .locals 1
 
     .prologue
-    .line 1181
+    .line 784
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getAppIdWhitelistExceptIdleInternal()[I
@@ -326,7 +345,7 @@
     .locals 1
 
     .prologue
-    .line 1177
+    .line 780
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getFullPowerWhitelistInternal()[Ljava/lang/String;
@@ -340,7 +359,7 @@
     .locals 1
 
     .prologue
-    .line 1173
+    .line 776
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getFullPowerWhitelistExceptIdleInternal()[Ljava/lang/String;
@@ -354,7 +373,7 @@
     .locals 3
 
     .prologue
-    .line 1205
+    .line 800
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
@@ -363,45 +382,16 @@
 
     const-string/jumbo v1, "android.permission.DEVICE_POWER"
 
-    .line 1206
+    .line 801
     const/4 v2, 0x0
 
-    .line 1205
+    .line 800
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1207
+    .line 802
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v0}, Lcom/android/server/DeviceIdleController;->-get13(Lcom/android/server/DeviceIdleController;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getLightIdleStateDetailed()I
-    .locals 3
-
-    .prologue
-    .line 1211
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "android.permission.DEVICE_POWER"
-
-    .line 1212
-    const/4 v2, 0x0
-
-    .line 1211
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1213
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-static {v0}, Lcom/android/server/DeviceIdleController;->-get6(Lcom/android/server/DeviceIdleController;)I
+    invoke-static {v0}, Lcom/android/server/DeviceIdleController;->-get8(Lcom/android/server/DeviceIdleController;)I
 
     move-result v0
 
@@ -412,7 +402,7 @@
     .locals 1
 
     .prologue
-    .line 1165
+    .line 772
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getSystemPowerWhitelistInternal()[Ljava/lang/String;
@@ -426,24 +416,10 @@
     .locals 1
 
     .prologue
-    .line 1161
+    .line 768
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getSystemPowerWhitelistExceptIdleInternal()[Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserPowerWhitelist()[Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 1169
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getUserPowerWhitelistInternal()[Ljava/lang/String;
 
     move-result-object v0
 
@@ -455,7 +431,7 @@
     .param p1, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 1201
+    .line 806
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->isPowerSaveWhitelistAppInternal(Ljava/lang/String;)Z
@@ -470,7 +446,7 @@
     .param p1, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 1197
+    .line 796
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->isPowerSaveWhitelistExceptIdleAppInternal(Ljava/lang/String;)Z
@@ -480,116 +456,31 @@
     return v0
 .end method
 
-.method public onShellCommand(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/os/ResultReceiver;)V
-    .locals 7
-    .param p1, "in"    # Ljava/io/FileDescriptor;
-    .param p2, "out"    # Ljava/io/FileDescriptor;
-    .param p3, "err"    # Ljava/io/FileDescriptor;
-    .param p4, "args"    # [Ljava/lang/String;
-    .param p5, "resultReceiver"    # Landroid/os/ResultReceiver;
-
-    .prologue
-    .line 1262
-    new-instance v0, Lcom/android/server/DeviceIdleController$Shell;
-
-    iget-object v1, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-direct {v0, v1}, Lcom/android/server/DeviceIdleController$Shell;-><init>(Lcom/android/server/DeviceIdleController;)V
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/DeviceIdleController$Shell;->exec(Landroid/os/Binder;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/os/ResultReceiver;)I
-
-    .line 1261
-    return-void
-.end method
-
-.method public registerMaintenanceActivityListener(Landroid/os/IMaintenanceActivityListener;)Z
-    .locals 1
-    .param p1, "listener"    # Landroid/os/IMaintenanceActivityListener;
-
-    .prologue
-    .line 1248
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->registerMaintenanceActivityListener(Landroid/os/IMaintenanceActivityListener;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public removePowerSaveWhitelistApp(Ljava/lang/String;)V
-    .locals 5
+    .locals 3
     .param p1, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 1150
-    iget-object v2, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-virtual {v2}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "android.permission.DEVICE_POWER"
-
-    .line 1151
-    const/4 v4, 0x0
-
-    .line 1150
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1152
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    .line 1154
-    .local v0, "ident":J
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-virtual {v2, p1}, Lcom/android/server/DeviceIdleController;->removePowerSaveWhitelistAppInternal(Ljava/lang/String;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 1156
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    .line 1149
-    return-void
-
-    .line 1155
-    :catchall_0
-    move-exception v2
-
-    .line 1156
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    .line 1155
-    throw v2
-.end method
-
-.method public unregisterMaintenanceActivityListener(Landroid/os/IMaintenanceActivityListener;)V
-    .locals 1
-    .param p1, "listener"    # Landroid/os/IMaintenanceActivityListener;
-
-    .prologue
-    .line 1253
+    .line 762
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->unregisterMaintenanceActivityListener(Landroid/os/IMaintenanceActivityListener;)V
+    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
 
-    .line 1252
+    move-result-object v0
+
+    const-string/jumbo v1, "android.permission.DEVICE_POWER"
+
+    .line 763
+    const/4 v2, 0x0
+
+    .line 762
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 764
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->removePowerSaveWhitelistAppInternal(Ljava/lang/String;)Z
+
+    .line 761
     return-void
 .end method

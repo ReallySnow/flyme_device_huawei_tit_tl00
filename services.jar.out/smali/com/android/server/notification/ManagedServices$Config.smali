@@ -9,33 +9,31 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
+    accessFlags = 0xc
     name = "Config"
 .end annotation
 
 
 # instance fields
-.field public bindPermission:Ljava/lang/String;
+.field bindPermission:Ljava/lang/String;
 
-.field public caption:Ljava/lang/String;
+.field caption:Ljava/lang/String;
 
-.field public clientLabel:I
+.field clientLabel:I
 
-.field public secondarySettingName:Ljava/lang/String;
+.field secureSettingName:Ljava/lang/String;
 
-.field public secureSettingName:Ljava/lang/String;
+.field serviceInterface:Ljava/lang/String;
 
-.field public serviceInterface:Ljava/lang/String;
-
-.field public settingsAction:Ljava/lang/String;
+.field settingsAction:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>()V
+.method protected constructor <init>()V
     .locals 0
 
     .prologue
-    .line 941
+    .line 726
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

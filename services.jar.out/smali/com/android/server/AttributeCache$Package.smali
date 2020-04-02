@@ -22,7 +22,7 @@
         value = {
             "Landroid/util/SparseArray",
             "<",
-            "Landroid/util/ArrayMap",
+            "Ljava/util/HashMap",
             "<[I",
             "Lcom/android/server/AttributeCache$Entry;",
             ">;>;"
@@ -45,19 +45,20 @@
     .param p1, "c"    # Landroid/content/Context;
 
     .prologue
-    .line 53
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 51
+    .line 47
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
+    .line 46
     iput-object v0, p0, Lcom/android/server/AttributeCache$Package;->mMap:Landroid/util/SparseArray;
 
-    .line 54
+    .line 50
     iput-object p1, p0, Lcom/android/server/AttributeCache$Package;->context:Landroid/content/Context;
 
-    .line 53
+    .line 49
     return-void
 .end method

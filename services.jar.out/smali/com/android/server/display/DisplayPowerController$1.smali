@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/display/DisplayPowerController;
 
     .prologue
-    .line 523
+    .line 482
     iput-object p1, p0, Lcom/android/server/display/DisplayPowerController$1;->this$0:Lcom/android/server/display/DisplayPowerController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 535
+    .line 494
     return-void
 .end method
 
@@ -51,12 +51,12 @@
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 529
+    .line 488
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$1;->this$0:Lcom/android/server/display/DisplayPowerController;
 
     invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->-wrap3(Lcom/android/server/display/DisplayPowerController;)V
 
-    .line 528
+    .line 487
     return-void
 .end method
 
@@ -65,7 +65,7 @@
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 532
+    .line 491
     return-void
 .end method
 
@@ -74,6 +74,6 @@
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 525
+    .line 484
     return-void
 .end method

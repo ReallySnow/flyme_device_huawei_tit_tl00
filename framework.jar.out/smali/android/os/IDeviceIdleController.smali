@@ -63,14 +63,6 @@
     .end annotation
 .end method
 
-.method public abstract getAppIdUserWhitelist()[I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getAppIdWhitelist()[I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -111,14 +103,6 @@
     .end annotation
 .end method
 
-.method public abstract getLightIdleStateDetailed()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getSystemPowerWhitelist()[Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -128,14 +112,6 @@
 .end method
 
 .method public abstract getSystemPowerWhitelistExceptIdle()[Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getUserPowerWhitelist()[Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -159,23 +135,7 @@
     .end annotation
 .end method
 
-.method public abstract registerMaintenanceActivityListener(Landroid/os/IMaintenanceActivityListener;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract removePowerSaveWhitelistApp(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract unregisterMaintenanceActivityListener(Landroid/os/IMaintenanceActivityListener;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

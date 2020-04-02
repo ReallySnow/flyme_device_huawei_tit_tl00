@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/widget/ZoomButton;
 
     .prologue
-    .line 28
+    .line 30
     iput-object p1, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 4
 
     .prologue
-    .line 30
+    .line 32
     iget-object v0, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
 
     invoke-virtual {v0}, Landroid/widget/ZoomButton;->hasOnClickListeners()Z
@@ -52,7 +52,7 @@
 
     iget-object v0, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
 
-    invoke-static {v0}, Landroid/widget/ZoomButton;->-get0(Landroid/widget/ZoomButton;)Z
+    invoke-static {v0}, Landroid/widget/ZoomButton;->-get1(Landroid/widget/ZoomButton;)Z
 
     move-result v0
 
@@ -66,23 +66,27 @@
 
     if-eqz v0, :cond_0
 
-    .line 31
+    .line 33
     iget-object v0, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
 
     invoke-virtual {v0}, Landroid/widget/ZoomButton;->callOnClick()Z
 
-    .line 32
+    .line 34
     iget-object v0, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
+
+    invoke-static {v0}, Landroid/widget/ZoomButton;->-get0(Landroid/widget/ZoomButton;)Landroid/os/Handler;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
 
-    invoke-static {v1}, Landroid/widget/ZoomButton;->-get1(Landroid/widget/ZoomButton;)J
+    invoke-static {v1}, Landroid/widget/ZoomButton;->-get2(Landroid/widget/ZoomButton;)J
 
     move-result-wide v2
 
-    invoke-virtual {v0, p0, v2, v3}, Landroid/widget/ZoomButton;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, p0, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 29
+    .line 31
     :cond_0
     return-void
 .end method

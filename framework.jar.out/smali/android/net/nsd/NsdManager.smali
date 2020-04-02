@@ -334,7 +334,7 @@
     .locals 2
 
     .prologue
-    .line 635
+    .line 633
     :try_start_0
     iget-object v1, p0, Landroid/net/nsd/NsdManager;->mService:Landroid/net/nsd/INsdManager;
 
@@ -346,17 +346,15 @@
 
     return-object v1
 
-    .line 636
+    .line 634
     :catch_0
     move-exception v0
 
-    .line 637
+    .line 635
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const/4 v1, 0x0
 
-    move-result-object v1
-
-    throw v1
+    return-object v1
 .end method
 
 .method private getNsdService(I)Landroid/net/nsd/NsdServiceInfo;
@@ -937,19 +935,15 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 619
+    :goto_0
     return-void
 
     .line 622
     :catch_0
     move-exception v0
 
-    .line 623
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v1
-
-    throw v1
+    goto :goto_0
 .end method
 
 .method public stopServiceDiscovery(Landroid/net/nsd/NsdManager$DiscoveryListener;)V

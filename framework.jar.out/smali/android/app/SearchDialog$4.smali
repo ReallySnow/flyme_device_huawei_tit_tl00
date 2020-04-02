@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/app/SearchDialog;
 
     .prologue
-    .line 685
+    .line 687
     iput-object p1, p0, Landroid/app/SearchDialog$4;->this$0:Landroid/app/SearchDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,12 +42,12 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 692
+    .line 694
     iget-object v0, p0, Landroid/app/SearchDialog$4;->this$0:Landroid/app/SearchDialog;
 
     invoke-virtual {v0}, Landroid/app/SearchDialog;->dismiss()V
 
-    .line 693
+    .line 695
     const/4 v0, 0x0
 
     return v0
@@ -58,7 +58,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 688
+    .line 690
     const/4 v0, 0x0
 
     return v0

@@ -45,20 +45,20 @@
     .param p1, "this$0"    # Landroid/speech/tts/TextToSpeechService;
 
     .prologue
-    .line 1414
+    .line 1387
     iput-object p1, p0, Landroid/speech/tts/TextToSpeechService$CallbackMap;->this$0:Landroid/speech/tts/TextToSpeechService;
 
     invoke-direct {p0}, Landroid/os/RemoteCallbackList;-><init>()V
 
-    .line 1416
+    .line 1389
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 1415
+    .line 1388
     iput-object v0, p0, Landroid/speech/tts/TextToSpeechService$CallbackMap;->mCallerToCallback:Ljava/util/HashMap;
 
-    .line 1414
+    .line 1387
     return-void
 .end method
 
@@ -79,16 +79,16 @@
     .prologue
     move-object v0, p1
 
-    .line 1513
+    .line 1467
     check-cast v0, Landroid/os/IBinder;
 
-    .line 1514
+    .line 1468
     .local v0, "asBinder":Landroid/os/IBinder;
     iget-object v3, p0, Landroid/speech/tts/TextToSpeechService$CallbackMap;->mCallerToCallback:Ljava/util/HashMap;
 
     monitor-enter v3
 
-    .line 1515
+    .line 1469
     :try_start_0
     iget-object v2, p0, Landroid/speech/tts/TextToSpeechService$CallbackMap;->mCallerToCallback:Ljava/util/HashMap;
 
@@ -103,10 +103,10 @@
     .local v1, "cb":Landroid/speech/tts/ITextToSpeechCallback;
     monitor-exit v3
 
-    .line 1518
+    .line 1472
     return-object v1
 
-    .line 1514
+    .line 1468
     .end local v1    # "cb":Landroid/speech/tts/ITextToSpeechCallback;
     :catchall_0
     move-exception v2
@@ -118,128 +118,6 @@
 
 
 # virtual methods
-.method public dispatchOnAudioAvailable(Ljava/lang/Object;Ljava/lang/String;[B)V
-    .locals 5
-    .param p1, "callerIdentity"    # Ljava/lang/Object;
-    .param p2, "utteranceId"    # Ljava/lang/String;
-    .param p3, "buffer"    # [B
-
-    .prologue
-    .line 1485
-    invoke-direct {p0, p1}, Landroid/speech/tts/TextToSpeechService$CallbackMap;->getCallbackFor(Ljava/lang/Object;)Landroid/speech/tts/ITextToSpeechCallback;
-
-    move-result-object v0
-
-    .line 1486
-    .local v0, "cb":Landroid/speech/tts/ITextToSpeechCallback;
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 1488
-    :cond_0
-    :try_start_0
-    invoke-interface {v0, p2, p3}, Landroid/speech/tts/ITextToSpeechCallback;->onAudioAvailable(Ljava/lang/String;[B)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 1484
-    :goto_0
-    return-void
-
-    .line 1489
-    :catch_0
-    move-exception v1
-
-    .line 1490
-    .local v1, "e":Landroid/os/RemoteException;
-    const-string/jumbo v2, "TextToSpeechService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Callback dispatchOnAudioAvailable(String, byte[]) failed: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
-.method public dispatchOnBeginSynthesis(Ljava/lang/Object;Ljava/lang/String;III)V
-    .locals 5
-    .param p1, "callerIdentity"    # Ljava/lang/Object;
-    .param p2, "utteranceId"    # Ljava/lang/String;
-    .param p3, "sampleRateInHz"    # I
-    .param p4, "audioFormat"    # I
-    .param p5, "channelCount"    # I
-
-    .prologue
-    .line 1475
-    invoke-direct {p0, p1}, Landroid/speech/tts/TextToSpeechService$CallbackMap;->getCallbackFor(Ljava/lang/Object;)Landroid/speech/tts/ITextToSpeechCallback;
-
-    move-result-object v0
-
-    .line 1476
-    .local v0, "cb":Landroid/speech/tts/ITextToSpeechCallback;
-    if-nez v0, :cond_0
-
-    return-void
-
-    .line 1478
-    :cond_0
-    :try_start_0
-    invoke-interface {v0, p2, p3, p4, p5}, Landroid/speech/tts/ITextToSpeechCallback;->onBeginSynthesis(Ljava/lang/String;III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 1474
-    :goto_0
-    return-void
-
-    .line 1479
-    :catch_0
-    move-exception v1
-
-    .line 1480
-    .local v1, "e":Landroid/os/RemoteException;
-    const-string/jumbo v2, "TextToSpeechService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Callback dispatchOnBeginSynthesis(String, int, int, int) failed: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
 .method public dispatchOnError(Ljava/lang/Object;Ljava/lang/String;I)V
     .locals 5
     .param p1, "callerIdentity"    # Ljava/lang/Object;
@@ -247,33 +125,33 @@
     .param p3, "errorCode"    # I
 
     .prologue
-    .line 1465
+    .line 1439
     invoke-direct {p0, p1}, Landroid/speech/tts/TextToSpeechService$CallbackMap;->getCallbackFor(Ljava/lang/Object;)Landroid/speech/tts/ITextToSpeechCallback;
 
     move-result-object v0
 
-    .line 1466
+    .line 1440
     .local v0, "cb":Landroid/speech/tts/ITextToSpeechCallback;
     if-nez v0, :cond_0
 
     return-void
 
-    .line 1468
+    .line 1442
     :cond_0
     :try_start_0
     invoke-interface {v0, p2, p3}, Landroid/speech/tts/ITextToSpeechCallback;->onError(Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1464
+    .line 1438
     :goto_0
     return-void
 
-    .line 1469
+    .line 1443
     :catch_0
     move-exception v1
 
-    .line 1470
+    .line 1444
     .local v1, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "TextToSpeechService"
 
@@ -306,33 +184,33 @@
     .param p2, "utteranceId"    # Ljava/lang/String;
 
     .prologue
-    .line 1454
+    .line 1427
     invoke-direct {p0, p1}, Landroid/speech/tts/TextToSpeechService$CallbackMap;->getCallbackFor(Ljava/lang/Object;)Landroid/speech/tts/ITextToSpeechCallback;
 
     move-result-object v0
 
-    .line 1455
+    .line 1428
     .local v0, "cb":Landroid/speech/tts/ITextToSpeechCallback;
     if-nez v0, :cond_0
 
     return-void
 
-    .line 1457
+    .line 1430
     :cond_0
     :try_start_0
     invoke-interface {v0, p2}, Landroid/speech/tts/ITextToSpeechCallback;->onStart(Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1453
+    .line 1426
     :goto_0
     return-void
 
-    .line 1458
+    .line 1431
     :catch_0
     move-exception v1
 
-    .line 1459
+    .line 1432
     .local v1, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "TextToSpeechService"
 
@@ -366,33 +244,33 @@
     .param p3, "started"    # Z
 
     .prologue
-    .line 1434
+    .line 1407
     invoke-direct {p0, p1}, Landroid/speech/tts/TextToSpeechService$CallbackMap;->getCallbackFor(Ljava/lang/Object;)Landroid/speech/tts/ITextToSpeechCallback;
 
     move-result-object v0
 
-    .line 1435
+    .line 1408
     .local v0, "cb":Landroid/speech/tts/ITextToSpeechCallback;
     if-nez v0, :cond_0
 
     return-void
 
-    .line 1437
+    .line 1410
     :cond_0
     :try_start_0
     invoke-interface {v0, p2, p3}, Landroid/speech/tts/ITextToSpeechCallback;->onStop(Ljava/lang/String;Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1433
+    .line 1406
     :goto_0
     return-void
 
-    .line 1438
+    .line 1411
     :catch_0
     move-exception v1
 
-    .line 1439
+    .line 1412
     .local v1, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "TextToSpeechService"
 
@@ -425,33 +303,33 @@
     .param p2, "utteranceId"    # Ljava/lang/String;
 
     .prologue
-    .line 1444
+    .line 1417
     invoke-direct {p0, p1}, Landroid/speech/tts/TextToSpeechService$CallbackMap;->getCallbackFor(Ljava/lang/Object;)Landroid/speech/tts/ITextToSpeechCallback;
 
     move-result-object v0
 
-    .line 1445
+    .line 1418
     .local v0, "cb":Landroid/speech/tts/ITextToSpeechCallback;
     if-nez v0, :cond_0
 
     return-void
 
-    .line 1447
+    .line 1420
     :cond_0
     :try_start_0
     invoke-interface {v0, p2}, Landroid/speech/tts/ITextToSpeechCallback;->onSuccess(Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1443
+    .line 1416
     :goto_0
     return-void
 
-    .line 1448
+    .line 1421
     :catch_0
     move-exception v1
 
-    .line 1449
+    .line 1422
     .local v1, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "TextToSpeechService"
 
@@ -482,28 +360,28 @@
     .locals 2
 
     .prologue
-    .line 1505
+    .line 1459
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$CallbackMap;->mCallerToCallback:Ljava/util/HashMap;
 
     monitor-enter v1
 
-    .line 1506
+    .line 1460
     :try_start_0
     iget-object v0, p0, Landroid/speech/tts/TextToSpeechService$CallbackMap;->mCallerToCallback:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
-    .line 1507
+    .line 1461
     invoke-super {p0}, Landroid/os/RemoteCallbackList;->kill()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
-    .line 1504
+    .line 1458
     return-void
 
-    .line 1505
+    .line 1459
     :catchall_0
     move-exception v0
 
@@ -518,7 +396,7 @@
     .param p2, "cookie"    # Ljava/lang/Object;
 
     .prologue
-    .line 1495
+    .line 1449
     check-cast p1, Landroid/speech/tts/ITextToSpeechCallback;
 
     .end local p1    # "callback":Landroid/os/IInterface;
@@ -535,16 +413,16 @@
     .prologue
     move-object v0, p2
 
-    .line 1496
+    .line 1450
     check-cast v0, Landroid/os/IBinder;
 
-    .line 1497
+    .line 1451
     .local v0, "caller":Landroid/os/IBinder;
     iget-object v2, p0, Landroid/speech/tts/TextToSpeechService$CallbackMap;->mCallerToCallback:Ljava/util/HashMap;
 
     monitor-enter v2
 
-    .line 1498
+    .line 1452
     :try_start_0
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$CallbackMap;->mCallerToCallback:Ljava/util/HashMap;
 
@@ -554,10 +432,10 @@
 
     monitor-exit v2
 
-    .line 1495
+    .line 1449
     return-void
 
-    .line 1497
+    .line 1451
     :catchall_0
     move-exception v1
 
@@ -572,19 +450,19 @@
     .param p2, "cb"    # Landroid/speech/tts/ITextToSpeechCallback;
 
     .prologue
-    .line 1419
+    .line 1392
     iget-object v2, p0, Landroid/speech/tts/TextToSpeechService$CallbackMap;->mCallerToCallback:Ljava/util/HashMap;
 
     monitor-enter v2
 
-    .line 1421
+    .line 1394
     if-eqz p2, :cond_1
 
-    .line 1422
+    .line 1395
     :try_start_0
     invoke-virtual {p0, p2, p1}, Landroid/speech/tts/TextToSpeechService$CallbackMap;->register(Landroid/os/IInterface;Ljava/lang/Object;)Z
 
-    .line 1423
+    .line 1396
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$CallbackMap;->mCallerToCallback:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -593,14 +471,14 @@
 
     check-cast v0, Landroid/speech/tts/ITextToSpeechCallback;
 
-    .line 1427
+    .line 1400
     .local v0, "old":Landroid/speech/tts/ITextToSpeechCallback;
     :goto_0
     if-eqz v0, :cond_0
 
     if-eq v0, p2, :cond_0
 
-    .line 1428
+    .line 1401
     invoke-virtual {p0, v0}, Landroid/speech/tts/TextToSpeechService$CallbackMap;->unregister(Landroid/os/IInterface;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -608,10 +486,10 @@
     :cond_0
     monitor-exit v2
 
-    .line 1418
+    .line 1391
     return-void
 
-    .line 1425
+    .line 1398
     .end local v0    # "old":Landroid/speech/tts/ITextToSpeechCallback;
     :cond_1
     :try_start_1
@@ -628,7 +506,7 @@
     .restart local v0    # "old":Landroid/speech/tts/ITextToSpeechCallback;
     goto :goto_0
 
-    .line 1419
+    .line 1392
     .end local v0    # "old":Landroid/speech/tts/ITextToSpeechCallback;
     :catchall_0
     move-exception v1

@@ -18,6 +18,8 @@
 
 
 # instance fields
+.field private final mTempPts:[F
+
 .field final synthetic this$0:Landroid/widget/ActionMenuPresenter;
 
 
@@ -30,38 +32,45 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 840
+    .line 821
     iput-object p1, p0, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    .line 841
+    .line 822
     const/4 v0, 0x0
 
     const v1, 0x10102f6
 
     invoke-direct {p0, p2, v0, v1}, Landroid/widget/ImageButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 843
+    .line 819
+    const/4 v0, 0x2
+
+    new-array v0, v0, [F
+
+    iput-object v0, p0, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->mTempPts:[F
+
+    .line 824
     invoke-virtual {p0, v2}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->setClickable(Z)V
 
-    .line 844
+    .line 825
     invoke-virtual {p0, v2}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->setFocusable(Z)V
 
-    .line 845
+    .line 826
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->setVisibility(I)V
 
-    .line 846
+    .line 827
     invoke-virtual {p0, v2}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->setEnabled(Z)V
 
-    .line 848
+    .line 829
     new-instance v0, Landroid/widget/ActionMenuPresenter$OverflowMenuButton$1;
 
     invoke-direct {v0, p0, p0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton$1;-><init>(Landroid/widget/ActionMenuPresenter$OverflowMenuButton;Landroid/view/View;)V
 
     invoke-virtual {p0, v0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 840
+    .line 821
     return-void
 .end method
 
@@ -71,7 +80,7 @@
     .locals 1
 
     .prologue
-    .line 897
+    .line 878
     const/4 v0, 0x0
 
     return v0
@@ -81,7 +90,7 @@
     .locals 1
 
     .prologue
-    .line 892
+    .line 873
     const/4 v0, 0x0
 
     return v0
@@ -92,15 +101,15 @@
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .prologue
-    .line 903
+    .line 884
     invoke-super {p0, p1}, Landroid/widget/ImageButton;->onInitializeAccessibilityNodeInfoInternal(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
-    .line 904
+    .line 885
     const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setCanOpenPopup(Z)V
 
-    .line 902
+    .line 883
     return-void
 .end method
 
@@ -110,28 +119,28 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 881
+    .line 862
     invoke-super {p0}, Landroid/widget/ImageButton;->performClick()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 882
+    .line 863
     return v1
 
-    .line 885
+    .line 866
     :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->playSoundEffect(I)V
 
-    .line 886
+    .line 867
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->this$0:Landroid/widget/ActionMenuPresenter;
 
     invoke-virtual {v0}, Landroid/widget/ActionMenuPresenter;->showOverflowMenu()Z
 
-    .line 887
+    .line 868
     return v1
 .end method
 
@@ -143,41 +152,41 @@
     .param p4, "b"    # I
 
     .prologue
-    .line 909
+    .line 890
     invoke-super/range {p0 .. p4}, Landroid/widget/ImageButton;->setFrame(IIII)Z
 
     move-result v3
 
-    .line 912
+    .line 893
     .local v3, "changed":Z
     invoke-virtual {p0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
-    .line 913
+    .line 894
     .local v4, "d":Landroid/graphics/drawable/Drawable;
     invoke-virtual {p0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 914
+    .line 895
     .local v0, "bg":Landroid/graphics/drawable/Drawable;
     if-eqz v4, :cond_0
 
     if-eqz v0, :cond_0
 
-    .line 915
+    .line 896
     invoke-virtual {p0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->getWidth()I
 
     move-result v9
 
-    .line 916
+    .line 897
     .local v9, "width":I
     invoke-virtual {p0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->getHeight()I
 
     move-result v6
 
-    .line 917
+    .line 898
     .local v6, "height":I
     invoke-static {v9, v6}, Ljava/lang/Math;->max(II)I
 
@@ -185,7 +194,7 @@
 
     div-int/lit8 v5, v10, 0x2
 
-    .line 918
+    .line 899
     .local v5, "halfEdge":I
     invoke-virtual {p0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->getPaddingLeft()I
 
@@ -197,7 +206,7 @@
 
     sub-int v7, v10, v11
 
-    .line 919
+    .line 900
     .local v7, "offsetX":I
     invoke-virtual {p0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->getPaddingTop()I
 
@@ -209,33 +218,33 @@
 
     sub-int v8, v10, v11
 
-    .line 920
+    .line 901
     .local v8, "offsetY":I
     add-int v10, v9, v7
 
     div-int/lit8 v1, v10, 0x2
 
-    .line 921
+    .line 902
     .local v1, "centerX":I
     add-int v10, v6, v8
 
     div-int/lit8 v2, v10, 0x2
 
-    .line 922
+    .line 903
     .local v2, "centerY":I
     sub-int v10, v1, v5
 
     sub-int v11, v2, v5
 
-    .line 923
+    .line 904
     add-int v12, v1, v5
 
     add-int v13, v2, v5
 
-    .line 922
+    .line 903
     invoke-virtual {v0, v10, v11, v12, v13}, Landroid/graphics/drawable/Drawable;->setHotspotBounds(IIII)V
 
-    .line 926
+    .line 907
     .end local v1    # "centerX":I
     .end local v2    # "centerY":I
     .end local v5    # "halfEdge":I

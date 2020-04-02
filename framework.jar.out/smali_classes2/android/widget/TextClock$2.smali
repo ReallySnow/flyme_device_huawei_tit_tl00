@@ -1,9 +1,6 @@
 .class Landroid/widget/TextClock$2;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "TextClock.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -27,56 +24,63 @@
     .param p1, "this$0"    # Landroid/widget/TextClock;
 
     .prologue
-    .line 171
+    .line 154
     iput-object p1, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 8
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    const-wide/16 v6, 0x3e8
+    .line 157
+    iget-object v1, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
 
-    .line 173
-    iget-object v4, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
+    invoke-static {v1}, Landroid/widget/TextClock;->-get1(Landroid/widget/TextClock;)Ljava/lang/String;
 
-    invoke-static {v4}, Landroid/widget/TextClock;->-wrap2(Landroid/widget/TextClock;)V
+    move-result-object v1
 
-    .line 175
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    if-nez v1, :cond_0
 
-    move-result-wide v2
+    const-string/jumbo v1, "android.intent.action.TIMEZONE_CHANGED"
 
-    .line 176
-    .local v2, "now":J
-    rem-long v4, v2, v6
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    sub-long v4, v6, v4
+    move-result-object v2
 
-    add-long v0, v2, v4
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 178
-    .local v0, "next":J
-    iget-object v4, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
+    move-result v1
 
-    invoke-virtual {v4}, Landroid/widget/TextClock;->getHandler()Landroid/os/Handler;
+    if-eqz v1, :cond_0
 
-    move-result-object v4
+    .line 158
+    const-string/jumbo v1, "time-zone"
 
-    iget-object v5, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
+    invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v5}, Landroid/widget/TextClock;->-get0(Landroid/widget/TextClock;)Ljava/lang/Runnable;
+    move-result-object v0
 
-    move-result-object v5
+    .line 159
+    .local v0, "timeZone":Ljava/lang/String;
+    iget-object v1, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
 
-    invoke-virtual {v4, v5, v0, v1}, Landroid/os/Handler;->postAtTime(Ljava/lang/Runnable;J)Z
+    invoke-static {v1, v0}, Landroid/widget/TextClock;->-wrap1(Landroid/widget/TextClock;Ljava/lang/String;)V
 
-    .line 172
+    .line 161
+    .end local v0    # "timeZone":Ljava/lang/String;
+    :cond_0
+    iget-object v1, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
+
+    invoke-static {v1}, Landroid/widget/TextClock;->-wrap2(Landroid/widget/TextClock;)V
+
+    .line 156
     return-void
 .end method

@@ -27,32 +27,13 @@
 
 .field mPivotYRel:Z
 
-.field private mThemeAttrs:[I
-
 .field mToDegrees:F
 
 
 # direct methods
-.method static synthetic -get0(Landroid/graphics/drawable/RotateDrawable$RotateState;)[I
-    .locals 1
-
-    iget-object v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mThemeAttrs:[I
-
-    return-object v0
-.end method
-
-.method static synthetic -set0(Landroid/graphics/drawable/RotateDrawable$RotateState;[I)[I
-    .locals 0
-
-    iput-object p1, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mThemeAttrs:[I
-
-    return-object p1
-.end method
-
-.method constructor <init>(Landroid/graphics/drawable/RotateDrawable$RotateState;Landroid/content/res/Resources;)V
+.method constructor <init>(Landroid/graphics/drawable/RotateDrawable$RotateState;)V
     .locals 3
     .param p1, "orig"    # Landroid/graphics/drawable/RotateDrawable$RotateState;
-    .param p2, "res"    # Landroid/content/res/Resources;
 
     .prologue
     const/4 v2, 0x1
@@ -61,71 +42,71 @@
 
     const/4 v1, 0x0
 
-    .line 339
-    invoke-direct {p0, p1, p2}, Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;-><init>(Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;Landroid/content/res/Resources;)V
+    .line 333
+    invoke-direct {p0, p1}, Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;-><init>(Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;)V
 
-    .line 330
+    .line 324
     iput-boolean v2, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotXRel:Z
 
-    .line 331
+    .line 325
     iput v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotX:F
 
-    .line 332
+    .line 326
     iput-boolean v2, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotYRel:Z
 
-    .line 333
+    .line 327
     iput v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotY:F
 
-    .line 334
+    .line 328
     iput v1, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mFromDegrees:F
 
-    .line 335
+    .line 329
     const/high16 v0, 0x43b40000    # 360.0f
 
     iput v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mToDegrees:F
 
-    .line 336
+    .line 330
     iput v1, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mCurrentDegrees:F
 
-    .line 341
+    .line 335
     if-eqz p1, :cond_0
 
-    .line 342
+    .line 336
     iget-boolean v0, p1, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotXRel:Z
 
     iput-boolean v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotXRel:Z
 
-    .line 343
+    .line 337
     iget v0, p1, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotX:F
 
     iput v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotX:F
 
-    .line 344
+    .line 338
     iget-boolean v0, p1, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotYRel:Z
 
     iput-boolean v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotYRel:Z
 
-    .line 345
+    .line 339
     iget v0, p1, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotY:F
 
     iput v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mPivotY:F
 
-    .line 346
+    .line 340
     iget v0, p1, Landroid/graphics/drawable/RotateDrawable$RotateState;->mFromDegrees:F
 
     iput v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mFromDegrees:F
 
-    .line 347
+    .line 341
     iget v0, p1, Landroid/graphics/drawable/RotateDrawable$RotateState;->mToDegrees:F
 
     iput v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mToDegrees:F
 
-    .line 348
+    .line 342
     iget v0, p1, Landroid/graphics/drawable/RotateDrawable$RotateState;->mCurrentDegrees:F
 
     iput v0, p0, Landroid/graphics/drawable/RotateDrawable$RotateState;->mCurrentDegrees:F
 
-    .line 338
+    .line 332
     :cond_0
     return-void
 .end method
@@ -137,7 +118,7 @@
     .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
-    .line 354
+    .line 348
     new-instance v0, Landroid/graphics/drawable/RotateDrawable;
 
     const/4 v1, 0x0

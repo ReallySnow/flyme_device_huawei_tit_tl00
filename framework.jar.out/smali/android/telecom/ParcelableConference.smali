@@ -453,16 +453,21 @@
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 171
+    iget v1, p0, Landroid/telecom/ParcelableConference;->mConnectionProperties:I
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 172
     iget-object v1, p0, Landroid/telecom/ParcelableConference;->mConnectionIds:Ljava/util/List;
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeList(Ljava/util/List;)V
 
-    .line 172
+    .line 173
     iget-wide v2, p0, Landroid/telecom/ParcelableConference;->mConnectTimeMillis:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 174
+    .line 175
     iget-object v1, p0, Landroid/telecom/ParcelableConference;->mVideoProvider:Lcom/android/internal/telecom/IVideoProvider;
 
     if-eqz v1, :cond_0
@@ -473,29 +478,24 @@
 
     move-result-object v0
 
-    .line 173
+    .line 174
     :cond_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 175
+    .line 176
     iget v0, p0, Landroid/telecom/ParcelableConference;->mVideoState:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 176
+    .line 177
     iget-object v0, p0, Landroid/telecom/ParcelableConference;->mStatusHints:Landroid/telecom/StatusHints;
 
     invoke-virtual {p1, v0, v4}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 177
+    .line 178
     iget-object v0, p0, Landroid/telecom/ParcelableConference;->mExtras:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
-
-    .line 178
-    iget v0, p0, Landroid/telecom/ParcelableConference;->mConnectionProperties:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 167
     return-void

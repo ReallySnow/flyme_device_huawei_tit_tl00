@@ -152,47 +152,47 @@
 
     const/4 v1, 0x0
 
-    .line 286
+    .line 280
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 269
+    .line 263
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mCompletedRequests:Ljava/util/ArrayList;
 
-    .line 271
+    .line 265
     new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 276
+    .line 270
     iput v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlight:I
 
-    .line 277
+    .line 271
     iput v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlightPreviews:I
 
-    .line 287
+    .line 281
     iput p1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mMaxInFlight:I
 
-    .line 288
+    .line 282
     new-instance v0, Ljava/util/ArrayDeque;
 
     invoke-direct {v0, v2}, Ljava/util/ArrayDeque;-><init>(I)V
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegCaptureQueue:Ljava/util/ArrayDeque;
 
-    .line 289
+    .line 283
     new-instance v0, Ljava/util/ArrayDeque;
 
     invoke-direct {v0, v2}, Ljava/util/ArrayDeque;-><init>(I)V
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegProduceQueue:Ljava/util/ArrayDeque;
 
-    .line 290
+    .line 284
     new-instance v0, Ljava/util/ArrayDeque;
 
     iget v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mMaxInFlight:I
@@ -201,7 +201,7 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewCaptureQueue:Ljava/util/ArrayDeque;
 
-    .line 291
+    .line 285
     new-instance v0, Ljava/util/ArrayDeque;
 
     iget v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mMaxInFlight:I
@@ -210,14 +210,14 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewProduceQueue:Ljava/util/ArrayDeque;
 
-    .line 292
+    .line 286
     new-instance v0, Ljava/util/TreeSet;
 
     invoke-direct {v0}, Ljava/util/TreeSet;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mActiveRequests:Ljava/util/TreeSet;
 
-    .line 293
+    .line 287
     iget-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->newCondition()Ljava/util/concurrent/locks/Condition;
@@ -226,7 +226,7 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mIsEmpty:Ljava/util/concurrent/locks/Condition;
 
-    .line 294
+    .line 288
     iget-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->newCondition()Ljava/util/concurrent/locks/Condition;
@@ -235,7 +235,7 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mNotFull:Ljava/util/concurrent/locks/Condition;
 
-    .line 295
+    .line 289
     iget-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->newCondition()Ljava/util/concurrent/locks/Condition;
@@ -244,10 +244,10 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewsEmpty:Ljava/util/concurrent/locks/Condition;
 
-    .line 296
+    .line 290
     iput-object p2, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mDeviceState:Landroid/hardware/camera2/legacy/CameraDeviceState;
 
-    .line 286
+    .line 280
     return-void
 .end method
 
@@ -255,41 +255,41 @@
     .locals 2
 
     .prologue
-    .line 642
+    .line 636
     iget v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlightPreviews:I
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlightPreviews:I
 
-    .line 643
+    .line 637
     iget v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlightPreviews:I
 
     if-gez v0, :cond_0
 
-    .line 644
+    .line 638
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    .line 645
+    .line 639
     const-string/jumbo v1, "More preview captures completed than requests queued."
 
-    .line 644
+    .line 638
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 647
+    .line 641
     :cond_0
     iget v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlightPreviews:I
 
     if-nez v0, :cond_1
 
-    .line 648
+    .line 642
     iget-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewsEmpty:Ljava/util/concurrent/locks/Condition;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Condition;->signalAll()V
 
-    .line 641
+    .line 635
     :cond_1
     return-void
 .end method
@@ -299,12 +299,12 @@
     .param p1, "capture"    # Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
 
     .prologue
-    .line 653
+    .line 647
     invoke-static {p1}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->-get0(Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;)Landroid/hardware/camera2/legacy/RequestHolder;
 
     move-result-object v0
 
-    .line 655
+    .line 649
     .local v0, "request":Landroid/hardware/camera2/legacy/RequestHolder;
     iget v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlight:I
 
@@ -312,49 +312,49 @@
 
     iput v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlight:I
 
-    .line 660
+    .line 654
     iget v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlight:I
 
     if-gez v1, :cond_0
 
-    .line 661
+    .line 655
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    .line 662
+    .line 656
     const-string/jumbo v2, "More captures completed than requests queued."
 
-    .line 661
+    .line 655
     invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 665
+    .line 659
     :cond_0
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mCompletedRequests:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 666
+    .line 660
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mActiveRequests:Ljava/util/TreeSet;
 
     invoke-virtual {v1, p1}, Ljava/util/TreeSet;->remove(Ljava/lang/Object;)Z
 
-    .line 668
+    .line 662
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mNotFull:Ljava/util/concurrent/locks/Condition;
 
     invoke-interface {v1}, Ljava/util/concurrent/locks/Condition;->signalAll()V
 
-    .line 669
+    .line 663
     iget v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlight:I
 
     if-nez v1, :cond_1
 
-    .line 670
+    .line 664
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mIsEmpty:Ljava/util/concurrent/locks/Condition;
 
     invoke-interface {v1}, Ljava/util/concurrent/locks/Condition;->signalAll()V
 
-    .line 652
+    .line 646
     :cond_1
     return-void
 .end method
@@ -365,10 +365,10 @@
     .param p2, "timestamp"    # Landroid/util/MutableLong;
 
     .prologue
-    .line 450
+    .line 444
     const/4 v2, 0x0
 
-    .line 451
+    .line 445
     .local v2, "i":I
     iget-object v3, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mCompletedRequests:Ljava/util/ArrayList;
 
@@ -390,7 +390,7 @@
 
     check-cast v0, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
 
-    .line 452
+    .line 446
     .local v0, "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     invoke-static {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->-get0(Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;)Landroid/hardware/camera2/legacy/RequestHolder;
 
@@ -402,30 +402,30 @@
 
     if-eqz v3, :cond_0
 
-    .line 453
+    .line 447
     invoke-static {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->-get1(Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;)J
 
     move-result-wide v4
 
     iput-wide v4, p2, Landroid/util/MutableLong;->value:J
 
-    .line 454
+    .line 448
     iget-object v3, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mCompletedRequests:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 455
+    .line 449
     const/4 v3, 0x1
 
     return v3
 
-    .line 457
+    .line 451
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 460
+    .line 454
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :cond_1
     const/4 v3, 0x0
@@ -439,14 +439,14 @@
     .locals 3
 
     .prologue
-    .line 624
+    .line 618
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 625
+    .line 619
     .local v1, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 628
+    .line 622
     :goto_0
     :try_start_0
     iget-object v2, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mActiveRequests:Ljava/util/TreeSet;
@@ -460,28 +460,28 @@
     .local v0, "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     if-eqz v0, :cond_0
 
-    .line 629
+    .line 623
     invoke-virtual {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->setPreviewFailed()V
 
-    .line 630
+    .line 624
     invoke-virtual {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->setJpegFailed()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    .line 636
+    .line 630
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :catchall_0
     move-exception v2
 
-    .line 637
+    .line 631
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 636
+    .line 630
     throw v2
 
-    .line 632
+    .line 626
     .restart local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :cond_0
     :try_start_1
@@ -489,27 +489,27 @@
 
     invoke-virtual {v2}, Ljava/util/ArrayDeque;->clear()V
 
-    .line 633
+    .line 627
     iget-object v2, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewProduceQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v2}, Ljava/util/ArrayDeque;->clear()V
 
-    .line 634
+    .line 628
     iget-object v2, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegCaptureQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v2}, Ljava/util/ArrayDeque;->clear()V
 
-    .line 635
+    .line 629
     iget-object v2, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegProduceQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v2}, Ljava/util/ArrayDeque;->clear()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 637
+    .line 631
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 623
+    .line 617
     return-void
 .end method
 
@@ -517,14 +517,14 @@
     .locals 5
 
     .prologue
-    .line 597
+    .line 591
     iget-object v3, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 598
+    .line 592
     .local v3, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 600
+    .line 594
     :try_start_0
     iget-object v4, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegCaptureQueue:Ljava/util/ArrayDeque;
 
@@ -534,7 +534,7 @@
 
     check-cast v1, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
 
-    .line 601
+    .line 595
     .local v1, "h1":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     iget-object v4, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegProduceQueue:Ljava/util/ArrayDeque;
 
@@ -544,45 +544,45 @@
 
     check-cast v2, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
 
-    .line 604
+    .line 598
     .local v2, "h2":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     if-nez v1, :cond_1
 
     move-object v0, v2
 
-    .line 609
+    .line 603
     .local v0, "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 610
+    .line 604
     iget-object v4, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegCaptureQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayDeque;->remove(Ljava/lang/Object;)Z
 
-    .line 611
+    .line 605
     iget-object v4, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegProduceQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayDeque;->remove(Ljava/lang/Object;)Z
 
-    .line 612
+    .line 606
     iget-object v4, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mActiveRequests:Ljava/util/TreeSet;
 
     invoke-virtual {v4, v0}, Ljava/util/TreeSet;->remove(Ljava/lang/Object;)Z
 
-    .line 613
+    .line 607
     invoke-virtual {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->setJpegFailed()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 616
+    .line 610
     :cond_0
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 596
+    .line 590
     return-void
 
-    .line 605
+    .line 599
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :cond_1
     if-nez v2, :cond_2
@@ -592,7 +592,7 @@
     .restart local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     goto :goto_0
 
-    .line 606
+    .line 600
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :cond_2
     :try_start_1
@@ -609,7 +609,7 @@
     .restart local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     goto :goto_0
 
-    .line 607
+    .line 601
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :cond_3
     move-object v0, v2
@@ -617,17 +617,17 @@
     .restart local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     goto :goto_0
 
-    .line 615
+    .line 609
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     .end local v1    # "h1":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     .end local v2    # "h2":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :catchall_0
     move-exception v4
 
-    .line 616
+    .line 610
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 615
+    .line 609
     throw v4
 .end method
 
@@ -635,14 +635,14 @@
     .locals 5
 
     .prologue
-    .line 570
+    .line 564
     iget-object v3, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 571
+    .line 565
     .local v3, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 573
+    .line 567
     :try_start_0
     iget-object v4, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewCaptureQueue:Ljava/util/ArrayDeque;
 
@@ -652,7 +652,7 @@
 
     check-cast v1, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
 
-    .line 574
+    .line 568
     .local v1, "h1":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     iget-object v4, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewProduceQueue:Ljava/util/ArrayDeque;
 
@@ -662,45 +662,45 @@
 
     check-cast v2, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
 
-    .line 577
+    .line 571
     .local v2, "h2":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     if-nez v1, :cond_1
 
     move-object v0, v2
 
-    .line 582
+    .line 576
     .local v0, "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 583
+    .line 577
     iget-object v4, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewCaptureQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayDeque;->remove(Ljava/lang/Object;)Z
 
-    .line 584
+    .line 578
     iget-object v4, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewProduceQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayDeque;->remove(Ljava/lang/Object;)Z
 
-    .line 585
+    .line 579
     iget-object v4, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mActiveRequests:Ljava/util/TreeSet;
 
     invoke-virtual {v4, v0}, Ljava/util/TreeSet;->remove(Ljava/lang/Object;)Z
 
-    .line 586
+    .line 580
     invoke-virtual {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->setPreviewFailed()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 589
+    .line 583
     :cond_0
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 569
+    .line 563
     return-void
 
-    .line 578
+    .line 572
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :cond_1
     if-nez v2, :cond_2
@@ -710,7 +710,7 @@
     .restart local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     goto :goto_0
 
-    .line 579
+    .line 573
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :cond_2
     :try_start_1
@@ -727,7 +727,7 @@
     .restart local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     goto :goto_0
 
-    .line 580
+    .line 574
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :cond_3
     move-object v0, v2
@@ -735,17 +735,17 @@
     .restart local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     goto :goto_0
 
-    .line 588
+    .line 582
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     .end local v1    # "h1":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     .end local v2    # "h2":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :catchall_0
     move-exception v4
 
-    .line 589
+    .line 583
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 588
+    .line 582
     throw v4
 .end method
 
@@ -753,14 +753,14 @@
     .locals 2
 
     .prologue
-    .line 512
+    .line 506
     iget-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 513
+    .line 507
     .local v0, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 515
+    .line 509
     :try_start_0
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewCaptureQueue:Ljava/util/ArrayDeque;
 
@@ -774,11 +774,11 @@
 
     const/4 v1, 0x0
 
-    .line 517
+    .line 511
     :goto_0
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 515
+    .line 509
     return v1
 
     :cond_0
@@ -786,14 +786,14 @@
 
     goto :goto_0
 
-    .line 516
+    .line 510
     :catchall_0
     move-exception v1
 
-    .line 517
+    .line 511
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 516
+    .line 510
     throw v1
 .end method
 
@@ -804,14 +804,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 470
+    .line 464
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 471
+    .line 465
     .local v1, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 473
+    .line 467
     :try_start_0
     iget-object v2, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegCaptureQueue:Ljava/util/ArrayDeque;
 
@@ -821,11 +821,11 @@
 
     check-cast v0, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
 
-    .line 474
+    .line 468
     .local v0, "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     if-nez v0, :cond_0
 
-    .line 475
+    .line 469
     const-string/jumbo v2, "CaptureCollector"
 
     const-string/jumbo v3, "jpegCaptured called with no jpeg request on queue!"
@@ -834,39 +834,39 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 481
+    .line 475
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 476
+    .line 470
     return-object v4
 
-    .line 478
+    .line 472
     :cond_0
     :try_start_1
     invoke-virtual {v0, p1, p2}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->setJpegTimestamp(J)V
 
-    .line 479
+    .line 473
     invoke-static {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->-get0(Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;)Landroid/hardware/camera2/legacy/RequestHolder;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v2
 
-    .line 481
+    .line 475
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 479
+    .line 473
     return-object v2
 
-    .line 480
+    .line 474
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :catchall_0
     move-exception v2
 
-    .line 481
+    .line 475
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 480
+    .line 474
     throw v2
 .end method
 
@@ -886,14 +886,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 491
+    .line 485
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 492
+    .line 486
     .local v1, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 494
+    .line 488
     :try_start_0
     iget-object v2, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegProduceQueue:Ljava/util/ArrayDeque;
 
@@ -903,11 +903,11 @@
 
     check-cast v0, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
 
-    .line 495
+    .line 489
     .local v0, "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     if-nez v0, :cond_0
 
-    .line 496
+    .line 490
     const-string/jumbo v2, "CaptureCollector"
 
     const-string/jumbo v3, "jpegProduced called with no jpeg request on queue!"
@@ -916,18 +916,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 502
+    .line 496
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 497
+    .line 491
     return-object v4
 
-    .line 499
+    .line 493
     :cond_0
     :try_start_1
     invoke-virtual {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->setJpegProduced()V
 
-    .line 500
+    .line 494
     new-instance v2, Landroid/util/Pair;
 
     invoke-static {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->-get0(Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;)Landroid/hardware/camera2/legacy/RequestHolder;
@@ -946,21 +946,21 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 502
+    .line 496
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 500
+    .line 494
     return-object v2
 
-    .line 501
+    .line 495
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :catchall_0
     move-exception v2
 
-    .line 502
+    .line 496
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 501
+    .line 495
     throw v2
 .end method
 
@@ -981,14 +981,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 528
+    .line 522
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 529
+    .line 523
     .local v1, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 531
+    .line 525
     :try_start_0
     iget-object v2, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewCaptureQueue:Ljava/util/ArrayDeque;
 
@@ -1000,22 +1000,22 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 532
+    .line 526
     .local v0, "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     if-nez v0, :cond_0
 
-    .line 541
+    .line 535
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 536
+    .line 530
     return-object v3
 
-    .line 538
+    .line 532
     :cond_0
     :try_start_1
     invoke-virtual {v0, p1, p2}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->setPreviewTimestamp(J)V
 
-    .line 539
+    .line 533
     new-instance v2, Landroid/util/Pair;
 
     invoke-static {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->-get0(Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;)Landroid/hardware/camera2/legacy/RequestHolder;
@@ -1034,21 +1034,21 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 541
+    .line 535
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 539
+    .line 533
     return-object v2
 
-    .line 540
+    .line 534
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :catchall_0
     move-exception v2
 
-    .line 541
+    .line 535
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 540
+    .line 534
     throw v2
 .end method
 
@@ -1058,14 +1058,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 551
+    .line 545
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 552
+    .line 546
     .local v1, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 554
+    .line 548
     :try_start_0
     iget-object v2, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewProduceQueue:Ljava/util/ArrayDeque;
 
@@ -1075,11 +1075,11 @@
 
     check-cast v0, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
 
-    .line 555
+    .line 549
     .local v0, "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     if-nez v0, :cond_0
 
-    .line 556
+    .line 550
     const-string/jumbo v2, "CaptureCollector"
 
     const-string/jumbo v3, "previewProduced called with no preview request on queue!"
@@ -1088,39 +1088,39 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 562
+    .line 556
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 557
+    .line 551
     return-object v4
 
-    .line 559
+    .line 553
     :cond_0
     :try_start_1
     invoke-virtual {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->setPreviewProduced()V
 
-    .line 560
+    .line 554
     invoke-static {v0}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->-get0(Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;)Landroid/hardware/camera2/legacy/RequestHolder;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v2
 
-    .line 562
+    .line 556
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 560
+    .line 554
     return-object v2
 
-    .line 561
+    .line 555
     .end local v0    # "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     :catchall_0
     move-exception v2
 
-    .line 562
+    .line 556
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 561
+    .line 555
     throw v2
 .end method
 
@@ -1143,7 +1143,7 @@
 
     const/4 v11, 0x0
 
-    .line 320
+    .line 314
     new-instance v4, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
 
     move-object/from16 v0, p1
@@ -1152,7 +1152,7 @@
 
     invoke-direct {v4, p0, v0, v1}, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;-><init>(Landroid/hardware/camera2/legacy/CaptureCollector;Landroid/hardware/camera2/legacy/RequestHolder;Landroid/hardware/camera2/legacy/LegacyRequest;)V
 
-    .line 321
+    .line 315
     .local v4, "h":Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;
     move-object/from16 v0, p5
 
@@ -1162,15 +1162,15 @@
 
     move-result-wide v6
 
-    .line 322
+    .line 316
     .local v6, "nanos":J
     iget-object v5, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 323
+    .line 317
     .local v5, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v5}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 330
+    .line 324
     :try_start_0
     iget-boolean v8, v4, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->needsJpeg:Z
 
@@ -1181,7 +1181,7 @@
     :goto_0
     if-nez v8, :cond_1
 
-    .line 331
+    .line 325
     new-instance v8, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v9, "Request must target at least one output surface!"
@@ -1192,30 +1192,30 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 360
+    .line 354
     :catchall_0
     move-exception v8
 
-    .line 361
+    .line 355
     invoke-virtual {v5}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 360
+    .line 354
     throw v8
 
     :cond_0
     move v8, v9
 
-    .line 330
+    .line 324
     goto :goto_0
 
-    .line 334
+    .line 328
     :cond_1
     :try_start_1
     iget-boolean v8, v4, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->needsJpeg:Z
 
     if-eqz v8, :cond_4
 
-    .line 336
+    .line 330
     :goto_1
     iget v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlight:I
     :try_end_1
@@ -1223,18 +1223,18 @@
 
     if-lez v8, :cond_3
 
-    .line 337
+    .line 331
     cmp-long v8, v6, v12
 
     if-gtz v8, :cond_2
 
-    .line 361
+    .line 355
     invoke-virtual {v5}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 338
+    .line 332
     return v11
 
-    .line 340
+    .line 334
     :cond_2
     :try_start_2
     iget-object v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mIsEmpty:Ljava/util/concurrent/locks/Condition;
@@ -1245,24 +1245,24 @@
 
     goto :goto_1
 
-    .line 342
+    .line 336
     :cond_3
     iget-object v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegCaptureQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v8, v4}, Ljava/util/ArrayDeque;->add(Ljava/lang/Object;)Z
 
-    .line 343
+    .line 337
     iget-object v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mJpegProduceQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v8, v4}, Ljava/util/ArrayDeque;->add(Ljava/lang/Object;)Z
 
-    .line 345
+    .line 339
     :cond_4
     iget-boolean v8, v4, Landroid/hardware/camera2/legacy/CaptureCollector$CaptureHolder;->needsPreview:Z
 
     if-eqz v8, :cond_7
 
-    .line 346
+    .line 340
     :goto_2
     iget v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlight:I
 
@@ -1272,18 +1272,18 @@
 
     if-lt v8, v10, :cond_6
 
-    .line 347
+    .line 341
     cmp-long v8, v6, v12
 
     if-gtz v8, :cond_5
 
-    .line 361
+    .line 355
     invoke-virtual {v5}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 348
+    .line 342
     return v11
 
-    .line 350
+    .line 344
     :cond_5
     :try_start_3
     iget-object v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mNotFull:Ljava/util/concurrent/locks/Condition;
@@ -1294,31 +1294,31 @@
 
     goto :goto_2
 
-    .line 352
+    .line 346
     :cond_6
     iget-object v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewCaptureQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v8, v4}, Ljava/util/ArrayDeque;->add(Ljava/lang/Object;)Z
 
-    .line 353
+    .line 347
     iget-object v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewProduceQueue:Ljava/util/ArrayDeque;
 
     invoke-virtual {v8, v4}, Ljava/util/ArrayDeque;->add(Ljava/lang/Object;)Z
 
-    .line 354
+    .line 348
     iget v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlightPreviews:I
 
     add-int/lit8 v8, v8, 0x1
 
     iput v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlightPreviews:I
 
-    .line 356
+    .line 350
     :cond_7
     iget-object v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mActiveRequests:Ljava/util/TreeSet;
 
     invoke-virtual {v8, v4}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
 
-    .line 358
+    .line 352
     iget v8, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlight:I
 
     add-int/lit8 v8, v8, 0x1
@@ -1327,10 +1327,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 361
+    .line 355
     invoke-virtual {v5}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 359
+    .line 353
     return v9
 .end method
 
@@ -1347,20 +1347,20 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 374
+    .line 368
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
 
     move-result-wide v2
 
-    .line 375
+    .line 369
     .local v2, "nanos":J
     iget-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 376
+    .line 370
     .local v0, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 378
+    .line 372
     :goto_0
     :try_start_0
     iget v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlight:I
@@ -1369,20 +1369,20 @@
 
     if-lez v1, :cond_1
 
-    .line 379
+    .line 373
     const-wide/16 v4, 0x0
 
     cmp-long v1, v2, v4
 
     if-gtz v1, :cond_0
 
-    .line 386
+    .line 380
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 380
+    .line 374
     return v6
 
-    .line 382
+    .line 376
     :cond_0
     :try_start_1
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mIsEmpty:Ljava/util/concurrent/locks/Condition;
@@ -1395,24 +1395,24 @@
 
     goto :goto_0
 
-    .line 384
+    .line 378
     :cond_1
     const/4 v1, 0x1
 
-    .line 386
+    .line 380
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 384
+    .line 378
     return v1
 
-    .line 385
+    .line 379
     :catchall_0
     move-exception v1
 
-    .line 386
+    .line 380
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 385
+    .line 379
     throw v1
 .end method
 
@@ -1429,20 +1429,20 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 399
+    .line 393
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
 
     move-result-wide v2
 
-    .line 400
+    .line 394
     .local v2, "nanos":J
     iget-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 401
+    .line 395
     .local v0, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 403
+    .line 397
     :goto_0
     :try_start_0
     iget v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mInFlightPreviews:I
@@ -1451,20 +1451,20 @@
 
     if-lez v1, :cond_1
 
-    .line 404
+    .line 398
     const-wide/16 v4, 0x0
 
     cmp-long v1, v2, v4
 
     if-gtz v1, :cond_0
 
-    .line 411
+    .line 405
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 405
+    .line 399
     return v6
 
-    .line 407
+    .line 401
     :cond_0
     :try_start_1
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mPreviewsEmpty:Ljava/util/concurrent/locks/Condition;
@@ -1477,24 +1477,24 @@
 
     goto :goto_0
 
-    .line 409
+    .line 403
     :cond_1
     const/4 v1, 0x1
 
-    .line 411
+    .line 405
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 409
+    .line 403
     return v1
 
-    .line 410
+    .line 404
     :catchall_0
     move-exception v1
 
-    .line 411
+    .line 405
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 410
+    .line 404
     throw v1
 .end method
 
@@ -1511,20 +1511,20 @@
     .end annotation
 
     .prologue
-    .line 433
+    .line 427
     invoke-virtual {p4, p2, p3}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
 
     move-result-wide v2
 
-    .line 434
+    .line 428
     .local v2, "nanos":J
     iget-object v0, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 435
+    .line 429
     .local v0, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 437
+    .line 431
     :goto_0
     :try_start_0
     invoke-direct {p0, p1, p5}, Landroid/hardware/camera2/legacy/CaptureCollector;->removeRequestIfCompleted(Landroid/hardware/camera2/legacy/RequestHolder;Landroid/util/MutableLong;)Z
@@ -1535,23 +1535,23 @@
 
     if-nez v1, :cond_1
 
-    .line 438
+    .line 432
     const-wide/16 v4, 0x0
 
     cmp-long v1, v2, v4
 
     if-gtz v1, :cond_0
 
-    .line 439
+    .line 433
     const/4 v1, 0x0
 
-    .line 445
+    .line 439
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 439
+    .line 433
     return v1
 
-    .line 441
+    .line 435
     :cond_0
     :try_start_1
     iget-object v1, p0, Landroid/hardware/camera2/legacy/CaptureCollector;->mNotFull:Ljava/util/concurrent/locks/Condition;
@@ -1564,23 +1564,23 @@
 
     goto :goto_0
 
-    .line 443
+    .line 437
     :cond_1
     const/4 v1, 0x1
 
-    .line 445
+    .line 439
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 443
+    .line 437
     return v1
 
-    .line 444
+    .line 438
     :catchall_0
     move-exception v1
 
-    .line 445
+    .line 439
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 444
+    .line 438
     throw v1
 .end method

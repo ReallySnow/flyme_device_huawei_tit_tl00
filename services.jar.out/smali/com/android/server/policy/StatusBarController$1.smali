@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 78
+    .line 90
     iget-object v0, p0, Lcom/android/server/policy/StatusBarController$1;->this$0:Lcom/android/server/policy/StatusBarController;
 
     iget-object v0, v0, Lcom/android/server/policy/StatusBarController;->mHandler:Landroid/os/Handler;
@@ -49,27 +49,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 77
-    return-void
-.end method
-
-.method public onAppTransitionFinishedLocked(Landroid/os/IBinder;)V
-    .locals 2
-    .param p1, "token"    # Landroid/os/IBinder;
-
-    .prologue
-    .line 91
-    iget-object v0, p0, Lcom/android/server/policy/StatusBarController$1;->this$0:Lcom/android/server/policy/StatusBarController;
-
-    iget-object v0, v0, Lcom/android/server/policy/StatusBarController;->mHandler:Landroid/os/Handler;
-
-    new-instance v1, Lcom/android/server/policy/StatusBarController$1$4;
-
-    invoke-direct {v1, p0}, Lcom/android/server/policy/StatusBarController$1$4;-><init>(Lcom/android/server/policy/StatusBarController$1;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    .line 90
+    .line 89
     return-void
 .end method
 
@@ -100,7 +80,7 @@
     .param p4, "closeAnimation"    # Landroid/view/animation/Animation;
 
     .prologue
-    .line 61
+    .line 67
     iget-object v0, p0, Lcom/android/server/policy/StatusBarController$1;->this$0:Lcom/android/server/policy/StatusBarController;
 
     iget-object v0, v0, Lcom/android/server/policy/StatusBarController;->mHandler:Landroid/os/Handler;
@@ -111,6 +91,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 60
+    .line 66
     return-void
 .end method

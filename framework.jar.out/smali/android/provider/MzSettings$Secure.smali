@@ -25,8 +25,6 @@
 
 .field public static final FINGERPRINT_ID_SECRETS_MODE:Ljava/lang/String; = "mz_fp_id_secrets_mode"
 
-.field public static final MEIZU_CTS_STATE:Ljava/lang/String; = "mz_cts_state"
-
 .field public static final MEIZU_DEVICE_NAME:Ljava/lang/String; = "meizu_device_name"
 
 .field public static final MEIZU_KEYGUARD_LOCK:Ljava/lang/String; = "meizu_keyguard_lock"
@@ -150,7 +148,7 @@
     .locals 2
 
     .prologue
-    .line 1293
+    .line 1160
     new-instance v0, Ljava/util/HashSet;
 
     const/16 v1, 0x1e
@@ -159,21 +157,21 @@
 
     sput-object v0, Landroid/provider/MzSettings$Secure;->MEIZU_NO_SECURE:Ljava/util/HashSet;
 
-    .line 1294
+    .line 1161
     sget-object v0, Landroid/provider/MzSettings$Secure;->MEIZU_NO_SECURE:Ljava/util/HashSet;
 
     const-string/jumbo v1, "mz_smartbar_hit_edge_count_inside"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 1295
+    .line 1162
     sget-object v0, Landroid/provider/MzSettings$Secure;->MEIZU_NO_SECURE:Ljava/util/HashSet;
 
     const-string/jumbo v1, "mz_smartbar_hit_edge_count_outside"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 1140
+    .line 1007
     return-void
 .end method
 
@@ -181,7 +179,7 @@
     .locals 0
 
     .prologue
-    .line 1140
+    .line 1007
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -9,10 +9,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/preference/Preference$BaseSavedState;,
-        Landroid/preference/Preference$OnPreferenceChangeInternalListener;,
         Landroid/preference/Preference$OnPreferenceChangeListener;,
-        Landroid/preference/Preference$OnPreferenceClickListener;
+        Landroid/preference/Preference$OnPreferenceClickListener;,
+        Landroid/preference/Preference$OnPreferenceChangeInternalListener;,
+        Landroid/preference/Preference$BaseSavedState;
     }
 .end annotation
 
@@ -32,7 +32,6 @@
 
 
 # instance fields
-
 .field private mFlymeDividerFilter:Z
 
 .field private mFlymePreferenceView:Landroid/view/View;
@@ -449,49 +448,43 @@
 .end method
 
 .method private dispatchSetInitialValue()V
-    .locals 4
+    .locals 3
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    .line 1385
+    .line 1390
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v0
 
-    .line 1386
+    .line 1391
     .local v0, "shouldPersist":Z
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Landroid/preference/Preference;->getSharedPreferences()Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
-
-    invoke-interface {v1, v2}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
+    invoke-virtual {p0}, Landroid/preference/Preference;->isPersisted()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 1391
+    .line 1396
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v1, v3}, Landroid/preference/Preference;->onSetInitialValue(ZLjava/lang/Object;)V
+    invoke-virtual {p0, v1, v2}, Landroid/preference/Preference;->onSetInitialValue(ZLjava/lang/Object;)V
 
-    .line 1383
+    .line 1388
     :cond_0
     :goto_0
     return-void
 
-    .line 1387
+    .line 1392
     :cond_1
     iget-object v1, p0, Landroid/preference/Preference;->mDefaultValue:Ljava/lang/Object;
 
     if-eqz v1, :cond_0
 
-    .line 1388
+    .line 1393
     iget-object v1, p0, Landroid/preference/Preference;->mDefaultValue:Ljava/lang/Object;
 
     const/4 v2, 0x0
@@ -505,7 +498,7 @@
     .locals 4
 
     .prologue
-    .line 1202
+    .line 1199
     iget-object v1, p0, Landroid/preference/Preference;->mDependencyKey:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -516,7 +509,7 @@
 
     return-void
 
-    .line 1204
+    .line 1201
     :cond_0
     iget-object v1, p0, Landroid/preference/Preference;->mDependencyKey:Ljava/lang/String;
 
@@ -524,17 +517,17 @@
 
     move-result-object v0
 
-    .line 1205
+    .line 1202
     .local v0, "preference":Landroid/preference/Preference;
     if-eqz v0, :cond_1
 
-    .line 1206
+    .line 1203
     invoke-direct {v0, p0}, Landroid/preference/Preference;->registerDependent(Landroid/preference/Preference;)V
 
-    .line 1200
+    .line 1197
     return-void
 
-    .line 1208
+    .line 1205
     :cond_1
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -554,42 +547,42 @@
 
     move-result-object v2
 
-    .line 1209
+    .line 1206
     const-string/jumbo v3, "\" not found for preference \""
 
-    .line 1208
+    .line 1205
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 1209
+    .line 1206
     iget-object v3, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
-    .line 1208
+    .line 1205
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 1209
+    .line 1206
     const-string/jumbo v3, "\" (title: \""
 
-    .line 1208
+    .line 1205
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 1209
+    .line 1206
     iget-object v3, p0, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1208
+    .line 1205
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 1209
+    .line 1206
     const-string/jumbo v3, "\""
 
-    .line 1208
+    .line 1205
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -608,32 +601,32 @@
     .param p1, "dependent"    # Landroid/preference/Preference;
 
     .prologue
-    .line 1250
+    .line 1247
     iget-object v0, p0, Landroid/preference/Preference;->mDependents:Ljava/util/List;
 
     if-nez v0, :cond_0
 
-    .line 1251
+    .line 1248
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/preference/Preference;->mDependents:Ljava/util/List;
 
-    .line 1254
+    .line 1251
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mDependents:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1256
+    .line 1253
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldDisableDependents()Z
 
     move-result v0
 
     invoke-virtual {p1, p0, v0}, Landroid/preference/Preference;->onDependencyChanged(Landroid/preference/Preference;Z)V
 
-    .line 1249
+    .line 1246
     return-void
 .end method
 
@@ -692,7 +685,7 @@
     .param p1, "editor"    # Landroid/content/SharedPreferences$Editor;
 
     .prologue
-    .line 1416
+    .line 1421
     iget-object v1, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     invoke-virtual {v1}, Landroid/preference/PreferenceManager;->shouldCommit()Z
@@ -701,22 +694,22 @@
 
     if-eqz v1, :cond_0
 
-    .line 1418
+    .line 1423
     :try_start_0
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1415
+    .line 1420
     :cond_0
     :goto_0
     return-void
 
-    .line 1419
+    .line 1424
     :catch_0
     move-exception v0
 
-    .line 1423
+    .line 1428
     .local v0, "unused":Ljava/lang/AbstractMethodError;
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
@@ -727,26 +720,26 @@
     .locals 2
 
     .prologue
-    .line 1214
+    .line 1211
     iget-object v1, p0, Landroid/preference/Preference;->mDependencyKey:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
-    .line 1215
+    .line 1212
     iget-object v1, p0, Landroid/preference/Preference;->mDependencyKey:Ljava/lang/String;
 
     invoke-virtual {p0, v1}, Landroid/preference/Preference;->findPreferenceInHierarchy(Ljava/lang/String;)Landroid/preference/Preference;
 
     move-result-object v0
 
-    .line 1216
+    .line 1213
     .local v0, "oldDependency":Landroid/preference/Preference;
     if-eqz v0, :cond_0
 
-    .line 1217
+    .line 1214
     invoke-direct {v0, p0}, Landroid/preference/Preference;->unregisterDependent(Landroid/preference/Preference;)V
 
-    .line 1213
+    .line 1210
     .end local v0    # "oldDependency":Landroid/preference/Preference;
     :cond_0
     return-void
@@ -757,17 +750,17 @@
     .param p1, "dependent"    # Landroid/preference/Preference;
 
     .prologue
-    .line 1268
+    .line 1265
     iget-object v0, p0, Landroid/preference/Preference;->mDependents:Ljava/util/List;
 
     if-eqz v0, :cond_0
 
-    .line 1269
+    .line 1266
     iget-object v0, p0, Landroid/preference/Preference;->mDependents:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 1267
+    .line 1264
     :cond_0
     return-void
 .end method
@@ -779,7 +772,7 @@
     .param p1, "newValue"    # Ljava/lang/Object;
 
     .prologue
-    .line 942
+    .line 939
     iget-object v0, p0, Landroid/preference/Preference;->mOnChangeListener:Landroid/preference/Preference$OnPreferenceChangeListener;
 
     if-nez v0, :cond_0
@@ -803,7 +796,7 @@
     .locals 1
 
     .prologue
-    .line 1706
+    .line 1715
     iget-boolean v0, p0, Landroid/preference/Preference;->mCanRecycleLayout:Z
 
     return v0
@@ -814,14 +807,14 @@
     .param p1, "another"    # Landroid/preference/Preference;
 
     .prologue
-    .line 1119
+    .line 1116
     iget v0, p0, Landroid/preference/Preference;->mOrder:I
 
     iget v1, p1, Landroid/preference/Preference;->mOrder:I
 
     if-eq v0, v1, :cond_0
 
-    .line 1121
+    .line 1118
     iget v0, p0, Landroid/preference/Preference;->mOrder:I
 
     iget v1, p1, Landroid/preference/Preference;->mOrder:I
@@ -830,7 +823,7 @@
 
     return v0
 
-    .line 1122
+    .line 1119
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
@@ -838,34 +831,34 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 1124
+    .line 1121
     const/4 v0, 0x0
 
     return v0
 
-    .line 1125
+    .line 1122
     :cond_1
     iget-object v0, p0, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
     if-nez v0, :cond_2
 
-    .line 1126
+    .line 1123
     const/4 v0, 0x1
 
     return v0
 
-    .line 1127
+    .line 1124
     :cond_2
     iget-object v0, p1, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
     if-nez v0, :cond_3
 
-    .line 1128
+    .line 1125
     const/4 v0, -0x1
 
     return v0
 
-    .line 1131
+    .line 1128
     :cond_3
     iget-object v0, p0, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
@@ -883,7 +876,7 @@
     .param p1, "another"    # Ljava/lang/Object;
 
     .prologue
-    .line 1118
+    .line 1115
     check-cast p1, Landroid/preference/Preference;
 
     .end local p1    # "another":Ljava/lang/Object;
@@ -899,49 +892,49 @@
     .param p1, "container"    # Landroid/os/Bundle;
 
     .prologue
-    .line 1818
+    .line 1827
     invoke-virtual {p0}, Landroid/preference/Preference;->hasKey()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 1819
+    .line 1828
     iget-object v1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v0
 
-    .line 1820
+    .line 1829
     .local v0, "state":Landroid/os/Parcelable;
     if-eqz v0, :cond_0
 
-    .line 1821
+    .line 1830
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/preference/Preference;->mBaseMethodCalled:Z
 
-    .line 1822
+    .line 1831
     invoke-virtual {p0, v0}, Landroid/preference/Preference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    .line 1823
+    .line 1832
     iget-boolean v1, p0, Landroid/preference/Preference;->mBaseMethodCalled:Z
 
     if-nez v1, :cond_0
 
-    .line 1824
+    .line 1833
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    .line 1825
+    .line 1834
     const-string/jumbo v2, "Derived class did not call super.onRestoreInstanceState()"
 
-    .line 1824
+    .line 1833
     invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 1817
+    .line 1826
     .end local v0    # "state":Landroid/os/Parcelable;
     :cond_0
     return-void
@@ -952,50 +945,50 @@
     .param p1, "container"    # Landroid/os/Bundle;
 
     .prologue
-    .line 1765
+    .line 1774
     invoke-virtual {p0}, Landroid/preference/Preference;->hasKey()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 1766
+    .line 1775
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/preference/Preference;->mBaseMethodCalled:Z
 
-    .line 1767
+    .line 1776
     invoke-virtual {p0}, Landroid/preference/Preference;->onSaveInstanceState()Landroid/os/Parcelable;
 
     move-result-object v0
 
-    .line 1768
+    .line 1777
     .local v0, "state":Landroid/os/Parcelable;
     iget-boolean v1, p0, Landroid/preference/Preference;->mBaseMethodCalled:Z
 
     if-nez v1, :cond_0
 
-    .line 1769
+    .line 1778
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    .line 1770
+    .line 1779
     const-string/jumbo v2, "Derived class did not call super.onSaveInstanceState()"
 
-    .line 1769
+    .line 1778
     invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 1772
+    .line 1781
     :cond_0
     if-eqz v0, :cond_1
 
-    .line 1773
+    .line 1782
     iget-object v1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 1764
+    .line 1773
     .end local v0    # "state":Landroid/os/Parcelable;
     :cond_1
     return-void
@@ -1008,7 +1001,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1233
+    .line 1230
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -1019,11 +1012,11 @@
 
     if-nez v0, :cond_1
 
-    .line 1234
+    .line 1231
     :cond_0
     return-object v1
 
-    .line 1237
+    .line 1234
     :cond_1
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1038,7 +1031,7 @@
     .locals 1
 
     .prologue
-    .line 1039
+    .line 1036
     iget-object v0, p0, Landroid/preference/Preference;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -1048,7 +1041,7 @@
     .locals 1
 
     .prologue
-    .line 1359
+    .line 1356
     iget-object v0, p0, Landroid/preference/Preference;->mDependencyKey:Ljava/lang/String;
 
     return-object v0
@@ -1060,15 +1053,15 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1087
+    .line 1084
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-nez v0, :cond_0
 
-    .line 1088
+    .line 1085
     return-object v1
 
-    .line 1091
+    .line 1088
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1108,18 +1101,18 @@
     .prologue
     const/16 v4, 0x20
 
-    .line 1726
+    .line 1735
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1727
+    .line 1736
     .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    .line 1728
+    .line 1737
     .local v2, "title":Ljava/lang/CharSequence;
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1127,20 +1120,20 @@
 
     if-nez v3, :cond_0
 
-    .line 1729
+    .line 1738
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1731
+    .line 1740
     :cond_0
     invoke-virtual {p0}, Landroid/preference/Preference;->getSummary()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 1732
+    .line 1741
     .local v1, "summary":Ljava/lang/CharSequence;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1148,14 +1141,14 @@
 
     if-nez v3, :cond_1
 
-    .line 1733
+    .line 1742
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1735
+    .line 1744
     :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
@@ -1163,7 +1156,7 @@
 
     if-lez v3, :cond_2
 
-    .line 1737
+    .line 1746
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v3
@@ -1172,7 +1165,7 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    .line 1739
+    .line 1748
     :cond_2
     return-object v0
 .end method
@@ -1188,33 +1181,10 @@
 .end method
 
 .method public getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .locals 1
 
     .prologue
     .line 722
-    iget-object v0, p0, Landroid/preference/Preference;->mIcon:Landroid/graphics/drawable/Drawable;
-
-    if-nez v0, :cond_0
-
-    iget v0, p0, Landroid/preference/Preference;->mIconResId:I
-
-    if-eqz v0, :cond_0
-
-    .line 723
-    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    iget v1, p0, Landroid/preference/Preference;->mIconResId:I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/preference/Preference;->mIcon:Landroid/graphics/drawable/Drawable;
-
-    .line 725
-    :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mIcon:Landroid/graphics/drawable/Drawable;
 
     return-object v0
@@ -1224,7 +1194,7 @@
     .locals 2
 
     .prologue
-    .line 839
+    .line 836
     iget-wide v0, p0, Landroid/preference/Preference;->mId:J
 
     return-wide v0
@@ -1244,7 +1214,7 @@
     .locals 1
 
     .prologue
-    .line 872
+    .line 869
     iget-object v0, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     return-object v0
@@ -1264,7 +1234,7 @@
     .locals 1
 
     .prologue
-    .line 962
+    .line 959
     iget-object v0, p0, Landroid/preference/Preference;->mOnChangeListener:Landroid/preference/Preference$OnPreferenceChangeListener;
 
     return-object v0
@@ -1274,7 +1244,7 @@
     .locals 1
 
     .prologue
-    .line 980
+    .line 977
     iget-object v0, p0, Landroid/preference/Preference;->mOnClickListener:Landroid/preference/Preference$OnPreferenceClickListener;
 
     return-object v0
@@ -1295,17 +1265,17 @@
     .param p1, "defaultReturnValue"    # Z
 
     .prologue
-    .line 1698
+    .line 1707
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1699
+    .line 1708
     return p1
 
-    .line 1702
+    .line 1711
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1327,17 +1297,17 @@
     .param p1, "defaultReturnValue"    # F
 
     .prologue
-    .line 1610
+    .line 1619
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1611
+    .line 1620
     return p1
 
-    .line 1614
+    .line 1623
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1359,17 +1329,17 @@
     .param p1, "defaultReturnValue"    # I
 
     .prologue
-    .line 1566
+    .line 1575
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1567
+    .line 1576
     return p1
 
-    .line 1570
+    .line 1579
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1391,17 +1361,17 @@
     .param p1, "defaultReturnValue"    # J
 
     .prologue
-    .line 1654
+    .line 1663
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1655
+    .line 1664
     return-wide p1
 
-    .line 1658
+    .line 1667
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1423,17 +1393,17 @@
     .param p1, "defaultReturnValue"    # Ljava/lang/String;
 
     .prologue
-    .line 1471
+    .line 1476
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1472
+    .line 1477
     return-object p1
 
-    .line 1475
+    .line 1480
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1450,7 +1420,7 @@
     return-object v0
 .end method
 
-.method public getPersistedStringSet(Ljava/util/Set;)Ljava/util/Set;
+.method protected getPersistedStringSet(Ljava/util/Set;)Ljava/util/Set;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1467,7 +1437,7 @@
     .end annotation
 
     .prologue
-    .line 1522
+    .line 1531
     .local p1, "defaultReturnValue":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
@@ -1475,10 +1445,10 @@
 
     if-nez v0, :cond_0
 
-    .line 1523
+    .line 1532
     return-object p1
 
-    .line 1526
+    .line 1535
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1499,7 +1469,7 @@
     .locals 1
 
     .prologue
-    .line 1171
+    .line 1168
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     return-object v0
@@ -1511,15 +1481,15 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1060
+    .line 1057
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-nez v0, :cond_0
 
-    .line 1061
+    .line 1058
     return-object v1
 
-    .line 1064
+    .line 1061
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -1534,7 +1504,7 @@
     .locals 1
 
     .prologue
-    .line 829
+    .line 826
     iget-boolean v0, p0, Landroid/preference/Preference;->mShouldDisableView:Z
 
     return v0
@@ -1544,7 +1514,7 @@
     .locals 1
 
     .prologue
-    .line 735
+    .line 732
     iget-object v0, p0, Landroid/preference/Preference;->mSummary:Ljava/lang/CharSequence;
 
     return-object v0
@@ -1606,7 +1576,7 @@
     .locals 1
 
     .prologue
-    .line 896
+    .line 893
     iget-object v0, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -1630,7 +1600,7 @@
     .locals 1
 
     .prologue
-    .line 783
+    .line 780
     iget-boolean v0, p0, Landroid/preference/Preference;->mEnabled:Z
 
     if-eqz v0, :cond_0
@@ -1639,7 +1609,9 @@
 
     if-eqz v0, :cond_0
 
-    #iget-boolean v0, p0, Landroid/preference/Preference;->mParentDependencyMet:Z
+    return v0
+
+    iget-boolean v0, p0, Landroid/preference/Preference;->mParentDependencyMet:Z
 
     :goto_0
     return v0
@@ -1650,11 +1622,29 @@
     goto :goto_0
 .end method
 
+.method protected isPersisted()Z
+    .locals 2
+
+    .prologue
+    .line 1385
+    invoke-virtual {p0}, Landroid/preference/Preference;->getSharedPreferences()Landroid/content/SharedPreferences;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
+
+    invoke-interface {v0, v1}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public isPersistent()Z
     .locals 1
 
     .prologue
-    .line 906
+    .line 903
     iget-boolean v0, p0, Landroid/preference/Preference;->mPersistent:Z
 
     return v0
@@ -1664,7 +1654,7 @@
     .locals 1
 
     .prologue
-    .line 804
+    .line 801
     iget-boolean v0, p0, Landroid/preference/Preference;->mSelectable:Z
 
     return v0
@@ -1674,17 +1664,17 @@
     .locals 1
 
     .prologue
-    .line 1149
+    .line 1146
     iget-object v0, p0, Landroid/preference/Preference;->mListener:Landroid/preference/Preference$OnPreferenceChangeInternalListener;
 
     if-eqz v0, :cond_0
 
-    .line 1150
+    .line 1147
     iget-object v0, p0, Landroid/preference/Preference;->mListener:Landroid/preference/Preference$OnPreferenceChangeInternalListener;
 
     invoke-interface {v0, p0}, Landroid/preference/Preference$OnPreferenceChangeInternalListener;->onPreferenceChange(Landroid/preference/Preference;)V
 
-    .line 1148
+    .line 1145
     :cond_0
     return-void
 .end method
@@ -1694,23 +1684,23 @@
     .param p1, "disableDependents"    # Z
 
     .prologue
-    .line 1281
+    .line 1278
     iget-object v0, p0, Landroid/preference/Preference;->mDependents:Ljava/util/List;
 
-    .line 1283
+    .line 1280
     .local v0, "dependents":Ljava/util/List;, "Ljava/util/List<Landroid/preference/Preference;>;"
     if-nez v0, :cond_0
 
-    .line 1284
+    .line 1281
     return-void
 
-    .line 1287
+    .line 1284
     :cond_0
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    .line 1288
+    .line 1285
     .local v1, "dependentsCount":I
     const/4 v2, 0x0
 
@@ -1718,7 +1708,7 @@
     :goto_0
     if-ge v2, v1, :cond_1
 
-    .line 1289
+    .line 1286
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -1727,12 +1717,12 @@
 
     invoke-virtual {v3, p0, p1}, Landroid/preference/Preference;->onDependencyChanged(Landroid/preference/Preference;Z)V
 
-    .line 1288
+    .line 1285
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 1280
+    .line 1277
     :cond_1
     return-void
 .end method
@@ -1741,17 +1731,17 @@
     .locals 1
 
     .prologue
-    .line 1160
+    .line 1157
     iget-object v0, p0, Landroid/preference/Preference;->mListener:Landroid/preference/Preference$OnPreferenceChangeInternalListener;
 
     if-eqz v0, :cond_0
 
-    .line 1161
+    .line 1158
     iget-object v0, p0, Landroid/preference/Preference;->mListener:Landroid/preference/Preference$OnPreferenceChangeInternalListener;
 
     invoke-interface {v0, p0}, Landroid/preference/Preference$OnPreferenceChangeInternalListener;->onPreferenceHierarchyChange(Landroid/preference/Preference;)V
 
-    .line 1159
+    .line 1156
     :cond_0
     return-void
 .end method
@@ -1760,10 +1750,10 @@
     .locals 0
 
     .prologue
-    .line 1197
+    .line 1194
     invoke-direct {p0}, Landroid/preference/Preference;->registerDependency()V
 
-    .line 1194
+    .line 1191
     return-void
 .end method
 
@@ -1772,20 +1762,20 @@
     .param p1, "preferenceManager"    # Landroid/preference/PreferenceManager;
 
     .prologue
-    .line 1181
+    .line 1178
     iput-object p1, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
-    .line 1183
+    .line 1180
     invoke-virtual {p1}, Landroid/preference/PreferenceManager;->getNextId()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/preference/Preference;->mId:J
 
-    .line 1185
+    .line 1182
     invoke-direct {p0}, Landroid/preference/Preference;->dispatchSetInitialValue()V
 
-    .line 1180
+    .line 1177
     return-void
 .end method
 
@@ -1999,7 +1989,7 @@
     .locals 0
 
     .prologue
-    .line 848
+    .line 845
     return-void
 .end method
 
@@ -2067,12 +2057,12 @@
     .param p2, "disableDependent"    # Z
 
     .prologue
-    .line 1300
+    .line 1297
     iget-boolean v0, p0, Landroid/preference/Preference;->mDependencyMet:Z
 
     if-ne v0, p2, :cond_0
 
-    .line 1301
+    .line 1298
     if-eqz p2, :cond_1
 
     const/4 v0, 0x0
@@ -2080,21 +2070,21 @@
     :goto_0
     iput-boolean v0, p0, Landroid/preference/Preference;->mDependencyMet:Z
 
-    .line 1304
+    .line 1301
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldDisableDependents()Z
 
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/preference/Preference;->notifyDependencyChange(Z)V
 
-    .line 1306
+    .line 1303
     invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
-    .line 1299
+    .line 1296
     :cond_0
     return-void
 
-    .line 1301
+    .line 1298
     :cond_1
     const/4 v0, 0x1
 
@@ -2120,7 +2110,7 @@
     .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
-    .line 1027
+    .line 1024
     const/4 v0, 0x0
 
     return v0
@@ -2132,12 +2122,12 @@
     .param p2, "disableChild"    # Z
 
     .prologue
-    .line 1317
+    .line 1314
     iget-boolean v0, p0, Landroid/preference/Preference;->mParentDependencyMet:Z
 
     if-ne v0, p2, :cond_0
 
-    .line 1318
+    .line 1315
     if-eqz p2, :cond_1
 
     const/4 v0, 0x0
@@ -2145,21 +2135,21 @@
     :goto_0
     iput-boolean v0, p0, Landroid/preference/Preference;->mParentDependencyMet:Z
 
-    .line 1321
+    .line 1318
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldDisableDependents()Z
 
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/preference/Preference;->notifyDependencyChange(Z)V
 
-    .line 1323
+    .line 1320
     invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
-    .line 1316
+    .line 1313
     :cond_0
     return-void
 
-    .line 1318
+    .line 1315
     :cond_1
     const/4 v0, 0x1
 
@@ -2170,10 +2160,10 @@
     .locals 0
 
     .prologue
-    .line 1369
+    .line 1366
     invoke-direct {p0}, Landroid/preference/Preference;->unregisterDependency()V
 
-    .line 1368
+    .line 1365
     return-void
 .end method
 
@@ -2182,19 +2172,19 @@
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .prologue
-    .line 1842
+    .line 1851
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/preference/Preference;->mBaseMethodCalled:Z
 
-    .line 1843
+    .line 1852
     sget-object v0, Landroid/preference/Preference$BaseSavedState;->EMPTY_STATE:Landroid/view/AbsSavedState;
 
     if-eq p1, v0, :cond_0
 
     if-eqz p1, :cond_0
 
-    .line 1844
+    .line 1853
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "Wrong state class -- expecting Preference State"
@@ -2203,7 +2193,7 @@
 
     throw v0
 
-    .line 1841
+    .line 1850
     :cond_0
     return-void
 .end method
@@ -2212,12 +2202,12 @@
     .locals 1
 
     .prologue
-    .line 1791
+    .line 1800
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/preference/Preference;->mBaseMethodCalled:Z
 
-    .line 1792
+    .line 1801
     sget-object v0, Landroid/preference/Preference$BaseSavedState;->EMPTY_STATE:Landroid/view/AbsSavedState;
 
     return-object v0
@@ -2229,7 +2219,7 @@
     .param p2, "defaultValue"    # Ljava/lang/Object;
 
     .prologue
-    .line 1412
+    .line 1417
     return-void
 .end method
 
@@ -2248,21 +2238,21 @@
     .param p1, "preferenceScreen"    # Landroid/preference/PreferenceScreen;
 
     .prologue
-    .line 993
+    .line 990
     invoke-virtual {p0}, Landroid/preference/Preference;->isEnabled()Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 994
+    .line 991
     return-void
 
-    .line 997
+    .line 994
     :cond_0
     invoke-virtual {p0}, Landroid/preference/Preference;->onClick()V
 
-    .line 999
+    .line 996
     iget-object v3, p0, Landroid/preference/Preference;->mOnClickListener:Landroid/preference/Preference$OnPreferenceClickListener;
 
     if-eqz v3, :cond_1
@@ -2275,60 +2265,60 @@
 
     if-eqz v3, :cond_1
 
-    .line 1000
+    .line 997
     return-void
 
-    .line 1003
+    .line 1000
     :cond_1
     invoke-virtual {p0}, Landroid/preference/Preference;->getPreferenceManager()Landroid/preference/PreferenceManager;
 
     move-result-object v2
 
-    .line 1004
+    .line 1001
     .local v2, "preferenceManager":Landroid/preference/PreferenceManager;
     if-eqz v2, :cond_2
 
-    .line 1005
+    .line 1002
     invoke-virtual {v2}, Landroid/preference/PreferenceManager;->getOnPreferenceTreeClickListener()Landroid/preference/PreferenceManager$OnPreferenceTreeClickListener;
 
     move-result-object v1
 
-    .line 1007
+    .line 1004
     .local v1, "listener":Landroid/preference/PreferenceManager$OnPreferenceTreeClickListener;
     if-eqz p1, :cond_2
 
     if-eqz v1, :cond_2
 
-    .line 1008
+    .line 1005
     invoke-interface {v1, p1, p0}, Landroid/preference/PreferenceManager$OnPreferenceTreeClickListener;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v3
 
-    .line 1007
+    .line 1004
     if-eqz v3, :cond_2
 
-    .line 1009
+    .line 1006
     return-void
 
-    .line 1013
+    .line 1010
     .end local v1    # "listener":Landroid/preference/PreferenceManager$OnPreferenceTreeClickListener;
     :cond_2
     iget-object v3, p0, Landroid/preference/Preference;->mIntent:Landroid/content/Intent;
 
     if-eqz v3, :cond_3
 
-    .line 1014
+    .line 1011
     invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 1015
+    .line 1012
     .local v0, "context":Landroid/content/Context;
     iget-object v3, p0, Landroid/preference/Preference;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 991
+    .line 988
     .end local v0    # "context":Landroid/content/Context;
     :cond_3
     return-void
@@ -2343,14 +2333,14 @@
 
     const/4 v2, 0x1
 
-    .line 1672
+    .line 1681
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    .line 1673
+    .line 1682
     if-eqz p1, :cond_0
 
     :goto_0
@@ -2360,16 +2350,16 @@
 
     if-ne p1, v1, :cond_1
 
-    .line 1675
+    .line 1684
     return v2
 
     :cond_0
     move v1, v2
 
-    .line 1673
+    .line 1682
     goto :goto_0
 
-    .line 1678
+    .line 1687
     :cond_1
     iget-object v1, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -2377,19 +2367,19 @@
 
     move-result-object v0
 
-    .line 1679
+    .line 1688
     .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 1680
+    .line 1689
     invoke-direct {p0, v0}, Landroid/preference/Preference;->tryCommit(Landroid/content/SharedPreferences$Editor;)V
 
-    .line 1681
+    .line 1690
     return v2
 
-    .line 1683
+    .line 1692
     .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_2
     return v1
@@ -2402,14 +2392,14 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1584
+    .line 1593
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 1585
+    .line 1594
     const/high16 v1, 0x7fc00000    # NaNf
 
     invoke-virtual {p0, v1}, Landroid/preference/Preference;->getPersistedFloat(F)F
@@ -2420,10 +2410,10 @@
 
     if-nez v1, :cond_0
 
-    .line 1587
+    .line 1596
     return v2
 
-    .line 1590
+    .line 1599
     :cond_0
     iget-object v1, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -2431,19 +2421,19 @@
 
     move-result-object v0
 
-    .line 1591
+    .line 1600
     .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putFloat(Ljava/lang/String;F)Landroid/content/SharedPreferences$Editor;
 
-    .line 1592
+    .line 1601
     invoke-direct {p0, v0}, Landroid/preference/Preference;->tryCommit(Landroid/content/SharedPreferences$Editor;)V
 
-    .line 1593
+    .line 1602
     return v2
 
-    .line 1595
+    .line 1604
     .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_1
     const/4 v1, 0x0
@@ -2458,14 +2448,14 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1540
+    .line 1549
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 1541
+    .line 1550
     not-int v1, p1
 
     invoke-virtual {p0, v1}, Landroid/preference/Preference;->getPersistedInt(I)I
@@ -2474,10 +2464,10 @@
 
     if-ne p1, v1, :cond_0
 
-    .line 1543
+    .line 1552
     return v2
 
-    .line 1546
+    .line 1555
     :cond_0
     iget-object v1, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -2485,19 +2475,19 @@
 
     move-result-object v0
 
-    .line 1547
+    .line 1556
     .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    .line 1548
+    .line 1557
     invoke-direct {p0, v0}, Landroid/preference/Preference;->tryCommit(Landroid/content/SharedPreferences$Editor;)V
 
-    .line 1549
+    .line 1558
     return v2
 
-    .line 1551
+    .line 1560
     .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_1
     const/4 v1, 0x0
@@ -2512,14 +2502,14 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 1628
+    .line 1637
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 1629
+    .line 1638
     not-long v2, p1
 
     invoke-virtual {p0, v2, v3}, Landroid/preference/Preference;->getPersistedLong(J)J
@@ -2530,10 +2520,10 @@
 
     if-nez v1, :cond_0
 
-    .line 1631
+    .line 1640
     return v4
 
-    .line 1634
+    .line 1643
     :cond_0
     iget-object v1, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -2541,19 +2531,19 @@
 
     move-result-object v0
 
-    .line 1635
+    .line 1644
     .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v1, p1, p2}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
 
-    .line 1636
+    .line 1645
     invoke-direct {p0, v0}, Landroid/preference/Preference;->tryCommit(Landroid/content/SharedPreferences$Editor;)V
 
-    .line 1637
+    .line 1646
     return v4
 
-    .line 1639
+    .line 1648
     .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_1
     const/4 v1, 0x0
@@ -2568,14 +2558,14 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1442
+    .line 1447
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 1444
+    .line 1449
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Landroid/preference/Preference;->getPersistedString(Ljava/lang/String;)Ljava/lang/String;
@@ -2588,10 +2578,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 1446
+    .line 1451
     return v2
 
-    .line 1449
+    .line 1454
     :cond_0
     iget-object v1, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -2599,19 +2589,19 @@
 
     move-result-object v0
 
-    .line 1450
+    .line 1455
     .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 1451
+    .line 1456
     invoke-direct {p0, v0}, Landroid/preference/Preference;->tryCommit(Landroid/content/SharedPreferences$Editor;)V
 
-    .line 1452
+    .line 1457
     return v2
 
-    .line 1454
+    .line 1459
     .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_1
     const/4 v1, 0x0
@@ -2619,7 +2609,7 @@
     return v1
 .end method
 
-.method public persistStringSet(Ljava/util/Set;)Z
+.method protected persistStringSet(Ljava/util/Set;)Z
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2635,14 +2625,14 @@
     .local p1, "values":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     const/4 v2, 0x1
 
-    .line 1492
+    .line 1499
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldPersist()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 1494
+    .line 1501
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Landroid/preference/Preference;->getPersistedStringSet(Ljava/util/Set;)Ljava/util/Set;
@@ -2655,10 +2645,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 1496
+    .line 1503
     return v2
 
-    .line 1499
+    .line 1506
     :cond_0
     iget-object v1, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -2666,19 +2656,19 @@
 
     move-result-object v0
 
-    .line 1500
+    .line 1507
     .local v0, "editor":Landroid/content/SharedPreferences$Editor;
     iget-object v1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
 
-    .line 1501
+    .line 1508
     invoke-direct {p0, v0}, Landroid/preference/Preference;->tryCommit(Landroid/content/SharedPreferences$Editor;)V
 
-    .line 1502
+    .line 1509
     return v2
 
-    .line 1504
+    .line 1511
     .end local v0    # "editor":Landroid/content/SharedPreferences$Editor;
     :cond_1
     const/4 v1, 0x0
@@ -2690,12 +2680,12 @@
     .locals 2
 
     .prologue
-    .line 883
+    .line 880
     iget-object v0, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
     if-nez v0, :cond_0
 
-    .line 884
+    .line 881
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Preference does not have a key assigned."
@@ -2704,13 +2694,13 @@
 
     throw v0
 
-    .line 887
+    .line 884
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/preference/Preference;->mRequiresKey:Z
 
-    .line 882
+    .line 879
     return-void
 .end method
 
@@ -2719,10 +2709,10 @@
     .param p1, "container"    # Landroid/os/Bundle;
 
     .prologue
-    .line 1804
+    .line 1813
     invoke-virtual {p0, p1}, Landroid/preference/Preference;->dispatchRestoreInstanceState(Landroid/os/Bundle;)V
 
-    .line 1803
+    .line 1812
     return-void
 .end method
 
@@ -2731,10 +2721,10 @@
     .param p1, "container"    # Landroid/os/Bundle;
 
     .prologue
-    .line 1751
+    .line 1760
     invoke-virtual {p0, p1}, Landroid/preference/Preference;->dispatchSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 1750
+    .line 1759
     return-void
 .end method
 
@@ -2743,10 +2733,10 @@
     .param p1, "defaultValue"    # Ljava/lang/Object;
 
     .prologue
-    .line 1380
+    .line 1377
     iput-object p1, p0, Landroid/preference/Preference;->mDefaultValue:Ljava/lang/Object;
 
-    .line 1379
+    .line 1376
     return-void
 .end method
 
@@ -2755,16 +2745,16 @@
     .param p1, "dependencyKey"    # Ljava/lang/String;
 
     .prologue
-    .line 1345
+    .line 1342
     invoke-direct {p0}, Landroid/preference/Preference;->unregisterDependency()V
 
-    .line 1348
+    .line 1345
     iput-object p1, p0, Landroid/preference/Preference;->mDependencyKey:Ljava/lang/String;
 
-    .line 1349
+    .line 1346
     invoke-direct {p0}, Landroid/preference/Preference;->registerDependency()V
 
-    .line 1343
+    .line 1340
     return-void
 .end method
 
@@ -2773,25 +2763,25 @@
     .param p1, "enabled"    # Z
 
     .prologue
-    .line 767
+    .line 764
     iget-boolean v0, p0, Landroid/preference/Preference;->mEnabled:Z
 
     if-eq v0, p1, :cond_0
 
-    .line 768
+    .line 765
     iput-boolean p1, p0, Landroid/preference/Preference;->mEnabled:Z
 
-    .line 771
+    .line 768
     invoke-virtual {p0}, Landroid/preference/Preference;->shouldDisableDependents()Z
 
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/preference/Preference;->notifyDependencyChange(Z)V
 
-    .line 773
+    .line 770
     invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
-    .line 766
+    .line 763
     :cond_0
     return-void
 .end method
@@ -2886,10 +2876,10 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 858
+    .line 855
     iput-object p1, p0, Landroid/preference/Preference;->mKey:Ljava/lang/String;
 
-    .line 860
+    .line 857
     iget-boolean v0, p0, Landroid/preference/Preference;->mRequiresKey:Z
 
     if-eqz v0, :cond_0
@@ -2900,12 +2890,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 857
+    .line 854
     :cond_0
     :goto_0
     return-void
 
-    .line 861
+    .line 858
     :cond_1
     invoke-virtual {p0}, Landroid/preference/Preference;->requireKey()V
 
@@ -2940,10 +2930,10 @@
     .param p1, "listener"    # Landroid/preference/Preference$OnPreferenceChangeInternalListener;
 
     .prologue
-    .line 1142
+    .line 1139
     iput-object p1, p0, Landroid/preference/Preference;->mListener:Landroid/preference/Preference$OnPreferenceChangeInternalListener;
 
-    .line 1141
+    .line 1138
     return-void
 .end method
 
@@ -2952,10 +2942,10 @@
     .param p1, "onPreferenceChangeListener"    # Landroid/preference/Preference$OnPreferenceChangeListener;
 
     .prologue
-    .line 952
+    .line 949
     iput-object p1, p0, Landroid/preference/Preference;->mOnChangeListener:Landroid/preference/Preference$OnPreferenceChangeListener;
 
-    .line 951
+    .line 948
     return-void
 .end method
 
@@ -2964,10 +2954,10 @@
     .param p1, "onPreferenceClickListener"    # Landroid/preference/Preference$OnPreferenceClickListener;
 
     .prologue
-    .line 971
+    .line 968
     iput-object p1, p0, Landroid/preference/Preference;->mOnClickListener:Landroid/preference/Preference$OnPreferenceClickListener;
 
-    .line 970
+    .line 967
     return-void
 .end method
 
@@ -2997,10 +2987,10 @@
     .param p1, "persistent"    # Z
 
     .prologue
-    .line 930
+    .line 927
     iput-boolean p1, p0, Landroid/preference/Preference;->mPersistent:Z
 
-    .line 929
+    .line 926
     return-void
 .end method
 
@@ -3009,18 +2999,18 @@
     .param p1, "selectable"    # Z
 
     .prologue
-    .line 792
+    .line 789
     iget-boolean v0, p0, Landroid/preference/Preference;->mSelectable:Z
 
     if-eq v0, p1, :cond_0
 
-    .line 793
+    .line 790
     iput-boolean p1, p0, Landroid/preference/Preference;->mSelectable:Z
 
-    .line 794
+    .line 791
     invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
-    .line 791
+    .line 788
     :cond_0
     return-void
 .end method
@@ -3030,13 +3020,13 @@
     .param p1, "shouldDisableView"    # Z
 
     .prologue
-    .line 819
+    .line 816
     iput-boolean p1, p0, Landroid/preference/Preference;->mShouldDisableView:Z
 
-    .line 820
+    .line 817
     invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
-    .line 818
+    .line 815
     return-void
 .end method
 
@@ -3045,7 +3035,7 @@
     .param p1, "summaryResId"    # I
 
     .prologue
-    .line 757
+    .line 754
     iget-object v0, p0, Landroid/preference/Preference;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -3054,7 +3044,7 @@
 
     invoke-virtual {p0, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 756
+    .line 753
     return-void
 .end method
 
@@ -3063,26 +3053,26 @@
     .param p1, "summary"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 744
+    .line 741
     if-nez p1, :cond_2
 
     iget-object v0, p0, Landroid/preference/Preference;->mSummary:Ljava/lang/CharSequence;
 
     if-eqz v0, :cond_2
 
-    .line 745
+    .line 742
     :cond_0
     iput-object p1, p0, Landroid/preference/Preference;->mSummary:Ljava/lang/CharSequence;
 
-    .line 746
+    .line 743
     invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
-    .line 743
+    .line 740
     :cond_1
     :goto_0
     return-void
 
-    .line 744
+    .line 741
     :cond_2
     if-eqz p1, :cond_1
 
@@ -3189,17 +3179,17 @@
     .locals 1
 
     .prologue
-    .line 1103
+    .line 1100
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-nez v0, :cond_0
 
-    .line 1104
+    .line 1101
     const/4 v0, 0x0
 
     return v0
 
-    .line 1107
+    .line 1104
     :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
@@ -3214,7 +3204,7 @@
     .locals 1
 
     .prologue
-    .line 1334
+    .line 1331
     invoke-virtual {p0}, Landroid/preference/Preference;->isEnabled()Z
 
     move-result v0
@@ -3236,7 +3226,7 @@
     .locals 1
 
     .prologue
-    .line 919
+    .line 916
     iget-object v0, p0, Landroid/preference/Preference;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-eqz v0, :cond_0
@@ -3264,7 +3254,7 @@
     .locals 1
 
     .prologue
-    .line 1711
+    .line 1720
     invoke-virtual {p0}, Landroid/preference/Preference;->getFilterableStringBuilder()Ljava/lang/StringBuilder;
 
     move-result-object v0

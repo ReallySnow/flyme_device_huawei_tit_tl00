@@ -35,14 +35,14 @@
     .locals 1
 
     .prologue
-    .line 7651
+    .line 7504
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     sput-object v0, Landroid/view/ViewGroup$HoverTarget;->sRecycleLock:Ljava/lang/Object;
 
-    .line 7649
+    .line 7502
     return-void
 .end method
 
@@ -50,7 +50,7 @@
     .locals 0
 
     .prologue
-    .line 7661
+    .line 7514
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -61,31 +61,18 @@
     .param p0, "child"    # Landroid/view/View;
 
     .prologue
-    .line 7665
-    if-nez p0, :cond_0
-
-    .line 7666
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v2, "child must be non-null"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 7670
-    :cond_0
+    .line 7519
     sget-object v2, Landroid/view/ViewGroup$HoverTarget;->sRecycleLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 7671
+    .line 7520
     :try_start_0
     sget-object v1, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
-    .line 7672
+    .line 7521
     new-instance v0, Landroid/view/ViewGroup$HoverTarget;
 
     invoke-direct {v0}, Landroid/view/ViewGroup$HoverTarget;-><init>()V
@@ -96,32 +83,32 @@
     :goto_0
     monitor-exit v2
 
-    .line 7680
+    .line 7529
     iput-object p0, v0, Landroid/view/ViewGroup$HoverTarget;->child:Landroid/view/View;
 
-    .line 7681
+    .line 7530
     return-object v0
 
-    .line 7674
+    .line 7523
     .end local v0    # "target":Landroid/view/ViewGroup$HoverTarget;
-    :cond_1
+    :cond_0
     :try_start_1
     sget-object v0, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
-    .line 7675
+    .line 7524
     .restart local v0    # "target":Landroid/view/ViewGroup$HoverTarget;
     iget-object v1, v0, Landroid/view/ViewGroup$HoverTarget;->next:Landroid/view/ViewGroup$HoverTarget;
 
     sput-object v1, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
-    .line 7676
+    .line 7525
     sget v1, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
     add-int/lit8 v1, v1, -0x1
 
     sput v1, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
-    .line 7677
+    .line 7526
     const/4 v1, 0x0
 
     iput-object v1, v0, Landroid/view/ViewGroup$HoverTarget;->next:Landroid/view/ViewGroup$HoverTarget;
@@ -130,7 +117,7 @@
 
     goto :goto_0
 
-    .line 7670
+    .line 7519
     .end local v0    # "target":Landroid/view/ViewGroup$HoverTarget;
     :catchall_0
     move-exception v1
@@ -146,50 +133,35 @@
     .locals 3
 
     .prologue
-    .line 7685
-    iget-object v0, p0, Landroid/view/ViewGroup$HoverTarget;->child:Landroid/view/View;
-
-    if-nez v0, :cond_0
-
-    .line 7686
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "already recycled once"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 7689
-    :cond_0
+    .line 7534
     sget-object v1, Landroid/view/ViewGroup$HoverTarget;->sRecycleLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 7690
+    .line 7535
     :try_start_0
     sget v0, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
     const/16 v2, 0x20
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_0
 
-    .line 7691
+    .line 7536
     sget-object v0, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
     iput-object v0, p0, Landroid/view/ViewGroup$HoverTarget;->next:Landroid/view/ViewGroup$HoverTarget;
 
-    .line 7692
+    .line 7537
     sput-object p0, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
-    .line 7693
+    .line 7538
     sget v0, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
     add-int/lit8 v0, v0, 0x1
 
     sput v0, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
-    .line 7697
+    .line 7542
     :goto_0
     const/4 v0, 0x0
 
@@ -199,11 +171,11 @@
 
     monitor-exit v1
 
-    .line 7684
+    .line 7533
     return-void
 
-    .line 7695
-    :cond_1
+    .line 7540
+    :cond_0
     const/4 v0, 0x0
 
     :try_start_1
@@ -213,7 +185,7 @@
 
     goto :goto_0
 
-    .line 7689
+    .line 7534
     :catchall_0
     move-exception v0
 

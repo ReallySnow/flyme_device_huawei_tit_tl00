@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/internal/app/ResolverActivity;
 
     .prologue
-    .line 120
+    .line 111
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
@@ -34,24 +34,11 @@
 
 
 # virtual methods
-.method public onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
-    .locals 1
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "uid"    # I
-    .param p3, "components"    # [Ljava/lang/String;
-
-    .prologue
-    .line 132
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
 .method public onSomePackagesChanged()V
     .locals 1
 
     .prologue
-    .line 122
+    .line 113
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get0(Lcom/android/internal/app/ResolverActivity;)Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
@@ -60,21 +47,21 @@
 
     invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->handlePackagesChanged()V
 
-    .line 123
+    .line 114
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get6(Lcom/android/internal/app/ResolverActivity;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get5(Lcom/android/internal/app/ResolverActivity;)Landroid/view/View;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 124
+    .line 115
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity;->bindProfileView()V
 
-    .line 121
+    .line 112
     :cond_0
     return-void
 .end method

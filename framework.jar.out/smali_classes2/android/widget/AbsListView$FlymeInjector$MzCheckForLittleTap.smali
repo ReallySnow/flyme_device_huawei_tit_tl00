@@ -27,13 +27,13 @@
     .param p1, "absListView"    # Landroid/widget/AbsListView;
 
     .prologue
-    .line 8154
+    .line 7975
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 8155
+    .line 7976
     iput-object p1, p0, Landroid/widget/AbsListView$FlymeInjector$MzCheckForLittleTap;->mAbsListView:Landroid/widget/AbsListView;
 
-    .line 8154
+    .line 7975
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .locals 2
 
     .prologue
-    .line 8160
+    .line 7981
     iget-object v0, p0, Landroid/widget/AbsListView$FlymeInjector$MzCheckForLittleTap;->mAbsListView:Landroid/widget/AbsListView;
 
     iget v0, v0, Landroid/widget/AbsListView;->mTouchMode:I
@@ -71,14 +71,14 @@
 
     if-gez v0, :cond_1
 
-    .line 8161
+    .line 7982
     iget-object v0, p0, Landroid/widget/AbsListView$FlymeInjector$MzCheckForLittleTap;->mAbsListView:Landroid/widget/AbsListView;
 
     iget-object v0, v0, Landroid/widget/AbsListView;->mOnTouchOutOfItemListener:Landroid/widget/AbsListView$onTouchOutOfItemListener;
 
     invoke-interface {v0}, Landroid/widget/AbsListView$onTouchOutOfItemListener;->isOnTouchOutOfItem()V
 
-    .line 8159
+    .line 7980
     :cond_1
     return-void
 .end method

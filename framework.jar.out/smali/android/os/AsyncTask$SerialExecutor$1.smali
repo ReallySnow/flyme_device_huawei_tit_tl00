@@ -29,7 +29,7 @@
     .param p2, "val$r"    # Ljava/lang/Runnable;
 
     .prologue
-    .line 240
+    .line 231
     .local p1, "this$1":Landroid/os/AsyncTask$SerialExecutor;, "Landroid/os/AsyncTask<TParams;TProgress;TResult;>.SerialExecutor;"
     iput-object p1, p0, Landroid/os/AsyncTask$SerialExecutor$1;->this$1:Landroid/os/AsyncTask$SerialExecutor;
 
@@ -46,7 +46,7 @@
     .locals 2
 
     .prologue
-    .line 243
+    .line 234
     :try_start_0
     iget-object v0, p0, Landroid/os/AsyncTask$SerialExecutor$1;->val$r:Ljava/lang/Runnable;
 
@@ -54,23 +54,23 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 245
+    .line 236
     iget-object v0, p0, Landroid/os/AsyncTask$SerialExecutor$1;->this$1:Landroid/os/AsyncTask$SerialExecutor;
 
     invoke-virtual {v0}, Landroid/os/AsyncTask$SerialExecutor;->scheduleNext()V
 
-    .line 241
+    .line 232
     return-void
 
-    .line 244
+    .line 235
     :catchall_0
     move-exception v0
 
-    .line 245
+    .line 236
     iget-object v1, p0, Landroid/os/AsyncTask$SerialExecutor$1;->this$1:Landroid/os/AsyncTask$SerialExecutor;
 
     invoke-virtual {v1}, Landroid/os/AsyncTask$SerialExecutor;->scheduleNext()V
 
-    .line 244
+    .line 235
     throw v0
 .end method

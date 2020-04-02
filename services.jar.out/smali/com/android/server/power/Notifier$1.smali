@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/power/Notifier;
 
     .prologue
-    .line 634
+    .line 582
     iput-object p1, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 637
+    .line 585
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
     invoke-static {v0}, Lcom/android/server/power/Notifier;->-get3(Lcom/android/server/power/Notifier;)Lcom/android/server/power/SuspendBlocker;
@@ -49,6 +49,6 @@
 
     invoke-interface {v0}, Lcom/android/server/power/SuspendBlocker;->release()V
 
-    .line 636
+    .line 584
     return-void
 .end method

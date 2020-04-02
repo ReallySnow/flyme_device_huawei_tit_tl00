@@ -25,13 +25,13 @@
     .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 399
+    .line 360
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    .line 400
+    .line 361
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 399
+    .line 360
     return-void
 .end method
 
@@ -42,12 +42,12 @@
     .param p1, "selfChange"    # Z
 
     .prologue
-    .line 404
+    .line 365
     iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     iget-boolean v1, v2, Lcom/android/server/backup/BackupManagerService;->mProvisioned:Z
 
-    .line 405
+    .line 366
     .local v1, "wasProvisioned":Z
     iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
@@ -55,7 +55,7 @@
 
     move-result v0
 
-    .line 407
+    .line 368
     .local v0, "isProvisioned":Z
     iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
@@ -65,14 +65,14 @@
     :goto_0
     iput-boolean v0, v2, Lcom/android/server/backup/BackupManagerService;->mProvisioned:Z
 
-    .line 413
+    .line 374
     iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     iget-object v3, v2, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 414
+    .line 375
     :try_start_0
     iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
@@ -88,17 +88,17 @@
     :goto_1
     monitor-exit v3
 
-    .line 403
+    .line 364
     return-void
 
-    .line 407
+    .line 368
     .restart local v0    # "isProvisioned":Z
     :cond_1
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 414
+    .line 375
     .end local v0    # "isProvisioned":Z
     :cond_2
     :try_start_1
@@ -108,14 +108,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 417
+    .line 378
     iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     iget-object v2, v2, Lcom/android/server/backup/BackupManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {v2}, Lcom/android/server/backup/KeyValueBackupJob;->schedule(Landroid/content/Context;)V
 
-    .line 418
+    .line 379
     iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     const-wide/16 v4, 0x0
@@ -126,7 +126,7 @@
 
     goto :goto_1
 
-    .line 413
+    .line 374
     :catchall_0
     move-exception v2
 

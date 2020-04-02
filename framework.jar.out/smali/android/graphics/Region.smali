@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/graphics/Region$1;,
-        Landroid/graphics/Region$Op;
+        Landroid/graphics/Region$Op;,
+        Landroid/graphics/Region$1;
     }
 .end annotation
 
@@ -42,7 +42,7 @@
 
 
 # instance fields
-.field public mNativeRegion:J
+.field public final mNativeRegion:J
 
 
 # direct methods
@@ -139,28 +139,28 @@
     .param p1, "ni"    # J
 
     .prologue
-    .line 389
+    .line 388
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 390
+    .line 389
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-nez v0, :cond_0
 
-    .line 391
+    .line 390
     new-instance v0, Ljava/lang/RuntimeException;
 
     invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V
 
     throw v0
 
-    .line 393
+    .line 392
     :cond_0
     iput-wide p1, p0, Landroid/graphics/Region;->mNativeRegion:J
 
-    .line 389
+    .line 388
     return-void
 .end method
 
@@ -170,10 +170,10 @@
     .param p3, "dummy"    # I
 
     .prologue
-    .line 399
+    .line 398
     invoke-direct {p0, p1, p2}, Landroid/graphics/Region;-><init>(J)V
 
-    .line 398
+    .line 397
     return-void
 .end method
 
@@ -389,28 +389,23 @@
     iget-wide v0, p0, Landroid/graphics/Region;->mNativeRegion:J
 
     invoke-static {v0, v1}, Landroid/graphics/Region;->nativeDestructor(J)V
-
-    .line 383
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Landroid/graphics/Region;->mNativeRegion:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 385
+    .line 384
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
     .line 380
     return-void
 
-    .line 384
+    .line 383
     :catchall_0
     move-exception v0
 
-    .line 385
+    .line 384
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 384
+    .line 383
     throw v0
 .end method
 
@@ -427,7 +422,7 @@
     .local v0, "path":Landroid/graphics/Path;
     iget-wide v2, p0, Landroid/graphics/Region;->mNativeRegion:J
 
-    invoke-virtual {v0}, Landroid/graphics/Path;->mutateNI()J
+    invoke-virtual {v0}, Landroid/graphics/Path;->ni()J
 
     move-result-wide v4
 
@@ -445,7 +440,7 @@
     .line 167
     iget-wide v0, p0, Landroid/graphics/Region;->mNativeRegion:J
 
-    invoke-virtual {p1}, Landroid/graphics/Path;->mutateNI()J
+    invoke-virtual {p1}, Landroid/graphics/Path;->ni()J
 
     move-result-wide v2
 
@@ -514,7 +509,7 @@
     .locals 2
 
     .prologue
-    .line 403
+    .line 402
     iget-wide v0, p0, Landroid/graphics/Region;->mNativeRegion:J
 
     return-wide v0
@@ -824,7 +819,7 @@
     .line 113
     iget-wide v0, p0, Landroid/graphics/Region;->mNativeRegion:J
 
-    invoke-virtual {p1}, Landroid/graphics/Path;->readOnlyNI()J
+    invoke-virtual {p1}, Landroid/graphics/Path;->ni()J
 
     move-result-wide v2
 

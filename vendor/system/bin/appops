@@ -1,1 +1,5 @@
-cmd appops $@
+# Script to start "appwidget" on the device, which has a very rudimentary shell.
+base=/system
+export CLASSPATH=$base/framework/appops.jar
+exec app_process $base/bin com.android.commands.appops.AppOpsCommand "$@"
+

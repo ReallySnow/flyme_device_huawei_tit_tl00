@@ -36,12 +36,7 @@
 
 .field public static final COLUMN_END_TIME_UTC_MILLIS:Ljava/lang/String; = "end_time_utc_millis"
 
-.field public static final COLUMN_EPISODE_DISPLAY_NUMBER:Ljava/lang/String; = "episode_display_number"
-
 .field public static final COLUMN_EPISODE_NUMBER:Ljava/lang/String; = "episode_number"
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final COLUMN_EPISODE_TITLE:Ljava/lang/String; = "episode_title"
 
@@ -59,18 +54,9 @@
 
 .field public static final COLUMN_POSTER_ART_URI:Ljava/lang/String; = "poster_art_uri"
 
-.field public static final COLUMN_RECORDING_PROHIBITED:Ljava/lang/String; = "recording_prohibited"
-
 .field public static final COLUMN_SEARCHABLE:Ljava/lang/String; = "searchable"
 
-.field public static final COLUMN_SEASON_DISPLAY_NUMBER:Ljava/lang/String; = "season_display_number"
-
 .field public static final COLUMN_SEASON_NUMBER:Ljava/lang/String; = "season_number"
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public static final COLUMN_SEASON_TITLE:Ljava/lang/String; = "season_title"
 
 .field public static final COLUMN_SHORT_DESCRIPTION:Ljava/lang/String; = "short_description"
 
@@ -98,7 +84,7 @@
     .locals 1
 
     .prologue
-    .line 1056
+    .line 930
     const-string/jumbo v0, "content://android.media.tv/program"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -107,7 +93,7 @@
 
     sput-object v0, Landroid/media/tv/TvContract$Programs;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 1053
+    .line 927
     return-void
 .end method
 
@@ -115,7 +101,7 @@
     .locals 0
 
     .prologue
-    .line 1413
+    .line 1218
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

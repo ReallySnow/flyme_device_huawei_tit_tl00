@@ -32,7 +32,7 @@
 
 .field static final TRANSACTION_getConnectionState_1:I = 0x2
 
-.field static final TRANSACTION_getDevicesMatchingConnectionStates_3:I = 0x4
+.field static final TRANSACTION_getDevicesMatchingConnectionStates:I = 0x4
 
 
 # direct methods

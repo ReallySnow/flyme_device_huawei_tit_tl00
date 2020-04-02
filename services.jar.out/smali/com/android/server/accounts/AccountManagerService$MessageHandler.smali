@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x2
     name = "MessageHandler"
 .end annotation
 
@@ -25,13 +25,13 @@
     .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
-    .line 4498
+    .line 3236
     iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$MessageHandler;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    .line 4499
+    .line 3237
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 4498
+    .line 3236
     return-void
 .end method
 
@@ -42,12 +42,12 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 4504
+    .line 3242
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 4515
+    .line 3253
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -74,22 +74,22 @@
 
     throw v1
 
-    .line 4506
+    .line 3244
     :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/server/accounts/AccountManagerService$Session;
 
-    .line 4507
+    .line 3245
     .local v0, "session":Lcom/android/server/accounts/AccountManagerService$Session;
     invoke-virtual {v0}, Lcom/android/server/accounts/AccountManagerService$Session;->onTimedOut()V
 
-    .line 4503
+    .line 3241
     .end local v0    # "session":Lcom/android/server/accounts/AccountManagerService$Session;
     :goto_0
     return-void
 
-    .line 4511
+    .line 3249
     :pswitch_1
     iget-object v2, p0, Lcom/android/server/accounts/AccountManagerService$MessageHandler;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
@@ -107,7 +107,7 @@
 
     goto :goto_0
 
-    .line 4504
+    .line 3242
     :pswitch_data_0
     .packed-switch 0x3
         :pswitch_0

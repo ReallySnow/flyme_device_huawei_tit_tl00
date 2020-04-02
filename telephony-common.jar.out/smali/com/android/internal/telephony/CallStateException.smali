@@ -8,8 +8,6 @@
 
 .field public static final ERROR_INVALID:I = -0x1
 
-.field public static final ERROR_POWER_OFF:I = 0x2
-
 
 # instance fields
 .field private mError:I
@@ -20,7 +18,7 @@
     .locals 1
 
     .prologue
-    .line 33
+    .line 32
     invoke-direct {p0}, Ljava/lang/Exception;-><init>()V
 
     .line 24
@@ -28,7 +26,7 @@
 
     iput v0, p0, Lcom/android/internal/telephony/CallStateException;->mError:I
 
-    .line 33
+    .line 32
     return-void
 .end method
 
@@ -38,7 +36,7 @@
     .param p2, "string"    # Ljava/lang/String;
 
     .prologue
-    .line 46
+    .line 45
     invoke-direct {p0, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
 
     .line 24
@@ -46,10 +44,10 @@
 
     iput v0, p0, Lcom/android/internal/telephony/CallStateException;->mError:I
 
-    .line 47
+    .line 46
     iput p1, p0, Lcom/android/internal/telephony/CallStateException;->mError:I
 
-    .line 44
+    .line 43
     return-void
 .end method
 
@@ -58,7 +56,7 @@
     .param p1, "string"    # Ljava/lang/String;
 
     .prologue
-    .line 40
+    .line 39
     invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
 
     .line 24
@@ -66,7 +64,7 @@
 
     iput v0, p0, Lcom/android/internal/telephony/CallStateException;->mError:I
 
-    .line 38
+    .line 37
     return-void
 .end method
 
@@ -76,7 +74,7 @@
     .locals 1
 
     .prologue
-    .line 51
+    .line 50
     iget v0, p0, Lcom/android/internal/telephony/CallStateException;->mError:I
 
     return v0

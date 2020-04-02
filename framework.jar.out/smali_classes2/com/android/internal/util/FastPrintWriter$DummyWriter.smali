@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 19
+    .line 18
     invoke-direct {p0}, Ljava/io/Writer;-><init>()V
 
     return-void
@@ -45,14 +45,14 @@
     .end annotation
 
     .prologue
-    .line 23
+    .line 22
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "Shouldn\'t be here"
 
     invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    .line 24
+    .line 23
     .local v0, "ex":Ljava/lang/UnsupportedOperationException;
     throw v0
 .end method
@@ -66,10 +66,10 @@
     .end annotation
 
     .prologue
-    .line 29
+    .line 28
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter$DummyWriter;->close()V
 
-    .line 28
+    .line 27
     return-void
 .end method
 
@@ -85,9 +85,9 @@
     .end annotation
 
     .prologue
-    .line 34
+    .line 33
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter$DummyWriter;->close()V
 
-    .line 33
+    .line 32
     return-void
 .end method

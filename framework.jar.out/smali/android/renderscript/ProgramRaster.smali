@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/renderscript/ProgramRaster$Builder;,
-        Landroid/renderscript/ProgramRaster$CullMode;
+        Landroid/renderscript/ProgramRaster$CullMode;,
+        Landroid/renderscript/ProgramRaster$Builder;
     }
 .end annotation
 

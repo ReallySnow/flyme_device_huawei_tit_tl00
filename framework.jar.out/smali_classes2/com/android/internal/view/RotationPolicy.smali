@@ -153,7 +153,7 @@
     move-result-object v4
 
     .line 160
-    const v5, 0x1120039
+    const v5, 0x112003d
 
     .line 159
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
@@ -416,7 +416,7 @@
     move-result-object v1
 
     .line 65
-    const v2, 0x1120038
+    const v2, 0x112003c
 
     .line 64
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
@@ -546,6 +546,7 @@
     :cond_0
     sget v0, Lcom/android/internal/view/RotationPolicy;->NATURAL_ROTATION:I
 
+    .restart local v0    # "rotation":I
     goto :goto_0
 .end method
 

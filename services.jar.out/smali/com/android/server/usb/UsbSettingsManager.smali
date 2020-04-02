@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;,
         Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;,
+        Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;,
         Lcom/android/server/usb/UsbSettingsManager$MyPackageMonitor;
     }
 .end annotation
@@ -76,8 +76,6 @@
 
 .field private final mLock:Ljava/lang/Object;
 
-.field private final mMtpNotificationManager:Lcom/android/server/usb/MtpNotificationManager;
-
 .field private final mPackageManager:Landroid/content/pm/PackageManager;
 
 .field mPackageMonitor:Lcom/android/server/usb/UsbSettingsManager$MyPackageMonitor;
@@ -90,19 +88,7 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Landroid/hardware/usb/UsbDevice;)Landroid/content/Intent;
-    .locals 1
-    .param p0, "device"    # Landroid/hardware/usb/UsbDevice;
-
-    .prologue
-    invoke-static {p0}, Lcom/android/server/usb/UsbSettingsManager;->createDeviceAttachedIntent(Landroid/hardware/usb/UsbDevice;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap1(Lcom/android/server/usb/UsbSettingsManager;Ljava/lang/String;)V
+.method static synthetic -wrap0(Lcom/android/server/usb/UsbSettingsManager;Ljava/lang/String;)V
     .locals 0
     .param p1, "packageName"    # Ljava/lang/String;
 
@@ -112,33 +98,22 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/server/usb/UsbSettingsManager;Landroid/content/Intent;Landroid/hardware/usb/UsbDevice;)V
-    .locals 0
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "device"    # Landroid/hardware/usb/UsbDevice;
-
-    .prologue
-    invoke-direct {p0, p1, p2}, Lcom/android/server/usb/UsbSettingsManager;->resolveActivity(Landroid/content/Intent;Landroid/hardware/usb/UsbDevice;)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 2
 
     .prologue
-    .line 71
+    .line 73
     new-instance v0, Ljava/io/File;
 
-    .line 72
+    .line 74
     const-string/jumbo v1, "/data/system/usb_device_manager.xml"
 
-    .line 71
+    .line 73
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/android/server/usb/UsbSettingsManager;->sSingleUserSettingsFile:Ljava/io/File;
 
-    .line 66
+    .line 68
     return-void
 .end method
 
@@ -153,46 +128,46 @@
     .line 499
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 84
+    .line 86
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 83
+    .line 85
     iput-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePermissionMap:Ljava/util/HashMap;
 
-    .line 87
+    .line 89
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 86
+    .line 88
     iput-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPermissionMap:Ljava/util/HashMap;
 
-    .line 90
+    .line 92
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 89
+    .line 91
     iput-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
-    .line 93
+    .line 95
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 92
+    .line 94
     iput-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
-    .line 95
+    .line 97
     new-instance v1, Ljava/lang/Object;
 
     invoke-direct {v1}, Ljava/lang/Object;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
-    .line 495
+    .line 497
     new-instance v1, Lcom/android/server/usb/UsbSettingsManager$MyPackageMonitor;
 
     invoke-direct {v1, p0, v5}, Lcom/android/server/usb/UsbSettingsManager$MyPackageMonitor;-><init>(Lcom/android/server/usb/UsbSettingsManager;Lcom/android/server/usb/UsbSettingsManager$MyPackageMonitor;)V
@@ -274,7 +249,7 @@
 
     .line 520
     :try_start_1
-    sget-object v1, Landroid/os/UserHandle;->SYSTEM:Landroid/os/UserHandle;
+    sget-object v1, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
 
     invoke-virtual {v1, p2}, Landroid/os/UserHandle;->equals(Ljava/lang/Object;)Z
 
@@ -301,19 +276,6 @@
     const/4 v3, 0x1
 
     invoke-virtual {v1, v2, v5, v3}, Lcom/android/server/usb/UsbSettingsManager$MyPackageMonitor;->register(Landroid/content/Context;Landroid/os/Looper;Z)V
-
-    .line 527
-    new-instance v1, Lcom/android/server/usb/MtpNotificationManager;
-
-    .line 529
-    new-instance v2, Lcom/android/server/usb/UsbSettingsManager$1;
-
-    invoke-direct {v2, p0}, Lcom/android/server/usb/UsbSettingsManager$1;-><init>(Lcom/android/server/usb/UsbSettingsManager;)V
-
-    .line 527
-    invoke-direct {v1, p1, v2}, Lcom/android/server/usb/MtpNotificationManager;-><init>(Landroid/content/Context;Lcom/android/server/usb/MtpNotificationManager$OnOpenInAppListener;)V
-
-    iput-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mMtpNotificationManager:Lcom/android/server/usb/MtpNotificationManager;
 
     .line 499
     return-void
@@ -348,10 +310,10 @@
     .param p2, "filter"    # Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
     .prologue
-    .line 922
+    .line 905
     const/4 v0, 0x0
 
-    .line 923
+    .line 906
     .local v0, "changed":Z
     iget-object v3, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
@@ -378,7 +340,7 @@
 
     check-cast v1, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
-    .line 924
+    .line 907
     .local v1, "test":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     invoke-virtual {p2, v1}, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;->matches(Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;)Z
 
@@ -386,17 +348,17 @@
 
     if-eqz v3, :cond_0
 
-    .line 925
+    .line 908
     iget-object v3, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v3, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 926
+    .line 909
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 929
+    .line 912
     .end local v1    # "test":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     :cond_1
     return v0
@@ -408,10 +370,10 @@
     .param p2, "filter"    # Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
 
     .prologue
-    .line 911
+    .line 894
     const/4 v0, 0x0
 
-    .line 912
+    .line 895
     .local v0, "changed":Z
     iget-object v3, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
@@ -438,7 +400,7 @@
 
     check-cast v1, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
 
-    .line 913
+    .line 896
     .local v1, "test":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     invoke-virtual {p2, v1}, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;->matches(Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;)Z
 
@@ -446,17 +408,17 @@
 
     if-eqz v3, :cond_0
 
-    .line 914
+    .line 897
     iget-object v3, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v3, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 915
+    .line 898
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 918
+    .line 901
     .end local v1    # "test":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     :cond_1
     return v0
@@ -467,16 +429,16 @@
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 1186
+    .line 1169
     const/4 v0, 0x0
 
-    .line 1187
+    .line 1170
     .local v0, "cleared":Z
     iget-object v5, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 1188
+    .line 1171
     :try_start_0
     iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
@@ -486,7 +448,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 1190
+    .line 1173
     iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -497,7 +459,7 @@
 
     move-result-object v3
 
-    .line 1191
+    .line 1174
     .local v3, "keys":[Ljava/lang/Object;
     const/4 v1, 0x0
 
@@ -507,10 +469,10 @@
 
     if-ge v1, v4, :cond_1
 
-    .line 1192
+    .line 1175
     aget-object v2, v3, v1
 
-    .line 1193
+    .line 1176
     .local v2, "key":Ljava/lang/Object;
     iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
@@ -524,21 +486,21 @@
 
     if-eqz v4, :cond_0
 
-    .line 1194
+    .line 1177
     iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v4, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1195
+    .line 1178
     const/4 v0, 0x1
 
-    .line 1191
+    .line 1174
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1199
+    .line 1182
     .end local v1    # "i":I
     .end local v2    # "key":Ljava/lang/Object;
     .end local v3    # "keys":[Ljava/lang/Object;
@@ -551,7 +513,7 @@
 
     if-eqz v4, :cond_3
 
-    .line 1201
+    .line 1184
     iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -562,7 +524,7 @@
 
     move-result-object v3
 
-    .line 1202
+    .line 1185
     .restart local v3    # "keys":[Ljava/lang/Object;
     const/4 v1, 0x0
 
@@ -572,10 +534,10 @@
 
     if-ge v1, v4, :cond_3
 
-    .line 1203
+    .line 1186
     aget-object v2, v3, v1
 
-    .line 1204
+    .line 1187
     .restart local v2    # "key":Ljava/lang/Object;
     iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
@@ -589,17 +551,17 @@
 
     if-eqz v4, :cond_2
 
-    .line 1205
+    .line 1188
     iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v4, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1206
+    .line 1189
     const/4 v0, 0x1
 
-    .line 1202
+    .line 1185
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
@@ -611,43 +573,16 @@
     :cond_3
     monitor-exit v5
 
-    .line 1210
+    .line 1193
     return v0
 
-    .line 1187
+    .line 1170
     :catchall_0
     move-exception v4
 
     monitor-exit v5
 
     throw v4
-.end method
-
-.method private static createDeviceAttachedIntent(Landroid/hardware/usb/UsbDevice;)Landroid/content/Intent;
-    .locals 2
-    .param p0, "device"    # Landroid/hardware/usb/UsbDevice;
-
-    .prologue
-    .line 1248
-    new-instance v0, Landroid/content/Intent;
-
-    const-string/jumbo v1, "android.hardware.usb.action.USB_DEVICE_ATTACHED"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 1249
-    .local v0, "intent":Landroid/content/Intent;
-    const-string/jumbo v1, "device"
-
-    invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    .line 1250
-    const/high16 v1, 0x10000000
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    .line 1251
-    return-object v0
 .end method
 
 .method private final getAccessoryMatchesLocked(Landroid/hardware/usb/UsbAccessory;Landroid/content/Intent;)Ljava/util/ArrayList;
@@ -668,30 +603,30 @@
     .end annotation
 
     .prologue
-    .line 722
+    .line 714
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 723
+    .line 715
     .local v2, "matches":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ResolveInfo;>;"
     iget-object v5, p0, Lcom/android/server/usb/UsbSettingsManager;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    .line 724
+    .line 716
     const/16 v6, 0x80
 
-    .line 723
+    .line 715
     invoke-virtual {v5, p2, v6}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object v4
 
-    .line 725
+    .line 717
     .local v4, "resolveInfos":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v0
 
-    .line 726
+    .line 718
     .local v0, "count":I
     const/4 v1, 0x0
 
@@ -699,14 +634,14 @@
     :goto_0
     if-ge v1, v0, :cond_1
 
-    .line 727
+    .line 719
     invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/content/pm/ResolveInfo;
 
-    .line 728
+    .line 720
     .local v3, "resolveInfo":Landroid/content/pm/ResolveInfo;
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -720,16 +655,16 @@
 
     if-eqz v5, :cond_0
 
-    .line 729
+    .line 721
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 726
+    .line 718
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 732
+    .line 724
     .end local v3    # "resolveInfo":Landroid/content/pm/ResolveInfo;
     :cond_1
     return-object v2
@@ -753,30 +688,30 @@
     .end annotation
 
     .prologue
-    .line 707
+    .line 699
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 708
+    .line 700
     .local v2, "matches":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ResolveInfo;>;"
     iget-object v5, p0, Lcom/android/server/usb/UsbSettingsManager;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    .line 709
+    .line 701
     const/16 v6, 0x80
 
-    .line 708
+    .line 700
     invoke-virtual {v5, p2, v6}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object v4
 
-    .line 710
+    .line 702
     .local v4, "resolveInfos":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v0
 
-    .line 711
+    .line 703
     .local v0, "count":I
     const/4 v1, 0x0
 
@@ -784,14 +719,14 @@
     :goto_0
     if-ge v1, v0, :cond_1
 
-    .line 712
+    .line 704
     invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/content/pm/ResolveInfo;
 
-    .line 713
+    .line 705
     .local v3, "resolveInfo":Landroid/content/pm/ResolveInfo;
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -805,16 +740,16 @@
 
     if-eqz v5, :cond_0
 
-    .line 714
+    .line 706
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 711
+    .line 703
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 717
+    .line 709
     .end local v3    # "resolveInfo":Landroid/content/pm/ResolveInfo;
     :cond_1
     return-object v2
@@ -825,23 +760,23 @@
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 969
+    .line 952
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v6
 
-    .line 971
+    .line 954
     const/4 v1, 0x0
 
-    .line 974
+    .line 957
     .local v1, "changed":Z
     :try_start_0
     iget-object v5, p0, Lcom/android/server/usb/UsbSettingsManager;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    .line 975
+    .line 958
     const/16 v7, 0x81
 
-    .line 974
+    .line 957
     invoke-virtual {v5, p1, v7}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
@@ -849,14 +784,14 @@
 
     move-result-object v4
 
-    .line 981
+    .line 964
     .local v4, "info":Landroid/content/pm/PackageInfo;
     :try_start_1
     iget-object v0, v4, Landroid/content/pm/PackageInfo;->activities:[Landroid/content/pm/ActivityInfo;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 982
+    .line 965
     .local v0, "activities":[Landroid/content/pm/ActivityInfo;
     if-nez v0, :cond_0
 
@@ -864,13 +799,13 @@
 
     return-void
 
-    .line 976
+    .line 959
     .end local v0    # "activities":[Landroid/content/pm/ActivityInfo;
     .end local v4    # "info":Landroid/content/pm/PackageInfo;
     :catch_0
     move-exception v2
 
-    .line 977
+    .line 960
     .local v2, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_2
     const-string/jumbo v5, "UsbSettingsManager"
@@ -899,10 +834,10 @@
 
     monitor-exit v6
 
-    .line 978
+    .line 961
     return-void
 
-    .line 983
+    .line 966
     .end local v2    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     .restart local v0    # "activities":[Landroid/content/pm/ActivityInfo;
     .restart local v4    # "info":Landroid/content/pm/PackageInfo;
@@ -916,50 +851,50 @@
 
     if-ge v3, v5, :cond_3
 
-    .line 985
+    .line 968
     aget-object v5, v0, v3
 
-    .line 986
+    .line 969
     const-string/jumbo v7, "android.hardware.usb.action.USB_DEVICE_ATTACHED"
 
-    .line 985
+    .line 968
     invoke-direct {p0, p1, v5, v7}, Lcom/android/server/usb/UsbSettingsManager;->handlePackageUpdateLocked(Ljava/lang/String;Landroid/content/pm/ActivityInfo;Ljava/lang/String;)Z
 
     move-result v5
 
     if-eqz v5, :cond_1
 
-    .line 987
+    .line 970
     const/4 v1, 0x1
 
-    .line 989
+    .line 972
     :cond_1
     aget-object v5, v0, v3
 
-    .line 990
+    .line 973
     const-string/jumbo v7, "android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
 
-    .line 989
+    .line 972
     invoke-direct {p0, p1, v5, v7}, Lcom/android/server/usb/UsbSettingsManager;->handlePackageUpdateLocked(Ljava/lang/String;Landroid/content/pm/ActivityInfo;Ljava/lang/String;)Z
 
     move-result v5
 
     if-eqz v5, :cond_2
 
-    .line 991
+    .line 974
     const/4 v1, 0x1
 
-    .line 983
+    .line 966
     :cond_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 995
+    .line 978
     :cond_3
     if-eqz v1, :cond_4
 
-    .line 996
+    .line 979
     invoke-direct {p0}, Lcom/android/server/usb/UsbSettingsManager;->writeSettingsLocked()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
@@ -967,10 +902,10 @@
     :cond_4
     monitor-exit v6
 
-    .line 968
+    .line 951
     return-void
 
-    .line 969
+    .line 952
     .end local v0    # "activities":[Landroid/content/pm/ActivityInfo;
     .end local v3    # "i":I
     .end local v4    # "info":Landroid/content/pm/PackageInfo;
@@ -989,14 +924,14 @@
     .param p3, "metaDataName"    # Ljava/lang/String;
 
     .prologue
-    .line 934
+    .line 917
     const/4 v4, 0x0
 
-    .line 935
+    .line 918
     .local v4, "parser":Landroid/content/res/XmlResourceParser;
     const/4 v0, 0x0
 
-    .line 938
+    .line 921
     .local v0, "changed":Z
     :try_start_0
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -1008,27 +943,27 @@
 
     move-result-object v4
 
-    .line 939
+    .line 922
     .local v4, "parser":Landroid/content/res/XmlResourceParser;
     if-nez v4, :cond_1
 
     const/4 v6, 0x0
 
-    .line 961
+    .line 944
     if-eqz v4, :cond_0
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 939
+    .line 922
     :cond_0
     return v6
 
-    .line 941
+    .line 924
     :cond_1
     :try_start_1
     invoke-static {v4}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    .line 942
+    .line 925
     :goto_0
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->getEventType()I
 
@@ -1038,12 +973,12 @@
 
     if-eq v6, v7, :cond_5
 
-    .line 943
+    .line 926
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 944
+    .line 927
     .local v5, "tagName":Ljava/lang/String;
     const-string/jumbo v6, "usb-device"
 
@@ -1053,12 +988,12 @@
 
     if-eqz v6, :cond_4
 
-    .line 945
+    .line 928
     invoke-static {v4}, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
 
     move-result-object v3
 
-    .line 946
+    .line 929
     .local v3, "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     invoke-direct {p0, p1, v3}, Lcom/android/server/usb/UsbSettingsManager;->clearCompatibleMatchesLocked(Ljava/lang/String;Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;)Z
 
@@ -1066,10 +1001,10 @@
 
     if-eqz v6, :cond_2
 
-    .line 947
+    .line 930
     const/4 v0, 0x1
 
-    .line 956
+    .line 939
     .end local v3    # "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     :cond_2
     :goto_1
@@ -1080,13 +1015,13 @@
 
     goto :goto_0
 
-    .line 958
+    .line 941
     .end local v4    # "parser":Landroid/content/res/XmlResourceParser;
     .end local v5    # "tagName":Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 959
+    .line 942
     .local v1, "e":Ljava/lang/Exception;
     :try_start_2
     const-string/jumbo v6, "UsbSettingsManager"
@@ -1117,18 +1052,18 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 961
+    .line 944
     if-eqz v4, :cond_3
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 963
+    .line 946
     .end local v1    # "e":Ljava/lang/Exception;
     :cond_3
     :goto_2
     return v0
 
-    .line 950
+    .line 933
     .restart local v4    # "parser":Landroid/content/res/XmlResourceParser;
     .restart local v5    # "tagName":Ljava/lang/String;
     :cond_4
@@ -1141,12 +1076,12 @@
 
     if-eqz v6, :cond_2
 
-    .line 951
+    .line 934
     invoke-static {v4}, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
     move-result-object v2
 
-    .line 952
+    .line 935
     .local v2, "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     invoke-direct {p0, p1, v2}, Lcom/android/server/usb/UsbSettingsManager;->clearCompatibleMatchesLocked(Ljava/lang/String;Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;)Z
     :try_end_3
@@ -1157,12 +1092,12 @@
 
     if-eqz v6, :cond_2
 
-    .line 953
+    .line 936
     const/4 v0, 0x1
 
     goto :goto_1
 
-    .line 961
+    .line 944
     .end local v2    # "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     .end local v5    # "tagName":Ljava/lang/String;
     :cond_5
@@ -1172,17 +1107,17 @@
 
     goto :goto_2
 
-    .line 960
+    .line 943
     .end local v4    # "parser":Landroid/content/res/XmlResourceParser;
     :catchall_0
     move-exception v6
 
-    .line 961
+    .line 944
     if-eqz v4, :cond_6
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 960
+    .line 943
     :cond_6
     throw v6
 .end method
@@ -1199,14 +1134,14 @@
 
     const/4 v7, 0x1
 
-    .line 671
+    .line 663
     iget-object v0, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    .line 673
+    .line 665
     .local v0, "ai":Landroid/content/pm/ActivityInfo;
     const/4 v4, 0x0
 
-    .line 675
+    .line 667
     .local v4, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -1215,11 +1150,11 @@
 
     move-result-object v4
 
-    .line 676
+    .line 668
     .local v4, "parser":Landroid/content/res/XmlResourceParser;
     if-nez v4, :cond_1
 
-    .line 677
+    .line 669
     const-string/jumbo v6, "UsbSettingsManager"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1245,21 +1180,21 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 701
+    .line 693
     if-eqz v4, :cond_0
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 678
+    .line 670
     :cond_0
     return v9
 
-    .line 681
+    .line 673
     :cond_1
     :try_start_1
     invoke-static {v4}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    .line 682
+    .line 674
     :goto_0
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->getEventType()I
 
@@ -1267,12 +1202,12 @@
 
     if-eq v6, v7, :cond_7
 
-    .line 683
+    .line 675
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 684
+    .line 676
     .local v5, "tagName":Ljava/lang/String;
     if-eqz p3, :cond_3
 
@@ -1284,12 +1219,12 @@
 
     if-eqz v6, :cond_3
 
-    .line 685
+    .line 677
     invoke-static {v4}, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
 
     move-result-object v3
 
-    .line 686
+    .line 678
     .local v3, "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     invoke-virtual {v3, p3}, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;->matches(Landroid/hardware/usb/UsbDevice;)Z
     :try_end_1
@@ -1300,16 +1235,16 @@
 
     if-eqz v6, :cond_5
 
-    .line 701
+    .line 693
     if-eqz v4, :cond_2
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 687
+    .line 679
     :cond_2
     return v7
 
-    .line 690
+    .line 682
     .end local v3    # "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     :cond_3
     if-eqz p4, :cond_5
@@ -1323,12 +1258,12 @@
 
     if-eqz v6, :cond_5
 
-    .line 691
+    .line 683
     invoke-static {v4}, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
     move-result-object v2
 
-    .line 692
+    .line 684
     .local v2, "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     invoke-virtual {v2, p4}, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;->matches(Landroid/hardware/usb/UsbAccessory;)Z
     :try_end_2
@@ -1339,16 +1274,16 @@
 
     if-eqz v6, :cond_5
 
-    .line 701
+    .line 693
     if-eqz v4, :cond_4
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 693
+    .line 685
     :cond_4
     return v7
 
-    .line 696
+    .line 688
     .end local v2    # "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     :cond_5
     :try_start_3
@@ -1359,13 +1294,13 @@
 
     goto :goto_0
 
-    .line 698
+    .line 690
     .end local v4    # "parser":Landroid/content/res/XmlResourceParser;
     .end local v5    # "tagName":Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 699
+    .line 691
     .local v1, "e":Ljava/lang/Exception;
     :try_start_4
     const-string/jumbo v6, "UsbSettingsManager"
@@ -1396,18 +1331,18 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 701
+    .line 693
     if-eqz v4, :cond_6
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 703
+    .line 695
     .end local v1    # "e":Ljava/lang/Exception;
     :cond_6
     :goto_1
     return v9
 
-    .line 701
+    .line 693
     .restart local v4    # "parser":Landroid/content/res/XmlResourceParser;
     :cond_7
     if-eqz v4, :cond_6
@@ -1416,17 +1351,17 @@
 
     goto :goto_1
 
-    .line 700
+    .line 692
     .end local v4    # "parser":Landroid/content/res/XmlResourceParser;
     :catchall_0
     move-exception v6
 
-    .line 701
+    .line 693
     if-eqz v4, :cond_8
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 700
+    .line 692
     :cond_8
     throw v6
 .end method
@@ -1442,16 +1377,16 @@
     .end annotation
 
     .prologue
-    .line 539
+    .line 531
     const/4 v4, 0x0
 
-    .line 540
+    .line 532
     .local v4, "packageName":Ljava/lang/String;
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
     move-result v0
 
-    .line 541
+    .line 533
     .local v0, "count":I
     const/4 v3, 0x0
 
@@ -1459,7 +1394,7 @@
     :goto_0
     if-ge v3, v0, :cond_0
 
-    .line 542
+    .line 534
     const-string/jumbo v5, "package"
 
     invoke-interface {p1, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
@@ -1472,17 +1407,17 @@
 
     if-eqz v5, :cond_2
 
-    .line 543
+    .line 535
     invoke-interface {p1, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 547
+    .line 539
     .end local v4    # "packageName":Ljava/lang/String;
     :cond_0
     invoke-static {p1}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    .line 548
+    .line 540
     const-string/jumbo v5, "usb-device"
 
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -1495,34 +1430,34 @@
 
     if-eqz v5, :cond_3
 
-    .line 549
+    .line 541
     invoke-static {p1}, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
 
     move-result-object v2
 
-    .line 550
+    .line 542
     .local v2, "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     iget-object v5, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v5, v2, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 555
+    .line 547
     .end local v2    # "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     :cond_1
     :goto_1
     invoke-static {p1}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    .line 538
+    .line 530
     return-void
 
-    .line 541
+    .line 533
     .restart local v4    # "packageName":Ljava/lang/String;
     :cond_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 551
+    .line 543
     .end local v4    # "packageName":Ljava/lang/String;
     :cond_3
     const-string/jumbo v5, "usb-accessory"
@@ -1537,12 +1472,12 @@
 
     if-eqz v5, :cond_1
 
-    .line 552
+    .line 544
     invoke-static {p1}, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
     move-result-object v1
 
-    .line 553
+    .line 545
     .local v1, "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     iget-object v5, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
@@ -1555,20 +1490,20 @@
     .locals 7
 
     .prologue
-    .line 600
+    .line 592
     iget-object v5, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v5}, Ljava/util/HashMap;->clear()V
 
-    .line 601
+    .line 593
     iget-object v5, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v5}, Ljava/util/HashMap;->clear()V
 
-    .line 603
+    .line 595
     const/4 v3, 0x0
 
-    .line 605
+    .line 597
     .local v3, "stream":Ljava/io/FileInputStream;
     :try_start_0
     iget-object v5, p0, Lcom/android/server/usb/UsbSettingsManager;->mSettingsFile:Landroid/util/AtomicFile;
@@ -1577,13 +1512,13 @@
 
     move-result-object v3
 
-    .line 606
+    .line 598
     .local v3, "stream":Ljava/io/FileInputStream;
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v2
 
-    .line 607
+    .line 599
     .local v2, "parser":Lorg/xmlpull/v1/XmlPullParser;
     sget-object v5, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
@@ -1593,10 +1528,10 @@
 
     invoke-interface {v2, v3, v5}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    .line 609
+    .line 601
     invoke-static {v2}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    .line 610
+    .line 602
     :goto_0
     invoke-interface {v2}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
@@ -1606,12 +1541,12 @@
 
     if-eq v5, v6, :cond_1
 
-    .line 611
+    .line 603
     invoke-interface {v2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 612
+    .line 604
     .local v4, "tagName":Ljava/lang/String;
     const-string/jumbo v5, "preference"
 
@@ -1621,7 +1556,7 @@
 
     if-eqz v5, :cond_0
 
-    .line 613
+    .line 605
     invoke-direct {p0, v2}, Lcom/android/server/usb/UsbSettingsManager;->readPreference(Lorg/xmlpull/v1/XmlPullParser;)V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
@@ -1630,23 +1565,23 @@
 
     goto :goto_0
 
-    .line 618
+    .line 610
     .end local v2    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .end local v3    # "stream":Ljava/io/FileInputStream;
     .end local v4    # "tagName":Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .line 624
+    .line 616
     .local v0, "e":Ljava/io/FileNotFoundException;
     invoke-static {v3}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    .line 597
+    .line 589
     .end local v0    # "e":Ljava/io/FileNotFoundException;
     :goto_1
     return-void
 
-    .line 615
+    .line 607
     .restart local v2    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .restart local v3    # "stream":Ljava/io/FileInputStream;
     .restart local v4    # "tagName":Ljava/lang/String;
@@ -1660,14 +1595,14 @@
 
     goto :goto_0
 
-    .line 620
+    .line 612
     .end local v2    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .end local v3    # "stream":Ljava/io/FileInputStream;
     .end local v4    # "tagName":Ljava/lang/String;
     :catch_1
     move-exception v1
 
-    .line 621
+    .line 613
     .local v1, "e":Ljava/lang/Exception;
     :try_start_2
     const-string/jumbo v5, "UsbSettingsManager"
@@ -1676,14 +1611,14 @@
 
     invoke-static {v5, v6, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 622
+    .line 614
     iget-object v5, p0, Lcom/android/server/usb/UsbSettingsManager;->mSettingsFile:Landroid/util/AtomicFile;
 
     invoke-virtual {v5}, Landroid/util/AtomicFile;->delete()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 624
+    .line 616
     invoke-static {v3}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     goto :goto_1
@@ -1696,16 +1631,16 @@
 
     goto :goto_1
 
-    .line 623
+    .line 615
     .end local v2    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .end local v3    # "stream":Ljava/io/FileInputStream;
     :catchall_0
     move-exception v5
 
-    .line 624
+    .line 616
     invoke-static {v3}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    .line 623
+    .line 615
     throw v5
 .end method
 
@@ -1716,12 +1651,12 @@
     .param p3, "pi"    # Landroid/app/PendingIntent;
 
     .prologue
-    .line 1042
+    .line 1025
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v3
 
-    .line 1046
+    .line 1029
     .local v3, "uid":I
     :try_start_0
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -1732,13 +1667,13 @@
 
     move-result-object v0
 
-    .line 1047
+    .line 1030
     .local v0, "aInfo":Landroid/content/pm/ApplicationInfo;
     iget v6, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
     if-eq v6, v3, :cond_0
 
-    .line 1048
+    .line 1031
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1755,10 +1690,10 @@
 
     move-result-object v7
 
-    .line 1049
+    .line 1032
     const-string/jumbo v8, " does not match caller\'s uid "
 
-    .line 1048
+    .line 1031
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -1777,12 +1712,12 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1051
+    .line 1034
     .end local v0    # "aInfo":Landroid/content/pm/ApplicationInfo;
     :catch_0
     move-exception v2
 
-    .line 1052
+    .line 1035
     .local v2, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
@@ -1814,7 +1749,7 @@
 
     throw v6
 
-    .line 1055
+    .line 1038
     .end local v2    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     .restart local v0    # "aInfo":Landroid/content/pm/ApplicationInfo;
     :cond_0
@@ -1822,37 +1757,37 @@
 
     move-result-wide v4
 
-    .line 1056
+    .line 1039
     .local v4, "identity":J
     const-string/jumbo v6, "com.android.systemui"
 
-    .line 1057
+    .line 1040
     const-string/jumbo v7, "com.android.systemui.usb.UsbPermissionActivity"
 
-    .line 1056
+    .line 1039
     invoke-virtual {p1, v6, v7}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1058
+    .line 1041
     const/high16 v6, 0x10000000
 
     invoke-virtual {p1, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 1059
+    .line 1042
     const-string/jumbo v6, "android.intent.extra.INTENT"
 
     invoke-virtual {p1, v6, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 1060
+    .line 1043
     const-string/jumbo v6, "package"
 
     invoke-virtual {p1, v6, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1061
+    .line 1044
     const-string/jumbo v6, "android.intent.extra.UID"
 
     invoke-virtual {p1, v6, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1063
+    .line 1046
     :try_start_1
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mUserContext:Landroid/content/Context;
 
@@ -1863,18 +1798,18 @@
     .catch Landroid/content/ActivityNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1067
+    .line 1050
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 1041
+    .line 1024
     :goto_0
     return-void
 
-    .line 1064
+    .line 1047
     :catch_1
     move-exception v1
 
-    .line 1065
+    .line 1048
     .local v1, "e":Landroid/content/ActivityNotFoundException;
     :try_start_2
     const-string/jumbo v6, "UsbSettingsManager"
@@ -1885,82 +1820,21 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 1067
+    .line 1050
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_0
 
-    .line 1066
+    .line 1049
     .end local v1    # "e":Landroid/content/ActivityNotFoundException;
     :catchall_0
     move-exception v6
 
-    .line 1067
+    .line 1050
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 1066
+    .line 1049
     throw v6
-.end method
-
-.method private resolveActivity(Landroid/content/Intent;Landroid/hardware/usb/UsbDevice;)V
-    .locals 6
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "device"    # Landroid/hardware/usb/UsbDevice;
-
-    .prologue
-    .line 752
-    iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    .line 753
-    :try_start_0
-    invoke-direct {p0, p2, p1}, Lcom/android/server/usb/UsbSettingsManager;->getDeviceMatchesLocked(Landroid/hardware/usb/UsbDevice;Landroid/content/Intent;)Ljava/util/ArrayList;
-
-    move-result-object v2
-
-    .line 756
-    .local v2, "matches":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ResolveInfo;>;"
-    iget-object v0, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
-
-    new-instance v4, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
-
-    invoke-direct {v4, p2}, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;-><init>(Landroid/hardware/usb/UsbDevice;)V
-
-    invoke-virtual {v0, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .local v3, "defaultPackage":Ljava/lang/String;
-    monitor-exit v1
-
-    .line 760
-    const/4 v5, 0x0
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v4, p2
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/usb/UsbSettingsManager;->resolveActivity(Landroid/content/Intent;Ljava/util/ArrayList;Ljava/lang/String;Landroid/hardware/usb/UsbDevice;Landroid/hardware/usb/UsbAccessory;)V
-
-    .line 749
-    return-void
-
-    .line 752
-    .end local v2    # "matches":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ResolveInfo;>;"
-    .end local v3    # "defaultPackage":Ljava/lang/String;
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method
 
 .method private resolveActivity(Landroid/content/Intent;Ljava/util/ArrayList;Ljava/lang/String;Landroid/hardware/usb/UsbDevice;Landroid/hardware/usb/UsbAccessory;)V
@@ -1985,25 +1859,25 @@
     .end annotation
 
     .prologue
-    .line 804
+    .line 787
     .local p2, "matches":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ResolveInfo;>;"
     invoke-virtual {p2}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 807
+    .line 790
     .local v1, "count":I
     if-nez v1, :cond_1
 
-    .line 808
+    .line 791
     if-eqz p5, :cond_0
 
-    .line 809
+    .line 792
     invoke-virtual/range {p5 .. p5}, Landroid/hardware/usb/UsbAccessory;->getUri()Ljava/lang/String;
 
     move-result-object v8
 
-    .line 810
+    .line 793
     .local v8, "uri":Ljava/lang/String;
     if-eqz v8, :cond_0
 
@@ -2013,39 +1887,39 @@
 
     if-lez v9, :cond_0
 
-    .line 813
+    .line 796
     new-instance v3, Landroid/content/Intent;
 
     invoke-direct {v3}, Landroid/content/Intent;-><init>()V
 
-    .line 814
+    .line 797
     .local v3, "dialogIntent":Landroid/content/Intent;
     const-string/jumbo v9, "com.android.systemui"
 
-    .line 815
+    .line 798
     const-string/jumbo v10, "com.android.systemui.usb.UsbAccessoryUriActivity"
 
-    .line 814
+    .line 797
     invoke-virtual {v3, v9, v10}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 816
+    .line 799
     const/high16 v9, 0x10000000
 
     invoke-virtual {v3, v9}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 817
+    .line 800
     const-string/jumbo v9, "accessory"
 
     move-object/from16 v0, p5
 
     invoke-virtual {v3, v9, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 818
+    .line 801
     const-string/jumbo v9, "uri"
 
     invoke-virtual {v3, v9, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 820
+    .line 803
     :try_start_0
     iget-object v9, p0, Lcom/android/server/usb/UsbSettingsManager;->mUserContext:Landroid/content/Context;
 
@@ -2055,20 +1929,20 @@
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 828
+    .line 811
     .end local v3    # "dialogIntent":Landroid/content/Intent;
     .end local v8    # "uri":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
-    .line 821
+    .line 804
     .restart local v3    # "dialogIntent":Landroid/content/Intent;
     .restart local v8    # "uri":Ljava/lang/String;
     :catch_0
     move-exception v4
 
-    .line 822
+    .line 805
     .local v4, "e":Landroid/content/ActivityNotFoundException;
     const-string/jumbo v9, "UsbSettingsManager"
 
@@ -2078,14 +1952,14 @@
 
     goto :goto_0
 
-    .line 831
+    .line 814
     .end local v3    # "dialogIntent":Landroid/content/Intent;
     .end local v4    # "e":Landroid/content/ActivityNotFoundException;
     .end local v8    # "uri":Ljava/lang/String;
     :cond_1
     const/4 v2, 0x0
 
-    .line 832
+    .line 815
     .local v2, "defaultRI":Landroid/content/pm/ResolveInfo;
     const/4 v9, 0x1
 
@@ -2093,7 +1967,7 @@
 
     if-nez p3, :cond_3
 
-    .line 835
+    .line 818
     const/4 v9, 0x0
 
     invoke-virtual {p2, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2102,20 +1976,20 @@
 
     check-cast v6, Landroid/content/pm/ResolveInfo;
 
-    .line 836
+    .line 819
     .local v6, "rInfo":Landroid/content/pm/ResolveInfo;
     iget-object v9, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     if-eqz v9, :cond_2
 
-    .line 837
+    .line 820
     iget-object v9, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v9, v9, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     if-eqz v9, :cond_2
 
-    .line 838
+    .line 821
     iget-object v9, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v9, v9, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -2126,17 +2000,17 @@
 
     if-eqz v9, :cond_2
 
-    .line 839
+    .line 822
     move-object v2, v6
 
-    .line 842
+    .line 825
     .end local v2    # "defaultRI":Landroid/content/pm/ResolveInfo;
     :cond_2
     iget-boolean v9, p0, Lcom/android/server/usb/UsbSettingsManager;->mDisablePermissionDialogs:Z
 
     if-eqz v9, :cond_3
 
-    .line 844
+    .line 827
     const/4 v9, 0x0
 
     invoke-virtual {p2, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2146,45 +2020,45 @@
     .end local v6    # "rInfo":Landroid/content/pm/ResolveInfo;
     check-cast v6, Landroid/content/pm/ResolveInfo;
 
-    .line 845
+    .line 828
     .restart local v6    # "rInfo":Landroid/content/pm/ResolveInfo;
     iget-object v9, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     if-eqz v9, :cond_3
 
-    .line 846
+    .line 829
     iget-object v9, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object p3, v9, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    .line 851
+    .line 834
     .end local v6    # "rInfo":Landroid/content/pm/ResolveInfo;
     :cond_3
     if-nez v2, :cond_4
 
     if-eqz p3, :cond_4
 
-    .line 853
+    .line 836
     const/4 v5, 0x0
 
     .local v5, "i":I
     :goto_1
     if-ge v5, v1, :cond_4
 
-    .line 854
+    .line 837
     invoke-virtual {p2, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Landroid/content/pm/ResolveInfo;
 
-    .line 855
+    .line 838
     .restart local v6    # "rInfo":Landroid/content/pm/ResolveInfo;
     iget-object v9, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     if-eqz v9, :cond_6
 
-    .line 856
+    .line 839
     iget-object v9, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v9, v9, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
@@ -2193,22 +2067,22 @@
 
     move-result v9
 
-    .line 855
+    .line 838
     if-eqz v9, :cond_6
 
-    .line 857
+    .line 840
     move-object v2, v6
 
-    .line 863
+    .line 846
     .end local v5    # "i":I
     .end local v6    # "rInfo":Landroid/content/pm/ResolveInfo;
     :cond_4
     if-eqz v2, :cond_8
 
-    .line 865
+    .line 848
     if-eqz p4, :cond_7
 
-    .line 866
+    .line 849
     iget-object v9, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v9, v9, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -2219,7 +2093,7 @@
 
     invoke-virtual {p0, v0, v9}, Lcom/android/server/usb/UsbSettingsManager;->grantDevicePermission(Landroid/hardware/usb/UsbDevice;I)V
 
-    .line 874
+    .line 857
     :cond_5
     :goto_2
     :try_start_1
@@ -2229,18 +2103,18 @@
 
     iget-object v10, v10, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    .line 875
+    .line 858
     iget-object v11, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v11, v11, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
-    .line 874
+    .line 857
     invoke-direct {v9, v10, v11}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 873
+    .line 856
     invoke-virtual {p1, v9}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 876
+    .line 859
     iget-object v9, p0, Lcom/android/server/usb/UsbSettingsManager;->mUserContext:Landroid/content/Context;
 
     iget-object v10, p0, Lcom/android/server/usb/UsbSettingsManager;->mUser:Landroid/os/UserHandle;
@@ -2249,11 +2123,11 @@
     :try_end_1
     .catch Landroid/content/ActivityNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 803
+    .line 786
     :goto_3
     return-void
 
-    .line 853
+    .line 836
     .restart local v5    # "i":I
     .restart local v6    # "rInfo":Landroid/content/pm/ResolveInfo;
     :cond_6
@@ -2261,13 +2135,13 @@
 
     goto :goto_1
 
-    .line 867
+    .line 850
     .end local v5    # "i":I
     .end local v6    # "rInfo":Landroid/content/pm/ResolveInfo;
     :cond_7
     if-eqz p5, :cond_5
 
-    .line 868
+    .line 851
     iget-object v9, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v9, v9, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -2280,11 +2154,11 @@
 
     goto :goto_2
 
-    .line 877
+    .line 860
     :catch_1
     move-exception v4
 
-    .line 878
+    .line 861
     .restart local v4    # "e":Landroid/content/ActivityNotFoundException;
     const-string/jumbo v9, "UsbSettingsManager"
 
@@ -2294,34 +2168,34 @@
 
     goto :goto_3
 
-    .line 881
+    .line 864
     .end local v4    # "e":Landroid/content/ActivityNotFoundException;
     :cond_8
     new-instance v7, Landroid/content/Intent;
 
     invoke-direct {v7}, Landroid/content/Intent;-><init>()V
 
-    .line 882
+    .line 865
     .local v7, "resolverIntent":Landroid/content/Intent;
     const/high16 v9, 0x10000000
 
     invoke-virtual {v7, v9}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 884
+    .line 867
     const/4 v9, 0x1
 
     if-ne v1, v9, :cond_a
 
-    .line 886
+    .line 869
     const-string/jumbo v9, "com.android.systemui"
 
-    .line 887
+    .line 870
     const-string/jumbo v10, "com.android.systemui.usb.UsbConfirmActivity"
 
-    .line 886
+    .line 869
     invoke-virtual {v7, v9, v10}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 888
+    .line 871
     const-string/jumbo v10, "rinfo"
 
     const/4 v9, 0x0
@@ -2334,17 +2208,17 @@
 
     invoke-virtual {v7, v10, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 890
+    .line 873
     if-eqz p4, :cond_9
 
-    .line 891
+    .line 874
     const-string/jumbo v9, "device"
 
     move-object/from16 v0, p4
 
     invoke-virtual {v7, v9, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 903
+    .line 886
     :goto_4
     :try_start_2
     iget-object v9, p0, Lcom/android/server/usb/UsbSettingsManager;->mUserContext:Landroid/content/Context;
@@ -2357,11 +2231,11 @@
 
     goto :goto_3
 
-    .line 904
+    .line 887
     :catch_2
     move-exception v4
 
-    .line 905
+    .line 888
     .restart local v4    # "e":Landroid/content/ActivityNotFoundException;
     const-string/jumbo v9, "UsbSettingsManager"
 
@@ -2387,7 +2261,7 @@
 
     goto :goto_3
 
-    .line 893
+    .line 876
     .end local v4    # "e":Landroid/content/ActivityNotFoundException;
     :cond_9
     const-string/jumbo v9, "accessory"
@@ -2398,22 +2272,22 @@
 
     goto :goto_4
 
-    .line 897
+    .line 880
     :cond_a
     const-string/jumbo v9, "com.android.systemui"
 
-    .line 898
+    .line 881
     const-string/jumbo v10, "com.android.systemui.usb.UsbResolverActivity"
 
-    .line 897
+    .line 880
     invoke-virtual {v7, v9, v10}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 899
+    .line 882
     const-string/jumbo v9, "rlist"
 
     invoke-virtual {v7, v9, p2}, Landroid/content/Intent;->putParcelableArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
-    .line 900
+    .line 883
     const-string/jumbo v9, "android.intent.extra.INTENT"
 
     invoke-virtual {v7, v9, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
@@ -2425,7 +2299,7 @@
     .locals 8
 
     .prologue
-    .line 563
+    .line 555
     sget-object v6, Lcom/android/server/usb/UsbSettingsManager;->sSingleUserSettingsFile:Ljava/io/File;
 
     invoke-virtual {v6}, Ljava/io/File;->exists()Z
@@ -2434,20 +2308,20 @@
 
     if-eqz v6, :cond_0
 
-    .line 564
+    .line 556
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v6}, Ljava/util/HashMap;->clear()V
 
-    .line 565
+    .line 557
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v6}, Ljava/util/HashMap;->clear()V
 
-    .line 567
+    .line 559
     const/4 v2, 0x0
 
-    .line 569
+    .line 561
     .local v2, "fis":Ljava/io/FileInputStream;
     :try_start_0
     new-instance v3, Ljava/io/FileInputStream;
@@ -2460,7 +2334,7 @@
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_3
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 570
+    .line 562
     .end local v2    # "fis":Ljava/io/FileInputStream;
     .local v3, "fis":Ljava/io/FileInputStream;
     :try_start_1
@@ -2468,7 +2342,7 @@
 
     move-result-object v4
 
-    .line 571
+    .line 563
     .local v4, "parser":Lorg/xmlpull/v1/XmlPullParser;
     sget-object v6, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
@@ -2478,10 +2352,10 @@
 
     invoke-interface {v4, v3, v6}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    .line 573
+    .line 565
     invoke-static {v4}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    .line 574
+    .line 566
     :goto_0
     invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
@@ -2491,12 +2365,12 @@
 
     if-eq v6, v7, :cond_2
 
-    .line 575
+    .line 567
     invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 576
+    .line 568
     .local v5, "tagName":Ljava/lang/String;
     const-string/jumbo v6, "preference"
 
@@ -2506,7 +2380,7 @@
 
     if-eqz v6, :cond_1
 
-    .line 577
+    .line 569
     invoke-direct {p0, v4}, Lcom/android/server/usb/UsbSettingsManager;->readPreference(Lorg/xmlpull/v1/XmlPullParser;)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
@@ -2515,7 +2389,7 @@
 
     goto :goto_0
 
-    .line 582
+    .line 574
     .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .end local v5    # "tagName":Ljava/lang/String;
     :catch_0
@@ -2524,7 +2398,7 @@
     .local v0, "e":Ljava/io/IOException;
     move-object v2, v3
 
-    .line 583
+    .line 575
     .end local v3    # "fis":Ljava/io/FileInputStream;
     :goto_1
     :try_start_2
@@ -2536,24 +2410,24 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 587
+    .line 579
     invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    .line 590
+    .line 582
     .end local v0    # "e":Ljava/io/IOException;
     :goto_2
     invoke-direct {p0}, Lcom/android/server/usb/UsbSettingsManager;->writeSettingsLocked()V
 
-    .line 593
+    .line 585
     sget-object v6, Lcom/android/server/usb/UsbSettingsManager;->sSingleUserSettingsFile:Ljava/io/File;
 
     invoke-virtual {v6}, Ljava/io/File;->delete()Z
 
-    .line 562
+    .line 554
     :cond_0
     return-void
 
-    .line 579
+    .line 571
     .restart local v3    # "fis":Ljava/io/FileInputStream;
     .restart local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .restart local v5    # "tagName":Ljava/lang/String;
@@ -2567,7 +2441,7 @@
 
     goto :goto_0
 
-    .line 584
+    .line 576
     .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .end local v5    # "tagName":Ljava/lang/String;
     :catch_1
@@ -2576,7 +2450,7 @@
     .local v1, "e":Lorg/xmlpull/v1/XmlPullParserException;
     move-object v2, v3
 
-    .line 585
+    .line 577
     .end local v3    # "fis":Ljava/io/FileInputStream;
     :goto_3
     :try_start_4
@@ -2588,7 +2462,7 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 587
+    .line 579
     invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     goto :goto_2
@@ -2605,17 +2479,17 @@
     .local v2, "fis":Ljava/io/FileInputStream;
     goto :goto_2
 
-    .line 586
+    .line 578
     .end local v2    # "fis":Ljava/io/FileInputStream;
     .end local v4    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     :catchall_0
     move-exception v6
 
-    .line 587
+    .line 579
     :goto_4
     invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    .line 586
+    .line 578
     throw v6
 
     .restart local v3    # "fis":Ljava/io/FileInputStream;
@@ -2628,7 +2502,7 @@
     .restart local v2    # "fis":Ljava/io/FileInputStream;
     goto :goto_4
 
-    .line 582
+    .line 574
     .local v2, "fis":Ljava/io/FileInputStream;
     :catch_2
     move-exception v0
@@ -2636,7 +2510,7 @@
     .restart local v0    # "e":Ljava/io/IOException;
     goto :goto_1
 
-    .line 584
+    .line 576
     .end local v0    # "e":Ljava/io/IOException;
     :catch_3
     move-exception v1
@@ -2649,10 +2523,10 @@
     .locals 9
 
     .prologue
-    .line 631
+    .line 623
     const/4 v4, 0x0
 
-    .line 633
+    .line 625
     .local v4, "fos":Ljava/io/FileOutputStream;
     :try_start_0
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mSettingsFile:Landroid/util/AtomicFile;
@@ -2661,13 +2535,13 @@
 
     move-result-object v4
 
-    .line 635
+    .line 627
     .local v4, "fos":Ljava/io/FileOutputStream;
     new-instance v5, Lcom/android/internal/util/FastXmlSerializer;
 
     invoke-direct {v5}, Lcom/android/internal/util/FastXmlSerializer;-><init>()V
 
-    .line 636
+    .line 628
     .local v5, "serializer":Lcom/android/internal/util/FastXmlSerializer;
     sget-object v6, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
@@ -2677,7 +2551,7 @@
 
     invoke-virtual {v5, v4, v6}, Lcom/android/internal/util/FastXmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
-    .line 637
+    .line 629
     const/4 v6, 0x1
 
     invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -2688,21 +2562,21 @@
 
     invoke-virtual {v5, v7, v6}, Lcom/android/internal/util/FastXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 638
+    .line 630
     const-string/jumbo v6, "http://xmlpull.org/v1/doc/features.html#indent-output"
 
     const/4 v7, 0x1
 
     invoke-virtual {v5, v6, v7}, Lcom/android/internal/util/FastXmlSerializer;->setFeature(Ljava/lang/String;Z)V
 
-    .line 639
+    .line 631
     const-string/jumbo v6, "settings"
 
     const/4 v7, 0x0
 
     invoke-virtual {v5, v7, v6}, Lcom/android/internal/util/FastXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 641
+    .line 633
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v6}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -2727,7 +2601,7 @@
 
     check-cast v2, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
 
-    .line 642
+    .line 634
     .local v2, "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     const-string/jumbo v6, "preference"
 
@@ -2735,7 +2609,7 @@
 
     invoke-virtual {v5, v7, v6}, Lcom/android/internal/util/FastXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 643
+    .line 635
     const-string/jumbo v7, "package"
 
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
@@ -2750,10 +2624,10 @@
 
     invoke-virtual {v5, v8, v7, v6}, Lcom/android/internal/util/FastXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 644
+    .line 636
     invoke-virtual {v2, v5}, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;->write(Lorg/xmlpull/v1/XmlSerializer;)V
 
-    .line 645
+    .line 637
     const-string/jumbo v6, "preference"
 
     const/4 v7, 0x0
@@ -2764,7 +2638,7 @@
 
     goto :goto_0
 
-    .line 659
+    .line 651
     .end local v2    # "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     .end local v3    # "filter$iterator":Ljava/util/Iterator;
     .end local v4    # "fos":Ljava/io/FileOutputStream;
@@ -2772,7 +2646,7 @@
     :catch_0
     move-exception v0
 
-    .line 660
+    .line 652
     .local v0, "e":Ljava/io/IOException;
     const-string/jumbo v6, "UsbSettingsManager"
 
@@ -2780,21 +2654,21 @@
 
     invoke-static {v6, v7, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 661
+    .line 653
     if-eqz v4, :cond_0
 
-    .line 662
+    .line 654
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mSettingsFile:Landroid/util/AtomicFile;
 
     invoke-virtual {v6, v4}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
-    .line 628
+    .line 620
     .end local v0    # "e":Ljava/io/IOException;
     :cond_0
     :goto_1
     return-void
 
-    .line 648
+    .line 640
     .restart local v3    # "filter$iterator":Ljava/util/Iterator;
     .restart local v4    # "fos":Ljava/io/FileOutputStream;
     .restart local v5    # "serializer":Lcom/android/internal/util/FastXmlSerializer;
@@ -2823,7 +2697,7 @@
 
     check-cast v1, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
-    .line 649
+    .line 641
     .local v1, "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     const-string/jumbo v6, "preference"
 
@@ -2831,7 +2705,7 @@
 
     invoke-virtual {v5, v7, v6}, Lcom/android/internal/util/FastXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 650
+    .line 642
     const-string/jumbo v7, "package"
 
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
@@ -2846,10 +2720,10 @@
 
     invoke-virtual {v5, v8, v7, v6}, Lcom/android/internal/util/FastXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 651
+    .line 643
     invoke-virtual {v1, v5}, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;->write(Lorg/xmlpull/v1/XmlSerializer;)V
 
-    .line 652
+    .line 644
     const-string/jumbo v6, "preference"
 
     const/4 v7, 0x0
@@ -2858,7 +2732,7 @@
 
     goto :goto_2
 
-    .line 655
+    .line 647
     .end local v1    # "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     :cond_2
     const-string/jumbo v6, "settings"
@@ -2867,10 +2741,10 @@
 
     invoke-virtual {v5, v7, v6}, Lcom/android/internal/util/FastXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 656
+    .line 648
     invoke-virtual {v5}, Lcom/android/internal/util/FastXmlSerializer;->endDocument()V
 
-    .line 658
+    .line 650
     iget-object v6, p0, Lcom/android/server/usb/UsbSettingsManager;->mSettingsFile:Landroid/util/AtomicFile;
 
     invoke-virtual {v6, v4}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
@@ -2887,36 +2761,36 @@
     .param p1, "accessory"    # Landroid/hardware/usb/UsbAccessory;
 
     .prologue
-    .line 776
+    .line 759
     new-instance v1, Landroid/content/Intent;
 
     const-string/jumbo v0, "android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
 
     invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 777
+    .line 760
     .local v1, "intent":Landroid/content/Intent;
     const-string/jumbo v0, "accessory"
 
     invoke-virtual {v1, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 778
+    .line 761
     const/high16 v0, 0x10000000
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 782
+    .line 765
     iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 783
+    .line 766
     :try_start_0
     invoke-direct {p0, p1, v1}, Lcom/android/server/usb/UsbSettingsManager;->getAccessoryMatchesLocked(Landroid/hardware/usb/UsbAccessory;Landroid/content/Intent;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    .line 786
+    .line 769
     .local v2, "matches":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ResolveInfo;>;"
     iget-object v0, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
@@ -2935,7 +2809,7 @@
     .local v3, "defaultPackage":Ljava/lang/String;
     monitor-exit v4
 
-    .line 789
+    .line 772
     const/4 v4, 0x0
 
     move-object v0, p0
@@ -2944,10 +2818,10 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/usb/UsbSettingsManager;->resolveActivity(Landroid/content/Intent;Ljava/util/ArrayList;Ljava/lang/String;Landroid/hardware/usb/UsbDevice;Landroid/hardware/usb/UsbAccessory;)V
 
-    .line 775
+    .line 758
     return-void
 
-    .line 782
+    .line 765
     .end local v2    # "matches":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ResolveInfo;>;"
     .end local v3    # "defaultPackage":Ljava/lang/String;
     :catchall_0
@@ -2963,34 +2837,34 @@
     .param p1, "accessory"    # Landroid/hardware/usb/UsbAccessory;
 
     .prologue
-    .line 794
+    .line 777
     iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPermissionMap:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 796
+    .line 779
     new-instance v0, Landroid/content/Intent;
 
-    .line 797
+    .line 780
     const-string/jumbo v1, "android.hardware.usb.action.USB_ACCESSORY_DETACHED"
 
-    .line 796
+    .line 779
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 798
+    .line 781
     .local v0, "intent":Landroid/content/Intent;
     const-string/jumbo v1, "accessory"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 799
+    .line 782
     iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mContext:Landroid/content/Context;
 
     sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    .line 792
+    .line 775
     return-void
 .end method
 
@@ -2999,14 +2873,14 @@
     .param p1, "accessory"    # Landroid/hardware/usb/UsbAccessory;
 
     .prologue
-    .line 1036
+    .line 1019
     invoke-virtual {p0, p1}, Lcom/android/server/usb/UsbSettingsManager;->hasPermission(Landroid/hardware/usb/UsbAccessory;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1037
+    .line 1020
     new-instance v0, Ljava/lang/SecurityException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3031,7 +2905,7 @@
 
     throw v0
 
-    .line 1035
+    .line 1018
     :cond_0
     return-void
 .end method
@@ -3041,14 +2915,14 @@
     .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
 
     .prologue
-    .line 1030
+    .line 1013
     invoke-virtual {p0, p1}, Lcom/android/server/usb/UsbSettingsManager;->hasPermission(Landroid/hardware/usb/UsbDevice;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1031
+    .line 1014
     new-instance v0, Ljava/lang/SecurityException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3073,7 +2947,7 @@
 
     throw v0
 
-    .line 1029
+    .line 1012
     :cond_0
     return-void
 .end method
@@ -3083,12 +2957,12 @@
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 1178
+    .line 1161
     iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1179
+    .line 1162
     :try_start_0
     invoke-direct {p0, p1}, Lcom/android/server/usb/UsbSettingsManager;->clearPackageDefaultsLocked(Ljava/lang/String;)Z
 
@@ -3096,7 +2970,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1180
+    .line 1163
     invoke-direct {p0}, Lcom/android/server/usb/UsbSettingsManager;->writeSettingsLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -3104,10 +2978,10 @@
     :cond_0
     monitor-exit v1
 
-    .line 1177
+    .line 1160
     return-void
 
-    .line 1178
+    .line 1161
     :catchall_0
     move-exception v0
 
@@ -3117,44 +2991,86 @@
 .end method
 
 .method public deviceAttached(Landroid/hardware/usb/UsbDevice;)V
-    .locals 2
+    .locals 6
     .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
 
     .prologue
-    .line 736
-    invoke-static {p1}, Lcom/android/server/usb/UsbSettingsManager;->createDeviceAttachedIntent(Landroid/hardware/usb/UsbDevice;)Landroid/content/Intent;
+    .line 728
+    new-instance v1, Landroid/content/Intent;
 
-    move-result-object v0
+    const-string/jumbo v0, "android.hardware.usb.action.USB_DEVICE_ATTACHED"
 
-    .line 739
-    .local v0, "intent":Landroid/content/Intent;
-    iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mUserContext:Landroid/content/Context;
+    invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    .line 729
+    .local v1, "intent":Landroid/content/Intent;
+    const-string/jumbo v0, "device"
 
-    .line 741
-    iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mPackageManager:Landroid/content/pm/PackageManager;
+    invoke-virtual {v1, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    invoke-static {v1, p1}, Lcom/android/server/usb/MtpNotificationManager;->shouldShowNotification(Landroid/content/pm/PackageManager;Landroid/hardware/usb/UsbDevice;)Z
+    .line 730
+    const/high16 v0, 0x10000000
 
-    move-result v1
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    if-eqz v1, :cond_0
+    .line 734
+    iget-object v4, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
-    .line 743
-    iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mMtpNotificationManager:Lcom/android/server/usb/MtpNotificationManager;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/usb/MtpNotificationManager;->showNotification(Landroid/hardware/usb/UsbDevice;)V
+    monitor-enter v4
 
     .line 735
-    :goto_0
-    return-void
+    :try_start_0
+    invoke-direct {p0, p1, v1}, Lcom/android/server/usb/UsbSettingsManager;->getDeviceMatchesLocked(Landroid/hardware/usb/UsbDevice;Landroid/content/Intent;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    .line 738
+    .local v2, "matches":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ResolveInfo;>;"
+    iget-object v0, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
+
+    new-instance v5, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
+
+    invoke-direct {v5, p1}, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;-><init>(Landroid/hardware/usb/UsbDevice;)V
+
+    invoke-virtual {v0, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .local v3, "defaultPackage":Ljava/lang/String;
+    monitor-exit v4
+
+    .line 742
+    iget-object v0, p0, Lcom/android/server/usb/UsbSettingsManager;->mUserContext:Landroid/content/Context;
+
+    sget-object v4, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v0, v1, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     .line 745
-    :cond_0
-    invoke-direct {p0, v0, p1}, Lcom/android/server/usb/UsbSettingsManager;->resolveActivity(Landroid/content/Intent;Landroid/hardware/usb/UsbDevice;)V
+    const/4 v5, 0x0
 
-    goto :goto_0
+    move-object v0, p0
+
+    move-object v4, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/usb/UsbSettingsManager;->resolveActivity(Landroid/content/Intent;Ljava/util/ArrayList;Ljava/lang/String;Landroid/hardware/usb/UsbDevice;Landroid/hardware/usb/UsbAccessory;)V
+
+    .line 727
+    return-void
+
+    .line 734
+    .end local v2    # "matches":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/ResolveInfo;>;"
+    .end local v3    # "defaultPackage":Ljava/lang/String;
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v4
+
+    throw v0
 .end method
 
 .method public deviceDetached(Landroid/hardware/usb/UsbDevice;)V
@@ -3162,7 +3078,7 @@
     .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
 
     .prologue
-    .line 765
+    .line 750
     iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePermissionMap:Ljava/util/HashMap;
 
     invoke-virtual {p1}, Landroid/hardware/usb/UsbDevice;->getDeviceName()Ljava/lang/String;
@@ -3171,36 +3087,27 @@
 
     invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 767
+    .line 752
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "android.hardware.usb.action.USB_DEVICE_DETACHED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 768
+    .line 753
     .local v0, "intent":Landroid/content/Intent;
     const-string/jumbo v1, "device"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 770
+    .line 755
     iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mContext:Landroid/content/Context;
 
     sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    .line 772
-    iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mMtpNotificationManager:Lcom/android/server/usb/MtpNotificationManager;
-
-    invoke-virtual {p1}, Landroid/hardware/usb/UsbDevice;->getDeviceId()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Lcom/android/server/usb/MtpNotificationManager;->hideNotification(I)V
-
-    .line 763
+    .line 748
     return-void
 .end method
 
@@ -3209,18 +3116,18 @@
     .param p1, "pw"    # Lcom/android/internal/util/IndentingPrintWriter;
 
     .prologue
-    .line 1215
+    .line 1198
     iget-object v11, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v11
 
-    .line 1216
+    .line 1199
     :try_start_0
     const-string/jumbo v10, "Device permissions:"
 
     invoke-virtual {p1, v10}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1217
+    .line 1200
     iget-object v10, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePermissionMap:Ljava/util/HashMap;
 
     invoke-virtual {v10}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -3245,7 +3152,7 @@
 
     check-cast v3, Ljava/lang/String;
 
-    .line 1218
+    .line 1201
     .local v3, "deviceName":Ljava/lang/String;
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -3273,7 +3180,7 @@
 
     invoke-virtual {p1, v10}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1219
+    .line 1202
     iget-object v10, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePermissionMap:Ljava/util/HashMap;
 
     invoke-virtual {v10, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -3282,13 +3189,13 @@
 
     check-cast v9, Landroid/util/SparseBooleanArray;
 
-    .line 1220
+    .line 1203
     .local v9, "uidList":Landroid/util/SparseBooleanArray;
     invoke-virtual {v9}, Landroid/util/SparseBooleanArray;->size()I
 
     move-result v2
 
-    .line 1221
+    .line 1204
     .local v2, "count":I
     const/4 v8, 0x0
 
@@ -3296,7 +3203,7 @@
     :goto_1
     if-ge v8, v2, :cond_0
 
-    .line 1222
+    .line 1205
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
@@ -3325,12 +3232,12 @@
 
     invoke-virtual {p1, v10}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1221
+    .line 1204
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
-    .line 1224
+    .line 1207
     :cond_0
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
     :try_end_0
@@ -3338,7 +3245,7 @@
 
     goto :goto_0
 
-    .line 1215
+    .line 1198
     .end local v2    # "count":I
     .end local v3    # "deviceName":Ljava/lang/String;
     .end local v4    # "deviceName$iterator":Ljava/util/Iterator;
@@ -3351,7 +3258,7 @@
 
     throw v10
 
-    .line 1226
+    .line 1209
     .restart local v4    # "deviceName$iterator":Ljava/util/Iterator;
     :cond_1
     :try_start_1
@@ -3359,7 +3266,7 @@
 
     invoke-virtual {p1, v10}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1227
+    .line 1210
     iget-object v10, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPermissionMap:Ljava/util/HashMap;
 
     invoke-virtual {v10}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -3384,7 +3291,7 @@
 
     check-cast v0, Landroid/hardware/usb/UsbAccessory;
 
-    .line 1228
+    .line 1211
     .local v0, "accessory":Landroid/hardware/usb/UsbAccessory;
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -3412,7 +3319,7 @@
 
     invoke-virtual {p1, v10}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1229
+    .line 1212
     iget-object v10, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPermissionMap:Ljava/util/HashMap;
 
     invoke-virtual {v10, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -3421,13 +3328,13 @@
 
     check-cast v9, Landroid/util/SparseBooleanArray;
 
-    .line 1230
+    .line 1213
     .restart local v9    # "uidList":Landroid/util/SparseBooleanArray;
     invoke-virtual {v9}, Landroid/util/SparseBooleanArray;->size()I
 
     move-result v2
 
-    .line 1231
+    .line 1214
     .restart local v2    # "count":I
     const/4 v8, 0x0
 
@@ -3435,7 +3342,7 @@
     :goto_3
     if-ge v8, v2, :cond_2
 
-    .line 1232
+    .line 1215
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
@@ -3464,18 +3371,18 @@
 
     invoke-virtual {p1, v10}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1231
+    .line 1214
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_3
 
-    .line 1234
+    .line 1217
     :cond_2
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
 
     goto :goto_2
 
-    .line 1236
+    .line 1219
     .end local v0    # "accessory":Landroid/hardware/usb/UsbAccessory;
     .end local v2    # "count":I
     .end local v8    # "i":I
@@ -3485,7 +3392,7 @@
 
     invoke-virtual {p1, v10}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1237
+    .line 1220
     iget-object v10, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v10}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -3510,7 +3417,7 @@
 
     check-cast v6, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
 
-    .line 1238
+    .line 1221
     .local v6, "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -3552,14 +3459,14 @@
 
     goto :goto_4
 
-    .line 1240
+    .line 1223
     .end local v6    # "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     :cond_4
     const-string/jumbo v10, "Accessory preferences:"
 
     invoke-virtual {p1, v10}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1241
+    .line 1224
     iget-object v10, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v10}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -3583,7 +3490,7 @@
 
     check-cast v5, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
-    .line 1242
+    .line 1225
     .local v5, "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -3631,7 +3538,7 @@
     :cond_5
     monitor-exit v11
 
-    .line 1214
+    .line 1197
     return-void
 .end method
 
@@ -3641,12 +3548,12 @@
     .param p2, "uid"    # I
 
     .prologue
-    .line 1159
+    .line 1142
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1160
+    .line 1143
     :try_start_0
     iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPermissionMap:Ljava/util/HashMap;
 
@@ -3656,11 +3563,11 @@
 
     check-cast v0, Landroid/util/SparseBooleanArray;
 
-    .line 1161
+    .line 1144
     .local v0, "uidList":Landroid/util/SparseBooleanArray;
     if-nez v0, :cond_0
 
-    .line 1162
+    .line 1145
     new-instance v0, Landroid/util/SparseBooleanArray;
 
     .end local v0    # "uidList":Landroid/util/SparseBooleanArray;
@@ -3668,13 +3575,13 @@
 
     invoke-direct {v0, v1}, Landroid/util/SparseBooleanArray;-><init>(I)V
 
-    .line 1163
+    .line 1146
     .restart local v0    # "uidList":Landroid/util/SparseBooleanArray;
     iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPermissionMap:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1165
+    .line 1148
     :cond_0
     const/4 v1, 0x1
 
@@ -3684,10 +3591,10 @@
 
     monitor-exit v2
 
-    .line 1158
+    .line 1141
     return-void
 
-    .line 1159
+    .line 1142
     .end local v0    # "uidList":Landroid/util/SparseBooleanArray;
     :catchall_0
     move-exception v1
@@ -3703,18 +3610,18 @@
     .param p2, "uid"    # I
 
     .prologue
-    .line 1147
+    .line 1130
     iget-object v3, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1148
+    .line 1131
     :try_start_0
     invoke-virtual {p1}, Landroid/hardware/usb/UsbDevice;->getDeviceName()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1149
+    .line 1132
     .local v0, "deviceName":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePermissionMap:Ljava/util/HashMap;
 
@@ -3724,11 +3631,11 @@
 
     check-cast v1, Landroid/util/SparseBooleanArray;
 
-    .line 1150
+    .line 1133
     .local v1, "uidList":Landroid/util/SparseBooleanArray;
     if-nez v1, :cond_0
 
-    .line 1151
+    .line 1134
     new-instance v1, Landroid/util/SparseBooleanArray;
 
     .end local v1    # "uidList":Landroid/util/SparseBooleanArray;
@@ -3736,13 +3643,13 @@
 
     invoke-direct {v1, v2}, Landroid/util/SparseBooleanArray;-><init>(I)V
 
-    .line 1152
+    .line 1135
     .restart local v1    # "uidList":Landroid/util/SparseBooleanArray;
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePermissionMap:Ljava/util/HashMap;
 
     invoke-virtual {v2, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1154
+    .line 1137
     :cond_0
     const/4 v2, 0x1
 
@@ -3752,10 +3659,10 @@
 
     monitor-exit v3
 
-    .line 1146
+    .line 1129
     return-void
 
-    .line 1147
+    .line 1130
     .end local v0    # "deviceName":Ljava/lang/String;
     .end local v1    # "uidList":Landroid/util/SparseBooleanArray;
     :catchall_0
@@ -3773,12 +3680,12 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1170
+    .line 1153
     iget-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1171
+    .line 1154
     :try_start_0
     iget-object v0, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
@@ -3798,7 +3705,7 @@
 
     return v2
 
-    .line 1172
+    .line 1155
     :cond_0
     :try_start_1
     iget-object v0, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
@@ -3819,7 +3726,7 @@
 
     return v2
 
-    .line 1173
+    .line 1156
     :cond_1
     const/4 v0, 0x0
 
@@ -3827,7 +3734,7 @@
 
     return v0
 
-    .line 1170
+    .line 1153
     :catchall_0
     move-exception v0
 
@@ -3841,18 +3748,18 @@
     .param p1, "accessory"    # Landroid/hardware/usb/UsbAccessory;
 
     .prologue
-    .line 1016
+    .line 999
     iget-object v3, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1017
+    .line 1000
     :try_start_0
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
-    .line 1018
+    .line 1001
     .local v0, "uid":I
     const/16 v2, 0x3e8
 
@@ -3864,7 +3771,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 1019
+    .line 1002
     :cond_0
     const/4 v2, 0x1
 
@@ -3872,7 +3779,7 @@
 
     return v2
 
-    .line 1021
+    .line 1004
     :cond_1
     :try_start_1
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPermissionMap:Ljava/util/HashMap;
@@ -3885,18 +3792,18 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1022
+    .line 1005
     .local v1, "uidList":Landroid/util/SparseBooleanArray;
     if-nez v1, :cond_2
 
-    .line 1023
+    .line 1006
     const/4 v2, 0x0
 
     monitor-exit v3
 
     return v2
 
-    .line 1025
+    .line 1008
     :cond_2
     :try_start_2
     invoke-virtual {v1, v0}, Landroid/util/SparseBooleanArray;->get(I)Z
@@ -3909,7 +3816,7 @@
 
     return v2
 
-    .line 1016
+    .line 999
     .end local v0    # "uid":I
     .end local v1    # "uidList":Landroid/util/SparseBooleanArray;
     :catchall_0
@@ -3925,18 +3832,18 @@
     .param p1, "device"    # Landroid/hardware/usb/UsbDevice;
 
     .prologue
-    .line 1002
+    .line 985
     iget-object v3, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1003
+    .line 986
     :try_start_0
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
-    .line 1004
+    .line 987
     .local v0, "uid":I
     const/16 v2, 0x3e8
 
@@ -3948,7 +3855,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 1005
+    .line 988
     :cond_0
     const/4 v2, 0x1
 
@@ -3956,7 +3863,7 @@
 
     return v2
 
-    .line 1007
+    .line 990
     :cond_1
     :try_start_1
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePermissionMap:Ljava/util/HashMap;
@@ -3973,18 +3880,18 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1008
+    .line 991
     .local v1, "uidList":Landroid/util/SparseBooleanArray;
     if-nez v1, :cond_2
 
-    .line 1009
+    .line 992
     const/4 v2, 0x0
 
     monitor-exit v3
 
     return v2
 
-    .line 1011
+    .line 994
     :cond_2
     :try_start_2
     invoke-virtual {v1, v0}, Landroid/util/SparseBooleanArray;->get(I)Z
@@ -3997,7 +3904,7 @@
 
     return v2
 
-    .line 1002
+    .line 985
     .end local v0    # "uid":I
     .end local v1    # "uidList":Landroid/util/SparseBooleanArray;
     :catchall_0
@@ -4015,12 +3922,12 @@
     .param p3, "pi"    # Landroid/app/PendingIntent;
 
     .prologue
-    .line 1092
+    .line 1075
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    .line 1095
+    .line 1078
     .local v1, "intent":Landroid/content/Intent;
     invoke-virtual {p0, p1}, Lcom/android/server/usb/UsbSettingsManager;->hasPermission(Landroid/hardware/usb/UsbAccessory;)Z
 
@@ -4028,19 +3935,19 @@
 
     if-eqz v2, :cond_0
 
-    .line 1096
+    .line 1079
     const-string/jumbo v2, "accessory"
 
     invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 1097
+    .line 1080
     const-string/jumbo v2, "permission"
 
     const/4 v3, 0x1
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1099
+    .line 1082
     :try_start_0
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mUserContext:Landroid/content/Context;
 
@@ -4050,23 +3957,23 @@
     :try_end_0
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1103
+    .line 1086
     :goto_0
     return-void
 
-    .line 1106
+    .line 1089
     :cond_0
     const-string/jumbo v2, "accessory"
 
     invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 1107
+    .line 1090
     invoke-direct {p0, v1, p2, p3}, Lcom/android/server/usb/UsbSettingsManager;->requestPermissionDialog(Landroid/content/Intent;Ljava/lang/String;Landroid/app/PendingIntent;)V
 
-    .line 1091
+    .line 1074
     return-void
 
-    .line 1100
+    .line 1083
     :catch_0
     move-exception v0
 
@@ -4081,12 +3988,12 @@
     .param p3, "pi"    # Landroid/app/PendingIntent;
 
     .prologue
-    .line 1072
+    .line 1055
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    .line 1075
+    .line 1058
     .local v1, "intent":Landroid/content/Intent;
     invoke-virtual {p0, p1}, Lcom/android/server/usb/UsbSettingsManager;->hasPermission(Landroid/hardware/usb/UsbDevice;)Z
 
@@ -4094,19 +4001,19 @@
 
     if-eqz v2, :cond_0
 
-    .line 1076
+    .line 1059
     const-string/jumbo v2, "device"
 
     invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 1077
+    .line 1060
     const-string/jumbo v2, "permission"
 
     const/4 v3, 0x1
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1079
+    .line 1062
     :try_start_0
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mUserContext:Landroid/content/Context;
 
@@ -4116,23 +4023,23 @@
     :try_end_0
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1083
+    .line 1066
     :goto_0
     return-void
 
-    .line 1087
+    .line 1070
     :cond_0
     const-string/jumbo v2, "device"
 
     invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 1088
+    .line 1071
     invoke-direct {p0, v1, p2, p3}, Lcom/android/server/usb/UsbSettingsManager;->requestPermissionDialog(Landroid/content/Intent;Ljava/lang/String;Landroid/app/PendingIntent;)V
 
-    .line 1071
+    .line 1054
     return-void
 
-    .line 1080
+    .line 1063
     :catch_0
     move-exception v0
 
@@ -4146,25 +4053,25 @@
     .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 1129
+    .line 1112
     new-instance v1, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
 
     invoke-direct {v1, p1}, Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;-><init>(Landroid/hardware/usb/UsbAccessory;)V
 
-    .line 1130
+    .line 1113
     .local v1, "filter":Lcom/android/server/usb/UsbSettingsManager$AccessoryFilter;
     const/4 v0, 0x0
 
-    .line 1131
+    .line 1114
     .local v0, "changed":Z
     iget-object v3, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1132
+    .line 1115
     if-nez p2, :cond_3
 
-    .line 1133
+    .line 1116
     :try_start_0
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
@@ -4176,12 +4083,12 @@
 
     const/4 v0, 0x1
 
-    .line 1140
+    .line 1123
     :cond_0
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 1141
+    .line 1124
     invoke-direct {p0}, Lcom/android/server/usb/UsbSettingsManager;->writeSettingsLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -4189,16 +4096,16 @@
     :cond_1
     monitor-exit v3
 
-    .line 1128
+    .line 1111
     return-void
 
-    .line 1133
+    .line 1116
     :cond_2
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 1135
+    .line 1118
     :cond_3
     :try_start_1
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
@@ -4215,11 +4122,11 @@
 
     const/4 v0, 0x0
 
-    .line 1136
+    .line 1119
     :goto_1
     if-eqz v0, :cond_0
 
-    .line 1137
+    .line 1120
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mAccessoryPreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v2, v1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -4228,7 +4135,7 @@
 
     goto :goto_0
 
-    .line 1131
+    .line 1114
     :catchall_0
     move-exception v2
 
@@ -4236,7 +4143,7 @@
 
     throw v2
 
-    .line 1135
+    .line 1118
     :cond_4
     const/4 v0, 0x1
 
@@ -4249,25 +4156,25 @@
     .param p2, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 1111
+    .line 1094
     new-instance v1, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
 
     invoke-direct {v1, p1}, Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;-><init>(Landroid/hardware/usb/UsbDevice;)V
 
-    .line 1112
+    .line 1095
     .local v1, "filter":Lcom/android/server/usb/UsbSettingsManager$DeviceFilter;
     const/4 v0, 0x0
 
-    .line 1113
+    .line 1096
     .local v0, "changed":Z
     iget-object v3, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1114
+    .line 1097
     if-nez p2, :cond_3
 
-    .line 1115
+    .line 1098
     :try_start_0
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
@@ -4279,12 +4186,12 @@
 
     const/4 v0, 0x1
 
-    .line 1122
+    .line 1105
     :cond_0
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 1123
+    .line 1106
     invoke-direct {p0}, Lcom/android/server/usb/UsbSettingsManager;->writeSettingsLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -4292,16 +4199,16 @@
     :cond_1
     monitor-exit v3
 
-    .line 1110
+    .line 1093
     return-void
 
-    .line 1115
+    .line 1098
     :cond_2
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 1117
+    .line 1100
     :cond_3
     :try_start_1
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
@@ -4318,11 +4225,11 @@
 
     const/4 v0, 0x0
 
-    .line 1118
+    .line 1101
     :goto_1
     if-eqz v0, :cond_0
 
-    .line 1119
+    .line 1102
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mDevicePreferenceMap:Ljava/util/HashMap;
 
     invoke-virtual {v2, v1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -4331,7 +4238,7 @@
 
     goto :goto_0
 
-    .line 1113
+    .line 1096
     :catchall_0
     move-exception v2
 
@@ -4339,7 +4246,7 @@
 
     throw v2
 
-    .line 1117
+    .line 1100
     :cond_4
     const/4 v0, 0x1
 

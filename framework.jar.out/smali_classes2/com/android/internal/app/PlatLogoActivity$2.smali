@@ -1,9 +1,6 @@
 .class Lcom/android/internal/app/PlatLogoActivity$2;
-.super Ljava/lang/Object;
+.super Landroid/graphics/drawable/Drawable;
 .source "PlatLogoActivity.java"
-
-# interfaces
-.implements Landroid/view/View$OnKeyListener;
 
 
 # annotations
@@ -20,96 +17,127 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/internal/app/PlatLogoActivity;
 
-.field final synthetic val$im:Landroid/widget/ImageView;
+.field final synthetic val$M:Landroid/graphics/drawable/Drawable;
+
+.field final synthetic val$bgPaint:Landroid/graphics/Paint;
+
+.field final synthetic val$fgPaint:Landroid/graphics/Paint;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/app/PlatLogoActivity;Landroid/widget/ImageView;)V
+.method constructor <init>(Lcom/android/internal/app/PlatLogoActivity;Landroid/graphics/Paint;Landroid/graphics/Paint;Landroid/graphics/drawable/Drawable;)V
     .locals 0
     .param p1, "this$0"    # Lcom/android/internal/app/PlatLogoActivity;
-    .param p2, "val$im"    # Landroid/widget/ImageView;
+    .param p2, "val$bgPaint"    # Landroid/graphics/Paint;
+    .param p3, "val$fgPaint"    # Landroid/graphics/Paint;
+    .param p4, "val$M"    # Landroid/graphics/drawable/Drawable;
 
     .prologue
-    .line 157
+    .line 93
     iput-object p1, p0, Lcom/android/internal/app/PlatLogoActivity$2;->this$0:Lcom/android/internal/app/PlatLogoActivity;
 
-    iput-object p2, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$im:Landroid/widget/ImageView;
+    iput-object p2, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$bgPaint:Landroid/graphics/Paint;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p3, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$fgPaint:Landroid/graphics/Paint;
+
+    iput-object p4, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$M:Landroid/graphics/drawable/Drawable;
+
+    invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "keyCode"    # I
-    .param p3, "event"    # Landroid/view/KeyEvent;
+.method public draw(Landroid/graphics/Canvas;)V
+    .locals 10
+    .param p1, "c"    # Landroid/graphics/Canvas;
 
     .prologue
     const/4 v1, 0x0
 
-    .line 160
-    const/4 v0, 0x4
+    const/4 v7, 0x0
 
-    if-eq p2, v0, :cond_2
+    const/high16 v2, 0x40000000    # 2.0f
 
-    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
+    .line 107
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
 
     move-result v0
 
-    if-nez v0, :cond_2
+    int-to-float v0, v0
 
-    .line 161
-    iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity$2;->this$0:Lcom/android/internal/app/PlatLogoActivity;
+    div-float v9, v0, v2
 
-    iget v1, v0, Lcom/android/internal/app/PlatLogoActivity;->mKeyCount:I
+    .line 108
+    .local v9, "r":F
+    iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$bgPaint:Landroid/graphics/Paint;
 
-    add-int/lit8 v1, v1, 0x1
+    invoke-virtual {p1, v9, v9, v9, v0}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    iput v1, v0, Lcom/android/internal/app/PlatLogoActivity;->mKeyCount:I
+    .line 109
+    mul-float v3, v2, v9
 
-    .line 162
-    iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity$2;->this$0:Lcom/android/internal/app/PlatLogoActivity;
+    mul-float v4, v2, v9
 
-    iget v0, v0, Lcom/android/internal/app/PlatLogoActivity;->mKeyCount:I
+    const/high16 v5, 0x43070000    # 135.0f
 
-    const/4 v1, 0x2
+    const/high16 v6, 0x43340000    # 180.0f
 
-    if-le v0, v1, :cond_0
+    iget-object v8, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$fgPaint:Landroid/graphics/Paint;
 
-    .line 163
-    iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity$2;->this$0:Lcom/android/internal/app/PlatLogoActivity;
+    move-object v0, p1
 
-    iget v0, v0, Lcom/android/internal/app/PlatLogoActivity;->mTapCount:I
+    move v2, v1
 
-    const/4 v1, 0x5
+    invoke-virtual/range {v0 .. v8}, Landroid/graphics/Canvas;->drawArc(FFFFFFZLandroid/graphics/Paint;)V
 
-    if-le v0, v1, :cond_1
+    .line 110
+    iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$M:Landroid/graphics/drawable/Drawable;
 
-    .line 164
-    iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$im:Landroid/widget/ImageView;
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->performLongClick()Z
+    move-result v1
 
-    .line 169
-    :cond_0
-    :goto_0
-    const/4 v0, 0x1
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->getHeight()I
+
+    move-result v2
+
+    invoke-virtual {v0, v7, v7, v1, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    .line 111
+    iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$M:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+
+    .line 106
+    return-void
+.end method
+
+.method public getOpacity()I
+    .locals 1
+
+    .prologue
+    .line 102
+    const/4 v0, -0x3
 
     return v0
+.end method
 
-    .line 166
-    :cond_1
-    iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity$2;->val$im:Landroid/widget/ImageView;
+.method public setAlpha(I)V
+    .locals 0
+    .param p1, "alpha"    # I
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->performClick()Z
+    .prologue
+    .line 95
+    return-void
+.end method
 
-    goto :goto_0
+.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+    .locals 0
+    .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
-    .line 171
-    :cond_2
-    return v1
+    .prologue
+    .line 98
+    return-void
 .end method

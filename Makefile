@@ -7,7 +7,7 @@
 # The default value is base.
 # Support values: base, base_cm, base_mt6592 and other devices in the future.
 #-----------------------------------------------------------------------------
-#BASE := base_cm
+BASE := base_cm
 
 ##############################################################################
 # The value is used for resource adapter with the aapt tool.
@@ -47,14 +47,17 @@ vendor_modify_images := boot
 # The default value is nothing.
 # You can configure the file name which relative to the vendor/system directory.
 #-----------------------------------------------------------------------------
-vendor_remove_files := etc/permissions/org.cyanogenmod.livedisplay.xml
+#vendor_remove_files := bin/zchgd
 
 ##############################################################################
 # The value decides the vendor apk which you want to save in the vendor directory for the ota package.
 # The default value is Bluetooth.
-# You can configure the apk name in the vendor/system/app or vendor/system/priv-app directory.
+# You can configure the apk name in the vendor/system/app or vendor/system/pri-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := Bluetooth BluetoothMidiService BookmarkProvider EasterEgg ExtShared HTMLViewer KeyChain PacProcessor PrintSpooler Stk UserDictionaryProvider WAPPushManager WallpaperBackup BackupRestoreConfirmation BlockedNumberProvider CarrierConfig CellBroadcastReceiver DefaultContainerService EmergencyInfo ExternalStorageProvider FusedLocation InputDevices ManagedProvisioning MtpDocumentsProvider ProxyHandler SharedStorageBackup Shell StatementService StorageManager WallpaperCropper CMSettingsProvider PrintRecommendationService CtsShimPrebuilt Development PicoTts Profiles Terminal
+vendor_saved_apps := Bluetooth KeyChain HTMLViewer UserDictionaryProvider BackupRestoreConfirmation \
+                     FusedLocation PrintSpooler SharedStorageBackup  ExternalStorageProvider InputDevices \
+                     ProxyHandler Shell DefaultContainerService CMSettingsProvider telresources \
+                     Adaway KernelAdiutor
 
 ##############################################################################
 # The value decides which vendor apk you want to modify.
@@ -93,7 +96,7 @@ vendor_modify_jars := framework services telephony-common wifi-service org.cyano
 # The default value is nothing.
 # You can configure the board system apk name in the value.
 #-----------------------------------------------------------------------------
-board_remove_apps := LogReport NfcNci
+#board_remove_apps := LogReport
 
 ##############################################################################
 # The value decides which apk you want to modify, when the apk is based on the board system apk.
@@ -105,7 +108,7 @@ board_remove_apps := LogReport NfcNci
 # The command idtoname how to use: first use "apktool d source/system/framework/framework-res.apk other/TMP/framework-res",
 # and then use "idtoname other/TMP/framework-res/res/values/public_master.xml XXXX/smali"(XXXX is the directory where you decode board system apk).
 #-----------------------------------------------------------------------------
-#board_modify_apps := TeleService
+board_modify_apps := SystemUI Telecom TeleService
 
 ##############################################################################
 # The value decides which jar you want to modify, when the jar is based on the board framework jar.
@@ -139,15 +142,15 @@ override_property += \
 # You should configure the property according to your device and your ID with replace the "Nexus-6P_Unofficial".
 override_property += \
     ro.flyme.romer=ReallySnow \
-    ro.product.model_romer=HWTIT-L6735_ReallySnow
+    ro.product.model_romer=Titan_ReallySnow
 
 ##############################################################################
 # The value decides which property you will remove from the build.prop.
 # The default value is nothing.
 # You can add the property name in the value from the build.prop.
 #-----------------------------------------------------------------------------
-remove_property += \
-    ro.build.selinux
+# remove_property += \
+#     dev.defaultwallpaper
 
 ##############################################################################
 # Defines whether uses assertions in /META-INF/com/google/android/updater-script of the OTA package.
@@ -155,7 +158,7 @@ remove_property += \
 # Set it to be false when you want to escape the verification.
 # Default: true
 #-----------------------------------------------------------------------------
-USE_ASSERTIONS_IN_UPDATER_SCRIPT := false
+#USE_ASSERTIONS_IN_UPDATER_SCRIPT := false
 
 ##############################################################################
 # Defines whether reduces useless resources, only keep the resources of preferred configuration, like current density or locale.
@@ -175,7 +178,7 @@ USE_ASSERTIONS_IN_UPDATER_SCRIPT := false
 # Will fall back to a file-based OTA if the target_files is older and doesn't support block-based OTAs.
 # Default: true
 #-----------------------------------------------------------------------------
-PRODUCE_BLOCK_BASED_OTA := false
+#PRODUCE_BLOCK_BASED_OTA := false
 
 ##############################################################################
 # Defines whether build an international version of package.
@@ -188,11 +191,5 @@ PRODUCE_BLOCK_BASED_OTA := false
 # Default: true
 #-----------------------------------------------------------------------------
 #PRODUCE_SEPOLICY_INJECT := false
-
-##############################################################################
-# Defines whether device is A/B System.
-# Default: false
-#-----------------------------------------------------------------------------
-#PRODUCE_IS_AB_UPDATE := true
 
 include $(PORT_BUILD)/main.mk

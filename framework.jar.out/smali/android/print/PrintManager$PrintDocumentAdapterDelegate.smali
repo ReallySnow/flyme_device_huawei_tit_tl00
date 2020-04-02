@@ -1,4 +1,4 @@
-.class public final Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
+.class final Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 .super Landroid/print/IPrintDocumentAdapter$Stub;
 .source "PrintManager.java"
 
@@ -12,14 +12,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
+    accessFlags = 0x1a
     name = "PrintDocumentAdapterDelegate"
 .end annotation
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/print/PrintManager$PrintDocumentAdapterDelegate$DestroyableCallback;,
         Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;,
+        Landroid/print/PrintManager$PrintDocumentAdapterDelegate$DestroyableCallback;,
         Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;,
         Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;
     }
@@ -71,40 +71,23 @@
     .param p2, "documentAdapter"    # Landroid/print/PrintDocumentAdapter;
 
     .prologue
-    .line 779
+    .line 522
     invoke-direct {p0}, Landroid/print/IPrintDocumentAdapter$Stub;-><init>()V
 
-    .line 767
+    .line 510
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
 
-    .line 781
-    invoke-virtual {p1}, Landroid/app/Activity;->isFinishing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 784
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "Cannot start printing for finishing activity"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 787
-    :cond_0
+    .line 524
     iput-object p1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mActivity:Landroid/app/Activity;
 
-    .line 788
+    .line 525
     iput-object p2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
 
-    .line 789
+    .line 526
     new-instance v0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyHandler;
 
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mActivity:Landroid/app/Activity;
@@ -117,7 +100,7 @@
 
     iput-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
-    .line 790
+    .line 527
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getApplication()Landroid/app/Application;
@@ -126,7 +109,7 @@
 
     invoke-virtual {v0, p0}, Landroid/app/Application;->registerActivityLifecycleCallbacks(Landroid/app/Application$ActivityLifecycleCallbacks;)V
 
-    .line 780
+    .line 523
     return-void
 .end method
 
@@ -136,7 +119,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 968
+    .line 705
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getApplication()Landroid/app/Application;
@@ -145,60 +128,60 @@
 
     invoke-virtual {v0, p0}, Landroid/app/Application;->unregisterActivityLifecycleCallbacks(Landroid/app/Application$ActivityLifecycleCallbacks;)V
 
-    .line 970
+    .line 707
     iput-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mActivity:Landroid/app/Activity;
 
-    .line 972
+    .line 709
     iput-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
 
-    .line 977
+    .line 714
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 978
+    .line 715
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 979
+    .line 716
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 980
+    .line 717
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 981
+    .line 718
     iput-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
-    .line 983
+    .line 720
     iput-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mObserver:Landroid/print/IPrintDocumentAdapterObserver;
 
-    .line 985
+    .line 722
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mPendingCallback:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$DestroyableCallback;
 
     if-eqz v0, :cond_0
 
-    .line 986
+    .line 723
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mPendingCallback:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$DestroyableCallback;
 
     invoke-interface {v0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$DestroyableCallback;->destroy()V
 
-    .line 987
+    .line 724
     iput-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mPendingCallback:Landroid/print/PrintManager$PrintDocumentAdapterDelegate$DestroyableCallback;
 
-    .line 967
+    .line 704
     :cond_0
     return-void
 .end method
@@ -207,7 +190,7 @@
     .locals 1
 
     .prologue
-    .line 964
+    .line 701
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mActivity:Landroid/app/Activity;
 
     if-nez v0, :cond_0
@@ -229,12 +212,12 @@
     .locals 4
 
     .prologue
-    .line 890
+    .line 627
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 892
+    .line 629
     :try_start_0
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->isDestroyedLocked()Z
 
@@ -242,13 +225,13 @@
 
     if-nez v0, :cond_0
 
-    .line 893
+    .line 630
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
-    .line 894
+    .line 631
     iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
 
-    .line 893
+    .line 630
     const/4 v3, 0x4
 
     invoke-virtual {v0, v3, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -262,10 +245,10 @@
     :cond_0
     monitor-exit v1
 
-    .line 889
+    .line 626
     return-void
 
-    .line 890
+    .line 627
     :catchall_0
     move-exception v0
 
@@ -279,12 +262,12 @@
     .param p1, "reason"    # Ljava/lang/String;
 
     .prologue
-    .line 901
+    .line 638
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 903
+    .line 640
     :try_start_0
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->isDestroyedLocked()Z
 
@@ -292,7 +275,7 @@
 
     if-nez v0, :cond_0
 
-    .line 904
+    .line 641
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x5
@@ -308,10 +291,10 @@
     :cond_0
     monitor-exit v1
 
-    .line 900
+    .line 637
     return-void
 
-    .line 901
+    .line 638
     :catchall_0
     move-exception v0
 
@@ -329,24 +312,24 @@
     .param p5, "sequence"    # I
 
     .prologue
-    .line 825
+    .line 562
     invoke-static {}, Landroid/os/CancellationSignal;->createTransport()Landroid/os/ICancellationSignal;
 
     move-result-object v2
 
-    .line 827
+    .line 564
     .local v2, "cancellationTransport":Landroid/os/ICancellationSignal;
     :try_start_0
     invoke-interface {p3, v2, p5}, Landroid/print/ILayoutResultCallback;->onLayoutStarted(Landroid/os/ICancellationSignal;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 834
+    .line 571
     iget-object v5, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 836
+    .line 573
     :try_start_1
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->isDestroyedLocked()Z
     :try_end_1
@@ -358,14 +341,14 @@
 
     monitor-exit v5
 
-    .line 837
+    .line 574
     return-void
 
-    .line 828
+    .line 565
     :catch_0
     move-exception v3
 
-    .line 830
+    .line 567
     .local v3, "re":Landroid/os/RemoteException;
     const-string/jumbo v4, "PrintManager"
 
@@ -373,10 +356,10 @@
 
     invoke-static {v4, v5, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 831
+    .line 568
     return-void
 
-    .line 840
+    .line 577
     .end local v3    # "re":Landroid/os/RemoteException;
     :cond_0
     :try_start_2
@@ -384,38 +367,38 @@
 
     move-result-object v1
 
-    .line 843
+    .line 580
     .local v1, "cancellationSignal":Landroid/os/CancellationSignal;
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
     move-result-object v0
 
-    .line 844
+    .line 581
     .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iget-object v4, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
 
     iput-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    .line 845
+    .line 582
     iput-object p1, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    .line 846
+    .line 583
     iput-object p2, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    .line 847
+    .line 584
     iput-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    .line 848
+    .line 585
     new-instance v4, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;
 
     invoke-direct {v4, p0, p3, p5}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;-><init>(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/print/ILayoutResultCallback;I)V
 
     iput-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg5:Ljava/lang/Object;
 
-    .line 849
+    .line 586
     iput-object p4, v0, Lcom/android/internal/os/SomeArgs;->arg6:Ljava/lang/Object;
 
-    .line 851
+    .line 588
     iget-object v4, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
     const/4 v6, 0x2
@@ -430,10 +413,10 @@
 
     monitor-exit v5
 
-    .line 823
+    .line 560
     return-void
 
-    .line 834
+    .line 571
     .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
     .end local v1    # "cancellationSignal":Landroid/os/CancellationSignal;
     :catchall_0
@@ -450,7 +433,7 @@
     .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 916
+    .line 653
     return-void
 .end method
 
@@ -459,25 +442,25 @@
     .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
-    .line 947
+    .line 684
     const/4 v0, 0x0
 
-    .line 948
+    .line 685
     .local v0, "observer":Landroid/print/IPrintDocumentAdapterObserver;
     iget-object v3, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 949
+    .line 686
     :try_start_0
     iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mActivity:Landroid/app/Activity;
 
     if-ne p1, v2, :cond_0
 
-    .line 950
+    .line 687
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mObserver:Landroid/print/IPrintDocumentAdapterObserver;
 
-    .line 951
+    .line 688
     .local v0, "observer":Landroid/print/IPrintDocumentAdapterObserver;
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->destroyLocked()V
     :try_end_0
@@ -487,21 +470,21 @@
     :cond_0
     monitor-exit v3
 
-    .line 954
+    .line 691
     if-eqz v0, :cond_1
 
-    .line 956
+    .line 693
     :try_start_1
     invoke-interface {v0}, Landroid/print/IPrintDocumentAdapterObserver;->onDestroy()V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 941
+    .line 678
     :cond_1
     :goto_0
     return-void
 
-    .line 948
+    .line 685
     :catchall_0
     move-exception v2
 
@@ -509,11 +492,11 @@
 
     throw v2
 
-    .line 957
+    .line 694
     :catch_0
     move-exception v1
 
-    .line 958
+    .line 695
     .local v1, "re":Landroid/os/RemoteException;
     const-string/jumbo v2, "PrintManager"
 
@@ -529,7 +512,7 @@
     .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
-    .line 911
+    .line 648
     return-void
 .end method
 
@@ -538,7 +521,7 @@
     .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
-    .line 926
+    .line 663
     return-void
 .end method
 
@@ -548,7 +531,7 @@
     .param p2, "outState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 936
+    .line 673
     return-void
 .end method
 
@@ -557,7 +540,7 @@
     .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
-    .line 921
+    .line 658
     return-void
 .end method
 
@@ -566,7 +549,7 @@
     .param p1, "activity"    # Landroid/app/Activity;
 
     .prologue
-    .line 931
+    .line 668
     return-void
 .end method
 
@@ -575,16 +558,16 @@
     .param p1, "observer"    # Landroid/print/IPrintDocumentAdapterObserver;
 
     .prologue
-    .line 796
+    .line 533
     iget-object v3, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 797
+    .line 534
     :try_start_0
     iput-object p1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mObserver:Landroid/print/IPrintDocumentAdapterObserver;
 
-    .line 798
+    .line 535
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->isDestroyedLocked()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -594,23 +577,23 @@
     .local v0, "destroyed":Z
     monitor-exit v3
 
-    .line 801
+    .line 538
     if-eqz v0, :cond_0
 
     if-eqz p1, :cond_0
 
-    .line 803
+    .line 540
     :try_start_1
     invoke-interface {p1}, Landroid/print/IPrintDocumentAdapterObserver;->onDestroy()V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 794
+    .line 531
     :cond_0
     :goto_0
     return-void
 
-    .line 796
+    .line 533
     .end local v0    # "destroyed":Z
     :catchall_0
     move-exception v2
@@ -619,12 +602,12 @@
 
     throw v2
 
-    .line 804
+    .line 541
     .restart local v0    # "destroyed":Z
     :catch_0
     move-exception v1
 
-    .line 805
+    .line 542
     .local v1, "re":Landroid/os/RemoteException;
     const-string/jumbo v2, "PrintManager"
 
@@ -639,12 +622,12 @@
     .locals 4
 
     .prologue
-    .line 812
+    .line 549
     iget-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 814
+    .line 551
     :try_start_0
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->isDestroyedLocked()Z
 
@@ -652,13 +635,13 @@
 
     if-nez v0, :cond_0
 
-    .line 815
+    .line 552
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
-    .line 816
+    .line 553
     iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
 
-    .line 815
+    .line 552
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -672,10 +655,10 @@
     :cond_0
     monitor-exit v1
 
-    .line 811
+    .line 548
     return-void
 
-    .line 812
+    .line 549
     :catchall_0
     move-exception v0
 
@@ -692,24 +675,24 @@
     .param p4, "sequence"    # I
 
     .prologue
-    .line 859
+    .line 596
     invoke-static {}, Landroid/os/CancellationSignal;->createTransport()Landroid/os/ICancellationSignal;
 
     move-result-object v2
 
-    .line 861
+    .line 598
     .local v2, "cancellationTransport":Landroid/os/ICancellationSignal;
     :try_start_0
     invoke-interface {p3, v2, p4}, Landroid/print/IWriteResultCallback;->onWriteStarted(Landroid/os/ICancellationSignal;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 868
+    .line 605
     iget-object v5, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 870
+    .line 607
     :try_start_1
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->isDestroyedLocked()Z
     :try_end_1
@@ -721,14 +704,14 @@
 
     monitor-exit v5
 
-    .line 871
+    .line 608
     return-void
 
-    .line 862
+    .line 599
     :catch_0
     move-exception v3
 
-    .line 864
+    .line 601
     .local v3, "re":Landroid/os/RemoteException;
     const-string/jumbo v4, "PrintManager"
 
@@ -736,10 +719,10 @@
 
     invoke-static {v4, v5, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 865
+    .line 602
     return-void
 
-    .line 874
+    .line 611
     .end local v3    # "re":Landroid/os/RemoteException;
     :cond_0
     :try_start_2
@@ -747,35 +730,35 @@
 
     move-result-object v1
 
-    .line 877
+    .line 614
     .local v1, "cancellationSignal":Landroid/os/CancellationSignal;
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
     move-result-object v0
 
-    .line 878
+    .line 615
     .local v0, "args":Lcom/android/internal/os/SomeArgs;
     iget-object v4, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDocumentAdapter:Landroid/print/PrintDocumentAdapter;
 
     iput-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    .line 879
+    .line 616
     iput-object p1, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    .line 880
+    .line 617
     iput-object p2, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    .line 881
+    .line 618
     iput-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    .line 882
+    .line 619
     new-instance v4, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;
 
     invoke-direct {v4, p0, p3, p2, p4}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyWriteResultCallback;-><init>(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/print/IWriteResultCallback;Landroid/os/ParcelFileDescriptor;I)V
 
     iput-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg5:Ljava/lang/Object;
 
-    .line 884
+    .line 621
     iget-object v4, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mHandler:Landroid/os/Handler;
 
     const/4 v6, 0x3
@@ -790,10 +773,10 @@
 
     monitor-exit v5
 
-    .line 857
+    .line 594
     return-void
 
-    .line 868
+    .line 605
     .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
     .end local v1    # "cancellationSignal":Landroid/os/CancellationSignal;
     :catchall_0

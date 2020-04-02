@@ -27,13 +27,13 @@
     .param p2, "itemId"    # J
 
     .prologue
-    .line 499
+    .line 527
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 500
+    .line 528
     invoke-virtual {p0, p1, p2, p3}, Landroid/widget/RemoteViewsAdapter$RemoteViewsIndexMetaData;->set(Landroid/widget/RemoteViews;J)V
 
-    .line 499
+    .line 527
     return-void
 .end method
 
@@ -45,24 +45,24 @@
     .param p2, "id"    # J
 
     .prologue
-    .line 504
+    .line 532
     iput-wide p2, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsIndexMetaData;->itemId:J
 
-    .line 505
+    .line 533
     if-eqz p1, :cond_0
 
-    .line 506
+    .line 534
     invoke-virtual {p1}, Landroid/widget/RemoteViews;->getLayoutId()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsIndexMetaData;->typeId:I
 
-    .line 503
+    .line 531
     :goto_0
     return-void
 
-    .line 508
+    .line 536
     :cond_0
     const/4 v0, 0x0
 

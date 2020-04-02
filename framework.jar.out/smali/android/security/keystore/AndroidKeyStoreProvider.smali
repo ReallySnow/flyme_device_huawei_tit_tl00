@@ -14,7 +14,7 @@
     .locals 4
 
     .prologue
-    .line 68
+    .line 64
     const-string/jumbo v0, "AndroidKeyStore"
 
     const-string/jumbo v1, "Android KeyStore security provider"
@@ -23,124 +23,124 @@
 
     invoke-direct {p0, v0, v2, v3, v1}, Ljava/security/Provider;-><init>(Ljava/lang/String;DLjava/lang/String;)V
 
-    .line 71
+    .line 67
     const-string/jumbo v0, "KeyStore.AndroidKeyStore"
 
     const-string/jumbo v1, "android.security.keystore.AndroidKeyStoreSpi"
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 74
+    .line 70
     const-string/jumbo v0, "KeyPairGenerator.EC"
 
     const-string/jumbo v1, "android.security.keystore.AndroidKeyStoreKeyPairGeneratorSpi$EC"
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 75
+    .line 71
     const-string/jumbo v0, "KeyPairGenerator.RSA"
 
     const-string/jumbo v1, "android.security.keystore.AndroidKeyStoreKeyPairGeneratorSpi$RSA"
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 78
+    .line 74
     const-string/jumbo v0, "EC"
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreProvider;->putKeyFactoryImpl(Ljava/lang/String;)V
 
-    .line 79
+    .line 75
     const-string/jumbo v0, "RSA"
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreProvider;->putKeyFactoryImpl(Ljava/lang/String;)V
 
-    .line 82
+    .line 78
     const-string/jumbo v0, "KeyGenerator.AES"
 
     const-string/jumbo v1, "android.security.keystore.AndroidKeyStoreKeyGeneratorSpi$AES"
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 83
+    .line 79
     const-string/jumbo v0, "KeyGenerator.HmacSHA1"
 
     const-string/jumbo v1, "android.security.keystore.AndroidKeyStoreKeyGeneratorSpi$HmacSHA1"
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 84
+    .line 80
     const-string/jumbo v0, "KeyGenerator.HmacSHA224"
 
     const-string/jumbo v1, "android.security.keystore.AndroidKeyStoreKeyGeneratorSpi$HmacSHA224"
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 85
+    .line 81
     const-string/jumbo v0, "KeyGenerator.HmacSHA256"
 
     const-string/jumbo v1, "android.security.keystore.AndroidKeyStoreKeyGeneratorSpi$HmacSHA256"
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 86
+    .line 82
     const-string/jumbo v0, "KeyGenerator.HmacSHA384"
 
     const-string/jumbo v1, "android.security.keystore.AndroidKeyStoreKeyGeneratorSpi$HmacSHA384"
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 87
+    .line 83
     const-string/jumbo v0, "KeyGenerator.HmacSHA512"
 
     const-string/jumbo v1, "android.security.keystore.AndroidKeyStoreKeyGeneratorSpi$HmacSHA512"
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 90
+    .line 86
     const-string/jumbo v0, "AES"
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreProvider;->putSecretKeyFactoryImpl(Ljava/lang/String;)V
 
-    .line 91
+    .line 87
     const-string/jumbo v0, "HmacSHA1"
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreProvider;->putSecretKeyFactoryImpl(Ljava/lang/String;)V
 
-    .line 92
+    .line 88
     const-string/jumbo v0, "HmacSHA224"
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreProvider;->putSecretKeyFactoryImpl(Ljava/lang/String;)V
 
-    .line 93
+    .line 89
     const-string/jumbo v0, "HmacSHA256"
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreProvider;->putSecretKeyFactoryImpl(Ljava/lang/String;)V
 
-    .line 94
+    .line 90
     const-string/jumbo v0, "HmacSHA384"
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreProvider;->putSecretKeyFactoryImpl(Ljava/lang/String;)V
 
-    .line 95
+    .line 91
     const-string/jumbo v0, "HmacSHA512"
 
     invoke-direct {p0, v0}, Landroid/security/keystore/AndroidKeyStoreProvider;->putSecretKeyFactoryImpl(Ljava/lang/String;)V
 
-    .line 67
+    .line 63
     return-void
 .end method
 
 .method public static getAndroidKeyStorePrivateKey(Landroid/security/keystore/AndroidKeyStorePublicKey;)Landroid/security/keystore/AndroidKeyStorePrivateKey;
-    .locals 5
+    .locals 4
     .param p0, "publicKey"    # Landroid/security/keystore/AndroidKeyStorePublicKey;
 
     .prologue
-    .line 201
+    .line 195
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStorePublicKey;->getAlgorithm()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 202
+    .line 196
     .local v0, "keyAlgorithm":Ljava/lang/String;
     const-string/jumbo v1, "EC"
 
@@ -150,31 +150,27 @@
 
     if-eqz v1, :cond_0
 
-    .line 203
+    .line 197
     new-instance v1, Landroid/security/keystore/AndroidKeyStoreECPrivateKey;
 
-    .line 204
+    .line 198
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStorePublicKey;->getAlias()Ljava/lang/String;
 
     move-result-object v2
-
-    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStorePublicKey;->getUid()I
-
-    move-result v3
 
     check-cast p0, Ljava/security/interfaces/ECKey;
 
     .end local p0    # "publicKey":Landroid/security/keystore/AndroidKeyStorePublicKey;
     invoke-interface {p0}, Ljava/security/interfaces/ECKey;->getParams()Ljava/security/spec/ECParameterSpec;
 
-    move-result-object v4
+    move-result-object v3
 
-    .line 203
-    invoke-direct {v1, v2, v3, v4}, Landroid/security/keystore/AndroidKeyStoreECPrivateKey;-><init>(Ljava/lang/String;ILjava/security/spec/ECParameterSpec;)V
+    .line 197
+    invoke-direct {v1, v2, v3}, Landroid/security/keystore/AndroidKeyStoreECPrivateKey;-><init>(Ljava/lang/String;Ljava/security/spec/ECParameterSpec;)V
 
     return-object v1
 
-    .line 205
+    .line 199
     .restart local p0    # "publicKey":Landroid/security/keystore/AndroidKeyStorePublicKey;
     :cond_0
     const-string/jumbo v1, "RSA"
@@ -185,31 +181,27 @@
 
     if-eqz v1, :cond_1
 
-    .line 206
+    .line 200
     new-instance v1, Landroid/security/keystore/AndroidKeyStoreRSAPrivateKey;
 
-    .line 207
+    .line 201
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStorePublicKey;->getAlias()Ljava/lang/String;
 
     move-result-object v2
-
-    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStorePublicKey;->getUid()I
-
-    move-result v3
 
     check-cast p0, Ljava/security/interfaces/RSAKey;
 
     .end local p0    # "publicKey":Landroid/security/keystore/AndroidKeyStorePublicKey;
     invoke-interface {p0}, Ljava/security/interfaces/RSAKey;->getModulus()Ljava/math/BigInteger;
 
-    move-result-object v4
+    move-result-object v3
 
-    .line 206
-    invoke-direct {v1, v2, v3, v4}, Landroid/security/keystore/AndroidKeyStoreRSAPrivateKey;-><init>(Ljava/lang/String;ILjava/math/BigInteger;)V
+    .line 200
+    invoke-direct {v1, v2, v3}, Landroid/security/keystore/AndroidKeyStoreRSAPrivateKey;-><init>(Ljava/lang/String;Ljava/math/BigInteger;)V
 
     return-object v1
 
-    .line 209
+    .line 203
     .restart local p0    # "publicKey":Landroid/security/keystore/AndroidKeyStorePublicKey;
     :cond_1
     new-instance v1, Ljava/security/ProviderException;
@@ -237,25 +229,24 @@
     throw v1
 .end method
 
-.method public static getAndroidKeyStorePublicKey(Ljava/lang/String;ILjava/lang/String;[B)Landroid/security/keystore/AndroidKeyStorePublicKey;
+.method public static getAndroidKeyStorePublicKey(Ljava/lang/String;Ljava/lang/String;[B)Landroid/security/keystore/AndroidKeyStorePublicKey;
     .locals 7
     .param p0, "alias"    # Ljava/lang/String;
-    .param p1, "uid"    # I
-    .param p2, "keyAlgorithm"    # Ljava/lang/String;
-    .param p3, "x509EncodedForm"    # [B
+    .param p1, "keyAlgorithm"    # Ljava/lang/String;
+    .param p2, "x509EncodedForm"    # [B
 
     .prologue
-    .line 180
+    .line 174
     :try_start_0
-    invoke-static {p2}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
+    invoke-static {p1}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
 
     move-result-object v2
 
-    .line 181
+    .line 175
     .local v2, "keyFactory":Ljava/security/KeyFactory;
     new-instance v4, Ljava/security/spec/X509EncodedKeySpec;
 
-    invoke-direct {v4, p3}, Ljava/security/spec/X509EncodedKeySpec;-><init>([B)V
+    invoke-direct {v4, p2}, Ljava/security/spec/X509EncodedKeySpec;-><init>([B)V
 
     invoke-virtual {v2, v4}, Ljava/security/KeyFactory;->generatePublic(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;
     :try_end_0
@@ -264,32 +255,32 @@
 
     move-result-object v3
 
-    .line 188
+    .line 182
     .local v3, "publicKey":Ljava/security/PublicKey;
     const-string/jumbo v4, "EC"
 
-    invoke-virtual {v4, p2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v4, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
-    .line 189
+    .line 183
     new-instance v4, Landroid/security/keystore/AndroidKeyStoreECPublicKey;
 
     check-cast v3, Ljava/security/interfaces/ECPublicKey;
 
     .end local v3    # "publicKey":Ljava/security/PublicKey;
-    invoke-direct {v4, p0, p1, v3}, Landroid/security/keystore/AndroidKeyStoreECPublicKey;-><init>(Ljava/lang/String;ILjava/security/interfaces/ECPublicKey;)V
+    invoke-direct {v4, p0, v3}, Landroid/security/keystore/AndroidKeyStoreECPublicKey;-><init>(Ljava/lang/String;Ljava/security/interfaces/ECPublicKey;)V
 
     return-object v4
 
-    .line 185
+    .line 179
     .end local v2    # "keyFactory":Ljava/security/KeyFactory;
     :catch_0
     move-exception v1
 
-    .line 186
+    .line 180
     .local v1, "e":Ljava/security/spec/InvalidKeySpecException;
     new-instance v4, Ljava/security/ProviderException;
 
@@ -299,16 +290,16 @@
 
     throw v4
 
-    .line 182
+    .line 176
     .end local v1    # "e":Ljava/security/spec/InvalidKeySpecException;
     :catch_1
     move-exception v0
 
-    .line 183
+    .line 177
     .local v0, "e":Ljava/security/NoSuchAlgorithmException;
     new-instance v4, Ljava/security/ProviderException;
 
-    .line 184
+    .line 178
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -319,7 +310,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -333,35 +324,35 @@
 
     move-result-object v5
 
-    .line 183
+    .line 177
     invoke-direct {v4, v5, v0}, Ljava/security/ProviderException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v4
 
-    .line 190
+    .line 184
     .end local v0    # "e":Ljava/security/NoSuchAlgorithmException;
     .restart local v2    # "keyFactory":Ljava/security/KeyFactory;
     .restart local v3    # "publicKey":Ljava/security/PublicKey;
     :cond_0
     const-string/jumbo v4, "RSA"
 
-    invoke-virtual {v4, p2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v4, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v4
 
     if-eqz v4, :cond_1
 
-    .line 191
+    .line 185
     new-instance v4, Landroid/security/keystore/AndroidKeyStoreRSAPublicKey;
 
     check-cast v3, Ljava/security/interfaces/RSAPublicKey;
 
     .end local v3    # "publicKey":Ljava/security/PublicKey;
-    invoke-direct {v4, p0, p1, v3}, Landroid/security/keystore/AndroidKeyStoreRSAPublicKey;-><init>(Ljava/lang/String;ILjava/security/interfaces/RSAPublicKey;)V
+    invoke-direct {v4, p0, v3}, Landroid/security/keystore/AndroidKeyStoreRSAPublicKey;-><init>(Ljava/lang/String;Ljava/security/interfaces/RSAPublicKey;)V
 
     return-object v4
 
-    .line 193
+    .line 187
     .restart local v3    # "publicKey":Ljava/security/PublicKey;
     :cond_1
     new-instance v4, Ljava/security/ProviderException;
@@ -376,7 +367,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -389,91 +380,22 @@
     throw v4
 .end method
 
-.method public static getKeyStoreForUid(I)Ljava/security/KeyStore;
-    .locals 5
-    .param p0, "uid"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/security/KeyStoreException;,
-            Ljava/security/NoSuchProviderException;
-        }
-    .end annotation
-
-    .prologue
-    .line 326
-    const-string/jumbo v2, "AndroidKeyStore"
-
-    const-string/jumbo v3, "AndroidKeyStore"
-
-    invoke-static {v2, v3}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;Ljava/lang/String;)Ljava/security/KeyStore;
-
-    move-result-object v1
-
-    .line 328
-    .local v1, "result":Ljava/security/KeyStore;
-    :try_start_0
-    new-instance v2, Landroid/security/keystore/AndroidKeyStoreLoadStoreParameter;
-
-    invoke-direct {v2, p0}, Landroid/security/keystore/AndroidKeyStoreLoadStoreParameter;-><init>(I)V
-
-    invoke-virtual {v1, v2}, Ljava/security/KeyStore;->load(Ljava/security/KeyStore$LoadStoreParameter;)V
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 333
-    return-object v1
-
-    .line 329
-    :catch_0
-    move-exception v0
-
-    .line 330
-    .local v0, "e":Ljava/lang/Exception;
-    new-instance v2, Ljava/security/KeyStoreException;
-
-    .line 331
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Failed to load AndroidKeyStore KeyStore for UID "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 330
-    invoke-direct {v2, v3, v0}, Ljava/security/KeyStoreException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v2
-.end method
-
 .method public static getKeyStoreOperationHandle(Ljava/lang/Object;)J
     .locals 4
     .param p0, "cryptoPrimitive"    # Ljava/lang/Object;
 
     .prologue
-    .line 148
+    .line 143
     if-nez p0, :cond_0
 
-    .line 149
+    .line 144
     new-instance v1, Ljava/lang/NullPointerException;
 
     invoke-direct {v1}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v1
 
-    .line 152
+    .line 147
     :cond_0
     instance-of v1, p0, Ljava/security/Signature;
 
@@ -481,19 +403,19 @@
 
     move-object v1, p0
 
-    .line 153
+    .line 148
     check-cast v1, Ljava/security/Signature;
 
     invoke-virtual {v1}, Ljava/security/Signature;->getCurrentSpi()Ljava/security/SignatureSpi;
 
     move-result-object v0
 
-    .line 162
+    .line 157
     .local v0, "spi":Ljava/lang/Object;
     :goto_0
     if-nez v0, :cond_4
 
-    .line 163
+    .line 158
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v2, "Crypto primitive not initialized"
@@ -502,7 +424,7 @@
 
     throw v1
 
-    .line 154
+    .line 149
     .end local v0    # "spi":Ljava/lang/Object;
     :cond_1
     instance-of v1, p0, Ljavax/crypto/Mac;
@@ -511,7 +433,7 @@
 
     move-object v1, p0
 
-    .line 155
+    .line 150
     check-cast v1, Ljavax/crypto/Mac;
 
     invoke-virtual {v1}, Ljavax/crypto/Mac;->getCurrentSpi()Ljavax/crypto/MacSpi;
@@ -521,7 +443,7 @@
     .restart local v0    # "spi":Ljava/lang/Object;
     goto :goto_0
 
-    .line 156
+    .line 151
     .end local v0    # "spi":Ljava/lang/Object;
     :cond_2
     instance-of v1, p0, Ljavax/crypto/Cipher;
@@ -530,7 +452,7 @@
 
     move-object v1, p0
 
-    .line 157
+    .line 152
     check-cast v1, Ljavax/crypto/Cipher;
 
     invoke-virtual {v1}, Ljavax/crypto/Cipher;->getCurrentSpi()Ljavax/crypto/CipherSpi;
@@ -540,7 +462,7 @@
     .restart local v0    # "spi":Ljava/lang/Object;
     goto :goto_0
 
-    .line 159
+    .line 154
     .end local v0    # "spi":Ljava/lang/Object;
     :cond_3
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -559,10 +481,10 @@
 
     move-result-object v2
 
-    .line 160
+    .line 155
     const-string/jumbo v3, ". Supported: Signature, Mac, Cipher"
 
-    .line 159
+    .line 154
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -575,17 +497,17 @@
 
     throw v1
 
-    .line 164
+    .line 159
     .restart local v0    # "spi":Ljava/lang/Object;
     :cond_4
     instance-of v1, v0, Landroid/security/keystore/KeyStoreCryptoOperation;
 
     if-nez v1, :cond_5
 
-    .line 165
+    .line 160
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    .line 166
+    .line 161
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -600,10 +522,10 @@
 
     move-result-object v2
 
-    .line 167
+    .line 162
     const-string/jumbo v3, ", spi: "
 
-    .line 166
+    .line 161
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -616,12 +538,12 @@
 
     move-result-object v2
 
-    .line 165
+    .line 160
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 169
+    .line 164
     :cond_5
     check-cast v0, Landroid/security/keystore/KeyStoreCryptoOperation;
 
@@ -637,29 +559,29 @@
     .locals 7
 
     .prologue
-    .line 103
+    .line 99
     invoke-static {}, Ljava/security/Security;->getProviders()[Ljava/security/Provider;
 
     move-result-object v3
 
-    .line 104
+    .line 100
     .local v3, "providers":[Ljava/security/Provider;
     const/4 v0, -0x1
 
-    .line 105
-    .local v0, "bcProviderIndex":I
+    .line 101
+    .local v0, "bcProviderPosition":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .local v1, "position":I
     :goto_0
     array-length v5, v3
 
     if-ge v1, v5, :cond_0
 
-    .line 106
+    .line 102
     aget-object v2, v3, v1
 
-    .line 107
+    .line 103
     .local v2, "provider":Ljava/security/Provider;
     const-string/jumbo v5, "BC"
 
@@ -673,10 +595,10 @@
 
     if-eqz v5, :cond_1
 
-    .line 108
+    .line 104
     move v0, v1
 
-    .line 113
+    .line 109
     .end local v2    # "provider":Ljava/security/Provider;
     :cond_0
     new-instance v5, Landroid/security/keystore/AndroidKeyStoreProvider;
@@ -685,27 +607,25 @@
 
     invoke-static {v5}, Ljava/security/Security;->addProvider(Ljava/security/Provider;)I
 
-    .line 114
+    .line 110
     new-instance v4, Landroid/security/keystore/AndroidKeyStoreBCWorkaroundProvider;
 
     invoke-direct {v4}, Landroid/security/keystore/AndroidKeyStoreBCWorkaroundProvider;-><init>()V
 
-    .line 115
+    .line 111
     .local v4, "workaroundProvider":Ljava/security/Provider;
     const/4 v5, -0x1
 
     if-eq v0, v5, :cond_2
 
-    .line 118
-    add-int/lit8 v5, v0, 0x1
+    .line 113
+    invoke-static {v4, v0}, Ljava/security/Security;->insertProviderAt(Ljava/security/Provider;I)I
 
-    invoke-static {v4, v5}, Ljava/security/Security;->insertProviderAt(Ljava/security/Provider;I)I
-
-    .line 102
+    .line 98
     :goto_1
     return-void
 
-    .line 105
+    .line 101
     .end local v4    # "workaroundProvider":Ljava/security/Provider;
     .restart local v2    # "provider":Ljava/security/Provider;
     :cond_1
@@ -713,7 +633,7 @@
 
     goto :goto_0
 
-    .line 122
+    .line 117
     .end local v2    # "provider":Ljava/security/Provider;
     .restart local v4    # "workaroundProvider":Ljava/security/Provider;
     :cond_2
@@ -722,11 +642,10 @@
     goto :goto_1
 .end method
 
-.method public static loadAndroidKeyStoreKeyPairFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;I)Ljava/security/KeyPair;
+.method public static loadAndroidKeyStoreKeyPairFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;)Ljava/security/KeyPair;
     .locals 3
     .param p0, "keyStore"    # Landroid/security/KeyStore;
     .param p1, "privateKeyAlias"    # Ljava/lang/String;
-    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/UnrecoverableKeyException;
@@ -734,18 +653,18 @@
     .end annotation
 
     .prologue
-    .line 259
-    invoke-static {p0, p1, p2}, Landroid/security/keystore/AndroidKeyStoreProvider;->loadAndroidKeyStorePublicKeyFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;I)Landroid/security/keystore/AndroidKeyStorePublicKey;
+    .line 253
+    invoke-static {p0, p1}, Landroid/security/keystore/AndroidKeyStoreProvider;->loadAndroidKeyStorePublicKeyFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;)Landroid/security/keystore/AndroidKeyStorePublicKey;
 
     move-result-object v1
 
-    .line 261
+    .line 255
     .local v1, "publicKey":Landroid/security/keystore/AndroidKeyStorePublicKey;
     invoke-static {v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->getAndroidKeyStorePrivateKey(Landroid/security/keystore/AndroidKeyStorePublicKey;)Landroid/security/keystore/AndroidKeyStorePrivateKey;
 
     move-result-object v0
 
-    .line 262
+    .line 256
     .local v0, "privateKey":Landroid/security/keystore/AndroidKeyStorePrivateKey;
     new-instance v2, Ljava/security/KeyPair;
 
@@ -754,11 +673,10 @@
     return-object v2
 .end method
 
-.method public static loadAndroidKeyStorePrivateKeyFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;I)Landroid/security/keystore/AndroidKeyStorePrivateKey;
+.method public static loadAndroidKeyStorePrivateKeyFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;)Landroid/security/keystore/AndroidKeyStorePrivateKey;
     .locals 2
     .param p0, "keyStore"    # Landroid/security/KeyStore;
     .param p1, "privateKeyAlias"    # Ljava/lang/String;
-    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/UnrecoverableKeyException;
@@ -766,12 +684,12 @@
     .end annotation
 
     .prologue
-    .line 269
-    invoke-static {p0, p1, p2}, Landroid/security/keystore/AndroidKeyStoreProvider;->loadAndroidKeyStoreKeyPairFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;I)Ljava/security/KeyPair;
+    .line 263
+    invoke-static {p0, p1}, Landroid/security/keystore/AndroidKeyStoreProvider;->loadAndroidKeyStoreKeyPairFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;)Ljava/security/KeyPair;
 
     move-result-object v0
 
-    .line 270
+    .line 264
     .local v0, "keyPair":Ljava/security/KeyPair;
     invoke-virtual {v0}, Ljava/security/KeyPair;->getPrivate()Ljava/security/PrivateKey;
 
@@ -782,11 +700,10 @@
     return-object v1
 .end method
 
-.method public static loadAndroidKeyStorePublicKeyFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;I)Landroid/security/keystore/AndroidKeyStorePublicKey;
-    .locals 22
+.method public static loadAndroidKeyStorePublicKeyFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;)Landroid/security/keystore/AndroidKeyStorePublicKey;
+    .locals 10
     .param p0, "keyStore"    # Landroid/security/KeyStore;
     .param p1, "privateKeyAlias"    # Ljava/lang/String;
-    .param p2, "uid"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/UnrecoverableKeyException;
@@ -794,360 +711,308 @@
     .end annotation
 
     .prologue
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
+
+    .line 212
+    new-instance v4, Landroid/security/keymaster/KeyCharacteristics;
+
+    invoke-direct {v4}, Landroid/security/keymaster/KeyCharacteristics;-><init>()V
+
+    .line 213
+    .local v4, "keyCharacteristics":Landroid/security/keymaster/KeyCharacteristics;
+    invoke-virtual {p0, p1, v8, v8, v4}, Landroid/security/KeyStore;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeyCharacteristics;)I
+
+    move-result v1
+
+    .line 215
+    .local v1, "errorCode":I
+    if-eq v1, v9, :cond_0
+
+    .line 217
+    new-instance v7, Ljava/security/UnrecoverableKeyException;
+
+    const-string/jumbo v8, "Failed to obtain information about private key"
+
+    invoke-direct {v7, v8}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
+
     .line 218
-    new-instance v9, Landroid/security/keymaster/KeyCharacteristics;
-
-    invoke-direct {v9}, Landroid/security/keymaster/KeyCharacteristics;-><init>()V
-
-    .line 220
-    .local v9, "keyCharacteristics":Landroid/security/keymaster/KeyCharacteristics;
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    move-object/from16 v4, p0
-
-    move-object/from16 v5, p1
-
-    move/from16 v8, p2
-
-    .line 219
-    invoke-virtual/range {v4 .. v9}, Landroid/security/KeyStore;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;ILandroid/security/keymaster/KeyCharacteristics;)I
-
-    move-result v17
-
-    .line 221
-    .local v17, "errorCode":I
-    const/4 v4, 0x1
-
-    move/from16 v0, v17
-
-    if-eq v0, v4, :cond_0
-
-    .line 223
-    new-instance v4, Ljava/security/UnrecoverableKeyException;
-
-    const-string/jumbo v5, "Failed to obtain information about private key"
-
-    invoke-direct {v4, v5}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
-
-    .line 224
-    invoke-static/range {v17 .. v17}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
-
-    move-result-object v5
-
-    .line 223
-    invoke-virtual {v4, v5}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-
-    move-result-object v4
-
-    .line 222
-    check-cast v4, Ljava/security/UnrecoverableKeyException;
-
-    throw v4
-
-    .line 227
-    :cond_0
-    const/4 v12, 0x0
-
-    const/4 v13, 0x0
-
-    const/4 v14, 0x0
-
-    move-object/from16 v10, p0
-
-    move-object/from16 v11, p1
-
-    move/from16 v15, p2
-
-    .line 226
-    invoke-virtual/range {v10 .. v15}, Landroid/security/KeyStore;->exportKey(Ljava/lang/String;ILandroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;I)Landroid/security/keymaster/ExportResult;
-
-    move-result-object v18
-
-    .line 228
-    .local v18, "exportResult":Landroid/security/keymaster/ExportResult;
-    move-object/from16 v0, v18
-
-    iget v4, v0, Landroid/security/keymaster/ExportResult;->resultCode:I
-
-    const/4 v5, 0x1
-
-    if-eq v4, v5, :cond_1
-
-    .line 230
-    new-instance v4, Ljava/security/UnrecoverableKeyException;
-
-    const-string/jumbo v5, "Failed to obtain X.509 form of public key"
-
-    invoke-direct {v4, v5}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
-
-    .line 231
-    move-object/from16 v0, v18
-
-    iget v5, v0, Landroid/security/keymaster/ExportResult;->resultCode:I
-
-    invoke-static {v5}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
-
-    move-result-object v5
-
-    .line 230
-    invoke-virtual {v4, v5}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-
-    move-result-object v4
-
-    .line 229
-    check-cast v4, Ljava/security/UnrecoverableKeyException;
-
-    throw v4
-
-    .line 233
-    :cond_1
-    move-object/from16 v0, v18
-
-    iget-object v0, v0, Landroid/security/keymaster/ExportResult;->exportData:[B
-
-    move-object/from16 v21, v0
-
-    .line 235
-    .local v21, "x509EncodedPublicKey":[B
-    const v4, 0x10000002
-
-    invoke-virtual {v9, v4}, Landroid/security/keymaster/KeyCharacteristics;->getEnum(I)Ljava/lang/Integer;
-
-    move-result-object v20
-
-    .line 236
-    .local v20, "keymasterAlgorithm":Ljava/lang/Integer;
-    if-nez v20, :cond_2
-
-    .line 237
-    new-instance v4, Ljava/security/UnrecoverableKeyException;
-
-    const-string/jumbo v5, "Key algorithm unknown"
-
-    invoke-direct {v4, v5}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
-
-    throw v4
-
-    .line 243
-    :cond_2
-    :try_start_0
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    .line 242
-    invoke-static {v4}, Landroid/security/keystore/KeyProperties$KeyAlgorithm;->fromKeymasterAsymmetricKeyAlgorithm(I)Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v19
-
-    .line 250
-    .local v19, "jcaKeyAlgorithm":Ljava/lang/String;
-    move-object/from16 v0, p1
-
-    move/from16 v1, p2
-
-    move-object/from16 v2, v19
-
-    move-object/from16 v3, v21
-
-    invoke-static {v0, v1, v2, v3}, Landroid/security/keystore/AndroidKeyStoreProvider;->getAndroidKeyStorePublicKey(Ljava/lang/String;ILjava/lang/String;[B)Landroid/security/keystore/AndroidKeyStorePublicKey;
-
-    move-result-object v4
-
-    return-object v4
-
-    .line 244
-    .end local v19    # "jcaKeyAlgorithm":Ljava/lang/String;
-    :catch_0
-    move-exception v16
-
-    .line 246
-    .local v16, "e":Ljava/lang/IllegalArgumentException;
-    new-instance v4, Ljava/security/UnrecoverableKeyException;
-
-    const-string/jumbo v5, "Failed to load private key"
-
-    invoke-direct {v4, v5}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v4, v0}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-
-    move-result-object v4
-
-    .line 245
-    check-cast v4, Ljava/security/UnrecoverableKeyException;
-
-    throw v4
-.end method
-
-.method public static loadAndroidKeyStoreSecretKeyFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;I)Landroid/security/keystore/AndroidKeyStoreSecretKey;
-    .locals 12
-    .param p0, "keyStore"    # Landroid/security/KeyStore;
-    .param p1, "secretKeyAlias"    # Ljava/lang/String;
-    .param p2, "uid"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/security/UnrecoverableKeyException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 277
-    new-instance v5, Landroid/security/keymaster/KeyCharacteristics;
-
-    invoke-direct {v5}, Landroid/security/keymaster/KeyCharacteristics;-><init>()V
-
-    .local v5, "keyCharacteristics":Landroid/security/keymaster/KeyCharacteristics;
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v3, v2
-
-    move v4, p2
-
-    .line 278
-    invoke-virtual/range {v0 .. v5}, Landroid/security/KeyStore;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;ILandroid/security/keymaster/KeyCharacteristics;)I
-
-    move-result v7
-
-    .line 280
-    .local v7, "errorCode":I
-    const/4 v0, 0x1
-
-    if-eq v7, v0, :cond_0
-
-    .line 282
-    new-instance v0, Ljava/security/UnrecoverableKeyException;
-
-    const-string/jumbo v1, "Failed to obtain information about key"
-
-    invoke-direct {v0, v1}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
-
-    .line 283
-    invoke-static {v7}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
-
-    move-result-object v1
-
-    .line 282
-    invoke-virtual {v0, v1}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-
-    move-result-object v0
-
-    .line 281
-    check-cast v0, Ljava/security/UnrecoverableKeyException;
-
-    throw v0
-
-    .line 286
-    :cond_0
-    const v0, 0x10000002
-
-    invoke-virtual {v5, v0}, Landroid/security/keymaster/KeyCharacteristics;->getEnum(I)Ljava/lang/Integer;
-
-    move-result-object v9
-
-    .line 287
-    .local v9, "keymasterAlgorithm":Ljava/lang/Integer;
-    if-nez v9, :cond_1
-
-    .line 288
-    new-instance v0, Ljava/security/UnrecoverableKeyException;
-
-    const-string/jumbo v1, "Key algorithm unknown"
-
-    invoke-direct {v0, v1}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 291
-    :cond_1
-    const v0, 0x20000005
-
-    invoke-virtual {v5, v0}, Landroid/security/keymaster/KeyCharacteristics;->getEnums(I)Ljava/util/List;
-
-    move-result-object v11
-
-    .line 293
-    .local v11, "keymasterDigests":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
-    invoke-interface {v11}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 294
-    const/4 v10, -0x1
-
-    .line 304
-    .local v10, "keymasterDigest":I
-    :goto_0
-    :try_start_0
-    invoke-virtual {v9}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    .line 303
-    invoke-static {v0, v10}, Landroid/security/keystore/KeyProperties$KeyAlgorithm;->fromKeymasterSecretKeyAlgorithm(II)Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v1}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
 
     move-result-object v8
 
-    .line 310
-    .local v8, "keyAlgorithmString":Ljava/lang/String;
-    new-instance v0, Landroid/security/keystore/AndroidKeyStoreSecretKey;
+    .line 217
+    invoke-virtual {v7, v8}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    invoke-direct {v0, p1, p2, v8}, Landroid/security/keystore/AndroidKeyStoreSecretKey;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    move-result-object v7
 
-    return-object v0
+    .line 216
+    check-cast v7, Ljava/security/UnrecoverableKeyException;
+
+    throw v7
+
+    .line 221
+    :cond_0
+    const/4 v7, 0x0
+
+    .line 220
+    invoke-virtual {p0, p1, v7, v8, v8}, Landroid/security/KeyStore;->exportKey(Ljava/lang/String;ILandroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;)Landroid/security/keymaster/ExportResult;
+
+    move-result-object v2
+
+    .line 222
+    .local v2, "exportResult":Landroid/security/keymaster/ExportResult;
+    iget v7, v2, Landroid/security/keymaster/ExportResult;->resultCode:I
+
+    if-eq v7, v9, :cond_1
+
+    .line 224
+    new-instance v7, Ljava/security/UnrecoverableKeyException;
+
+    const-string/jumbo v8, "Failed to obtain X.509 form of public key"
+
+    invoke-direct {v7, v8}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
+
+    .line 225
+    invoke-static {v1}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
+
+    move-result-object v8
+
+    .line 224
+    invoke-virtual {v7, v8}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+
+    move-result-object v7
+
+    .line 223
+    check-cast v7, Ljava/security/UnrecoverableKeyException;
+
+    throw v7
+
+    .line 227
+    :cond_1
+    iget-object v6, v2, Landroid/security/keymaster/ExportResult;->exportData:[B
+
+    .line 229
+    .local v6, "x509EncodedPublicKey":[B
+    const v7, 0x10000002
+
+    invoke-virtual {v4, v7}, Landroid/security/keymaster/KeyCharacteristics;->getEnum(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    .line 230
+    .local v5, "keymasterAlgorithm":Ljava/lang/Integer;
+    if-nez v5, :cond_2
+
+    .line 231
+    new-instance v7, Ljava/security/UnrecoverableKeyException;
+
+    const-string/jumbo v8, "Key algorithm unknown"
+
+    invoke-direct {v7, v8}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
+
+    throw v7
+
+    .line 237
+    :cond_2
+    :try_start_0
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+
+    move-result v7
+
+    .line 236
+    invoke-static {v7}, Landroid/security/keystore/KeyProperties$KeyAlgorithm;->fromKeymasterAsymmetricKeyAlgorithm(I)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v3
+
+    .line 244
+    .local v3, "jcaKeyAlgorithm":Ljava/lang/String;
+    invoke-static {p1, v3, v6}, Landroid/security/keystore/AndroidKeyStoreProvider;->getAndroidKeyStorePublicKey(Ljava/lang/String;Ljava/lang/String;[B)Landroid/security/keystore/AndroidKeyStorePublicKey;
+
+    move-result-object v7
+
+    return-object v7
+
+    .line 238
+    .end local v3    # "jcaKeyAlgorithm":Ljava/lang/String;
+    :catch_0
+    move-exception v0
+
+    .line 240
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
+    new-instance v7, Ljava/security/UnrecoverableKeyException;
+
+    const-string/jumbo v8, "Failed to load private key"
+
+    invoke-direct {v7, v8}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v7, v0}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+
+    move-result-object v7
+
+    .line 239
+    check-cast v7, Ljava/security/UnrecoverableKeyException;
+
+    throw v7
+.end method
+
+.method public static loadAndroidKeyStoreSecretKeyFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;)Landroid/security/keystore/AndroidKeyStoreSecretKey;
+    .locals 9
+    .param p0, "keyStore"    # Landroid/security/KeyStore;
+    .param p1, "secretKeyAlias"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/security/UnrecoverableKeyException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v7, 0x0
+
+    .line 271
+    new-instance v3, Landroid/security/keymaster/KeyCharacteristics;
+
+    invoke-direct {v3}, Landroid/security/keymaster/KeyCharacteristics;-><init>()V
+
+    .line 272
+    .local v3, "keyCharacteristics":Landroid/security/keymaster/KeyCharacteristics;
+    invoke-virtual {p0, p1, v7, v7, v3}, Landroid/security/KeyStore;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeyCharacteristics;)I
+
+    move-result v1
+
+    .line 274
+    .local v1, "errorCode":I
+    const/4 v7, 0x1
+
+    if-eq v1, v7, :cond_0
+
+    .line 276
+    new-instance v7, Ljava/security/UnrecoverableKeyException;
+
+    const-string/jumbo v8, "Failed to obtain information about key"
+
+    invoke-direct {v7, v8}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
+
+    .line 277
+    invoke-static {v1}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
+
+    move-result-object v8
+
+    .line 276
+    invoke-virtual {v7, v8}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+
+    move-result-object v7
+
+    .line 275
+    check-cast v7, Ljava/security/UnrecoverableKeyException;
+
+    throw v7
+
+    .line 280
+    :cond_0
+    const v7, 0x10000002
+
+    invoke-virtual {v3, v7}, Landroid/security/keymaster/KeyCharacteristics;->getEnum(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    .line 281
+    .local v4, "keymasterAlgorithm":Ljava/lang/Integer;
+    if-nez v4, :cond_1
+
+    .line 282
+    new-instance v7, Ljava/security/UnrecoverableKeyException;
+
+    const-string/jumbo v8, "Key algorithm unknown"
+
+    invoke-direct {v7, v8}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
+
+    throw v7
+
+    .line 285
+    :cond_1
+    const v7, 0x20000005
+
+    invoke-virtual {v3, v7}, Landroid/security/keymaster/KeyCharacteristics;->getEnums(I)Ljava/util/List;
+
+    move-result-object v6
+
+    .line 287
+    .local v6, "keymasterDigests":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
+    invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    .line 288
+    const/4 v5, -0x1
 
     .line 298
-    .end local v8    # "keyAlgorithmString":Ljava/lang/String;
-    .end local v10    # "keymasterDigest":I
+    .local v5, "keymasterDigest":I
+    :goto_0
+    :try_start_0
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+
+    move-result v7
+
+    .line 297
+    invoke-static {v7, v5}, Landroid/security/keystore/KeyProperties$KeyAlgorithm;->fromKeymasterSecretKeyAlgorithm(II)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    .line 304
+    .local v2, "keyAlgorithmString":Ljava/lang/String;
+    new-instance v7, Landroid/security/keystore/AndroidKeyStoreSecretKey;
+
+    invoke-direct {v7, p1, v2}, Landroid/security/keystore/AndroidKeyStoreSecretKey;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v7
+
+    .line 292
+    .end local v2    # "keyAlgorithmString":Ljava/lang/String;
+    .end local v5    # "keymasterDigest":I
     :cond_2
-    const/4 v0, 0x0
+    const/4 v7, 0x0
 
-    invoke-interface {v11, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v6, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v7
 
-    check-cast v0, Ljava/lang/Integer;
+    check-cast v7, Ljava/lang/Integer;
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
-    move-result v10
+    move-result v5
 
-    .restart local v10    # "keymasterDigest":I
+    .restart local v5    # "keymasterDigest":I
     goto :goto_0
 
-    .line 305
+    .line 299
     :catch_0
-    move-exception v6
+    move-exception v0
 
-    .line 307
-    .local v6, "e":Ljava/lang/IllegalArgumentException;
-    new-instance v0, Ljava/security/UnrecoverableKeyException;
+    .line 301
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
+    new-instance v7, Ljava/security/UnrecoverableKeyException;
 
-    const-string/jumbo v1, "Unsupported secret key type"
+    const-string/jumbo v8, "Unsupported secret key type"
 
-    invoke-direct {v0, v1}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v6}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v7, v0}, Ljava/security/UnrecoverableKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object v7
 
-    .line 306
-    check-cast v0, Ljava/security/UnrecoverableKeyException;
+    .line 300
+    check-cast v7, Ljava/security/UnrecoverableKeyException;
 
-    throw v0
+    throw v7
 .end method
 
 .method private putKeyFactoryImpl(Ljava/lang/String;)V
@@ -1155,7 +1020,7 @@
     .param p1, "algorithm"    # Ljava/lang/String;
 
     .prologue
-    .line 131
+    .line 126
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1178,7 +1043,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 130
+    .line 125
     return-void
 .end method
 
@@ -1187,7 +1052,7 @@
     .param p1, "algorithm"    # Ljava/lang/String;
 
     .prologue
-    .line 127
+    .line 122
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1210,6 +1075,6 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 126
+    .line 121
     return-void
 .end method

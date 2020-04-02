@@ -46,16 +46,16 @@
     .param p3, "looper"    # Landroid/os/Looper;
 
     .prologue
-    .line 1109
+    .line 1019
     iput-object p1, p0, Landroid/media/MediaRecorder$EventHandler;->this$0:Landroid/media/MediaRecorder;
 
-    .line 1110
+    .line 1020
     invoke-direct {p0, p3}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 1111
+    .line 1021
     iput-object p2, p0, Landroid/media/MediaRecorder$EventHandler;->mMediaRecorder:Landroid/media/MediaRecorder;
 
-    .line 1109
+    .line 1019
     return-void
 .end method
 
@@ -66,7 +66,7 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 1131
+    .line 1041
     iget-object v0, p0, Landroid/media/MediaRecorder$EventHandler;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     invoke-static {v0}, Landroid/media/MediaRecorder;->-get0(Landroid/media/MediaRecorder;)J
@@ -79,23 +79,23 @@
 
     if-nez v0, :cond_0
 
-    .line 1132
+    .line 1042
     const-string/jumbo v0, "MediaRecorder"
 
     const-string/jumbo v1, "mediarecorder went away with unhandled events"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1133
+    .line 1043
     return-void
 
-    .line 1135
+    .line 1045
     :cond_0
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 1151
+    .line 1061
     const-string/jumbo v0, "MediaRecorder"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -120,10 +120,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1152
+    .line 1062
     return-void
 
-    .line 1138
+    .line 1048
     :sswitch_0
     iget-object v0, p0, Landroid/media/MediaRecorder$EventHandler;->this$0:Landroid/media/MediaRecorder;
 
@@ -133,7 +133,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 1139
+    .line 1049
     iget-object v0, p0, Landroid/media/MediaRecorder$EventHandler;->this$0:Landroid/media/MediaRecorder;
 
     invoke-static {v0}, Landroid/media/MediaRecorder;->-get1(Landroid/media/MediaRecorder;)Landroid/media/MediaRecorder$OnErrorListener;
@@ -148,11 +148,11 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/media/MediaRecorder$OnErrorListener;->onError(Landroid/media/MediaRecorder;II)V
 
-    .line 1141
+    .line 1051
     :cond_1
     return-void
 
-    .line 1145
+    .line 1055
     :sswitch_1
     iget-object v0, p0, Landroid/media/MediaRecorder$EventHandler;->this$0:Landroid/media/MediaRecorder;
 
@@ -162,7 +162,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 1146
+    .line 1056
     iget-object v0, p0, Landroid/media/MediaRecorder$EventHandler;->this$0:Landroid/media/MediaRecorder;
 
     invoke-static {v0}, Landroid/media/MediaRecorder;->-get2(Landroid/media/MediaRecorder;)Landroid/media/MediaRecorder$OnInfoListener;
@@ -177,11 +177,11 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/media/MediaRecorder$OnInfoListener;->onInfo(Landroid/media/MediaRecorder;II)V
 
-    .line 1148
+    .line 1058
     :cond_2
     return-void
 
-    .line 1135
+    .line 1045
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0

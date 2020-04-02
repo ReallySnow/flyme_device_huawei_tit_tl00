@@ -42,13 +42,13 @@
     .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 1189
+    .line 1154
     iput-object p1, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    .line 1190
+    .line 1155
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 1187
+    .line 1152
     new-instance v0, Landroid/util/KeyValueListParser;
 
     const/16 v1, 0x2c
@@ -57,7 +57,7 @@
 
     iput-object v0, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->mParser:Landroid/util/KeyValueListParser;
 
-    .line 1189
+    .line 1154
     return-void
 .end method
 
@@ -68,15 +68,15 @@
     .param p1, "selfChange"    # Z
 
     .prologue
-    .line 1200
+    .line 1165
     invoke-virtual {p0}, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->updateSettings()V
 
-    .line 1201
+    .line 1166
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
     invoke-virtual {v0}, Lcom/android/server/usage/UsageStatsService;->postOneTimeCheckIdleStates()V
 
-    .line 1199
+    .line 1164
     return-void
 .end method
 
@@ -84,7 +84,7 @@
     .locals 3
 
     .prologue
-    .line 1194
+    .line 1159
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
     invoke-virtual {v0}, Lcom/android/server/usage/UsageStatsService;->getContext()Landroid/content/Context;
@@ -95,21 +95,21 @@
 
     move-result-object v0
 
-    .line 1195
+    .line 1160
     const-string/jumbo v1, "app_idle_constants"
 
-    .line 1194
+    .line 1159
     invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    .line 1195
+    .line 1160
     const/4 v2, 0x0
 
-    .line 1194
+    .line 1159
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 1193
+    .line 1158
     return-void
 .end method
 
@@ -117,16 +117,16 @@
     .locals 8
 
     .prologue
-    .line 1205
+    .line 1170
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    invoke-static {v1}, Lcom/android/server/usage/UsageStatsService;->-get1(Lcom/android/server/usage/UsageStatsService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/usage/UsageStatsService;->-get0(Lcom/android/server/usage/UsageStatsService;)Ljava/lang/Object;
 
     move-result-object v2
 
     monitor-enter v2
 
-    .line 1209
+    .line 1174
     :try_start_0
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->mParser:Landroid/util/KeyValueListParser;
 
@@ -140,10 +140,10 @@
 
     move-result-object v3
 
-    .line 1210
+    .line 1175
     const-string/jumbo v4, "app_idle_constants"
 
-    .line 1209
+    .line 1174
     invoke-static {v3, v4}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
@@ -153,7 +153,7 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1217
+    .line 1182
     :goto_0
     :try_start_1
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
@@ -162,119 +162,100 @@
 
     const-string/jumbo v4, "idle_duration2"
 
-    .line 1218
+    .line 1183
     const-wide/32 v6, 0x2932e00
 
-    .line 1217
+    .line 1182
     invoke-virtual {v3, v4, v6, v7}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
     move-result-wide v4
 
-    iput-wide v4, v1, Lcom/android/server/usage/UsageStatsService;->mAppIdleScreenThresholdMillis:J
+    iput-wide v4, v1, Lcom/android/server/usage/UsageStatsService;->mAppIdleDurationMillis:J
 
-    .line 1220
+    .line 1185
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
     iget-object v3, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->mParser:Landroid/util/KeyValueListParser;
 
     const-string/jumbo v4, "wallclock_threshold"
 
-    .line 1221
+    .line 1186
     const-wide/32 v6, 0xa4cb800
 
-    .line 1220
+    .line 1185
     invoke-virtual {v3, v4, v6, v7}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
     move-result-wide v4
 
     iput-wide v4, v1, Lcom/android/server/usage/UsageStatsService;->mAppIdleWallclockThresholdMillis:J
 
-    .line 1223
+    .line 1188
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
     iget-object v3, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-wide v4, v3, Lcom/android/server/usage/UsageStatsService;->mAppIdleScreenThresholdMillis:J
+    iget-wide v4, v3, Lcom/android/server/usage/UsageStatsService;->mAppIdleDurationMillis:J
 
     const-wide/16 v6, 0x4
 
     div-long/2addr v4, v6
 
-    .line 1224
+    .line 1189
     const-wide/32 v6, 0x1b77400
 
-    .line 1223
+    .line 1188
     invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v4
 
     iput-wide v4, v1, Lcom/android/server/usage/UsageStatsService;->mCheckIdleIntervalMillis:J
 
-    .line 1227
+    .line 1192
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
     iget-object v3, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->mParser:Landroid/util/KeyValueListParser;
 
     const-string/jumbo v4, "parole_interval"
 
-    .line 1228
+    .line 1193
     const-wide/32 v6, 0x5265c00
 
-    .line 1227
+    .line 1192
     invoke-virtual {v3, v4, v6, v7}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
     move-result-wide v4
 
     iput-wide v4, v1, Lcom/android/server/usage/UsageStatsService;->mAppIdleParoleIntervalMillis:J
 
-    .line 1230
+    .line 1195
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
     iget-object v3, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->mParser:Landroid/util/KeyValueListParser;
 
     const-string/jumbo v4, "parole_duration"
 
-    .line 1231
+    .line 1196
     const-wide/32 v6, 0x927c0
 
-    .line 1230
+    .line 1195
     invoke-virtual {v3, v4, v6, v7}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
     move-result-wide v4
 
     iput-wide v4, v1, Lcom/android/server/usage/UsageStatsService;->mAppIdleParoleDurationMillis:J
-
-    .line 1232
-    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
-
-    invoke-static {v1}, Lcom/android/server/usage/UsageStatsService;->-get0(Lcom/android/server/usage/UsageStatsService;)Lcom/android/server/usage/AppIdleHistory;
-
-    move-result-object v1
-
-    iget-object v3, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
-
-    iget-wide v4, v3, Lcom/android/server/usage/UsageStatsService;->mAppIdleWallclockThresholdMillis:J
-
-    .line 1233
-    iget-object v3, p0, Lcom/android/server/usage/UsageStatsService$SettingsObserver;->this$0:Lcom/android/server/usage/UsageStatsService;
-
-    iget-wide v6, v3, Lcom/android/server/usage/UsageStatsService;->mAppIdleScreenThresholdMillis:J
-
-    .line 1232
-    invoke-virtual {v1, v4, v5, v6, v7}, Lcom/android/server/usage/AppIdleHistory;->setThresholds(JJ)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit v2
 
-    .line 1204
+    .line 1169
     return-void
 
-    .line 1211
+    .line 1176
     :catch_0
     move-exception v0
 
-    .line 1212
+    .line 1177
     .local v0, "e":Ljava/lang/IllegalArgumentException;
     :try_start_2
     const-string/jumbo v1, "UsageStatsService"
@@ -305,9 +286,9 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 1205
+    .line 1170
     .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     :catchall_0
     move-exception v1

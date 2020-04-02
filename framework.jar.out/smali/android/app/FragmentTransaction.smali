@@ -24,7 +24,7 @@
     .locals 0
 
     .prologue
-    .line 24
+    .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -54,12 +54,6 @@
 .end method
 
 .method public abstract commitAllowingStateLoss()I
-.end method
-
-.method public abstract commitNow()V
-.end method
-
-.method public abstract commitNowAllowingStateLoss()V
 .end method
 
 .method public abstract detach(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;

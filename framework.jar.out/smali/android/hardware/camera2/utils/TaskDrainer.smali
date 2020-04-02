@@ -31,15 +31,6 @@
 
 .field private mDraining:Z
 
-.field private final mEarlyFinishedTaskSet:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set",
-            "<TT;>;"
-        }
-    .end annotation
-.end field
-
 .field private final mHandler:Landroid/os/Handler;
 
 .field private final mListener:Landroid/hardware/camera2/utils/TaskDrainer$DrainListener;
@@ -76,40 +67,33 @@
     .local p0, "this":Landroid/hardware/camera2/utils/TaskDrainer;, "Landroid/hardware/camera2/utils/TaskDrainer<TT;>;"
     const/4 v1, 0x0
 
-    .line 81
+    .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 56
+    .line 55
     iput-boolean v1, p0, Landroid/hardware/camera2/utils/TaskDrainer;->DEBUG:Z
 
-    .line 63
+    .line 62
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mTaskSet:Ljava/util/Set;
 
-    .line 68
-    new-instance v0, Ljava/util/HashSet;
-
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mEarlyFinishedTaskSet:Ljava/util/Set;
-
-    .line 69
+    .line 63
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mLock:Ljava/lang/Object;
 
-    .line 71
+    .line 65
     iput-boolean v1, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mDraining:Z
 
-    .line 72
+    .line 66
     iput-boolean v1, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mDrainFinished:Z
 
-    .line 82
+    .line 76
     const-string/jumbo v0, "handler must not be null"
 
     invoke-static {p1, v0}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -120,7 +104,7 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mHandler:Landroid/os/Handler;
 
-    .line 83
+    .line 77
     const-string/jumbo v0, "listener must not be null"
 
     invoke-static {p2, v0}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -131,12 +115,12 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mListener:Landroid/hardware/camera2/utils/TaskDrainer$DrainListener;
 
-    .line 84
+    .line 78
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mName:Ljava/lang/String;
 
-    .line 81
+    .line 75
     return-void
 .end method
 
@@ -150,40 +134,33 @@
     .local p0, "this":Landroid/hardware/camera2/utils/TaskDrainer;, "Landroid/hardware/camera2/utils/TaskDrainer<TT;>;"
     const/4 v1, 0x0
 
-    .line 95
+    .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 56
+    .line 55
     iput-boolean v1, p0, Landroid/hardware/camera2/utils/TaskDrainer;->DEBUG:Z
 
-    .line 63
+    .line 62
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mTaskSet:Ljava/util/Set;
 
-    .line 68
-    new-instance v0, Ljava/util/HashSet;
-
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mEarlyFinishedTaskSet:Ljava/util/Set;
-
-    .line 69
+    .line 63
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mLock:Ljava/lang/Object;
 
-    .line 71
+    .line 65
     iput-boolean v1, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mDraining:Z
 
-    .line 72
+    .line 66
     iput-boolean v1, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mDrainFinished:Z
 
-    .line 97
+    .line 91
     const-string/jumbo v0, "handler must not be null"
 
     invoke-static {p1, v0}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -194,7 +171,7 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mHandler:Landroid/os/Handler;
 
-    .line 98
+    .line 92
     const-string/jumbo v0, "listener must not be null"
 
     invoke-static {p2, v0}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -205,10 +182,10 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mListener:Landroid/hardware/camera2/utils/TaskDrainer$DrainListener;
 
-    .line 99
+    .line 93
     iput-object p3, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mName:Ljava/lang/String;
 
-    .line 95
+    .line 89
     return-void
 .end method
 
@@ -216,7 +193,7 @@
     .locals 1
 
     .prologue
-    .line 196
+    .line 183
     .local p0, "this":Landroid/hardware/camera2/utils/TaskDrainer;, "Landroid/hardware/camera2/utils/TaskDrainer<TT;>;"
     iget-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mTaskSet:Ljava/util/Set;
 
@@ -234,18 +211,18 @@
 
     if-eqz v0, :cond_1
 
-    .line 195
+    .line 182
     :cond_0
     :goto_0
     return-void
 
-    .line 197
+    .line 184
     :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mDrainFinished:Z
 
-    .line 198
+    .line 185
     invoke-direct {p0}, Landroid/hardware/camera2/utils/TaskDrainer;->postDrained()V
 
     goto :goto_0
@@ -255,7 +232,7 @@
     .locals 2
 
     .prologue
-    .line 203
+    .line 190
     .local p0, "this":Landroid/hardware/camera2/utils/TaskDrainer;, "Landroid/hardware/camera2/utils/TaskDrainer<TT;>;"
     iget-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mHandler:Landroid/os/Handler;
 
@@ -265,7 +242,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 202
+    .line 189
     return-void
 .end method
 
@@ -275,24 +252,24 @@
     .locals 2
 
     .prologue
-    .line 177
+    .line 164
     .local p0, "this":Landroid/hardware/camera2/utils/TaskDrainer;, "Landroid/hardware/camera2/utils/TaskDrainer<TT;>;"
     iget-object v1, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 178
+    .line 165
     :try_start_0
     iget-boolean v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mDraining:Z
 
     if-nez v0, :cond_0
 
-    .line 183
+    .line 170
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mDraining:Z
 
-    .line 186
+    .line 173
     invoke-direct {p0}, Landroid/hardware/camera2/utils/TaskDrainer;->checkIfDrainFinished()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -300,10 +277,10 @@
     :cond_0
     monitor-exit v1
 
-    .line 176
+    .line 163
     return-void
 
-    .line 177
+    .line 164
     :catchall_0
     move-exception v0
 
@@ -321,14 +298,14 @@
     .end annotation
 
     .prologue
-    .line 152
+    .line 143
     .local p0, "this":Landroid/hardware/camera2/utils/TaskDrainer;, "Landroid/hardware/camera2/utils/TaskDrainer<TT;>;"
     .local p1, "task":Ljava/lang/Object;, "TT;"
     iget-object v1, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 158
+    .line 148
     :try_start_0
     iget-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mTaskSet:Ljava/util/Set;
 
@@ -338,16 +315,7 @@
 
     if-nez v0, :cond_0
 
-    .line 160
-    iget-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mEarlyFinishedTaskSet:Ljava/util/Set;
-
-    invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 161
+    .line 149
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -380,7 +348,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 152
+    .line 143
     :catchall_0
     move-exception v0
 
@@ -388,7 +356,7 @@
 
     throw v0
 
-    .line 166
+    .line 153
     :cond_0
     :try_start_1
     invoke-direct {p0}, Landroid/hardware/camera2/utils/TaskDrainer;->checkIfDrainFinished()V
@@ -397,7 +365,7 @@
 
     monitor-exit v1
 
-    .line 151
+    .line 142
     return-void
 .end method
 
@@ -410,20 +378,20 @@
     .end annotation
 
     .prologue
-    .line 118
+    .line 112
     .local p0, "this":Landroid/hardware/camera2/utils/TaskDrainer;, "Landroid/hardware/camera2/utils/TaskDrainer<TT;>;"
     .local p1, "task":Ljava/lang/Object;, "TT;"
     iget-object v1, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 123
+    .line 117
     :try_start_0
     iget-boolean v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mDraining:Z
 
     if-eqz v0, :cond_0
 
-    .line 124
+    .line 118
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v2, "Can\'t start more tasks after draining has begun"
@@ -434,7 +402,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 118
+    .line 112
     :catchall_0
     move-exception v0
 
@@ -442,18 +410,9 @@
 
     throw v0
 
-    .line 128
+    .line 121
     :cond_0
     :try_start_1
-    iget-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mEarlyFinishedTaskSet:Ljava/util/Set;
-
-    invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 130
     iget-object v0, p0, Landroid/hardware/camera2/utils/TaskDrainer;->mTaskSet:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -462,7 +421,7 @@
 
     if-nez v0, :cond_1
 
-    .line 131
+    .line 122
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -498,6 +457,6 @@
     :cond_1
     monitor-exit v1
 
-    .line 117
+    .line 111
     return-void
 .end method

@@ -114,7 +114,7 @@
     .locals 4
 
     .prologue
-    .line 742
+    .line 697
     iget-object v1, p0, Landroid/security/KeyStore;->mContext:Landroid/content/Context;
 
     const-class v2, Landroid/hardware/fingerprint/FingerprintManager;
@@ -125,16 +125,16 @@
 
     check-cast v0, Landroid/hardware/fingerprint/FingerprintManager;
 
-    .line 743
+    .line 698
     .local v0, "fingerprintManager":Landroid/hardware/fingerprint/FingerprintManager;
     if-nez v0, :cond_0
 
-    .line 744
+    .line 699
     const-wide/16 v2, 0x0
 
     return-wide v2
 
-    .line 749
+    .line 704
     :cond_0
     invoke-virtual {v0}, Landroid/hardware/fingerprint/FingerprintManager;->getAuthenticatorId()J
 
@@ -173,13 +173,13 @@
     .param p0, "errorCode"    # I
 
     .prologue
-    .line 645
+    .line 601
     if-lez p0, :cond_0
 
-    .line 647
+    .line 603
     packed-switch p0, :pswitch_data_0
 
-    .line 665
+    .line 621
     :pswitch_0
     new-instance v0, Landroid/security/KeyStoreException;
 
@@ -191,7 +191,7 @@
 
     return-object v0
 
-    .line 649
+    .line 605
     :pswitch_1
     new-instance v0, Landroid/security/KeyStoreException;
 
@@ -201,7 +201,7 @@
 
     return-object v0
 
-    .line 651
+    .line 607
     :pswitch_2
     new-instance v0, Landroid/security/KeyStoreException;
 
@@ -211,7 +211,7 @@
 
     return-object v0
 
-    .line 653
+    .line 609
     :pswitch_3
     new-instance v0, Landroid/security/KeyStoreException;
 
@@ -221,7 +221,7 @@
 
     return-object v0
 
-    .line 655
+    .line 611
     :pswitch_4
     new-instance v0, Landroid/security/KeyStoreException;
 
@@ -231,7 +231,7 @@
 
     return-object v0
 
-    .line 657
+    .line 613
     :pswitch_5
     new-instance v0, Landroid/security/KeyStoreException;
 
@@ -241,7 +241,7 @@
 
     return-object v0
 
-    .line 659
+    .line 615
     :pswitch_6
     new-instance v0, Landroid/security/KeyStoreException;
 
@@ -251,7 +251,7 @@
 
     return-object v0
 
-    .line 661
+    .line 617
     :pswitch_7
     new-instance v0, Landroid/security/KeyStoreException;
 
@@ -261,7 +261,7 @@
 
     return-object v0
 
-    .line 663
+    .line 619
     :pswitch_8
     new-instance v0, Landroid/security/KeyStoreException;
 
@@ -271,36 +271,36 @@
 
     return-object v0
 
-    .line 669
+    .line 625
     :cond_0
     packed-switch p0, :pswitch_data_1
 
-    .line 676
+    .line 632
     new-instance v0, Landroid/security/KeyStoreException;
 
-    .line 677
+    .line 633
     invoke-static {p0}, Landroid/security/keymaster/KeymasterDefs;->getErrorMessage(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 676
+    .line 632
     invoke-direct {v0, p0, v1}, Landroid/security/KeyStoreException;-><init>(ILjava/lang/String;)V
 
     return-object v0
 
-    .line 673
+    .line 629
     :pswitch_9
     new-instance v0, Landroid/security/KeyStoreException;
 
-    .line 674
+    .line 630
     const-string/jumbo v1, "Invalid user authentication validity duration"
 
-    .line 673
+    .line 629
     invoke-direct {v0, p0, v1}, Landroid/security/KeyStoreException;-><init>(ILjava/lang/String;)V
 
     return-object v0
 
-    .line 647
+    .line 603
     nop
 
     :pswitch_data_0
@@ -322,7 +322,7 @@
         :pswitch_8
     .end packed-switch
 
-    .line 669
+    .line 625
     :pswitch_data_1
     .packed-switch -0x10
         :pswitch_9
@@ -373,7 +373,7 @@
     .param p1, "token"    # Landroid/os/IBinder;
 
     .prologue
-    .line 519
+    .line 496
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -385,11 +385,11 @@
 
     return v1
 
-    .line 520
+    .line 497
     :catch_0
     move-exception v0
 
-    .line 521
+    .line 498
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -397,7 +397,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 522
+    .line 499
     const/4 v1, 0x4
 
     return v1
@@ -408,7 +408,7 @@
     .param p1, "authToken"    # [B
 
     .prologue
-    .line 550
+    .line 527
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -420,11 +420,11 @@
 
     return v1
 
-    .line 551
+    .line 528
     :catch_0
     move-exception v0
 
-    .line 552
+    .line 529
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -432,7 +432,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 553
+    .line 530
     const/4 v1, 0x4
 
     return v1
@@ -447,7 +447,7 @@
 
     const/4 v2, 0x0
 
-    .line 412
+    .line 403
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -467,11 +467,11 @@
 
     goto :goto_0
 
-    .line 413
+    .line 404
     :catch_0
     move-exception v0
 
-    .line 414
+    .line 405
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -479,49 +479,12 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 415
+    .line 406
     return v2
 .end method
 
-.method public attestKey(Ljava/lang/String;Landroid/security/keymaster/KeymasterArguments;Landroid/security/keymaster/KeymasterCertificateChain;)I
-    .locals 3
-    .param p1, "alias"    # Ljava/lang/String;
-    .param p2, "params"    # Landroid/security/keymaster/KeymasterArguments;
-    .param p3, "outChain"    # Landroid/security/keymaster/KeymasterCertificateChain;
-
-    .prologue
-    .line 622
-    :try_start_0
-    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
-
-    invoke-interface {v1, p1, p2, p3}, Landroid/security/IKeystoreService;->attestKey(Ljava/lang/String;Landroid/security/keymaster/KeymasterArguments;Landroid/security/keymaster/KeymasterCertificateChain;)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    return v1
-
-    .line 623
-    :catch_0
-    move-exception v0
-
-    .line 624
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v1, "KeyStore"
-
-    const-string/jumbo v2, "Cannot connect to keystore"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 625
-    const/4 v1, 0x4
-
-    return v1
-.end method
-
 .method public begin(Ljava/lang/String;IZLandroid/security/keymaster/KeymasterArguments;[B)Landroid/security/keymaster/OperationResult;
-    .locals 7
+    .locals 8
     .param p1, "alias"    # Ljava/lang/String;
     .param p2, "purpose"    # I
     .param p3, "pruneable"    # Z
@@ -529,39 +492,7 @@
     .param p5, "entropy"    # [B
 
     .prologue
-    .line 491
-    const/4 v6, -0x1
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move-object v4, p4
-
-    move-object v5, p5
-
-    invoke-virtual/range {v0 .. v6}, Landroid/security/KeyStore;->begin(Ljava/lang/String;IZLandroid/security/keymaster/KeymasterArguments;[BI)Landroid/security/keymaster/OperationResult;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public begin(Ljava/lang/String;IZLandroid/security/keymaster/KeymasterArguments;[BI)Landroid/security/keymaster/OperationResult;
-    .locals 9
-    .param p1, "alias"    # Ljava/lang/String;
-    .param p2, "purpose"    # I
-    .param p3, "pruneable"    # Z
-    .param p4, "args"    # Landroid/security/keymaster/KeymasterArguments;
-    .param p5, "entropy"    # [B
-    .param p6, "uid"    # I
-
-    .prologue
-    .line 482
+    .line 464
     :try_start_0
     iget-object v0, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -579,9 +510,7 @@
 
     move-object v6, p5
 
-    move v7, p6
-
-    invoke-interface/range {v0 .. v7}, Landroid/security/IKeystoreService;->begin(Landroid/os/IBinder;Ljava/lang/String;IZLandroid/security/keymaster/KeymasterArguments;[BI)Landroid/security/keymaster/OperationResult;
+    invoke-interface/range {v0 .. v6}, Landroid/security/IKeystoreService;->begin(Landroid/os/IBinder;Ljava/lang/String;IZLandroid/security/keymaster/KeymasterArguments;[B)Landroid/security/keymaster/OperationResult;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -589,19 +518,19 @@
 
     return-object v0
 
-    .line 483
+    .line 465
     :catch_0
-    move-exception v8
+    move-exception v7
 
-    .line 484
-    .local v8, "e":Landroid/os/RemoteException;
+    .line 466
+    .local v7, "e":Landroid/os/RemoteException;
     const-string/jumbo v0, "KeyStore"
 
     const-string/jumbo v1, "Cannot connect to keystore"
 
-    invoke-static {v0, v1, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 485
+    .line 467
     const/4 v0, 0x0
 
     return-object v0
@@ -616,7 +545,7 @@
 
     const/4 v2, 0x0
 
-    .line 399
+    .line 390
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -638,11 +567,11 @@
 
     goto :goto_0
 
-    .line 400
+    .line 391
     :catch_0
     move-exception v0
 
-    .line 401
+    .line 392
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -650,7 +579,7 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 402
+    .line 393
     return v2
 .end method
 
@@ -659,7 +588,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 208
+    .line 203
     const/4 v0, -0x1
 
     invoke-virtual {p0, p1, v0}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
@@ -679,7 +608,7 @@
 
     const/4 v2, 0x0
 
-    .line 200
+    .line 195
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -699,11 +628,11 @@
 
     goto :goto_0
 
-    .line 201
+    .line 196
     :catch_0
     move-exception v0
 
-    .line 202
+    .line 197
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -711,7 +640,7 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 203
+    .line 198
     return v2
 .end method
 
@@ -720,7 +649,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 195
+    .line 190
     const/4 v0, -0x1
 
     invoke-virtual {p0, p1, v0}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
@@ -731,57 +660,49 @@
 .end method
 
 .method public delete(Ljava/lang/String;I)Z
-    .locals 5
+    .locals 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "uid"    # I
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
-    .line 186
+    .line 182
     :try_start_0
-    iget-object v4, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+    iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
-    invoke-interface {v4, p1, p2}, Landroid/security/IKeystoreService;->del(Ljava/lang/String;I)I
+    invoke-interface {v3, p1, p2}, Landroid/security/IKeystoreService;->del(Ljava/lang/String;I)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move-result v3
 
-    .line 187
-    .local v1, "ret":I
-    if-eq v1, v2, :cond_0
+    if-ne v3, v1, :cond_0
 
-    const/4 v4, 0x7
-
-    if-ne v1, v4, :cond_1
+    :goto_0
+    return v1
 
     :cond_0
-    :goto_0
-    return v2
-
-    :cond_1
-    move v2, v3
+    move v1, v2
 
     goto :goto_0
 
-    .line 188
-    .end local v1    # "ret":I
+    .line 183
     :catch_0
     move-exception v0
 
-    .line 189
+    .line 184
     .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v2, "KeyStore"
+    const-string/jumbo v1, "KeyStore"
 
-    const-string/jumbo v4, "Cannot connect to keystore"
+    const-string/jumbo v3, "Cannot connect to keystore"
 
-    invoke-static {v2, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 190
-    return v3
+    .line 185
+    return v2
 .end method
 
 .method public duplicate(Ljava/lang/String;ILjava/lang/String;I)Z
@@ -796,7 +717,7 @@
 
     const/4 v2, 0x0
 
-    .line 376
+    .line 367
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -816,11 +737,11 @@
 
     goto :goto_0
 
-    .line 377
+    .line 368
     :catch_0
     move-exception v0
 
-    .line 378
+    .line 369
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -828,85 +749,46 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 379
+    .line 370
     return v2
 .end method
 
 .method public exportKey(Ljava/lang/String;ILandroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;)Landroid/security/keymaster/ExportResult;
-    .locals 6
+    .locals 3
     .param p1, "alias"    # Ljava/lang/String;
     .param p2, "format"    # I
     .param p3, "clientId"    # Landroid/security/keymaster/KeymasterBlob;
     .param p4, "appId"    # Landroid/security/keymaster/KeymasterBlob;
 
     .prologue
-    .line 476
-    const/4 v5, -0x1
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move v2, p2
-
-    move-object v3, p3
-
-    move-object v4, p4
-
-    invoke-virtual/range {v0 .. v5}, Landroid/security/KeyStore;->exportKey(Ljava/lang/String;ILandroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;I)Landroid/security/keymaster/ExportResult;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public exportKey(Ljava/lang/String;ILandroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;I)Landroid/security/keymaster/ExportResult;
-    .locals 7
-    .param p1, "alias"    # Ljava/lang/String;
-    .param p2, "format"    # I
-    .param p3, "clientId"    # Landroid/security/keymaster/KeymasterBlob;
-    .param p4, "appId"    # Landroid/security/keymaster/KeymasterBlob;
-    .param p5, "uid"    # I
-
-    .prologue
-    .line 468
+    .line 454
     :try_start_0
-    iget-object v0, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
+    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
-    move-object v1, p1
-
-    move v2, p2
-
-    move-object v3, p3
-
-    move-object v4, p4
-
-    move v5, p5
-
-    invoke-interface/range {v0 .. v5}, Landroid/security/IKeystoreService;->exportKey(Ljava/lang/String;ILandroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;I)Landroid/security/keymaster/ExportResult;
+    invoke-interface {v1, p1, p2, p3, p4}, Landroid/security/IKeystoreService;->exportKey(Ljava/lang/String;ILandroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;)Landroid/security/keymaster/ExportResult;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
-    .line 469
+    .line 455
     :catch_0
-    move-exception v6
+    move-exception v0
 
-    .line 470
-    .local v6, "e":Landroid/os/RemoteException;
-    const-string/jumbo v0, "KeyStore"
+    .line 456
+    .local v0, "e":Landroid/os/RemoteException;
+    const-string/jumbo v1, "KeyStore"
 
-    const-string/jumbo v1, "Cannot connect to keystore"
+    const-string/jumbo v2, "Cannot connect to keystore"
 
-    invoke-static {v0, v1, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 471
-    const/4 v0, 0x0
+    .line 457
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public finish(Landroid/os/IBinder;Landroid/security/keymaster/KeymasterArguments;[B)Landroid/security/keymaster/OperationResult;
@@ -916,7 +798,7 @@
     .param p3, "signature"    # [B
 
     .prologue
-    .line 514
+    .line 491
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Landroid/security/KeyStore;->finish(Landroid/os/IBinder;Landroid/security/keymaster/KeymasterArguments;[B[B)Landroid/security/keymaster/OperationResult;
@@ -934,7 +816,7 @@
     .param p4, "entropy"    # [B
 
     .prologue
-    .line 506
+    .line 483
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -946,11 +828,11 @@
 
     return-object v1
 
-    .line 507
+    .line 484
     :catch_0
     move-exception v0
 
-    .line 508
+    .line 485
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -958,7 +840,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 509
+    .line 486
     const/4 v1, 0x0
 
     return-object v1
@@ -974,11 +856,11 @@
     .param p6, "args"    # [[B
 
     .prologue
-    .line 299
+    .line 294
     :try_start_0
     iget-object v0, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
-    .line 300
+    .line 295
     new-instance v6, Landroid/security/KeystoreArguments;
 
     invoke-direct {v6, p6}, Landroid/security/KeystoreArguments;-><init>([[B)V
@@ -993,17 +875,17 @@
 
     move v5, p5
 
-    .line 299
+    .line 294
     invoke-interface/range {v0 .. v6}, Landroid/security/IKeystoreService;->generate(Ljava/lang/String;IIIILandroid/security/KeystoreArguments;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
-    .line 300
+    .line 295
     const/4 v1, 0x1
 
-    .line 299
+    .line 294
     if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
@@ -1016,11 +898,11 @@
 
     goto :goto_0
 
-    .line 301
+    .line 296
     :catch_0
     move-exception v7
 
-    .line 302
+    .line 297
     .local v7, "e":Landroid/os/RemoteException;
     const-string/jumbo v0, "KeyStore"
 
@@ -1028,7 +910,7 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 303
+    .line 298
     const/4 v0, 0x0
 
     return v0
@@ -1044,7 +926,7 @@
     .param p6, "outCharacteristics"    # Landroid/security/keymaster/KeyCharacteristics;
 
     .prologue
-    .line 422
+    .line 413
     :try_start_0
     iget-object v0, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -1068,11 +950,11 @@
 
     return v0
 
-    .line 423
+    .line 414
     :catch_0
     move-exception v7
 
-    .line 424
+    .line 415
     .local v7, "e":Landroid/os/RemoteException;
     const-string/jumbo v0, "KeyStore"
 
@@ -1080,7 +962,7 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 425
+    .line 416
     const/4 v0, 0x4
 
     return v0
@@ -1095,7 +977,7 @@
     .param p5, "outCharacteristics"    # Landroid/security/keymaster/KeyCharacteristics;
 
     .prologue
-    .line 431
+    .line 422
     const/4 v4, -0x1
 
     move-object v0, p0
@@ -1118,31 +1000,15 @@
 .end method
 
 .method public get(Ljava/lang/String;)[B
-    .locals 1
-    .param p1, "key"    # Ljava/lang/String;
-
-    .prologue
-    .line 168
-    const/4 v0, -0x1
-
-    invoke-virtual {p0, p1, v0}, Landroid/security/KeyStore;->get(Ljava/lang/String;I)[B
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public get(Ljava/lang/String;I)[B
     .locals 3
     .param p1, "key"    # Ljava/lang/String;
-    .param p2, "uid"    # I
 
     .prologue
     .line 160
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
-    invoke-interface {v1, p1, p2}, Landroid/security/IKeystoreService;->get(Ljava/lang/String;I)[B
+    invoke-interface {v1, p1}, Landroid/security/IKeystoreService;->get(Ljava/lang/String;)[B
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1168,212 +1034,200 @@
     return-object v1
 .end method
 
-.method public getInvalidKeyException(Ljava/lang/String;II)Ljava/security/InvalidKeyException;
+.method public getInvalidKeyException(Ljava/lang/String;I)Ljava/security/InvalidKeyException;
     .locals 1
     .param p1, "keystoreKeyAlias"    # Ljava/lang/String;
-    .param p2, "uid"    # I
-    .param p3, "errorCode"    # I
+    .param p2, "errorCode"    # I
 
     .prologue
-    .line 758
-    invoke-static {p3}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
+    .line 712
+    invoke-static {p2}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
 
     move-result-object v0
 
-    invoke-virtual {p0, p1, p2, v0}, Landroid/security/KeyStore;->getInvalidKeyException(Ljava/lang/String;ILandroid/security/KeyStoreException;)Ljava/security/InvalidKeyException;
+    invoke-virtual {p0, p1, v0}, Landroid/security/KeyStore;->getInvalidKeyException(Ljava/lang/String;Landroid/security/KeyStoreException;)Ljava/security/InvalidKeyException;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getInvalidKeyException(Ljava/lang/String;ILandroid/security/KeyStoreException;)Ljava/security/InvalidKeyException;
+.method public getInvalidKeyException(Ljava/lang/String;Landroid/security/KeyStoreException;)Ljava/security/InvalidKeyException;
     .locals 12
     .param p1, "keystoreKeyAlias"    # Ljava/lang/String;
-    .param p2, "uid"    # I
-    .param p3, "e"    # Landroid/security/KeyStoreException;
+    .param p2, "e"    # Landroid/security/KeyStoreException;
 
     .prologue
-    .line 688
-    invoke-virtual {p3}, Landroid/security/KeyStoreException;->getErrorCode()I
+    const-wide/16 v10, 0x0
 
-    move-result v0
+    const/4 v8, 0x0
 
-    sparse-switch v0, :sswitch_data_0
+    .line 644
+    invoke-virtual {p2}, Landroid/security/KeyStoreException;->getErrorCode()I
 
-    .line 737
-    new-instance v0, Ljava/security/InvalidKeyException;
+    move-result v5
 
-    const-string/jumbo v1, "Keystore operation failed"
-
-    invoke-direct {v0, v1, p3}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-object v0
-
-    .line 690
-    :sswitch_0
-    new-instance v0, Landroid/security/keystore/UserNotAuthenticatedException;
-
-    invoke-direct {v0}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
-
-    return-object v0
+    sparse-switch v5, :sswitch_data_0
 
     .line 692
+    new-instance v5, Ljava/security/InvalidKeyException;
+
+    const-string/jumbo v8, "Keystore operation failed"
+
+    invoke-direct {v5, v8, p2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    return-object v5
+
+    .line 646
+    :sswitch_0
+    new-instance v5, Landroid/security/keystore/UserNotAuthenticatedException;
+
+    invoke-direct {v5}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
+
+    return-object v5
+
+    .line 648
     :sswitch_1
-    new-instance v0, Landroid/security/keystore/KeyExpiredException;
+    new-instance v5, Landroid/security/keystore/KeyExpiredException;
 
-    invoke-direct {v0}, Landroid/security/keystore/KeyExpiredException;-><init>()V
+    invoke-direct {v5}, Landroid/security/keystore/KeyExpiredException;-><init>()V
 
-    return-object v0
+    return-object v5
 
-    .line 694
+    .line 650
     :sswitch_2
-    new-instance v0, Landroid/security/keystore/KeyNotYetValidException;
+    new-instance v5, Landroid/security/keystore/KeyNotYetValidException;
 
-    invoke-direct {v0}, Landroid/security/keystore/KeyNotYetValidException;-><init>()V
+    invoke-direct {v5}, Landroid/security/keystore/KeyNotYetValidException;-><init>()V
 
-    return-object v0
+    return-object v5
 
-    .line 703
+    .line 659
     :sswitch_3
-    new-instance v5, Landroid/security/keymaster/KeyCharacteristics;
+    new-instance v3, Landroid/security/keymaster/KeyCharacteristics;
 
-    invoke-direct {v5}, Landroid/security/keymaster/KeyCharacteristics;-><init>()V
+    invoke-direct {v3}, Landroid/security/keymaster/KeyCharacteristics;-><init>()V
 
-    .line 705
-    .local v5, "keyCharacteristics":Landroid/security/keymaster/KeyCharacteristics;
-    const/4 v2, 0x0
+    .line 661
+    .local v3, "keyCharacteristics":Landroid/security/keymaster/KeyCharacteristics;
+    invoke-virtual {p0, p1, v8, v8, v3}, Landroid/security/KeyStore;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeyCharacteristics;)I
 
-    const/4 v3, 0x0
+    move-result v2
 
-    move-object v0, p0
+    .line 662
+    .local v2, "getKeyCharacteristicsErrorCode":I
+    const/4 v5, 0x1
 
-    move-object v1, p1
+    if-eq v2, v5, :cond_0
 
-    move v4, p2
+    .line 663
+    new-instance v5, Ljava/security/InvalidKeyException;
 
-    invoke-virtual/range {v0 .. v5}, Landroid/security/KeyStore;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;ILandroid/security/keymaster/KeyCharacteristics;)I
+    .line 664
+    const-string/jumbo v8, "Failed to obtained key characteristics"
 
-    move-result v8
-
-    .line 707
-    .local v8, "getKeyCharacteristicsErrorCode":I
-    const/4 v0, 0x1
-
-    if-eq v8, v0, :cond_0
-
-    .line 708
-    new-instance v0, Ljava/security/InvalidKeyException;
-
-    .line 709
-    const-string/jumbo v1, "Failed to obtained key characteristics"
-
-    .line 710
-    invoke-static {v8}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
-
-    move-result-object v2
-
-    .line 708
-    invoke-direct {v0, v1, v2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-object v0
-
-    .line 713
-    :cond_0
-    const v0, -0x5ffffe0a
-
-    invoke-virtual {v5, v0}, Landroid/security/keymaster/KeyCharacteristics;->getUnsignedLongs(I)Ljava/util/List;
+    .line 665
+    invoke-static {v2}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
 
     move-result-object v9
 
-    .line 714
-    .local v9, "keySids":Ljava/util/List;, "Ljava/util/List<Ljava/math/BigInteger;>;"
-    invoke-interface {v9}, Ljava/util/List;->isEmpty()Z
+    .line 663
+    invoke-direct {v5, v8, v9}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    move-result v0
+    return-object v5
 
-    if-eqz v0, :cond_1
+    .line 668
+    :cond_0
+    const v5, -0x5ffffe0a
 
-    .line 716
-    new-instance v0, Landroid/security/keystore/KeyPermanentlyInvalidatedException;
+    invoke-virtual {v3, v5}, Landroid/security/keymaster/KeyCharacteristics;->getUnsignedLongs(I)Ljava/util/List;
 
-    invoke-direct {v0}, Landroid/security/keystore/KeyPermanentlyInvalidatedException;-><init>()V
+    move-result-object v4
 
-    return-object v0
+    .line 669
+    .local v4, "keySids":Ljava/util/List;, "Ljava/util/List<Ljava/math/BigInteger;>;"
+    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
 
-    .line 718
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    .line 671
+    new-instance v5, Landroid/security/keystore/KeyPermanentlyInvalidatedException;
+
+    invoke-direct {v5}, Landroid/security/keystore/KeyPermanentlyInvalidatedException;-><init>()V
+
+    return-object v5
+
+    .line 673
     :cond_1
     invoke-static {}, Landroid/security/GateKeeper;->getSecureUserId()J
 
-    move-result-wide v10
+    move-result-wide v6
 
-    .line 719
-    .local v10, "rootSid":J
-    const-wide/16 v0, 0x0
+    .line 674
+    .local v6, "rootSid":J
+    cmp-long v5, v6, v10
 
-    cmp-long v0, v10, v0
+    if-eqz v5, :cond_2
 
-    if-eqz v0, :cond_2
+    invoke-static {v6, v7}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
 
-    invoke-static {v10, v11}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
+    move-result-object v5
 
-    move-result-object v0
+    invoke-interface {v4, v5}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    invoke-interface {v9, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    move-result v5
 
-    move-result v0
+    if-eqz v5, :cond_2
 
-    if-eqz v0, :cond_2
+    .line 677
+    new-instance v5, Landroid/security/keystore/UserNotAuthenticatedException;
 
-    .line 722
-    new-instance v0, Landroid/security/keystore/UserNotAuthenticatedException;
+    invoke-direct {v5}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
 
-    invoke-direct {v0}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
+    return-object v5
 
-    return-object v0
-
-    .line 725
+    .line 680
     :cond_2
     invoke-direct {p0}, Landroid/security/KeyStore;->getFingerprintOnlySid()J
 
-    move-result-wide v6
+    move-result-wide v0
 
-    .line 726
-    .local v6, "fingerprintOnlySid":J
-    const-wide/16 v0, 0x0
+    .line 681
+    .local v0, "fingerprintOnlySid":J
+    cmp-long v5, v0, v10
 
-    cmp-long v0, v6, v0
+    if-eqz v5, :cond_3
 
-    if-eqz v0, :cond_3
+    .line 682
+    invoke-static {v0, v1}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
 
-    .line 727
-    invoke-static {v6, v7}, Landroid/security/keymaster/KeymasterArguments;->toUint64(J)Ljava/math/BigInteger;
+    move-result-object v5
 
-    move-result-object v0
+    invoke-interface {v4, v5}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    invoke-interface {v9, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    move-result v5
 
-    move-result v0
+    .line 681
+    if-eqz v5, :cond_3
 
-    .line 726
-    if-eqz v0, :cond_3
+    .line 685
+    new-instance v5, Landroid/security/keystore/UserNotAuthenticatedException;
 
-    .line 730
-    new-instance v0, Landroid/security/keystore/UserNotAuthenticatedException;
+    invoke-direct {v5}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
 
-    invoke-direct {v0}, Landroid/security/keystore/UserNotAuthenticatedException;-><init>()V
+    return-object v5
 
-    return-object v0
-
-    .line 734
+    .line 689
     :cond_3
-    new-instance v0, Landroid/security/keystore/KeyPermanentlyInvalidatedException;
+    new-instance v5, Landroid/security/keystore/KeyPermanentlyInvalidatedException;
 
-    invoke-direct {v0}, Landroid/security/keystore/KeyPermanentlyInvalidatedException;-><init>()V
+    invoke-direct {v5}, Landroid/security/keystore/KeyPermanentlyInvalidatedException;-><init>()V
 
-    return-object v0
+    return-object v5
 
-    .line 688
+    .line 644
     nop
 
     :sswitch_data_0
@@ -1386,136 +1240,81 @@
     .end sparse-switch
 .end method
 
-.method public getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;ILandroid/security/keymaster/KeyCharacteristics;)I
-    .locals 7
-    .param p1, "alias"    # Ljava/lang/String;
-    .param p2, "clientId"    # Landroid/security/keymaster/KeymasterBlob;
-    .param p3, "appId"    # Landroid/security/keymaster/KeymasterBlob;
-    .param p4, "uid"    # I
-    .param p5, "outCharacteristics"    # Landroid/security/keymaster/KeyCharacteristics;
-
-    .prologue
-    .line 437
-    :try_start_0
-    iget-object v0, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move-object v3, p3
-
-    move v4, p4
-
-    move-object v5, p5
-
-    invoke-interface/range {v0 .. v5}, Landroid/security/IKeystoreService;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;ILandroid/security/keymaster/KeyCharacteristics;)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    return v0
-
-    .line 438
-    :catch_0
-    move-exception v6
-
-    .line 439
-    .local v6, "e":Landroid/os/RemoteException;
-    const-string/jumbo v0, "KeyStore"
-
-    const-string/jumbo v1, "Cannot connect to keystore"
-
-    invoke-static {v0, v1, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 440
-    const/4 v0, 0x4
-
-    return v0
-.end method
-
 .method public getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeyCharacteristics;)I
-    .locals 6
+    .locals 3
     .param p1, "alias"    # Ljava/lang/String;
     .param p2, "clientId"    # Landroid/security/keymaster/KeymasterBlob;
     .param p3, "appId"    # Landroid/security/keymaster/KeymasterBlob;
     .param p4, "outCharacteristics"    # Landroid/security/keymaster/KeyCharacteristics;
 
     .prologue
-    .line 446
-    const/4 v4, -0x1
+    .line 428
+    :try_start_0
+    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
-    move-object v0, p0
+    invoke-interface {v1, p1, p2, p3, p4}, Landroid/security/IKeystoreService;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeyCharacteristics;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v1, p1
+    move-result v1
 
-    move-object v2, p2
+    return v1
 
-    move-object v3, p3
+    .line 429
+    :catch_0
+    move-exception v0
 
-    move-object v5, p4
+    .line 430
+    .local v0, "e":Landroid/os/RemoteException;
+    const-string/jumbo v1, "KeyStore"
 
-    invoke-virtual/range {v0 .. v5}, Landroid/security/KeyStore;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;ILandroid/security/keymaster/KeyCharacteristics;)I
+    const-string/jumbo v2, "Cannot connect to keystore"
 
-    move-result v0
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return v0
+    .line 431
+    const/4 v1, 0x4
+
+    return v1
 .end method
 
 .method public getLastError()I
     .locals 1
 
     .prologue
-    .line 407
+    .line 398
     iget v0, p0, Landroid/security/KeyStore;->mError:I
 
     return v0
 .end method
 
 .method public getmtime(Ljava/lang/String;)J
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
-
-    .prologue
-    .line 371
-    const/4 v0, -0x1
-
-    invoke-virtual {p0, p1, v0}, Landroid/security/KeyStore;->getmtime(Ljava/lang/String;I)J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
-
-.method public getmtime(Ljava/lang/String;I)J
     .locals 8
     .param p1, "key"    # Ljava/lang/String;
-    .param p2, "uid"    # I
 
     .prologue
     const-wide/16 v6, -0x1
 
-    .line 358
+    .line 353
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
-    invoke-interface {v1, p1, p2}, Landroid/security/IKeystoreService;->getmtime(Ljava/lang/String;I)J
+    invoke-interface {v1, p1}, Landroid/security/IKeystoreService;->getmtime(Ljava/lang/String;)J
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v2
 
-    .line 359
+    .line 354
     .local v2, "millis":J
     cmp-long v1, v2, v6
 
     if-nez v1, :cond_0
 
-    .line 360
+    .line 355
     return-wide v6
 
-    .line 363
+    .line 358
     :cond_0
     const-wide/16 v4, 0x3e8
 
@@ -1523,12 +1322,12 @@
 
     return-wide v4
 
-    .line 364
+    .line 359
     .end local v2    # "millis":J
     :catch_0
     move-exception v0
 
-    .line 365
+    .line 360
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -1536,7 +1335,7 @@
 
     invoke-static {v1, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 366
+    .line 361
     return-wide v6
 .end method
 
@@ -1550,7 +1349,7 @@
 
     const/4 v2, 0x0
 
-    .line 336
+    .line 331
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -1570,11 +1369,11 @@
 
     goto :goto_0
 
-    .line 337
+    .line 332
     :catch_0
     move-exception v0
 
-    .line 338
+    .line 333
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -1582,7 +1381,7 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 339
+    .line 334
     return v2
 .end method
 
@@ -1597,7 +1396,7 @@
     .param p7, "outCharacteristics"    # Landroid/security/keymaster/KeyCharacteristics;
 
     .prologue
-    .line 452
+    .line 438
     :try_start_0
     iget-object v0, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -1623,11 +1422,11 @@
 
     return v0
 
-    .line 454
+    .line 440
     :catch_0
     move-exception v8
 
-    .line 455
+    .line 441
     .local v8, "e":Landroid/os/RemoteException;
     const-string/jumbo v0, "KeyStore"
 
@@ -1635,7 +1434,7 @@
 
     invoke-static {v0, v1, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 456
+    .line 442
     const/4 v0, 0x4
 
     return v0
@@ -1651,7 +1450,7 @@
     .param p6, "outCharacteristics"    # Landroid/security/keymaster/KeyCharacteristics;
 
     .prologue
-    .line 462
+    .line 448
     const/4 v5, -0x1
 
     move-object v0, p0
@@ -1687,7 +1486,7 @@
 
     const/4 v2, 0x0
 
-    .line 309
+    .line 304
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -1707,11 +1506,11 @@
 
     goto :goto_0
 
-    .line 310
+    .line 305
     :catch_0
     move-exception v0
 
-    .line 311
+    .line 306
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -1719,7 +1518,7 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 312
+    .line 307
     return v2
 .end method
 
@@ -1731,7 +1530,7 @@
     .param p4, "flags"    # I
 
     .prologue
-    .line 177
+    .line 173
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -1743,11 +1542,11 @@
 
     return v1
 
-    .line 178
+    .line 174
     :catch_0
     move-exception v0
 
-    .line 179
+    .line 175
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -1755,7 +1554,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 180
+    .line 176
     const/4 v1, 0x4
 
     return v1
@@ -1765,7 +1564,7 @@
     .locals 1
 
     .prologue
-    .line 293
+    .line 288
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v0
@@ -1784,7 +1583,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 285
+    .line 280
     :try_start_0
     iget-object v2, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -1801,11 +1600,11 @@
     :cond_0
     return v1
 
-    .line 286
+    .line 281
     :catch_0
     move-exception v0
 
-    .line 287
+    .line 282
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "KeyStore"
 
@@ -1813,7 +1612,7 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 288
+    .line 283
     return v1
 .end method
 
@@ -1821,7 +1620,7 @@
     .locals 1
 
     .prologue
-    .line 385
+    .line 376
     const-string/jumbo v0, "RSA"
 
     invoke-virtual {p0, v0}, Landroid/security/KeyStore;->isHardwareBacked(Ljava/lang/String;)Z
@@ -1840,7 +1639,7 @@
 
     const/4 v2, 0x0
 
-    .line 390
+    .line 381
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -1866,11 +1665,11 @@
 
     goto :goto_0
 
-    .line 391
+    .line 382
     :catch_0
     move-exception v0
 
-    .line 392
+    .line 383
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -1878,7 +1677,7 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 393
+    .line 384
     return v2
 .end method
 
@@ -1887,7 +1686,7 @@
     .param p1, "token"    # Landroid/os/IBinder;
 
     .prologue
-    .line 534
+    .line 511
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -1899,11 +1698,11 @@
 
     return v1
 
-    .line 535
+    .line 512
     :catch_0
     move-exception v0
 
-    .line 536
+    .line 513
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -1911,7 +1710,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 537
+    .line 514
     const/4 v1, 0x0
 
     return v1
@@ -1946,7 +1745,7 @@
     .param p1, "prefix"    # Ljava/lang/String;
 
     .prologue
-    .line 224
+    .line 219
     const/4 v0, -0x1
 
     invoke-virtual {p0, p1, v0}, Landroid/security/KeyStore;->list(Ljava/lang/String;I)[Ljava/lang/String;
@@ -1962,7 +1761,7 @@
     .param p2, "uid"    # I
 
     .prologue
-    .line 216
+    .line 211
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -1974,11 +1773,11 @@
 
     return-object v1
 
-    .line 217
+    .line 212
     :catch_0
     move-exception v0
 
-    .line 218
+    .line 213
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -1986,7 +1785,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 219
+    .line 214
     const/4 v1, 0x0
 
     return-object v1
@@ -1996,7 +1795,7 @@
     .locals 1
 
     .prologue
-    .line 252
+    .line 247
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v0
@@ -2017,7 +1816,7 @@
 
     const/4 v2, 0x0
 
-    .line 244
+    .line 239
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -2037,11 +1836,11 @@
 
     goto :goto_0
 
-    .line 245
+    .line 240
     :catch_0
     move-exception v0
 
-    .line 246
+    .line 241
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -2049,39 +1848,8 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 247
+    .line 242
     return v2
-.end method
-
-.method public onDeviceOffBody()V
-    .locals 3
-
-    .prologue
-    .line 634
-    :try_start_0
-    iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
-
-    invoke-interface {v1}, Landroid/security/IKeystoreService;->onDeviceOffBody()I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 632
-    :goto_0
-    return-void
-
-    .line 635
-    :catch_0
-    move-exception v0
-
-    .line 636
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v1, "KeyStore"
-
-    const-string/jumbo v2, "Cannot connect to keystore"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
 .end method
 
 .method public onUserAdded(I)V
@@ -2089,12 +1857,12 @@
     .param p1, "userId"    # I
 
     .prologue
-    .line 599
+    .line 576
     const/4 v0, -0x1
 
     invoke-virtual {p0, p1, v0}, Landroid/security/KeyStore;->onUserAdded(II)V
 
-    .line 598
+    .line 575
     return-void
 .end method
 
@@ -2104,7 +1872,7 @@
     .param p2, "parentId"    # I
 
     .prologue
-    .line 587
+    .line 564
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -2112,15 +1880,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 585
+    .line 562
     :goto_0
     return-void
 
-    .line 588
+    .line 565
     :catch_0
     move-exception v0
 
-    .line 589
+    .line 566
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -2141,13 +1909,13 @@
 
     const/4 v2, 0x0
 
-    .line 566
+    .line 543
     if-nez p2, :cond_0
 
-    .line 567
+    .line 544
     const-string/jumbo p2, ""
 
-    .line 570
+    .line 547
     :cond_0
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
@@ -2168,11 +1936,11 @@
 
     goto :goto_0
 
-    .line 571
+    .line 548
     :catch_0
     move-exception v0
 
-    .line 572
+    .line 549
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -2180,7 +1948,7 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 573
+    .line 550
     return v2
 .end method
 
@@ -2189,7 +1957,7 @@
     .param p1, "newPassword"    # Ljava/lang/String;
 
     .prologue
-    .line 616
+    .line 593
     invoke-static {}, Landroid/os/Process;->myUid()I
 
     move-result v0
@@ -2210,7 +1978,7 @@
     .param p1, "userId"    # I
 
     .prologue
-    .line 609
+    .line 586
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -2218,15 +1986,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 607
+    .line 584
     :goto_0
     return-void
 
-    .line 610
+    .line 587
     :catch_0
     move-exception v0
 
-    .line 611
+    .line 588
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -2247,7 +2015,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 172
+    .line 168
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/security/KeyStore;->insert(Ljava/lang/String;[BII)I
 
     move-result v1
@@ -2271,7 +2039,7 @@
 
     const/4 v2, 0x0
 
-    .line 229
+    .line 224
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -2291,11 +2059,11 @@
 
     goto :goto_0
 
-    .line 230
+    .line 225
     :catch_0
     move-exception v0
 
-    .line 231
+    .line 226
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -2303,7 +2071,7 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 232
+    .line 227
     return v2
 .end method
 
@@ -2313,7 +2081,7 @@
     .param p2, "data"    # [B
 
     .prologue
-    .line 318
+    .line 313
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -2325,11 +2093,11 @@
 
     return-object v1
 
-    .line 319
+    .line 314
     :catch_0
     move-exception v0
 
-    .line 320
+    .line 315
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -2337,7 +2105,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 321
+    .line 316
     const/4 v1, 0x0
 
     return-object v1
@@ -2446,7 +2214,7 @@
 
     const/4 v2, 0x0
 
-    .line 345
+    .line 340
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -2466,11 +2234,11 @@
 
     goto :goto_0
 
-    .line 346
+    .line 341
     :catch_0
     move-exception v0
 
-    .line 347
+    .line 342
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -2478,7 +2246,7 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 348
+    .line 343
     return v2
 .end method
 
@@ -2492,7 +2260,7 @@
 
     const/4 v2, 0x0
 
-    .line 268
+    .line 263
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -2502,7 +2270,7 @@
 
     iput v3, p0, Landroid/security/KeyStore;->mError:I
 
-    .line 269
+    .line 264
     iget v3, p0, Landroid/security/KeyStore;->mError:I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
@@ -2517,11 +2285,11 @@
 
     goto :goto_0
 
-    .line 270
+    .line 265
     :catch_0
     move-exception v0
 
-    .line 271
+    .line 266
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -2529,7 +2297,7 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 272
+    .line 267
     return v2
 .end method
 
@@ -2538,7 +2306,7 @@
     .param p1, "password"    # Ljava/lang/String;
 
     .prologue
-    .line 277
+    .line 272
     invoke-static {}, Landroid/os/Process;->myUid()I
 
     move-result v0
@@ -2561,7 +2329,7 @@
     .param p3, "input"    # [B
 
     .prologue
-    .line 496
+    .line 473
     :try_start_0
     iget-object v1, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -2573,11 +2341,11 @@
 
     return-object v1
 
-    .line 497
+    .line 474
     :catch_0
     move-exception v0
 
-    .line 498
+    .line 475
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -2585,7 +2353,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 499
+    .line 476
     const/4 v1, 0x0
 
     return-object v1
@@ -2602,7 +2370,7 @@
 
     const/4 v2, 0x0
 
-    .line 327
+    .line 322
     :try_start_0
     iget-object v3, p0, Landroid/security/KeyStore;->mBinder:Landroid/security/IKeystoreService;
 
@@ -2622,11 +2390,11 @@
 
     goto :goto_0
 
-    .line 328
+    .line 323
     :catch_0
     move-exception v0
 
-    .line 329
+    .line 324
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "KeyStore"
 
@@ -2634,6 +2402,6 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 330
+    .line 325
     return v2
 .end method

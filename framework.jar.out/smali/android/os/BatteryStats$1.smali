@@ -37,7 +37,7 @@
     .param p1, "this$0"    # Landroid/os/BatteryStats;
 
     .prologue
-    .line 4099
+    .line 3654
     iput-object p1, p0, Landroid/os/BatteryStats$1;->this$0:Landroid/os/BatteryStats;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,36 +53,36 @@
     .param p2, "rhs"    # Landroid/os/BatteryStats$TimerEntry;
 
     .prologue
-    .line 4102
+    .line 3657
     iget-wide v0, p1, Landroid/os/BatteryStats$TimerEntry;->mTime:J
 
-    .line 4103
+    .line 3658
     .local v0, "lhsTime":J
     iget-wide v2, p2, Landroid/os/BatteryStats$TimerEntry;->mTime:J
 
-    .line 4104
+    .line 3659
     .local v2, "rhsTime":J
     cmp-long v4, v0, v2
 
     if-gez v4, :cond_0
 
-    .line 4105
+    .line 3660
     const/4 v4, 0x1
 
     return v4
 
-    .line 4107
+    .line 3662
     :cond_0
     cmp-long v4, v0, v2
 
     if-lez v4, :cond_1
 
-    .line 4108
+    .line 3663
     const/4 v4, -0x1
 
     return v4
 
-    .line 4110
+    .line 3665
     :cond_1
     const/4 v4, 0x0
 
@@ -95,7 +95,7 @@
     .param p2, "rhs"    # Ljava/lang/Object;
 
     .prologue
-    .line 4101
+    .line 3656
     check-cast p1, Landroid/os/BatteryStats$TimerEntry;
 
     .end local p1    # "lhs":Ljava/lang/Object;

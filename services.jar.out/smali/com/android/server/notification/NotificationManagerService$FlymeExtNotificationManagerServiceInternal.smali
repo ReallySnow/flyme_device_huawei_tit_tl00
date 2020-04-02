@@ -1,5 +1,5 @@
 .class Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;
-.super Lcom/android/server/notification/NotificationManagerService$5;
+.super Lcom/android/server/notification/NotificationManagerService$6;
 .source "NotificationManagerService.java"
 
 
@@ -28,10 +28,10 @@
     .param p1, "this$0"    # Lcom/android/server/notification/NotificationManagerService;
 
     .prologue
-    .line 1309
+    .line 1104
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-direct {p0, p1}, Lcom/android/server/notification/NotificationManagerService$5;-><init>(Lcom/android/server/notification/NotificationManagerService;)V
+    invoke-direct {p0, p1}, Lcom/android/server/notification/NotificationManagerService$6;-><init>(Lcom/android/server/notification/NotificationManagerService;)V
 
     return-void
 .end method
@@ -44,10 +44,10 @@
     .param p2, "uid"    # I
 
     .prologue
-    .line 1358
-    invoke-virtual {p0}, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->checkCallerIsSystemOrSystemUI()V
+    .line 1153
+    invoke-static {}, Lcom/android/server/notification/NotificationManagerService;->checkCallerIsSystemOrSystemUI()V
 
-    .line 1359
+    .line 1154
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->flymeGetFieldRankingHelper()Lcom/android/server/notification/RankingHelper;
@@ -67,10 +67,10 @@
     .param p2, "uid"    # I
 
     .prologue
-    .line 1369
-    invoke-virtual {p0}, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->checkCallerIsSystemOrSystemUI()V
+    .line 1164
+    invoke-static {}, Lcom/android/server/notification/NotificationManagerService;->checkCallerIsSystemOrSystemUI()V
 
-    .line 1370
+    .line 1165
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->flymeGetFieldRankingHelper()Lcom/android/server/notification/RankingHelper;
@@ -101,50 +101,50 @@
 
     const/4 v7, 0x1
 
-    .line 1315
+    .line 1110
     packed-switch p1, :pswitch_data_0
 
-    .line 1353
-    invoke-super {p0, p1, p2, p3, p4}, Lcom/android/server/notification/NotificationManagerService$5;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    .line 1148
+    invoke-super {p0, p1, p2, p3, p4}, Lcom/android/server/notification/NotificationManagerService$6;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v6
 
     return v6
 
-    .line 1317
+    .line 1112
     :pswitch_0
     const-string/jumbo v6, "android.app.FlymeExtINotificationManager"
 
     invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 1318
+    .line 1113
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1319
+    .line 1114
     .local v0, "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 1320
+    .line 1115
     .local v1, "_arg1":I
     invoke-virtual {p0, v0, v1}, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->getPackageHeadsUpVisibility(Ljava/lang/String;I)I
 
     move-result v4
 
-    .line 1321
+    .line 1116
     .local v4, "_result":I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 1322
+    .line 1117
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1323
+    .line 1118
     return v7
 
-    .line 1326
+    .line 1121
     .end local v0    # "_arg0":Ljava/lang/String;
     .end local v1    # "_arg1":I
     .end local v4    # "_result":I
@@ -153,34 +153,34 @@
 
     invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 1327
+    .line 1122
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1328
+    .line 1123
     .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 1329
+    .line 1124
     .restart local v1    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 1330
+    .line 1125
     .local v2, "_arg2":I
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->setPackageHeadsUpVisibility(Ljava/lang/String;II)V
 
-    .line 1331
+    .line 1126
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 1332
+    .line 1127
     return v7
 
-    .line 1335
+    .line 1130
     .end local v0    # "_arg0":Ljava/lang/String;
     .end local v1    # "_arg1":I
     .end local v2    # "_arg2":I
@@ -189,28 +189,28 @@
 
     invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 1336
+    .line 1131
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1337
+    .line 1132
     .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 1338
+    .line 1133
     .restart local v1    # "_arg1":I
     invoke-virtual {p0, v0, v1}, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->getPackageRemindEnable(Ljava/lang/String;I)Z
 
     move-result v5
 
-    .line 1339
+    .line 1134
     .local v5, "_result":Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 1340
+    .line 1135
     if-eqz v5, :cond_0
 
     move v6, v7
@@ -218,58 +218,59 @@
     :cond_0
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1341
+    .line 1136
     return v7
 
-    .line 1344
+    .line 1139
     .end local v0    # "_arg0":Ljava/lang/String;
     .end local v1    # "_arg1":I
     .end local v5    # "_result":Z
     :pswitch_3
-    const-string/jumbo v8, "android.app.FlymeExtINotificationManager"
+    const-string/jumbo v6, "android.app.FlymeExtINotificationManager"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 1345
+    .line 1140
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1346
+    .line 1141
     .restart local v0    # "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 1347
+    .line 1142
     .restart local v1    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_1
+    if-eqz v6, :cond_1
 
-    move v3, v7
+    const/4 v3, 0x1
 
-    .line 1348
+    .line 1143
     .local v3, "_arg2":Z
     :goto_0
     invoke-virtual {p0, v0, v1, v3}, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->setPackageRemindEnable(Ljava/lang/String;IZ)V
 
-    .line 1349
+    .line 1144
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 1350
+    .line 1145
     return v7
 
+    .line 1142
     .end local v3    # "_arg2":Z
     :cond_1
-    move v3, v6
+    const/4 v3, 0x0
 
-    .line 1347
+    .restart local v3    # "_arg2":Z
     goto :goto_0
 
-    .line 1315
+    .line 1110
     :pswitch_data_0
     .packed-switch 0x2711
         :pswitch_0
@@ -286,10 +287,10 @@
     .param p3, "visibility"    # I
 
     .prologue
-    .line 1363
-    invoke-virtual {p0}, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->checkCallerIsSystemOrSystemUI()V
+    .line 1158
+    invoke-static {}, Lcom/android/server/notification/NotificationManagerService;->checkCallerIsSystemOrSystemUI()V
 
-    .line 1364
+    .line 1159
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->flymeGetFieldRankingHelper()Lcom/android/server/notification/RankingHelper;
@@ -298,12 +299,12 @@
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/notification/RankingHelper;->setPackageHeadsUpVisibility(Ljava/lang/String;II)V
 
-    .line 1365
+    .line 1160
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->savePolicyFile()V
 
-    .line 1362
+    .line 1157
     return-void
 .end method
 
@@ -314,10 +315,10 @@
     .param p3, "enable"    # Z
 
     .prologue
-    .line 1374
-    invoke-virtual {p0}, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->checkCallerIsSystemOrSystemUI()V
+    .line 1169
+    invoke-static {}, Lcom/android/server/notification/NotificationManagerService;->checkCallerIsSystemOrSystemUI()V
 
-    .line 1375
+    .line 1170
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->flymeGetFieldRankingHelper()Lcom/android/server/notification/RankingHelper;
@@ -326,11 +327,11 @@
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/notification/RankingHelper;->setPackageRemindEnable(Ljava/lang/String;IZ)V
 
-    .line 1376
+    .line 1171
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$FlymeExtNotificationManagerServiceInternal;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->savePolicyFile()V
 
-    .line 1373
+    .line 1168
     return-void
 .end method

@@ -12,20 +12,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x408
+    accessFlags = 0x40a
     name = "FloatKeyframesBase"
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method private constructor <init>()V
     .locals 1
 
     .prologue
-    .line 247
+    .line 246
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/animation/PathKeyframes$SimpleKeyframes;-><init>(Landroid/animation/PathKeyframes$SimpleKeyframes;)V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Landroid/animation/PathKeyframes$FloatKeyframesBase;)V
+    .locals 0
+
+    .prologue
+    invoke-direct {p0}, Landroid/animation/PathKeyframes$FloatKeyframesBase;-><init>()V
 
     return-void
 .end method
@@ -36,7 +45,7 @@
     .locals 1
 
     .prologue
-    .line 251
+    .line 250
     const-class v0, Ljava/lang/Float;
 
     return-object v0
@@ -47,7 +56,7 @@
     .param p1, "fraction"    # F
 
     .prologue
-    .line 256
+    .line 255
     invoke-virtual {p0, p1}, Landroid/animation/PathKeyframes$FloatKeyframesBase;->getFloatValue(F)F
 
     move-result v0

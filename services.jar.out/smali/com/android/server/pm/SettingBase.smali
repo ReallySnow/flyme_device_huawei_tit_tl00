@@ -104,7 +104,7 @@
 
     .prologue
     .line 50
-    and-int/lit16 v0, p1, 0x40c
+    and-int/lit8 v0, p1, 0xc
 
     iput v0, p0, Lcom/android/server/pm/SettingBase;->pkgPrivateFlags:I
 

@@ -20,9 +20,9 @@
     .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 58
+    .line 57
     invoke-direct {p0, p1}, Landroid/util/AndroidException;-><init>(Ljava/lang/String;)V
 
-    .line 57
+    .line 56
     return-void
 .end method

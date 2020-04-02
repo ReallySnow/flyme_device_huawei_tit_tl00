@@ -1,26 +1,23 @@
 ## Here is an example for awk.
-
+##
 syntax "awk" "\.awk$"
-magic "awk.*script text"
-comment "#"
-
-# Records.
+## records
 icolor brightred "\$[0-9A-Z_!@#$*?-]+"
-# Awk-set variables.
+## awk-set variables
 color red "\<(ARGC|ARGIND|ARGV|BINMODE|CONVFMT|ENVIRON|ERRNO|FIELDWIDTHS)\>"
 color red "\<(FILENAME|FNR|FS|IGNORECASE|LINT|NF|NR|OFMT|OFS|ORS)\>"
 color red "\<(PROCINFO|RS|RT|RSTART|RLENGTH|SUBSEP|TEXTDOMAIN)\>"
-# Function declarations and special patterns.
+## function declarations and special patterns
 color brightgreen "\<(function|extension|BEGIN|END)\>"
-# Operators.
+## operators
 color green "(\{|\}|\(|\)|\;|\]|\[|\\|<|>|!|=|&|\+|-|\*|%|/|\?:|\^|\|)"
-# Flow control.
+## flow control
 color brightyellow "\<(for|if|while|do|else|in|delete|exit)\>"
 color brightyellow "\<(break|continue|return)\>"
-# I/O statements.
+## I/O statements
 color brightgreen "\<(close|getline|next|nextfile|print|printf)\>"
 color brightgreen "\<(system|fflush)\>"
-# Standard functions.
+## standard functions
 color magenta "\<(atan2|cos|exp|int|log|rand|sin|sqrt|srand)\>"
 color magenta "\<(asort|asorti|gensub|gsub|index|length|match)\>"
 color magenta "\<(split|sprintf|strtonum|sub|substr|tolower|toupper)\>"
@@ -28,10 +25,14 @@ color magenta "\<(mktime|strftime|systime)\>"
 color magenta "\<(and|compl|lshift|or|rshift|xor)\>"
 color magenta "\<(bindtextdomain|dcgettext|dcngettext)\>"
 
-# Strings.
+##
+## String highlighting.  You will in general want your comments and
+## strings to come last, because syntax highlighting rules will be
+## applied in the order they are read in.
 color brightyellow "<[^= 	]*>" ""(\\.|[^"])*""
-# Comments.
+
+## Comment highlighting
 color brightblue "(^|[[:space:]])#.*$"
 
-# Trailing whitespace.
+## Trailing whitespace
 color ,green "[[:space:]]+$"

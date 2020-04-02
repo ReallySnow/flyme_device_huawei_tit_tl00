@@ -6,16 +6,18 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/provider/Telephony$TextBasedSmsColumns;,
+        Landroid/provider/Telephony$Sms;,
         Landroid/provider/Telephony$BaseMmsColumns;,
         Landroid/provider/Telephony$CanonicalAddressesColumns;,
-        Landroid/provider/Telephony$Carriers;,
-        Landroid/provider/Telephony$CellBroadcasts;,
+        Landroid/provider/Telephony$ThreadsColumns;,
+        Landroid/provider/Telephony$Threads;,
         Landroid/provider/Telephony$Mms;,
         Landroid/provider/Telephony$MmsSms;,
-        Landroid/provider/Telephony$Sms;,
-        Landroid/provider/Telephony$TextBasedSmsColumns;,
-        Landroid/provider/Telephony$Threads;,
-        Landroid/provider/Telephony$ThreadsColumns;
+        Landroid/provider/Telephony$Carriers;,
+        Landroid/provider/Telephony$CellBroadcasts;,
+        Landroid/provider/Telephony$Blacklist;,
+        Landroid/provider/Telephony$CdmaCallOptions;
     }
 .end annotation
 
@@ -29,7 +31,7 @@
     .locals 0
 
     .prologue
-    .line 114
+    .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

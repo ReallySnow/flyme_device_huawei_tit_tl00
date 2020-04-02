@@ -118,10 +118,8 @@
 
     monitor-enter v1
 
-    :try_start_0
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
-
     .line 256
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;->this$0:Lcom/android/server/am/ContentProviderRecord;
 
     invoke-virtual {v0}, Lcom/android/server/am/ContentProviderRecord;->hasExternalProcessHandles()Z
@@ -155,9 +153,6 @@
     :cond_0
     monitor-exit v1
 
-    .line 255
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
-
     .line 254
     return-void
 
@@ -166,8 +161,6 @@
     move-exception v0
 
     monitor-exit v1
-
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     throw v0
 .end method

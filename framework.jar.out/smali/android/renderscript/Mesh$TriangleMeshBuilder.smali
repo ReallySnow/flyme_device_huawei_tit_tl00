@@ -76,67 +76,67 @@
 
     const/4 v1, 0x0
 
-    .line 599
+    .line 598
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 563
+    .line 562
     iput v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mNX:F
 
-    .line 564
+    .line 563
     iput v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mNY:F
 
-    .line 565
+    .line 564
     const/high16 v0, -0x40800000    # -1.0f
 
     iput v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mNZ:F
 
-    .line 566
+    .line 565
     iput v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mS0:F
 
-    .line 567
+    .line 566
     iput v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mT0:F
 
-    .line 568
+    .line 567
     iput v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mR:F
 
-    .line 569
+    .line 568
     iput v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mG:F
 
-    .line 570
+    .line 569
     iput v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mB:F
 
-    .line 571
+    .line 570
     iput v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mA:F
 
-    .line 600
+    .line 599
     iput-object p1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
 
-    .line 601
+    .line 600
     iput v3, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
 
-    .line 602
+    .line 601
     iput v3, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
 
-    .line 603
+    .line 602
     iput v3, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexCount:I
 
-    .line 604
+    .line 603
     new-array v0, v4, [F
 
     iput-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
-    .line 605
+    .line 604
     new-array v0, v4, [S
 
     iput-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
 
-    .line 606
+    .line 605
     iput p2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxSize:I
 
-    .line 607
+    .line 606
     iput p3, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
-    .line 609
+    .line 608
     const/4 v0, 0x2
 
     if-lt p2, v0, :cond_0
@@ -145,7 +145,7 @@
 
     if-le p2, v0, :cond_1
 
-    .line 610
+    .line 609
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -155,7 +155,7 @@
 
     throw v0
 
-    .line 599
+    .line 598
     :cond_1
     return-void
 .end method
@@ -166,17 +166,17 @@
     .prologue
     const/4 v3, 0x4
 
-    .line 623
+    .line 622
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
     and-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_0
 
-    .line 624
+    .line 623
     invoke-direct {p0, v3}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->makeSpace(I)V
 
-    .line 625
+    .line 624
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -189,7 +189,7 @@
 
     aput v2, v0, v1
 
-    .line 626
+    .line 625
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -202,7 +202,7 @@
 
     aput v2, v0, v1
 
-    .line 627
+    .line 626
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -215,7 +215,7 @@
 
     aput v2, v0, v1
 
-    .line 628
+    .line 627
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -228,7 +228,7 @@
 
     aput v2, v0, v1
 
-    .line 630
+    .line 629
     :cond_0
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
@@ -236,12 +236,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 631
+    .line 630
     const/4 v0, 0x2
 
     invoke-direct {p0, v0}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->makeSpace(I)V
 
-    .line 632
+    .line 631
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -254,7 +254,7 @@
 
     aput v2, v0, v1
 
-    .line 633
+    .line 632
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -267,7 +267,7 @@
 
     aput v2, v0, v1
 
-    .line 635
+    .line 634
     :cond_1
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
@@ -275,10 +275,10 @@
 
     if-eqz v0, :cond_2
 
-    .line 636
+    .line 635
     invoke-direct {p0, v3}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->makeSpace(I)V
 
-    .line 637
+    .line 636
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -291,7 +291,7 @@
 
     aput v2, v0, v1
 
-    .line 638
+    .line 637
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -304,7 +304,7 @@
 
     aput v2, v0, v1
 
-    .line 639
+    .line 638
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -317,7 +317,7 @@
 
     aput v2, v0, v1
 
-    .line 640
+    .line 639
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -330,7 +330,7 @@
 
     aput v2, v0, v1
 
-    .line 642
+    .line 641
     :cond_2
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
 
@@ -338,7 +338,7 @@
 
     iput v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
 
-    .line 622
+    .line 621
     return-void
 .end method
 
@@ -349,7 +349,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 615
+    .line 614
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
 
     add-int/2addr v1, p1
@@ -360,7 +360,7 @@
 
     if-lt v1, v2, :cond_0
 
-    .line 616
+    .line 615
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     array-length v1, v1
@@ -369,7 +369,7 @@
 
     new-array v0, v1, [F
 
-    .line 617
+    .line 616
     .local v0, "t":[F
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
@@ -379,10 +379,10 @@
 
     invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy([FI[FII)V
 
-    .line 618
+    .line 617
     iput-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
-    .line 614
+    .line 613
     .end local v0    # "t":[F
     :cond_0
     return-void
@@ -399,14 +399,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 761
+    .line 760
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
 
     if-ge p1, v1, :cond_0
 
     if-gez p1, :cond_1
 
-    .line 764
+    .line 763
     :cond_0
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -416,7 +416,7 @@
 
     throw v1
 
-    .line 762
+    .line 761
     :cond_1
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
 
@@ -424,14 +424,14 @@
 
     if-ltz p2, :cond_0
 
-    .line 763
+    .line 762
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
 
     if-ge p3, v1, :cond_0
 
     if-ltz p3, :cond_0
 
-    .line 766
+    .line 765
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexCount:I
 
     add-int/lit8 v1, v1, 0x3
@@ -442,7 +442,7 @@
 
     if-lt v1, v2, :cond_2
 
-    .line 767
+    .line 766
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
 
     array-length v1, v1
@@ -451,7 +451,7 @@
 
     new-array v0, v1, [S
 
-    .line 768
+    .line 767
     .local v0, "t":[S
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
 
@@ -461,10 +461,10 @@
 
     invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy([SI[SII)V
 
-    .line 769
+    .line 768
     iput-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
 
-    .line 771
+    .line 770
     .end local v0    # "t":[S
     :cond_2
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
@@ -479,7 +479,7 @@
 
     aput-short v3, v1, v2
 
-    .line 772
+    .line 771
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
 
     iget v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexCount:I
@@ -492,7 +492,7 @@
 
     aput-short v3, v1, v2
 
-    .line 773
+    .line 772
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
 
     iget v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexCount:I
@@ -505,7 +505,7 @@
 
     aput-short v3, v1, v2
 
-    .line 774
+    .line 773
     return-object p0
 .end method
 
@@ -517,12 +517,12 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 656
+    .line 655
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxSize:I
 
     if-eq v0, v1, :cond_0
 
-    .line 657
+    .line 656
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "add mistmatch with declared components."
@@ -531,9 +531,20 @@
 
     throw v0
 
-    .line 659
+    .line 658
     :cond_0
     invoke-direct {p0, v1}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->makeSpace(I)V
+
+    .line 659
+    iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
+
+    iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
+
+    add-int/lit8 v2, v1, 0x1
+
+    iput v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
+
+    aput p1, v0, v1
 
     .line 660
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
@@ -544,23 +555,12 @@
 
     iput v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
 
-    aput p1, v0, v1
-
-    .line 661
-    iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
-
-    iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
-
-    add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
-
     aput p2, v0, v1
 
-    .line 662
+    .line 661
     invoke-direct {p0}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->latch()V
 
-    .line 663
+    .line 662
     return-object p0
 .end method
 
@@ -571,14 +571,14 @@
     .param p3, "z"    # F
 
     .prologue
-    .line 678
+    .line 677
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxSize:I
 
     const/4 v1, 0x3
 
     if-eq v0, v1, :cond_0
 
-    .line 679
+    .line 678
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "add mistmatch with declared components."
@@ -587,13 +587,13 @@
 
     throw v0
 
-    .line 681
+    .line 680
     :cond_0
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->makeSpace(I)V
 
-    .line 682
+    .line 681
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -604,7 +604,7 @@
 
     aput p1, v0, v1
 
-    .line 683
+    .line 682
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -615,7 +615,7 @@
 
     aput p2, v0, v1
 
-    .line 684
+    .line 683
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -626,7 +626,7 @@
 
     aput p3, v0, v1
 
-    .line 685
+    .line 684
     iget-object v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxCount:I
@@ -639,10 +639,10 @@
 
     aput v2, v0, v1
 
-    .line 686
+    .line 685
     invoke-direct {p0}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->latch()V
 
-    .line 687
+    .line 686
     return-object p0
 .end method
 
@@ -655,42 +655,42 @@
 
     const/4 v7, 0x0
 
-    .line 793
+    .line 792
     new-instance v0, Landroid/renderscript/Element$Builder;
 
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-direct {v0, v4}, Landroid/renderscript/Element$Builder;-><init>(Landroid/renderscript/RenderScript;)V
 
-    .line 794
+    .line 793
     .local v0, "b":Landroid/renderscript/Element$Builder;
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
 
-    .line 795
+    .line 794
     sget-object v5, Landroid/renderscript/Element$DataType;->FLOAT_32:Landroid/renderscript/Element$DataType;
 
-    .line 796
+    .line 795
     iget v6, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxSize:I
 
-    .line 794
+    .line 793
     invoke-static {v4, v5, v6}, Landroid/renderscript/Element;->createVector(Landroid/renderscript/RenderScript;Landroid/renderscript/Element$DataType;I)Landroid/renderscript/Element;
 
     move-result-object v4
 
-    .line 796
+    .line 795
     const-string/jumbo v5, "position"
 
-    .line 794
+    .line 793
     invoke-virtual {v0, v4, v5}, Landroid/renderscript/Element$Builder;->add(Landroid/renderscript/Element;Ljava/lang/String;)Landroid/renderscript/Element$Builder;
 
-    .line 797
+    .line 796
     iget v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
     and-int/lit8 v4, v4, 0x1
 
     if-eqz v4, :cond_0
 
-    .line 798
+    .line 797
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v4}, Landroid/renderscript/Element;->F32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -701,7 +701,7 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/renderscript/Element$Builder;->add(Landroid/renderscript/Element;Ljava/lang/String;)Landroid/renderscript/Element$Builder;
 
-    .line 800
+    .line 799
     :cond_0
     iget v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
@@ -709,7 +709,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 801
+    .line 800
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v4}, Landroid/renderscript/Element;->F32_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -720,7 +720,7 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/renderscript/Element$Builder;->add(Landroid/renderscript/Element;Ljava/lang/String;)Landroid/renderscript/Element$Builder;
 
-    .line 803
+    .line 802
     :cond_1
     iget v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
@@ -728,7 +728,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 804
+    .line 803
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v4}, Landroid/renderscript/Element;->F32_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -739,7 +739,7 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/renderscript/Element$Builder;->add(Landroid/renderscript/Element;Ljava/lang/String;)Landroid/renderscript/Element$Builder;
 
-    .line 806
+    .line 805
     :cond_2
     invoke-virtual {v0}, Landroid/renderscript/Element$Builder;->create()Landroid/renderscript/Element;
 
@@ -747,17 +747,17 @@
 
     iput-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mElement:Landroid/renderscript/Element;
 
-    .line 808
+    .line 807
     const/4 v3, 0x1
 
-    .line 809
+    .line 808
     .local v3, "usage":I
     if-eqz p1, :cond_3
 
-    .line 810
+    .line 809
     const/4 v3, 0x5
 
-    .line 813
+    .line 812
     :cond_3
     new-instance v2, Landroid/renderscript/Mesh$Builder;
 
@@ -765,7 +765,7 @@
 
     invoke-direct {v2, v4, v3}, Landroid/renderscript/Mesh$Builder;-><init>(Landroid/renderscript/RenderScript;I)V
 
-    .line 814
+    .line 813
     .local v2, "smb":Landroid/renderscript/Mesh$Builder;
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mElement:Landroid/renderscript/Element;
 
@@ -773,7 +773,7 @@
 
     invoke-virtual {v2, v4, v5}, Landroid/renderscript/Mesh$Builder;->addVertexType(Landroid/renderscript/Element;I)Landroid/renderscript/Mesh$Builder;
 
-    .line 815
+    .line 814
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v4}, Landroid/renderscript/Element;->U16(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
@@ -786,12 +786,12 @@
 
     invoke-virtual {v2, v4, v5, v6}, Landroid/renderscript/Mesh$Builder;->addIndexSetType(Landroid/renderscript/Element;ILandroid/renderscript/Mesh$Primitive;)Landroid/renderscript/Mesh$Builder;
 
-    .line 817
+    .line 816
     invoke-virtual {v2}, Landroid/renderscript/Mesh$Builder;->create()Landroid/renderscript/Mesh;
 
     move-result-object v1
 
-    .line 819
+    .line 818
     .local v1, "sm":Landroid/renderscript/Mesh;
     invoke-virtual {v1, v7}, Landroid/renderscript/Mesh;->getVertexAllocation(I)Landroid/renderscript/Allocation;
 
@@ -803,17 +803,17 @@
 
     invoke-virtual {v4, v7, v5, v6}, Landroid/renderscript/Allocation;->copy1DRangeFromUnchecked(II[F)V
 
-    .line 820
+    .line 819
     if-eqz p1, :cond_4
 
-    .line 821
+    .line 820
     invoke-virtual {v1, v7}, Landroid/renderscript/Mesh;->getVertexAllocation(I)Landroid/renderscript/Allocation;
 
     move-result-object v4
 
     invoke-virtual {v4, v8}, Landroid/renderscript/Allocation;->syncAll(I)V
 
-    .line 824
+    .line 823
     :cond_4
     invoke-virtual {v1, v7}, Landroid/renderscript/Mesh;->getIndexSetAllocation(I)Landroid/renderscript/Allocation;
 
@@ -825,17 +825,17 @@
 
     invoke-virtual {v4, v7, v5, v6}, Landroid/renderscript/Allocation;->copy1DRangeFromUnchecked(II[S)V
 
-    .line 825
+    .line 824
     if-eqz p1, :cond_5
 
-    .line 826
+    .line 825
     invoke-virtual {v1, v7}, Landroid/renderscript/Mesh;->getIndexSetAllocation(I)Landroid/renderscript/Allocation;
 
     move-result-object v4
 
     invoke-virtual {v4, v8}, Landroid/renderscript/Allocation;->syncAll(I)V
 
-    .line 829
+    .line 828
     :cond_5
     return-object v1
 .end method
@@ -848,14 +848,14 @@
     .param p4, "a"    # F
 
     .prologue
-    .line 740
+    .line 739
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
     and-int/lit8 v0, v0, 0x1
 
     if-nez v0, :cond_0
 
-    .line 741
+    .line 740
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "add mistmatch with declared components."
@@ -864,20 +864,20 @@
 
     throw v0
 
-    .line 743
+    .line 742
     :cond_0
     iput p1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mR:F
 
-    .line 744
+    .line 743
     iput p2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mG:F
 
-    .line 745
+    .line 744
     iput p3, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mB:F
 
-    .line 746
+    .line 745
     iput p4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mA:F
 
-    .line 747
+    .line 746
     return-object p0
 .end method
 
@@ -888,14 +888,14 @@
     .param p3, "z"    # F
 
     .prologue
-    .line 719
+    .line 718
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
     and-int/lit8 v0, v0, 0x2
 
     if-nez v0, :cond_0
 
-    .line 720
+    .line 719
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "add mistmatch with declared components."
@@ -904,17 +904,17 @@
 
     throw v0
 
-    .line 722
+    .line 721
     :cond_0
     iput p1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mNX:F
 
-    .line 723
+    .line 722
     iput p2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mNY:F
 
-    .line 724
+    .line 723
     iput p3, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mNZ:F
 
-    .line 725
+    .line 724
     return-object p0
 .end method
 
@@ -924,14 +924,14 @@
     .param p2, "t"    # F
 
     .prologue
-    .line 700
+    .line 699
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
     and-int/lit16 v0, v0, 0x100
 
     if-nez v0, :cond_0
 
-    .line 701
+    .line 700
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "add mistmatch with declared components."
@@ -940,13 +940,13 @@
 
     throw v0
 
-    .line 703
+    .line 702
     :cond_0
     iput p1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mS0:F
 
-    .line 704
+    .line 703
     iput p2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mT0:F
 
-    .line 705
+    .line 704
     return-object p0
 .end method

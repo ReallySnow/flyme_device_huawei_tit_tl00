@@ -6,9 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/provider/MzSettings$System;,
         Landroid/provider/MzSettings$Global;,
-        Landroid/provider/MzSettings$Secure;,
-        Landroid/provider/MzSettings$System;
+        Landroid/provider/MzSettings$Secure;
     }
 .end annotation
 
@@ -18,7 +18,7 @@
     .locals 0
 
     .prologue
-    .line 22
+    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

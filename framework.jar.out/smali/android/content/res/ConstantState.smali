@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 32
+    .line 30
     .local p0, "this":Landroid/content/res/ConstantState;, "Landroid/content/res/ConstantState<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -51,7 +51,7 @@
     .end annotation
 
     .prologue
-    .line 53
+    .line 51
     .local p0, "this":Landroid/content/res/ConstantState;, "Landroid/content/res/ConstantState<TT;>;"
     invoke-virtual {p0}, Landroid/content/res/ConstantState;->newInstance()Ljava/lang/Object;
 
@@ -74,7 +74,7 @@
     .end annotation
 
     .prologue
-    .line 61
+    .line 59
     .local p0, "this":Landroid/content/res/ConstantState;, "Landroid/content/res/ConstantState<TT;>;"
     invoke-virtual {p0, p1}, Landroid/content/res/ConstantState;->newInstance(Landroid/content/res/Resources;)Ljava/lang/Object;
 

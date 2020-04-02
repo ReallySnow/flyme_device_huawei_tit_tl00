@@ -15,7 +15,6 @@
 
 
 # static fields
-
 .field public static final SizeAdaptiveLayout:[I
 
 .field public static final SizeAdaptiveLayout_Layout:[I
@@ -68,10 +67,6 @@
 
 .field public static final AccessibilityService_accessibilityFlags:I = 0x6
 
-.field public static final AccessibilityService_canControlMagnification:I = 0xb
-
-.field public static final AccessibilityService_canPerformGestures:I = 0xc
-
 .field public static final AccessibilityService_canRequestEnhancedWebAccessibility:I = 0x9
 
 .field public static final AccessibilityService_canRequestFilterKeyEvents:I = 0xa
@@ -116,15 +111,11 @@
 
 .field public static final ActionBar_contentInsetEnd:I = 0x17
 
-.field public static final ActionBar_contentInsetEndWithActions:I = 0x1c
-
 .field public static final ActionBar_contentInsetLeft:I = 0x18
 
 .field public static final ActionBar_contentInsetRight:I = 0x19
 
 .field public static final ActionBar_contentInsetStart:I = 0x16
-
-.field public static final ActionBar_contentInsetStartWithNavigation:I = 0x1b
 
 .field public static final ActionBar_customNavigationLayout:I = 0xa
 
@@ -183,12 +174,6 @@
 .field public static final ActionMode_titleTextStyle:I = 0x2
 
 .field public static final ActivityChooserView:[I
-
-.field public static final ActivityTaskDescription:[I
-
-.field public static final ActivityTaskDescription_colorBackground:I = 0x0
-
-.field public static final ActivityTaskDescription_colorPrimary:I = 0x1
 
 .field public static final AdapterViewAnimator:[I
 
@@ -288,8 +273,6 @@
 
 .field public static final AndroidManifestActivityAlias_permission:I = 0x3
 
-.field public static final AndroidManifestActivityAlias_roundIcon:I = 0xb
-
 .field public static final AndroidManifestActivityAlias_targetActivity:I = 0x7
 
 .field public static final AndroidManifestActivity_allowEmbedded:I = 0x1f
@@ -308,11 +291,7 @@
 
 .field public static final AndroidManifestActivity_description:I = 0x11
 
-.field public static final AndroidManifestActivity_directBootAware:I = 0x2a
-
 .field public static final AndroidManifestActivity_documentLaunchMode:I = 0x21
-
-.field public static final AndroidManifestActivity_enableVrMode:I = 0x2b
 
 .field public static final AndroidManifestActivity_enabled:I = 0x5
 
@@ -356,11 +335,7 @@
 
 .field public static final AndroidManifestActivity_relinquishTaskIdentity:I = 0x24
 
-.field public static final AndroidManifestActivity_resizeableActivity:I = 0x28
-
 .field public static final AndroidManifestActivity_resumeWhilePausing:I = 0x25
-
-.field public static final AndroidManifestActivity_roundIcon:I = 0x2c
 
 .field public static final AndroidManifestActivity_screenOrientation:I = 0xf
 
@@ -374,8 +349,6 @@
 .field public static final AndroidManifestActivity_singleUser:I = 0x1c
 
 .field public static final AndroidManifestActivity_stateNotNeeded:I = 0xc
-
-.field public static final AndroidManifestActivity_supportsPictureInPicture:I = 0x29
 
 .field public static final AndroidManifestActivity_taskAffinity:I = 0x8
 
@@ -395,17 +368,11 @@
 
 .field public static final AndroidManifestApplication_backupAgent:I = 0x10
 
-.field public static final AndroidManifestApplication_backupInForeground:I = 0x28
-
 .field public static final AndroidManifestApplication_banner:I = 0x1e
 
 .field public static final AndroidManifestApplication_debuggable:I = 0xa
 
-.field public static final AndroidManifestApplication_defaultToDeviceProtectedStorage:I = 0x26
-
 .field public static final AndroidManifestApplication_description:I = 0xd
-
-.field public static final AndroidManifestApplication_directBootAware:I = 0x27
 
 .field public static final AndroidManifestApplication_enabled:I = 0x9
 
@@ -437,8 +404,6 @@
 
 .field public static final AndroidManifestApplication_name:I = 0x3
 
-.field public static final AndroidManifestApplication_networkSecurityConfig:I = 0x29
-
 .field public static final AndroidManifestApplication_permission:I = 0x6
 
 .field public static final AndroidManifestApplication_persistent:I = 0x8
@@ -449,8 +414,6 @@
 
 .field public static final AndroidManifestApplication_requiredForAllUsers:I = 0x1b
 
-.field public static final AndroidManifestApplication_resizeableActivity:I = 0x25
-
 .field public static final AndroidManifestApplication_restoreAnyVersion:I = 0x15
 
 .field public static final AndroidManifestApplication_restoreNeedsApplication:I = 0x13
@@ -459,8 +422,6 @@
 .end field
 
 .field public static final AndroidManifestApplication_restrictedAccountType:I = 0x1c
-
-.field public static final AndroidManifestApplication_roundIcon:I = 0x2a
 
 .field public static final AndroidManifestApplication_supportsRtl:I = 0x1a
 
@@ -536,8 +497,6 @@
 
 .field public static final AndroidManifestInstrumentation_name:I = 0x2
 
-.field public static final AndroidManifestInstrumentation_roundIcon:I = 0x8
-
 .field public static final AndroidManifestInstrumentation_targetPackage:I = 0x3
 
 .field public static final AndroidManifestIntentFilter:[I
@@ -554,23 +513,9 @@
 
 .field public static final AndroidManifestIntentFilter_priority:I = 0x2
 
-.field public static final AndroidManifestIntentFilter_roundIcon:I = 0x6
-
 .field public static final AndroidManifestKeySet:[I
 
 .field public static final AndroidManifestKeySet_name:I = 0x0
-
-.field public static final AndroidManifestLayout:[I
-
-.field public static final AndroidManifestLayout_defaultHeight:I = 0x4
-
-.field public static final AndroidManifestLayout_defaultWidth:I = 0x3
-
-.field public static final AndroidManifestLayout_gravity:I = 0x0
-
-.field public static final AndroidManifestLayout_minHeight:I = 0x2
-
-.field public static final AndroidManifestLayout_minWidth:I = 0x1
 
 .field public static final AndroidManifestLibrary:[I
 
@@ -628,8 +573,6 @@
 
 .field public static final AndroidManifestPermissionGroup_priority:I = 0x3
 
-.field public static final AndroidManifestPermissionGroup_roundIcon:I = 0x8
-
 .field public static final AndroidManifestPermissionTree:[I
 
 .field public static final AndroidManifestPermissionTree_banner:I = 0x4
@@ -641,8 +584,6 @@
 .field public static final AndroidManifestPermissionTree_logo:I = 0x3
 
 .field public static final AndroidManifestPermissionTree_name:I = 0x2
-
-.field public static final AndroidManifestPermissionTree_roundIcon:I = 0x5
 
 .field public static final AndroidManifestPermission_banner:I = 0x8
 
@@ -662,8 +603,6 @@
 
 .field public static final AndroidManifestPermission_protectionLevel:I = 0x3
 
-.field public static final AndroidManifestPermission_roundIcon:I = 0x9
-
 .field public static final AndroidManifestProtectedBroadcast:[I
 
 .field public static final AndroidManifestProtectedBroadcast_name:I = 0x0
@@ -677,8 +616,6 @@
 .field public static final AndroidManifestProvider_banner:I = 0x11
 
 .field public static final AndroidManifestProvider_description:I = 0xe
-
-.field public static final AndroidManifestProvider_directBootAware:I = 0x12
 
 .field public static final AndroidManifestProvider_enabled:I = 0x6
 
@@ -704,8 +641,6 @@
 
 .field public static final AndroidManifestProvider_readPermission:I = 0x4
 
-.field public static final AndroidManifestProvider_roundIcon:I = 0x13
-
 .field public static final AndroidManifestProvider_singleUser:I = 0x10
 
 .field public static final AndroidManifestProvider_syncable:I = 0xb
@@ -724,8 +659,6 @@
 
 .field public static final AndroidManifestReceiver_description:I = 0x7
 
-.field public static final AndroidManifestReceiver_directBootAware:I = 0xb
-
 .field public static final AndroidManifestReceiver_enabled:I = 0x4
 
 .field public static final AndroidManifestReceiver_exported:I = 0x5
@@ -742,8 +675,6 @@
 
 .field public static final AndroidManifestReceiver_process:I = 0x6
 
-.field public static final AndroidManifestReceiver_roundIcon:I = 0xc
-
 .field public static final AndroidManifestReceiver_singleUser:I = 0x9
 
 .field public static final AndroidManifestResourceOverlay:[I
@@ -752,23 +683,15 @@
 
 .field public static final AndroidManifestResourceOverlay_targetPackage:I = 0x1
 
-.field public static final AndroidManifestRestrictUpdate:[I
-
-.field public static final AndroidManifestRestrictUpdate_hash:I = 0x0
-
 .field public static final AndroidManifestService:[I
 
 .field public static final AndroidManifestService_banner:I = 0xc
 
 .field public static final AndroidManifestService_description:I = 0x7
 
-.field public static final AndroidManifestService_directBootAware:I = 0xd
-
 .field public static final AndroidManifestService_enabled:I = 0x4
 
 .field public static final AndroidManifestService_exported:I = 0x5
-
-.field public static final AndroidManifestService_externalService:I = 0xe
 
 .field public static final AndroidManifestService_icon:I = 0x1
 
@@ -783,8 +706,6 @@
 .field public static final AndroidManifestService_permission:I = 0x3
 
 .field public static final AndroidManifestService_process:I = 0x6
-
-.field public static final AndroidManifestService_roundIcon:I = 0xf
 
 .field public static final AndroidManifestService_singleUser:I = 0xb
 
@@ -840,8 +761,6 @@
 .field public static final AndroidManifestUsesFeature_name:I = 0x0
 
 .field public static final AndroidManifestUsesFeature_required:I = 0x2
-
-.field public static final AndroidManifestUsesFeature_version:I = 0x3
 
 .field public static final AndroidManifestUsesLibrary:[I
 
@@ -942,12 +861,6 @@
 .field public static final AnimationDrawable_variablePadding:I = 0x1
 
 .field public static final AnimationDrawable_visible:I = 0x0
-
-.field public static final AnimationScaleListDrawable:[I
-
-.field public static final AnimationScaleListDrawableItem:[I
-
-.field public static final AnimationScaleListDrawableItem_drawable:I = 0x0
 
 .field public static final AnimationSet:[I
 
@@ -1069,8 +982,6 @@
 
 .field public static final AutoCompleteTextView_inputType:I = 0x4
 
-.field public static final AutoCompleteTextView_popupTheme:I = 0x8
-
 .field public static final BitmapDrawable:[I
 
 .field public static final BitmapDrawable_alpha:I = 0x7
@@ -1185,8 +1096,6 @@
 
 .field public static final Chronometer:[I
 
-.field public static final Chronometer_countDown:I = 0x1
-
 .field public static final Chronometer_format:I = 0x0
 
 .field public static final ClipDrawable:[I
@@ -1298,8 +1207,6 @@
     .end annotation
 .end field
 
-.field public static final DateTimeView:[I
-
 .field public static final DecelerateInterpolator:[I
 
 .field public static final DecelerateInterpolator_factor:I = 0x0
@@ -1371,10 +1278,6 @@
 .field public static final DrawableStates_state_single:I = 0x7
 
 .field public static final DrawableStates_state_window_focused:I = 0x1
-
-.field public static final DrawableWrapper:[I
-
-.field public static final DrawableWrapper_drawable:I = 0x0
 
 .field public static final Drawable_autoMirrored:I = 0x1
 
@@ -1550,38 +1453,6 @@
     .end annotation
 .end field
 
-.field public static final GradientColor:[I
-
-.field public static final GradientColorItem:[I
-
-.field public static final GradientColorItem_color:I = 0x0
-
-.field public static final GradientColorItem_offset:I = 0x1
-
-.field public static final GradientColor_centerColor:I = 0x7
-
-.field public static final GradientColor_centerX:I = 0x3
-
-.field public static final GradientColor_centerY:I = 0x4
-
-.field public static final GradientColor_endColor:I = 0x1
-
-.field public static final GradientColor_endX:I = 0xa
-
-.field public static final GradientColor_endY:I = 0xb
-
-.field public static final GradientColor_gradientRadius:I = 0x5
-
-.field public static final GradientColor_startColor:I = 0x0
-
-.field public static final GradientColor_startX:I = 0x8
-
-.field public static final GradientColor_startY:I = 0x9
-
-.field public static final GradientColor_tileMode:I = 0x6
-
-.field public static final GradientColor_type:I = 0x2
-
 .field public static final GradientDrawable:[I
 
 .field public static final GradientDrawableGradient:[I
@@ -1724,10 +1595,6 @@
 
 .field public static final HostApduService_settingsActivity:I = 0x1
 
-.field public static final HostNfcFService:[I
-
-.field public static final HostNfcFService_description:I = 0x0
-
 .field public static final Icon:[I
 
 .field public static final IconDefault:[I
@@ -1805,8 +1672,6 @@
 .field public static final InputMethod_Subtype_isAuxiliary:I = 0x5
 
 .field public static final InputMethod_Subtype_label:I = 0x0
-
-.field public static final InputMethod_Subtype_languageTag:I = 0x9
 
 .field public static final InputMethod_Subtype_overridesImplicitlyEnabledSubtype:I = 0x6
 
@@ -2182,27 +2047,15 @@
 
 .field public static final MenuView_itemTextAppearance:I = 0x1
 
-.field public static final MenuView_subMenuArrow:I = 0x7
-
 .field public static final MenuView_verticalDivider:I = 0x3
 
 .field public static final MenuView_windowAnimationStyle:I = 0x0
-
-.field public static final MessagingLinearLayout:[I
-
-.field public static final MessagingLinearLayout_maxHeight:I = 0x1
-
-.field public static final MessagingLinearLayout_spacing:I = 0x0
 
 .field public static final MultiSelectListPreference:[I
 
 .field public static final MultiSelectListPreference_entries:I = 0x0
 
 .field public static final MultiSelectListPreference_entryValues:I = 0x1
-
-.field public static final Nfcid2Filter:[I
-
-.field public static final Nfcid2Filter_name:I = 0x0
 
 .field public static final NinePatchDrawable:[I
 
@@ -2256,12 +2109,6 @@
 
 .field public static final PointerIcon:[I
 
-.field public static final PointerIcon_bitmap:I = 0x0
-
-.field public static final PointerIcon_hotSpotX:I = 0x1
-
-.field public static final PointerIcon_hotSpotY:I = 0x2
-
 .field public static final PopupWindow:[I
 
 .field public static final PopupWindowBackgroundState:[I
@@ -2276,10 +2123,6 @@
 
 .field public static final PopupWindow_popupElevation:I = 0x3
 
-.field public static final PopupWindow_popupEnterTransition:I = 0x4
-
-.field public static final PopupWindow_popupExitTransition:I = 0x5
-
 .field public static final Preference:[I
 
 .field public static final PreferenceActivity:[I
@@ -2287,8 +2130,6 @@
 .field public static final PreferenceActivity_layout:I = 0x0
 
 .field public static final PreferenceFragment:[I
-
-.field public static final PreferenceFragment_divider:I = 0x1
 
 .field public static final PreferenceFragment_layout:I = 0x0
 
@@ -2315,10 +2156,6 @@
 .field public static final PreferenceHeader_summary:I = 0x3
 
 .field public static final PreferenceHeader_title:I = 0x2
-
-.field public static final PreferenceScreen:[I
-
-.field public static final PreferenceScreen_divider:I = 0x0
 
 .field public static final Preference_defaultValue:I = 0xb
 
@@ -2477,8 +2314,6 @@
 
 .field public static final RecognitionService_settingsActivity:I = 0x0
 
-.field public static final RecycleListView:[I
-
 .field public static final RelativeLayout:[I
 
 .field public static final RelativeLayout_Layout:[I
@@ -2617,8 +2452,6 @@
 
 .field public static final ScaleDrawable_drawable:I = 0x0
 
-.field public static final ScaleDrawable_level:I = 0x5
-
 .field public static final ScaleDrawable_scaleGravity:I = 0x3
 
 .field public static final ScaleDrawable_scaleHeight:I = 0x2
@@ -2740,12 +2573,6 @@
 
 .field public static final SeekBar_thumbTintMode:I = 0x4
 
-.field public static final SeekBar_tickMark:I = 0x5
-
-.field public static final SeekBar_tickMarkTint:I = 0x6
-
-.field public static final SeekBar_tickMarkTintMode:I = 0x7
-
 .field public static final SelectionModeDrawables:[I
 
 .field public static final SelectionModeDrawables_actionModeCopyDrawable:I = 0x1
@@ -2788,24 +2615,6 @@
 
 .field public static final ShapeDrawable_width:I = 0x3
 
-.field public static final Shortcut:[I
-
-.field public static final ShortcutCategories:[I
-
-.field public static final ShortcutCategories_name:I = 0x0
-
-.field public static final Shortcut_enabled:I = 0x1
-
-.field public static final Shortcut_icon:I = 0x0
-
-.field public static final Shortcut_shortcutDisabledMessage:I = 0x5
-
-.field public static final Shortcut_shortcutId:I = 0x2
-
-.field public static final Shortcut_shortcutLongLabel:I = 0x4
-
-.field public static final Shortcut_shortcutShortLabel:I = 0x3
-
 .field public static final Slide:[I
 
 .field public static final Slide_slideEdge:I = 0x0
@@ -2836,11 +2645,7 @@
 
 .field public static final SpellChecker_Subtype_label:I = 0x0
 
-.field public static final SpellChecker_Subtype_languageTag:I = 0x4
-
 .field public static final SpellChecker_Subtype_subtypeExtraValue:I = 0x2
-
-.field public static final SpellChecker_Subtype_subtypeId:I = 0x3
 
 .field public static final SpellChecker_Subtype_subtypeLocale:I = 0x1
 
@@ -2953,10 +2758,6 @@
 .field public static final SyncAdapter_supportsUploading:I = 0x4
 
 .field public static final SyncAdapter_userVisible:I = 0x3
-
-.field public static final SystemCodeFilter:[I
-
-.field public static final SystemCodeFilter_name:I = 0x0
 
 .field public static final TabWidget:[I
 
@@ -3378,10 +3179,6 @@
 
 .field public static final Theme_colorPrimaryDark:I = 0xe4
 
-.field public static final Theme_colorSecondary:I = 0x10f
-
-.field public static final Theme_contextPopupMenuStyle:I = 0x10a
-
 .field public static final Theme_datePickerDialogTheme:I = 0xfc
 
 .field public static final Theme_datePickerStyle:I = 0xb7
@@ -3470,8 +3267,6 @@
 
 .field public static final Theme_listDividerAlertDialog:I = 0x97
 
-.field public static final Theme_listMenuViewStyle:I = 0x109
-
 .field public static final Theme_listPopupWindowStyle:I = 0x93
 
 .field public static final Theme_listPreferredItemHeight:I = 0x1d
@@ -3498,8 +3293,6 @@
 
 .field public static final Theme_mediaRouteButtonStyle:I = 0xd2
 
-.field public static final Theme_numberPickerStyle:I = 0x10e
-
 .field public static final Theme_panelBackground:I = 0x2e
 
 .field public static final Theme_panelColorBackground:I = 0x31
@@ -3515,8 +3308,6 @@
 .field public static final Theme_popupWindowStyle:I = 0x3f
 
 .field public static final Theme_preferenceCategoryStyle:I = 0x54
-
-.field public static final Theme_preferenceFragmentStyle:I = 0x10d
 
 .field public static final Theme_preferenceInformationStyle:I = 0x55
 
@@ -3618,8 +3409,6 @@
 
 .field public static final Theme_textAppearanceMediumInverse:I = 0x14
 
-.field public static final Theme_textAppearancePopupMenuHeader:I = 0x10b
-
 .field public static final Theme_textAppearanceSearchResultSubtitle:I = 0x73
 
 .field public static final Theme_textAppearanceSearchResultTitle:I = 0x74
@@ -3713,8 +3502,6 @@
 .field public static final Theme_windowAnimationStyle:I = 0x5d
 
 .field public static final Theme_windowBackground:I = 0x24
-
-.field public static final Theme_windowBackgroundFallback:I = 0x10c
 
 .field public static final Theme_windowCloseOnTouchOutside:I = 0xb6
 
@@ -3828,15 +3615,9 @@
 
 .field public static final Toolbar_LayoutParams_layout_gravity:I = 0x0
 
-.field public static final Toolbar_buttonGravity:I = 0x17
-
 .field public static final Toolbar_collapseContentDescription:I = 0xd
 
-.field public static final Toolbar_collapseIcon:I = 0x18
-
 .field public static final Toolbar_contentInsetEnd:I = 0x7
-
-.field public static final Toolbar_contentInsetEndWithActions:I = 0x1a
 
 .field public static final Toolbar_contentInsetLeft:I = 0x8
 
@@ -3844,15 +3625,11 @@
 
 .field public static final Toolbar_contentInsetStart:I = 0x6
 
-.field public static final Toolbar_contentInsetStartWithNavigation:I = 0x19
-
 .field public static final Toolbar_gravity:I = 0x0
 
 .field public static final Toolbar_logo:I = 0x2
 
 .field public static final Toolbar_logoDescription:I = 0x10
-
-.field public static final Toolbar_maxButtonHeight:I = 0x16
 
 .field public static final Toolbar_navigationContentDescription:I = 0xc
 
@@ -3867,16 +3644,6 @@
 .field public static final Toolbar_subtitleTextColor:I = 0xf
 
 .field public static final Toolbar_title:I = 0x1
-
-.field public static final Toolbar_titleMargin:I = 0x11
-
-.field public static final Toolbar_titleMarginBottom:I = 0x15
-
-.field public static final Toolbar_titleMarginEnd:I = 0x13
-
-.field public static final Toolbar_titleMarginStart:I = 0x12
-
-.field public static final Toolbar_titleMarginTop:I = 0x14
 
 .field public static final Toolbar_titleTextAppearance:I = 0x4
 
@@ -3938,13 +3705,9 @@
 
 .field public static final TvInputService:[I
 
-.field public static final TvInputService_canRecord:I = 0x2
-
 .field public static final TvInputService_settingsActivity:I = 0x0
 
 .field public static final TvInputService_setupActivity:I = 0x1
-
-.field public static final TvInputService_tunerCount:I = 0x3
 
 .field public static final TwoLineListItem:[I
 
@@ -3981,8 +3744,6 @@
 .field public static final VectorDrawablePath_fillAlpha:I = 0xc
 
 .field public static final VectorDrawablePath_fillColor:I = 0x1
-
-.field public static final VectorDrawablePath_fillType:I = 0xd
 
 .field public static final VectorDrawablePath_name:I = 0x0
 
@@ -4176,8 +3937,6 @@
 
 .field public static final View_focusableInTouchMode:I = 0x14
 
-.field public static final View_forceHasOverlappingRendering:I = 0x57
-
 .field public static final View_foreground:I = 0x23
 
 .field public static final View_foregroundGravity:I = 0x26
@@ -4239,8 +3998,6 @@
 .field public static final View_paddingStart:I = 0x44
 
 .field public static final View_paddingTop:I = 0x10
-
-.field public static final View_pointerIcon:I = 0x56
 
 .field public static final View_requiresFadingEdge:I = 0x3f
 
@@ -4338,8 +4095,6 @@
 
 .field public static final VoiceInteractionService_supportsLaunchVoiceAssistFromKeyguard:I = 0x4
 
-.field public static final VoiceInteractionService_supportsLocalInteraction:I = 0x5
-
 .field public static final VoiceInteractionSession:[I
 
 .field public static final VolumePreference:[I
@@ -4354,15 +4109,9 @@
 
 .field public static final Wallpaper_author:I = 0x3
 
-.field public static final Wallpaper_contextDescription:I = 0x5
-
-.field public static final Wallpaper_contextUri:I = 0x4
-
 .field public static final Wallpaper_description:I = 0x0
 
 .field public static final Wallpaper_settingsActivity:I = 0x1
-
-.field public static final Wallpaper_showMetadataInPreview:I = 0x6
 
 .field public static final Wallpaper_thumbnail:I = 0x2
 
@@ -4450,8 +4199,6 @@
 
 .field public static final Window_windowBackground:I = 0x1
 
-.field public static final Window_windowBackgroundFallback:I = 0x2f
-
 .field public static final Window_windowClipToOutline:I = 0x27
 
 .field public static final Window_windowCloseOnTouchOutside:I = 0x15
@@ -4526,7 +4273,7 @@
     .locals 10
 
     .prologue
-    const/4 v9, 0x7
+    const v9, #android:attr@settingsActivity#t
 
     const/4 v8, 0x6
 
@@ -4536,7 +4283,7 @@
 
     const/4 v5, 0x0
 
-    .line 16559
+    .line 16224
     const/16 v0, 0xc
 
     new-array v0, v0, [I
@@ -4571,7 +4318,7 @@
 
     sput-object v0, Landroid/R$styleable;->AccelerateInterpolator:[I
 
-    const/16 v0, 0xd
+    const/16 v0, 0xb
 
     new-array v0, v0, [I
 
@@ -4579,15 +4326,15 @@
 
     sput-object v0, Landroid/R$styleable;->AccessibilityService:[I
 
-    .line 17290
+    .line 16904
     new-array v0, v8, [I
 
     fill-array-data v0, :array_2
 
     sput-object v0, Landroid/R$styleable;->AccountAuthenticator:[I
 
-    .line 17453
-    const/16 v0, 0x1d
+    .line 17061
+    const/16 v0, 0x1b
 
     new-array v0, v0, [I
 
@@ -4626,16 +4373,6 @@
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->ActivityChooserView:[I
-
-    const v0, #android:attr@colorBackground#t
-
-    const v1, #android:attr@colorPrimary#t
-
-    filled-new-array {v0, v1}, [I
-
-    move-result-object v0
-
-    sput-object v0, Landroid/R$styleable;->ActivityTaskDescription:[I
 
     const v0, #android:attr@inAnimation#t
 
@@ -4683,7 +4420,7 @@
 
     sput-object v0, Landroid/R$styleable;->AidPrefixFilter:[I
 
-    const/16 v0, 0x16
+    const/16 v0, 0x13
 
     new-array v0, v0, [I
 
@@ -4725,7 +4462,7 @@
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestAction:[I
 
-    const/16 v0, 0x2f
+    const/16 v0, 0x2a
 
     add-int/lit8 v0, v0, 0x1
 
@@ -4735,8 +4472,8 @@
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestActivity:[I
 
-    .line 20479
-    const/16 v0, 0xc
+    .line 19845
+    const/16 v0, 0xb
 
     new-array v0, v0, [I
 
@@ -4744,8 +4481,8 @@
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestActivityAlias:[I
 
-    .line 20890
-    const/16 v0, 0x2c
+    .line 20213
+    const/16 v0, 0x27
 
     new-array v0, v0, [I
 
@@ -4797,7 +4534,7 @@
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestGrantUriPermission:[I
 
-    const/16 v0, 0x9
+    const/16 v0, 0x8
 
     new-array v0, v0, [I
 
@@ -4805,7 +4542,7 @@
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestInstrumentation:[I
 
-    new-array v0, v9, [I
+    new-array v0, v8, [I
 
     fill-array-data v0, :array_c
 
@@ -4816,12 +4553,6 @@
     aput v7, v0, v5
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestKeySet:[I
-
-    new-array v0, v9, [I
-
-    fill-array-data v0, :array_d
-
-    sput-object v0, Landroid/R$styleable;->AndroidManifestLayout:[I
 
     new-array v0, v6, [I
 
@@ -4855,30 +4586,38 @@
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_e
+    fill-array-data v0, :array_d
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestPathPermission:[I
 
-    const/16 v0, 0xb
+    const/16 v0, 0xa
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_e
+
+    sput-object v0, Landroid/R$styleable;->AndroidManifestPermission:[I
+
+    .line 22734
+    const/16 v0, 0x8
 
     new-array v0, v0, [I
 
     fill-array-data v0, :array_f
 
-    sput-object v0, Landroid/R$styleable;->AndroidManifestPermission:[I
-
-    .line 23783
-    const/16 v0, 0x9
-
-    new-array v0, v0, [I
-
-    fill-array-data v0, :array_10
-
     sput-object v0, Landroid/R$styleable;->AndroidManifestPermissionGroup:[I
 
-    new-array v0, v8, [I
+    const v0, #android:attr@label#t
 
-    fill-array-data v0, :array_11
+    const v1, #android:attr@icon#t
+
+    const v2, #android:attr@logo#t
+
+    const v3, #android:attr@banner#t
+
+    filled-new-array {v0, v1, v7, v2, v3}, [I
+
+    move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestPermissionTree:[I
 
@@ -4890,11 +4629,11 @@
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestProtectedBroadcast:[I
 
-    const/16 v0, 0x14
+    const/16 v0, 0x12
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_12
+    fill-array-data v0, :array_10
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestProvider:[I
 
@@ -4906,11 +4645,11 @@
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestPublicKey:[I
 
-    const/16 v0, 0xd
+    const/16 v0, 0xb
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_13
+    fill-array-data v0, :array_11
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestReceiver:[I
 
@@ -4924,37 +4663,29 @@
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestResourceOverlay:[I
 
-    new-array v0, v6, [I
-
-    const v1, #android:attr@hash#t
-
-    aput v1, v0, v5
-
-    sput-object v0, Landroid/R$styleable;->AndroidManifestRestrictUpdate:[I
-
-    const/16 v0, 0x10
+    const/16 v0, 0xd
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_14
+    fill-array-data v0, :array_12
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestService:[I
 
-    .line 25740
+    .line 24432
     new-array v0, v6, [I
 
-    .line 25741
+    .line 24433
     aput v7, v0, v5
 
-    .line 25740
+    .line 24432
     sput-object v0, Landroid/R$styleable;->AndroidManifestSupportsInputInputType:[I
 
-    .line 25804
+    .line 24496
     const/16 v0, 0x9
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_15
+    fill-array-data v0, :array_13
 
     sput-object v0, Landroid/R$styleable;->AndroidManifestSupportsScreens:[I
 
@@ -4984,9 +4715,7 @@
 
     const v1, #android:attr@required#t
 
-    const v2, #android:attr@version#t
-
-    filled-new-array {v7, v0, v1, v2}, [I
+    filled-new-array {v7, v0, v1}, [I
 
     move-result-object v0
 
@@ -5022,13 +4751,15 @@
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_16
+    fill-array-data v0, :array_14
 
     sput-object v0, Landroid/R$styleable;->AnimatedRotateDrawable:[I
 
-    new-array v0, v9, [I
+    const/4 v0, 0x7
 
-    fill-array-data v0, :array_17
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_15
 
     sput-object v0, Landroid/R$styleable;->AnimatedStateListDrawable:[I
 
@@ -5076,7 +4807,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_18
+    fill-array-data v0, :array_16
 
     sput-object v0, Landroid/R$styleable;->Animation:[I
 
@@ -5102,21 +4833,9 @@
 
     sput-object v0, Landroid/R$styleable;->AnimationDrawableItem:[I
 
-    new-array v0, v5, [I
-
-    sput-object v0, Landroid/R$styleable;->AnimationScaleListDrawable:[I
-
-    new-array v0, v6, [I
-
-    const v1, #android:attr@drawable#t
-
-    aput v1, v0, v5
-
-    sput-object v0, Landroid/R$styleable;->AnimationScaleListDrawableItem:[I
-
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_19
+    fill-array-data v0, :array_17
 
     sput-object v0, Landroid/R$styleable;->AnimationSet:[I
 
@@ -5124,7 +4843,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1a
+    fill-array-data v0, :array_18
 
     sput-object v0, Landroid/R$styleable;->Animator:[I
 
@@ -5158,7 +4877,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1b
+    fill-array-data v0, :array_19
 
     sput-object v0, Landroid/R$styleable;->AppWidgetProviderInfo:[I
 
@@ -5174,20 +4893,20 @@
 
     sput-object v0, Landroid/R$styleable;->ArcMotion:[I
 
-    const/16 v0, 0x9
+    const/16 v0, 0x8
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1c
+    fill-array-data v0, :array_1a
 
     sput-object v0, Landroid/R$styleable;->AutoCompleteTextView:[I
 
-    .line 28495
+    .line 27117
     const/16 v0, 0xd
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1d
+    fill-array-data v0, :array_1b
 
     sput-object v0, Landroid/R$styleable;->BitmapDrawable:[I
 
@@ -5207,7 +4926,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1e
+    fill-array-data v0, :array_1c
 
     sput-object v0, Landroid/R$styleable;->CalendarView:[I
 
@@ -5257,13 +4976,11 @@
 
     sput-object v0, Landroid/R$styleable;->CheckedTextView:[I
 
-    const v0, #android:attr@format#t
+    new-array v0, v6, [I
 
-    const v1, #android:attr@countDown#t
+    const v1, #android:attr@format#t
 
-    filled-new-array {v0, v1}, [I
-
-    move-result-object v0
+    aput v1, v0, v5
 
     sput-object v0, Landroid/R$styleable;->Chronometer:[I
 
@@ -5313,7 +5030,7 @@
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_1f
+    fill-array-data v0, :array_1d
 
     sput-object v0, Landroid/R$styleable;->ContactsDataKind:[I
 
@@ -5325,21 +5042,13 @@
 
     sput-object v0, Landroid/R$styleable;->CycleInterpolator:[I
 
-    const/16 v0, 0x16
+    const/16 v0, 0x15
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_20
+    fill-array-data v0, :array_1e
 
     sput-object v0, Landroid/R$styleable;->DatePicker:[I
-
-    new-array v0, v6, [I
-
-    const v1, #android:^attr-private@showRelative#t
-
-    aput v1, v0, v5
-
-    sput-object v0, Landroid/R$styleable;->DateTimeView:[I
 
     new-array v0, v6, [I
 
@@ -5359,7 +5068,7 @@
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_21
+    fill-array-data v0, :array_1f
 
     sput-object v0, Landroid/R$styleable;->DialogPreference:[I
 
@@ -5393,23 +5102,13 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_22
+    fill-array-data v0, :array_20
 
     sput-object v0, Landroid/R$styleable;->DrawableStates:[I
 
     new-array v0, v6, [I
 
-    const v1, #android:attr@drawable#t
-
-    aput v1, v0, v5
-
-    sput-object v0, Landroid/R$styleable;->DrawableWrapper:[I
-
-    new-array v0, v6, [I
-
-    const v1, #android:attr@settingsActivity#t
-
-    aput v1, v0, v5
+    aput v9, v0, v5
 
     sput-object v0, Landroid/R$styleable;->Dream:[I
 
@@ -5459,7 +5158,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_23
+    fill-array-data v0, :array_21
 
     sput-object v0, Landroid/R$styleable;->ExpandableListView:[I
 
@@ -5483,22 +5182,22 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_24
+    fill-array-data v0, :array_22
 
     sput-object v0, Landroid/R$styleable;->FastScroll:[I
 
-    .line 31620
+    .line 30195
     const/16 v0, 0xb
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_25
+    fill-array-data v0, :array_23
 
     sput-object v0, Landroid/R$styleable;->Fragment:[I
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_26
+    fill-array-data v0, :array_24
 
     sput-object v0, Landroid/R$styleable;->FragmentAnimation:[I
 
@@ -5538,19 +5237,19 @@
 
     const v3, #android:attr@unselectedAlpha#t
 
-    .line 32052
+    .line 30627
     filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->Gallery:[I
 
-    .line 32182
+    .line 30757
     const/16 v0, 0xc
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_27
+    fill-array-data v0, :array_25
 
     sput-object v0, Landroid/R$styleable;->GestureOverlayView:[I
 
@@ -5564,38 +5263,20 @@
 
     sput-object v0, Landroid/R$styleable;->GlowPadView:[I
 
-    const/16 v0, 0xc
-
-    new-array v0, v0, [I
-
-    fill-array-data v0, :array_28
-
-    sput-object v0, Landroid/R$styleable;->GradientColor:[I
-
-    const v0, #android:attr@color#t
-
-    const v1, #android:attr@offset#t
-
-    filled-new-array {v0, v1}, [I
-
-    move-result-object v0
-
-    sput-object v0, Landroid/R$styleable;->GradientColorItem:[I
-
     const/16 v0, 0xe
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_29
+    fill-array-data v0, :array_26
 
     sput-object v0, Landroid/R$styleable;->GradientDrawable:[I
 
-    .line 33042
+    .line 31281
     const/16 v0, 0x9
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_2a
+    fill-array-data v0, :array_27
 
     sput-object v0, Landroid/R$styleable;->GradientDrawableGradient:[I
 
@@ -5639,15 +5320,19 @@
 
     const v3, #android:attr@dashGap#t
 
+    .line 31651
     filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->GradientDrawableStroke:[I
 
-    new-array v0, v9, [I
+    .line 31755
+    const/4 v0, 0x7
 
-    fill-array-data v0, :array_2b
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_28
 
     sput-object v0, Landroid/R$styleable;->GridLayout:[I
 
@@ -5659,21 +5344,25 @@
 
     const v3, #android:attr@directionPriority#t
 
+    .line 31924
     filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->GridLayoutAnimation:[I
 
-    new-array v0, v9, [I
+    .line 32043
+    const/4 v0, 0x7
 
-    fill-array-data v0, :array_2c
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_29
 
     sput-object v0, Landroid/R$styleable;->GridLayout_Layout:[I
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_2d
+    fill-array-data v0, :array_2a
 
     sput-object v0, Landroid/R$styleable;->GridView:[I
 
@@ -5687,25 +5376,15 @@
 
     const v0, #android:attr@description#t
 
-    const v1, #android:attr@settingsActivity#t
+    const v1, #android:attr@requireDeviceUnlock#t
 
-    const v2, #android:attr@requireDeviceUnlock#t
+    const v2, #android:attr@apduServiceBanner#t
 
-    const v3, #android:attr@apduServiceBanner#t
-
-    filled-new-array {v0, v1, v2, v3}, [I
+    filled-new-array {v0, v9, v1, v2}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->HostApduService:[I
-
-    new-array v0, v6, [I
-
-    const v1, #android:attr@description#t
-
-    aput v1, v0, v5
-
-    sput-object v0, Landroid/R$styleable;->HostNfcFService:[I
 
     const v0, #android:attr@icon#t
 
@@ -5749,7 +5428,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_2e
+    fill-array-data v0, :array_2b
 
     sput-object v0, Landroid/R$styleable;->ImageView:[I
 
@@ -5769,11 +5448,9 @@
 
     const v0, #android:attr@isDefault#t
 
-    const v1, #android:attr@settingsActivity#t
+    const v1, #android:attr@supportsSwitchingToNextInputMethod#t
 
-    const v2, #android:attr@supportsSwitchingToNextInputMethod#t
-
-    filled-new-array {v0, v1, v2}, [I
+    filled-new-array {v0, v9, v1}, [I
 
     move-result-object v0
 
@@ -5791,17 +5468,20 @@
 
     sput-object v0, Landroid/R$styleable;->InputMethodService:[I
 
-    const/16 v0, 0xa
+    const/16 v0, 0x9
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_2f
+    fill-array-data v0, :array_2c
 
     sput-object v0, Landroid/R$styleable;->InputMethod_Subtype:[I
 
-    new-array v0, v9, [I
+    .line 33363
+    const/4 v0, 0x7
 
-    fill-array-data v0, :array_30
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_2d
 
     sput-object v0, Landroid/R$styleable;->InsetDrawable:[I
 
@@ -5835,26 +5515,27 @@
 
     const v3, #android:attr@verticalGap#t
 
-    .line 35479
     filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->Keyboard:[I
 
-    .line 35592
-    new-array v0, v8, [I
+    const v0, #android:attr@label#t
 
-    fill-array-data v0, :array_31
+    const v1, #android:attr@keyboardLayout#t
+
+    filled-new-array {v0, v7, v1}, [I
+
+    move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->KeyboardLayout:[I
 
-    .line 35671
     const/16 v0, 0xc
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_32
+    fill-array-data v0, :array_2e
 
     sput-object v0, Landroid/R$styleable;->KeyboardView:[I
 
@@ -5870,7 +5551,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_33
+    fill-array-data v0, :array_2f
 
     sput-object v0, Landroid/R$styleable;->Keyboard_Key:[I
 
@@ -5906,28 +5587,28 @@
 
     const v3, #android:^attr-private@leftToRight#t
 
-    .line 36289
+    .line 34462
     filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->KeyguardGlowStripView:[I
 
-    .line 36320
+    .line 34493
     const/16 v0, 0x9
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_34
+    fill-array-data v0, :array_30
 
     sput-object v0, Landroid/R$styleable;->LayerDrawable:[I
 
-    .line 36534
+    .line 34707
     const/16 v0, 0xb
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_35
+    fill-array-data v0, :array_31
 
     sput-object v0, Landroid/R$styleable;->LayerDrawableItem:[I
 
@@ -5977,7 +5658,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_36
+    fill-array-data v0, :array_32
 
     sput-object v0, Landroid/R$styleable;->LinearLayout:[I
 
@@ -6015,9 +5696,11 @@
 
     sput-object v0, Landroid/R$styleable;->ListPreference:[I
 
-    new-array v0, v9, [I
+    const/4 v0, 0x7
 
-    fill-array-data v0, :array_37
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_33
 
     sput-object v0, Landroid/R$styleable;->ListView:[I
 
@@ -6047,7 +5730,7 @@
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_38
+    fill-array-data v0, :array_34
 
     sput-object v0, Landroid/R$styleable;->MaterialProgressDrawable:[I
 
@@ -6059,31 +5742,31 @@
 
     const v3, #android:^attr-private@externalRouteEnabledDrawable#t
 
-    .line 37780
+    .line 35953
     filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->MediaRouteButton:[I
 
-    .line 37844
+    .line 36017
     new-array v0, v5, [I
 
     sput-object v0, Landroid/R$styleable;->Menu:[I
 
-    .line 37867
+    .line 36040
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_39
+    fill-array-data v0, :array_35
 
     sput-object v0, Landroid/R$styleable;->MenuGroup:[I
 
-    .line 38026
+    .line 36199
     const/16 v0, 0x11
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_3a
+    fill-array-data v0, :array_36
 
     sput-object v0, Landroid/R$styleable;->MenuItem:[I
 
@@ -6127,23 +5810,13 @@
 
     sput-object v0, Landroid/R$styleable;->MenuItemUncheckedState:[I
 
-    const/16 v0, 0x9
+    const/16 v0, 0x8
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_3b
+    fill-array-data v0, :array_37
 
     sput-object v0, Landroid/R$styleable;->MenuView:[I
-
-    const v0, #android:attr@spacing#t
-
-    const v1, #android:attr@maxHeight#t
-
-    filled-new-array {v0, v1}, [I
-
-    move-result-object v0
-
-    sput-object v0, Landroid/R$styleable;->MessagingLinearLayout:[I
 
     const v0, #android:attr@entries#t
 
@@ -6155,15 +5828,9 @@
 
     sput-object v0, Landroid/R$styleable;->MultiSelectListPreference:[I
 
-    new-array v0, v6, [I
-
-    aput v7, v0, v5
-
-    sput-object v0, Landroid/R$styleable;->Nfcid2Filter:[I
-
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_3c
+    fill-array-data v0, :array_38
 
     sput-object v0, Landroid/R$styleable;->NinePatchDrawable:[I
 
@@ -6171,17 +5838,15 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_3d
+    fill-array-data v0, :array_39
 
     sput-object v0, Landroid/R$styleable;->NumberPicker:[I
 
     const v0, #android:attr@description#t
 
-    const v1, #android:attr@settingsActivity#t
+    const v1, #android:attr@apduServiceBanner#t
 
-    const v2, #android:attr@apduServiceBanner#t
-
-    filled-new-array {v0, v1, v2}, [I
+    filled-new-array {v0, v9, v1}, [I
 
     move-result-object v0
 
@@ -6231,19 +5896,25 @@
 
     sput-object v0, Landroid/R$styleable;->PatternPathMotion:[I
 
-    const/16 v0, 0x18
+    const v0, #android:^attr-private@pointerIconArrow#t
 
-    new-array v0, v0, [I
+    const v1, #android:^attr-private@pointerIconSpotHover#t
 
-    fill-array-data v0, :array_3e
+    const v2, #android:^attr-private@pointerIconSpotTouch#t
+
+    const v3, #android:^attr-private@pointerIconSpotAnchor#t
+
+    filled-new-array {v0, v1, v2, v3}, [I
+
+    move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->Pointer:[I
 
-    const v0, #android:attr@bitmap#t
+    const v0, #android:^attr-private@bitmap#t
 
-    const v1, #android:attr@hotSpotX#t
+    const v1, #android:^attr-private@hotSpotX#t
 
-    const v2, #android:attr@hotSpotY#t
+    const v2, #android:^attr-private@hotSpotY#t
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -6253,7 +5924,7 @@
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_3f
+    fill-array-data v0, :array_3a
 
     sput-object v0, Landroid/R$styleable;->PopupWindow:[I
 
@@ -6269,7 +5940,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_40
+    fill-array-data v0, :array_3b
 
     sput-object v0, Landroid/R$styleable;->Preference:[I
 
@@ -6285,13 +5956,11 @@
 
     sput-object v0, Landroid/R$styleable;->PreferenceActivity:[I
 
-    const v0, #android:attr@layout#t
+    new-array v0, v6, [I
 
-    const v1, #android:attr@divider#t
+    const v1, #android:attr@layout#t
 
-    filled-new-array {v0, v1}, [I
-
-    move-result-object v0
+    aput v1, v0, v5
 
     sput-object v0, Landroid/R$styleable;->PreferenceFragment:[I
 
@@ -6325,43 +5994,31 @@
 
     sput-object v0, Landroid/R$styleable;->PreferenceGroup:[I
 
-    new-array v0, v9, [I
+    const/4 v0, 0x7
 
-    fill-array-data v0, :array_41
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_3c
 
     sput-object v0, Landroid/R$styleable;->PreferenceHeader:[I
 
-    const v0, #android:attr@divider#t
+    const v0, #android:attr@addPrintersActivity#t
 
-    const v1, #android:^attr-private@screenLayout#t
+    const v1, #android:attr@vendor#t
 
-    filled-new-array {v0, v1}, [I
+    const v2, #android:attr@advancedPrintOptionsActivity#t
 
-    move-result-object v0
-
-    sput-object v0, Landroid/R$styleable;->PreferenceScreen:[I
-
-    const v0, #android:attr@settingsActivity#t
-
-    const v1, #android:attr@addPrintersActivity#t
-
-    const v2, #android:attr@vendor#t
-
-    const v3, #android:attr@advancedPrintOptionsActivity#t
-
-    .line 40075
-    filled-new-array {v0, v1, v2, v3}, [I
+    filled-new-array {v9, v0, v1, v2}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->PrintService:[I
 
-    .line 40211
     const/16 v0, 0x1a
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_42
+    fill-array-data v0, :array_3d
 
     sput-object v0, Landroid/R$styleable;->ProgressBar:[I
 
@@ -6451,21 +6108,9 @@
 
     new-array v0, v6, [I
 
-    const v1, #android:attr@settingsActivity#t
-
-    aput v1, v0, v5
+    aput v9, v0, v5
 
     sput-object v0, Landroid/R$styleable;->RecognitionService:[I
-
-    const v0, #android:^attr-private@paddingBottomNoButtons#t
-
-    const v1, #android:^attr-private@paddingTopNoTitle#t
-
-    filled-new-array {v0, v1}, [I
-
-    move-result-object v0
-
-    sput-object v0, Landroid/R$styleable;->RecycleListView:[I
 
     const v0, #android:attr@gravity#t
 
@@ -6481,7 +6126,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_43
+    fill-array-data v0, :array_3e
 
     sput-object v0, Landroid/R$styleable;->RelativeLayout_Layout:[I
 
@@ -6503,17 +6148,17 @@
 
     const v2, #android:^attr-private@layout_ignoreOffset#t
 
-    const v3, #android:^attr-private@layout_hasNestedScrollIndicator#t
-
-    filled-new-array {v0, v1, v2, v3}, [I
+    filled-new-array {v0, v1, v2}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->ResolverDrawerLayout_LayoutParams:[I
 
-    new-array v0, v9, [I
+    const/4 v0, 0x7
 
-    fill-array-data v0, :array_44
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_3f
 
     sput-object v0, Landroid/R$styleable;->RestrictionEntry:[I
 
@@ -6523,7 +6168,9 @@
 
     const v2, #android:attr@showSilent#t
 
-    filled-new-array {v0, v1, v2}, [I
+    const v3, #android:^attr-private@dialogStyle#t
+
+    filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0
 
@@ -6563,19 +6210,29 @@
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_45
+    fill-array-data v0, :array_40
 
     sput-object v0, Landroid/R$styleable;->RotateDrawable:[I
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_46
+    fill-array-data v0, :array_41
 
     sput-object v0, Landroid/R$styleable;->ScaleAnimation:[I
 
-    new-array v0, v8, [I
+    const v0, #android:attr@drawable#t
 
-    fill-array-data v0, :array_47
+    const v1, #android:attr@scaleWidth#t
+
+    const v2, #android:attr@scaleHeight#t
+
+    const v3, #android:attr@scaleGravity#t
+
+    const v4, #android:attr@useIntrinsicSizeAsMinimum#t
+
+    filled-new-array {v0, v1, v2, v3, v4}, [I
+
+    move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->ScaleDrawable:[I
 
@@ -6591,16 +6248,16 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_48
+    fill-array-data v0, :array_42
 
     sput-object v0, Landroid/R$styleable;->SearchView:[I
 
-    .line 43263
+    .line 41170
     const/16 v0, 0x16
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_49
+    fill-array-data v0, :array_43
 
     sput-object v0, Landroid/R$styleable;->Searchable:[I
 
@@ -6612,19 +6269,15 @@
 
     const v3, #android:attr@suggestActionMsgColumn#t
 
-    .line 43953
     filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->SearchableActionKey:[I
 
-    .line 44365
-    const/16 v0, 0x9
+    new-array v0, v8, [I
 
-    new-array v0, v0, [I
-
-    fill-array-data v0, :array_4a
+    fill-array-data v0, :array_44
 
     sput-object v0, Landroid/R$styleable;->SeekBar:[I
 
@@ -6654,9 +6307,7 @@
 
     const v1, #android:attr@title#t
 
-    const v2, #android:attr@settingsActivity#t
-
-    filled-new-array {v0, v1, v2}, [I
+    filled-new-array {v0, v1, v9}, [I
 
     move-result-object v0
 
@@ -6664,7 +6315,7 @@
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_4b
+    fill-array-data v0, :array_45
 
     sput-object v0, Landroid/R$styleable;->ShapeDrawable:[I
 
@@ -6682,18 +6333,6 @@
 
     sput-object v0, Landroid/R$styleable;->ShapeDrawablePadding:[I
 
-    new-array v0, v8, [I
-
-    fill-array-data v0, :array_4c
-
-    sput-object v0, Landroid/R$styleable;->Shortcut:[I
-
-    new-array v0, v6, [I
-
-    aput v7, v0, v5
-
-    sput-object v0, Landroid/R$styleable;->ShortcutCategories:[I
-
     invoke-static {}, Landroid/R$styleable;->initFlymeExtraFields()V
 
     new-array v0, v6, [I
@@ -6704,9 +6343,11 @@
 
     sput-object v0, Landroid/R$styleable;->Slide:[I
 
-    new-array v0, v9, [I
+    const/4 v0, 0x7
 
-    fill-array-data v0, :array_4d
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_46
 
     sput-object v0, Landroid/R$styleable;->SlidingDrawer:[I
 
@@ -6720,9 +6361,7 @@
 
     const v0, #android:attr@label#t
 
-    const v1, #android:attr@settingsActivity#t
-
-    filled-new-array {v0, v1}, [I
+    filled-new-array {v0, v9}, [I
 
     move-result-object v0
 
@@ -6734,11 +6373,7 @@
 
     const v2, #android:attr@subtypeExtraValue#t
 
-    const v3, #android:attr@subtypeId#t
-
-    const v4, #android:attr@languageTag#t
-
-    filled-new-array {v0, v1, v2, v3, v4}, [I
+    filled-new-array {v0, v1, v2}, [I
 
     move-result-object v0
 
@@ -6748,7 +6383,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_4e
+    fill-array-data v0, :array_47
 
     sput-object v0, Landroid/R$styleable;->Spinner:[I
 
@@ -6770,9 +6405,11 @@
 
     sput-object v0, Landroid/R$styleable;->StateListAnimatorItem:[I
 
-    new-array v0, v9, [I
+    const/4 v0, 0x7
 
-    fill-array-data v0, :array_4f
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_48
 
     sput-object v0, Landroid/R$styleable;->StateListDrawable:[I
 
@@ -6788,7 +6425,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_50
+    fill-array-data v0, :array_49
 
     sput-object v0, Landroid/R$styleable;->Storage:[I
 
@@ -6806,7 +6443,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_51
+    fill-array-data v0, :array_4a
 
     sput-object v0, Landroid/R$styleable;->Switch:[I
 
@@ -6826,17 +6463,13 @@
 
     sput-object v0, Landroid/R$styleable;->SwitchPreference:[I
 
-    new-array v0, v9, [I
+    const/4 v0, 0x7
 
-    fill-array-data v0, :array_52
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_4b
 
     sput-object v0, Landroid/R$styleable;->SyncAdapter:[I
-
-    new-array v0, v6, [I
-
-    aput v7, v0, v5
-
-    sput-object v0, Landroid/R$styleable;->SystemCodeFilter:[I
 
     const v0, #android:attr@divider#t
 
@@ -6884,7 +6517,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_53
+    fill-array-data v0, :array_4c
 
     sput-object v0, Landroid/R$styleable;->TextAppearance:[I
 
@@ -6906,9 +6539,7 @@
 
     new-array v0, v6, [I
 
-    const v1, #android:attr@settingsActivity#t
-
-    aput v1, v0, v5
+    aput v9, v0, v5
 
     sput-object v0, Landroid/R$styleable;->TextToSpeechEngine:[I
 
@@ -6916,7 +6547,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_54
+    fill-array-data v0, :array_4d
 
     sput-object v0, Landroid/R$styleable;->TextView:[I
 
@@ -6936,20 +6567,20 @@
 
     sput-object v0, Landroid/R$styleable;->TextViewMultiLineBackgroundState:[I
 
-    const/16 v0, 0x146
+    const/16 v0, 0x141
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_55
+    fill-array-data v0, :array_4e
 
     sput-object v0, Landroid/R$styleable;->Theme:[I
 
-    .line 54051
-    const/16 v0, 0xe
+    .line 51538
+    const/16 v0, 0xd
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_56
+    fill-array-data v0, :array_4f
 
     sput-object v0, Landroid/R$styleable;->TimePicker:[I
 
@@ -6965,11 +6596,11 @@
 
     sput-object v0, Landroid/R$styleable;->ToggleButton:[I
 
-    const/16 v0, 0x1c
+    const/16 v0, 0x1a
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_57
+    fill-array-data v0, :array_50
 
     sput-object v0, Landroid/R$styleable;->Toolbar:[I
 
@@ -7017,7 +6648,7 @@
 
     new-array v0, v8, [I
 
-    fill-array-data v0, :array_58
+    fill-array-data v0, :array_51
 
     sput-object v0, Landroid/R$styleable;->TransitionTarget:[I
 
@@ -7039,23 +6670,15 @@
 
     const v1, #android:attr@summary#t
 
-    const v2, #android:attr@settingsActivity#t
-
-    filled-new-array {v0, v1, v2}, [I
+    filled-new-array {v0, v1, v9}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->TrustAgent:[I
 
-    const v0, #android:attr@settingsActivity#t
+    const v0, #android:attr@setupActivity#t
 
-    const v1, #android:attr@setupActivity#t
-
-    const v2, #android:attr@canRecord#t
-
-    const v3, #android:attr@tunerCount#t
-
-    filled-new-array {v0, v1, v2, v3}, [I
+    filled-new-array {v9, v0}, [I
 
     move-result-object v0
 
@@ -7073,7 +6696,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_59
+    fill-array-data v0, :array_52
 
     sput-object v0, Landroid/R$styleable;->VectorDrawable:[I
 
@@ -7089,16 +6712,16 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_5a
+    fill-array-data v0, :array_53
 
     sput-object v0, Landroid/R$styleable;->VectorDrawableGroup:[I
 
-    .line 56000
-    const/16 v0, 0xe
+    .line 53231
+    const/16 v0, 0xd
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_5b
+    fill-array-data v0, :array_54
 
     sput-object v0, Landroid/R$styleable;->VectorDrawablePath:[I
 
@@ -7110,11 +6733,11 @@
 
     sput-object v0, Landroid/R$styleable;->VerticalSlider_Layout:[I
 
-    const/16 v0, 0x59
+    const/16 v0, 0x57
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_5c
+    fill-array-data v0, :array_55
 
     sput-object v0, Landroid/R$styleable;->View:[I
 
@@ -7134,7 +6757,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_5d
+    fill-array-data v0, :array_56
 
     sput-object v0, Landroid/R$styleable;->ViewDrawableStates:[I
 
@@ -7152,7 +6775,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_5e
+    fill-array-data v0, :array_57
 
     sput-object v0, Landroid/R$styleable;->ViewGroup:[I
 
@@ -7170,7 +6793,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_5f
+    fill-array-data v0, :array_58
 
     sput-object v0, Landroid/R$styleable;->ViewGroup_MarginLayout:[I
 
@@ -7222,9 +6845,17 @@
 
     sput-object v0, Landroid/R$styleable;->VoiceEnrollmentApplication:[I
 
-    new-array v0, v8, [I
+    const v0, #android:attr@sessionService#t
 
-    fill-array-data v0, :array_60
+    const v1, #android:attr@recognitionService#t
+
+    const v2, #android:attr@supportsAssist#t
+
+    const v3, #android:attr@supportsLaunchVoiceAssistFromKeyguard#t
+
+    filled-new-array {v9, v0, v1, v2, v3}, [I
+
+    move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->VoiceInteractionService:[I
 
@@ -7240,9 +6871,15 @@
 
     sput-object v0, Landroid/R$styleable;->VolumePreference:[I
 
-    new-array v0, v9, [I
+    const v0, #android:attr@description#t
 
-    fill-array-data v0, :array_61
+    const v1, #android:attr@thumbnail#t
+
+    const v2, #android:attr@author#t
+
+    filled-new-array {v0, v9, v1, v2}, [I
+
+    move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->Wallpaper:[I
 
@@ -7262,35 +6899,35 @@
 
     const v3, #android:^attr-private@minorWeightMax#t
 
-    .line 59964
+    .line 57035
     filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/R$styleable;->WeightedLinearLayout:[I
 
-    .line 60105
+    .line 57173
     const/16 v0, 0x36
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_62
+    fill-array-data v0, :array_59
 
     sput-object v0, Landroid/R$styleable;->Window:[I
 
-    .line 61160
+    .line 58211
     const/16 v0, 0x1b
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_63
+    fill-array-data v0, :array_5a
 
     sput-object v0, Landroid/R$styleable;->WindowAnimation:[I
 
-    .line 16523
+    .line 16188
     return-void
 
-    .line 16559
+    .line 16224
     :array_0
     .array-data 4
         #android:attr@listSelector#t
@@ -7307,7 +6944,7 @@
         #android:attr@fastScrollStyle#t
     .end array-data
 
-    .line 16953
+    .line 16613
     :array_1
     .array-data 4
         #android:attr@description#t
@@ -7321,11 +6958,9 @@
         #android:attr@canRequestTouchExplorationMode#t
         #android:attr@canRequestEnhancedWebAccessibility#t
         #android:attr@canRequestFilterKeyEvents#t
-        #android:attr@canControlMagnification#t
-        #android:attr@canPerformGestures#t
     .end array-data
 
-    .line 17290
+    .line 16904
     :array_2
     .array-data 4
         #android:attr@label#t
@@ -7336,7 +6971,7 @@
         #android:attr@customTokens#t
     .end array-data
 
-    .line 17453
+    .line 17061
     :array_3
     .array-data 4
         #android:attr@icon#t
@@ -7366,11 +7001,9 @@
         #android:attr@contentInsetLeft#t
         #android:attr@contentInsetRight#t
         #android:attr@popupTheme#t
-        #android:attr@contentInsetStartWithNavigation#t
-        #android:attr@contentInsetEndWithActions#t
     .end array-data
 
-    .line 18047
+    .line 17614
     :array_4
     .array-data 4
         #android:attr@background#t
@@ -7381,7 +7014,7 @@
         #android:^attr-private@closeItemLayout#t
     .end array-data
 
-    .line 18470
+    .line 17983
     :array_5
     .array-data 4
         #android:attr@fullDark#t
@@ -7402,13 +7035,10 @@
         #android:^attr-private@listItemLayout#t
         #android:^attr-private@progressLayout#t
         #android:^attr-private@horizontalProgressLayout#t
-        #android:^attr-private@showTitle#t
         #android:^attr-private@needsDefaultBackgrounds#t
-        #android:^attr-private@controllerType#t
-        #android:^attr-private@selectionScrollOffset#t
     .end array-data
 
-    .line 18742
+    .line 18254
     :array_6
     .array-data 4
         #android:attr@sharedUserId#t
@@ -7419,7 +7049,7 @@
         #android:attr@revisionCode#t
     .end array-data
 
-    .line 19057
+    .line 18554
     :array_7
     .array-data 4
         #android:attr@theme#t
@@ -7462,17 +7092,12 @@
         #android:attr@resumeWhilePausing#t
         #android:attr@lockTaskMode#t
         #android:attr@showForAllUsers#t
-        #android:attr@resizeableActivity#t
-        #android:attr@supportsPictureInPicture#t
-        #android:attr@directBootAware#t
-        #android:attr@enableVrMode#t
-        #android:attr@roundIcon#t
-        #android:^attr-private@systemUserOnly#t
-        #android:^attr-private@alwaysFocusable#t
+        #android:^attr-private@resizeableActivity#t
+        #android:^attr-private@primaryUserOnly#t
         #android:^attr-private@needAccessControl#t
     .end array-data
 
-    .line 20479
+    .line 19845
     :array_8
     .array-data 4
         #android:attr@label#t
@@ -7486,10 +7111,9 @@
         #android:attr@logo#t
         #android:attr@parentActivityName#t
         #android:attr@banner#t
-        #android:attr@roundIcon#t
     .end array-data
 
-    .line 20890
+    .line 20213
     :array_9
     .array-data 4
         #android:attr@theme#t
@@ -7529,16 +7153,11 @@
         #android:attr@extractNativeLibs#t
         #android:attr@fullBackupContent#t
         #android:attr@usesCleartextTraffic#t
-        #android:attr@resizeableActivity#t
-        #android:attr@defaultToDeviceProtectedStorage#t
-        #android:attr@directBootAware#t
-        #android:attr@backupInForeground#t
-        #android:attr@networkSecurityConfig#t
-        #android:attr@roundIcon#t
+        #android:^attr-private@neverEncrypt#t
         #android:^attr-private@cantSaveState#t
     .end array-data
 
-    .line 22014
+    .line 21211
     :array_a
     .array-data 4
         #android:attr@mimeType#t
@@ -7553,7 +7172,7 @@
         #android:attr@sspPattern#t
     .end array-data
 
-    .line 22398
+    .line 21592
     :array_b
     .array-data 4
         #android:attr@label#t
@@ -7564,10 +7183,9 @@
         #android:attr@functionalTest#t
         #android:attr@logo#t
         #android:attr@banner#t
-        #android:attr@roundIcon#t
     .end array-data
 
-    .line 22651
+    .line 21817
     :array_c
     .array-data 4
         #android:attr@label#t
@@ -7576,23 +7194,10 @@
         #android:attr@logo#t
         #android:attr@banner#t
         #android:attr@autoVerify#t
-        #android:attr@roundIcon#t
     .end array-data
 
-    .line 22886
+    .line 22267
     :array_d
-    .array-data 4
-        #android:attr@gravity#t
-        #android:attr@minWidth#t
-        #android:attr@minHeight#t
-        #android:attr@defaultWidth#t
-        #android:attr@defaultHeight#t
-        #android:^attr-private@minimalWidth#t
-        #android:^attr-private@minimalHeight#t
-    .end array-data
-
-    .line 23281
-    :array_e
     .array-data 4
         #android:attr@permission#t
         #android:attr@readPermission#t
@@ -7602,8 +7207,8 @@
         #android:attr@pathPattern#t
     .end array-data
 
-    .line 23452
-    :array_f
+    .line 22435
+    :array_e
     .array-data 4
         #android:attr@label#t
         #android:attr@icon#t
@@ -7614,12 +7219,11 @@
         #android:attr@logo#t
         #android:attr@permissionFlags#t
         #android:attr@banner#t
-        #android:attr@roundIcon#t
         #android:^attr-private@allowViaWhitelist#t
     .end array-data
 
-    .line 23783
-    :array_10
+    .line 22734
+    :array_f
     .array-data 4
         #android:attr@label#t
         #android:attr@icon#t
@@ -7629,22 +7233,10 @@
         #android:attr@logo#t
         #android:attr@permissionGroupFlags#t
         #android:attr@banner#t
-        #android:attr@roundIcon#t
     .end array-data
 
-    .line 24036
-    :array_11
-    .array-data 4
-        #android:attr@label#t
-        #android:attr@icon#t
-        #android:attr@name#t
-        #android:attr@logo#t
-        #android:attr@banner#t
-        #android:attr@roundIcon#t
-    .end array-data
-
-    .line 24321
-    :array_12
+    .line 23213
+    :array_10
     .array-data 4
         #android:attr@label#t
         #android:attr@icon#t
@@ -7664,12 +7256,10 @@
         #android:attr@logo#t
         #android:attr@singleUser#t
         #android:attr@banner#t
-        #android:attr@directBootAware#t
-        #android:attr@roundIcon#t
     .end array-data
 
-    .line 24901
-    :array_13
+    .line 23743
+    :array_11
     .array-data 4
         #android:attr@label#t
         #android:attr@icon#t
@@ -7682,12 +7272,10 @@
         #android:attr@logo#t
         #android:attr@singleUser#t
         #android:attr@banner#t
-        #android:attr@directBootAware#t
-        #android:attr@roundIcon#t
     .end array-data
 
-    .line 25358
-    :array_14
+    .line 24112
+    :array_12
     .array-data 4
         #android:attr@label#t
         #android:attr@icon#t
@@ -7702,13 +7290,10 @@
         #android:attr@isolatedProcess#t
         #android:attr@singleUser#t
         #android:attr@banner#t
-        #android:attr@directBootAware#t
-        #android:attr@externalService#t
-        #android:attr@roundIcon#t
     .end array-data
 
-    .line 25804
-    :array_15
+    .line 24496
+    :array_13
     .array-data 4
         #android:attr@anyDensity#t
         #android:attr@smallScreens#t
@@ -7721,8 +7306,8 @@
         #android:attr@largestWidthLimitDp#t
     .end array-data
 
-    .line 26529
-    :array_16
+    .line 25202
+    :array_14
     .array-data 4
         #android:attr@visible#t
         #android:attr@drawable#t
@@ -7732,8 +7317,8 @@
         #android:^attr-private@framesCount#t
     .end array-data
 
-    .line 26629
-    :array_17
+    .line 25302
+    :array_15
     .array-data 4
         #android:attr@dither#t
         #android:attr@visible#t
@@ -7744,8 +7329,8 @@
         #android:attr@autoMirrored#t
     .end array-data
 
-    .line 26987
-    :array_18
+    .line 25660
+    :array_16
     .array-data 4
         #android:attr@background#t
         #android:attr@interpolator#t
@@ -7760,8 +7345,8 @@
         #android:attr@detachWallpaper#t
     .end array-data
 
-    .line 27382
-    :array_19
+    .line 26020
+    :array_17
     .array-data 4
         #android:attr@duration#t
         #android:attr@shareInterpolator#t
@@ -7771,8 +7356,8 @@
         #android:attr@repeatMode#t
     .end array-data
 
-    .line 27517
-    :array_1a
+    .line 26155
+    :array_18
     .array-data 4
         #android:attr@interpolator#t
         #android:attr@duration#t
@@ -7785,8 +7370,8 @@
         #android:^attr-private@removeBeforeMRelease#t
     .end array-data
 
-    .line 27838
-    :array_1b
+    .line 26476
+    :array_19
     .array-data 4
         #android:attr@minWidth#t
         #android:attr@minHeight#t
@@ -7802,8 +7387,8 @@
         #android:attr@widgetCategory#t
     .end array-data
 
-    .line 28167
-    :array_1c
+    .line 26803
+    :array_1a
     .array-data 4
         #android:attr@completionHint#t
         #android:attr@completionHintView#t
@@ -7813,11 +7398,10 @@
         #android:attr@dropDownWidth#t
         #android:attr@dropDownAnchor#t
         #android:attr@dropDownHeight#t
-        #android:attr@popupTheme#t
     .end array-data
 
-    .line 28495
-    :array_1d
+    .line 27117
+    :array_1b
     .array-data 4
         #android:attr@gravity#t
         #android:attr@src#t
@@ -7834,8 +7418,8 @@
         #android:attr@tileModeY#t
     .end array-data
 
-    .line 28835
-    :array_1e
+    .line 27457
+    :array_1c
     .array-data 4
         #android:attr@firstDayOfWeek#t
         #android:attr@showWeekNumber#t
@@ -7856,8 +7440,8 @@
         #android:^attr-private@calendarViewMode#t
     .end array-data
 
-    .line 29653
-    :array_1f
+    .line 28255
+    :array_1d
     .array-data 4
         #android:attr@icon#t
         #android:attr@mimeType#t
@@ -7867,8 +7451,8 @@
         #android:attr@allContactsName#t
     .end array-data
 
-    .line 29825
-    :array_20
+    .line 28427
+    :array_1e
     .array-data 4
         #android:attr@headerBackground#t
         #android:attr@startYear#t
@@ -7890,12 +7474,11 @@
         #android:^attr-private@internalLayout#t
         #android:^attr-private@headerTextColor#t
         #android:^attr-private@yearListItemActivatedTextAppearance#t
-        #android:^attr-private@dialogMode#t
         #android:^attr-private@legacyLayout#t
     .end array-data
 
-    .line 30227
-    :array_21
+    .line 28818
+    :array_1f
     .array-data 4
         #android:attr@dialogTitle#t
         #android:attr@dialogMessage#t
@@ -7905,8 +7488,8 @@
         #android:attr@dialogLayout#t
     .end array-data
 
-    .line 30563
-    :array_22
+    .line 29174
+    :array_20
     .array-data 4
         #android:attr@state_focused#t
         #android:attr@state_window_focused#t
@@ -7928,8 +7511,8 @@
         #android:^attr-private@state_accessibility_focused#t
     .end array-data
 
-    .line 31113
-    :array_23
+    .line 29688
+    :array_21
     .array-data 4
         #android:attr@groupIndicator#t
         #android:attr@childIndicator#t
@@ -7944,8 +7527,8 @@
         #android:attr@childIndicatorEnd#t
     .end array-data
 
-    .line 31434
-    :array_24
+    .line 30009
+    :array_22
     .array-data 4
         #android:attr@textAppearance#t
         #android:attr@textSize#t
@@ -7963,8 +7546,8 @@
         #android:^attr-private@position#t
     .end array-data
 
-    .line 31620
-    :array_25
+    .line 30195
+    :array_23
     .array-data 4
         #android:attr@name#t
         #android:attr@id#t
@@ -7979,8 +7562,8 @@
         #android:attr@fragmentAllowReturnTransitionOverlap#t
     .end array-data
 
-    .line 31832
-    :array_26
+    .line 30407
+    :array_24
     .array-data 4
         #android:attr@fragmentOpenEnterAnimation#t
         #android:attr@fragmentOpenExitAnimation#t
@@ -7990,8 +7573,8 @@
         #android:attr@fragmentFadeExitAnimation#t
     .end array-data
 
-    .line 32182
-    :array_27
+    .line 30757
+    :array_25
     .array-data 4
         #android:attr@orientation#t
         #android:attr@gestureStrokeWidth#t
@@ -8007,25 +7590,8 @@
         #android:attr@fadeEnabled#t
     .end array-data
 
-    .line 32483
-    :array_28
-    .array-data 4
-        #android:attr@startColor#t
-        #android:attr@endColor#t
-        #android:attr@type#t
-        #android:attr@centerX#t
-        #android:attr@centerY#t
-        #android:attr@gradientRadius#t
-        #android:attr@tileMode#t
-        #android:attr@centerColor#t
-        #android:attr@startX#t
-        #android:attr@startY#t
-        #android:attr@endX#t
-        #android:attr@endY#t
-    .end array-data
-
-    .line 32806
-    :array_29
+    .line 31051
+    :array_26
     .array-data 4
         #android:attr@dither#t
         #android:attr@tint#t
@@ -8043,8 +7609,8 @@
         #android:^attr-private@opticalInsetBottom#t
     .end array-data
 
-    .line 33042
-    :array_2a
+    .line 31281
+    :array_27
     .array-data 4
         #android:attr@startColor#t
         #android:attr@endColor#t
@@ -8057,8 +7623,8 @@
         #android:attr@centerColor#t
     .end array-data
 
-    .line 33527
-    :array_2b
+    .line 31755
+    :array_28
     .array-data 4
         #android:attr@orientation#t
         #android:attr@rowCount#t
@@ -8069,8 +7635,8 @@
         #android:attr@alignmentMode#t
     .end array-data
 
-    .line 33815
-    :array_2c
+    .line 32043
+    :array_29
     .array-data 4
         #android:attr@layout_gravity#t
         #android:attr@layout_column#t
@@ -8081,8 +7647,8 @@
         #android:attr@layout_columnWeight#t
     .end array-data
 
-    .line 33991
-    :array_2d
+    .line 32219
+    :array_2a
     .array-data 4
         #android:attr@gravity#t
         #android:attr@horizontalSpacing#t
@@ -8092,8 +7658,8 @@
         #android:attr@numColumns#t
     .end array-data
 
-    .line 34509
-    :array_2e
+    .line 32707
+    :array_2b
     .array-data 4
         #android:attr@src#t
         #android:attr@scaleType#t
@@ -8108,8 +7674,8 @@
         #android:^attr-private@drawableAlpha#t
     .end array-data
 
-    .line 34978
-    :array_2f
+    .line 33171
+    :array_2c
     .array-data 4
         #android:attr@label#t
         #android:attr@icon#t
@@ -8120,11 +7686,10 @@
         #android:attr@overridesImplicitlyEnabledSubtype#t
         #android:attr@subtypeId#t
         #android:attr@isAsciiCapable#t
-        #android:attr@languageTag#t
     .end array-data
 
-    .line 35189
-    :array_30
+    .line 33363
+    :array_2d
     .array-data 4
         #android:attr@visible#t
         #android:attr@drawable#t
@@ -8135,19 +7700,8 @@
         #android:attr@inset#t
     .end array-data
 
-    .line 35592
-    :array_31
-    .array-data 4
-        #android:attr@label#t
-        #android:attr@name#t
-        #android:attr@keyboardLayout#t
-        #android:^attr-private@locale#t
-        #android:^attr-private@vendorId#t
-        #android:^attr-private@productId#t
-    .end array-data
-
-    .line 35671
-    :array_32
+    .line 33844
+    :array_2e
     .array-data 4
         #android:attr@shadowColor#t
         #android:attr@shadowRadius#t
@@ -8163,8 +7717,8 @@
         #android:^attr-private@keyboardViewStyle#t
     .end array-data
 
-    .line 35933
-    :array_33
+    .line 34106
+    :array_2f
     .array-data 4
         #android:attr@codes#t
         #android:attr@popupKeyboard#t
@@ -8180,8 +7734,8 @@
         #android:attr@keyboardMode#t
     .end array-data
 
-    .line 36320
-    :array_34
+    .line 34493
+    :array_30
     .array-data 4
         #android:attr@paddingLeft#t
         #android:attr@paddingTop#t
@@ -8194,8 +7748,8 @@
         #android:attr@paddingMode#t
     .end array-data
 
-    .line 36534
-    :array_35
+    .line 34707
+    :array_31
     .array-data 4
         #android:attr@gravity#t
         #android:attr@id#t
@@ -8210,8 +7764,8 @@
         #android:attr@end#t
     .end array-data
 
-    .line 37000
-    :array_36
+    .line 35173
+    :array_32
     .array-data 4
         #android:attr@gravity#t
         #android:attr@orientation#t
@@ -8224,8 +7778,8 @@
         #android:attr@dividerPadding#t
     .end array-data
 
-    .line 37462
-    :array_37
+    .line 35635
+    :array_33
     .array-data 4
         #android:attr@entries#t
         #android:attr@divider#t
@@ -8236,8 +7790,8 @@
         #android:attr@overScrollFooter#t
     .end array-data
 
-    .line 37644
-    :array_38
+    .line 35817
+    :array_34
     .array-data 4
         #android:attr@height#t
         #android:attr@width#t
@@ -8247,8 +7801,8 @@
         #android:attr@thickness#t
     .end array-data
 
-    .line 37867
-    :array_39
+    .line 36040
+    :array_35
     .array-data 4
         #android:attr@enabled#t
         #android:attr@id#t
@@ -8258,8 +7812,8 @@
         #android:attr@checkableBehavior#t
     .end array-data
 
-    .line 38026
-    :array_3a
+    .line 36199
+    :array_36
     .array-data 4
         #android:attr@icon#t
         #android:attr@enabled#t
@@ -8280,8 +7834,8 @@
         #android:attr@actionProviderClass#t
     .end array-data
 
-    .line 38583
-    :array_3b
+    .line 36754
+    :array_37
     .array-data 4
         #android:attr@windowAnimationStyle#t
         #android:attr@itemTextAppearance#t
@@ -8290,12 +7844,11 @@
         #android:attr@headerBackground#t
         #android:attr@itemBackground#t
         #android:attr@itemIconDisabledAlpha#t
-        #android:attr@subMenuArrow#t
         #android:^attr-private@preserveIconSpacing#t
     .end array-data
 
-    .line 38851
-    :array_3c
+    .line 36925
+    :array_38
     .array-data 4
         #android:attr@src#t
         #android:attr@dither#t
@@ -8305,8 +7858,8 @@
         #android:attr@tintMode#t
     .end array-data
 
-    .line 38983
-    :array_3d
+    .line 37057
+    :array_39
     .array-data 4
         #android:attr@solidColor#t
         #android:^attr-private@internalLayout#t
@@ -8321,48 +7874,19 @@
         #android:^attr-private@hideWheelUntilFocused#t
     .end array-data
 
-    .line 39262
-    :array_3e
-    .array-data 4
-        #android:^attr-private@pointerIconArrow#t
-        #android:^attr-private@pointerIconSpotHover#t
-        #android:^attr-private@pointerIconSpotTouch#t
-        #android:^attr-private@pointerIconSpotAnchor#t
-        #android:^attr-private@pointerIconContextMenu#t
-        #android:^attr-private@pointerIconHand#t
-        #android:^attr-private@pointerIconHelp#t
-        #android:^attr-private@pointerIconWait#t
-        #android:^attr-private@pointerIconCell#t
-        #android:^attr-private@pointerIconCrosshair#t
-        #android:^attr-private@pointerIconText#t
-        #android:^attr-private@pointerIconVerticalText#t
-        #android:^attr-private@pointerIconAlias#t
-        #android:^attr-private@pointerIconCopy#t
-        #android:^attr-private@pointerIconNodrop#t
-        #android:^attr-private@pointerIconAllScroll#t
-        #android:^attr-private@pointerIconHorizontalDoubleArrow#t
-        #android:^attr-private@pointerIconVerticalDoubleArrow#t
-        #android:^attr-private@pointerIconTopRightDiagonalDoubleArrow#t
-        #android:^attr-private@pointerIconTopLeftDiagonalDoubleArrow#t
-        #android:^attr-private@pointerIconZoomIn#t
-        #android:^attr-private@pointerIconZoomOut#t
-        #android:^attr-private@pointerIconGrab#t
-        #android:^attr-private@pointerIconGrabbing#t
-    .end array-data
-
-    .line 39358
-    :array_3f
+    .line 37366
+    :array_3a
     .array-data 4
         #android:attr@popupBackground#t
         #android:attr@popupAnimationStyle#t
         #android:attr@overlapAnchor#t
         #android:attr@popupElevation#t
-        #android:attr@popupEnterTransition#t
-        #android:attr@popupExitTransition#t
+        #android:^attr-private@popupEnterTransition#t
+        #android:^attr-private@popupExitTransition#t
     .end array-data
 
-    .line 39522
-    :array_40
+    .line 37504
+    :array_3b
     .array-data 4
         #android:attr@icon#t
         #android:attr@persistent#t
@@ -8380,8 +7904,8 @@
         #android:attr@fragment#t
     .end array-data
 
-    .line 39910
-    :array_41
+    .line 37875
+    :array_3c
     .array-data 4
         #android:attr@icon#t
         #android:attr@id#t
@@ -8392,8 +7916,8 @@
         #android:attr@breadCrumbShortTitle#t
     .end array-data
 
-    .line 40211
-    :array_42
+    .line 38148
+    :array_3d
     .array-data 4
         #android:attr@maxWidth#t
         #android:attr@maxHeight#t
@@ -8423,8 +7947,8 @@
         #android:attr@backgroundTintMode#t
     .end array-data
 
-    .line 41422
-    :array_43
+    .line 39348
+    :array_3e
     .array-data 4
         #android:attr@layout_toLeftOf#t
         #android:attr@layout_toRightOf#t
@@ -8451,8 +7975,8 @@
         #android:attr@layout_alignParentEnd#t
     .end array-data
 
-    .line 41898
-    :array_44
+    .line 39824
+    :array_3f
     .array-data 4
         #android:attr@description#t
         #android:attr@entries#t
@@ -8463,8 +7987,8 @@
         #android:attr@restrictionType#t
     .end array-data
 
-    .line 42281
-    :array_45
+    .line 40207
+    :array_40
     .array-data 4
         #android:attr@visible#t
         #android:attr@drawable#t
@@ -8474,8 +7998,8 @@
         #android:attr@pivotY#t
     .end array-data
 
-    .line 42400
-    :array_46
+    .line 40326
+    :array_41
     .array-data 4
         #android:attr@pivotX#t
         #android:attr@pivotY#t
@@ -8485,19 +8009,8 @@
         #android:attr@toYScale#t
     .end array-data
 
-    .line 42538
-    :array_47
-    .array-data 4
-        #android:attr@drawable#t
-        #android:attr@scaleWidth#t
-        #android:attr@scaleHeight#t
-        #android:attr@scaleGravity#t
-        #android:attr@useIntrinsicSizeAsMinimum#t
-        #android:attr@level#t
-    .end array-data
-
-    .line 42736
-    :array_48
+    .line 40643
+    :array_42
     .array-data 4
         #android:attr@focusable#t
         #android:attr@layout#t
@@ -8518,8 +8031,8 @@
         #android:^attr-private@defaultQueryHint#t
     .end array-data
 
-    .line 43263
-    :array_49
+    .line 41170
+    :array_43
     .array-data 4
         #android:attr@label#t
         #android:attr@icon#t
@@ -8545,22 +8058,19 @@
         #android:attr@autoUrlDetect#t
     .end array-data
 
-    .line 44365
-    :array_4a
+    .line 42255
+    :array_44
     .array-data 4
         #android:attr@thumb#t
         #android:attr@thumbOffset#t
         #android:attr@splitTrack#t
         #android:attr@thumbTint#t
         #android:attr@thumbTintMode#t
-        #android:attr@tickMark#t
-        #android:attr@tickMarkTint#t
-        #android:attr@tickMarkTintMode#t
         #android:^attr-private@useDisabledAlpha#t
     .end array-data
 
-    .line 44714
-    :array_4b
+    .line 42543
+    :array_45
     .array-data 4
         #android:attr@dither#t
         #android:attr@tint#t
@@ -8570,19 +8080,8 @@
         #android:attr@tintMode#t
     .end array-data
 
-    .line 44956
-    :array_4c
-    .array-data 4
-        #android:attr@icon#t
-        #android:attr@enabled#t
-        #android:attr@shortcutId#t
-        #android:attr@shortcutShortLabel#t
-        #android:attr@shortcutLongLabel#t
-        #android:attr@shortcutDisabledMessage#t
-    .end array-data
-
-    .line 45144
-    :array_4d
+    .line 42827
+    :array_46
     .array-data 4
         #android:attr@orientation#t
         #android:attr@bottomOffset#t
@@ -8593,8 +8092,8 @@
         #android:attr@animateOnClick#t
     .end array-data
 
-    .line 45494
-    :array_4e
+    .line 43131
+    :array_47
     .array-data 4
         #android:attr@gravity#t
         #android:attr@dropDownSelector#t
@@ -8608,8 +8107,8 @@
         #android:^attr-private@disableChildrenWhenDisabled#t
     .end array-data
 
-    .line 45731
-    :array_4f
+    .line 43368
+    :array_48
     .array-data 4
         #android:attr@dither#t
         #android:attr@visible#t
@@ -8620,8 +8119,8 @@
         #android:attr@autoMirrored#t
     .end array-data
 
-    .line 45900
-    :array_50
+    .line 43537
+    :array_49
     .array-data 4
         #android:^attr-private@mountPoint#t
         #android:^attr-private@storageDescription#t
@@ -8633,8 +8132,8 @@
         #android:^attr-private@maxFileSize#t
     .end array-data
 
-    .line 45951
-    :array_51
+    .line 43588
+    :array_4a
     .array-data 4
         #android:attr@textOn#t
         #android:attr@textOff#t
@@ -8652,8 +8151,8 @@
         #android:attr@trackTintMode#t
     .end array-data
 
-    .line 46357
-    :array_52
+    .line 43994
+    :array_4b
     .array-data 4
         #android:attr@settingsActivity#t
         #android:attr@accountType#t
@@ -8664,8 +8163,8 @@
         #android:attr@isAlwaysSyncable#t
     .end array-data
 
-    .line 46767
-    :array_53
+    .line 44372
+    :array_4c
     .array-data 4
         #android:attr@textSize#t
         #android:attr@typeface#t
@@ -8685,8 +8184,8 @@
         #android:attr@fontFeatureSettings#t
     .end array-data
 
-    .line 47391
-    :array_54
+    .line 44996
+    :array_4d
     .array-data 4
         #android:attr@enabled#t
         #android:attr@textAppearance#t
@@ -8772,12 +8271,12 @@
         #android:attr@breakStrategy#t
         #android:attr@hyphenationFrequency#t
         #android:attr@allowUndo#t
-        #android:^attr-private@textEditSuggestionContainerLayout#t
-        #android:^attr-private@textEditSuggestionHighlightStyle#t
+        #android:^attr-private@__removeBeforeMRelease_leftIndents#t
+        #android:^attr-private@__removeBeforeMRelease_rightIndents#t
     .end array-data
 
-    .line 49866
-    :array_55
+    .line 47454
+    :array_4e
     .array-data 4
         #android:attr@colorForeground#t
         #android:attr@colorBackground#t
@@ -9044,13 +8543,6 @@
         #android:attr@dialogPreferredPadding#t
         #android:attr@colorBackgroundFloating#t
         #android:attr@fingerprintAuthDrawable#t
-        #android:attr@listMenuViewStyle#t
-        #android:attr@contextPopupMenuStyle#t
-        #android:attr@textAppearancePopupMenuHeader#t
-        #android:attr@windowBackgroundFallback#t
-        #android:attr@preferenceFragmentStyle#t
-        #android:attr@numberPickerStyle#t
-        #android:attr@colorSecondary#t
         #android:^attr-private@isLightTheme#t
         #android:^attr-private@textColorPrimaryActivated#t
         #android:^attr-private@textColorSecondaryActivated#t
@@ -9065,6 +8557,7 @@
         #android:^attr-private@errorMessageAboveBackground#t
         #android:^attr-private@searchResultListItemHeight#t
         #android:^attr-private@dropdownListPreferredItemHeight#t
+        #android:^attr-private@windowBackgroundFallback#t
         #android:^attr-private@windowActionBarFullscreenDecorLayout#t
         #android:^attr-private@floatingToolbarCloseDrawable#t
         #android:^attr-private@floatingToolbarForegroundColor#t
@@ -9080,9 +8573,11 @@
         #android:^attr-private@gestureOverlayViewStyle#t
         #android:^attr-private@quickContactBadgeOverlay#t
         #android:^attr-private@fragmentBreadCrumbsStyle#t
+        #android:^attr-private@numberPickerStyle#t
         #android:^attr-private@activityChooserViewStyle#t
         #android:^attr-private@actionModePopupWindowStyle#t
         #android:^attr-private@preferenceActivityStyle#t
+        #android:^attr-private@preferenceFragmentStyle#t
         #android:^attr-private@seekBarDialogPreferenceStyle#t
         #android:^attr-private@preferencePanelStyle#t
         #android:^attr-private@preferenceHeaderPanelStyle#t
@@ -9090,14 +8585,13 @@
         #android:^attr-private@preferenceFragmentListStyle#t
         #android:^attr-private@preferenceFragmentPaddingSide#t
         #android:^attr-private@seekBarPreferenceStyle#t
-        #android:^attr-private@textEditSuggestionContainerLayout#t
-        #android:^attr-private@textEditSuggestionHighlightStyle#t
         #android:^attr-private@dialogTitleIconsDecorLayout#t
         #android:^attr-private@dialogCustomTitleDecorLayout#t
         #android:^attr-private@dialogTitleDecorLayout#t
         #android:^attr-private@toastFrameBackground#t
         #android:^attr-private@searchDialogTheme#t
         #android:^attr-private@preferenceFrameLayoutStyle#t
+        #android:^attr-private@pointerStyle#t
         #android:^attr-private@accessibilityFocusedDrawable#t
         #android:^attr-private@findOnPageNextDrawable#t
         #android:^attr-private@findOnPagePreviousDrawable#t
@@ -9107,8 +8601,8 @@
         #android:^attr-private@lightRadius#t
     .end array-data
 
-    .line 54051
-    :array_56
+    .line 51538
+    :array_4f
     .array-data 4
         #android:attr@headerBackground#t
         #android:attr@headerTimeTextAppearance#t
@@ -9122,12 +8616,11 @@
         #android:attr@numbersInnerTextColor#t
         #android:^attr-private@internalLayout#t
         #android:^attr-private@headerTextColor#t
-        #android:^attr-private@dialogMode#t
         #android:^attr-private@legacyLayout#t
     .end array-data
 
-    .line 54379
-    :array_57
+    .line 51843
+    :array_50
     .array-data 4
         #android:attr@gravity#t
         #android:attr@title#t
@@ -9146,21 +8639,19 @@
         #android:attr@titleTextColor#t
         #android:attr@subtitleTextColor#t
         #android:attr@logoDescription#t
-        #android:attr@titleMargin#t
-        #android:attr@titleMarginStart#t
-        #android:attr@titleMarginEnd#t
-        #android:attr@titleMarginTop#t
-        #android:attr@titleMarginBottom#t
-        #android:attr@maxButtonHeight#t
-        #android:attr@buttonGravity#t
-        #android:attr@collapseIcon#t
-        #android:attr@contentInsetStartWithNavigation#t
-        #android:attr@contentInsetEndWithActions#t
+        #android:^attr-private@titleMargins#t
+        #android:^attr-private@titleMarginStart#t
+        #android:^attr-private@titleMarginEnd#t
+        #android:^attr-private@titleMarginTop#t
+        #android:^attr-private@titleMarginBottom#t
+        #android:^attr-private@maxButtonHeight#t
         #android:^attr-private@navigationButtonStyle#t
+        #android:^attr-private@buttonGravity#t
+        #android:^attr-private@collapseIcon#t
     .end array-data
 
-    .line 55142
-    :array_58
+    .line 52416
+    :array_51
     .array-data 4
         #android:attr@targetClass#t
         #android:attr@targetId#t
@@ -9170,8 +8661,8 @@
         #android:attr@excludeName#t
     .end array-data
 
-    .line 55563
-    :array_59
+    .line 52796
+    :array_52
     .array-data 4
         #android:attr@name#t
         #android:attr@tint#t
@@ -9188,8 +8679,8 @@
         #android:^attr-private@opticalInsetBottom#t
     .end array-data
 
-    .line 55816
-    :array_5a
+    .line 53049
+    :array_53
     .array-data 4
         #android:attr@name#t
         #android:attr@pivotX#t
@@ -9201,8 +8692,8 @@
         #android:attr@translateY#t
     .end array-data
 
-    .line 56000
-    :array_5b
+    .line 53231
+    :array_54
     .array-data 4
         #android:attr@name#t
         #android:attr@fillColor#t
@@ -9217,11 +8708,10 @@
         #android:attr@strokeMiterLimit#t
         #android:attr@strokeAlpha#t
         #android:attr@fillAlpha#t
-        #android:attr@fillType#t
     .end array-data
 
-    .line 56515
-    :array_5c
+    .line 53723
+    :array_55
     .array-data 4
         #android:attr@theme#t
         #android:attr@scrollbarSize#t
@@ -9309,13 +8799,11 @@
         #android:attr@accessibilityTraversalAfter#t
         #android:attr@scrollIndicators#t
         #android:attr@contextClickable#t
-        #android:attr@pointerIcon#t
-        #android:attr@forceHasOverlappingRendering#t
         #android:^attr-private@foregroundInsidePadding#t
     .end array-data
 
-    .line 58455
-    :array_5d
+    .line 55602
+    :array_56
     .array-data 4
         #android:attr@state_focused#t
         #android:attr@state_window_focused#t
@@ -9329,8 +8817,8 @@
         #android:attr@state_drag_hovered#t
     .end array-data
 
-    .line 58739
-    :array_5e
+    .line 55886
+    :array_57
     .array-data 4
         #android:attr@clipChildren#t
         #android:attr@clipToPadding#t
@@ -9347,8 +8835,8 @@
         #android:attr@touchscreenBlocksFocus#t
     .end array-data
 
-    .line 59135
-    :array_5f
+    .line 56282
+    :array_58
     .array-data 4
         #android:attr@layout_width#t
         #android:attr@layout_height#t
@@ -9361,31 +8849,8 @@
         #android:attr@layout_marginEnd#t
     .end array-data
 
-    .line 59638
-    :array_60
-    .array-data 4
-        #android:attr@settingsActivity#t
-        #android:attr@sessionService#t
-        #android:attr@recognitionService#t
-        #android:attr@supportsAssist#t
-        #android:attr@supportsLaunchVoiceAssistFromKeyguard#t
-        #android:attr@supportsLocalInteraction#t
-    .end array-data
-
-    .line 59821
-    :array_61
-    .array-data 4
-        #android:attr@description#t
-        #android:attr@settingsActivity#t
-        #android:attr@thumbnail#t
-        #android:attr@author#t
-        #android:attr@contextUri#t
-        #android:attr@contextDescription#t
-        #android:attr@showMetadataInPreview#t
-    .end array-data
-
-    .line 60105
-    :array_62
+    .line 57173
+    :array_59
     .array-data 4
         #android:attr@backgroundDimAmount#t
         #android:attr@windowBackground#t
@@ -9434,7 +8899,7 @@
         #android:attr@windowSharedElementsUseOverlay#t
         #android:attr@windowActivityTransitions#t
         #android:attr@windowLightStatusBar#t
-        #android:attr@windowBackgroundFallback#t
+        #android:^attr-private@windowBackgroundFallback#t
         #android:^attr-private@windowActionBarFullscreenDecorLayout#t
         #android:^attr-private@windowFixedWidthMajor#t
         #android:^attr-private@windowFixedHeightMinor#t
@@ -9443,8 +8908,8 @@
         #android:^attr-private@windowOutsetBottom#t
     .end array-data
 
-    .line 61160
-    :array_63
+    .line 58211
+    :array_5a
     .array-data 4
         #android:attr@windowEnterAnimation#t
         #android:attr@windowExitAnimation#t
@@ -9480,7 +8945,7 @@
     .locals 0
 
     .prologue
-    .line 16523
+    .line 16188
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

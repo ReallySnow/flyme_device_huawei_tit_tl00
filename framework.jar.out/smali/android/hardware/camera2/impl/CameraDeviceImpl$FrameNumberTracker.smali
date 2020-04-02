@@ -78,46 +78,46 @@
     .prologue
     const-wide/16 v0, -0x1
 
-    .line 1371
+    .line 1352
     iput-object p1, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->this$0:Landroid/hardware/camera2/impl/CameraDeviceImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1373
+    .line 1354
     iput-wide v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedFrameNumber:J
 
-    .line 1374
+    .line 1355
     iput-wide v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedReprocessFrameNumber:J
 
-    .line 1376
+    .line 1357
     new-instance v0, Ljava/util/LinkedList;
 
     invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedRegularFrameNumbers:Ljava/util/LinkedList;
 
-    .line 1378
+    .line 1359
     new-instance v0, Ljava/util/LinkedList;
 
     invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedReprocessFrameNumbers:Ljava/util/LinkedList;
 
-    .line 1380
+    .line 1361
     new-instance v0, Ljava/util/TreeMap;
 
     invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mFutureErrorMap:Ljava/util/TreeMap;
 
-    .line 1382
+    .line 1363
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mPartialResults:Ljava/util/HashMap;
 
-    .line 1371
+    .line 1352
     return-void
 .end method
 
@@ -129,7 +129,7 @@
 
     const/4 v10, 0x0
 
-    .line 1385
+    .line 1366
     iget-object v5, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mFutureErrorMap:Ljava/util/TreeMap;
 
     invoke-virtual {v5}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
@@ -140,7 +140,7 @@
 
     move-result-object v1
 
-    .line 1386
+    .line 1367
     .local v1, "iter":Ljava/util/Iterator;
     :cond_0
     :goto_0
@@ -150,14 +150,14 @@
 
     if-eqz v5, :cond_6
 
-    .line 1387
+    .line 1368
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/util/Map$Entry;
 
-    .line 1388
+    .line 1369
     .local v2, "pair":Ljava/util/Map$Entry;
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -165,7 +165,7 @@
 
     check-cast v0, Ljava/lang/Long;
 
-    .line 1389
+    .line 1370
     .local v0, "errorFrameNumber":Ljava/lang/Long;
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -173,7 +173,7 @@
 
     check-cast v4, Ljava/lang/Boolean;
 
-    .line 1390
+    .line 1371
     .local v4, "reprocess":Ljava/lang/Boolean;
     const/4 v5, 0x1
 
@@ -181,7 +181,7 @@
 
     move-result-object v3
 
-    .line 1391
+    .line 1372
     .local v3, "removeError":Ljava/lang/Boolean;
     invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -189,7 +189,7 @@
 
     if-eqz v5, :cond_3
 
-    .line 1392
+    .line 1373
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v6
@@ -202,14 +202,14 @@
 
     if-nez v5, :cond_1
 
-    .line 1393
+    .line 1374
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v6
 
     iput-wide v6, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedReprocessFrameNumber:J
 
-    .line 1412
+    .line 1393
     :goto_1
     invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -217,12 +217,12 @@
 
     if-eqz v5, :cond_0
 
-    .line 1413
+    .line 1394
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     goto :goto_0
 
-    .line 1394
+    .line 1375
     :cond_1
     iget-object v5, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedReprocessFrameNumbers:Ljava/util/LinkedList;
 
@@ -232,7 +232,7 @@
 
     if-nez v5, :cond_2
 
-    .line 1395
+    .line 1376
     iget-object v5, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedReprocessFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v5}, Ljava/util/LinkedList;->element()Ljava/lang/Object;
@@ -241,21 +241,21 @@
 
     if-ne v0, v5, :cond_2
 
-    .line 1396
+    .line 1377
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v6
 
     iput-wide v6, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedReprocessFrameNumber:J
 
-    .line 1397
+    .line 1378
     iget-object v5, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedReprocessFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v5}, Ljava/util/LinkedList;->remove()Ljava/lang/Object;
 
     goto :goto_1
 
-    .line 1399
+    .line 1380
     :cond_2
     invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -263,7 +263,7 @@
 
     goto :goto_1
 
-    .line 1402
+    .line 1383
     :cond_3
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
@@ -277,7 +277,7 @@
 
     if-nez v5, :cond_4
 
-    .line 1403
+    .line 1384
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v6
@@ -286,7 +286,7 @@
 
     goto :goto_1
 
-    .line 1404
+    .line 1385
     :cond_4
     iget-object v5, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedRegularFrameNumbers:Ljava/util/LinkedList;
 
@@ -296,7 +296,7 @@
 
     if-nez v5, :cond_5
 
-    .line 1405
+    .line 1386
     iget-object v5, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedRegularFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v5}, Ljava/util/LinkedList;->element()Ljava/lang/Object;
@@ -305,21 +305,21 @@
 
     if-ne v0, v5, :cond_5
 
-    .line 1406
+    .line 1387
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v6
 
     iput-wide v6, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedFrameNumber:J
 
-    .line 1407
+    .line 1388
     iget-object v5, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedRegularFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v5}, Ljava/util/LinkedList;->remove()Ljava/lang/Object;
 
     goto :goto_1
 
-    .line 1409
+    .line 1390
     :cond_5
     invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -327,7 +327,7 @@
 
     goto :goto_1
 
-    .line 1384
+    .line 1365
     .end local v0    # "errorFrameNumber":Ljava/lang/Long;
     .end local v2    # "pair":Ljava/util/Map$Entry;
     .end local v3    # "removeError":Ljava/lang/Boolean;
@@ -348,14 +348,14 @@
     .prologue
     const-wide/16 v6, 0x1
 
-    .line 1509
+    .line 1490
     iget-wide v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedFrameNumber:J
 
     cmp-long v2, p1, v2
 
     if-gtz v2, :cond_0
 
-    .line 1510
+    .line 1491
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -386,7 +386,7 @@
 
     throw v2
 
-    .line 1511
+    .line 1492
     :cond_0
     iget-wide v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedReprocessFrameNumber:J
 
@@ -394,7 +394,7 @@
 
     if-gtz v2, :cond_5
 
-    .line 1514
+    .line 1495
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedRegularFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->isEmpty()Z
@@ -403,7 +403,7 @@
 
     if-nez v2, :cond_1
 
-    .line 1515
+    .line 1496
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedRegularFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->element()Ljava/lang/Object;
@@ -420,7 +420,7 @@
 
     if-gez v2, :cond_2
 
-    .line 1516
+    .line 1497
     :cond_1
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -438,10 +438,10 @@
 
     move-result-object v3
 
-    .line 1517
+    .line 1498
     const-string/jumbo v4, " is a repeat"
 
-    .line 1516
+    .line 1497
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -454,7 +454,7 @@
 
     throw v2
 
-    .line 1518
+    .line 1499
     :cond_2
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedRegularFrameNumbers:Ljava/util/LinkedList;
 
@@ -472,7 +472,7 @@
 
     if-lez v2, :cond_3
 
-    .line 1519
+    .line 1500
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -489,22 +489,22 @@
 
     move-result-object v3
 
-    .line 1520
+    .line 1501
     const-string/jumbo v4, " comes out of order. Expecting "
 
-    .line 1519
+    .line 1500
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    .line 1521
+    .line 1502
     iget-object v4, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedRegularFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v4}, Ljava/util/LinkedList;->element()Ljava/lang/Object;
 
     move-result-object v4
 
-    .line 1519
+    .line 1500
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -517,20 +517,20 @@
 
     throw v2
 
-    .line 1524
+    .line 1505
     :cond_3
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedRegularFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->remove()Ljava/lang/Object;
 
-    .line 1534
+    .line 1515
     :cond_4
     iput-wide p1, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedFrameNumber:J
 
-    .line 1508
+    .line 1489
     return-void
 
-    .line 1528
+    .line 1509
     :cond_5
     iget-wide v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedFrameNumber:J
 
@@ -548,7 +548,7 @@
 
     if-gez v2, :cond_4
 
-    .line 1530
+    .line 1511
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedReprocessFrameNumbers:Ljava/util/LinkedList;
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -557,7 +557,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 1529
+    .line 1510
     add-long/2addr v0, v6
 
     goto :goto_0
@@ -575,14 +575,14 @@
     .prologue
     const-wide/16 v6, 0x1
 
-    .line 1548
+    .line 1529
     iget-wide v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedReprocessFrameNumber:J
 
     cmp-long v2, p1, v2
 
     if-gez v2, :cond_0
 
-    .line 1549
+    .line 1530
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -613,7 +613,7 @@
 
     throw v2
 
-    .line 1550
+    .line 1531
     :cond_0
     iget-wide v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedFrameNumber:J
 
@@ -621,7 +621,7 @@
 
     if-gez v2, :cond_5
 
-    .line 1553
+    .line 1534
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedReprocessFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->isEmpty()Z
@@ -630,7 +630,7 @@
 
     if-nez v2, :cond_1
 
-    .line 1554
+    .line 1535
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedReprocessFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->element()Ljava/lang/Object;
@@ -647,7 +647,7 @@
 
     if-gez v2, :cond_2
 
-    .line 1555
+    .line 1536
     :cond_1
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -665,10 +665,10 @@
 
     move-result-object v3
 
-    .line 1556
+    .line 1537
     const-string/jumbo v4, " is a repeat"
 
-    .line 1555
+    .line 1536
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -681,7 +681,7 @@
 
     throw v2
 
-    .line 1557
+    .line 1538
     :cond_2
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedReprocessFrameNumbers:Ljava/util/LinkedList;
 
@@ -699,7 +699,7 @@
 
     if-lez v2, :cond_3
 
-    .line 1558
+    .line 1539
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -716,22 +716,22 @@
 
     move-result-object v3
 
-    .line 1559
+    .line 1540
     const-string/jumbo v4, " comes out of order. Expecting "
 
-    .line 1558
+    .line 1539
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    .line 1560
+    .line 1541
     iget-object v4, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedReprocessFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v4}, Ljava/util/LinkedList;->element()Ljava/lang/Object;
 
     move-result-object v4
 
-    .line 1558
+    .line 1539
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -744,20 +744,20 @@
 
     throw v2
 
-    .line 1563
+    .line 1544
     :cond_3
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedReprocessFrameNumbers:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->remove()Ljava/lang/Object;
 
-    .line 1571
+    .line 1552
     :cond_4
     iput-wide p1, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedReprocessFrameNumber:J
 
-    .line 1547
+    .line 1528
     return-void
 
-    .line 1566
+    .line 1547
     :cond_5
     iget-wide v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedFrameNumber:J
 
@@ -775,7 +775,7 @@
 
     if-gez v2, :cond_4
 
-    .line 1568
+    .line 1549
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mSkippedRegularFrameNumbers:Ljava/util/LinkedList;
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -784,7 +784,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 1567
+    .line 1548
     add-long/2addr v0, v6
 
     goto :goto_0
@@ -796,7 +796,7 @@
     .locals 2
 
     .prologue
-    .line 1492
+    .line 1473
     iget-wide v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedFrameNumber:J
 
     return-wide v0
@@ -806,7 +806,7 @@
     .locals 2
 
     .prologue
-    .line 1496
+    .line 1477
     iget-wide v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mCompletedReprocessFrameNumber:J
 
     return-wide v0
@@ -826,7 +826,7 @@
     .end annotation
 
     .prologue
-    .line 1488
+    .line 1469
     iget-object v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mPartialResults:Ljava/util/HashMap;
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -850,25 +850,25 @@
     .param p5, "isReprocess"    # Z
 
     .prologue
-    .line 1454
+    .line 1435
     if-nez p4, :cond_0
 
-    .line 1456
+    .line 1437
     const/4 v1, 0x0
 
     invoke-virtual {p0, p1, p2, v1, p5}, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->updateTracker(JZZ)V
 
-    .line 1458
+    .line 1439
     return-void
 
-    .line 1461
+    .line 1442
     :cond_0
     if-nez p3, :cond_1
 
-    .line 1464
+    .line 1445
     return-void
 
-    .line 1468
+    .line 1449
     :cond_1
     iget-object v1, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mPartialResults:Ljava/util/HashMap;
 
@@ -882,17 +882,17 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 1469
+    .line 1450
     .local v0, "partials":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CaptureResult;>;"
     if-nez v0, :cond_2
 
-    .line 1470
+    .line 1451
     new-instance v0, Ljava/util/ArrayList;
 
     .end local v0    # "partials":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CaptureResult;>;"
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1471
+    .line 1452
     .restart local v0    # "partials":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CaptureResult;>;"
     iget-object v1, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mPartialResults:Ljava/util/HashMap;
 
@@ -902,11 +902,11 @@
 
     invoke-virtual {v1, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1474
+    .line 1455
     :cond_2
     invoke-interface {v0, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1453
+    .line 1434
     return-void
 .end method
 
@@ -917,10 +917,10 @@
     .param p4, "isReprocess"    # Z
 
     .prologue
-    .line 1425
+    .line 1406
     if-eqz p3, :cond_0
 
-    .line 1426
+    .line 1407
     iget-object v1, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->mFutureErrorMap:Ljava/util/TreeMap;
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -933,18 +933,18 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1438
+    .line 1419
     :goto_0
     invoke-direct {p0}, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->update()V
 
-    .line 1424
+    .line 1405
     return-void
 
-    .line 1429
+    .line 1410
     :cond_0
     if-eqz p4, :cond_1
 
-    .line 1430
+    .line 1411
     :try_start_0
     invoke-direct {p0, p1, p2}, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->updateCompletedReprocessFrameNumber(J)V
     :try_end_0
@@ -952,11 +952,11 @@
 
     goto :goto_0
 
-    .line 1434
+    .line 1415
     :catch_0
     move-exception v0
 
-    .line 1435
+    .line 1416
     .local v0, "e":Ljava/lang/IllegalArgumentException;
     iget-object v1, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$FrameNumberTracker;->this$0:Landroid/hardware/camera2/impl/CameraDeviceImpl;
 
@@ -972,7 +972,7 @@
 
     goto :goto_0
 
-    .line 1432
+    .line 1413
     .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     :cond_1
     :try_start_1

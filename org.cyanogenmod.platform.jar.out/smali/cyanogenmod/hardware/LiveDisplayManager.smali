@@ -75,7 +75,7 @@
 
     .line 146
     .local v0, "appContext":Landroid/content/Context;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 147
     iput-object v0, p0, Lcyanogenmod/hardware/LiveDisplayManager;->mContext:Landroid/content/Context;
@@ -101,14 +101,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     .line 154
     invoke-direct {p0}, Lcyanogenmod/hardware/LiveDisplayManager;->checkService()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     .line 161
     :goto_1
@@ -124,36 +124,18 @@
     .line 162
     iget-object v2, p0, Lcyanogenmod/hardware/LiveDisplayManager;->mConfig:Lcyanogenmod/hardware/LiveDisplayConfig;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2
 
     .line 163
-    const-string/jumbo v2, "LiveDisplay"
+    new-instance v2, Ljava/lang/RuntimeException;
 
     const-string/jumbo v3, "Unable to get LiveDisplay configuration!"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v2
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 144
-    :cond_0
-    return-void
-
-    .line 149
-    :cond_1
-    iput-object p1, p0, Lcyanogenmod/hardware/LiveDisplayManager;->mContext:Landroid/content/Context;
-
-    goto :goto_0
-
-    .line 155
-    :cond_2
-    const-string/jumbo v2, "LiveDisplay"
-
-    const-string/jumbo v3, "Unable to get LiveDisplayService. The service either crashed, was not started, or the interface has been called to early in SystemServer init"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
 
     .line 165
     :catch_0
@@ -168,6 +150,27 @@
     invoke-direct {v2, v3, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
+
+    .line 149
+    .end local v1    # "e":Landroid/os/RemoteException;
+    :cond_0
+    iput-object p1, p0, Lcyanogenmod/hardware/LiveDisplayManager;->mContext:Landroid/content/Context;
+
+    goto :goto_0
+
+    .line 155
+    :cond_1
+    const-string/jumbo v2, "LiveDisplay"
+
+    const-string/jumbo v3, "Unable to get LiveDisplayService. The service either crashed, was not started, or the interface has been called to early in SystemServer init"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 144
+    :cond_2
+    return-void
 .end method
 
 .method private checkService()Z

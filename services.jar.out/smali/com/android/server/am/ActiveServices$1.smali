@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/am/ActiveServices;
 
     .prologue
-    .line 166
+    .line 162
     iput-object p1, p0, Lcom/android/server/am/ActiveServices$1;->this$0:Lcom/android/server/am/ActiveServices;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,17 +41,15 @@
     .locals 3
 
     .prologue
-    .line 168
+    .line 164
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$1;->this$0:Lcom/android/server/am/ActiveServices;
 
     iget-object v1, v0, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v1
 
+    .line 165
     :try_start_0
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
-
-    .line 169
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$1;->this$0:Lcom/android/server/am/ActiveServices;
 
     const/4 v2, 0x0
@@ -62,19 +60,14 @@
 
     monitor-exit v1
 
-    .line 168
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
-
-    .line 167
+    .line 163
     return-void
 
-    .line 168
+    .line 164
     :catchall_0
     move-exception v0
 
     monitor-exit v1
-
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     throw v0
 .end method

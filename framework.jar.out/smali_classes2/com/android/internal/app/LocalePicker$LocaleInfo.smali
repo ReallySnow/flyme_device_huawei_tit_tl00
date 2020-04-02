@@ -34,7 +34,7 @@
 # instance fields
 .field label:Ljava/lang/String;
 
-.field final locale:Ljava/util/Locale;
+.field locale:Ljava/util/Locale;
 
 
 # direct methods

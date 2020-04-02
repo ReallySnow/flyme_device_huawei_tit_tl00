@@ -34,29 +34,29 @@
     .locals 5
 
     .prologue
-    .line 78
+    .line 73
     const/4 v0, 0x0
 
-    .line 79
+    .line 74
     const/4 v1, 0x1
 
-    .line 80
+    .line 75
     const/4 v2, 0x2
 
-    .line 81
+    .line 76
     const/4 v3, 0x3
 
-    .line 82
+    .line 77
     const/4 v4, 0x4
 
-    .line 77
+    .line 72
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
     move-result-object v0
 
     sput-object v0, Lcyanogenmod/power/PerformanceManager;->POSSIBLE_POWER_PROFILES:[I
 
-    .line 34
+    .line 29
     return-void
 .end method
 
@@ -65,56 +65,56 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 95
+    .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 85
+    .line 80
     const/4 v1, 0x0
 
     iput v1, p0, Lcyanogenmod/power/PerformanceManager;->mNumberOfProfiles:I
 
-    .line 96
+    .line 91
     invoke-static {}, Lcyanogenmod/power/PerformanceManager;->getService()Lcyanogenmod/power/IPerformanceManager;
 
     move-result-object v1
 
     sput-object v1, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
-    .line 97
+    .line 92
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 98
+    .line 93
     const-string/jumbo v2, "org.cyanogenmod.performance"
 
-    .line 97
+    .line 92
     invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 98
+    .line 93
     sget-object v1, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
     if-nez v1, :cond_0
 
-    .line 99
+    .line 94
     const-string/jumbo v1, "PerformanceManager"
 
     const-string/jumbo v2, "Unable to get PerformanceManagerService. The service either crashed, was not started, or the interface has been called to early in SystemServer init"
 
     invoke-static {v1, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 104
+    .line 99
     :cond_0
     :try_start_0
     sget-object v1, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
     if-eqz v1, :cond_1
 
-    .line 105
+    .line 100
     sget-object v1, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
     invoke-interface {v1}, Lcyanogenmod/power/IPerformanceManager;->getNumberOfProfiles()I
@@ -125,12 +125,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 95
+    .line 90
     :cond_1
     :goto_0
     return-void
 
-    .line 107
+    .line 102
     :catch_0
     move-exception v0
 
@@ -142,24 +142,24 @@
     .locals 2
 
     .prologue
-    .line 132
+    .line 127
     sget-object v0, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
     if-nez v0, :cond_0
 
-    .line 133
+    .line 128
     const-string/jumbo v0, "PerformanceManager"
 
     const-string/jumbo v1, "not connected to PerformanceManagerService"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 134
+    .line 129
     const/4 v0, 0x0
 
     return v0
 
-    .line 136
+    .line 131
     :cond_0
     const/4 v0, 0x1
 
@@ -171,19 +171,19 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 112
+    .line 107
     sget-object v0, Lcyanogenmod/power/PerformanceManager;->sInstance:Lcyanogenmod/power/PerformanceManager;
 
     if-nez v0, :cond_0
 
-    .line 113
+    .line 108
     new-instance v0, Lcyanogenmod/power/PerformanceManager;
 
     invoke-direct {v0, p0}, Lcyanogenmod/power/PerformanceManager;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lcyanogenmod/power/PerformanceManager;->sInstance:Lcyanogenmod/power/PerformanceManager;
 
-    .line 115
+    .line 110
     :cond_0
     sget-object v0, Lcyanogenmod/power/PerformanceManager;->sInstance:Lcyanogenmod/power/PerformanceManager;
 
@@ -196,17 +196,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 120
+    .line 115
     sget-object v1, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
     if-eqz v1, :cond_0
 
-    .line 121
+    .line 116
     sget-object v1, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
     return-object v1
 
-    .line 123
+    .line 118
     :cond_0
     const-string/jumbo v1, "cmperformance"
 
@@ -214,23 +214,23 @@
 
     move-result-object v0
 
-    .line 124
+    .line 119
     .local v0, "b":Landroid/os/IBinder;
     if-eqz v0, :cond_1
 
-    .line 125
+    .line 120
     invoke-static {v0}, Lcyanogenmod/power/IPerformanceManager$Stub;->asInterface(Landroid/os/IBinder;)Lcyanogenmod/power/IPerformanceManager;
 
     move-result-object v1
 
     sput-object v1, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
-    .line 126
+    .line 121
     sget-object v1, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
     return-object v1
 
-    .line 128
+    .line 123
     :cond_1
     return-object v2
 .end method
@@ -242,7 +242,7 @@
     .param p1, "duration"    # I
 
     .prologue
-    .line 149
+    .line 144
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/power/PerformanceManager;->checkService()Z
 
@@ -250,64 +250,19 @@
 
     if-eqz v1, :cond_0
 
-    .line 150
+    .line 145
     sget-object v1, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
     invoke-interface {v1, p1}, Lcyanogenmod/power/IPerformanceManager;->cpuBoost(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 146
+    .line 141
     :cond_0
     :goto_0
     return-void
 
-    .line 152
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
-.end method
-
-.method public getActivePowerProfile()Lcyanogenmod/power/PerformanceProfile;
-    .locals 3
-
-    .prologue
-    .line 250
-    const/4 v1, 0x0
-
-    .line 251
-    .local v1, "ret":Lcyanogenmod/power/PerformanceProfile;
-    iget v2, p0, Lcyanogenmod/power/PerformanceManager;->mNumberOfProfiles:I
-
-    if-lez v2, :cond_0
-
-    .line 253
-    :try_start_0
-    invoke-direct {p0}, Lcyanogenmod/power/PerformanceManager;->checkService()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 254
-    sget-object v2, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
-
-    invoke-interface {v2}, Lcyanogenmod/power/IPerformanceManager;->getActivePowerProfile()Lcyanogenmod/power/PerformanceProfile;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 260
-    .end local v1    # "ret":Lcyanogenmod/power/PerformanceProfile;
-    :cond_0
-    :goto_0
-    return-object v1
-
-    .line 256
-    .restart local v1    # "ret":Lcyanogenmod/power/PerformanceProfile;
+    .line 147
     :catch_0
     move-exception v0
 
@@ -319,7 +274,7 @@
     .locals 1
 
     .prologue
-    .line 161
+    .line 156
     iget v0, p0, Lcyanogenmod/power/PerformanceManager;->mNumberOfProfiles:I
 
     return v0
@@ -329,16 +284,16 @@
     .locals 3
 
     .prologue
-    .line 212
+    .line 186
     const/4 v1, -0x1
 
-    .line 213
+    .line 187
     .local v1, "ret":I
     iget v2, p0, Lcyanogenmod/power/PerformanceManager;->mNumberOfProfiles:I
 
     if-lez v2, :cond_0
 
-    .line 215
+    .line 189
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/power/PerformanceManager;->checkService()Z
 
@@ -346,7 +301,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 216
+    .line 190
     sget-object v2, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
     invoke-interface {v2}, Lcyanogenmod/power/IPerformanceManager;->getPowerProfile()I
@@ -355,128 +310,12 @@
 
     move-result v1
 
-    .line 222
+    .line 196
     :cond_0
     :goto_0
     return v1
 
-    .line 218
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
-.end method
-
-.method public getPowerProfile(I)Lcyanogenmod/power/PerformanceProfile;
-    .locals 3
-    .param p1, "profile"    # I
-
-    .prologue
-    .line 231
-    const/4 v1, 0x0
-
-    .line 232
-    .local v1, "ret":Lcyanogenmod/power/PerformanceProfile;
-    iget v2, p0, Lcyanogenmod/power/PerformanceManager;->mNumberOfProfiles:I
-
-    if-lez v2, :cond_0
-
-    .line 234
-    :try_start_0
-    invoke-direct {p0}, Lcyanogenmod/power/PerformanceManager;->checkService()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 235
-    sget-object v2, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
-
-    invoke-interface {v2, p1}, Lcyanogenmod/power/IPerformanceManager;->getPowerProfileById(I)Lcyanogenmod/power/PerformanceProfile;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 241
-    .end local v1    # "ret":Lcyanogenmod/power/PerformanceProfile;
-    :cond_0
-    :goto_0
-    return-object v1
-
-    .line 237
-    .restart local v1    # "ret":Lcyanogenmod/power/PerformanceProfile;
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
-.end method
-
-.method public getPowerProfiles()Ljava/util/SortedSet;
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/SortedSet",
-            "<",
-            "Lcyanogenmod/power/PerformanceProfile;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 287
-    new-instance v2, Ljava/util/TreeSet;
-
-    invoke-direct {v2}, Ljava/util/TreeSet;-><init>()V
-
-    .line 288
-    .local v2, "profiles":Ljava/util/SortedSet;, "Ljava/util/SortedSet<Lcyanogenmod/power/PerformanceProfile;>;"
-    iget v3, p0, Lcyanogenmod/power/PerformanceManager;->mNumberOfProfiles:I
-
-    if-lez v3, :cond_0
-
-    .line 290
-    :try_start_0
-    invoke-direct {p0}, Lcyanogenmod/power/PerformanceManager;->checkService()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 291
-    sget-object v3, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
-
-    invoke-interface {v3}, Lcyanogenmod/power/IPerformanceManager;->getPowerProfiles()[Lcyanogenmod/power/PerformanceProfile;
-
-    move-result-object v1
-
-    .line 292
-    .local v1, "p":[Lcyanogenmod/power/PerformanceProfile;
-    if-eqz v1, :cond_0
-
-    .line 293
-    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-interface {v2, v3}, Ljava/util/SortedSet;->addAll(Ljava/util/Collection;)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 300
-    .end local v1    # "p":[Lcyanogenmod/power/PerformanceProfile;
-    :cond_0
-    :goto_0
-    invoke-static {v2}, Ljava/util/Collections;->unmodifiableSortedSet(Ljava/util/SortedSet;)Ljava/util/SortedSet;
-
-    move-result-object v3
-
-    return-object v3
-
-    .line 296
+    .line 192
     :catch_0
     move-exception v0
 
@@ -489,16 +328,16 @@
     .param p1, "profile"    # I
 
     .prologue
-    .line 268
+    .line 205
     const/4 v1, 0x0
 
-    .line 269
+    .line 206
     .local v1, "ret":Z
     iget v2, p0, Lcyanogenmod/power/PerformanceManager;->mNumberOfProfiles:I
 
     if-lez v2, :cond_0
 
-    .line 271
+    .line 208
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/power/PerformanceManager;->checkService()Z
 
@@ -506,26 +345,22 @@
 
     if-eqz v2, :cond_0
 
-    .line 272
+    .line 209
     sget-object v2, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
-    invoke-interface {v2, p1}, Lcyanogenmod/power/IPerformanceManager;->getPowerProfileById(I)Lcyanogenmod/power/PerformanceProfile;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcyanogenmod/power/PerformanceProfile;->isBoostEnabled()Z
+    invoke-interface {v2, p1}, Lcyanogenmod/power/IPerformanceManager;->getProfileHasAppProfiles(I)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    .line 278
+    .line 215
     .end local v1    # "ret":Z
     :cond_0
     :goto_0
     return v1
 
-    .line 274
+    .line 211
     .restart local v1    # "ret":Z
     :catch_0
     move-exception v0
@@ -539,14 +374,14 @@
     .param p1, "profile"    # I
 
     .prologue
-    .line 170
+    .line 165
     iget v2, p0, Lcyanogenmod/power/PerformanceManager;->mNumberOfProfiles:I
 
     const/4 v3, 0x1
 
     if-ge v2, v3, :cond_0
 
-    .line 171
+    .line 166
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "Power profiles not enabled on this system!"
@@ -555,11 +390,11 @@
 
     throw v2
 
-    .line 174
+    .line 169
     :cond_0
     const/4 v0, 0x0
 
-    .line 176
+    .line 171
     .local v0, "changed":Z
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/power/PerformanceManager;->checkService()Z
@@ -568,7 +403,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 177
+    .line 172
     sget-object v2, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
 
     invoke-interface {v2, p1}, Lcyanogenmod/power/IPerformanceManager;->setPowerProfile(I)Z
@@ -577,83 +412,17 @@
 
     move-result v0
 
-    .line 182
+    .line 177
     .end local v0    # "changed":Z
     :cond_1
     return v0
 
-    .line 179
+    .line 174
     .restart local v0    # "changed":Z
     :catch_0
     move-exception v1
 
-    .line 180
-    .local v1, "e":Landroid/os/RemoteException;
-    new-instance v2, Ljava/lang/IllegalArgumentException;
-
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v2
-.end method
-
-.method public setPowerProfile(Lcyanogenmod/power/PerformanceProfile;)Z
-    .locals 4
-    .param p1, "profile"    # Lcyanogenmod/power/PerformanceProfile;
-
-    .prologue
-    .line 191
-    iget v2, p0, Lcyanogenmod/power/PerformanceManager;->mNumberOfProfiles:I
-
-    const/4 v3, 0x1
-
-    if-ge v2, v3, :cond_0
-
-    .line 192
-    new-instance v2, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v3, "Power profiles not enabled on this system!"
-
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 195
-    :cond_0
-    const/4 v0, 0x0
-
-    .line 197
-    .local v0, "changed":Z
-    :try_start_0
-    invoke-direct {p0}, Lcyanogenmod/power/PerformanceManager;->checkService()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 198
-    sget-object v2, Lcyanogenmod/power/PerformanceManager;->sService:Lcyanogenmod/power/IPerformanceManager;
-
-    invoke-virtual {p1}, Lcyanogenmod/power/PerformanceProfile;->getId()I
-
-    move-result v3
-
-    invoke-interface {v2, v3}, Lcyanogenmod/power/IPerformanceManager;->setPowerProfile(I)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    .line 203
-    .end local v0    # "changed":Z
-    :cond_1
-    return v0
-
-    .line 200
-    .restart local v0    # "changed":Z
-    :catch_0
-    move-exception v1
-
-    .line 201
+    .line 175
     .local v1, "e":Landroid/os/RemoteException;
     new-instance v2, Ljava/lang/IllegalArgumentException;
 

@@ -62,30 +62,30 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 386
+    .line 383
     invoke-direct {p0, p1, p2, p3}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;-><init>(Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;Landroid/graphics/drawable/DrawableContainer;Landroid/content/res/Resources;)V
 
-    .line 383
+    .line 380
     iput-boolean v1, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mOneShot:Z
 
-    .line 388
+    .line 385
     if-eqz p1, :cond_0
 
-    .line 389
+    .line 386
     iget-object v0, p1, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
 
     iput-object v0, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
 
-    .line 390
+    .line 387
     iget-boolean v0, p1, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mOneShot:Z
 
     iput-boolean v0, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mOneShot:Z
 
-    .line 385
+    .line 382
     :goto_0
     return-void
 
-    .line 392
+    .line 389
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->getCapacity()I
 
@@ -95,7 +95,7 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
 
-    .line 393
+    .line 390
     iput-boolean v1, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mOneShot:Z
 
     goto :goto_0
@@ -105,7 +105,7 @@
     .locals 1
 
     .prologue
-    .line 398
+    .line 395
     iget-object v0, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
 
     invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
@@ -116,7 +116,7 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
 
-    .line 397
+    .line 394
     return-void
 .end method
 
@@ -128,18 +128,18 @@
     .param p2, "dur"    # I
 
     .prologue
-    .line 414
+    .line 411
     invoke-super {p0, p1}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->addChild(Landroid/graphics/drawable/Drawable;)I
 
     move-result v0
 
-    .line 415
+    .line 412
     .local v0, "pos":I
     iget-object v1, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
 
     aput p2, v1, v0
 
-    .line 411
+    .line 408
     return-void
 .end method
 
@@ -151,22 +151,22 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 420
+    .line 417
     invoke-super {p0, p1, p2}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->growArray(II)V
 
-    .line 421
+    .line 418
     new-array v0, p2, [I
 
-    .line 422
+    .line 419
     .local v0, "newDurations":[I
     iget-object v1, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
 
     invoke-static {v1, v2, v0, v2, p1}, Ljava/lang/System;->arraycopy([II[III)V
 
-    .line 423
+    .line 420
     iput-object v0, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
 
-    .line 419
+    .line 416
     return-void
 .end method
 
@@ -176,7 +176,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 403
+    .line 400
     new-instance v0, Landroid/graphics/drawable/AnimationDrawable;
 
     invoke-direct {v0, p0, v1, v1}, Landroid/graphics/drawable/AnimationDrawable;-><init>(Landroid/graphics/drawable/AnimationDrawable$AnimationState;Landroid/content/res/Resources;Landroid/graphics/drawable/AnimationDrawable;)V
@@ -189,7 +189,7 @@
     .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
-    .line 408
+    .line 405
     new-instance v0, Landroid/graphics/drawable/AnimationDrawable;
 
     const/4 v1, 0x0

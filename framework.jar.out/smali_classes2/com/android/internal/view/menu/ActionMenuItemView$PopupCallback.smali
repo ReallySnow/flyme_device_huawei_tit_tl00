@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 359
+    .line 351
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,5 +27,5 @@
 
 
 # virtual methods
-.method public abstract getPopup()Lcom/android/internal/view/menu/ShowableListMenu;
+.method public abstract getPopup()Landroid/widget/ListPopupWindow;
 .end method

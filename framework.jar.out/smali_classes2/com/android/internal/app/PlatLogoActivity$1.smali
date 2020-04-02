@@ -1,9 +1,6 @@
 .class Lcom/android/internal/app/PlatLogoActivity$1;
-.super Ljava/lang/Object;
+.super Landroid/view/ViewOutlineProvider;
 .source "PlatLogoActivity.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -20,53 +17,59 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/internal/app/PlatLogoActivity;
 
-.field final synthetic val$im:Landroid/widget/ImageView;
+.field final synthetic val$dp:F
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/app/PlatLogoActivity;Landroid/widget/ImageView;)V
+.method constructor <init>(Lcom/android/internal/app/PlatLogoActivity;F)V
     .locals 0
     .param p1, "this$0"    # Lcom/android/internal/app/PlatLogoActivity;
-    .param p2, "val$im"    # Landroid/widget/ImageView;
+    .param p2, "val$dp"    # F
 
     .prologue
-    .line 100
+    .line 80
     iput-object p1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->this$0:Lcom/android/internal/app/PlatLogoActivity;
 
-    iput-object p2, p0, Lcom/android/internal/app/PlatLogoActivity$1;->val$im:Landroid/widget/ImageView;
+    iput p2, p0, Lcom/android/internal/app/PlatLogoActivity$1;->val$dp:F
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/view/ViewOutlineProvider;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
     .locals 3
-    .param p1, "v"    # Landroid/view/View;
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "outline"    # Landroid/graphics/Outline;
 
     .prologue
-    .line 103
-    iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity$1;->val$im:Landroid/widget/ImageView;
+    .line 83
+    iget v1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->val$dp:F
 
-    new-instance v1, Lcom/android/internal/app/PlatLogoActivity$1$1;
+    const/high16 v2, 0x41000000    # 8.0f
 
-    iget-object v2, p0, Lcom/android/internal/app/PlatLogoActivity$1;->val$im:Landroid/widget/ImageView;
+    mul-float/2addr v1, v2
 
-    invoke-direct {v1, p0, v2}, Lcom/android/internal/app/PlatLogoActivity$1$1;-><init>(Lcom/android/internal/app/PlatLogoActivity$1;Landroid/widget/ImageView;)V
+    float-to-int v0, v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+    .line 84
+    .local v0, "pad":I
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
-    .line 150
-    iget-object v0, p0, Lcom/android/internal/app/PlatLogoActivity$1;->this$0:Lcom/android/internal/app/PlatLogoActivity;
+    move-result v1
 
-    iget v1, v0, Lcom/android/internal/app/PlatLogoActivity;->mTapCount:I
+    sub-int/2addr v1, v0
 
-    add-int/lit8 v1, v1, 0x1
+    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
-    iput v1, v0, Lcom/android/internal/app/PlatLogoActivity;->mTapCount:I
+    move-result v2
 
-    .line 102
+    sub-int/2addr v2, v0
+
+    invoke-virtual {p2, v0, v0, v1, v2}, Landroid/graphics/Outline;->setOval(IIII)V
+
+    .line 82
     return-void
 .end method

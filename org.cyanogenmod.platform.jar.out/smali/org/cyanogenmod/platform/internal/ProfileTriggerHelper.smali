@@ -41,26 +41,26 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 71
+    .line 70
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 57
+    .line 56
     iput-boolean v3, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mFilterRegistered:Z
 
-    .line 73
+    .line 72
     iput-object p1, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mContext:Landroid/content/Context;
 
-    .line 74
+    .line 73
     iput-object p3, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mManagerService:Lorg/cyanogenmod/platform/internal/ProfileManagerService;
 
-    .line 75
+    .line 74
     new-instance v0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper$SettingsObserver;
 
     invoke-direct {v0, p0, p2}, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper$SettingsObserver;-><init>(Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;Landroid/os/Handler;)V
 
     iput-object v0, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mSettingsObserver:Landroid/database/ContentObserver;
 
-    .line 77
+    .line 76
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mContext:Landroid/content/Context;
 
     const-string/jumbo v1, "wifi"
@@ -73,65 +73,65 @@
 
     iput-object v0, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    .line 78
+    .line 77
     invoke-direct {p0}, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->getActiveSSID()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mLastConnectedSSID:Ljava/lang/String;
 
-    .line 80
+    .line 79
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     iput-object v0, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 81
+    .line 80
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string/jumbo v1, "android.net.wifi.STATE_CHANGE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 82
+    .line 81
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string/jumbo v1, "android.bluetooth.device.action.ACL_CONNECTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 83
+    .line 82
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string/jumbo v1, "android.bluetooth.device.action.ACL_DISCONNECTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 85
+    .line 84
     invoke-virtual {p0}, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->updateEnabled()V
 
-    .line 87
+    .line 86
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 88
+    .line 87
     const-string/jumbo v1, "system_profiles_enabled"
 
     invoke-static {v1}, Lcyanogenmod/providers/CMSettings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    .line 89
+    .line 88
     iget-object v2, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mSettingsObserver:Landroid/database/ContentObserver;
 
-    .line 87
+    .line 86
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 72
+    .line 71
     return-void
 .end method
 
@@ -142,24 +142,24 @@
     .param p3, "newState"    # I
 
     .prologue
-    .line 146
+    .line 151
     iget-object v12, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mManagerService:Lorg/cyanogenmod/platform/internal/ProfileManagerService;
 
     invoke-virtual {v12}, Lorg/cyanogenmod/platform/internal/ProfileManagerService;->getActiveProfileInternal()Lcyanogenmod/app/Profile;
 
     move-result-object v1
 
-    .line 147
+    .line 152
     .local v1, "activeProfile":Lcyanogenmod/app/Profile;
     invoke-virtual {v1}, Lcyanogenmod/app/Profile;->getUuid()Ljava/util/UUID;
 
     move-result-object v2
 
-    .line 149
+    .line 154
     .local v2, "currentProfileUuid":Ljava/util/UUID;
     const/4 v4, 0x0
 
-    .line 150
+    .line 155
     .local v4, "newProfileSelected":Z
     iget-object v12, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mManagerService:Lorg/cyanogenmod/platform/internal/ProfileManagerService;
 
@@ -186,7 +186,7 @@
 
     check-cast v5, Lcyanogenmod/app/Profile;
 
-    .line 151
+    .line 156
     .local v5, "p":Lcyanogenmod/app/Profile;
     move-object/from16 v0, p2
 
@@ -194,13 +194,13 @@
 
     move-result v7
 
-    .line 152
+    .line 157
     .local v7, "profileTriggerState":I
     move/from16 v0, p3
 
     if-ne v0, v7, :cond_0
 
-    .line 156
+    .line 161
     invoke-virtual {v5}, Lcyanogenmod/app/Profile;->getUuid()Ljava/util/UUID;
 
     move-result-object v12
@@ -211,25 +211,25 @@
 
     if-nez v12, :cond_0
 
-    .line 157
+    .line 162
     iget-object v12, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mManagerService:Lorg/cyanogenmod/platform/internal/ProfileManagerService;
 
     const/4 v13, 0x1
 
     invoke-virtual {v12, v5, v13}, Lorg/cyanogenmod/platform/internal/ProfileManagerService;->setActiveProfileInternal(Lcyanogenmod/app/Profile;Z)V
 
-    .line 158
+    .line 163
     const/4 v4, 0x1
 
     goto :goto_0
 
-    .line 162
+    .line 167
     .end local v5    # "p":Lcyanogenmod/app/Profile;
     .end local v7    # "profileTriggerState":I
     :cond_1
     if-nez v4, :cond_3
 
-    .line 164
+    .line 169
     invoke-virtual {v1, p1}, Lcyanogenmod/app/Profile;->getTriggersFromType(I)Ljava/util/ArrayList;
 
     move-result-object v12
@@ -252,13 +252,13 @@
 
     check-cast v8, Lcyanogenmod/app/Profile$ProfileTrigger;
 
-    .line 165
+    .line 170
     .local v8, "trigger":Lcyanogenmod/app/Profile$ProfileTrigger;
     invoke-virtual {v8}, Lcyanogenmod/app/Profile$ProfileTrigger;->getId()Ljava/lang/String;
 
     move-result-object v10
 
-    .line 166
+    .line 171
     .local v10, "triggerID":Ljava/lang/String;
     move-object/from16 v0, p2
 
@@ -268,14 +268,14 @@
 
     if-eqz v12, :cond_2
 
-    .line 168
+    .line 173
     new-instance v3, Landroid/content/Intent;
 
     const-string/jumbo v12, "cyanogenmod.platform.intent.action.INTENT_ACTION_PROFILE_TRIGGER_STATE_CHANGED"
 
     invoke-direct {v3, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 169
+    .line 174
     .local v3, "intent":Landroid/content/Intent;
     const-string/jumbo v12, "trigger_id"
 
@@ -283,38 +283,38 @@
 
     invoke-virtual {v3, v12, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 170
+    .line 175
     const-string/jumbo v12, "trigger_type"
 
     invoke-virtual {v3, v12, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 171
+    .line 176
     const-string/jumbo v12, "trigger_state"
 
     move/from16 v0, p3
 
     invoke-virtual {v3, v12, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 172
+    .line 177
     iget-object v12, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mContext:Landroid/content/Context;
 
     sget-object v13, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     invoke-virtual {v12, v3, v13}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    .line 174
+    .line 179
     invoke-virtual {v8}, Lcyanogenmod/app/Profile$ProfileTrigger;->getState()I
 
     move-result v11
 
-    .line 175
+    .line 180
     .local v11, "triggerState":I
     if-nez p3, :cond_4
 
-    .line 176
+    .line 181
     if-nez v11, :cond_4
 
-    .line 179
+    .line 184
     :goto_1
     iget-object v12, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mContext:Landroid/content/Context;
 
@@ -322,7 +322,7 @@
 
     invoke-virtual {v1, v12, v13}, Lcyanogenmod/app/Profile;->doSelect(Landroid/content/Context;Lcom/android/internal/policy/IKeyguardService;)V
 
-    .line 145
+    .line 150
     .end local v3    # "intent":Landroid/content/Intent;
     .end local v8    # "trigger":Lcyanogenmod/app/Profile$ProfileTrigger;
     .end local v9    # "trigger$iterator":Ljava/util/Iterator;
@@ -331,7 +331,7 @@
     :cond_3
     return-void
 
-    .line 177
+    .line 182
     .restart local v3    # "intent":Landroid/content/Intent;
     .restart local v8    # "trigger":Lcyanogenmod/app/Profile$ProfileTrigger;
     .restart local v9    # "trigger$iterator":Ljava/util/Iterator;
@@ -344,7 +344,7 @@
 
     if-ne v0, v12, :cond_3
 
-    .line 178
+    .line 183
     const/4 v12, 0x1
 
     if-ne v11, v12, :cond_3
@@ -358,34 +358,34 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 189
+    .line 194
     iget-object v2, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
     move-result-object v1
 
-    .line 190
+    .line 195
     .local v1, "wifiinfo":Landroid/net/wifi/WifiInfo;
     if-nez v1, :cond_0
 
-    .line 191
+    .line 196
     return-object v3
 
-    .line 193
+    .line 198
     :cond_0
     invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getWifiSsid()Landroid/net/wifi/WifiSsid;
 
     move-result-object v0
 
-    .line 194
+    .line 199
     .local v0, "ssid":Landroid/net/wifi/WifiSsid;
     if-nez v0, :cond_1
 
-    .line 195
+    .line 200
     return-object v3
 
-    .line 197
+    .line 202
     :cond_1
     invoke-virtual {v0}, Landroid/net/wifi/WifiSsid;->toString()Ljava/lang/String;
 
@@ -397,222 +397,239 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 10
+    .locals 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    .line 108
+    .line 107
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 110
+    .line 109
     .local v0, "action":Ljava/lang/String;
-    const-string/jumbo v7, "android.net.wifi.STATE_CHANGE"
+    const-string/jumbo v6, "android.net.wifi.STATE_CHANGE"
 
-    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_2
+    if-eqz v6, :cond_3
 
-    .line 111
-    const-string/jumbo v7, "networkInfo"
-
-    invoke-virtual {p2, v7}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    .line 110
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v2
 
-    check-cast v2, Landroid/net/NetworkInfo;
+    .line 111
+    .local v2, "extras":Landroid/os/Bundle;
+    const-string/jumbo v6, "wifiInfo"
+
+    invoke-virtual {v2, v6}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/net/wifi/WifiInfo;
 
     .line 112
-    .local v2, "networkInfo":Landroid/net/NetworkInfo;
-    invoke-virtual {v2}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
-
-    move-result-object v4
+    .local v5, "wifiInfo":Landroid/net/wifi/WifiInfo;
+    if-eqz v5, :cond_1
 
     .line 113
-    .local v4, "state":Landroid/net/NetworkInfo$DetailedState;
-    sget-object v7, Landroid/net/NetworkInfo$DetailedState;->DISCONNECTED:Landroid/net/NetworkInfo$DetailedState;
+    invoke-virtual {v5}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
-    invoke-virtual {v7, v4}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
+    move-result-object v3
 
     .line 114
-    iget-object v7, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mLastConnectedSSID:Ljava/lang/String;
-
-    invoke-direct {p0, v8, v7, v9}, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->checkTriggers(ILjava/lang/String;I)V
-
-    .line 116
-    const-string/jumbo v7, "<unknown ssid>"
-
-    iput-object v7, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mLastConnectedSSID:Ljava/lang/String;
-
-    .line 107
-    .end local v2    # "networkInfo":Landroid/net/NetworkInfo;
-    .end local v4    # "state":Landroid/net/NetworkInfo$DetailedState;
-    :cond_0
-    :goto_0
-    return-void
+    .local v3, "ssid":Ljava/lang/String;
+    if-eqz v3, :cond_1
 
     .line 117
-    .restart local v2    # "networkInfo":Landroid/net/NetworkInfo;
-    .restart local v4    # "state":Landroid/net/NetworkInfo$DetailedState;
-    :cond_1
-    sget-object v7, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
+    const-string/jumbo v6, "\""
 
-    invoke-virtual {v7, v4}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
+
+    const-string/jumbo v6, "\""
+
+    invoke-virtual {v3, v6}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
 
     .line 118
-    const-string/jumbo v7, "wifiInfo"
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    invoke-virtual {p2, v7}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    move-result v6
 
-    move-result-object v6
+    add-int/lit8 v6, v6, -0x1
 
-    check-cast v6, Landroid/net/wifi/WifiInfo;
-
-    .line 119
-    .local v6, "wifiInfo":Landroid/net/wifi/WifiInfo;
-    invoke-virtual {v6}, Landroid/net/wifi/WifiInfo;->getWifiSsid()Landroid/net/wifi/WifiSsid;
+    invoke-virtual {v3, v8, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
     .line 120
-    .local v3, "ssid":Landroid/net/wifi/WifiSsid;
-    if-eqz v3, :cond_0
+    :cond_0
+    const-string/jumbo v6, "<unknown ssid>"
+
+    invoke-static {v3, v6}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
 
     .line 121
-    invoke-virtual {v3}, Landroid/net/wifi/WifiSsid;->toString()Ljava/lang/String;
+    iget-object v6, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mLastConnectedSSID:Ljava/lang/String;
 
-    move-result-object v7
+    invoke-direct {p0, v7, v6, v8}, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->checkTriggers(ILjava/lang/String;I)V
 
-    iput-object v7, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mLastConnectedSSID:Ljava/lang/String;
+    .line 123
+    const-string/jumbo v6, "<unknown ssid>"
 
-    .line 122
-    iget-object v7, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mLastConnectedSSID:Ljava/lang/String;
+    iput-object v6, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mLastConnectedSSID:Ljava/lang/String;
 
-    invoke-direct {p0, v8, v7, v8}, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->checkTriggers(ILjava/lang/String;I)V
+    .line 106
+    .end local v2    # "extras":Landroid/os/Bundle;
+    .end local v3    # "ssid":Ljava/lang/String;
+    .end local v5    # "wifiInfo":Landroid/net/wifi/WifiInfo;
+    :cond_1
+    :goto_0
+    return-void
+
+    .line 124
+    .restart local v2    # "extras":Landroid/os/Bundle;
+    .restart local v3    # "ssid":Ljava/lang/String;
+    .restart local v5    # "wifiInfo":Landroid/net/wifi/WifiInfo;
+    :cond_2
+    iget-object v6, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mLastConnectedSSID:Ljava/lang/String;
+
+    invoke-static {v6, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    .line 125
+    iput-object v3, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mLastConnectedSSID:Ljava/lang/String;
+
+    .line 126
+    iget-object v6, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mLastConnectedSSID:Ljava/lang/String;
+
+    invoke-direct {p0, v7, v6, v7}, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->checkTriggers(ILjava/lang/String;I)V
 
     goto :goto_0
 
-    .line 126
-    .end local v2    # "networkInfo":Landroid/net/NetworkInfo;
-    .end local v3    # "ssid":Landroid/net/wifi/WifiSsid;
-    .end local v4    # "state":Landroid/net/NetworkInfo$DetailedState;
-    .end local v6    # "wifiInfo":Landroid/net/wifi/WifiInfo;
-    :cond_2
-    const-string/jumbo v7, "android.bluetooth.device.action.ACL_CONNECTED"
-
-    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_3
-
-    .line 127
-    const-string/jumbo v7, "android.bluetooth.device.action.ACL_DISCONNECTED"
-
-    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    .line 126
-    if-eqz v7, :cond_0
-
-    .line 128
+    .line 131
+    .end local v2    # "extras":Landroid/os/Bundle;
+    .end local v3    # "ssid":Ljava/lang/String;
+    .end local v5    # "wifiInfo":Landroid/net/wifi/WifiInfo;
     :cond_3
-    const-string/jumbo v7, "android.bluetooth.device.action.ACL_CONNECTED"
+    const-string/jumbo v6, "android.bluetooth.device.action.ACL_CONNECTED"
 
-    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_4
+    if-nez v6, :cond_4
 
-    .line 129
-    const/4 v5, 0x0
+    .line 132
+    const-string/jumbo v6, "android.bluetooth.device.action.ACL_DISCONNECTED"
 
-    .line 130
-    .local v5, "triggerState":I
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    .line 131
+    if-eqz v6, :cond_1
+
+    .line 133
+    :cond_4
+    const-string/jumbo v6, "android.bluetooth.device.action.ACL_CONNECTED"
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    .line 134
+    const/4 v4, 0x0
+
+    .line 135
+    .local v4, "triggerState":I
     :goto_1
-    const-string/jumbo v7, "android.bluetooth.device.extra.DEVICE"
+    const-string/jumbo v6, "android.bluetooth.device.extra.DEVICE"
 
-    invoke-virtual {p2, v7}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p2, v6}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v1
 
     check-cast v1, Landroid/bluetooth/BluetoothDevice;
 
-    .line 132
+    .line 137
     .local v1, "device":Landroid/bluetooth/BluetoothDevice;
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-direct {p0, v9, v7, v5}, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->checkTriggers(ILjava/lang/String;I)V
+    invoke-direct {p0, v8, v6, v4}, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->checkTriggers(ILjava/lang/String;I)V
 
     goto :goto_0
 
-    .line 129
+    .line 134
     .end local v1    # "device":Landroid/bluetooth/BluetoothDevice;
-    .end local v5    # "triggerState":I
-    :cond_4
-    const/4 v5, 0x1
+    .end local v4    # "triggerState":I
+    :cond_5
+    const/4 v4, 0x1
 
-    .restart local v5    # "triggerState":I
+    .restart local v4    # "triggerState":I
     goto :goto_1
 .end method
 
 .method public updateEnabled()V
-    .locals 5
+    .locals 4
 
     .prologue
-    const/4 v2, 0x0
+    const/4 v3, 0x1
 
-    const/4 v1, 0x1
+    .line 92
+    iget-object v1, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
 
     .line 93
-    iget-object v3, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mContext:Landroid/content/Context;
+    const-string/jumbo v2, "system_profiles_enabled"
 
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    .line 92
+    invoke-static {v1, v2, v3}, Lcyanogenmod/providers/CMSettings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result-object v3
+    move-result v1
+
+    if-ne v1, v3, :cond_2
+
+    const/4 v0, 0x1
 
     .line 94
-    const-string/jumbo v4, "system_profiles_enabled"
-
-    .line 93
-    invoke-static {v3, v4, v1}, Lcyanogenmod/providers/CMSettings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-
-    if-ne v3, v1, :cond_2
-
-    move v0, v1
-
-    .line 95
     .local v0, "enabled":Z
     :goto_0
     if-eqz v0, :cond_0
 
-    iget-boolean v3, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mFilterRegistered:Z
+    iget-boolean v1, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mFilterRegistered:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
-    .line 99
+    .line 98
     :cond_0
     if-nez v0, :cond_1
 
@@ -620,51 +637,53 @@
 
     if-eqz v1, :cond_1
 
-    .line 100
+    .line 99
     const-string/jumbo v1, "ProfileTriggerHelper"
 
-    const-string/jumbo v3, "Disabling"
+    const-string/jumbo v2, "Disabling"
 
-    invoke-static {v1, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 101
+    .line 100
     iget-object v1, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 102
-    iput-boolean v2, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mFilterRegistered:Z
+    .line 101
+    const/4 v1, 0x0
 
-    .line 92
+    iput-boolean v1, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mFilterRegistered:Z
+
+    .line 91
     :cond_1
     :goto_1
     return-void
 
+    .line 92
     .end local v0    # "enabled":Z
     :cond_2
-    move v0, v2
+    const/4 v0, 0x0
 
-    .line 93
+    .restart local v0    # "enabled":Z
     goto :goto_0
 
-    .line 96
-    .restart local v0    # "enabled":Z
+    .line 95
     :cond_3
-    const-string/jumbo v2, "ProfileTriggerHelper"
+    const-string/jumbo v1, "ProfileTriggerHelper"
 
-    const-string/jumbo v3, "Enabling"
+    const-string/jumbo v2, "Enabling"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 96
+    iget-object v1, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mIntentFilter:Landroid/content/IntentFilter;
+
+    invoke-virtual {v1, p0, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 97
-    iget-object v2, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mContext:Landroid/content/Context;
-
-    iget-object v3, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mIntentFilter:Landroid/content/IntentFilter;
-
-    invoke-virtual {v2, p0, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    .line 98
-    iput-boolean v1, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mFilterRegistered:Z
+    iput-boolean v3, p0, Lorg/cyanogenmod/platform/internal/ProfileTriggerHelper;->mFilterRegistered:Z
 
     goto :goto_1
 .end method

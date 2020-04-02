@@ -27,7 +27,7 @@
     .param p2, "val$lastInput"    # I
 
     .prologue
-    .line 2310
+    .line 2270
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$6;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     iput p2, p0, Lcom/android/server/hdmi/HdmiControlService$6;->val$lastInput:I
@@ -49,13 +49,13 @@
     .end annotation
 
     .prologue
-    .line 2316
+    .line 2276
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$6;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     iget v1, p0, Lcom/android/server/hdmi/HdmiControlService$6;->val$lastInput:I
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->setLastInputForMhl(I)V
 
-    .line 2312
+    .line 2272
     return-void
 .end method

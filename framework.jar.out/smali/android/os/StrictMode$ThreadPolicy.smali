@@ -33,7 +33,7 @@
     .locals 2
 
     .prologue
-    .line 348
+    .line 359
     new-instance v0, Landroid/os/StrictMode$ThreadPolicy;
 
     const/4 v1, 0x0
@@ -42,7 +42,7 @@
 
     sput-object v0, Landroid/os/StrictMode$ThreadPolicy;->LAX:Landroid/os/StrictMode$ThreadPolicy;
 
-    .line 344
+    .line 355
     return-void
 .end method
 
@@ -51,13 +51,13 @@
     .param p1, "mask"    # I
 
     .prologue
-    .line 352
+    .line 363
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 353
+    .line 364
     iput p1, p0, Landroid/os/StrictMode$ThreadPolicy;->mask:I
 
-    .line 352
+    .line 363
     return-void
 .end method
 
@@ -77,7 +77,7 @@
     .locals 2
 
     .prologue
-    .line 358
+    .line 369
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

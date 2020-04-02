@@ -1,8 +1,6 @@
-## Here is an example for CSS files.
-
+## Here is an example for css files.
+##
 syntax "css" "\.css$"
-comment "/*|*/"
-
 color brightred     "."
 color brightyellow  start="\{" end="\}"
 color brightwhite   start=":" end="([;^\{]|$)"

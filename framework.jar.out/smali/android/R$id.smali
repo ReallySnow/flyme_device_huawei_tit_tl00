@@ -27,8 +27,6 @@
 
 .field public static final accessibilityActionScrollUp:I = 0x1020038
 
-.field public static final accessibilityActionSetProgress:I = 0x102003d
-
 .field public static final accessibilityActionShowOnScreen:I = 0x1020036
 
 .field public static final addToDictionary:I = 0x102002a
@@ -73,8 +71,6 @@
 
 .field public static final icon2:I = 0x1020008
 
-.field public static final icon_frame:I = 0x102003e
-
 .field public static final input:I = 0x1020009
 
 .field public static final inputArea:I = 0x102001e
@@ -84,8 +80,6 @@
 .field public static final keyboardView:I = 0x1020026
 
 .field public static final list:I = 0x102000a
-
-.field public static final list_container:I = 0x102003f
 
 .field public static final mask:I = 0x102002e
 
@@ -125,8 +119,6 @@
 
 .field public static final switchInputMethod:I = 0x1020024
 
-.field public static final switch_widget:I = 0x1020040
-
 .field public static final tabcontent:I = 0x1020011
 
 .field public static final tabhost:I = 0x1020012
@@ -151,7 +143,7 @@
     .locals 0
 
     .prologue
-    .line 14482
+    .line 13722
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

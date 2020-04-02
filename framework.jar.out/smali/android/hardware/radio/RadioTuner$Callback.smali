@@ -32,7 +32,7 @@
     .param p1, "connected"    # Z
 
     .prologue
-    .line 290
+    .line 286
     return-void
 .end method
 
@@ -50,16 +50,7 @@
     .param p1, "control"    # Z
 
     .prologue
-    .line 302
-    return-void
-.end method
-
-.method public onEmergencyAnnouncement(Z)V
-    .locals 0
-    .param p1, "active"    # Z
-
-    .prologue
-    .line 286
+    .line 298
     return-void
 .end method
 

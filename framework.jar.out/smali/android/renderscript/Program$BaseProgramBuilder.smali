@@ -50,50 +50,50 @@
 
     const/16 v1, 0x8
 
-    .line 216
+    .line 215
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 217
+    .line 216
     iput-object p1, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mRS:Landroid/renderscript/RenderScript;
 
-    .line 218
+    .line 217
     new-array v0, v1, [Landroid/renderscript/Element;
 
     iput-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mInputs:[Landroid/renderscript/Element;
 
-    .line 219
+    .line 218
     new-array v0, v1, [Landroid/renderscript/Element;
 
     iput-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mOutputs:[Landroid/renderscript/Element;
 
-    .line 220
+    .line 219
     new-array v0, v1, [Landroid/renderscript/Type;
 
     iput-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstants:[Landroid/renderscript/Type;
 
-    .line 221
+    .line 220
     iput v2, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mInputCount:I
 
-    .line 222
+    .line 221
     iput v2, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mOutputCount:I
 
-    .line 223
+    .line 222
     iput v2, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstantCount:I
 
-    .line 224
+    .line 223
     iput v2, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
-    .line 225
+    .line 224
     new-array v0, v1, [Landroid/renderscript/Program$TextureType;
 
     iput-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureTypes:[Landroid/renderscript/Program$TextureType;
 
-    .line 226
+    .line 225
     new-array v0, v1, [Ljava/lang/String;
 
     iput-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureNames:[Ljava/lang/String;
 
-    .line 216
+    .line 215
     return-void
 .end method
 
@@ -109,14 +109,14 @@
     .end annotation
 
     .prologue
-    .line 311
+    .line 310
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstantCount:I
 
     const/16 v1, 0x8
 
     if-lt v0, v1, :cond_0
 
-    .line 312
+    .line 311
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
 
     const-string/jumbo v1, "Max input count exceeded."
@@ -125,7 +125,7 @@
 
     throw v0
 
-    .line 314
+    .line 313
     :cond_0
     invoke-virtual {p1}, Landroid/renderscript/Type;->getElement()Landroid/renderscript/Element;
 
@@ -137,7 +137,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 315
+    .line 314
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
 
     const-string/jumbo v1, "Complex elements not allowed."
@@ -146,7 +146,7 @@
 
     throw v0
 
-    .line 317
+    .line 316
     :cond_1
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstants:[Landroid/renderscript/Type;
 
@@ -154,14 +154,14 @@
 
     aput-object p1, v0, v1
 
-    .line 318
+    .line 317
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstantCount:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstantCount:I
 
-    .line 319
+    .line 318
     return-object p0
 .end method
 
@@ -175,7 +175,7 @@
     .end annotation
 
     .prologue
-    .line 330
+    .line 329
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -198,7 +198,7 @@
 
     invoke-virtual {p0, p1, v0}, Landroid/renderscript/Program$BaseProgramBuilder;->addTexture(Landroid/renderscript/Program$TextureType;Ljava/lang/String;)Landroid/renderscript/Program$BaseProgramBuilder;
 
-    .line 331
+    .line 330
     return-object p0
 .end method
 
@@ -213,14 +213,14 @@
     .end annotation
 
     .prologue
-    .line 345
+    .line 344
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
     const/16 v1, 0x8
 
     if-lt v0, v1, :cond_0
 
-    .line 346
+    .line 345
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "Max texture count exceeded."
@@ -229,7 +229,7 @@
 
     throw v0
 
-    .line 348
+    .line 347
     :cond_0
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureTypes:[Landroid/renderscript/Program$TextureType;
 
@@ -237,21 +237,21 @@
 
     aput-object p1, v0, v1
 
-    .line 349
+    .line 348
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureNames:[Ljava/lang/String;
 
     iget v1, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
     aput-object p2, v0, v1
 
-    .line 350
+    .line 349
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
-    .line 351
+    .line 350
     return-object p0
 .end method
 
@@ -259,7 +259,7 @@
     .locals 1
 
     .prologue
-    .line 291
+    .line 290
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstantCount:I
 
     add-int/lit8 v0, v0, -0x1
@@ -271,7 +271,7 @@
     .locals 1
 
     .prologue
-    .line 299
+    .line 298
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
     add-int/lit8 v0, v0, -0x1
@@ -286,14 +286,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 355
+    .line 354
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mInputCount:I
 
     new-array v0, v0, [Landroid/renderscript/Element;
 
     iput-object v0, p1, Landroid/renderscript/Program;->mInputs:[Landroid/renderscript/Element;
 
-    .line 356
+    .line 355
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mInputs:[Landroid/renderscript/Element;
 
     iget-object v1, p1, Landroid/renderscript/Program;->mInputs:[Landroid/renderscript/Element;
@@ -302,14 +302,14 @@
 
     invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 357
+    .line 356
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mOutputCount:I
 
     new-array v0, v0, [Landroid/renderscript/Element;
 
     iput-object v0, p1, Landroid/renderscript/Program;->mOutputs:[Landroid/renderscript/Element;
 
-    .line 358
+    .line 357
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mOutputs:[Landroid/renderscript/Element;
 
     iget-object v1, p1, Landroid/renderscript/Program;->mOutputs:[Landroid/renderscript/Element;
@@ -318,14 +318,14 @@
 
     invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 359
+    .line 358
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstantCount:I
 
     new-array v0, v0, [Landroid/renderscript/Type;
 
     iput-object v0, p1, Landroid/renderscript/Program;->mConstants:[Landroid/renderscript/Type;
 
-    .line 360
+    .line 359
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstants:[Landroid/renderscript/Type;
 
     iget-object v1, p1, Landroid/renderscript/Program;->mConstants:[Landroid/renderscript/Type;
@@ -334,19 +334,19 @@
 
     invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 361
+    .line 360
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
     iput v0, p1, Landroid/renderscript/Program;->mTextureCount:I
 
-    .line 362
+    .line 361
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
     new-array v0, v0, [Landroid/renderscript/Program$TextureType;
 
     iput-object v0, p1, Landroid/renderscript/Program;->mTextures:[Landroid/renderscript/Program$TextureType;
 
-    .line 363
+    .line 362
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureTypes:[Landroid/renderscript/Program$TextureType;
 
     iget-object v1, p1, Landroid/renderscript/Program;->mTextures:[Landroid/renderscript/Program$TextureType;
@@ -355,14 +355,14 @@
 
     invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 364
+    .line 363
     iget v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
     new-array v0, v0, [Ljava/lang/String;
 
     iput-object v0, p1, Landroid/renderscript/Program;->mTextureNames:[Ljava/lang/String;
 
-    .line 365
+    .line 364
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureNames:[Ljava/lang/String;
 
     iget-object v1, p1, Landroid/renderscript/Program;->mTextureNames:[Ljava/lang/String;
@@ -371,7 +371,7 @@
 
     invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 354
+    .line 353
     return-void
 .end method
 
@@ -381,41 +381,41 @@
     .param p2, "resourceID"    # I
 
     .prologue
-    .line 251
+    .line 250
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
 
     move-result-object v5
 
-    .line 254
+    .line 253
     .local v5, "is":Ljava/io/InputStream;
     const/16 v8, 0x400
 
     :try_start_0
     new-array v6, v8, [B
 
-    .line 255
+    .line 254
     .local v6, "str":[B
     const/4 v7, 0x0
 
-    .line 257
+    .line 256
     .local v7, "strLength":I
     :goto_0
     array-length v8, v6
 
     sub-int v1, v8, v7
 
-    .line 258
+    .line 257
     .local v1, "bytesLeft":I
     if-nez v1, :cond_0
 
-    .line 259
+    .line 258
     array-length v8, v6
 
     mul-int/lit8 v8, v8, 0x2
 
     new-array v0, v8, [B
 
-    .line 260
+    .line 259
     .local v0, "buf2":[B
     array-length v8, v6
 
@@ -425,15 +425,15 @@
 
     invoke-static {v6, v9, v0, v10, v8}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    .line 261
+    .line 260
     move-object v6, v0
 
-    .line 262
-    array-length v8, v0
+    .line 261
+    array-length v8, v6
 
     sub-int v1, v8, v7
 
-    .line 264
+    .line 263
     .end local v0    # "buf2":[B
     :cond_0
     invoke-virtual {v5, v6, v7, v1}, Ljava/io/InputStream;->read([BII)I
@@ -442,17 +442,17 @@
 
     move-result v2
 
-    .line 265
+    .line 264
     .local v2, "bytesRead":I
     if-gtz v2, :cond_1
 
-    .line 271
+    .line 270
     :try_start_1
     invoke-virtual {v5}, Ljava/io/InputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 278
+    .line 277
     :try_start_2
     new-instance v8, Ljava/lang/String;
 
@@ -466,17 +466,17 @@
     :try_end_2
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 283
+    .line 282
     :goto_1
     return-object p0
 
-    .line 268
+    .line 267
     :cond_1
     add-int/2addr v7, v2
 
     goto :goto_0
 
-    .line 270
+    .line 269
     .end local v1    # "bytesLeft":I
     .end local v2    # "bytesRead":I
     .end local v6    # "str":[B
@@ -484,20 +484,20 @@
     :catchall_0
     move-exception v8
 
-    .line 271
+    .line 270
     :try_start_3
     invoke-virtual {v5}, Ljava/io/InputStream;->close()V
 
-    .line 270
+    .line 269
     throw v8
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 273
+    .line 272
     :catch_0
     move-exception v3
 
-    .line 274
+    .line 273
     .local v3, "e":Ljava/io/IOException;
     new-instance v8, Landroid/content/res/Resources$NotFoundException;
 
@@ -505,7 +505,7 @@
 
     throw v8
 
-    .line 279
+    .line 278
     .end local v3    # "e":Ljava/io/IOException;
     .restart local v1    # "bytesLeft":I
     .restart local v2    # "bytesRead":I
@@ -514,7 +514,7 @@
     :catch_1
     move-exception v4
 
-    .line 280
+    .line 279
     .local v4, "e":Ljava/io/UnsupportedEncodingException;
     const-string/jumbo v8, "RenderScript shader creation"
 
@@ -530,9 +530,9 @@
     .param p1, "s"    # Ljava/lang/String;
 
     .prologue
-    .line 236
+    .line 235
     iput-object p1, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mShader:Ljava/lang/String;
 
-    .line 237
+    .line 236
     return-object p0
 .end method

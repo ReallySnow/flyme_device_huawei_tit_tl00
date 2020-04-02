@@ -1,11 +1,14 @@
 .class Lcom/android/server/LockSettingsService$4;
-.super Landroid/os/IProgressListener$Stub;
+.super Ljava/lang/Object;
 .source "LockSettingsService.java"
+
+# interfaces
+.implements Lcom/android/server/LockSettingsService$CredentialUtil;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/LockSettingsService;->unlockUser(I[B[B)V
+    value = Lcom/android/server/LockSettingsService;->doVerifyPassword(Ljava/lang/String;ZJI)Lcom/android/internal/widget/VerifyCredentialResponse;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,32 +20,37 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/LockSettingsService;
 
-.field final synthetic val$latch:Ljava/util/concurrent/CountDownLatch;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/LockSettingsService;Ljava/util/concurrent/CountDownLatch;)V
+.method constructor <init>(Lcom/android/server/LockSettingsService;)V
     .locals 0
     .param p1, "this$0"    # Lcom/android/server/LockSettingsService;
-    .param p2, "val$latch"    # Ljava/util/concurrent/CountDownLatch;
 
     .prologue
-    .line 847
+    .line 639
     iput-object p1, p0, Lcom/android/server/LockSettingsService$4;->this$0:Lcom/android/server/LockSettingsService;
 
-    iput-object p2, p0, Lcom/android/server/LockSettingsService$4;->val$latch:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-direct {p0}, Landroid/os/IProgressListener$Stub;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onFinished(ILandroid/os/Bundle;)V
-    .locals 2
-    .param p1, "id"    # I
-    .param p2, "extras"    # Landroid/os/Bundle;
+.method public adjustForKeystore(Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+    .param p1, "password"    # Ljava/lang/String;
+
+    .prologue
+    .line 653
+    return-object p1
+.end method
+
+.method public setCredential(Ljava/lang/String;Ljava/lang/String;I)V
+    .locals 1
+    .param p1, "password"    # Ljava/lang/String;
+    .param p2, "oldPassword"    # Ljava/lang/String;
+    .param p3, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -50,79 +58,31 @@
     .end annotation
 
     .prologue
-    .line 860
-    const-string/jumbo v0, "LockSettingsService"
+    .line 643
+    iget-object v0, p0, Lcom/android/server/LockSettingsService$4;->this$0:Lcom/android/server/LockSettingsService;
 
-    const-string/jumbo v1, "unlockUser finished"
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/LockSettingsService;->setLockPassword(Ljava/lang/String;Ljava/lang/String;I)V
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 861
-    iget-object v0, p0, Lcom/android/server/LockSettingsService$4;->val$latch:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    .line 859
+    .line 642
     return-void
 .end method
 
-.method public onProgress(IILandroid/os/Bundle;)V
-    .locals 3
-    .param p1, "id"    # I
-    .param p2, "progress"    # I
-    .param p3, "extras"    # Landroid/os/Bundle;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+.method public toHash(Ljava/lang/String;I)[B
+    .locals 1
+    .param p1, "password"    # Ljava/lang/String;
+    .param p2, "userId"    # I
 
     .prologue
-    .line 855
-    const-string/jumbo v0, "LockSettingsService"
+    .line 648
+    iget-object v0, p0, Lcom/android/server/LockSettingsService$4;->this$0:Lcom/android/server/LockSettingsService;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-static {v0}, Lcom/android/server/LockSettingsService;->-get2(Lcom/android/server/LockSettingsService;)Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v0
 
-    const-string/jumbo v2, "unlockUser progress "
+    invoke-virtual {v0, p1, p2}, Lcom/android/internal/widget/LockPatternUtils;->passwordToHash(Ljava/lang/String;I)[B
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 854
-    return-void
-.end method
-
-.method public onStarted(ILandroid/os/Bundle;)V
-    .locals 2
-    .param p1, "id"    # I
-    .param p2, "extras"    # Landroid/os/Bundle;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 850
-    const-string/jumbo v0, "LockSettingsService"
-
-    const-string/jumbo v1, "unlockUser started"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 849
-    return-void
+    return-object v0
 .end method

@@ -22,7 +22,7 @@
     .locals 0
 
     .prologue
-    .line 109
+    .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,16 +35,7 @@
     .param p1, "audioQuality"    # I
 
     .prologue
-    .line 120
-    return-void
-.end method
-
-.method public onCallPullFailed(Lcom/android/internal/telephony/Connection;)V
-    .locals 0
-    .param p1, "externalConnection"    # Lcom/android/internal/telephony/Connection;
-
-    .prologue
-    .line 134
+    .line 84
     return-void
 .end method
 
@@ -53,7 +44,7 @@
     .param p1, "callSubstate"    # I
 
     .prologue
-    .line 124
+    .line 88
     return-void
 .end method
 
@@ -61,7 +52,7 @@
     .locals 0
 
     .prologue
-    .line 128
+    .line 92
     return-void
 .end method
 
@@ -78,7 +69,7 @@
     .end annotation
 
     .prologue
-    .line 122
+    .line 86
     .local p1, "participants":Ljava/util/List;, "Ljava/util/List<Landroid/telecom/ConferenceParticipant;>;"
     return-void
 .end method
@@ -88,25 +79,7 @@
     .param p1, "capability"    # I
 
     .prologue
-    .line 113
-    return-void
-.end method
-
-.method public onConnectionEvent(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
-    .param p1, "event"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
-
-    .prologue
-    .line 138
-    return-void
-.end method
-
-.method public onExitedEcmMode()V
-    .locals 0
-
-    .prologue
-    .line 132
+    .line 77
     return-void
 .end method
 
@@ -115,15 +88,7 @@
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 130
-    return-void
-.end method
-
-.method public onHandoverToWifiFailed()V
-    .locals 0
-
-    .prologue
-    .line 136
+    .line 94
     return-void
 .end method
 
@@ -132,7 +97,7 @@
     .param p1, "isMultiParty"    # Z
 
     .prologue
-    .line 126
+    .line 90
     return-void
 .end method
 
@@ -141,7 +106,7 @@
     .param p1, "videoProvider"    # Landroid/telecom/Connection$VideoProvider;
 
     .prologue
-    .line 118
+    .line 82
     return-void
 .end method
 
@@ -150,7 +115,7 @@
     .param p1, "videoState"    # I
 
     .prologue
-    .line 111
+    .line 75
     return-void
 .end method
 
@@ -159,6 +124,6 @@
     .param p1, "isWifi"    # Z
 
     .prologue
-    .line 115
+    .line 79
     return-void
 .end method

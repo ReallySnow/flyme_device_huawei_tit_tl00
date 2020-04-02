@@ -30,18 +30,18 @@
     .param p3, "stub"    # Landroid/os/ResultReceiver;
 
     .prologue
-    .line 1384
+    .line 1275
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1385
+    .line 1276
     iput-object p1, p0, Landroid/media/session/MediaSession$Command;->command:Ljava/lang/String;
 
-    .line 1386
+    .line 1277
     iput-object p2, p0, Landroid/media/session/MediaSession$Command;->extras:Landroid/os/Bundle;
 
-    .line 1387
+    .line 1278
     iput-object p3, p0, Landroid/media/session/MediaSession$Command;->stub:Landroid/os/ResultReceiver;
 
-    .line 1384
+    .line 1275
     return-void
 .end method

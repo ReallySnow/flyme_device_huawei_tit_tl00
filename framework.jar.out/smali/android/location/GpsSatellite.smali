@@ -3,11 +3,6 @@
 .source "GpsSatellite.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # instance fields
 .field mAzimuth:F
 
@@ -32,13 +27,13 @@
     .param p1, "prn"    # I
 
     .prologue
-    .line 38
+    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
+    .line 35
     iput p1, p0, Landroid/location/GpsSatellite;->mPrn:I
 
-    .line 38
+    .line 34
     return-void
 .end method
 
@@ -48,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 95
+    .line 91
     iget v0, p0, Landroid/location/GpsSatellite;->mAzimuth:F
 
     return v0
@@ -58,7 +53,7 @@
     .locals 1
 
     .prologue
-    .line 85
+    .line 81
     iget v0, p0, Landroid/location/GpsSatellite;->mElevation:F
 
     return v0
@@ -68,7 +63,7 @@
     .locals 1
 
     .prologue
-    .line 66
+    .line 62
     iget v0, p0, Landroid/location/GpsSatellite;->mPrn:I
 
     return v0
@@ -78,7 +73,7 @@
     .locals 1
 
     .prologue
-    .line 75
+    .line 71
     iget v0, p0, Landroid/location/GpsSatellite;->mSnr:F
 
     return v0
@@ -88,7 +83,7 @@
     .locals 1
 
     .prologue
-    .line 113
+    .line 109
     iget-boolean v0, p0, Landroid/location/GpsSatellite;->mHasAlmanac:Z
 
     return v0
@@ -98,7 +93,7 @@
     .locals 1
 
     .prologue
-    .line 104
+    .line 100
     iget-boolean v0, p0, Landroid/location/GpsSatellite;->mHasEphemeris:Z
 
     return v0
@@ -109,50 +104,50 @@
     .param p1, "satellite"    # Landroid/location/GpsSatellite;
 
     .prologue
-    .line 47
+    .line 43
     if-nez p1, :cond_0
 
-    .line 48
+    .line 44
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/location/GpsSatellite;->mValid:Z
 
-    .line 46
+    .line 42
     :goto_0
     return-void
 
-    .line 50
+    .line 46
     :cond_0
     iget-boolean v0, p1, Landroid/location/GpsSatellite;->mValid:Z
 
     iput-boolean v0, p0, Landroid/location/GpsSatellite;->mValid:Z
 
-    .line 51
+    .line 47
     iget-boolean v0, p1, Landroid/location/GpsSatellite;->mHasEphemeris:Z
 
     iput-boolean v0, p0, Landroid/location/GpsSatellite;->mHasEphemeris:Z
 
-    .line 52
+    .line 48
     iget-boolean v0, p1, Landroid/location/GpsSatellite;->mHasAlmanac:Z
 
     iput-boolean v0, p0, Landroid/location/GpsSatellite;->mHasAlmanac:Z
 
-    .line 53
+    .line 49
     iget-boolean v0, p1, Landroid/location/GpsSatellite;->mUsedInFix:Z
 
     iput-boolean v0, p0, Landroid/location/GpsSatellite;->mUsedInFix:Z
 
-    .line 54
+    .line 50
     iget v0, p1, Landroid/location/GpsSatellite;->mSnr:F
 
     iput v0, p0, Landroid/location/GpsSatellite;->mSnr:F
 
-    .line 55
+    .line 51
     iget v0, p1, Landroid/location/GpsSatellite;->mElevation:F
 
     iput v0, p0, Landroid/location/GpsSatellite;->mElevation:F
 
-    .line 56
+    .line 52
     iget v0, p1, Landroid/location/GpsSatellite;->mAzimuth:F
 
     iput v0, p0, Landroid/location/GpsSatellite;->mAzimuth:F
@@ -164,7 +159,7 @@
     .locals 1
 
     .prologue
-    .line 123
+    .line 119
     iget-boolean v0, p0, Landroid/location/GpsSatellite;->mUsedInFix:Z
 
     return v0

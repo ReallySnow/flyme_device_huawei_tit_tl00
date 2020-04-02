@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/view/RenderNodeAnimator$1;,
-        Landroid/view/RenderNodeAnimator$DelayedAnimationHelper;
+        Landroid/view/RenderNodeAnimator$DelayedAnimationHelper;,
+        Landroid/view/RenderNodeAnimator$1;
     }
 .end annotation
 
@@ -117,12 +117,12 @@
 
     sput-object v0, Landroid/view/RenderNodeAnimator;->sViewPropertyAnimatorMap:Landroid/util/SparseIntArray;
 
-    .line 433
+    .line 428
     new-instance v0, Ljava/lang/ThreadLocal;
 
     invoke-direct {v0}, Ljava/lang/ThreadLocal;-><init>()V
 
-    .line 432
+    .line 427
     sput-object v0, Landroid/view/RenderNodeAnimator;->sAnimationHelper:Ljava/lang/ThreadLocal;
 
     .line 37
@@ -428,10 +428,10 @@
     .param p0, "animator"    # Landroid/view/RenderNodeAnimator;
 
     .prologue
-    .line 488
+    .line 483
     invoke-virtual {p0}, Landroid/view/RenderNodeAnimator;->onFinished()V
 
-    .line 487
+    .line 482
     return-void
 .end method
 
@@ -486,16 +486,16 @@
     .end annotation
 
     .prologue
-    .line 399
+    .line 394
     invoke-virtual {p0}, Landroid/view/RenderNodeAnimator;->getListeners()Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 400
+    .line 395
     .local v0, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorListener;>;"
     if-eqz v0, :cond_0
 
-    .line 401
+    .line 396
     invoke-virtual {v0}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
 
     move-result-object v0
@@ -503,7 +503,7 @@
     .end local v0    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorListener;>;"
     check-cast v0, Ljava/util/ArrayList;
 
-    .line 403
+    .line 398
     .restart local v0    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorListener;>;"
     :cond_0
     return-object v0
@@ -556,7 +556,7 @@
     .locals 2
 
     .prologue
-    .line 424
+    .line 419
     sget-object v1, Landroid/view/RenderNodeAnimator;->sAnimationHelper:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -565,23 +565,23 @@
 
     check-cast v0, Landroid/view/RenderNodeAnimator$DelayedAnimationHelper;
 
-    .line 425
+    .line 420
     .local v0, "helper":Landroid/view/RenderNodeAnimator$DelayedAnimationHelper;
     if-nez v0, :cond_0
 
-    .line 426
+    .line 421
     new-instance v0, Landroid/view/RenderNodeAnimator$DelayedAnimationHelper;
 
     .end local v0    # "helper":Landroid/view/RenderNodeAnimator$DelayedAnimationHelper;
     invoke-direct {v0}, Landroid/view/RenderNodeAnimator$DelayedAnimationHelper;-><init>()V
 
-    .line 427
+    .line 422
     .restart local v0    # "helper":Landroid/view/RenderNodeAnimator$DelayedAnimationHelper;
     sget-object v1, Landroid/view/RenderNodeAnimator;->sAnimationHelper:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    .line 429
+    .line 424
     :cond_0
     return-object v0
 .end method
@@ -766,7 +766,7 @@
     .param p1, "frameTimeMs"    # J
 
     .prologue
-    .line 414
+    .line 409
     iget-wide v0, p0, Landroid/view/RenderNodeAnimator;->mStartTime:J
 
     const-wide/16 v2, 0x0
@@ -775,16 +775,16 @@
 
     if-nez v0, :cond_1
 
-    .line 415
+    .line 410
     iput-wide p1, p0, Landroid/view/RenderNodeAnimator;->mStartTime:J
 
-    .line 420
+    .line 415
     :cond_0
     const/4 v0, 0x0
 
     return v0
 
-    .line 416
+    .line 411
     :cond_1
     iget-wide v0, p0, Landroid/view/RenderNodeAnimator;->mStartTime:J
 
@@ -796,10 +796,10 @@
 
     if-ltz v0, :cond_0
 
-    .line 417
+    .line 412
     invoke-direct {p0}, Landroid/view/RenderNodeAnimator;->doStart()V
 
-    .line 418
+    .line 413
     const/4 v0, 0x1
 
     return v0
@@ -811,20 +811,20 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 391
+    .line 386
     iget-object v0, p0, Landroid/view/RenderNodeAnimator;->mNativePtr:Lcom/android/internal/util/VirtualRefBasePtr;
 
     if-eqz v0, :cond_0
 
-    .line 392
+    .line 387
     iget-object v0, p0, Landroid/view/RenderNodeAnimator;->mNativePtr:Lcom/android/internal/util/VirtualRefBasePtr;
 
     invoke-virtual {v0}, Lcom/android/internal/util/VirtualRefBasePtr;->release()V
 
-    .line 393
+    .line 388
     iput-object v1, p0, Landroid/view/RenderNodeAnimator;->mNativePtr:Lcom/android/internal/util/VirtualRefBasePtr;
 
-    .line 390
+    .line 385
     :cond_0
     return-void
 .end method
@@ -970,7 +970,7 @@
     .locals 2
 
     .prologue
-    .line 493
+    .line 488
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Cannot clone this animator"
@@ -1063,7 +1063,7 @@
     .locals 1
 
     .prologue
-    .line 362
+    .line 357
     iget-object v0, p0, Landroid/view/RenderNodeAnimator;->mInterpolator:Landroid/animation/TimeInterpolator;
 
     return-object v0
@@ -1073,7 +1073,7 @@
     .locals 2
 
     .prologue
-    .line 407
+    .line 402
     iget-object v0, p0, Landroid/view/RenderNodeAnimator;->mNativePtr:Lcom/android/internal/util/VirtualRefBasePtr;
 
     invoke-virtual {v0}, Lcom/android/internal/util/VirtualRefBasePtr;->get()J
@@ -1093,27 +1093,13 @@
     return-wide v0
 .end method
 
-.method public getTotalDuration()J
-    .locals 4
-
-    .prologue
-    .line 341
-    iget-wide v0, p0, Landroid/view/RenderNodeAnimator;->mUnscaledDuration:J
-
-    iget-wide v2, p0, Landroid/view/RenderNodeAnimator;->mUnscaledStartDelay:J
-
-    add-long/2addr v0, v2
-
-    return-wide v0
-.end method
-
 .method public isRunning()Z
     .locals 3
 
     .prologue
     const/4 v0, 0x1
 
-    .line 346
+    .line 341
     iget v1, p0, Landroid/view/RenderNodeAnimator;->mState:I
 
     if-eq v1, v0, :cond_0
@@ -1140,7 +1126,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 351
+    .line 346
     iget v1, p0, Landroid/view/RenderNodeAnimator;->mState:I
 
     if-eqz v1, :cond_0
@@ -1155,18 +1141,18 @@
     .locals 5
 
     .prologue
-    .line 366
+    .line 361
     iget v3, p0, Landroid/view/RenderNodeAnimator;->mState:I
 
     if-nez v3, :cond_0
 
-    .line 369
+    .line 364
     invoke-direct {p0}, Landroid/view/RenderNodeAnimator;->releaseNativePtr()V
 
-    .line 370
+    .line 365
     return-void
 
-    .line 372
+    .line 367
     :cond_0
     iget v3, p0, Landroid/view/RenderNodeAnimator;->mState:I
 
@@ -1174,34 +1160,34 @@
 
     if-ne v3, v4, :cond_1
 
-    .line 373
+    .line 368
     invoke-static {}, Landroid/view/RenderNodeAnimator;->getHelper()Landroid/view/RenderNodeAnimator$DelayedAnimationHelper;
 
     move-result-object v3
 
     invoke-virtual {v3, p0}, Landroid/view/RenderNodeAnimator$DelayedAnimationHelper;->removeDelayedAnimation(Landroid/view/RenderNodeAnimator;)V
 
-    .line 374
+    .line 369
     invoke-direct {p0}, Landroid/view/RenderNodeAnimator;->notifyStartListeners()V
 
-    .line 376
+    .line 371
     :cond_1
     const/4 v3, 0x3
 
     iput v3, p0, Landroid/view/RenderNodeAnimator;->mState:I
 
-    .line 378
+    .line 373
     invoke-direct {p0}, Landroid/view/RenderNodeAnimator;->cloneListeners()Ljava/util/ArrayList;
 
     move-result-object v1
 
-    .line 379
+    .line 374
     .local v1, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorListener;>;"
     if-nez v1, :cond_2
 
     const/4 v2, 0x0
 
-    .line 380
+    .line 375
     .local v2, "numListeners":I
     :goto_0
     const/4 v0, 0x0
@@ -1210,7 +1196,7 @@
     :goto_1
     if-ge v0, v2, :cond_3
 
-    .line 381
+    .line 376
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -1219,12 +1205,12 @@
 
     invoke-interface {v3, p0}, Landroid/animation/Animator$AnimatorListener;->onAnimationEnd(Landroid/animation/Animator;)V
 
-    .line 380
+    .line 375
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 379
+    .line 374
     .end local v0    # "i":I
     .end local v2    # "numListeners":I
     :cond_2
@@ -1235,12 +1221,12 @@
     .restart local v2    # "numListeners":I
     goto :goto_0
 
-    .line 387
+    .line 382
     .restart local v0    # "i":I
     :cond_3
     invoke-direct {p0}, Landroid/view/RenderNodeAnimator;->releaseNativePtr()V
 
-    .line 365
+    .line 360
     return-void
 .end method
 
@@ -1273,10 +1259,10 @@
     .param p1, "mayRunAsync"    # Z
 
     .prologue
-    .line 498
+    .line 493
     invoke-direct {p0}, Landroid/view/RenderNodeAnimator;->checkMutable()V
 
-    .line 499
+    .line 494
     iget-object v0, p0, Landroid/view/RenderNodeAnimator;->mNativePtr:Lcom/android/internal/util/VirtualRefBasePtr;
 
     invoke-virtual {v0}, Lcom/android/internal/util/VirtualRefBasePtr;->get()J
@@ -1285,7 +1271,7 @@
 
     invoke-static {v0, v1, p1}, Landroid/view/RenderNodeAnimator;->nSetAllowRunningAsync(JZ)V
 
-    .line 497
+    .line 492
     return-void
 .end method
 
@@ -1374,13 +1360,13 @@
     .param p1, "interpolator"    # Landroid/animation/TimeInterpolator;
 
     .prologue
-    .line 356
+    .line 351
     invoke-direct {p0}, Landroid/view/RenderNodeAnimator;->checkMutable()V
 
-    .line 357
+    .line 352
     iput-object p1, p0, Landroid/view/RenderNodeAnimator;->mInterpolator:Landroid/animation/TimeInterpolator;
 
-    .line 355
+    .line 350
     return-void
 .end method
 

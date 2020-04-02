@@ -38,19 +38,19 @@
 
 .field static final TRANSACTION_getNotificationGroups:I = 0xd
 
-.field static final TRANSACTION_getProfileByName_7:I = 0x8
+.field static final TRANSACTION_getProfile:I = 0x7
 
-.field static final TRANSACTION_getProfile_6:I = 0x7
+.field static final TRANSACTION_getProfileByName:I = 0x8
 
-.field static final TRANSACTION_getProfiles_8:I = 0x9
+.field static final TRANSACTION_getProfiles:I = 0x9
 
 .field static final TRANSACTION_isEnabled:I = 0x14
 
 .field static final TRANSACTION_notificationGroupExistsByName:I = 0xc
 
-.field static final TRANSACTION_profileExistsByName:I = 0xb
+.field static final TRANSACTION_profileExists:I = 0xa
 
-.field static final TRANSACTION_profileExists_9:I = 0xa
+.field static final TRANSACTION_profileExistsByName:I = 0xb
 
 .field static final TRANSACTION_removeNotificationGroup:I = 0xf
 

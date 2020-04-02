@@ -26,8 +26,6 @@
     .end annotation
 .end field
 
-.field private mPinned:Z
-
 .field private final mResolveInfos:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,30 +48,30 @@
     .param p3, "info"    # Landroid/content/pm/ResolveInfo;
 
     .prologue
-    .line 1746
+    .line 1638
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1743
+    .line 1635
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mIntents:Ljava/util/List;
 
-    .line 1744
+    .line 1636
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mResolveInfos:Ljava/util/List;
 
-    .line 1747
+    .line 1639
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->name:Landroid/content/ComponentName;
 
-    .line 1748
+    .line 1640
     invoke-virtual {p0, p2, p3}, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->add(Landroid/content/Intent;Landroid/content/pm/ResolveInfo;)V
 
-    .line 1746
+    .line 1638
     return-void
 .end method
 
@@ -85,17 +83,17 @@
     .param p2, "info"    # Landroid/content/pm/ResolveInfo;
 
     .prologue
-    .line 1752
+    .line 1644
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mIntents:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1753
+    .line 1645
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mResolveInfos:Ljava/util/List;
 
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1751
+    .line 1643
     return-void
 .end method
 
@@ -104,7 +102,7 @@
     .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 1769
+    .line 1661
     const/4 v1, 0x0
 
     .local v1, "i":I
@@ -118,7 +116,7 @@
     :goto_0
     if-ge v1, v0, :cond_1
 
-    .line 1770
+    .line 1662
     iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mIntents:Ljava/util/List;
 
     invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -131,16 +129,16 @@
 
     if-eqz v2, :cond_0
 
-    .line 1771
+    .line 1663
     return v1
 
-    .line 1769
+    .line 1661
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1774
+    .line 1666
     :cond_1
     const/4 v2, -0x1
 
@@ -152,7 +150,7 @@
     .param p1, "info"    # Landroid/content/pm/ResolveInfo;
 
     .prologue
-    .line 1778
+    .line 1670
     const/4 v1, 0x0
 
     .local v1, "i":I
@@ -166,7 +164,7 @@
     :goto_0
     if-ge v1, v0, :cond_1
 
-    .line 1779
+    .line 1671
     iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mResolveInfos:Ljava/util/List;
 
     invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -179,16 +177,16 @@
 
     if-eqz v2, :cond_0
 
-    .line 1780
+    .line 1672
     return v1
 
-    .line 1778
+    .line 1670
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1783
+    .line 1675
     :cond_1
     const/4 v2, -0x1
 
@@ -199,7 +197,7 @@
     .locals 1
 
     .prologue
-    .line 1757
+    .line 1649
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mIntents:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -214,7 +212,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 1761
+    .line 1653
     if-ltz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mIntents:Ljava/util/List;
@@ -239,7 +237,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 1765
+    .line 1657
     if-ltz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mResolveInfos:Ljava/util/List;
@@ -257,26 +255,4 @@
     const/4 v0, 0x0
 
     goto :goto_0
-.end method
-
-.method public isPinned()Z
-    .locals 1
-
-    .prologue
-    .line 1787
-    iget-boolean v0, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mPinned:Z
-
-    return v0
-.end method
-
-.method public setPinned(Z)V
-    .locals 0
-    .param p1, "pinned"    # Z
-
-    .prologue
-    .line 1791
-    iput-boolean p1, p0, Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;->mPinned:Z
-
-    .line 1790
-    return-void
 .end method

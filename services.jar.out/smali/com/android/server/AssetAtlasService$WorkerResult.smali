@@ -33,22 +33,22 @@
     .param p4, "count"    # I
 
     .prologue
-    .line 607
+    .line 611
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 608
+    .line 612
     iput-object p1, p0, Lcom/android/server/AssetAtlasService$WorkerResult;->type:Landroid/graphics/Atlas$Type;
 
-    .line 609
+    .line 613
     iput p2, p0, Lcom/android/server/AssetAtlasService$WorkerResult;->width:I
 
-    .line 610
+    .line 614
     iput p3, p0, Lcom/android/server/AssetAtlasService$WorkerResult;->height:I
 
-    .line 611
+    .line 615
     iput p4, p0, Lcom/android/server/AssetAtlasService$WorkerResult;->count:I
 
-    .line 607
+    .line 611
     return-void
 .end method
 
@@ -58,7 +58,7 @@
     .locals 4
 
     .prologue
-    .line 616
+    .line 620
     const-string/jumbo v0, "%s %dx%d"
 
     const/4 v1, 0x3

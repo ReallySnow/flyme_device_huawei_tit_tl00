@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/webkit/WebStorage$Origin;,
-        Landroid/webkit/WebStorage$QuotaUpdater;
+        Landroid/webkit/WebStorage$QuotaUpdater;,
+        Landroid/webkit/WebStorage$Origin;
     }
 .end annotation
 

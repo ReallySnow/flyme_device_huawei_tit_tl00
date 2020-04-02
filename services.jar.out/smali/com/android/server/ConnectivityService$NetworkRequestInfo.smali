@@ -17,7 +17,15 @@
 .end annotation
 
 
+# static fields
+.field static final LISTEN:Z = false
+
+.field static final REQUEST:Z = true
+
+
 # instance fields
+.field final isRequest:Z
+
 .field private final mBinder:Landroid/os/IBinder;
 
 .field final mPendingIntent:Landroid/app/PendingIntent;
@@ -36,109 +44,101 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/ConnectivityService;Landroid/net/NetworkRequest;Landroid/app/PendingIntent;)V
-    .locals 2
+.method constructor <init>(Lcom/android/server/ConnectivityService;Landroid/net/NetworkRequest;Landroid/app/PendingIntent;Z)V
+    .locals 1
     .param p1, "this$0"    # Lcom/android/server/ConnectivityService;
     .param p2, "r"    # Landroid/net/NetworkRequest;
     .param p3, "pi"    # Landroid/app/PendingIntent;
+    .param p4, "isRequest"    # Z
 
     .prologue
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .line 4115
+    .line 3644
     iput-object p1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4116
+    .line 3645
     iput-object p2, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->request:Landroid/net/NetworkRequest;
 
-    .line 4117
-    iget-object v0, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->request:Landroid/net/NetworkRequest;
-
-    invoke-static {p1, v0}, Lcom/android/server/ConnectivityService;->-wrap3(Lcom/android/server/ConnectivityService;Landroid/net/NetworkRequest;)V
-
-    .line 4118
+    .line 3646
     iput-object p3, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mPendingIntent:Landroid/app/PendingIntent;
 
-    .line 4119
-    iput-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->messenger:Landroid/os/Messenger;
+    .line 3647
+    iput-object v0, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->messenger:Landroid/os/Messenger;
 
-    .line 4120
-    iput-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mBinder:Landroid/os/IBinder;
+    .line 3648
+    iput-object v0, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mBinder:Landroid/os/IBinder;
 
-    .line 4121
+    .line 3649
     invoke-static {}, Lcom/android/server/ConnectivityService;->getCallingPid()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mPid:I
 
-    .line 4122
+    .line 3650
     invoke-static {}, Lcom/android/server/ConnectivityService;->getCallingUid()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mUid:I
 
-    .line 4123
-    invoke-direct {p0}, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->enforceRequestCountLimit()V
+    .line 3651
+    iput-boolean p4, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->isRequest:Z
 
-    .line 4115
+    .line 3644
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/ConnectivityService;Landroid/os/Messenger;Landroid/net/NetworkRequest;Landroid/os/IBinder;)V
+.method constructor <init>(Lcom/android/server/ConnectivityService;Landroid/os/Messenger;Landroid/net/NetworkRequest;Landroid/os/IBinder;Z)V
     .locals 3
     .param p1, "this$0"    # Lcom/android/server/ConnectivityService;
     .param p2, "m"    # Landroid/os/Messenger;
     .param p3, "r"    # Landroid/net/NetworkRequest;
     .param p4, "binder"    # Landroid/os/IBinder;
+    .param p5, "isRequest"    # Z
 
     .prologue
-    .line 4126
+    .line 3654
     iput-object p1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->this$0:Lcom/android/server/ConnectivityService;
 
-    .line 4127
+    .line 3655
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4128
+    .line 3656
     iput-object p2, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->messenger:Landroid/os/Messenger;
 
-    .line 4129
+    .line 3657
     iput-object p3, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->request:Landroid/net/NetworkRequest;
 
-    .line 4130
-    iget-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->request:Landroid/net/NetworkRequest;
-
-    invoke-static {p1, v1}, Lcom/android/server/ConnectivityService;->-wrap3(Lcom/android/server/ConnectivityService;Landroid/net/NetworkRequest;)V
-
-    .line 4131
+    .line 3658
     iput-object p4, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mBinder:Landroid/os/IBinder;
 
-    .line 4132
+    .line 3659
     invoke-static {}, Lcom/android/server/ConnectivityService;->getCallingPid()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mPid:I
 
-    .line 4133
+    .line 3660
     invoke-static {}, Lcom/android/server/ConnectivityService;->getCallingUid()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mUid:I
 
-    .line 4134
+    .line 3661
+    iput-boolean p5, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->isRequest:Z
+
+    .line 3662
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mPendingIntent:Landroid/app/PendingIntent;
 
-    .line 4135
-    invoke-direct {p0}, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->enforceRequestCountLimit()V
-
-    .line 4138
+    .line 3665
     :try_start_0
     iget-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mBinder:Landroid/os/IBinder;
 
@@ -148,98 +148,19 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 4126
+    .line 3654
     :goto_0
     return-void
 
-    .line 4139
+    .line 3666
     :catch_0
     move-exception v0
 
-    .line 4140
+    .line 3667
     .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->binderDied()V
 
     goto :goto_0
-.end method
-
-.method private enforceRequestCountLimit()V
-    .locals 5
-
-    .prologue
-    .line 4145
-    iget-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->this$0:Lcom/android/server/ConnectivityService;
-
-    invoke-static {v1}, Lcom/android/server/ConnectivityService;->-get14(Lcom/android/server/ConnectivityService;)Landroid/util/SparseIntArray;
-
-    move-result-object v2
-
-    monitor-enter v2
-
-    .line 4146
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->this$0:Lcom/android/server/ConnectivityService;
-
-    invoke-static {v1}, Lcom/android/server/ConnectivityService;->-get14(Lcom/android/server/ConnectivityService;)Landroid/util/SparseIntArray;
-
-    move-result-object v1
-
-    iget v3, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mUid:I
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v1, v3, v4}, Landroid/util/SparseIntArray;->get(II)I
-
-    move-result v1
-
-    add-int/lit8 v0, v1, 0x1
-
-    .line 4147
-    .local v0, "networkRequests":I
-    const/16 v1, 0x64
-
-    if-lt v0, v1, :cond_0
-
-    .line 4148
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v3, "Too many NetworkRequests filed"
-
-    invoke-direct {v1, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 4145
-    .end local v0    # "networkRequests":I
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v2
-
-    throw v1
-
-    .line 4150
-    .restart local v0    # "networkRequests":I
-    :cond_0
-    :try_start_1
-    iget-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->this$0:Lcom/android/server/ConnectivityService;
-
-    invoke-static {v1}, Lcom/android/server/ConnectivityService;->-get14(Lcom/android/server/ConnectivityService;)Landroid/util/SparseIntArray;
-
-    move-result-object v1
-
-    iget v3, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mUid:I
-
-    invoke-virtual {v1, v3, v0}, Landroid/util/SparseIntArray;->put(II)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit v2
-
-    .line 4144
-    return-void
 .end method
 
 
@@ -248,7 +169,7 @@
     .locals 2
 
     .prologue
-    .line 4161
+    .line 3678
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -259,34 +180,34 @@
 
     move-result-object v0
 
-    .line 4162
+    .line 3679
     iget-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->request:Landroid/net/NetworkRequest;
 
-    .line 4161
+    .line 3678
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 4162
+    .line 3679
     const-string/jumbo v1, ", "
 
-    .line 4161
+    .line 3678
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 4162
+    .line 3679
     iget-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mBinder:Landroid/os/IBinder;
 
-    .line 4161
+    .line 3678
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 4162
+    .line 3679
     const-string/jumbo v1, ")"
 
-    .line 4161
+    .line 3678
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -295,16 +216,16 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/server/ConnectivityService;->-wrap24(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/android/server/ConnectivityService;->-wrap18(Ljava/lang/String;)V
 
-    .line 4163
+    .line 3680
     iget-object v0, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->this$0:Lcom/android/server/ConnectivityService;
 
     iget-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->request:Landroid/net/NetworkRequest;
 
     invoke-virtual {v0, v1}, Lcom/android/server/ConnectivityService;->releaseNetworkRequest(Landroid/net/NetworkRequest;)V
 
-    .line 4160
+    .line 3677
     return-void
 .end method
 
@@ -312,56 +233,79 @@
     .locals 3
 
     .prologue
-    .line 4167
-    new-instance v0, Ljava/lang/StringBuilder;
+    .line 3684
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "uid/pid:"
+    iget-boolean v0, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->isRequest:Z
 
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "Request"
+
+    :goto_0
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    .line 3685
+    const-string/jumbo v1, " from uid/pid:"
+
+    .line 3684
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 3685
     iget v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mUid:I
 
+    .line 3684
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 3685
     const-string/jumbo v1, "/"
 
+    .line 3684
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 3685
     iget v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mPid:I
 
+    .line 3684
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    const-string/jumbo v1, " "
+    .line 3686
+    const-string/jumbo v1, " for "
 
+    .line 3684
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 3686
     iget-object v1, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->request:Landroid/net/NetworkRequest;
 
+    .line 3684
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 4168
+    .line 3687
     iget-object v0, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mPendingIntent:Landroid/app/PendingIntent;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     const-string/jumbo v0, ""
 
-    .line 4167
-    :goto_0
+    .line 3684
+    :goto_1
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -372,8 +316,13 @@
 
     return-object v0
 
-    .line 4168
     :cond_0
+    const-string/jumbo v0, "Listen"
+
+    goto :goto_0
+
+    .line 3687
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -394,26 +343,26 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method unlinkDeathRecipient()V
     .locals 2
 
     .prologue
-    .line 4155
+    .line 3672
     iget-object v0, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mBinder:Landroid/os/IBinder;
 
     if-eqz v0, :cond_0
 
-    .line 4156
+    .line 3673
     iget-object v0, p0, Lcom/android/server/ConnectivityService$NetworkRequestInfo;->mBinder:Landroid/os/IBinder;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 4154
+    .line 3671
     :cond_0
     return-void
 .end method

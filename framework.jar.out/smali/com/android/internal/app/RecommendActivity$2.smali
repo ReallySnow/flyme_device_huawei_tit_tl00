@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/internal/app/RecommendActivity;
 
     .prologue
-    .line 245
+    .line 244
     iput-object p1, p0, Lcom/android/internal/app/RecommendActivity$2;->this$0:Lcom/android/internal/app/RecommendActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,11 +42,11 @@
     .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     .prologue
-    .line 248
+    .line 247
     iget-object v0, p0, Lcom/android/internal/app/RecommendActivity$2;->this$0:Lcom/android/internal/app/RecommendActivity;
 
     invoke-virtual {v0}, Lcom/android/internal/app/RecommendActivity;->finish()V
 
-    .line 247
+    .line 246
     return-void
 .end method

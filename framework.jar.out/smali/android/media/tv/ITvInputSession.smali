@@ -103,22 +103,6 @@
     .end annotation
 .end method
 
-.method public abstract startRecording(Landroid/net/Uri;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract stopRecording()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract timeShiftEnablePositionTracking(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -128,14 +112,6 @@
 .end method
 
 .method public abstract timeShiftPause()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract timeShiftPlay(Landroid/net/Uri;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

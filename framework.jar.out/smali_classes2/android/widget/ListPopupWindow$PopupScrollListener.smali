@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/widget/ListPopupWindow;
 
     .prologue
-    .line 1293
+    .line 1829
     iput-object p1, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
     .param p4, "totalItemCount"    # I
 
     .prologue
-    .line 1295
+    .line 1831
     return-void
 .end method
 
@@ -88,16 +88,18 @@
 
     if-eqz v0, :cond_1
 
-    .line 1299
+    .line 1835
     :cond_0
     :goto_0
     return-void
 
-    .line 1301
+    .line 1837
     :cond_1
     iget-object v0, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
-    iget-object v0, v0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
+    invoke-static {v0}, Landroid/widget/ListPopupWindow;->-get2(Landroid/widget/ListPopupWindow;)Landroid/widget/PopupWindow;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Landroid/widget/PopupWindow;->getContentView()Landroid/view/View;
 
@@ -105,7 +107,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1302
+    .line 1838
     iget-object v0, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
     invoke-static {v0}, Landroid/widget/ListPopupWindow;->-get1(Landroid/widget/ListPopupWindow;)Landroid/os/Handler;
@@ -114,16 +116,16 @@
 
     iget-object v1, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
-    invoke-static {v1}, Landroid/widget/ListPopupWindow;->-get2(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$ResizePopupRunnable;
+    invoke-static {v1}, Landroid/widget/ListPopupWindow;->-get3(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$ResizePopupRunnable;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 1303
+    .line 1839
     iget-object v0, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
-    invoke-static {v0}, Landroid/widget/ListPopupWindow;->-get2(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$ResizePopupRunnable;
+    invoke-static {v0}, Landroid/widget/ListPopupWindow;->-get3(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$ResizePopupRunnable;
 
     move-result-object v0
 

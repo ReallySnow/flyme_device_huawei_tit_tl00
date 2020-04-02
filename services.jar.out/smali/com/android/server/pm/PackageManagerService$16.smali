@@ -3,12 +3,12 @@
 .source "PackageManagerService.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/server/pm/PackageManagerService$BlobXmlRestorer;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->resetUserChangesToRuntimePermissionsAndFlagsLPw(Lcom/android/server/pm/PackageSetting;I)V
+    value = Lcom/android/server/pm/PackageManagerService;->restorePreferredActivities([BI)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,25 +20,15 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
-.field final synthetic val$appId:I
-
-.field final synthetic val$userId:I
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;II)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
     .locals 0
     .param p1, "this$0"    # Lcom/android/server/pm/PackageManagerService;
-    .param p2, "val$appId"    # I
-    .param p3, "val$userId"    # I
 
     .prologue
-    .line 16987
+    .line 15308
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$16;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    iput p2, p0, Lcom/android/server/pm/PackageManagerService$16;->val$appId:I
-
-    iput p3, p0, Lcom/android/server/pm/PackageManagerService$16;->val$userId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,21 +37,45 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method public apply(Lorg/xmlpull/v1/XmlPullParser;I)V
+    .locals 2
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p2, "userId"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
-    .line 16990
+    .line 15312
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$16;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iget v1, p0, Lcom/android/server/pm/PackageManagerService$16;->val$appId:I
+    iget-object v1, v0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
 
-    iget v2, p0, Lcom/android/server/pm/PackageManagerService$16;->val$userId:I
+    monitor-enter v1
 
-    const-string/jumbo v3, "permissions revoked"
+    .line 15313
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$16;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap29(Lcom/android/server/pm/PackageManagerService;IILjava/lang/String;)V
+    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
 
-    .line 16989
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/pm/Settings;->readPreferredActivitiesLPw(Lorg/xmlpull/v1/XmlPullParser;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    .line 15311
     return-void
+
+    .line 15312
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method

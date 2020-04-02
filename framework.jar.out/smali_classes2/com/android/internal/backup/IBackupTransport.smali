@@ -103,14 +103,6 @@
     .end annotation
 .end method
 
-.method public abstract getBackupQuota(Ljava/lang/String;Z)J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getCurrentRestoreSet()J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -143,14 +135,6 @@
     .end annotation
 .end method
 
-.method public abstract isAppEligibleForBackup(Landroid/content/pm/PackageInfo;Z)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract name()Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -167,7 +151,7 @@
     .end annotation
 .end method
 
-.method public abstract performBackup(Landroid/content/pm/PackageInfo;Landroid/os/ParcelFileDescriptor;I)I
+.method public abstract performBackup(Landroid/content/pm/PackageInfo;Landroid/os/ParcelFileDescriptor;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -175,7 +159,7 @@
     .end annotation
 .end method
 
-.method public abstract performFullBackup(Landroid/content/pm/PackageInfo;Landroid/os/ParcelFileDescriptor;I)I
+.method public abstract performFullBackup(Landroid/content/pm/PackageInfo;Landroid/os/ParcelFileDescriptor;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

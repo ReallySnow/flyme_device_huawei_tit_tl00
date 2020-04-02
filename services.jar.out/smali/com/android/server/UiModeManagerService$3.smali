@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/UiModeManagerService;
 
     .prologue
-    .line 145
+    .line 138
     iput-object p1, p0, Lcom/android/server/UiModeManagerService$3;->this$0:Lcom/android/server/UiModeManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 148
+    .line 141
     iget-object v1, p0, Lcom/android/server/UiModeManagerService$3;->this$0:Lcom/android/server/UiModeManagerService;
 
     const-string/jumbo v2, "plugged"
@@ -58,14 +58,14 @@
     :cond_0
     invoke-static {v1, v0}, Lcom/android/server/UiModeManagerService;->-set0(Lcom/android/server/UiModeManagerService;Z)Z
 
-    .line 149
+    .line 142
     iget-object v0, p0, Lcom/android/server/UiModeManagerService$3;->this$0:Lcom/android/server/UiModeManagerService;
 
     iget-object v1, v0, Lcom/android/server/UiModeManagerService;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 150
+    .line 143
     :try_start_0
     iget-object v0, p0, Lcom/android/server/UiModeManagerService$3;->this$0:Lcom/android/server/UiModeManagerService;
 
@@ -73,7 +73,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 151
+    .line 144
     iget-object v0, p0, Lcom/android/server/UiModeManagerService$3;->this$0:Lcom/android/server/UiModeManagerService;
 
     const/4 v2, 0x0
@@ -87,10 +87,10 @@
     :cond_1
     monitor-exit v1
 
-    .line 147
+    .line 140
     return-void
 
-    .line 149
+    .line 142
     :catchall_0
     move-exception v0
 

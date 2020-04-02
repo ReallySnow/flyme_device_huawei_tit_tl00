@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.display.IDisplayManager"
 
-.field static final TRANSACTION_connectWifiDisplay_5:I = 0x6
+.field static final TRANSACTION_connectWifiDisplay:I = 0x6
 
 .field static final TRANSACTION_createVirtualDisplay:I = 0xe
 
@@ -34,21 +34,21 @@
 
 .field static final TRANSACTION_forgetWifiDisplay:I = 0x9
 
-.field static final TRANSACTION_getDisplayIds_1:I = 0x2
+.field static final TRANSACTION_getDisplayIds:I = 0x2
 
-.field static final TRANSACTION_getDisplayInfo_0:I = 0x1
+.field static final TRANSACTION_getDisplayInfo:I = 0x1
 
 .field static final TRANSACTION_getWifiDisplayStatus:I = 0xc
 
 .field static final TRANSACTION_pauseWifiDisplay:I = 0xa
 
-.field static final TRANSACTION_registerCallback_2:I = 0x3
+.field static final TRANSACTION_registerCallback:I = 0x3
 
 .field static final TRANSACTION_releaseVirtualDisplay:I = 0x11
 
 .field static final TRANSACTION_renameWifiDisplay:I = 0x8
 
-.field static final TRANSACTION_requestColorMode:I = 0xd
+.field static final TRANSACTION_requestColorTransform:I = 0xd
 
 .field static final TRANSACTION_resizeVirtualDisplay:I = 0xf
 
@@ -56,9 +56,9 @@
 
 .field static final TRANSACTION_setVirtualDisplaySurface:I = 0x10
 
-.field static final TRANSACTION_startWifiDisplayScan_3:I = 0x4
+.field static final TRANSACTION_startWifiDisplayScan:I = 0x4
 
-.field static final TRANSACTION_stopWifiDisplayScan_4:I = 0x5
+.field static final TRANSACTION_stopWifiDisplayScan:I = 0x5
 
 
 # direct methods
@@ -565,7 +565,7 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v14, v1}, Landroid/hardware/display/IDisplayManager$Stub;->requestColorMode(II)V
+    invoke-virtual {v0, v14, v1}, Landroid/hardware/display/IDisplayManager$Stub;->requestColorTransform(II)V
 
     .line 165
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V

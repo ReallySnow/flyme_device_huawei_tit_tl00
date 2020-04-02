@@ -24,25 +24,25 @@
     .param p1, "prototype"    # Landroid/print/PrintJobInfo;
 
     .prologue
-    .line 779
+    .line 680
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 780
+    .line 681
     if-eqz p1, :cond_0
 
-    .line 781
+    .line 682
     new-instance v0, Landroid/print/PrintJobInfo;
 
     invoke-direct {v0, p1}, Landroid/print/PrintJobInfo;-><init>(Landroid/print/PrintJobInfo;)V
 
-    .line 780
+    .line 681
     :goto_0
     iput-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
-    .line 779
+    .line 680
     return-void
 
-    .line 782
+    .line 683
     :cond_0
     new-instance v0, Landroid/print/PrintJobInfo;
 
@@ -57,7 +57,7 @@
     .locals 1
 
     .prologue
-    .line 868
+    .line 745
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     return-object v0
@@ -69,7 +69,7 @@
     .param p2, "value"    # I
 
     .prologue
-    .line 856
+    .line 733
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     invoke-static {v0}, Landroid/print/PrintJobInfo;->-get0(Landroid/print/PrintJobInfo;)Landroid/os/Bundle;
@@ -78,7 +78,7 @@
 
     if-nez v0, :cond_0
 
-    .line 857
+    .line 734
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     new-instance v1, Landroid/os/Bundle;
@@ -87,7 +87,7 @@
 
     invoke-static {v0, v1}, Landroid/print/PrintJobInfo;->-set0(Landroid/print/PrintJobInfo;Landroid/os/Bundle;)Landroid/os/Bundle;
 
-    .line 859
+    .line 736
     :cond_0
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
@@ -97,7 +97,7 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 855
+    .line 732
     return-void
 .end method
 
@@ -107,12 +107,7 @@
     .param p2, "value"    # Ljava/lang/String;
 
     .prologue
-    .line 841
-    const-string/jumbo v0, "key cannot be null"
-
-    invoke-static {p1, v0}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 843
+    .line 720
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     invoke-static {v0}, Landroid/print/PrintJobInfo;->-get0(Landroid/print/PrintJobInfo;)Landroid/os/Bundle;
@@ -121,7 +116,7 @@
 
     if-nez v0, :cond_0
 
-    .line 844
+    .line 721
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     new-instance v1, Landroid/os/Bundle;
@@ -130,7 +125,7 @@
 
     invoke-static {v0, v1}, Landroid/print/PrintJobInfo;->-set0(Landroid/print/PrintJobInfo;Landroid/os/Bundle;)Landroid/os/Bundle;
 
-    .line 846
+    .line 723
     :cond_0
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
@@ -140,7 +135,7 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 840
+    .line 719
     return-void
 .end method
 
@@ -149,12 +144,12 @@
     .param p1, "attributes"    # Landroid/print/PrintAttributes;
 
     .prologue
-    .line 800
+    .line 701
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     invoke-static {v0, p1}, Landroid/print/PrintJobInfo;->-set1(Landroid/print/PrintJobInfo;Landroid/print/PrintAttributes;)Landroid/print/PrintAttributes;
 
-    .line 799
+    .line 700
     return-void
 .end method
 
@@ -163,12 +158,12 @@
     .param p1, "copies"    # I
 
     .prologue
-    .line 791
+    .line 692
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     invoke-static {v0, p1}, Landroid/print/PrintJobInfo;->-set2(Landroid/print/PrintJobInfo;I)I
 
-    .line 790
+    .line 691
     return-void
 .end method
 
@@ -177,48 +172,11 @@
     .param p1, "pages"    # [Landroid/print/PageRange;
 
     .prologue
-    .line 809
+    .line 710
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     invoke-static {v0, p1}, Landroid/print/PrintJobInfo;->-set3(Landroid/print/PrintJobInfo;[Landroid/print/PageRange;)[Landroid/print/PageRange;
 
-    .line 808
-    return-void
-.end method
-
-.method public setProgress(F)V
-    .locals 3
-    .param p1, "progress"    # F
-
-    .prologue
-    .line 819
-    const/4 v0, 0x0
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    const-string/jumbo v2, "progress"
-
-    invoke-static {p1, v0, v1, v2}, Lcom/android/internal/util/Preconditions;->checkArgumentInRange(FFFLjava/lang/String;)F
-
-    .line 821
-    iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
-
-    invoke-static {v0, p1}, Landroid/print/PrintJobInfo;->-set4(Landroid/print/PrintJobInfo;F)F
-
-    .line 818
-    return-void
-.end method
-
-.method public setStatus(Ljava/lang/CharSequence;)V
-    .locals 1
-    .param p1, "status"    # Ljava/lang/CharSequence;
-
-    .prologue
-    .line 831
-    iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
-
-    invoke-static {v0, p1}, Landroid/print/PrintJobInfo;->-set5(Landroid/print/PrintJobInfo;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    .line 830
+    .line 709
     return-void
 .end method

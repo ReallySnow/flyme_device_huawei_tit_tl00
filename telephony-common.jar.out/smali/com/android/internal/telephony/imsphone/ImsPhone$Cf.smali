@@ -30,18 +30,18 @@
     .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
-    .line 187
+    .line 173
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 188
+    .line 174
     iput-object p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhone$Cf;->mSetCfNumber:Ljava/lang/String;
 
-    .line 189
+    .line 175
     iput-boolean p2, p0, Lcom/android/internal/telephony/imsphone/ImsPhone$Cf;->mIsCfu:Z
 
-    .line 190
+    .line 176
     iput-object p3, p0, Lcom/android/internal/telephony/imsphone/ImsPhone$Cf;->mOnComplete:Landroid/os/Message;
 
-    .line 187
+    .line 173
     return-void
 .end method

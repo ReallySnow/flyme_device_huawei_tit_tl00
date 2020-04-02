@@ -27,7 +27,7 @@
     .param p1, "this$1"    # Landroid/os/PowerManager$WakeLock;
 
     .prologue
-    .line 1187
+    .line 1039
     iput-object p1, p0, Landroid/os/PowerManager$WakeLock$1;->this$1:Landroid/os/PowerManager$WakeLock;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,11 +41,11 @@
     .locals 1
 
     .prologue
-    .line 1189
+    .line 1041
     iget-object v0, p0, Landroid/os/PowerManager$WakeLock$1;->this$1:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 1188
+    .line 1040
     return-void
 .end method

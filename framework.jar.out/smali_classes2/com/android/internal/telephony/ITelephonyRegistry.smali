@@ -63,7 +63,7 @@
     .end annotation
 .end method
 
-.method public abstract notifyCallStateForPhoneId(IIILjava/lang/String;)V
+.method public abstract notifyCallStateForSubscriber(IILjava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -179,6 +179,14 @@
     .end annotation
 .end method
 
+.method public abstract notifyDataConnectionRealTimeInfo(Landroid/telephony/DataConnectionRealTimeInfo;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract notifyDisconnectCause(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -219,6 +227,14 @@
     .end annotation
 .end method
 
+.method public abstract notifyPreciseCallStateForSubscriber(IIII)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract notifyPreciseDataConnectionFailed(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -235,7 +251,15 @@
     .end annotation
 .end method
 
-.method public abstract notifySignalStrengthForPhoneId(IILandroid/telephony/SignalStrength;)V
+.method public abstract notifySignalStrength(Landroid/telephony/SignalStrength;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifySignalStrengthForSubscriber(ILandroid/telephony/SignalStrength;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

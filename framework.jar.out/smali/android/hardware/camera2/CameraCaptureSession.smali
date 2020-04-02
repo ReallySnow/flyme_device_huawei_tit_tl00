@@ -9,10 +9,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;,
-        Landroid/hardware/camera2/CameraCaptureSession$CaptureListener;,
         Landroid/hardware/camera2/CameraCaptureSession$StateCallback;,
-        Landroid/hardware/camera2/CameraCaptureSession$StateListener;
+        Landroid/hardware/camera2/CameraCaptureSession$StateListener;,
+        Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;,
+        Landroid/hardware/camera2/CameraCaptureSession$CaptureListener;
     }
 .end annotation
 
@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 68
+    .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -72,24 +72,6 @@
 .end method
 
 .method public abstract close()V
-.end method
-
-.method public abstract finishDeferredConfiguration(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Landroid/hardware/camera2/params/OutputConfiguration;",
-            ">;)V"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/hardware/camera2/CameraAccessException;
-        }
-    .end annotation
 .end method
 
 .method public abstract getDevice()Landroid/hardware/camera2/CameraDevice;

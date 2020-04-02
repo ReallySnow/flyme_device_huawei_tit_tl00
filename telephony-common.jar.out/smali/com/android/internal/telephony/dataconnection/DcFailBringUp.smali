@@ -1,4 +1,4 @@
-.class public Lcom/android/internal/telephony/dataconnection/DcFailBringUp;
+.class Lcom/android/internal/telephony/dataconnection/DcFailBringUp;
 .super Ljava/lang/Object;
 .source "DcFailBringUp.java"
 
@@ -10,7 +10,7 @@
 
 .field private static final DBG:Z = true
 
-.field static final DEFAULT_COUNTER:I = 0x2
+.field static final DEFAULT_COUNTER:I = 0x1
 
 .field static final DEFAULT_FAIL_CAUSE:Lcom/android/internal/telephony/dataconnection/DcFailCause;
 
@@ -60,7 +60,7 @@
     return-void
 .end method
 
-.method public constructor <init>()V
+.method constructor <init>()V
     .locals 0
 
     .prologue
@@ -86,7 +86,7 @@
 
 
 # virtual methods
-.method public saveParameters(III)V
+.method saveParameters(III)V
     .locals 1
     .param p1, "counter"    # I
     .param p2, "failCause"    # I
@@ -148,7 +148,7 @@
     .line 53
     const-string/jumbo v0, "counter"
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 

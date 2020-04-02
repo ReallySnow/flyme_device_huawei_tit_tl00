@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/Watchdog;
 
     .prologue
-    .line 192
+    .line 185
     iput-object p1, p0, Lcom/android/server/Watchdog$RebootRequestReceiver;->this$0:Lcom/android/server/Watchdog;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 195
+    .line 188
     const-string/jumbo v0, "nowait"
 
     invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -51,17 +51,17 @@
 
     if-eqz v0, :cond_0
 
-    .line 196
+    .line 189
     iget-object v0, p0, Lcom/android/server/Watchdog$RebootRequestReceiver;->this$0:Lcom/android/server/Watchdog;
 
     const-string/jumbo v1, "Received ACTION_REBOOT broadcast"
 
     invoke-virtual {v0, v1}, Lcom/android/server/Watchdog;->rebootSystem(Ljava/lang/String;)V
 
-    .line 197
+    .line 190
     return-void
 
-    .line 199
+    .line 192
     :cond_0
     const-string/jumbo v0, "Watchdog"
 
@@ -85,6 +85,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 194
+    .line 187
     return-void
 .end method

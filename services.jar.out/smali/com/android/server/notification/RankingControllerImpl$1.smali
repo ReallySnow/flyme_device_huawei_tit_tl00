@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/notification/RankingControllerImpl;
 
     .prologue
-    .line 334
+    .line 189
     iput-object p1, p0, Lcom/android/server/notification/RankingControllerImpl$1;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,14 +40,12 @@
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 337
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 338
     .local v0, "action":Ljava/lang/String;
-    const-string/jumbo v1, "android.intent.action.TIME_TICK"
+    const-string v1, "android.intent.action.TIME_TICK"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -55,7 +53,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 339
     iget-object v1, p0, Lcom/android/server/notification/RankingControllerImpl$1;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -64,14 +61,13 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/server/notification/RankingControllerImpl;->-set0(Lcom/android/server/notification/RankingControllerImpl;J)J
 
-    .line 336
+    .line 194
     :cond_0
     :goto_0
     return-void
 
-    .line 340
     :cond_1
-    const-string/jumbo v1, "android.intent.action.TIMEZONE_CHANGED"
+    const-string v1, "android.intent.action.TIMEZONE_CHANGED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -79,7 +75,7 @@
 
     if-nez v1, :cond_2
 
-    const-string/jumbo v1, "android.intent.action.TIME_SET"
+    const-string v1, "android.intent.action.TIME_SET"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -87,7 +83,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 341
     :cond_2
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -111,7 +106,6 @@
 
     if-ltz v1, :cond_0
 
-    .line 342
     iget-object v1, p0, Lcom/android/server/notification/RankingControllerImpl$1;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -120,7 +114,6 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/server/notification/RankingControllerImpl;->-set0(Lcom/android/server/notification/RankingControllerImpl;J)J
 
-    .line 343
     iget-object v1, p0, Lcom/android/server/notification/RankingControllerImpl$1;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
     invoke-static {v1}, Lcom/android/server/notification/RankingControllerImpl;->-wrap2(Lcom/android/server/notification/RankingControllerImpl;)V

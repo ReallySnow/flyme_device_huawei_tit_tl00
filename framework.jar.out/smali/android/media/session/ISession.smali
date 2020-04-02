@@ -23,14 +23,6 @@
     .end annotation
 .end method
 
-.method public abstract getCallingPackage()Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getController()Landroid/media/session/ISessionController;
     .annotation system Ldalvik/annotation/Throws;
         value = {

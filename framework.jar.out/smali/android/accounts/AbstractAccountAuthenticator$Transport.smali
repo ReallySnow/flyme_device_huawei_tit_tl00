@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Landroid/accounts/AbstractAccountAuthenticator;
 
     .prologue
-    .line 155
+    .line 125
     iput-object p1, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-direct {p0}, Landroid/accounts/IAccountAuthenticator$Stub;-><init>()V
@@ -60,7 +60,7 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 160
+    .line 130
     const-string/jumbo v0, "AccountAuthenticator"
 
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -69,7 +69,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 161
+    .line 131
     const-string/jumbo v1, "AccountAuthenticator"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -86,10 +86,10 @@
 
     move-result-object v0
 
-    .line 162
+    .line 132
     const-string/jumbo v2, ", authTokenType "
 
-    .line 161
+    .line 131
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -98,20 +98,20 @@
 
     move-result-object v0
 
-    .line 163
+    .line 133
     const-string/jumbo v2, ", features "
 
-    .line 161
+    .line 131
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 163
+    .line 133
     if-nez p4, :cond_4
 
     const-string/jumbo v0, "[]"
 
-    .line 161
+    .line 131
     :goto_0
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -123,17 +123,17 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 165
+    .line 135
     :cond_0
     iget-object v0, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-static {v0}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
 
-    .line 167
+    .line 137
     :try_start_0
     iget-object v0, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
-    .line 168
+    .line 138
     new-instance v1, Landroid/accounts/AccountAuthenticatorResponse;
 
     invoke-direct {v1, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
@@ -146,12 +146,12 @@
 
     move-object v5, p5
 
-    .line 167
+    .line 137
     invoke-virtual/range {v0 .. v5}, Landroid/accounts/AbstractAccountAuthenticator;->addAccount(Landroid/accounts/AccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v7
 
-    .line 170
+    .line 140
     .local v7, "result":Landroid/os/Bundle;
     const-string/jumbo v0, "AccountAuthenticator"
 
@@ -163,13 +163,13 @@
 
     if-eqz v0, :cond_2
 
-    .line 171
+    .line 141
     if-eqz v7, :cond_1
 
-    .line 172
+    .line 142
     invoke-virtual {v7}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
-    .line 174
+    .line 144
     :cond_1
     const-string/jumbo v0, "AccountAuthenticator"
 
@@ -197,22 +197,22 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 176
+    .line 146
     :cond_2
     if-eqz v7, :cond_3
 
-    .line 177
+    .line 147
     invoke-interface {p1, v7}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 159
+    .line 129
     .end local v7    # "result":Landroid/os/Bundle;
     :cond_3
     :goto_1
     return-void
 
-    .line 163
+    .line 133
     :cond_4
     invoke-static {p4}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
@@ -220,11 +220,11 @@
 
     goto :goto_0
 
-    .line 179
+    .line 149
     :catch_0
     move-exception v6
 
-    .line 180
+    .line 150
     .local v6, "e":Ljava/lang/Exception;
     iget-object v0, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
@@ -247,45 +247,45 @@
     .end annotation
 
     .prologue
-    .line 356
+    .line 326
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
 
-    .line 359
+    .line 329
     :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
-    .line 360
+    .line 330
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
 
     invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
 
-    .line 359
+    .line 329
     invoke-virtual {v2, v3, p2, p3}, Landroid/accounts/AbstractAccountAuthenticator;->addAccountFromCredentials(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 362
+    .line 332
     .local v1, "result":Landroid/os/Bundle;
     if-eqz v1, :cond_0
 
-    .line 363
+    .line 333
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 355
+    .line 325
     .end local v1    # "result":Landroid/os/Bundle;
     :cond_0
     :goto_0
     return-void
 
-    .line 365
+    .line 335
     :catch_0
     move-exception v0
 
-    .line 366
+    .line 336
     .local v0, "e":Ljava/lang/Exception;
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
@@ -314,7 +314,7 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 187
+    .line 157
     const-string/jumbo v2, "AccountAuthenticator"
 
     invoke-static {v2, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -323,7 +323,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 188
+    .line 158
     const-string/jumbo v2, "AccountAuthenticator"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -346,27 +346,27 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 190
+    .line 160
     :cond_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
 
-    .line 192
+    .line 162
     :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
-    .line 193
+    .line 163
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
 
     invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
 
-    .line 192
+    .line 162
     invoke-virtual {v2, v3, p2, p3}, Landroid/accounts/AbstractAccountAuthenticator;->confirmCredentials(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 194
+    .line 164
     .local v1, "result":Landroid/os/Bundle;
     const-string/jumbo v2, "AccountAuthenticator"
 
@@ -378,13 +378,13 @@
 
     if-eqz v2, :cond_2
 
-    .line 195
+    .line 165
     if-eqz v1, :cond_1
 
-    .line 196
+    .line 166
     invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
-    .line 198
+    .line 168
     :cond_1
     const-string/jumbo v2, "AccountAuthenticator"
 
@@ -398,12 +398,12 @@
 
     move-result-object v3
 
-    .line 199
+    .line 169
     invoke-static {v1}, Landroid/accounts/AccountManager;->sanitizeResult(Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v4
 
-    .line 198
+    .line 168
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -414,26 +414,26 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 201
+    .line 171
     :cond_2
     if-eqz v1, :cond_3
 
-    .line 202
+    .line 172
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 186
+    .line 156
     .end local v1    # "result":Landroid/os/Bundle;
     :cond_3
     :goto_0
     return-void
 
-    .line 204
+    .line 174
     :catch_0
     move-exception v0
 
-    .line 205
+    .line 175
     .local v0, "e":Ljava/lang/Exception;
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
@@ -459,191 +459,49 @@
     .end annotation
 
     .prologue
-    .line 294
+    .line 264
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
 
-    .line 296
+    .line 266
     :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
-    .line 297
+    .line 267
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
 
     invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
 
-    .line 296
+    .line 266
     invoke-virtual {v2, v3, p2}, Landroid/accounts/AbstractAccountAuthenticator;->editProperties(Landroid/accounts/AccountAuthenticatorResponse;Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 298
+    .line 268
     .local v1, "result":Landroid/os/Bundle;
     if-eqz v1, :cond_0
 
-    .line 299
+    .line 269
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 293
+    .line 263
     .end local v1    # "result":Landroid/os/Bundle;
     :cond_0
     :goto_0
     return-void
 
-    .line 301
+    .line 271
     :catch_0
     move-exception v0
 
-    .line 302
+    .line 272
     .local v0, "e":Ljava/lang/Exception;
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     const-string/jumbo v3, "editProperties"
-
-    invoke-static {v2, p1, v3, p2, v0}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap1(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
-
-    goto :goto_0
-.end method
-
-.method public finishSession(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 5
-    .param p1, "response"    # Landroid/accounts/IAccountAuthenticatorResponse;
-    .param p2, "accountType"    # Ljava/lang/String;
-    .param p3, "sessionBundle"    # Landroid/os/Bundle;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x2
-
-    .line 444
-    const-string/jumbo v2, "AccountAuthenticator"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 445
-    const-string/jumbo v2, "AccountAuthenticator"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "finishSession: accountType "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 447
-    :cond_0
-    iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
-
-    .line 449
-    :try_start_0
-    iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    .line 450
-    new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
-
-    invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
-
-    .line 449
-    invoke-virtual {v2, v3, p2, p3}, Landroid/accounts/AbstractAccountAuthenticator;->finishSession(Landroid/accounts/AccountAuthenticatorResponse;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object v1
-
-    .line 451
-    .local v1, "result":Landroid/os/Bundle;
-    if-eqz v1, :cond_1
-
-    .line 452
-    invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
-
-    .line 454
-    :cond_1
-    const-string/jumbo v2, "AccountAuthenticator"
-
-    const/4 v3, 0x2
-
-    invoke-static {v2, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    .line 455
-    const-string/jumbo v2, "AccountAuthenticator"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "finishSession: result "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-static {v1}, Landroid/accounts/AccountManager;->sanitizeResult(Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 457
-    :cond_2
-    if-eqz v1, :cond_3
-
-    .line 458
-    invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 443
-    .end local v1    # "result":Landroid/os/Bundle;
-    :cond_3
-    :goto_0
-    return-void
-
-    .line 460
-    :catch_0
-    move-exception v0
-
-    .line 461
-    .local v0, "e":Ljava/lang/Exception;
-    iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    const-string/jumbo v3, "finishSession"
 
     invoke-static {v2, p1, v3, p2, v0}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap1(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
@@ -661,45 +519,45 @@
     .end annotation
 
     .prologue
-    .line 339
+    .line 309
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
 
-    .line 342
+    .line 312
     :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
-    .line 343
+    .line 313
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
 
     invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
 
-    .line 342
+    .line 312
     invoke-virtual {v2, v3, p2}, Landroid/accounts/AbstractAccountAuthenticator;->getAccountCredentialsForCloning(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 344
+    .line 314
     .local v1, "result":Landroid/os/Bundle;
     if-eqz v1, :cond_0
 
-    .line 345
+    .line 315
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 338
+    .line 308
     .end local v1    # "result":Landroid/os/Bundle;
     :cond_0
     :goto_0
     return-void
 
-    .line 347
+    .line 317
     :catch_0
     move-exception v0
 
-    .line 348
+    .line 318
     .local v0, "e":Ljava/lang/Exception;
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
@@ -725,45 +583,45 @@
     .end annotation
 
     .prologue
-    .line 324
+    .line 294
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
 
-    .line 326
+    .line 296
     :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
-    .line 327
+    .line 297
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
 
     invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
 
-    .line 326
+    .line 296
     invoke-virtual {v2, v3, p2}, Landroid/accounts/AbstractAccountAuthenticator;->getAccountRemovalAllowed(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 328
+    .line 298
     .local v1, "result":Landroid/os/Bundle;
     if-eqz v1, :cond_0
 
-    .line 329
+    .line 299
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 323
+    .line 293
     .end local v1    # "result":Landroid/os/Bundle;
     :cond_0
     :goto_0
     return-void
 
-    .line 331
+    .line 301
     :catch_0
     move-exception v0
 
-    .line 332
+    .line 302
     .local v0, "e":Ljava/lang/Exception;
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
@@ -793,7 +651,7 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 238
+    .line 208
     const-string/jumbo v2, "AccountAuthenticator"
 
     invoke-static {v2, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -802,7 +660,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 239
+    .line 209
     const-string/jumbo v2, "AccountAuthenticator"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -819,10 +677,10 @@
 
     move-result-object v3
 
-    .line 240
+    .line 210
     const-string/jumbo v4, ", authTokenType "
 
-    .line 239
+    .line 209
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -837,27 +695,27 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 242
+    .line 212
     :cond_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
 
-    .line 244
+    .line 214
     :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
-    .line 245
+    .line 215
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
 
     invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
 
-    .line 244
+    .line 214
     invoke-virtual {v2, v3, p2, p3, p4}, Landroid/accounts/AbstractAccountAuthenticator;->getAuthToken(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 247
+    .line 217
     .local v1, "result":Landroid/os/Bundle;
     const-string/jumbo v2, "AccountAuthenticator"
 
@@ -869,13 +727,13 @@
 
     if-eqz v2, :cond_2
 
-    .line 248
+    .line 218
     if-eqz v1, :cond_1
 
-    .line 249
+    .line 219
     invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
-    .line 251
+    .line 221
     :cond_1
     const-string/jumbo v2, "AccountAuthenticator"
 
@@ -903,32 +761,32 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 253
+    .line 223
     :cond_2
     if-eqz v1, :cond_3
 
-    .line 254
+    .line 224
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 237
+    .line 207
     .end local v1    # "result":Landroid/os/Bundle;
     :cond_3
     :goto_0
     return-void
 
-    .line 256
+    .line 226
     :catch_0
     move-exception v0
 
-    .line 257
+    .line 227
     .local v0, "e":Ljava/lang/Exception;
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     const-string/jumbo v3, "getAuthToken"
 
-    .line 258
+    .line 228
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -955,7 +813,7 @@
 
     move-result-object v4
 
-    .line 257
+    .line 227
     invoke-static {v2, p1, v3, v4, v0}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap1(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
     goto :goto_0
@@ -974,7 +832,7 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 213
+    .line 183
     const-string/jumbo v2, "AccountAuthenticator"
 
     invoke-static {v2, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -983,7 +841,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 214
+    .line 184
     const-string/jumbo v2, "AccountAuthenticator"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1006,33 +864,33 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 216
+    .line 186
     :cond_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
 
-    .line 218
+    .line 188
     :try_start_0
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 219
+    .line 189
     .local v1, "result":Landroid/os/Bundle;
     const-string/jumbo v2, "authTokenLabelKey"
 
-    .line 220
+    .line 190
     iget-object v3, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-virtual {v3, p2}, Landroid/accounts/AbstractAccountAuthenticator;->getAuthTokenLabel(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 219
+    .line 189
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 221
+    .line 191
     const-string/jumbo v2, "AccountAuthenticator"
 
     const/4 v3, 0x2
@@ -1043,13 +901,13 @@
 
     if-eqz v2, :cond_2
 
-    .line 222
+    .line 192
     if-eqz v1, :cond_1
 
-    .line 223
+    .line 193
     invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
-    .line 225
+    .line 195
     :cond_1
     const-string/jumbo v2, "AccountAuthenticator"
 
@@ -1063,12 +921,12 @@
 
     move-result-object v3
 
-    .line 226
+    .line 196
     invoke-static {v1}, Landroid/accounts/AccountManager;->sanitizeResult(Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v4
 
-    .line 225
+    .line 195
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -1079,22 +937,22 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 228
+    .line 198
     :cond_2
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 212
+    .line 182
     .end local v1    # "result":Landroid/os/Bundle;
     :goto_0
     return-void
 
-    .line 229
+    .line 199
     :catch_0
     move-exception v0
 
-    .line 230
+    .line 200
     .local v0, "e":Ljava/lang/Exception;
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
@@ -1117,45 +975,45 @@
     .end annotation
 
     .prologue
-    .line 309
+    .line 279
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
 
-    .line 311
+    .line 281
     :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
-    .line 312
+    .line 282
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
 
     invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
 
-    .line 311
+    .line 281
     invoke-virtual {v2, v3, p2, p3}, Landroid/accounts/AbstractAccountAuthenticator;->hasFeatures(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;[Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 313
+    .line 283
     .local v1, "result":Landroid/os/Bundle;
     if-eqz v1, :cond_0
 
-    .line 314
+    .line 284
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 308
+    .line 278
     .end local v1    # "result":Landroid/os/Bundle;
     :cond_0
     :goto_0
     return-void
 
-    .line 316
+    .line 286
     :catch_0
     move-exception v0
 
-    .line 317
+    .line 287
     .local v0, "e":Ljava/lang/Exception;
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
@@ -1165,451 +1023,6 @@
 
     move-result-object v4
 
-    invoke-static {v2, p1, v3, v4, v0}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap1(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
-
-    goto :goto_0
-.end method
-
-.method public isCredentialsUpdateSuggested(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;)V
-    .locals 5
-    .param p1, "response"    # Landroid/accounts/IAccountAuthenticatorResponse;
-    .param p2, "account"    # Landroid/accounts/Account;
-    .param p3, "statusToken"    # Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 471
-    iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
-
-    .line 473
-    :try_start_0
-    iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    .line 475
-    new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
-
-    invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
-
-    .line 473
-    invoke-virtual {v2, v3, p2, p3}, Landroid/accounts/AbstractAccountAuthenticator;->isCredentialsUpdateSuggested(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;)Landroid/os/Bundle;
-
-    move-result-object v1
-
-    .line 476
-    .local v1, "result":Landroid/os/Bundle;
-    if-eqz v1, :cond_0
-
-    .line 477
-    invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 470
-    .end local v1    # "result":Landroid/os/Bundle;
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 479
-    :catch_0
-    move-exception v0
-
-    .line 480
-    .local v0, "e":Ljava/lang/Exception;
-    iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    const-string/jumbo v3, "isCredentialsUpdateSuggested"
-
-    invoke-virtual {p2}, Landroid/accounts/Account;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v2, p1, v3, v4, v0}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap1(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
-
-    goto :goto_0
-.end method
-
-.method public startAddAccountSession(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 8
-    .param p1, "response"    # Landroid/accounts/IAccountAuthenticatorResponse;
-    .param p2, "accountType"    # Ljava/lang/String;
-    .param p3, "authTokenType"    # Ljava/lang/String;
-    .param p4, "features"    # [Ljava/lang/String;
-    .param p5, "options"    # Landroid/os/Bundle;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v1, 0x2
-
-    .line 374
-    const-string/jumbo v0, "AccountAuthenticator"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 375
-    const-string/jumbo v1, "AccountAuthenticator"
-
-    .line 376
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "startAddAccountSession: accountType "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 377
-    const-string/jumbo v2, ", authTokenType "
-
-    .line 376
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 378
-    const-string/jumbo v2, ", features "
-
-    .line 376
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 378
-    if-nez p4, :cond_4
-
-    const-string/jumbo v0, "[]"
-
-    .line 376
-    :goto_0
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 375
-    invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 380
-    :cond_0
-    iget-object v0, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    invoke-static {v0}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
-
-    .line 382
-    :try_start_0
-    iget-object v0, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    .line 383
-    new-instance v1, Landroid/accounts/AccountAuthenticatorResponse;
-
-    invoke-direct {v1, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
-
-    move-object v2, p2
-
-    move-object v3, p3
-
-    move-object v4, p4
-
-    move-object v5, p5
-
-    .line 382
-    invoke-virtual/range {v0 .. v5}, Landroid/accounts/AbstractAccountAuthenticator;->startAddAccountSession(Landroid/accounts/AccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object v7
-
-    .line 385
-    .local v7, "result":Landroid/os/Bundle;
-    const-string/jumbo v0, "AccountAuthenticator"
-
-    const/4 v1, 0x2
-
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 386
-    if-eqz v7, :cond_1
-
-    .line 387
-    invoke-virtual {v7}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
-
-    .line 389
-    :cond_1
-    const-string/jumbo v0, "AccountAuthenticator"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "startAddAccountSession: result "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    .line 390
-    invoke-static {v7}, Landroid/accounts/AccountManager;->sanitizeResult(Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object v2
-
-    .line 389
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 392
-    :cond_2
-    if-eqz v7, :cond_3
-
-    .line 393
-    invoke-interface {p1, v7}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 373
-    .end local v7    # "result":Landroid/os/Bundle;
-    :cond_3
-    :goto_1
-    return-void
-
-    .line 378
-    :cond_4
-    invoke-static {p4}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    .line 395
-    :catch_0
-    move-exception v6
-
-    .line 396
-    .local v6, "e":Ljava/lang/Exception;
-    iget-object v0, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    const-string/jumbo v1, "startAddAccountSession"
-
-    invoke-static {v0, p1, v1, p2, v6}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap1(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
-
-    goto :goto_1
-.end method
-
-.method public startUpdateCredentialsSession(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 6
-    .param p1, "response"    # Landroid/accounts/IAccountAuthenticatorResponse;
-    .param p2, "account"    # Landroid/accounts/Account;
-    .param p3, "authTokenType"    # Ljava/lang/String;
-    .param p4, "loginOptions"    # Landroid/os/Bundle;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x2
-
-    .line 406
-    const-string/jumbo v2, "AccountAuthenticator"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 407
-    const-string/jumbo v2, "AccountAuthenticator"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "startUpdateCredentialsSession: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    .line 409
-    const-string/jumbo v4, ", authTokenType "
-
-    .line 407
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 412
-    :cond_0
-    iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
-
-    .line 414
-    :try_start_0
-    iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    .line 416
-    new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
-
-    invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
-
-    .line 414
-    invoke-virtual {v2, v3, p2, p3, p4}, Landroid/accounts/AbstractAccountAuthenticator;->startUpdateCredentialsSession(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object v1
-
-    .line 420
-    .local v1, "result":Landroid/os/Bundle;
-    const-string/jumbo v2, "AccountAuthenticator"
-
-    const/4 v3, 0x2
-
-    invoke-static {v2, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    .line 422
-    if-eqz v1, :cond_1
-
-    .line 423
-    invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
-
-    .line 425
-    :cond_1
-    const-string/jumbo v2, "AccountAuthenticator"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "startUpdateCredentialsSession: result "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    .line 426
-    invoke-static {v1}, Landroid/accounts/AccountManager;->sanitizeResult(Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object v4
-
-    .line 425
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 429
-    :cond_2
-    if-eqz v1, :cond_3
-
-    .line 430
-    invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 405
-    .end local v1    # "result":Landroid/os/Bundle;
-    :cond_3
-    :goto_0
-    return-void
-
-    .line 432
-    :catch_0
-    move-exception v0
-
-    .line 433
-    .local v0, "e":Ljava/lang/Exception;
-    iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
-
-    const-string/jumbo v3, "startUpdateCredentialsSession"
-
-    .line 434
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p2}, Landroid/accounts/Account;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, ","
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 433
     invoke-static {v2, p1, v3, v4, v0}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap1(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
     goto :goto_0
@@ -1630,7 +1043,7 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 265
+    .line 235
     const-string/jumbo v2, "AccountAuthenticator"
 
     invoke-static {v2, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -1639,7 +1052,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 266
+    .line 236
     const-string/jumbo v2, "AccountAuthenticator"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1656,10 +1069,10 @@
 
     move-result-object v3
 
-    .line 267
+    .line 237
     const-string/jumbo v4, ", authTokenType "
 
-    .line 266
+    .line 236
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -1674,27 +1087,27 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 269
+    .line 239
     :cond_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap0(Landroid/accounts/AbstractAccountAuthenticator;)V
 
-    .line 271
+    .line 241
     :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
-    .line 272
+    .line 242
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
 
     invoke-direct {v3, p1}, Landroid/accounts/AccountAuthenticatorResponse;-><init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
 
-    .line 271
+    .line 241
     invoke-virtual {v2, v3, p2, p3, p4}, Landroid/accounts/AbstractAccountAuthenticator;->updateCredentials(Landroid/accounts/AccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 274
+    .line 244
     .local v1, "result":Landroid/os/Bundle;
     const-string/jumbo v2, "AccountAuthenticator"
 
@@ -1706,13 +1119,13 @@
 
     if-eqz v2, :cond_2
 
-    .line 276
+    .line 246
     if-eqz v1, :cond_1
 
-    .line 277
+    .line 247
     invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
-    .line 279
+    .line 249
     :cond_1
     const-string/jumbo v2, "AccountAuthenticator"
 
@@ -1726,12 +1139,12 @@
 
     move-result-object v3
 
-    .line 280
+    .line 250
     invoke-static {v1}, Landroid/accounts/AccountManager;->sanitizeResult(Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v4
 
-    .line 279
+    .line 249
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -1742,32 +1155,32 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 282
+    .line 252
     :cond_2
     if-eqz v1, :cond_3
 
-    .line 283
+    .line 253
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 264
+    .line 234
     .end local v1    # "result":Landroid/os/Bundle;
     :cond_3
     :goto_0
     return-void
 
-    .line 285
+    .line 255
     :catch_0
     move-exception v0
 
-    .line 286
+    .line 256
     .local v0, "e":Ljava/lang/Exception;
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     const-string/jumbo v3, "updateCredentials"
 
-    .line 287
+    .line 257
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1794,7 +1207,7 @@
 
     move-result-object v4
 
-    .line 286
+    .line 256
     invoke-static {v2, p1, v3, v4, v0}, Landroid/accounts/AbstractAccountAuthenticator;->-wrap1(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
     goto :goto_0

@@ -51,14 +51,6 @@
     .end annotation
 .end method
 
-.method public abstract getCaCertificates(Ljava/lang/String;)[B
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getCertificate(Ljava/lang/String;)[B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -107,15 +99,7 @@
     .end annotation
 .end method
 
-.method public abstract installKeyPair([B[B[BLjava/lang/String;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract removeKeyPair(Ljava/lang/String;)Z
+.method public abstract installKeyPair([B[BLjava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

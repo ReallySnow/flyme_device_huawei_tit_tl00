@@ -30,7 +30,7 @@
     .param p2, "val$showCallback"    # Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;
 
     .prologue
-    .line 1017
+    .line 990
     iput-object p1, p0, Landroid/service/voice/VoiceInteractionSession$4;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     iput-object p2, p0, Landroid/service/voice/VoiceInteractionSession$4;->val$showCallback:Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;
@@ -46,7 +46,7 @@
     .locals 3
 
     .prologue
-    .line 1020
+    .line 993
     iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession$4;->this$0:Landroid/service/voice/VoiceInteractionSession;
 
     iget-object v1, v1, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
@@ -57,7 +57,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 1022
+    .line 995
     :try_start_0
     iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession$4;->val$showCallback:Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;
 
@@ -65,17 +65,17 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1026
+    .line 999
     :goto_0
     const/4 v1, 0x1
 
     return v1
 
-    .line 1023
+    .line 996
     :catch_0
     move-exception v0
 
-    .line 1024
+    .line 997
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "VoiceInteractionSession"
 

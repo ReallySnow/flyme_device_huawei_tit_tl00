@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/widget/YearPickerView$OnYearSelectedListener;,
-        Landroid/widget/YearPickerView$YearAdapter;
+        Landroid/widget/YearPickerView$YearAdapter;,
+        Landroid/widget/YearPickerView$OnYearSelectedListener;
     }
 .end annotation
 
@@ -16,6 +16,8 @@
 .field private final mAdapter:Landroid/widget/YearPickerView$YearAdapter;
 
 .field private final mChildSize:I
+
+.field private mCurrentTimeMillis:J
 
 .field private mOnYearSelectedListener:Landroid/widget/YearPickerView$OnYearSelectedListener;
 
@@ -45,12 +47,12 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 41
+    .line 44
     const v0, 0x1010074
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/YearPickerView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 40
+    .line 43
     return-void
 .end method
 
@@ -61,12 +63,12 @@
     .param p3, "defStyleAttr"    # I
 
     .prologue
-    .line 45
+    .line 48
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, p3, v0}, Landroid/widget/YearPickerView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    .line 44
+    .line 47
     return-void
 .end method
 
@@ -78,32 +80,32 @@
     .param p4, "defStyleRes"    # I
 
     .prologue
-    .line 49
+    .line 52
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/ListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    .line 51
+    .line 54
     new-instance v0, Landroid/widget/AbsListView$LayoutParams;
 
-    .line 52
+    .line 55
     const/4 v2, -0x1
 
     const/4 v3, -0x2
 
-    .line 51
+    .line 54
     invoke-direct {v0, v2, v3}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
 
-    .line 53
+    .line 56
     .local v0, "frame":Landroid/widget/AbsListView$LayoutParams;
     invoke-virtual {p0, v0}, Landroid/widget/YearPickerView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 55
+    .line 58
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 56
+    .line 59
     .local v1, "res":Landroid/content/res/Resources;
-    const v2, 0x105015b
+    const v2, 0x105012d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -111,8 +113,8 @@
 
     iput v2, p0, Landroid/widget/YearPickerView;->mViewSize:I
 
-    .line 57
-    const v2, 0x1050144
+    .line 60
+    const v2, 0x1050116
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -120,14 +122,14 @@
 
     iput v2, p0, Landroid/widget/YearPickerView;->mChildSize:I
 
-    .line 59
+    .line 62
     new-instance v2, Landroid/widget/YearPickerView$1;
 
     invoke-direct {v2, p0}, Landroid/widget/YearPickerView$1;-><init>(Landroid/widget/YearPickerView;)V
 
     invoke-virtual {p0, v2}, Landroid/widget/YearPickerView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 71
+    .line 74
     new-instance v2, Landroid/widget/YearPickerView$YearAdapter;
 
     invoke-virtual {p0}, Landroid/widget/YearPickerView;->getContext()Landroid/content/Context;
@@ -138,12 +140,12 @@
 
     iput-object v2, p0, Landroid/widget/YearPickerView;->mAdapter:Landroid/widget/YearPickerView$YearAdapter;
 
-    .line 72
+    .line 75
     iget-object v2, p0, Landroid/widget/YearPickerView;->mAdapter:Landroid/widget/YearPickerView$YearAdapter;
 
     invoke-virtual {p0, v2}, Landroid/widget/YearPickerView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 48
+    .line 51
     return-void
 .end method
 
@@ -155,19 +157,19 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 227
+    .line 234
     invoke-virtual {p0, v1}, Landroid/widget/YearPickerView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 228
+    .line 235
     .local v0, "firstChild":Landroid/view/View;
     if-nez v0, :cond_0
 
-    .line 229
+    .line 236
     return v1
 
-    .line 231
+    .line 238
     :cond_0
     invoke-virtual {v0}, Landroid/view/View;->getTop()I
 
@@ -183,10 +185,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 237
+    .line 244
     invoke-super {p0, p1}, Landroid/widget/ListView;->onInitializeAccessibilityEventInternal(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 240
+    .line 247
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
 
     move-result v0
@@ -195,14 +197,26 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 241
+    .line 248
     invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityEvent;->setFromIndex(I)V
 
-    .line 242
+    .line 249
     invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityEvent;->setToIndex(I)V
 
-    .line 236
+    .line 243
     :cond_0
+    return-void
+.end method
+
+.method public setDate(J)V
+    .locals 1
+    .param p1, "currentTimeMillis"    # J
+
+    .prologue
+    .line 83
+    iput-wide p1, p0, Landroid/widget/YearPickerView;->mCurrentTimeMillis:J
+
+    .line 82
     return-void
 .end method
 
@@ -211,25 +225,25 @@
     .param p1, "listener"    # Landroid/widget/YearPickerView$OnYearSelectedListener;
 
     .prologue
-    .line 76
+    .line 79
     iput-object p1, p0, Landroid/widget/YearPickerView;->mOnYearSelectedListener:Landroid/widget/YearPickerView$OnYearSelectedListener;
 
-    .line 75
+    .line 78
     return-void
 .end method
 
-.method public setRange(Landroid/icu/util/Calendar;Landroid/icu/util/Calendar;)V
+.method public setRange(Ljava/util/Calendar;Ljava/util/Calendar;)V
     .locals 1
-    .param p1, "min"    # Landroid/icu/util/Calendar;
-    .param p2, "max"    # Landroid/icu/util/Calendar;
+    .param p1, "min"    # Ljava/util/Calendar;
+    .param p2, "max"    # Ljava/util/Calendar;
 
     .prologue
-    .line 104
+    .line 111
     iget-object v0, p0, Landroid/widget/YearPickerView;->mAdapter:Landroid/widget/YearPickerView$YearAdapter;
 
-    invoke-virtual {v0, p1, p2}, Landroid/widget/YearPickerView$YearAdapter;->setRange(Landroid/icu/util/Calendar;Landroid/icu/util/Calendar;)V
+    invoke-virtual {v0, p1, p2}, Landroid/widget/YearPickerView$YearAdapter;->setRange(Ljava/util/Calendar;Ljava/util/Calendar;)V
 
-    .line 103
+    .line 110
     return-void
 .end method
 
@@ -238,7 +252,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 99
+    .line 106
     iget v1, p0, Landroid/widget/YearPickerView;->mViewSize:I
 
     div-int/lit8 v1, v1, 0x2
@@ -249,11 +263,11 @@
 
     sub-int v0, v1, v2
 
-    .line 100
+    .line 107
     .local v0, "offset":I
     invoke-virtual {p0, p1, v0}, Landroid/widget/YearPickerView;->setSelectionFromTop(II)V
 
-    .line 98
+    .line 105
     return-void
 .end method
 
@@ -262,18 +276,18 @@
     .param p1, "year"    # I
 
     .prologue
-    .line 85
+    .line 92
     iget-object v0, p0, Landroid/widget/YearPickerView;->mAdapter:Landroid/widget/YearPickerView$YearAdapter;
 
     invoke-virtual {v0, p1}, Landroid/widget/YearPickerView$YearAdapter;->setSelection(I)Z
 
-    .line 87
+    .line 94
     new-instance v0, Landroid/widget/YearPickerView$2;
 
     invoke-direct {v0, p0, p1}, Landroid/widget/YearPickerView$2;-><init>(Landroid/widget/YearPickerView;I)V
 
     invoke-virtual {p0, v0}, Landroid/widget/YearPickerView;->post(Ljava/lang/Runnable;)Z
 
-    .line 84
+    .line 91
     return-void
 .end method

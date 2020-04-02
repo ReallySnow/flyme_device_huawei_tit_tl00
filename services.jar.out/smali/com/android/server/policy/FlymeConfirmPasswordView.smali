@@ -782,8 +782,6 @@
     .locals 2
 
     .prologue
-    const/4 v0, 0x0
-
     .line 258
     invoke-virtual {p0}, Lcom/android/server/policy/FlymeConfirmPasswordView;->getVisibility()I
 
@@ -795,8 +793,16 @@
 
     .line 259
     .local v0, "shouldFPVisible":Z
-    :cond_0
+    :goto_0
     return v0
+
+    .line 258
+    .end local v0    # "shouldFPVisible":Z
+    :cond_0
+    const/4 v0, 0x0
+
+    .restart local v0    # "shouldFPVisible":Z
+    goto :goto_0
 .end method
 
 .method private showComplexKeypad(Landroid/widget/EditText;)V
@@ -1519,12 +1525,11 @@
     return-void
 .end method
 
-.method public show(Ljava/lang/Runnable;Ljava/lang/Runnable;Ljava/lang/Runnable;Z)V
+.method public show(Ljava/lang/Runnable;Ljava/lang/Runnable;Ljava/lang/Runnable;)V
     .locals 2
     .param p1, "endRunnable"    # Ljava/lang/Runnable;
     .param p2, "showButtons"    # Ljava/lang/Runnable;
     .param p3, "dismiss"    # Ljava/lang/Runnable;
-    .param p4, "withAnim"    # Z
 
     .prologue
     .line 118

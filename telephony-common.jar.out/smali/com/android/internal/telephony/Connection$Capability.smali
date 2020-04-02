@@ -15,10 +15,6 @@
 
 
 # static fields
-.field public static final IS_EXTERNAL_CONNECTION:I = 0x10
-
-.field public static final IS_PULLABLE:I = 0x20
-
 .field public static final SUPPORTS_DOWNGRADE_TO_VOICE_LOCAL:I = 0x1
 
 .field public static final SUPPORTS_DOWNGRADE_TO_VOICE_REMOTE:I = 0x2
@@ -33,7 +29,7 @@
     .locals 0
 
     .prologue
-    .line 47
+    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

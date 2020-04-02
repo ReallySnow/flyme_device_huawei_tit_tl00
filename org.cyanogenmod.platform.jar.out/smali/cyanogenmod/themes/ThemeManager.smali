@@ -6,10 +6,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcyanogenmod/themes/ThemeManager$1;,
-        Lcyanogenmod/themes/ThemeManager$2;,
         Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;,
-        Lcyanogenmod/themes/ThemeManager$ThemeProcessingListener;
+        Lcyanogenmod/themes/ThemeManager$ThemeProcessingListener;,
+        Lcyanogenmod/themes/ThemeManager$1;,
+        Lcyanogenmod/themes/ThemeManager$2;
     }
 .end annotation
 
@@ -263,14 +263,14 @@
     .param p1, "e"    # Ljava/lang/Exception;
 
     .prologue
-    .line 384
+    .line 379
     sget-object v0, Lcyanogenmod/themes/ThemeManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "Unable to access ThemeService"
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 383
+    .line 378
     return-void
 .end method
 
@@ -279,14 +279,12 @@
 .method public addClient(Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;)V
     .locals 0
     .param p1, "listener"    # Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
     .prologue
-    .line 169
+    .line 168
     invoke-virtual {p0, p1}, Lcyanogenmod/themes/ThemeManager;->registerThemeChangeListener(Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;)V
 
-    .line 168
+    .line 167
     return-void
 .end method
 
@@ -294,7 +292,7 @@
     .locals 2
 
     .prologue
-    .line 318
+    .line 313
     :try_start_0
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -302,15 +300,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 316
+    .line 311
     :goto_0
     return-void
 
-    .line 319
+    .line 314
     :catch_0
     move-exception v0
 
-    .line 320
+    .line 315
     .local v0, "e":Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcyanogenmod/themes/ThemeManager;->logThemeServiceException(Ljava/lang/Exception;)V
 
@@ -323,7 +321,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 372
+    .line 367
     :try_start_0
     sget-object v3, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -331,7 +329,7 @@
 
     move-result v1
 
-    .line 373
+    .line 368
     .local v1, "type":I
     if-ltz v1, :cond_0
 
@@ -343,7 +341,7 @@
 
     if-ge v1, v3, :cond_0
 
-    .line 374
+    .line 369
     invoke-static {}, Lcyanogenmod/themes/ThemeChangeRequest$RequestType;->values()[Lcyanogenmod/themes/ThemeChangeRequest$RequestType;
 
     move-result-object v3
@@ -352,20 +350,20 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 373
+    .line 368
     :cond_0
     return-object v2
 
-    .line 376
+    .line 371
     .end local v1    # "type":I
     :catch_0
     move-exception v0
 
-    .line 377
+    .line 372
     .local v0, "e":Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcyanogenmod/themes/ThemeManager;->logThemeServiceException(Ljava/lang/Exception;)V
 
-    .line 380
+    .line 375
     return-object v2
 .end method
 
@@ -373,7 +371,7 @@
     .locals 4
 
     .prologue
-    .line 363
+    .line 358
     :try_start_0
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -385,15 +383,15 @@
 
     return-wide v2
 
-    .line 364
+    .line 359
     :catch_0
     move-exception v0
 
-    .line 365
+    .line 360
     .local v0, "e":Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcyanogenmod/themes/ThemeManager;->logThemeServiceException(Ljava/lang/Exception;)V
 
-    .line 367
+    .line 362
     const-wide/16 v2, 0x0
 
     return-wide v2
@@ -403,7 +401,7 @@
     .locals 2
 
     .prologue
-    .line 345
+    .line 340
     :try_start_0
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -415,15 +413,15 @@
 
     return v1
 
-    .line 346
+    .line 341
     :catch_0
     move-exception v0
 
-    .line 347
+    .line 342
     .local v0, "e":Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcyanogenmod/themes/ThemeManager;->logThemeServiceException(Ljava/lang/Exception;)V
 
-    .line 349
+    .line 344
     const/4 v1, -0x1
 
     return v1
@@ -433,7 +431,7 @@
     .locals 2
 
     .prologue
-    .line 326
+    .line 321
     :try_start_0
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -445,15 +443,15 @@
 
     return v1
 
-    .line 327
+    .line 322
     :catch_0
     move-exception v0
 
-    .line 328
+    .line 323
     .local v0, "e":Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcyanogenmod/themes/ThemeManager;->logThemeServiceException(Ljava/lang/Exception;)V
 
-    .line 331
+    .line 326
     const/4 v1, 0x0
 
     return v1
@@ -464,7 +462,7 @@
     .param p1, "themePkgName"    # Ljava/lang/String;
 
     .prologue
-    .line 336
+    .line 331
     :try_start_0
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -476,15 +474,15 @@
 
     return v1
 
-    .line 337
+    .line 332
     :catch_0
     move-exception v0
 
-    .line 338
+    .line 333
     .local v0, "e":Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcyanogenmod/themes/ThemeManager;->logThemeServiceException(Ljava/lang/Exception;)V
 
-    .line 340
+    .line 335
     const/4 v1, 0x0
 
     return v1
@@ -493,42 +491,36 @@
 .method public onClientDestroyed(Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;)V
     .locals 0
     .param p1, "listener"    # Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
     .prologue
-    .line 204
+    .line 199
     invoke-virtual {p0, p1}, Lcyanogenmod/themes/ThemeManager;->unregisterThemeChangeListener(Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;)V
 
-    .line 203
+    .line 198
     return-void
 .end method
 
 .method public onClientPaused(Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;)V
     .locals 0
     .param p1, "listener"    # Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
     .prologue
-    .line 187
+    .line 184
     invoke-virtual {p0, p1}, Lcyanogenmod/themes/ThemeManager;->unregisterThemeChangeListener(Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;)V
 
-    .line 186
+    .line 183
     return-void
 .end method
 
 .method public onClientResumed(Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;)V
     .locals 0
     .param p1, "listener"    # Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
     .prologue
-    .line 195
+    .line 191
     invoke-virtual {p0, p1}, Lcyanogenmod/themes/ThemeManager;->registerThemeChangeListener(Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;)V
 
-    .line 194
+    .line 190
     return-void
 .end method
 
@@ -537,7 +529,7 @@
     .param p1, "themePkgName"    # Ljava/lang/String;
 
     .prologue
-    .line 354
+    .line 349
     :try_start_0
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -549,15 +541,15 @@
 
     return v1
 
-    .line 355
+    .line 350
     :catch_0
     move-exception v0
 
-    .line 356
+    .line 351
     .local v0, "e":Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcyanogenmod/themes/ThemeManager;->logThemeServiceException(Ljava/lang/Exception;)V
 
-    .line 358
+    .line 353
     const/4 v1, 0x0
 
     return v1
@@ -568,12 +560,12 @@
     .param p1, "listener"    # Lcyanogenmod/themes/ThemeManager$ThemeProcessingListener;
 
     .prologue
-    .line 250
+    .line 245
     iget-object v2, p0, Lcyanogenmod/themes/ThemeManager;->mProcessingListeners:Ljava/util/Set;
 
     monitor-enter v2
 
-    .line 251
+    .line 246
     :try_start_0
     iget-object v1, p0, Lcyanogenmod/themes/ThemeManager;->mProcessingListeners:Ljava/util/Set;
 
@@ -583,7 +575,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 252
+    .line 247
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "Listener already registered"
@@ -594,7 +586,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 250
+    .line 245
     :catchall_0
     move-exception v1
 
@@ -602,7 +594,7 @@
 
     throw v1
 
-    .line 254
+    .line 249
     :cond_0
     :try_start_1
     iget-object v1, p0, Lcyanogenmod/themes/ThemeManager;->mProcessingListeners:Ljava/util/Set;
@@ -615,7 +607,7 @@
 
     if-nez v1, :cond_1
 
-    .line 256
+    .line 251
     :try_start_2
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -626,7 +618,7 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 261
+    .line 256
     :cond_1
     :goto_0
     :try_start_3
@@ -638,14 +630,14 @@
 
     monitor-exit v2
 
-    .line 249
+    .line 244
     return-void
 
-    .line 257
+    .line 252
     :catch_0
     move-exception v0
 
-    .line 258
+    .line 253
     .local v0, "e":Landroid/os/RemoteException;
     :try_start_4
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->TAG:Ljava/lang/String;
@@ -664,12 +656,12 @@
     .param p1, "listener"    # Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;
 
     .prologue
-    .line 212
+    .line 207
     iget-object v2, p0, Lcyanogenmod/themes/ThemeManager;->mChangeListeners:Ljava/util/Set;
 
     monitor-enter v2
 
-    .line 213
+    .line 208
     :try_start_0
     iget-object v1, p0, Lcyanogenmod/themes/ThemeManager;->mChangeListeners:Ljava/util/Set;
 
@@ -679,7 +671,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 214
+    .line 209
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "Listener already registered"
@@ -690,7 +682,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 212
+    .line 207
     :catchall_0
     move-exception v1
 
@@ -698,7 +690,7 @@
 
     throw v1
 
-    .line 216
+    .line 211
     :cond_0
     :try_start_1
     iget-object v1, p0, Lcyanogenmod/themes/ThemeManager;->mChangeListeners:Ljava/util/Set;
@@ -711,7 +703,7 @@
 
     if-nez v1, :cond_1
 
-    .line 218
+    .line 213
     :try_start_2
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -722,7 +714,7 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 223
+    .line 218
     :cond_1
     :goto_0
     :try_start_3
@@ -734,14 +726,14 @@
 
     monitor-exit v2
 
-    .line 211
+    .line 206
     return-void
 
-    .line 219
+    .line 214
     :catch_0
     move-exception v0
 
-    .line 220
+    .line 215
     .local v0, "e":Landroid/os/RemoteException;
     :try_start_4
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->TAG:Ljava/lang/String;
@@ -758,14 +750,12 @@
 .method public removeClient(Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;)V
     .locals 0
     .param p1, "listener"    # Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
     .prologue
-    .line 178
+    .line 176
     invoke-virtual {p0, p1}, Lcyanogenmod/themes/ThemeManager;->unregisterThemeChangeListener(Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;)V
 
-    .line 177
+    .line 175
     return-void
 .end method
 
@@ -775,7 +765,7 @@
     .param p2, "removePerAppThemes"    # Z
 
     .prologue
-    .line 310
+    .line 305
     :try_start_0
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -783,15 +773,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 308
+    .line 303
     :goto_0
     return-void
 
-    .line 311
+    .line 306
     :catch_0
     move-exception v0
 
-    .line 312
+    .line 307
     .local v0, "e":Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcyanogenmod/themes/ThemeManager;->logThemeServiceException(Ljava/lang/Exception;)V
 
@@ -813,13 +803,13 @@
     .end annotation
 
     .prologue
-    .line 283
+    .line 278
     .local p2, "components":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, p2, v0}, Lcyanogenmod/themes/ThemeManager;->requestThemeChange(Ljava/lang/String;Ljava/util/List;Z)V
 
-    .line 282
+    .line 277
     return-void
 .end method
 
@@ -839,7 +829,7 @@
     .end annotation
 
     .prologue
-    .line 288
+    .line 283
     .local p2, "components":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v2, Ljava/util/HashMap;
 
@@ -849,7 +839,7 @@
 
     invoke-direct {v2, v3}, Ljava/util/HashMap;-><init>(I)V
 
-    .line 289
+    .line 284
     .local v2, "componentMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -869,18 +859,18 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 290
+    .line 285
     .local v0, "component":Ljava/lang/String;
     invoke-interface {v2, v0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 292
+    .line 287
     .end local v0    # "component":Ljava/lang/String;
     :cond_0
     invoke-virtual {p0, v2, p3}, Lcyanogenmod/themes/ThemeManager;->requestThemeChange(Ljava/util/Map;Z)V
 
-    .line 287
+    .line 282
     return-void
 .end method
 
@@ -898,13 +888,13 @@
     .end annotation
 
     .prologue
-    .line 296
+    .line 291
     .local p1, "componentMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcyanogenmod/themes/ThemeManager;->requestThemeChange(Ljava/util/Map;Z)V
 
-    .line 295
+    .line 290
     return-void
 .end method
 
@@ -923,13 +913,13 @@
     .end annotation
 
     .prologue
-    .line 300
+    .line 295
     .local p1, "componentMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     new-instance v0, Lcyanogenmod/themes/ThemeChangeRequest$Builder;
 
     invoke-direct {v0}, Lcyanogenmod/themes/ThemeChangeRequest$Builder;-><init>()V
 
-    .line 301
+    .line 296
     .local v0, "builder":Lcyanogenmod/themes/ThemeChangeRequest$Builder;
     invoke-interface {p1}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
@@ -953,7 +943,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 302
+    .line 297
     .local v1, "component":Ljava/lang/String;
     invoke-interface {p1, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -965,7 +955,7 @@
 
     goto :goto_0
 
-    .line 305
+    .line 300
     .end local v1    # "component":Ljava/lang/String;
     :cond_0
     invoke-virtual {v0}, Lcyanogenmod/themes/ThemeChangeRequest$Builder;->build()Lcyanogenmod/themes/ThemeChangeRequest;
@@ -974,7 +964,7 @@
 
     invoke-virtual {p0, v3, p2}, Lcyanogenmod/themes/ThemeManager;->requestThemeChange(Lcyanogenmod/themes/ThemeChangeRequest;Z)V
 
-    .line 299
+    .line 294
     return-void
 .end method
 
@@ -983,18 +973,18 @@
     .param p1, "listener"    # Lcyanogenmod/themes/ThemeManager$ThemeProcessingListener;
 
     .prologue
-    .line 270
+    .line 265
     iget-object v2, p0, Lcyanogenmod/themes/ThemeManager;->mProcessingListeners:Ljava/util/Set;
 
     monitor-enter v2
 
-    .line 271
+    .line 266
     :try_start_0
     iget-object v1, p0, Lcyanogenmod/themes/ThemeManager;->mProcessingListeners:Ljava/util/Set;
 
     invoke-interface {v1, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 272
+    .line 267
     iget-object v1, p0, Lcyanogenmod/themes/ThemeManager;->mProcessingListeners:Ljava/util/Set;
 
     invoke-interface {v1}, Ljava/util/Set;->size()I
@@ -1005,7 +995,7 @@
 
     if-nez v1, :cond_0
 
-    .line 274
+    .line 269
     :try_start_1
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -1020,14 +1010,14 @@
     :goto_0
     monitor-exit v2
 
-    .line 269
+    .line 264
     return-void
 
-    .line 275
+    .line 270
     :catch_0
     move-exception v0
 
-    .line 276
+    .line 271
     .local v0, "e":Landroid/os/RemoteException;
     :try_start_2
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->TAG:Ljava/lang/String;
@@ -1040,7 +1030,7 @@
 
     goto :goto_0
 
-    .line 270
+    .line 265
     .end local v0    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
@@ -1055,18 +1045,18 @@
     .param p1, "listener"    # Lcyanogenmod/themes/ThemeManager$ThemeChangeListener;
 
     .prologue
-    .line 232
+    .line 227
     iget-object v2, p0, Lcyanogenmod/themes/ThemeManager;->mChangeListeners:Ljava/util/Set;
 
     monitor-enter v2
 
-    .line 233
+    .line 228
     :try_start_0
     iget-object v1, p0, Lcyanogenmod/themes/ThemeManager;->mChangeListeners:Ljava/util/Set;
 
     invoke-interface {v1, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 234
+    .line 229
     iget-object v1, p0, Lcyanogenmod/themes/ThemeManager;->mChangeListeners:Ljava/util/Set;
 
     invoke-interface {v1}, Ljava/util/Set;->size()I
@@ -1077,7 +1067,7 @@
 
     if-nez v1, :cond_0
 
-    .line 236
+    .line 231
     :try_start_1
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->sService:Lcyanogenmod/themes/IThemeService;
 
@@ -1092,14 +1082,14 @@
     :goto_0
     monitor-exit v2
 
-    .line 231
+    .line 226
     return-void
 
-    .line 237
+    .line 232
     :catch_0
     move-exception v0
 
-    .line 238
+    .line 233
     .local v0, "e":Landroid/os/RemoteException;
     :try_start_2
     sget-object v1, Lcyanogenmod/themes/ThemeManager;->TAG:Ljava/lang/String;
@@ -1112,7 +1102,7 @@
 
     goto :goto_0
 
-    .line 232
+    .line 227
     .end local v0    # "e":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1

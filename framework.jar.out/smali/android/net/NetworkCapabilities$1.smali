@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 816
+    .line 774
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,12 +45,12 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 819
+    .line 777
     new-instance v0, Landroid/net/NetworkCapabilities;
 
     invoke-direct {v0}, Landroid/net/NetworkCapabilities;-><init>()V
 
-    .line 821
+    .line 779
     .local v0, "netCap":Landroid/net/NetworkCapabilities;
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
@@ -58,42 +58,42 @@
 
     invoke-static {v0, v2, v3}, Landroid/net/NetworkCapabilities;->-set2(Landroid/net/NetworkCapabilities;J)J
 
-    .line 822
+    .line 780
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     invoke-static {v0, v2, v3}, Landroid/net/NetworkCapabilities;->-set5(Landroid/net/NetworkCapabilities;J)J
 
-    .line 823
+    .line 781
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     invoke-static {v0, v1}, Landroid/net/NetworkCapabilities;->-set1(Landroid/net/NetworkCapabilities;I)I
 
-    .line 824
+    .line 782
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     invoke-static {v0, v1}, Landroid/net/NetworkCapabilities;->-set0(Landroid/net/NetworkCapabilities;I)I
 
-    .line 825
+    .line 783
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-static {v0, v1}, Landroid/net/NetworkCapabilities;->-set3(Landroid/net/NetworkCapabilities;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 826
+    .line 784
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     invoke-static {v0, v1}, Landroid/net/NetworkCapabilities;->-set4(Landroid/net/NetworkCapabilities;I)I
 
-    .line 827
+    .line 785
     return-object v0
 .end method
 
@@ -102,7 +102,7 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 818
+    .line 776
     invoke-virtual {p0, p1}, Landroid/net/NetworkCapabilities$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/NetworkCapabilities;
 
     move-result-object v0
@@ -115,7 +115,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 831
+    .line 789
     new-array v0, p1, [Landroid/net/NetworkCapabilities;
 
     return-object v0
@@ -126,7 +126,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 830
+    .line 788
     invoke-virtual {p0, p1}, Landroid/net/NetworkCapabilities$1;->newArray(I)[Landroid/net/NetworkCapabilities;
 
     move-result-object v0

@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.view.accessibility.IAccessibilityInteractionConnection"
 
-.field static final TRANSACTION_findAccessibilityNodeInfoByAccessibilityId_0:I = 0x1
+.field static final TRANSACTION_findAccessibilityNodeInfoByAccessibilityId:I = 0x1
 
 .field static final TRANSACTION_findAccessibilityNodeInfosByText:I = 0x3
 

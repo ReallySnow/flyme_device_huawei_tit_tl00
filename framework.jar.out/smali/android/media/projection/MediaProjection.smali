@@ -7,8 +7,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/media/projection/MediaProjection$Callback;,
-        Landroid/media/projection/MediaProjection$CallbackRecord;,
-        Landroid/media/projection/MediaProjection$MediaProjectionCallback;
+        Landroid/media/projection/MediaProjection$MediaProjectionCallback;,
+        Landroid/media/projection/MediaProjection$CallbackRecord;
     }
 .end annotation
 
@@ -228,6 +228,7 @@
     :cond_0
     const/4 v10, 0x0
 
+    .restart local v10    # "flags":I
     goto :goto_0
 .end method
 

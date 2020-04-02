@@ -9,15 +9,16 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/graphics/Bitmap$1;,
+        Landroid/graphics/Bitmap$Config;,
         Landroid/graphics/Bitmap$CompressFormat;,
-        Landroid/graphics/Bitmap$Config;
+        Landroid/graphics/Bitmap$BitmapFinalizer;,
+        Landroid/graphics/Bitmap$1;
     }
 .end annotation
 
 
 # static fields
-.field private static final synthetic -android-graphics-Bitmap$ConfigSwitchesValues:[I = null
+.field private static synthetic -android_graphics_Bitmap$ConfigSwitchesValues:[I = null
 
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
@@ -32,8 +33,6 @@
 
 .field public static final DENSITY_NONE:I = 0x0
 
-.field private static final NATIVE_ALLOCATION_SIZE:J = 0x20L
-
 .field private static final TAG:Ljava/lang/String; = "Bitmap"
 
 .field private static final WORKING_COMPRESS_STORAGE:I = 0x1000
@@ -47,6 +46,8 @@
 .field private mBuffer:[B
 
 .field mDensity:I
+
+.field private final mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
 
 .field private mHeight:I
 
@@ -66,14 +67,14 @@
 
 
 # direct methods
-.method private static synthetic -getandroid-graphics-Bitmap$ConfigSwitchesValues()[I
+.method private static synthetic -getandroid_graphics_Bitmap$ConfigSwitchesValues()[I
     .locals 3
 
-    sget-object v0, Landroid/graphics/Bitmap;->-android-graphics-Bitmap$ConfigSwitchesValues:[I
+    sget-object v0, Landroid/graphics/Bitmap;->-android_graphics_Bitmap$ConfigSwitchesValues:[I
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Landroid/graphics/Bitmap;->-android-graphics-Bitmap$ConfigSwitchesValues:[I
+    sget-object v0, Landroid/graphics/Bitmap;->-android_graphics_Bitmap$ConfigSwitchesValues:[I
 
     return-object v0
 
@@ -142,7 +143,7 @@
     .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_0
 
     :goto_3
-    sput-object v0, Landroid/graphics/Bitmap;->-android-graphics-Bitmap$ConfigSwitchesValues:[I
+    sput-object v0, Landroid/graphics/Bitmap;->-android_graphics_Bitmap$ConfigSwitchesValues:[I
 
     return-object v0
 
@@ -179,21 +180,31 @@
     return-object v0
 .end method
 
+.method static synthetic -wrap1(J)V
+    .locals 0
+    .param p0, "nativeBitmap"    # J
+
+    .prologue
+    invoke-static {p0, p1}, Landroid/graphics/Bitmap;->nativeDestructor(J)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 86
+    .line 83
     const/4 v0, -0x1
 
     sput v0, Landroid/graphics/Bitmap;->sDefaultDensity:I
 
-    .line 1556
+    .line 1509
     new-instance v0, Landroid/graphics/Bitmap$1;
 
     invoke-direct {v0}, Landroid/graphics/Bitmap$1;-><init>()V
 
-    .line 1555
+    .line 1508
     sput-object v0, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
 
     .line 36
@@ -201,7 +212,7 @@
 .end method
 
 .method constructor <init>(J[BIIIZZ[BLandroid/graphics/NinePatch$InsetStruct;)V
-    .locals 11
+    .locals 5
     .param p1, "nativeBitmap"    # J
     .param p3, "buffer"    # [B
     .param p4, "width"    # I
@@ -213,120 +224,95 @@
     .param p10, "ninePatchInsets"    # Landroid/graphics/NinePatch$InsetStruct;
 
     .prologue
-    .line 111
+    .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 82
+    .line 79
     invoke-static {}, Landroid/graphics/Bitmap;->getDefaultDensity()I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/graphics/Bitmap;->mDensity:I
+    iput v1, p0, Landroid/graphics/Bitmap;->mDensity:I
 
-    .line 114
-    const-wide/16 v4, 0x0
+    .line 112
+    const-wide/16 v2, 0x0
 
-    cmp-long v3, p1, v4
+    cmp-long v1, p1, v2
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_0
 
-    .line 115
-    new-instance v3, Ljava/lang/RuntimeException;
+    .line 113
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v4, "internal error: native bitmap is 0"
+    const-string/jumbo v2, "internal error: native bitmap is 0"
 
-    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v1
 
-    .line 118
+    .line 116
     :cond_0
     iput p4, p0, Landroid/graphics/Bitmap;->mWidth:I
 
-    .line 119
-    move/from16 v0, p5
+    .line 117
+    iput p5, p0, Landroid/graphics/Bitmap;->mHeight:I
 
-    iput v0, p0, Landroid/graphics/Bitmap;->mHeight:I
+    .line 118
+    iput-boolean p7, p0, Landroid/graphics/Bitmap;->mIsMutable:Z
+
+    .line 119
+    iput-boolean p8, p0, Landroid/graphics/Bitmap;->mRequestPremultiplied:Z
 
     .line 120
-    move/from16 v0, p7
-
-    iput-boolean v0, p0, Landroid/graphics/Bitmap;->mIsMutable:Z
-
-    .line 121
-    move/from16 v0, p8
-
-    iput-boolean v0, p0, Landroid/graphics/Bitmap;->mRequestPremultiplied:Z
-
-    .line 122
     iput-object p3, p0, Landroid/graphics/Bitmap;->mBuffer:[B
 
+    .line 122
+    iput-object p9, p0, Landroid/graphics/Bitmap;->mNinePatchChunk:[B
+
+    .line 123
+    iput-object p10, p0, Landroid/graphics/Bitmap;->mNinePatchInsets:Landroid/graphics/NinePatch$InsetStruct;
+
     .line 124
-    move-object/from16 v0, p9
-
-    iput-object v0, p0, Landroid/graphics/Bitmap;->mNinePatchChunk:[B
-
-    .line 125
-    move-object/from16 v0, p10
-
-    iput-object v0, p0, Landroid/graphics/Bitmap;->mNinePatchInsets:Landroid/graphics/NinePatch$InsetStruct;
-
-    .line 126
     if-ltz p6, :cond_1
 
-    .line 127
-    move/from16 v0, p6
+    .line 125
+    iput p6, p0, Landroid/graphics/Bitmap;->mDensity:I
 
-    iput v0, p0, Landroid/graphics/Bitmap;->mDensity:I
-
-    .line 130
+    .line 128
     :cond_1
     iput-wide p1, p0, Landroid/graphics/Bitmap;->mNativePtr:J
 
-    .line 131
-    const-wide/16 v6, 0x20
+    .line 129
+    new-instance v1, Landroid/graphics/Bitmap$BitmapFinalizer;
 
-    .line 132
-    .local v6, "nativeSize":J
+    invoke-direct {v1, p1, p2}, Landroid/graphics/Bitmap$BitmapFinalizer;-><init>(J)V
+
+    iput-object v1, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    .line 130
     if-nez p3, :cond_2
 
-    .line 133
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getByteCount()I
 
-    move-result v3
-
-    int-to-long v4, v3
+    move-result v0
 
     .line 131
-    const-wide/16 v8, 0x20
+    .local v0, "nativeAllocationByteCount":I
+    :goto_0
+    iget-object v1, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
 
-    .line 133
-    add-long v6, v8, v4
+    invoke-virtual {v1, v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->setNativeAllocationByteCount(I)V
 
-    .line 135
-    :cond_2
-    new-instance v2, Llibcore/util/NativeAllocationRegistry;
-
-    .line 136
-    const-class v3, Landroid/graphics/Bitmap;
-
-    invoke-virtual {v3}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v3
-
-    invoke-static {}, Landroid/graphics/Bitmap;->nativeGetNativeFinalizer()J
-
-    move-result-wide v4
-
-    .line 135
-    invoke-direct/range {v2 .. v7}, Llibcore/util/NativeAllocationRegistry;-><init>(Ljava/lang/ClassLoader;JJ)V
-
-    .line 137
-    .local v2, "registry":Llibcore/util/NativeAllocationRegistry;
-    invoke-virtual {v2, p0, p1, p2}, Llibcore/util/NativeAllocationRegistry;->registerNativeAllocation(Ljava/lang/Object;J)Ljava/lang/Runnable;
-
-    .line 113
+    .line 111
     return-void
+
+    .line 130
+    .end local v0    # "nativeAllocationByteCount":I
+    :cond_2
+    const/4 v0, 0x0
+
+    .restart local v0    # "nativeAllocationByteCount":I
+    goto :goto_0
 .end method
 
 .method private checkPixelAccess(II)V
@@ -335,17 +321,17 @@
     .param p2, "y"    # I
 
     .prologue
-    .line 1446
+    .line 1399
     invoke-static {p1, p2}, Landroid/graphics/Bitmap;->checkXYSign(II)V
 
-    .line 1447
+    .line 1400
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
 
     if-lt p1, v0, :cond_0
 
-    .line 1448
+    .line 1401
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "x must be < bitmap.width()"
@@ -354,7 +340,7 @@
 
     throw v0
 
-    .line 1450
+    .line 1403
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
@@ -362,7 +348,7 @@
 
     if-lt p2, v0, :cond_1
 
-    .line 1451
+    .line 1404
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "y must be < bitmap.height()"
@@ -371,7 +357,7 @@
 
     throw v0
 
-    .line 1445
+    .line 1398
     :cond_1
     return-void
 .end method
@@ -387,13 +373,13 @@
     .param p7, "pixels"    # [I
 
     .prologue
-    .line 1469
+    .line 1422
     invoke-static {p1, p2}, Landroid/graphics/Bitmap;->checkXYSign(II)V
 
-    .line 1470
+    .line 1423
     if-gez p3, :cond_0
 
-    .line 1471
+    .line 1424
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "width must be >= 0"
@@ -402,11 +388,11 @@
 
     throw v2
 
-    .line 1473
+    .line 1426
     :cond_0
     if-gez p4, :cond_1
 
-    .line 1474
+    .line 1427
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "height must be >= 0"
@@ -415,7 +401,7 @@
 
     throw v2
 
-    .line 1476
+    .line 1429
     :cond_1
     add-int v2, p1, p3
 
@@ -425,18 +411,18 @@
 
     if-le v2, v3, :cond_2
 
-    .line 1477
+    .line 1430
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    .line 1478
+    .line 1431
     const-string/jumbo v3, "x + width must be <= bitmap.width()"
 
-    .line 1477
+    .line 1430
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
-    .line 1480
+    .line 1433
     :cond_2
     add-int v2, p2, p4
 
@@ -446,18 +432,18 @@
 
     if-le v2, v3, :cond_3
 
-    .line 1481
+    .line 1434
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    .line 1482
+    .line 1435
     const-string/jumbo v3, "y + height must be <= bitmap.height()"
 
-    .line 1481
+    .line 1434
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
-    .line 1484
+    .line 1437
     :cond_3
     invoke-static {p6}, Ljava/lang/Math;->abs(I)I
 
@@ -465,7 +451,7 @@
 
     if-ge v2, p3, :cond_4
 
-    .line 1485
+    .line 1438
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "abs(stride) must be >= width"
@@ -474,7 +460,7 @@
 
     throw v2
 
-    .line 1487
+    .line 1440
     :cond_4
     add-int/lit8 v2, p4, -0x1
 
@@ -482,11 +468,11 @@
 
     add-int v0, p5, v2
 
-    .line 1488
+    .line 1441
     .local v0, "lastScanline":I
     array-length v1, p7
 
-    .line 1489
+    .line 1442
     .local v1, "length":I
     if-ltz p5, :cond_5
 
@@ -494,7 +480,7 @@
 
     if-le v2, v1, :cond_6
 
-    .line 1492
+    .line 1445
     :cond_5
     new-instance v2, Ljava/lang/ArrayIndexOutOfBoundsException;
 
@@ -502,16 +488,16 @@
 
     throw v2
 
-    .line 1490
+    .line 1443
     :cond_6
     if-ltz v0, :cond_5
 
-    .line 1491
+    .line 1444
     add-int v2, v0, p3
 
     if-gt v2, v1, :cond_5
 
-    .line 1468
+    .line 1421
     return-void
 .end method
 
@@ -520,19 +506,19 @@
     .param p1, "errorMessage"    # Ljava/lang/String;
 
     .prologue
-    .line 382
+    .line 351
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 383
+    .line 352
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 381
+    .line 350
     :cond_0
     return-void
 .end method
@@ -543,10 +529,10 @@
     .param p1, "height"    # I
 
     .prologue
-    .line 409
+    .line 378
     if-gtz p0, :cond_0
 
-    .line 410
+    .line 379
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "width must be > 0"
@@ -555,11 +541,11 @@
 
     throw v0
 
-    .line 412
+    .line 381
     :cond_0
     if-gtz p1, :cond_1
 
-    .line 413
+    .line 382
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "height must be > 0"
@@ -568,7 +554,7 @@
 
     throw v0
 
-    .line 408
+    .line 377
     :cond_1
     return-void
 .end method
@@ -579,10 +565,10 @@
     .param p1, "y"    # I
 
     .prologue
-    .line 394
+    .line 363
     if-gez p0, :cond_0
 
-    .line 395
+    .line 364
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "x must be >= 0"
@@ -591,11 +577,11 @@
 
     throw v0
 
-    .line 397
+    .line 366
     :cond_0
     if-gez p1, :cond_1
 
-    .line 398
+    .line 367
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "y must be >= 0"
@@ -604,7 +590,7 @@
 
     throw v0
 
-    .line 393
+    .line 362
     :cond_1
     return-void
 .end method
@@ -616,7 +602,7 @@
     .param p2, "config"    # Landroid/graphics/Bitmap$Config;
 
     .prologue
-    .line 823
+    .line 776
     const/4 v0, 0x1
 
     invoke-static {p0, p1, p2, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
@@ -634,7 +620,7 @@
     .param p3, "hasAlpha"    # Z
 
     .prologue
-    .line 856
+    .line 809
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1, p2, p3}, Landroid/graphics/Bitmap;->createBitmap(Landroid/util/DisplayMetrics;IILandroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
@@ -651,7 +637,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 681
+    .line 634
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -676,7 +662,7 @@
     .param p4, "height"    # I
 
     .prologue
-    .line 701
+    .line 654
     const/4 v5, 0x0
 
     const/4 v6, 0x0
@@ -709,13 +695,13 @@
     .param p6, "filter"    # Z
 
     .prologue
-    .line 731
+    .line 684
     invoke-static/range {p1 .. p2}, Landroid/graphics/Bitmap;->checkXYSign(II)V
 
-    .line 732
+    .line 685
     invoke-static/range {p3 .. p4}, Landroid/graphics/Bitmap;->checkWidthHeight(II)V
 
-    .line 733
+    .line 686
     add-int v13, p1, p3
 
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -724,7 +710,7 @@
 
     if-le v13, v14, :cond_0
 
-    .line 734
+    .line 687
     new-instance v13, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v14, "x + width must be <= bitmap.width()"
@@ -733,7 +719,7 @@
 
     throw v13
 
-    .line 736
+    .line 689
     :cond_0
     add-int v13, p2, p4
 
@@ -743,7 +729,7 @@
 
     if-le v13, v14, :cond_1
 
-    .line 737
+    .line 690
     new-instance v13, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v14, "y + height must be <= bitmap.height()"
@@ -752,7 +738,7 @@
 
     throw v13
 
-    .line 741
+    .line 694
     :cond_1
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->isMutable()Z
 
@@ -772,7 +758,7 @@
 
     if-ne v0, v13, :cond_3
 
-    .line 742
+    .line 695
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v13
@@ -787,28 +773,28 @@
 
     move-result v13
 
-    .line 741
+    .line 694
     if-eqz v13, :cond_3
 
-    .line 743
+    .line 696
     :cond_2
     return-object p0
 
-    .line 746
+    .line 699
     :cond_3
     move/from16 v9, p3
 
-    .line 747
+    .line 700
     .local v9, "neww":I
     move/from16 v8, p4
 
-    .line 748
+    .line 701
     .local v8, "newh":I
     new-instance v3, Landroid/graphics/Canvas;
 
     invoke-direct {v3}, Landroid/graphics/Canvas;-><init>()V
 
-    .line 752
+    .line 705
     .local v3, "canvas":Landroid/graphics/Canvas;
     new-instance v11, Landroid/graphics/Rect;
 
@@ -822,7 +808,7 @@
 
     invoke-direct {v11, v0, v1, v13, v14}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    .line 753
+    .line 706
     .local v11, "srcR":Landroid/graphics/Rect;
     new-instance v6, Landroid/graphics/RectF;
 
@@ -844,22 +830,22 @@
 
     invoke-direct {v6, v13, v14, v15, v0}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    .line 755
+    .line 708
     .local v6, "dstR":Landroid/graphics/RectF;
     sget-object v7, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 756
+    .line 709
     .local v7, "newConfig":Landroid/graphics/Bitmap$Config;
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
     move-result-object v4
 
-    .line 758
+    .line 711
     .local v4, "config":Landroid/graphics/Bitmap$Config;
     if-eqz v4, :cond_4
 
-    .line 759
-    invoke-static {}, Landroid/graphics/Bitmap;->-getandroid-graphics-Bitmap$ConfigSwitchesValues()[I
+    .line 712
+    invoke-static {}, Landroid/graphics/Bitmap;->-getandroid_graphics_Bitmap$ConfigSwitchesValues()[I
 
     move-result-object v13
 
@@ -871,11 +857,11 @@
 
     packed-switch v13, :pswitch_data_0
 
-    .line 770
+    .line 723
     :pswitch_0
     sget-object v7, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 775
+    .line 728
     :cond_4
     :goto_0
     if-eqz p5, :cond_5
@@ -886,25 +872,21 @@
 
     if-eqz v13, :cond_7
 
-    .line 776
+    .line 729
     :cond_5
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->hasAlpha()Z
 
     move-result v13
 
-    move/from16 v0, p3
-
-    move/from16 v1, p4
-
-    invoke-static {v0, v1, v7, v13}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
+    invoke-static {v9, v8, v7, v13}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
-    .line 777
+    .line 730
     .local v2, "bitmap":Landroid/graphics/Bitmap;
     const/4 v10, 0x0
 
-    .line 802
+    .line 755
     .end local v7    # "newConfig":Landroid/graphics/Bitmap$Config;
     :cond_6
     :goto_1
@@ -914,37 +896,37 @@
 
     iput v13, v2, Landroid/graphics/Bitmap;->mDensity:I
 
-    .line 803
+    .line 756
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Bitmap;->hasAlpha()Z
 
     move-result v13
 
     invoke-virtual {v2, v13}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
 
-    .line 804
+    .line 757
     move-object/from16 v0, p0
 
     iget-boolean v13, v0, Landroid/graphics/Bitmap;->mRequestPremultiplied:Z
 
     invoke-virtual {v2, v13}, Landroid/graphics/Bitmap;->setPremultiplied(Z)V
 
-    .line 806
+    .line 759
     invoke-virtual {v3, v2}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 807
+    .line 760
     move-object/from16 v0, p0
 
     invoke-virtual {v3, v0, v11, v6, v10}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
 
-    .line 808
+    .line 761
     const/4 v13, 0x0
 
     invoke-virtual {v3, v13}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 810
+    .line 763
     return-object v2
 
-    .line 761
+    .line 714
     .end local v2    # "bitmap":Landroid/graphics/Bitmap;
     .restart local v7    # "newConfig":Landroid/graphics/Bitmap$Config;
     :pswitch_1
@@ -952,13 +934,13 @@
 
     goto :goto_0
 
-    .line 764
+    .line 717
     :pswitch_2
     sget-object v7, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
 
     goto :goto_0
 
-    .line 779
+    .line 732
     :cond_7
     invoke-virtual/range {p5 .. p5}, Landroid/graphics/Matrix;->rectStaysRect()Z
 
@@ -968,20 +950,20 @@
 
     const/4 v12, 0x0
 
-    .line 781
+    .line 734
     .local v12, "transformed":Z
     :goto_2
     new-instance v5, Landroid/graphics/RectF;
 
     invoke-direct {v5}, Landroid/graphics/RectF;-><init>()V
 
-    .line 782
+    .line 735
     .local v5, "deviceR":Landroid/graphics/RectF;
     move-object/from16 v0, p5
 
     invoke-virtual {v0, v5, v6}, Landroid/graphics/Matrix;->mapRect(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z
 
-    .line 784
+    .line 737
     invoke-virtual {v5}, Landroid/graphics/RectF;->width()F
 
     move-result v13
@@ -990,7 +972,7 @@
 
     move-result v9
 
-    .line 785
+    .line 738
     invoke-virtual {v5}, Landroid/graphics/RectF;->height()F
 
     move-result v13
@@ -999,12 +981,12 @@
 
     move-result v8
 
-    .line 787
+    .line 740
     if-eqz v12, :cond_8
 
     sget-object v7, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 788
+    .line 741
     .end local v7    # "newConfig":Landroid/graphics/Bitmap$Config;
     :cond_8
     if-nez v12, :cond_a
@@ -1013,13 +995,13 @@
 
     move-result v13
 
-    .line 787
+    .line 740
     :goto_3
     invoke-static {v9, v8, v7, v13}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
-    .line 790
+    .line 743
     .restart local v2    # "bitmap":Landroid/graphics/Bitmap;
     iget v13, v5, Landroid/graphics/RectF;->left:F
 
@@ -1031,33 +1013,33 @@
 
     invoke-virtual {v3, v13, v14}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 791
+    .line 744
     move-object/from16 v0, p5
 
     invoke-virtual {v3, v0}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
 
-    .line 793
+    .line 746
     new-instance v10, Landroid/graphics/Paint;
 
     invoke-direct {v10}, Landroid/graphics/Paint;-><init>()V
 
-    .line 794
+    .line 747
     .local v10, "paint":Landroid/graphics/Paint;
     move/from16 v0, p6
 
     invoke-virtual {v10, v0}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
 
-    .line 795
+    .line 748
     if-eqz v12, :cond_6
 
-    .line 796
+    .line 749
     const/4 v13, 0x1
 
     invoke-virtual {v10, v13}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     goto :goto_1
 
-    .line 779
+    .line 732
     .end local v2    # "bitmap":Landroid/graphics/Bitmap;
     .end local v5    # "deviceR":Landroid/graphics/RectF;
     .end local v10    # "paint":Landroid/graphics/Paint;
@@ -1069,7 +1051,7 @@
     .restart local v12    # "transformed":Z
     goto :goto_2
 
-    .line 788
+    .line 741
     .end local v7    # "newConfig":Landroid/graphics/Bitmap$Config;
     .restart local v5    # "deviceR":Landroid/graphics/RectF;
     :cond_a
@@ -1077,7 +1059,7 @@
 
     goto :goto_3
 
-    .line 759
+    .line 712
     nop
 
     :pswitch_data_0
@@ -1097,7 +1079,7 @@
     .param p3, "config"    # Landroid/graphics/Bitmap$Config;
 
     .prologue
-    .line 839
+    .line 792
     const/4 v0, 0x1
 
     invoke-static {p0, p1, p2, p3, v0}, Landroid/graphics/Bitmap;->createBitmap(Landroid/util/DisplayMetrics;IILandroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
@@ -1120,12 +1102,12 @@
 
     const/4 v1, 0x0
 
-    .line 876
+    .line 829
     if-lez p1, :cond_0
 
     if-gtz p2, :cond_1
 
-    .line 877
+    .line 830
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -1135,7 +1117,7 @@
 
     throw v0
 
-    .line 879
+    .line 832
     :cond_1
     iget v5, p3, Landroid/graphics/Bitmap$Config;->nativeInt:I
 
@@ -1151,34 +1133,38 @@
 
     move-result-object v7
 
-    .line 880
+    .line 833
     .local v7, "bm":Landroid/graphics/Bitmap;
     if-eqz p0, :cond_2
 
-    .line 881
+    .line 834
     iget v0, p0, Landroid/util/DisplayMetrics;->densityDpi:I
 
     iput v0, v7, Landroid/graphics/Bitmap;->mDensity:I
 
-    .line 883
+    .line 836
     :cond_2
     invoke-virtual {v7, p4}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
 
-    .line 884
+    .line 837
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     if-ne p3, v0, :cond_3
 
     if-eqz p4, :cond_4
 
-    .line 890
+    .line 843
     :cond_3
     :goto_0
     return-object v7
 
-    .line 885
+    .line 838
     :cond_4
-    iget-wide v0, v7, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, v7, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     const/high16 v2, -0x1000000
 
@@ -1198,17 +1184,17 @@
     .param p6, "config"    # Landroid/graphics/Bitmap$Config;
 
     .prologue
-    .line 939
+    .line 892
     invoke-static/range {p4 .. p5}, Landroid/graphics/Bitmap;->checkWidthHeight(II)V
 
-    .line 940
+    .line 893
     invoke-static {p3}, Ljava/lang/Math;->abs(I)I
 
     move-result v1
 
     if-ge v1, p4, :cond_0
 
-    .line 941
+    .line 894
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "abs(stride) must be >= width"
@@ -1217,7 +1203,7 @@
 
     throw v1
 
-    .line 943
+    .line 896
     :cond_0
     add-int/lit8 v1, p5, -0x1
 
@@ -1225,11 +1211,11 @@
 
     add-int v9, p2, v1
 
-    .line 944
+    .line 897
     .local v9, "lastScanline":I
     array-length v10, p1
 
-    .line 945
+    .line 898
     .local v10, "length":I
     if-ltz p2, :cond_1
 
@@ -1237,7 +1223,7 @@
 
     if-le v1, v10, :cond_2
 
-    .line 947
+    .line 900
     :cond_1
     new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
@@ -1245,21 +1231,21 @@
 
     throw v1
 
-    .line 945
+    .line 898
     :cond_2
     if-ltz v9, :cond_1
 
-    .line 946
+    .line 899
     add-int v1, v9, p4
 
     if-gt v1, v10, :cond_1
 
-    .line 949
+    .line 902
     if-lez p4, :cond_3
 
     if-gtz p5, :cond_4
 
-    .line 950
+    .line 903
     :cond_3
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -1269,7 +1255,7 @@
 
     throw v1
 
-    .line 953
+    .line 906
     :cond_4
     move-object/from16 v0, p6
 
@@ -1287,21 +1273,21 @@
 
     move/from16 v5, p5
 
-    .line 952
+    .line 905
     invoke-static/range {v1 .. v7}, Landroid/graphics/Bitmap;->nativeCreate([IIIIIIZ)Landroid/graphics/Bitmap;
 
     move-result-object v8
 
-    .line 954
+    .line 907
     .local v8, "bm":Landroid/graphics/Bitmap;
     if-eqz p0, :cond_5
 
-    .line 955
+    .line 908
     iget v1, p0, Landroid/util/DisplayMetrics;->densityDpi:I
 
     iput v1, v8, Landroid/graphics/Bitmap;->mDensity:I
 
-    .line 957
+    .line 910
     :cond_5
     return-object v8
 .end method
@@ -1315,7 +1301,7 @@
     .param p4, "config"    # Landroid/graphics/Bitmap$Config;
 
     .prologue
-    .line 998
+    .line 951
     const/4 v2, 0x0
 
     move-object v0, p0
@@ -1347,7 +1333,7 @@
     .param p5, "config"    # Landroid/graphics/Bitmap$Config;
 
     .prologue
-    .line 913
+    .line 866
     const/4 v0, 0x0
 
     move-object v1, p0
@@ -1377,7 +1363,7 @@
     .param p3, "config"    # Landroid/graphics/Bitmap$Config;
 
     .prologue
-    .line 976
+    .line 929
     const/4 v0, 0x0
 
     const/4 v2, 0x0
@@ -1409,16 +1395,16 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 648
+    .line 601
     const-class v2, Landroid/graphics/Bitmap;
 
     monitor-enter v2
 
-    .line 650
+    .line 603
     :try_start_0
     sget-object v5, Landroid/graphics/Bitmap;->sScaleMatrix:Landroid/graphics/Matrix;
 
-    .line 651
+    .line 604
     .local v5, "m":Landroid/graphics/Matrix;
     const/4 v0, 0x0
 
@@ -1428,29 +1414,29 @@
 
     monitor-exit v2
 
-    .line 654
+    .line 607
     if-nez v5, :cond_0
 
-    .line 655
+    .line 608
     new-instance v5, Landroid/graphics/Matrix;
 
     .end local v5    # "m":Landroid/graphics/Matrix;
     invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V
 
-    .line 658
+    .line 611
     .restart local v5    # "m":Landroid/graphics/Matrix;
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v3
 
-    .line 659
+    .line 612
     .local v3, "width":I
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v4
 
-    .line 660
+    .line 613
     .local v4, "height":I
     int-to-float v0, p1
 
@@ -1458,7 +1444,7 @@
 
     div-float v8, v0, v2
 
-    .line 661
+    .line 614
     .local v8, "sx":F
     int-to-float v0, p2
 
@@ -1466,7 +1452,7 @@
 
     div-float v9, v0, v2
 
-    .line 662
+    .line 615
     .local v9, "sy":F
     invoke-virtual {v5, v8, v9}, Landroid/graphics/Matrix;->setScale(FF)V
 
@@ -1476,24 +1462,24 @@
 
     move v6, p3
 
-    .line 663
+    .line 616
     invoke-static/range {v0 .. v6}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;
 
     move-result-object v7
 
-    .line 665
+    .line 618
     .local v7, "b":Landroid/graphics/Bitmap;
     const-class v1, Landroid/graphics/Bitmap;
 
     monitor-enter v1
 
-    .line 667
+    .line 620
     :try_start_1
     sget-object v0, Landroid/graphics/Bitmap;->sScaleMatrix:Landroid/graphics/Matrix;
 
     if-nez v0, :cond_1
 
-    .line 668
+    .line 621
     sput-object v5, Landroid/graphics/Bitmap;->sScaleMatrix:Landroid/graphics/Matrix;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
@@ -1501,10 +1487,10 @@
     :cond_1
     monitor-exit v1
 
-    .line 672
+    .line 625
     return-object v7
 
-    .line 648
+    .line 601
     .end local v3    # "width":I
     .end local v4    # "height":I
     .end local v5    # "m":Landroid/graphics/Matrix;
@@ -1518,7 +1504,7 @@
 
     throw v0
 
-    .line 665
+    .line 618
     .restart local v3    # "width":I
     .restart local v4    # "height":I
     .restart local v5    # "m":Landroid/graphics/Matrix;
@@ -1537,23 +1523,23 @@
     .locals 1
 
     .prologue
-    .line 99
+    .line 96
     sget v0, Landroid/graphics/Bitmap;->sDefaultDensity:I
 
     if-ltz v0, :cond_0
 
-    .line 100
+    .line 97
     sget v0, Landroid/graphics/Bitmap;->sDefaultDensity:I
 
     return v0
 
-    .line 102
+    .line 100
     :cond_0
     sget v0, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
 
     sput v0, Landroid/graphics/Bitmap;->sDefaultDensity:I
 
-    .line 103
+    .line 101
     sget v0, Landroid/graphics/Bitmap;->sDefaultDensity:I
 
     return v0
@@ -1571,9 +1557,6 @@
 .method private static native nativeCopyAshmem(J)Landroid/graphics/Bitmap;
 .end method
 
-.method private static native nativeCopyAshmemConfig(JI)Landroid/graphics/Bitmap;
-.end method
-
 .method private static native nativeCopyPixelsFromBuffer(JLjava/nio/Buffer;)V
 .end method
 
@@ -1586,6 +1569,9 @@
 .method private static native nativeCreateFromParcel(Landroid/os/Parcel;)Landroid/graphics/Bitmap;
 .end method
 
+.method private static native nativeDestructor(J)V
+.end method
+
 .method private static native nativeErase(JI)V
 .end method
 
@@ -1593,9 +1579,6 @@
 .end method
 
 .method private static native nativeGenerationId(J)I
-.end method
-
-.method private static native nativeGetNativeFinalizer()J
 .end method
 
 .method private static native nativeGetPixel(JII)I
@@ -1611,9 +1594,6 @@
 .end method
 
 .method private static native nativeIsPremultiplied(J)Z
-.end method
-
-.method private static native nativePrepareToDraw(J)V
 .end method
 
 .method private static native nativeReconfigure(JIIIIZ)V
@@ -1656,20 +1636,20 @@
     .param p2, "tdensity"    # I
 
     .prologue
-    .line 1222
+    .line 1175
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
-    .line 1223
+    .line 1176
     :cond_0
     return p0
 
-    .line 1222
+    .line 1175
     :cond_1
     if-eq p1, p2, :cond_0
 
-    .line 1227
+    .line 1180
     mul-int v0, p0, p2
 
     shr-int/lit8 v1, p1, 0x1
@@ -1686,10 +1666,10 @@
     .param p0, "density"    # I
 
     .prologue
-    .line 94
+    .line 91
     sput p0, Landroid/graphics/Bitmap;->sDefaultDensity:I
 
-    .line 93
+    .line 90
     return-void
 .end method
 
@@ -1704,22 +1684,22 @@
     .prologue
     const-wide/16 v8, 0x2000
 
-    .line 1066
+    .line 1019
     const-string/jumbo v0, "Can\'t compress a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1068
+    .line 1021
     if-nez p3, :cond_0
 
-    .line 1069
+    .line 1022
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 1071
+    .line 1024
     :cond_0
     if-ltz p2, :cond_1
 
@@ -1727,7 +1707,7 @@
 
     if-le p2, v0, :cond_2
 
-    .line 1072
+    .line 1025
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -1737,18 +1717,22 @@
 
     throw v0
 
-    .line 1074
+    .line 1027
     :cond_2
     const-string/jumbo v0, "Bitmap.compress"
 
     invoke-static {v8, v9, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
-    .line 1075
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 1028
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     iget v2, p1, Landroid/graphics/Bitmap$CompressFormat;->nativeInt:I
 
-    .line 1076
+    .line 1029
     const/16 v3, 0x1000
 
     new-array v5, v3, [B
@@ -1757,16 +1741,16 @@
 
     move-object v4, p3
 
-    .line 1075
+    .line 1028
     invoke-static/range {v0 .. v5}, Landroid/graphics/Bitmap;->nativeCompress(JIILjava/io/OutputStream;[B)Z
 
     move-result v6
 
-    .line 1077
+    .line 1030
     .local v6, "result":Z
     invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
-    .line 1078
+    .line 1031
     return v6
 .end method
 
@@ -1776,13 +1760,17 @@
     .param p2, "isMutable"    # Z
 
     .prologue
-    .line 591
+    .line 560
     const-string/jumbo v1, "Can\'t copy a recycled bitmap"
 
     invoke-direct {p0, v1}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 592
-    iget-wide v2, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 561
+    iget-object v1, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v1}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v2
 
     iget v1, p1, Landroid/graphics/Bitmap$Config;->nativeInt:I
 
@@ -1790,21 +1778,21 @@
 
     move-result-object v0
 
-    .line 593
+    .line 562
     .local v0, "b":Landroid/graphics/Bitmap;
     if-eqz v0, :cond_0
 
-    .line 594
+    .line 563
     iget-boolean v1, p0, Landroid/graphics/Bitmap;->mRequestPremultiplied:Z
 
     invoke-virtual {v0, v1}, Landroid/graphics/Bitmap;->setPremultiplied(Z)V
 
-    .line 595
+    .line 564
     iget v1, p0, Landroid/graphics/Bitmap;->mDensity:I
 
     iput v1, v0, Landroid/graphics/Bitmap;->mDensity:I
 
-    .line 597
+    .line 566
     :cond_0
     return-object v0
 .end method
@@ -1814,33 +1802,33 @@
     .param p1, "src"    # Ljava/nio/Buffer;
 
     .prologue
-    .line 549
+    .line 518
     const-string/jumbo v7, "copyPixelsFromBuffer called on recycled bitmap"
 
     invoke-direct {p0, v7}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 551
+    .line 520
     invoke-virtual {p1}, Ljava/nio/Buffer;->remaining()I
 
     move-result v4
 
-    .line 553
+    .line 522
     .local v4, "elements":I
     instance-of v7, p1, Ljava/nio/ByteBuffer;
 
     if-eqz v7, :cond_0
 
-    .line 554
+    .line 523
     const/4 v6, 0x0
 
-    .line 563
+    .line 532
     .local v6, "shift":I
     :goto_0
     int-to-long v8, v4
 
     shl-long v2, v8, v6
 
-    .line 564
+    .line 533
     .local v2, "bufferBytes":J
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getByteCount()I
 
@@ -1848,13 +1836,13 @@
 
     int-to-long v0, v7
 
-    .line 566
+    .line 535
     .local v0, "bitmapBytes":J
     cmp-long v7, v2, v0
 
     if-gez v7, :cond_3
 
-    .line 567
+    .line 536
     new-instance v7, Ljava/lang/RuntimeException;
 
     const-string/jumbo v8, "Buffer not large enough for pixels"
@@ -1863,7 +1851,7 @@
 
     throw v7
 
-    .line 555
+    .line 524
     .end local v0    # "bitmapBytes":J
     .end local v2    # "bufferBytes":J
     .end local v6    # "shift":I
@@ -1872,26 +1860,26 @@
 
     if-eqz v7, :cond_1
 
-    .line 556
+    .line 525
     const/4 v6, 0x1
 
     .restart local v6    # "shift":I
     goto :goto_0
 
-    .line 557
+    .line 526
     .end local v6    # "shift":I
     :cond_1
     instance-of v7, p1, Ljava/nio/IntBuffer;
 
     if-eqz v7, :cond_2
 
-    .line 558
+    .line 527
     const/4 v6, 0x2
 
     .restart local v6    # "shift":I
     goto :goto_0
 
-    .line 560
+    .line 529
     .end local v6    # "shift":I
     :cond_2
     new-instance v7, Ljava/lang/RuntimeException;
@@ -1902,21 +1890,25 @@
 
     throw v7
 
-    .line 570
+    .line 539
     .restart local v0    # "bitmapBytes":J
     .restart local v2    # "bufferBytes":J
     .restart local v6    # "shift":I
     :cond_3
-    iget-wide v8, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v7, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v7}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v8
 
     invoke-static {v8, v9, p1}, Landroid/graphics/Bitmap;->nativeCopyPixelsFromBuffer(JLjava/nio/Buffer;)V
 
-    .line 573
+    .line 542
     invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
 
     move-result v5
 
-    .line 574
+    .line 543
     .local v5, "position":I
     int-to-long v8, v5
 
@@ -1926,10 +1918,10 @@
 
     long-to-int v5, v8
 
-    .line 575
+    .line 544
     invoke-virtual {p1, v5}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
-    .line 548
+    .line 517
     return-void
 .end method
 
@@ -1938,28 +1930,28 @@
     .param p1, "dst"    # Ljava/nio/Buffer;
 
     .prologue
-    .line 511
+    .line 480
     invoke-virtual {p1}, Ljava/nio/Buffer;->remaining()I
 
     move-result v2
 
-    .line 513
+    .line 482
     .local v2, "elements":I
     instance-of v7, p1, Ljava/nio/ByteBuffer;
 
     if-eqz v7, :cond_0
 
-    .line 514
+    .line 483
     const/4 v6, 0x0
 
-    .line 523
+    .line 492
     .local v6, "shift":I
     :goto_0
     int-to-long v8, v2
 
     shl-long v0, v8, v6
 
-    .line 524
+    .line 493
     .local v0, "bufferSize":J
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getByteCount()I
 
@@ -1967,13 +1959,13 @@
 
     int-to-long v4, v7
 
-    .line 526
+    .line 495
     .local v4, "pixelSize":J
     cmp-long v7, v0, v4
 
     if-gez v7, :cond_3
 
-    .line 527
+    .line 496
     new-instance v7, Ljava/lang/RuntimeException;
 
     const-string/jumbo v8, "Buffer not large enough for pixels"
@@ -1982,7 +1974,7 @@
 
     throw v7
 
-    .line 515
+    .line 484
     .end local v0    # "bufferSize":J
     .end local v4    # "pixelSize":J
     .end local v6    # "shift":I
@@ -1991,26 +1983,26 @@
 
     if-eqz v7, :cond_1
 
-    .line 516
+    .line 485
     const/4 v6, 0x1
 
     .restart local v6    # "shift":I
     goto :goto_0
 
-    .line 517
+    .line 486
     .end local v6    # "shift":I
     :cond_1
     instance-of v7, p1, Ljava/nio/IntBuffer;
 
     if-eqz v7, :cond_2
 
-    .line 518
+    .line 487
     const/4 v6, 0x2
 
     .restart local v6    # "shift":I
     goto :goto_0
 
-    .line 520
+    .line 489
     .end local v6    # "shift":I
     :cond_2
     new-instance v7, Ljava/lang/RuntimeException;
@@ -2021,21 +2013,25 @@
 
     throw v7
 
-    .line 530
+    .line 499
     .restart local v0    # "bufferSize":J
     .restart local v4    # "pixelSize":J
     .restart local v6    # "shift":I
     :cond_3
-    iget-wide v8, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v7, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v7}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v8
 
     invoke-static {v8, v9, p1}, Landroid/graphics/Bitmap;->nativeCopyPixelsToBuffer(JLjava/nio/Buffer;)V
 
-    .line 533
+    .line 502
     invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
 
     move-result v3
 
-    .line 534
+    .line 503
     .local v3, "position":I
     int-to-long v8, v3
 
@@ -2045,10 +2041,10 @@
 
     long-to-int v3, v8
 
-    .line 535
+    .line 504
     invoke-virtual {p1, v3}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
-    .line 510
+    .line 479
     return-void
 .end method
 
@@ -2056,71 +2052,37 @@
     .locals 4
 
     .prologue
-    .line 607
+    .line 576
     const-string/jumbo v1, "Can\'t copy a recycled bitmap"
 
     invoke-direct {p0, v1}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 608
-    iget-wide v2, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 577
+    iget-object v1, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v1}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v2
 
     invoke-static {v2, v3}, Landroid/graphics/Bitmap;->nativeCopyAshmem(J)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 609
+    .line 578
     .local v0, "b":Landroid/graphics/Bitmap;
     if-eqz v0, :cond_0
 
-    .line 610
+    .line 579
     iget-boolean v1, p0, Landroid/graphics/Bitmap;->mRequestPremultiplied:Z
 
     invoke-virtual {v0, v1}, Landroid/graphics/Bitmap;->setPremultiplied(Z)V
 
-    .line 611
+    .line 580
     iget v1, p0, Landroid/graphics/Bitmap;->mDensity:I
 
     iput v1, v0, Landroid/graphics/Bitmap;->mDensity:I
 
-    .line 613
-    :cond_0
-    return-object v0
-.end method
-
-.method public createAshmemBitmap(Landroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 4
-    .param p1, "config"    # Landroid/graphics/Bitmap$Config;
-
-    .prologue
-    .line 623
-    const-string/jumbo v1, "Can\'t copy a recycled bitmap"
-
-    invoke-direct {p0, v1}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
-
-    .line 624
-    iget-wide v2, p0, Landroid/graphics/Bitmap;->mNativePtr:J
-
-    iget v1, p1, Landroid/graphics/Bitmap$Config;->nativeInt:I
-
-    invoke-static {v2, v3, v1}, Landroid/graphics/Bitmap;->nativeCopyAshmemConfig(JI)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    .line 625
-    .local v0, "b":Landroid/graphics/Bitmap;
-    if-eqz v0, :cond_0
-
-    .line 626
-    iget-boolean v1, p0, Landroid/graphics/Bitmap;->mRequestPremultiplied:Z
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Bitmap;->setPremultiplied(Z)V
-
-    .line 627
-    iget v1, p0, Landroid/graphics/Bitmap;->mDensity:I
-
-    iput v1, v0, Landroid/graphics/Bitmap;->mDensity:I
-
-    .line 629
+    .line 582
     :cond_0
     return-object v0
 .end method
@@ -2129,7 +2091,7 @@
     .locals 1
 
     .prologue
-    .line 1579
+    .line 1532
     const/4 v0, 0x0
 
     return v0
@@ -2140,19 +2102,19 @@
     .param p1, "c"    # I
 
     .prologue
-    .line 1380
+    .line 1333
     const-string/jumbo v0, "Can\'t erase a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1381
+    .line 1334
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->isMutable()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1382
+    .line 1335
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "cannot erase immutable bitmaps"
@@ -2161,13 +2123,17 @@
 
     throw v0
 
-    .line 1384
+    .line 1337
     :cond_0
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1, p1}, Landroid/graphics/Bitmap;->nativeErase(JI)V
 
-    .line 1379
+    .line 1332
     return-void
 .end method
 
@@ -2177,7 +2143,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1603
+    .line 1556
     invoke-virtual {p0, v0, v0}, Landroid/graphics/Bitmap;->extractAlpha(Landroid/graphics/Paint;[I)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -2191,32 +2157,36 @@
     .param p2, "offsetXY"    # [I
 
     .prologue
-    .line 1633
+    .line 1586
     const-string/jumbo v1, "Can\'t extractAlpha on a recycled bitmap"
 
     invoke-direct {p0, v1}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1634
+    .line 1587
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/graphics/Paint;->getNativeInstance()J
 
     move-result-wide v2
 
-    .line 1635
+    .line 1588
     .local v2, "nativePaint":J
     :goto_0
-    iget-wide v4, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v1, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v1}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v4
 
     invoke-static {v4, v5, v2, v3, p2}, Landroid/graphics/Bitmap;->nativeExtractAlpha(JJ[I)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 1636
+    .line 1589
     .local v0, "bm":Landroid/graphics/Bitmap;
     if-nez v0, :cond_1
 
-    .line 1637
+    .line 1590
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string/jumbo v4, "Failed to extractAlpha on Bitmap"
@@ -2225,7 +2195,7 @@
 
     throw v1
 
-    .line 1634
+    .line 1587
     .end local v0    # "bm":Landroid/graphics/Bitmap;
     .end local v2    # "nativePaint":J
     :cond_0
@@ -2234,14 +2204,14 @@
     .restart local v2    # "nativePaint":J
     goto :goto_0
 
-    .line 1639
+    .line 1592
     .restart local v0    # "bm":Landroid/graphics/Bitmap;
     :cond_1
     iget v1, p0, Landroid/graphics/Bitmap;->mDensity:I
 
     iput v1, v0, Landroid/graphics/Bitmap;->mDensity:I
 
-    .line 1640
+    .line 1593
     return-object v0
 .end method
 
@@ -2249,19 +2219,19 @@
     .locals 1
 
     .prologue
-    .line 1276
+    .line 1229
     iget-object v0, p0, Landroid/graphics/Bitmap;->mBuffer:[B
 
     if-nez v0, :cond_0
 
-    .line 1279
+    .line 1232
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getByteCount()I
 
     move-result v0
 
     return v0
 
-    .line 1281
+    .line 1234
     :cond_0
     iget-object v0, p0, Landroid/graphics/Bitmap;->mBuffer:[B
 
@@ -2274,7 +2244,7 @@
     .locals 2
 
     .prologue
-    .line 1258
+    .line 1211
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getRowBytes()I
 
     move-result v0
@@ -2292,21 +2262,25 @@
     .locals 2
 
     .prologue
-    .line 1289
+    .line 1242
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 1290
+    .line 1243
     const-string/jumbo v0, "Bitmap"
 
     const-string/jumbo v1, "Called getConfig() on a recycle()\'d bitmap! This is undefined behavior!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1292
+    .line 1245
     :cond_0
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1}, Landroid/graphics/Bitmap;->nativeConfig(J)I
 
@@ -2323,19 +2297,19 @@
     .locals 2
 
     .prologue
-    .line 179
+    .line 166
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 180
+    .line 167
     const-string/jumbo v0, "Bitmap"
 
     const-string/jumbo v1, "Called getDensity() on a recycle()\'d bitmap! This is undefined behavior!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 182
+    .line 169
     :cond_0
     iget v0, p0, Landroid/graphics/Bitmap;->mDensity:I
 
@@ -2346,21 +2320,25 @@
     .locals 2
 
     .prologue
-    .line 371
+    .line 340
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 372
+    .line 341
     const-string/jumbo v0, "Bitmap"
 
     const-string/jumbo v1, "Called getGenerationId() on a recycle()\'d bitmap! This is undefined behavior!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 374
+    .line 343
     :cond_0
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1}, Landroid/graphics/Bitmap;->nativeGenerationId(J)I
 
@@ -2373,40 +2351,30 @@
     .locals 2
 
     .prologue
-    .line 1158
+    .line 1111
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 1159
+    .line 1112
     const-string/jumbo v0, "Bitmap"
 
     const-string/jumbo v1, "Called getHeight() on a recycle()\'d bitmap! This is undefined behavior!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1161
+    .line 1114
     :cond_0
     iget v0, p0, Landroid/graphics/Bitmap;->mHeight:I
 
     return v0
 .end method
 
-.method getNativeInstance()J
-    .locals 2
-
-    .prologue
-    .line 144
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
-
-    return-wide v0
-.end method
-
 .method public getNinePatchChunk()[B
     .locals 1
 
     .prologue
-    .line 1006
+    .line 959
     iget-object v0, p0, Landroid/graphics/Bitmap;->mNinePatchChunk:[B
 
     return-object v0
@@ -2416,7 +2384,7 @@
     .locals 1
 
     .prologue
-    .line 1025
+    .line 978
     iget-object v0, p0, Landroid/graphics/Bitmap;->mNinePatchInsets:Landroid/graphics/NinePatch$InsetStruct;
 
     return-object v0
@@ -2427,19 +2395,19 @@
     .param p1, "outInsets"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 1016
+    .line 969
     iget-object v0, p0, Landroid/graphics/Bitmap;->mNinePatchInsets:Landroid/graphics/NinePatch$InsetStruct;
 
     if-nez v0, :cond_0
 
-    .line 1017
+    .line 970
     invoke-virtual {p1}, Landroid/graphics/Rect;->setEmpty()V
 
-    .line 1015
+    .line 968
     :goto_0
     return-void
 
-    .line 1019
+    .line 972
     :cond_0
     iget-object v0, p0, Landroid/graphics/Bitmap;->mNinePatchInsets:Landroid/graphics/NinePatch$InsetStruct;
 
@@ -2456,16 +2424,20 @@
     .param p2, "y"    # I
 
     .prologue
-    .line 1399
+    .line 1352
     const-string/jumbo v0, "Can\'t call getPixel() on a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1400
+    .line 1353
     invoke-direct {p0, p1, p2}, Landroid/graphics/Bitmap;->checkPixelAccess(II)V
 
-    .line 1401
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 1354
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1, p1, p2}, Landroid/graphics/Bitmap;->nativeGetPixel(JII)I
 
@@ -2485,17 +2457,17 @@
     .param p7, "height"    # I
 
     .prologue
-    .line 1429
+    .line 1382
     const-string/jumbo v0, "Can\'t call getPixels() on a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1430
+    .line 1383
     if-eqz p6, :cond_0
 
     if-nez p7, :cond_1
 
-    .line 1431
+    .line 1384
     :cond_0
     return-void
 
@@ -2516,11 +2488,15 @@
 
     move-object v7, p1
 
-    .line 1433
+    .line 1386
     invoke-direct/range {v0 .. v7}, Landroid/graphics/Bitmap;->checkPixelsAccess(IIIIII[I)V
 
-    .line 1434
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 1387
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     move-object v2, p1
 
@@ -2538,7 +2514,7 @@
 
     invoke-static/range {v0 .. v8}, Landroid/graphics/Bitmap;->nativeGetPixels(J[IIIIIII)V
 
-    .line 1428
+    .line 1381
     return-void
 .end method
 
@@ -2546,21 +2522,25 @@
     .locals 2
 
     .prologue
-    .line 1243
+    .line 1196
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 1244
+    .line 1197
     const-string/jumbo v0, "Bitmap"
 
     const-string/jumbo v1, "Called getRowBytes() on a recycle()\'d bitmap! This is undefined behavior!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1246
+    .line 1199
     :cond_0
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1}, Landroid/graphics/Bitmap;->nativeRowBytes(J)I
 
@@ -2574,7 +2554,7 @@
     .param p1, "targetDensity"    # I
 
     .prologue
-    .line 1215
+    .line 1168
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
@@ -2593,7 +2573,7 @@
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
-    .line 1177
+    .line 1130
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
@@ -2614,7 +2594,7 @@
     .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
-    .line 1193
+    .line 1146
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
@@ -2635,7 +2615,7 @@
     .param p1, "targetDensity"    # I
 
     .prologue
-    .line 1204
+    .line 1157
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -2654,7 +2634,7 @@
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
-    .line 1169
+    .line 1122
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -2675,7 +2655,7 @@
     .param p1, "metrics"    # Landroid/util/DisplayMetrics;
 
     .prologue
-    .line 1185
+    .line 1138
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -2695,19 +2675,19 @@
     .locals 2
 
     .prologue
-    .line 1150
+    .line 1103
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 1151
+    .line 1104
     const-string/jumbo v0, "Bitmap"
 
     const-string/jumbo v1, "Called getWidth() on a recycle()\'d bitmap! This is undefined behavior!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1153
+    .line 1106
     :cond_0
     iget v0, p0, Landroid/graphics/Bitmap;->mWidth:I
 
@@ -2718,21 +2698,25 @@
     .locals 2
 
     .prologue
-    .line 1304
+    .line 1257
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 1305
+    .line 1258
     const-string/jumbo v0, "Bitmap"
 
     const-string/jumbo v1, "Called hasAlpha() on a recycle()\'d bitmap! This is undefined behavior!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1307
+    .line 1260
     :cond_0
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1}, Landroid/graphics/Bitmap;->nativeHasAlpha(J)Z
 
@@ -2745,21 +2729,25 @@
     .locals 2
 
     .prologue
-    .line 1343
+    .line 1296
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 1344
+    .line 1297
     const-string/jumbo v0, "Bitmap"
 
     const-string/jumbo v1, "Called hasMipMap() on a recycle()\'d bitmap! This is undefined behavior!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1346
+    .line 1299
     :cond_0
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1}, Landroid/graphics/Bitmap;->nativeHasMipMap(J)Z
 
@@ -2772,7 +2760,7 @@
     .locals 1
 
     .prologue
-    .line 1085
+    .line 1038
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mIsMutable:Z
 
     return v0
@@ -2782,21 +2770,25 @@
     .locals 2
 
     .prologue
-    .line 1116
+    .line 1069
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 1117
+    .line 1070
     const-string/jumbo v0, "Bitmap"
 
     const-string/jumbo v1, "Called isPremultiplied() on a recycle()\'d bitmap! This is undefined behavior!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1119
+    .line 1072
     :cond_0
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1}, Landroid/graphics/Bitmap;->nativeIsPremultiplied(J)Z
 
@@ -2809,27 +2801,22 @@
     .locals 1
 
     .prologue
-    .line 360
+    .line 329
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     return v0
 .end method
 
 .method public prepareToDraw()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 1670
+    .line 1626
     const-string/jumbo v0, "Can\'t prepareToDraw on a recycled bitmap!"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1673
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
-
-    invoke-static {v0, v1}, Landroid/graphics/Bitmap;->nativePrepareToDraw(J)V
-
-    .line 1669
+    .line 1622
     return-void
 .end method
 
@@ -2840,17 +2827,17 @@
     .param p3, "config"    # Landroid/graphics/Bitmap$Config;
 
     .prologue
-    .line 252
+    .line 221
     const-string/jumbo v0, "Can\'t call reconfigure() on a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 253
+    .line 222
     if-lez p1, :cond_0
 
     if-gtz p2, :cond_1
 
-    .line 254
+    .line 223
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -2860,7 +2847,7 @@
 
     throw v0
 
-    .line 256
+    .line 225
     :cond_1
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->isMutable()Z
 
@@ -2868,7 +2855,7 @@
 
     if-nez v0, :cond_2
 
-    .line 257
+    .line 226
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "only mutable bitmaps may be reconfigured"
@@ -2877,13 +2864,13 @@
 
     throw v0
 
-    .line 259
+    .line 228
     :cond_2
     iget-object v0, p0, Landroid/graphics/Bitmap;->mBuffer:[B
 
     if-nez v0, :cond_3
 
-    .line 260
+    .line 229
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "native-backed bitmaps may not be reconfigured"
@@ -2892,13 +2879,17 @@
 
     throw v0
 
-    .line 263
+    .line 232
     :cond_3
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     iget v4, p3, Landroid/graphics/Bitmap$Config;->nativeInt:I
 
-    .line 264
+    .line 233
     iget-object v2, p0, Landroid/graphics/Bitmap;->mBuffer:[B
 
     array-length v5, v2
@@ -2909,16 +2900,16 @@
 
     move v3, p2
 
-    .line 263
+    .line 232
     invoke-static/range {v0 .. v6}, Landroid/graphics/Bitmap;->nativeReconfigure(JIIIIZ)V
 
-    .line 265
+    .line 234
     iput p1, p0, Landroid/graphics/Bitmap;->mWidth:I
 
-    .line 266
+    .line 235
     iput p2, p0, Landroid/graphics/Bitmap;->mHeight:I
 
-    .line 251
+    .line 220
     return-void
 .end method
 
@@ -2928,12 +2919,16 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 340
+    .line 309
     iget-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
     if-nez v0, :cond_1
 
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     const-wide/16 v2, 0x0
 
@@ -2941,8 +2936,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 341
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 310
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1}, Landroid/graphics/Bitmap;->nativeRecycle(J)Z
 
@@ -2950,19 +2949,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 346
+    .line 315
     iput-object v4, p0, Landroid/graphics/Bitmap;->mBuffer:[B
 
-    .line 347
+    .line 316
     iput-object v4, p0, Landroid/graphics/Bitmap;->mNinePatchChunk:[B
 
-    .line 349
+    .line 318
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/Bitmap;->mRecycled:Z
 
-    .line 339
+    .line 308
     :cond_1
     return-void
 .end method
@@ -2971,12 +2970,12 @@
     .locals 2
 
     .prologue
-    .line 1682
+    .line 1635
     const-string/jumbo v0, "Can\'t refSkPixelRef on a recycled bitmap!"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1683
+    .line 1636
     iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
 
     invoke-static {v0, v1}, Landroid/graphics/Bitmap;->nativeRefPixelRef(J)J
@@ -2993,16 +2992,16 @@
     .param p3, "requestPremultiplied"    # Z
 
     .prologue
-    .line 153
+    .line 140
     iput p1, p0, Landroid/graphics/Bitmap;->mWidth:I
 
-    .line 154
+    .line 141
     iput p2, p0, Landroid/graphics/Bitmap;->mHeight:I
 
-    .line 155
+    .line 142
     iput-boolean p3, p0, Landroid/graphics/Bitmap;->mRequestPremultiplied:Z
 
-    .line 152
+    .line 139
     return-void
 .end method
 
@@ -3011,19 +3010,19 @@
     .param p1, "other"    # Landroid/graphics/Bitmap;
 
     .prologue
-    .line 1649
+    .line 1602
     const-string/jumbo v0, "Can\'t call sameAs on a recycled bitmap!"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1650
+    .line 1603
     if-ne p0, p1, :cond_0
 
     const/4 v0, 0x1
 
     return v0
 
-    .line 1651
+    .line 1604
     :cond_0
     if-nez p1, :cond_1
 
@@ -3031,7 +3030,7 @@
 
     return v0
 
-    .line 1652
+    .line 1605
     :cond_1
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->isRecycled()Z
 
@@ -3039,7 +3038,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 1653
+    .line 1606
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "Can\'t compare to a recycled bitmap!"
@@ -3048,11 +3047,19 @@
 
     throw v0
 
-    .line 1655
+    .line 1608
     :cond_2
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
 
-    iget-wide v2, p1, Landroid/graphics/Bitmap;->mNativePtr:J
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
+
+    iget-object v2, p1, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v2}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v2
 
     invoke-static {v0, v1, v2, v3}, Landroid/graphics/Bitmap;->nativeSameAs(JJ)Z
 
@@ -3066,7 +3073,7 @@
     .param p1, "config"    # Landroid/graphics/Bitmap$Config;
 
     .prologue
-    .line 314
+    .line 283
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -3077,7 +3084,7 @@
 
     invoke-virtual {p0, v0, v1, p1}, Landroid/graphics/Bitmap;->reconfigure(IILandroid/graphics/Bitmap$Config;)V
 
-    .line 313
+    .line 282
     return-void
 .end method
 
@@ -3086,10 +3093,10 @@
     .param p1, "density"    # I
 
     .prologue
-    .line 199
+    .line 186
     iput p1, p0, Landroid/graphics/Bitmap;->mDensity:I
 
-    .line 198
+    .line 185
     return-void
 .end method
 
@@ -3098,19 +3105,23 @@
     .param p1, "hasAlpha"    # Z
 
     .prologue
-    .line 1321
+    .line 1274
     const-string/jumbo v0, "setHasAlpha called on a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1322
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 1275
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     iget-boolean v2, p0, Landroid/graphics/Bitmap;->mRequestPremultiplied:Z
 
     invoke-static {v0, v1, p1, v2}, Landroid/graphics/Bitmap;->nativeSetHasAlpha(JZZ)V
 
-    .line 1320
+    .line 1273
     return-void
 .end method
 
@@ -3119,17 +3130,21 @@
     .param p1, "hasMipMap"    # Z
 
     .prologue
-    .line 1370
+    .line 1323
     const-string/jumbo v0, "setHasMipMap called on a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1371
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 1324
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1, p1}, Landroid/graphics/Bitmap;->nativeSetHasMipMap(JZ)V
 
-    .line 1369
+    .line 1322
     return-void
 .end method
 
@@ -3138,7 +3153,7 @@
     .param p1, "height"    # I
 
     .prologue
-    .line 298
+    .line 267
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -3149,7 +3164,7 @@
 
     invoke-virtual {p0, v0, p1, v1}, Landroid/graphics/Bitmap;->reconfigure(IILandroid/graphics/Bitmap$Config;)V
 
-    .line 297
+    .line 266
     return-void
 .end method
 
@@ -3158,10 +3173,10 @@
     .param p1, "chunk"    # [B
 
     .prologue
-    .line 325
+    .line 294
     iput-object p1, p0, Landroid/graphics/Bitmap;->mNinePatchChunk:[B
 
-    .line 324
+    .line 293
     return-void
 .end method
 
@@ -3172,35 +3187,39 @@
     .param p3, "color"    # I
 
     .prologue
-    .line 1510
+    .line 1463
     const-string/jumbo v0, "Can\'t call setPixel() on a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1511
+    .line 1464
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->isMutable()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1512
+    .line 1465
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
 
     throw v0
 
-    .line 1514
+    .line 1467
     :cond_0
     invoke-direct {p0, p1, p2}, Landroid/graphics/Bitmap;->checkPixelAccess(II)V
 
-    .line 1515
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 1468
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1, p1, p2, p3}, Landroid/graphics/Bitmap;->nativeSetPixel(JIII)V
 
-    .line 1509
+    .line 1462
     return-void
 .end method
 
@@ -3215,32 +3234,32 @@
     .param p7, "height"    # I
 
     .prologue
-    .line 1543
+    .line 1496
     const-string/jumbo v0, "Can\'t call setPixels() on a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1544
+    .line 1497
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->isMutable()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1545
+    .line 1498
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
 
     throw v0
 
-    .line 1547
+    .line 1500
     :cond_0
     if-eqz p6, :cond_1
 
     if-nez p7, :cond_2
 
-    .line 1548
+    .line 1501
     :cond_1
     return-void
 
@@ -3261,11 +3280,15 @@
 
     move-object v7, p1
 
-    .line 1550
+    .line 1503
     invoke-direct/range {v0 .. v7}, Landroid/graphics/Bitmap;->checkPixelsAccess(IIIIII[I)V
 
-    .line 1551
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 1504
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     move-object v2, p1
 
@@ -3283,7 +3306,7 @@
 
     invoke-static/range {v0 .. v8}, Landroid/graphics/Bitmap;->nativeSetPixels(J[IIIIIII)V
 
-    .line 1542
+    .line 1495
     return-void
 .end method
 
@@ -3292,20 +3315,24 @@
     .param p1, "premultiplied"    # Z
 
     .prologue
-    .line 1143
+    .line 1096
     const-string/jumbo v0, "setPremultiplied called on a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1144
+    .line 1097
     iput-boolean p1, p0, Landroid/graphics/Bitmap;->mRequestPremultiplied:Z
 
-    .line 1145
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 1098
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     invoke-static {v0, v1, p1}, Landroid/graphics/Bitmap;->nativeSetPremultiplied(JZ)V
 
-    .line 1142
+    .line 1095
     return-void
 .end method
 
@@ -3314,7 +3341,7 @@
     .param p1, "width"    # I
 
     .prologue
-    .line 282
+    .line 251
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
@@ -3325,7 +3352,7 @@
 
     invoke-virtual {p0, p1, v0, v1}, Landroid/graphics/Bitmap;->reconfigure(IILandroid/graphics/Bitmap$Config;)V
 
-    .line 281
+    .line 250
     return-void
 .end method
 
@@ -3335,13 +3362,17 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 1588
+    .line 1541
     const-string/jumbo v0, "Can\'t parcel a recycled bitmap"
 
     invoke-direct {p0, v0}, Landroid/graphics/Bitmap;->checkRecycled(Ljava/lang/String;)V
 
-    .line 1589
-    iget-wide v0, p0, Landroid/graphics/Bitmap;->mNativePtr:J
+    .line 1542
+    iget-object v0, p0, Landroid/graphics/Bitmap;->mFinalizer:Landroid/graphics/Bitmap$BitmapFinalizer;
+
+    invoke-static {v0}, Landroid/graphics/Bitmap$BitmapFinalizer;->-get0(Landroid/graphics/Bitmap$BitmapFinalizer;)J
+
+    move-result-wide v0
 
     iget-boolean v2, p0, Landroid/graphics/Bitmap;->mIsMutable:Z
 
@@ -3353,7 +3384,7 @@
 
     if-nez v0, :cond_0
 
-    .line 1590
+    .line 1543
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "native writeToParcel failed"
@@ -3362,7 +3393,7 @@
 
     throw v0
 
-    .line 1587
+    .line 1540
     :cond_0
     return-void
 .end method

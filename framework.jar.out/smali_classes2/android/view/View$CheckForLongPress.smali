@@ -20,10 +20,6 @@
 # instance fields
 .field private mOriginalWindowAttachCount:I
 
-.field private mX:F
-
-.field private mY:F
-
 .field final synthetic this$0:Landroid/view/View;
 
 
@@ -33,7 +29,7 @@
     .param p1, "this$0"    # Landroid/view/View;
 
     .prologue
-    .line 22393
+    .line 21125
     iput-object p1, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,22 +53,22 @@
     .locals 1
 
     .prologue
-    .line 22414
+    .line 21139
     iget-object v0, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
 
     iget v0, v0, Landroid/view/View;->mWindowAttachCount:I
 
     iput v0, p0, Landroid/view/View$CheckForLongPress;->mOriginalWindowAttachCount:I
 
-    .line 22413
+    .line 21138
     return-void
 .end method
 
 .method public run()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 22400
+    .line 21130
     iget-object v0, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->isPressed()Z
@@ -87,7 +83,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 22401
+    .line 21131
     iget v0, p0, Landroid/view/View$CheckForLongPress;->mOriginalWindowAttachCount:I
 
     iget-object v1, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
@@ -96,43 +92,23 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 22402
+    .line 21132
     iget-object v0, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
 
-    iget v1, p0, Landroid/view/View$CheckForLongPress;->mX:F
-
-    iget v2, p0, Landroid/view/View$CheckForLongPress;->mY:F
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/View;->performLongClick(FF)Z
+    invoke-virtual {v0}, Landroid/view/View;->performLongClick()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 22403
+    .line 21133
     iget-object v0, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
 
     const/4 v1, 0x1
 
     invoke-static {v0, v1}, Landroid/view/View;->-set0(Landroid/view/View;Z)Z
 
-    .line 22399
+    .line 21129
     :cond_0
-    return-void
-.end method
-
-.method public setAnchor(FF)V
-    .locals 0
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-
-    .prologue
-    .line 22409
-    iput p1, p0, Landroid/view/View$CheckForLongPress;->mX:F
-
-    .line 22410
-    iput p2, p0, Landroid/view/View$CheckForLongPress;->mY:F
-
-    .line 22408
     return-void
 .end method

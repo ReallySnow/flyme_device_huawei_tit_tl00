@@ -9,11 +9,11 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/app/ApplicationErrorReport$1;,
+        Landroid/app/ApplicationErrorReport$CrashInfo;,
         Landroid/app/ApplicationErrorReport$AnrInfo;,
         Landroid/app/ApplicationErrorReport$BatteryInfo;,
-        Landroid/app/ApplicationErrorReport$CrashInfo;,
-        Landroid/app/ApplicationErrorReport$RunningServiceInfo;
+        Landroid/app/ApplicationErrorReport$RunningServiceInfo;,
+        Landroid/app/ApplicationErrorReport$1;
     }
 .end annotation
 
@@ -72,12 +72,12 @@
     .locals 1
 
     .prologue
-    .line 619
+    .line 591
     new-instance v0, Landroid/app/ApplicationErrorReport$1;
 
     invoke-direct {v0}, Landroid/app/ApplicationErrorReport$1;-><init>()V
 
-    .line 618
+    .line 590
     sput-object v0, Landroid/app/ApplicationErrorReport;->CREATOR:Landroid/os/Parcelable$Creator;
 
     .line 54
@@ -320,7 +320,7 @@
     .locals 1
 
     .prologue
-    .line 630
+    .line 602
     const/4 v0, 0x0
 
     return v0
@@ -332,7 +332,7 @@
     .param p2, "prefix"    # Ljava/lang/String;
 
     .prologue
-    .line 637
+    .line 609
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -359,7 +359,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 638
+    .line 610
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -386,7 +386,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 639
+    .line 611
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -413,7 +413,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 640
+    .line 612
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -440,7 +440,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 641
+    .line 613
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -467,7 +467,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 642
+    .line 614
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -494,17 +494,17 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 644
+    .line 616
     iget v0, p0, Landroid/app/ApplicationErrorReport;->type:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 636
+    .line 608
     :goto_0
     :pswitch_0
     return-void
 
-    .line 646
+    .line 618
     :pswitch_1
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
 
@@ -512,7 +512,7 @@
 
     goto :goto_0
 
-    .line 649
+    .line 621
     :pswitch_2
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->anrInfo:Landroid/app/ApplicationErrorReport$AnrInfo;
 
@@ -520,7 +520,7 @@
 
     goto :goto_0
 
-    .line 652
+    .line 624
     :pswitch_3
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->batteryInfo:Landroid/app/ApplicationErrorReport$BatteryInfo;
 
@@ -528,7 +528,7 @@
 
     goto :goto_0
 
-    .line 655
+    .line 627
     :pswitch_4
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->runningServiceInfo:Landroid/app/ApplicationErrorReport$RunningServiceInfo;
 
@@ -536,7 +536,7 @@
 
     goto :goto_0
 
-    .line 644
+    .line 616
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1

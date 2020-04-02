@@ -48,37 +48,37 @@
 
     const/4 v2, 0x0
 
-    .line 344
+    .line 317
     new-instance v0, Landroid/graphics/Paint$Style;
 
     const-string/jumbo v1, "FILL"
 
     invoke-direct {v0, v1, v2, v2}, Landroid/graphics/Paint$Style;-><init>(Ljava/lang/String;II)V
 
-    .line 348
+    .line 321
     sput-object v0, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
-    .line 349
+    .line 322
     new-instance v0, Landroid/graphics/Paint$Style;
 
     const-string/jumbo v1, "STROKE"
 
     invoke-direct {v0, v1, v3, v3}, Landroid/graphics/Paint$Style;-><init>(Ljava/lang/String;II)V
 
-    .line 353
+    .line 326
     sput-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    .line 354
+    .line 327
     new-instance v0, Landroid/graphics/Paint$Style;
 
     const-string/jumbo v1, "FILL_AND_STROKE"
 
     invoke-direct {v0, v1, v4, v4}, Landroid/graphics/Paint$Style;-><init>(Ljava/lang/String;II)V
 
-    .line 361
+    .line 334
     sput-object v0, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
 
-    .line 343
+    .line 316
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/graphics/Paint$Style;
@@ -105,13 +105,13 @@
     .param p3, "nativeInt"    # I
 
     .prologue
-    .line 363
+    .line 336
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 364
+    .line 337
     iput p3, p0, Landroid/graphics/Paint$Style;->nativeInt:I
 
-    .line 363
+    .line 336
     return-void
 .end method
 
@@ -120,7 +120,7 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 343
+    .line 316
     const-class v0, Landroid/graphics/Paint$Style;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -136,7 +136,7 @@
     .locals 1
 
     .prologue
-    .line 343
+    .line 316
     sget-object v0, Landroid/graphics/Paint$Style;->$VALUES:[Landroid/graphics/Paint$Style;
 
     return-object v0

@@ -485,6 +485,7 @@
     :cond_2
     const/4 v6, 0x0
 
+    .restart local v6    # "moved":Z
     goto :goto_0
 .end method
 

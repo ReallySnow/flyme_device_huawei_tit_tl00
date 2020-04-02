@@ -31,8 +31,6 @@
 
 .field public static final TTLS:I = 0x2
 
-.field public static final UNAUTH_TLS:I = 0x7
-
 .field public static final strings:[Ljava/lang/String;
 
 
@@ -41,8 +39,8 @@
     .locals 3
 
     .prologue
-    .line 309
-    const/16 v0, 0x8
+    .line 254
+    const/4 v0, 0x7
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -88,16 +86,9 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "WFA-UNAUTH-TLS"
-
-    const/4 v2, 0x7
-
-    aput-object v1, v0, v2
-
-    .line 308
     sput-object v0, Landroid/net/wifi/WifiEnterpriseConfig$Eap;->strings:[Ljava/lang/String;
 
-    .line 288
+    .line 236
     return-void
 .end method
 
@@ -105,7 +96,7 @@
     .locals 0
 
     .prologue
-    .line 312
+    .line 257
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

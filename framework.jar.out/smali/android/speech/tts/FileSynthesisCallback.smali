@@ -18,6 +18,8 @@
 # instance fields
 .field private mAudioFormat:I
 
+.field private final mCallerIdentity:Ljava/lang/Object;
+
 .field private mChannelCount:I
 
 .field private final mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
@@ -36,19 +38,20 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/nio/channels/FileChannel;Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;Z)V
+.method constructor <init>(Ljava/nio/channels/FileChannel;Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;Ljava/lang/Object;Z)V
     .locals 2
     .param p1, "fileChannel"    # Ljava/nio/channels/FileChannel;
     .param p2, "dispatcher"    # Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
-    .param p3, "clientIsUsingV2"    # Z
+    .param p3, "callerIdentity"    # Ljava/lang/Object;
+    .param p4, "clientIsUsingV2"    # Z
 
     .prologue
     const/4 v1, 0x0
 
     .line 59
-    invoke-direct {p0, p3}, Landroid/speech/tts/AbstractSynthesisCallback;-><init>(Z)V
+    invoke-direct {p0, p4}, Landroid/speech/tts/AbstractSynthesisCallback;-><init>(Z)V
 
-    .line 41
+    .line 40
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
@@ -68,6 +71,9 @@
     iput-object p2, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
 
     .line 62
+    iput-object p3, p0, Landroid/speech/tts/FileSynthesisCallback;->mCallerIdentity:Ljava/lang/Object;
+
+    .line 63
     iput v1, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
 
     .line 58
@@ -78,10 +84,10 @@
     .locals 0
 
     .prologue
-    .line 85
+    .line 88
     invoke-direct {p0}, Landroid/speech/tts/FileSynthesisCallback;->closeFile()V
 
-    .line 84
+    .line 87
     return-void
 .end method
 
@@ -89,12 +95,12 @@
     .locals 1
 
     .prologue
-    .line 93
+    .line 96
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileChannel:Ljava/nio/channels/FileChannel;
 
-    .line 91
+    .line 94
     return-void
 .end method
 
@@ -108,119 +114,119 @@
     .prologue
     const/4 v7, 0x4
 
-    .line 286
+    .line 281
     invoke-static {p2}, Landroid/media/AudioFormat;->getBytesPerSample(I)I
 
     move-result v5
 
-    .line 287
+    .line 282
     .local v5, "sampleSizeInBytes":I
     mul-int v6, p1, v5
 
     mul-int v2, v6, p3
 
-    .line 288
+    .line 283
     .local v2, "byteRate":I
     mul-int v6, v5, p3
 
     int-to-short v1, v6
 
-    .line 289
+    .line 284
     .local v1, "blockAlign":S
     mul-int/lit8 v6, v5, 0x8
 
     int-to-short v0, v6
 
-    .line 291
+    .line 286
     .local v0, "bitsPerSample":S
     const/16 v6, 0x2c
 
     new-array v4, v6, [B
 
-    .line 292
+    .line 287
     .local v4, "headerBuf":[B
     invoke-static {v4}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v3
 
-    .line 293
+    .line 288
     .local v3, "header":Ljava/nio/ByteBuffer;
     sget-object v6, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v3, v6}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    .line 295
+    .line 290
     new-array v6, v7, [B
 
     fill-array-data v6, :array_0
 
     invoke-virtual {v3, v6}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 296
+    .line 291
     add-int/lit8 v6, p4, 0x2c
 
     add-int/lit8 v6, v6, -0x8
 
     invoke-virtual {v3, v6}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 297
+    .line 292
     new-array v6, v7, [B
 
     fill-array-data v6, :array_1
 
     invoke-virtual {v3, v6}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 298
+    .line 293
     new-array v6, v7, [B
 
     fill-array-data v6, :array_2
 
     invoke-virtual {v3, v6}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 299
+    .line 294
     const/16 v6, 0x10
 
     invoke-virtual {v3, v6}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 300
+    .line 295
     const/4 v6, 0x1
 
     invoke-virtual {v3, v6}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
-    .line 301
+    .line 296
     int-to-short v6, p3
 
     invoke-virtual {v3, v6}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
-    .line 302
+    .line 297
     invoke-virtual {v3, p1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 303
+    .line 298
     invoke-virtual {v3, v2}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 304
+    .line 299
     invoke-virtual {v3, v1}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
-    .line 305
+    .line 300
     invoke-virtual {v3, v0}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
-    .line 306
+    .line 301
     new-array v6, v7, [B
 
     fill-array-data v6, :array_3
 
     invoke-virtual {v3, v6}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 307
+    .line 302
     invoke-virtual {v3, p4}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 308
+    .line 303
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
-    .line 310
+    .line 305
     return-object v3
 
-    .line 295
+    .line 290
     nop
 
     :array_0
@@ -231,7 +237,7 @@
         0x46t
     .end array-data
 
-    .line 297
+    .line 292
     :array_1
     .array-data 1
         0x57t
@@ -240,7 +246,7 @@
         0x45t
     .end array-data
 
-    .line 298
+    .line 293
     :array_2
     .array-data 1
         0x66t
@@ -249,7 +255,7 @@
         0x20t
     .end array-data
 
-    .line 306
+    .line 301
     :array_3
     .array-data 1
         0x64t
@@ -262,192 +268,178 @@
 
 # virtual methods
 .method public audioAvailable([BII)I
-    .locals 8
+    .locals 7
     .param p1, "buffer"    # [B
     .param p2, "offset"    # I
     .param p3, "length"    # I
 
     .prologue
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    const/4 v6, -0x1
+    const/4 v5, -0x1
+
+    .line 154
+    const/4 v1, 0x0
+
+    .line 155
+    .local v1, "fileChannel":Ljava/nio/channels/FileChannel;
+    iget-object v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    .line 156
+    :try_start_0
+    iget v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
+
+    const/4 v4, -0x2
+
+    if-ne v2, v4, :cond_0
 
     .line 158
-    const/4 v2, 0x0
-
-    .line 159
-    .local v2, "fileChannel":Ljava/nio/channels/FileChannel;
-    iget-object v4, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
-
-    monitor-enter v4
-
-    .line 160
-    :try_start_0
-    iget v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
-
-    const/4 v5, -0x2
-
-    if-ne v3, v5, :cond_0
-
-    .line 162
     invoke-virtual {p0}, Landroid/speech/tts/FileSynthesisCallback;->errorCodeOnStop()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v3
+    move-result v2
 
-    monitor-exit v4
+    monitor-exit v3
 
-    return v3
+    return v2
 
-    .line 164
+    .line 160
     :cond_0
     :try_start_1
-    iget v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
+    iget v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    monitor-exit v4
+    monitor-exit v3
 
-    .line 166
-    return v6
+    .line 162
+    return v5
 
-    .line 168
+    .line 164
     :cond_1
     :try_start_2
-    iget-object v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileChannel:Ljava/nio/channels/FileChannel;
+    iget-object v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileChannel:Ljava/nio/channels/FileChannel;
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
-    .line 169
-    const-string/jumbo v3, "FileSynthesisRequest"
+    .line 165
+    const-string/jumbo v2, "FileSynthesisRequest"
 
-    const-string/jumbo v5, "File not open"
+    const-string/jumbo v4, "File not open"
 
-    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 170
-    const/4 v3, -0x5
+    .line 166
+    const/4 v2, -0x5
 
-    iput v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
+    iput v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    monitor-exit v4
+    monitor-exit v3
 
-    .line 171
-    return v6
+    .line 167
+    return v5
 
-    .line 173
+    .line 169
     :cond_2
     :try_start_3
-    iget-boolean v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStarted:Z
+    iget-boolean v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mStarted:Z
 
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
-    .line 174
-    const-string/jumbo v3, "FileSynthesisRequest"
+    .line 170
+    const-string/jumbo v2, "FileSynthesisRequest"
 
-    const-string/jumbo v5, "Start method was not called"
+    const-string/jumbo v4, "Start method was not called"
 
-    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    monitor-exit v4
+    monitor-exit v3
 
-    .line 175
-    return v6
+    .line 171
+    return v5
 
-    .line 177
+    .line 173
     :cond_3
     :try_start_4
-    iget-object v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileChannel:Ljava/nio/channels/FileChannel;
+    iget-object v1, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileChannel:Ljava/nio/channels/FileChannel;
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .local v2, "fileChannel":Ljava/nio/channels/FileChannel;
-    monitor-exit v4
+    .local v1, "fileChannel":Ljava/nio/channels/FileChannel;
+    monitor-exit v3
 
-    .line 180
-    new-array v0, p3, [B
-
-    .line 181
-    .local v0, "bufferCopy":[B
-    invoke-static {p1, p2, v0, v7, p3}, Ljava/lang/System;->arraycopy([BI[BII)V
-
-    .line 182
-    iget-object v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
-
-    invoke-interface {v3, v0}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnAudioAvailable([B)V
-
-    .line 185
+    .line 177
     :try_start_5
     invoke-static {p1, p2, p3}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/nio/channels/FileChannel;->write(Ljava/nio/ByteBuffer;)I
+    invoke-virtual {v1, v2}, Ljava/nio/channels/FileChannel;->write(Ljava/nio/ByteBuffer;)I
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
 
-    .line 186
-    return v7
+    .line 178
+    return v6
 
-    .line 159
-    .end local v0    # "bufferCopy":[B
-    .local v2, "fileChannel":Ljava/nio/channels/FileChannel;
+    .line 155
+    .local v1, "fileChannel":Ljava/nio/channels/FileChannel;
     :catchall_0
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v4
+    monitor-exit v3
 
-    throw v3
+    throw v2
 
-    .line 187
-    .restart local v0    # "bufferCopy":[B
-    .local v2, "fileChannel":Ljava/nio/channels/FileChannel;
+    .line 179
+    .local v1, "fileChannel":Ljava/nio/channels/FileChannel;
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    .line 188
-    .local v1, "ex":Ljava/io/IOException;
-    const-string/jumbo v3, "FileSynthesisRequest"
+    .line 180
+    .local v0, "ex":Ljava/io/IOException;
+    const-string/jumbo v2, "FileSynthesisRequest"
 
-    const-string/jumbo v4, "Failed to write to output file descriptor"
+    const-string/jumbo v3, "Failed to write to output file descriptor"
 
-    invoke-static {v3, v4, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 189
-    iget-object v4, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
+    .line 181
+    iget-object v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
-    monitor-enter v4
+    monitor-enter v3
 
-    .line 190
+    .line 182
     :try_start_6
     invoke-direct {p0}, Landroid/speech/tts/FileSynthesisCallback;->cleanUp()V
 
-    .line 191
-    const/4 v3, -0x5
+    .line 183
+    const/4 v2, -0x5
 
-    iput v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
+    iput v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    monitor-exit v4
+    monitor-exit v3
 
-    .line 193
-    return v6
+    .line 185
+    return v5
 
-    .line 189
+    .line 181
     :catchall_1
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v4
+    monitor-exit v3
 
-    throw v3
+    throw v2
 .end method
 
 .method public done()I
@@ -460,34 +452,34 @@
 
     const/4 v10, -0x1
 
-    .line 200
+    .line 192
     const/4 v4, 0x0
 
-    .line 202
+    .line 194
     .local v4, "fileChannel":Ljava/nio/channels/FileChannel;
     const/4 v5, 0x0
 
-    .line 203
+    .line 195
     .local v5, "sampleRateInHz":I
     const/4 v0, 0x0
 
-    .line 204
+    .line 196
     .local v0, "audioFormat":I
     const/4 v1, 0x0
 
-    .line 206
+    .line 198
     .local v1, "channelCount":I
     iget-object v7, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
     monitor-enter v7
 
-    .line 207
+    .line 199
     :try_start_0
     iget-boolean v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mDone:Z
 
     if-eqz v6, :cond_0
 
-    .line 208
+    .line 200
     const-string/jumbo v6, "FileSynthesisRequest"
 
     const-string/jumbo v8, "Duplicate call to done()"
@@ -498,17 +490,17 @@
 
     monitor-exit v7
 
-    .line 211
+    .line 203
     return v10
 
-    .line 213
+    .line 205
     :cond_0
     :try_start_1
     iget v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
 
     if-ne v6, v8, :cond_1
 
-    .line 215
+    .line 207
     invoke-virtual {p0}, Landroid/speech/tts/FileSynthesisCallback;->errorCodeOnStop()I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -519,18 +511,23 @@
 
     return v6
 
-    .line 217
+    .line 209
     :cond_1
     :try_start_2
-    iget v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
+    iget-object v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
 
     if-eqz v6, :cond_2
 
     iget v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
 
+    if-eqz v6, :cond_2
+
+    .line 210
+    iget v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
+
     if-eq v6, v8, :cond_2
 
-    .line 218
+    .line 211
     iget-object v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
 
     iget v8, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
@@ -541,17 +538,17 @@
 
     monitor-exit v7
 
-    .line 219
+    .line 212
     return v10
 
-    .line 221
+    .line 214
     :cond_2
     :try_start_3
     iget-object v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileChannel:Ljava/nio/channels/FileChannel;
 
     if-nez v6, :cond_3
 
-    .line 222
+    .line 215
     const-string/jumbo v6, "FileSynthesisRequest"
 
     const-string/jumbo v8, "File not open"
@@ -562,40 +559,40 @@
 
     monitor-exit v7
 
-    .line 223
+    .line 216
     return v10
 
-    .line 225
+    .line 218
     :cond_3
     const/4 v6, 0x1
 
     :try_start_4
     iput-boolean v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mDone:Z
 
-    .line 226
+    .line 219
     iget-object v4, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileChannel:Ljava/nio/channels/FileChannel;
 
-    .line 227
+    .line 220
     .local v4, "fileChannel":Ljava/nio/channels/FileChannel;
     iget v5, p0, Landroid/speech/tts/FileSynthesisCallback;->mSampleRateInHz:I
 
-    .line 228
+    .line 221
     iget v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mAudioFormat:I
 
-    .line 229
+    .line 222
     iget v1, p0, Landroid/speech/tts/FileSynthesisCallback;->mChannelCount:I
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     monitor-exit v7
 
-    .line 234
+    .line 227
     const-wide/16 v6, 0x0
 
     :try_start_5
     invoke-virtual {v4, v6, v7}, Ljava/nio/channels/FileChannel;->position(J)Ljava/nio/channels/FileChannel;
 
-    .line 235
+    .line 228
     invoke-virtual {v4}, Ljava/nio/channels/FileChannel;->size()J
 
     move-result-wide v6
@@ -606,42 +603,48 @@
 
     long-to-int v2, v6
 
-    .line 237
+    .line 230
     .local v2, "dataLength":I
     invoke-direct {p0, v5, v0, v1, v2}, Landroid/speech/tts/FileSynthesisCallback;->makeWavHeader(IIII)Ljava/nio/ByteBuffer;
 
     move-result-object v6
 
-    .line 236
+    .line 229
     invoke-virtual {v4, v6}, Ljava/nio/channels/FileChannel;->write(Ljava/nio/ByteBuffer;)I
 
-    .line 239
+    .line 232
     iget-object v7, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
     monitor-enter v7
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
 
-    .line 240
+    .line 233
     :try_start_6
     invoke-direct {p0}, Landroid/speech/tts/FileSynthesisCallback;->closeFile()V
 
-    .line 241
+    .line 234
+    iget-object v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
+
+    if-eqz v6, :cond_4
+
+    .line 235
     iget-object v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
 
     invoke-interface {v6}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnSuccess()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
+    :cond_4
     :try_start_7
     monitor-exit v7
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_0
 
-    .line 242
+    .line 237
     return v11
 
-    .line 206
+    .line 198
     .end local v2    # "dataLength":I
     .end local v4    # "fileChannel":Ljava/nio/channels/FileChannel;
     :catchall_0
@@ -651,7 +654,7 @@
 
     throw v6
 
-    .line 239
+    .line 232
     .restart local v2    # "dataLength":I
     .restart local v4    # "fileChannel":Ljava/nio/channels/FileChannel;
     :catchall_1
@@ -664,12 +667,12 @@
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_0
 
-    .line 244
+    .line 239
     .end local v2    # "dataLength":I
     :catch_0
     move-exception v3
 
-    .line 245
+    .line 240
     .local v3, "ex":Ljava/io/IOException;
     const-string/jumbo v6, "FileSynthesisRequest"
 
@@ -677,12 +680,12 @@
 
     invoke-static {v6, v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 246
+    .line 241
     iget-object v6, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
     monitor-enter v6
 
-    .line 247
+    .line 242
     :try_start_9
     invoke-direct {p0}, Landroid/speech/tts/FileSynthesisCallback;->cleanUp()V
     :try_end_9
@@ -690,10 +693,10 @@
 
     monitor-exit v6
 
-    .line 249
+    .line 244
     return v10
 
-    .line 246
+    .line 241
     :catchall_2
     move-exception v7
 
@@ -706,12 +709,12 @@
     .locals 1
 
     .prologue
-    .line 255
+    .line 250
     const/4 v0, -0x3
 
     invoke-virtual {p0, v0}, Landroid/speech/tts/FileSynthesisCallback;->error(I)V
 
-    .line 254
+    .line 249
     return-void
 .end method
 
@@ -720,12 +723,12 @@
     .param p1, "errorCode"    # I
 
     .prologue
-    .line 261
+    .line 256
     iget-object v1, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 262
+    .line 257
     :try_start_0
     iget-boolean v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mDone:Z
     :try_end_0
@@ -735,25 +738,25 @@
 
     monitor-exit v1
 
-    .line 263
+    .line 258
     return-void
 
-    .line 265
+    .line 260
     :cond_0
     :try_start_1
     invoke-direct {p0}, Landroid/speech/tts/FileSynthesisCallback;->cleanUp()V
 
-    .line 266
+    .line 261
     iput p1, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit v1
 
-    .line 259
+    .line 254
     return-void
 
-    .line 261
+    .line 256
     :catchall_0
     move-exception v0
 
@@ -766,7 +769,7 @@
     .locals 1
 
     .prologue
-    .line 98
+    .line 101
     const/16 v0, 0x2000
 
     return v0
@@ -776,12 +779,12 @@
     .locals 2
 
     .prologue
-    .line 279
+    .line 274
     iget-object v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 280
+    .line 275
     :try_start_0
     iget-boolean v1, p0, Landroid/speech/tts/FileSynthesisCallback;->mDone:Z
     :try_end_0
@@ -791,7 +794,7 @@
 
     return v1
 
-    .line 279
+    .line 274
     :catchall_0
     move-exception v1
 
@@ -804,12 +807,12 @@
     .locals 2
 
     .prologue
-    .line 272
+    .line 267
     iget-object v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 273
+    .line 268
     :try_start_0
     iget-boolean v1, p0, Landroid/speech/tts/FileSynthesisCallback;->mStarted:Z
     :try_end_0
@@ -819,7 +822,7 @@
 
     return v1
 
-    .line 272
+    .line 267
     :catchall_0
     move-exception v1
 
@@ -839,90 +842,24 @@
 
     const/4 v5, -0x1
 
-    .line 107
-    const/4 v2, 0x3
-
-    if-eq p2, v2, :cond_0
-
-    .line 108
-    const/4 v2, 0x2
-
-    if-eq p2, v2, :cond_0
-
-    .line 109
-    const/4 v2, 0x4
-
-    if-eq p2, v2, :cond_0
-
     .line 110
-    const-string/jumbo v2, "FileSynthesisRequest"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Audio format encoding "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " not supported. Please use one "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    .line 111
-    const-string/jumbo v4, "of AudioFormat.ENCODING_PCM_8BIT, AudioFormat.ENCODING_PCM_16BIT or "
-
-    .line 110
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    .line 112
-    const-string/jumbo v4, "AudioFormat.ENCODING_PCM_FLOAT"
-
-    .line 110
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 114
-    :cond_0
-    iget-object v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
-
-    invoke-interface {v2, p1, p2, p3}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnBeginSynthesis(III)V
-
-    .line 116
     const/4 v1, 0x0
 
-    .line 117
+    .line 111
     .local v1, "fileChannel":Ljava/nio/channels/FileChannel;
     iget-object v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 118
+    .line 112
     :try_start_0
     iget v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
 
     const/4 v4, -0x2
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_0
 
-    .line 120
+    .line 114
     invoke-virtual {p0}, Landroid/speech/tts/FileSynthesisCallback;->errorCodeOnStop()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -933,28 +870,28 @@
 
     return v2
 
-    .line 122
-    :cond_1
+    .line 116
+    :cond_0
     :try_start_1
     iget v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     monitor-exit v3
 
-    .line 124
+    .line 118
     return v5
 
-    .line 126
-    :cond_2
+    .line 120
+    :cond_1
     :try_start_2
     iget-boolean v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mStarted:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
-    .line 127
+    .line 121
     const-string/jumbo v2, "FileSynthesisRequest"
 
     const-string/jumbo v4, "Start called twice"
@@ -965,31 +902,37 @@
 
     monitor-exit v3
 
-    .line 128
+    .line 122
     return v5
 
-    .line 130
-    :cond_3
+    .line 124
+    :cond_2
     const/4 v2, 0x1
 
     :try_start_3
     iput-boolean v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mStarted:Z
 
-    .line 131
+    .line 125
     iput p1, p0, Landroid/speech/tts/FileSynthesisCallback;->mSampleRateInHz:I
 
-    .line 132
+    .line 126
     iput p2, p0, Landroid/speech/tts/FileSynthesisCallback;->mAudioFormat:I
 
-    .line 133
+    .line 127
     iput p3, p0, Landroid/speech/tts/FileSynthesisCallback;->mChannelCount:I
 
-    .line 135
+    .line 129
+    iget-object v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
+
+    if-eqz v2, :cond_3
+
+    .line 130
     iget-object v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
 
     invoke-interface {v2}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnStart()V
 
-    .line 136
+    .line 132
+    :cond_3
     iget-object v1, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileChannel:Ljava/nio/channels/FileChannel;
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
@@ -997,7 +940,7 @@
     .local v1, "fileChannel":Ljava/nio/channels/FileChannel;
     monitor-exit v3
 
-    .line 140
+    .line 136
     const/16 v2, 0x2c
 
     :try_start_4
@@ -1009,10 +952,10 @@
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
 
-    .line 141
+    .line 137
     return v6
 
-    .line 117
+    .line 111
     .local v1, "fileChannel":Ljava/nio/channels/FileChannel;
     :catchall_0
     move-exception v2
@@ -1021,12 +964,12 @@
 
     throw v2
 
-    .line 142
+    .line 138
     .local v1, "fileChannel":Ljava/nio/channels/FileChannel;
     :catch_0
     move-exception v0
 
-    .line 143
+    .line 139
     .local v0, "ex":Ljava/io/IOException;
     const-string/jumbo v2, "FileSynthesisRequest"
 
@@ -1034,16 +977,16 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 144
+    .line 140
     iget-object v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 145
+    .line 141
     :try_start_5
     invoke-direct {p0}, Landroid/speech/tts/FileSynthesisCallback;->cleanUp()V
 
-    .line 146
+    .line 142
     const/4 v2, -0x5
 
     iput v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
@@ -1052,10 +995,10 @@
 
     monitor-exit v3
 
-    .line 148
+    .line 144
     return v5
 
-    .line 144
+    .line 140
     :catchall_1
     move-exception v2
 
@@ -1070,12 +1013,12 @@
     .prologue
     const/4 v2, -0x2
 
-    .line 67
+    .line 68
     iget-object v1, p0, Landroid/speech/tts/FileSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 68
+    .line 69
     :try_start_0
     iget-boolean v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mDone:Z
     :try_end_0
@@ -1085,10 +1028,10 @@
 
     monitor-exit v1
 
-    .line 69
+    .line 70
     return-void
 
-    .line 71
+    .line 72
     :cond_0
     :try_start_1
     iget v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
@@ -1099,32 +1042,38 @@
 
     monitor-exit v1
 
-    .line 72
+    .line 73
     return-void
 
-    .line 75
+    .line 76
     :cond_1
     const/4 v0, -0x2
 
     :try_start_2
     iput v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mStatusCode:I
 
-    .line 76
+    .line 77
     invoke-direct {p0}, Landroid/speech/tts/FileSynthesisCallback;->cleanUp()V
 
-    .line 77
+    .line 78
+    iget-object v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
+
+    if-eqz v0, :cond_2
+
+    .line 79
     iget-object v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
 
     invoke-interface {v0}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnStop()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    :cond_2
     monitor-exit v1
 
-    .line 66
+    .line 67
     return-void
 
-    .line 67
+    .line 68
     :catchall_0
     move-exception v0
 

@@ -1,5 +1,5 @@
 .class final Lcom/android/server/BatteryService$BinderService;
-.super Landroid/os/Binder;
+.super Landroid/app/IBatteryService$Stub;
 .source "BatteryService.java"
 
 
@@ -24,10 +24,10 @@
     .param p1, "this$0"    # Lcom/android/server/BatteryService;
 
     .prologue
-    .line 1028
+    .line 1117
     iput-object p1, p0, Lcom/android/server/BatteryService$BinderService;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-direct {p0}, Landroid/os/Binder;-><init>()V
+    invoke-direct {p0}, Landroid/app/IBatteryService$Stub;-><init>()V
 
     return-void
 .end method
@@ -51,7 +51,7 @@
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 1030
+    .line 1125
     iget-object v0, p0, Lcom/android/server/BatteryService$BinderService;->this$0:Lcom/android/server/BatteryService;
 
     invoke-static {v0}, Lcom/android/server/BatteryService;->-get7(Lcom/android/server/BatteryService;)Landroid/content/Context;
@@ -66,7 +66,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1033
+    .line 1128
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -77,30 +77,30 @@
 
     move-result-object v0
 
-    .line 1034
+    .line 1129
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v1
 
-    .line 1033
+    .line 1128
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 1035
+    .line 1130
     const-string/jumbo v1, ", uid="
 
-    .line 1033
+    .line 1128
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 1035
+    .line 1130
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v1
 
-    .line 1033
+    .line 1128
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -111,49 +111,42 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1036
+    .line 1131
     return-void
 
-    .line 1039
+    .line 1134
     :cond_0
     iget-object v0, p0, Lcom/android/server/BatteryService$BinderService;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/BatteryService;->-wrap1(Lcom/android/server/BatteryService;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    invoke-static {v0, p2, p3}, Lcom/android/server/BatteryService;->-wrap1(Lcom/android/server/BatteryService;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
-    .line 1029
+    .line 1124
     return-void
 .end method
 
-.method public onShellCommand(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/os/ResultReceiver;)V
-    .locals 7
-    .param p1, "in"    # Ljava/io/FileDescriptor;
-    .param p2, "out"    # Ljava/io/FileDescriptor;
-    .param p3, "err"    # Ljava/io/FileDescriptor;
-    .param p4, "args"    # [Ljava/lang/String;
-    .param p5, "resultReceiver"    # Landroid/os/ResultReceiver;
+.method public isDockBatterySupported()Z
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
     .prologue
-    .line 1044
-    new-instance v0, Lcom/android/server/BatteryService$Shell;
+    .line 1120
+    iget-object v0, p0, Lcom/android/server/BatteryService$BinderService;->this$0:Lcom/android/server/BatteryService;
 
-    iget-object v1, p0, Lcom/android/server/BatteryService$BinderService;->this$0:Lcom/android/server/BatteryService;
+    const-class v1, Landroid/os/BatteryManagerInternal;
 
-    invoke-direct {v0, v1}, Lcom/android/server/BatteryService$Shell;-><init>(Lcom/android/server/BatteryService;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/BatteryService;->getLocalService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-object v1, p0
+    move-result-object v0
 
-    move-object v2, p1
+    check-cast v0, Landroid/os/BatteryManagerInternal;
 
-    move-object v3, p2
+    invoke-virtual {v0}, Landroid/os/BatteryManagerInternal;->isDockBatterySupported()Z
 
-    move-object v4, p3
+    move-result v0
 
-    move-object v5, p4
-
-    move-object v6, p5
-
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/BatteryService$Shell;->exec(Landroid/os/Binder;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/os/ResultReceiver;)I
-
-    .line 1043
-    return-void
+    return v0
 .end method

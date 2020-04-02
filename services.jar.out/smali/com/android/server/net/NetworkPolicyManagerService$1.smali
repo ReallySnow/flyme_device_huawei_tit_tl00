@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/net/NetworkPolicyManagerService;
 
     .prologue
-    .line 686
+    .line 545
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     invoke-direct {p0}, Landroid/app/IUidObserver$Stub;-><init>()V
@@ -34,20 +34,6 @@
 
 
 # virtual methods
-.method public onUidActive(I)V
-    .locals 0
-    .param p1, "uid"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 704
-    return-void
-.end method
-
 .method public onUidGone(I)V
     .locals 2
     .param p1, "uid"    # I
@@ -58,27 +44,27 @@
     .end annotation
 
     .prologue
-    .line 699
+    .line 553
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    iget-object v1, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRulesFirstLock:Ljava/lang/Object;
+    iget-object v1, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 700
+    .line 554
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap11(Lcom/android/server/net/NetworkPolicyManagerService;I)V
+    invoke-virtual {v0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->removeUidStateLocked(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
-    .line 698
+    .line 552
     return-void
 
-    .line 699
+    .line 553
     :catchall_0
     move-exception v0
 
@@ -87,22 +73,8 @@
     throw v0
 .end method
 
-.method public onUidIdle(I)V
-    .locals 0
-    .param p1, "uid"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 707
-    return-void
-.end method
-
 .method public onUidStateChanged(II)V
-    .locals 4
+    .locals 2
     .param p1, "uid"    # I
     .param p2, "procState"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -112,60 +84,31 @@
     .end annotation
 
     .prologue
-    const-wide/32 v2, 0x200000
+    .line 547
+    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    .line 688
-    const-string/jumbo v0, "onUidStateChanged"
+    iget-object v1, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
-    invoke-static {v2, v3, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+    monitor-enter v1
 
-    .line 690
+    .line 548
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    iget-object v1, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRulesFirstLock:Ljava/lang/Object;
-
-    monitor-enter v1
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/net/NetworkPolicyManagerService;->updateUidStateLocked(II)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 691
-    :try_start_1
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
-
-    invoke-static {v0, p1, p2}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap19(Lcom/android/server/net/NetworkPolicyManagerService;II)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :try_start_2
     monitor-exit v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 694
-    invoke-static {v2, v3}, Landroid/os/Trace;->traceEnd(J)V
-
-    .line 687
+    .line 546
     return-void
 
-    .line 690
+    .line 547
     :catchall_0
     move-exception v0
 
-    :try_start_3
     monitor-exit v1
 
-    throw v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    .line 693
-    :catchall_1
-    move-exception v0
-
-    .line 694
-    invoke-static {v2, v3}, Landroid/os/Trace;->traceEnd(J)V
-
-    .line 693
     throw v0
 .end method

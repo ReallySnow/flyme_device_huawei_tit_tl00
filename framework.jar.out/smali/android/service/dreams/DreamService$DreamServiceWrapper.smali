@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Landroid/service/dreams/DreamService;
 
     .prologue
-    .line 1103
+    .line 1092
     iput-object p1, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper;->this$0:Landroid/service/dreams/DreamService;
 
     invoke-direct {p0}, Landroid/service/dreams/IDreamService$Stub;-><init>()V
@@ -44,14 +44,13 @@
 
 
 # virtual methods
-.method public attach(Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
+.method public attach(Landroid/os/IBinder;Z)V
     .locals 2
     .param p1, "windowToken"    # Landroid/os/IBinder;
     .param p2, "canDoze"    # Z
-    .param p3, "started"    # Landroid/os/IRemoteCallback;
 
     .prologue
-    .line 1107
+    .line 1095
     iget-object v0, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper;->this$0:Landroid/service/dreams/DreamService;
 
     invoke-static {v0}, Landroid/service/dreams/DreamService;->-get2(Landroid/service/dreams/DreamService;)Landroid/os/Handler;
@@ -60,11 +59,11 @@
 
     new-instance v1, Landroid/service/dreams/DreamService$DreamServiceWrapper$1;
 
-    invoke-direct {v1, p0, p1, p2, p3}, Landroid/service/dreams/DreamService$DreamServiceWrapper$1;-><init>(Landroid/service/dreams/DreamService$DreamServiceWrapper;Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
+    invoke-direct {v1, p0, p1, p2}, Landroid/service/dreams/DreamService$DreamServiceWrapper$1;-><init>(Landroid/service/dreams/DreamService$DreamServiceWrapper;Landroid/os/IBinder;Z)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 1106
+    .line 1094
     return-void
 .end method
 
@@ -72,7 +71,7 @@
     .locals 2
 
     .prologue
-    .line 1117
+    .line 1105
     iget-object v0, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper;->this$0:Landroid/service/dreams/DreamService;
 
     invoke-static {v0}, Landroid/service/dreams/DreamService;->-get2(Landroid/service/dreams/DreamService;)Landroid/os/Handler;
@@ -85,7 +84,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 1116
+    .line 1104
     return-void
 .end method
 
@@ -93,7 +92,7 @@
     .locals 2
 
     .prologue
-    .line 1127
+    .line 1115
     iget-object v0, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper;->this$0:Landroid/service/dreams/DreamService;
 
     invoke-static {v0}, Landroid/service/dreams/DreamService;->-get2(Landroid/service/dreams/DreamService;)Landroid/os/Handler;
@@ -106,6 +105,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 1126
+    .line 1114
     return-void
 .end method

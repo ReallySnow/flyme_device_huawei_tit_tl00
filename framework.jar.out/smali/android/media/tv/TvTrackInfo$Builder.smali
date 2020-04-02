@@ -29,8 +29,6 @@
 
 .field private final mType:I
 
-.field private mVideoActiveFormatDescription:B
-
 .field private mVideoFrameRate:F
 
 .field private mVideoHeight:I
@@ -47,28 +45,28 @@
     .param p2, "id"    # Ljava/lang/String;
 
     .prologue
-    .line 332
+    .line 251
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 318
+    .line 240
     const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/media/tv/TvTrackInfo$Builder;->mVideoPixelAspectRatio:F
 
-    .line 333
+    .line 252
     if-eqz p1, :cond_0
 
-    .line 334
+    .line 253
     const/4 v0, 0x1
 
     if-eq p1, v0, :cond_0
 
-    .line 335
+    .line 254
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_0
 
-    .line 336
+    .line 255
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -93,27 +91,27 @@
 
     throw v0
 
-    .line 338
+    .line 257
     :cond_0
     invoke-static {p2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 339
+    .line 258
     iput p1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mType:I
 
-    .line 340
+    .line 259
     iput-object p2, p0, Landroid/media/tv/TvTrackInfo$Builder;->mId:Ljava/lang/String;
 
-    .line 332
+    .line 251
     return-void
 .end method
 
 
 # virtual methods
 .method public build()Landroid/media/tv/TvTrackInfo;
-    .locals 14
+    .locals 13
 
     .prologue
-    .line 493
+    .line 386
     new-instance v0, Landroid/media/tv/TvTrackInfo;
 
     iget v1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mType:I
@@ -126,7 +124,7 @@
 
     iget v5, p0, Landroid/media/tv/TvTrackInfo$Builder;->mAudioChannelCount:I
 
-    .line 494
+    .line 387
     iget v6, p0, Landroid/media/tv/TvTrackInfo$Builder;->mAudioSampleRate:I
 
     iget v7, p0, Landroid/media/tv/TvTrackInfo$Builder;->mVideoWidth:I
@@ -135,17 +133,15 @@
 
     iget v9, p0, Landroid/media/tv/TvTrackInfo$Builder;->mVideoFrameRate:F
 
-    .line 495
+    .line 388
     iget v10, p0, Landroid/media/tv/TvTrackInfo$Builder;->mVideoPixelAspectRatio:F
 
-    iget-byte v11, p0, Landroid/media/tv/TvTrackInfo$Builder;->mVideoActiveFormatDescription:B
+    iget-object v11, p0, Landroid/media/tv/TvTrackInfo$Builder;->mExtra:Landroid/os/Bundle;
 
-    iget-object v12, p0, Landroid/media/tv/TvTrackInfo$Builder;->mExtra:Landroid/os/Bundle;
+    .line 386
+    const/4 v12, 0x0
 
-    .line 493
-    const/4 v13, 0x0
-
-    invoke-direct/range {v0 .. v13}, Landroid/media/tv/TvTrackInfo;-><init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/CharSequence;IIIIFFBLandroid/os/Bundle;Landroid/media/tv/TvTrackInfo;)V
+    invoke-direct/range {v0 .. v12}, Landroid/media/tv/TvTrackInfo;-><init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/CharSequence;IIIIFFLandroid/os/Bundle;Landroid/media/tv/TvTrackInfo;)V
 
     return-object v0
 .end method
@@ -155,12 +151,12 @@
     .param p1, "audioChannelCount"    # I
 
     .prologue
-    .line 370
+    .line 288
     iget v0, p0, Landroid/media/tv/TvTrackInfo$Builder;->mType:I
 
     if-eqz v0, :cond_0
 
-    .line 371
+    .line 289
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Not an audio track"
@@ -169,11 +165,11 @@
 
     throw v0
 
-    .line 373
+    .line 291
     :cond_0
     iput p1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mAudioChannelCount:I
 
-    .line 374
+    .line 292
     return-object p0
 .end method
 
@@ -182,12 +178,12 @@
     .param p1, "audioSampleRate"    # I
 
     .prologue
-    .line 385
+    .line 302
     iget v0, p0, Landroid/media/tv/TvTrackInfo$Builder;->mType:I
 
     if-eqz v0, :cond_0
 
-    .line 386
+    .line 303
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Not an audio track"
@@ -196,11 +192,11 @@
 
     throw v0
 
-    .line 388
+    .line 305
     :cond_0
     iput p1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mAudioSampleRate:I
 
-    .line 389
+    .line 306
     return-object p0
 .end method
 
@@ -209,10 +205,10 @@
     .param p1, "description"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 359
+    .line 278
     iput-object p1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mDescription:Ljava/lang/CharSequence;
 
-    .line 360
+    .line 279
     return-object p0
 .end method
 
@@ -221,14 +217,14 @@
     .param p1, "extra"    # Landroid/os/Bundle;
 
     .prologue
-    .line 483
+    .line 376
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0, p1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
     iput-object v0, p0, Landroid/media/tv/TvTrackInfo$Builder;->mExtra:Landroid/os/Bundle;
 
-    .line 484
+    .line 377
     return-object p0
 .end method
 
@@ -237,39 +233,10 @@
     .param p1, "language"    # Ljava/lang/String;
 
     .prologue
-    .line 349
+    .line 268
     iput-object p1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mLanguage:Ljava/lang/String;
 
-    .line 350
-    return-object p0
-.end method
-
-.method public final setVideoActiveFormatDescription(B)Landroid/media/tv/TvTrackInfo$Builder;
-    .locals 2
-    .param p1, "videoActiveFormatDescription"    # B
-
-    .prologue
-    .line 470
-    iget v0, p0, Landroid/media/tv/TvTrackInfo$Builder;->mType:I
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_0
-
-    .line 471
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "Not a video track"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 473
-    :cond_0
-    iput-byte p1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mVideoActiveFormatDescription:B
-
-    .line 474
+    .line 269
     return-object p0
 .end method
 
@@ -278,14 +245,14 @@
     .param p1, "videoFrameRate"    # F
 
     .prologue
-    .line 430
+    .line 344
     iget v0, p0, Landroid/media/tv/TvTrackInfo$Builder;->mType:I
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 431
+    .line 345
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Not a video track"
@@ -294,11 +261,11 @@
 
     throw v0
 
-    .line 433
+    .line 347
     :cond_0
     iput p1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mVideoFrameRate:F
 
-    .line 434
+    .line 348
     return-object p0
 .end method
 
@@ -307,14 +274,14 @@
     .param p1, "videoHeight"    # I
 
     .prologue
-    .line 415
+    .line 330
     iget v0, p0, Landroid/media/tv/TvTrackInfo$Builder;->mType:I
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 416
+    .line 331
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Not a video track"
@@ -323,11 +290,11 @@
 
     throw v0
 
-    .line 418
+    .line 333
     :cond_0
     iput p1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mVideoHeight:I
 
-    .line 419
+    .line 334
     return-object p0
 .end method
 
@@ -336,14 +303,14 @@
     .param p1, "videoPixelAspectRatio"    # F
 
     .prologue
-    .line 450
+    .line 363
     iget v0, p0, Landroid/media/tv/TvTrackInfo$Builder;->mType:I
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 451
+    .line 364
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Not a video track"
@@ -352,11 +319,11 @@
 
     throw v0
 
-    .line 453
+    .line 366
     :cond_0
     iput p1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mVideoPixelAspectRatio:F
 
-    .line 454
+    .line 367
     return-object p0
 .end method
 
@@ -365,14 +332,14 @@
     .param p1, "videoWidth"    # I
 
     .prologue
-    .line 400
+    .line 316
     iget v0, p0, Landroid/media/tv/TvTrackInfo$Builder;->mType:I
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 401
+    .line 317
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Not a video track"
@@ -381,10 +348,10 @@
 
     throw v0
 
-    .line 403
+    .line 319
     :cond_0
     iput p1, p0, Landroid/media/tv/TvTrackInfo$Builder;->mVideoWidth:I
 
-    .line 404
+    .line 320
     return-object p0
 .end method

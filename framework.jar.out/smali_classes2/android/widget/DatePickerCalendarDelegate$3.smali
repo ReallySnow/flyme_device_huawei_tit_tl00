@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Landroid/widget/DatePickerCalendarDelegate;
 
     .prologue
-    .line 281
+    .line 276
     iput-object p1, p0, Landroid/widget/DatePickerCalendarDelegate$3;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,25 +42,24 @@
     .param p1, "v"    # Landroid/view/View;
 
     .prologue
-    .line 284
+    .line 279
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate$3;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
     invoke-static {v0}, Landroid/widget/DatePickerCalendarDelegate;->-wrap2(Landroid/widget/DatePickerCalendarDelegate;)V
 
-    .line 286
+    .line 281
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 283
+    .line 278
     :goto_0
-    :pswitch_0
     return-void
 
-    .line 288
-    :pswitch_1
+    .line 283
+    :pswitch_0
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate$3;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
     const/4 v1, 0x1
@@ -69,8 +68,8 @@
 
     goto :goto_0
 
-    .line 291
-    :pswitch_2
+    .line 286
+    :pswitch_1
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate$3;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
     const/4 v1, 0x0
@@ -79,13 +78,12 @@
 
     goto :goto_0
 
-    .line 286
+    .line 281
     nop
 
     :pswitch_data_0
-    .packed-switch 0x1020355
-        :pswitch_1
+    .packed-switch 0x1020322
         :pswitch_0
-        :pswitch_2
+        :pswitch_1
     .end packed-switch
 .end method

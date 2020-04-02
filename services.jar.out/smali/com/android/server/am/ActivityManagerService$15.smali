@@ -1,14 +1,11 @@
 .class Lcom/android/server/am/ActivityManagerService$15;
-.super Ljava/lang/Object;
+.super Landroid/content/IIntentReceiver$Stub;
 .source "ActivityManagerService.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/ActivityManagerService;->inputDispatchingTimedOut(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;ZLjava/lang/String;)Z
+    value = Lcom/android/server/am/ActivityManagerService;->systemReady(Ljava/lang/Runnable;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,69 +17,39 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
 
-.field final synthetic val$aboveSystem:Z
-
-.field final synthetic val$activity:Lcom/android/server/am/ActivityRecord;
-
-.field final synthetic val$annotation:Ljava/lang/String;
-
-.field final synthetic val$parent:Lcom/android/server/am/ActivityRecord;
-
-.field final synthetic val$proc:Lcom/android/server/am/ProcessRecord;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;ZLjava/lang/String;)V
+.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
     .param p1, "this$0"    # Lcom/android/server/am/ActivityManagerService;
-    .param p2, "val$proc"    # Lcom/android/server/am/ProcessRecord;
-    .param p3, "val$activity"    # Lcom/android/server/am/ActivityRecord;
-    .param p4, "val$parent"    # Lcom/android/server/am/ActivityRecord;
-    .param p5, "val$aboveSystem"    # Z
-    .param p6, "val$annotation"    # Ljava/lang/String;
 
     .prologue
-    .line 12456
+    .line 12294
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$15;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$15;->val$proc:Lcom/android/server/am/ProcessRecord;
-
-    iput-object p3, p0, Lcom/android/server/am/ActivityManagerService$15;->val$activity:Lcom/android/server/am/ActivityRecord;
-
-    iput-object p4, p0, Lcom/android/server/am/ActivityManagerService$15;->val$parent:Lcom/android/server/am/ActivityRecord;
-
-    iput-boolean p5, p0, Lcom/android/server/am/ActivityManagerService$15;->val$aboveSystem:Z
-
-    iput-object p6, p0, Lcom/android/server/am/ActivityManagerService$15;->val$annotation:Ljava/lang/String;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 6
+.method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
+    .locals 0
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Ljava/lang/String;
+    .param p4, "extras"    # Landroid/os/Bundle;
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "sendingUser"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
     .prologue
-    .line 12459
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$15;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAppErrors:Lcom/android/server/am/AppErrors;
-
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$15;->val$proc:Lcom/android/server/am/ProcessRecord;
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$15;->val$activity:Lcom/android/server/am/ActivityRecord;
-
-    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$15;->val$parent:Lcom/android/server/am/ActivityRecord;
-
-    iget-boolean v4, p0, Lcom/android/server/am/ActivityManagerService$15;->val$aboveSystem:Z
-
-    iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$15;->val$annotation:Ljava/lang/String;
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/AppErrors;->appNotResponding(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;ZLjava/lang/String;)V
-
-    .line 12458
+    .line 12298
     return-void
 .end method

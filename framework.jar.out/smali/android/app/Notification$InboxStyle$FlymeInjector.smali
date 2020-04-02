@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 5564
+    .line 4920
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,16 +31,16 @@
     .param p1, "extras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 5578
+    .line 4934
     const-string/jumbo v0, "android.simSlots"
 
-    .line 5581
+    .line 4937
     .local v0, "EXTRA_SIM_SLOTS":Ljava/lang/String;
     iget-object v1, p0, Landroid/app/Notification$InboxStyle;->mFlymeSimSlots:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putIntegerArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 5576
+    .line 4932
     return-void
 .end method
 
@@ -49,7 +49,7 @@
     .param p0, "inboxStyle"    # Landroid/app/Notification$InboxStyle;
 
     .prologue
-    .line 5572
+    .line 4928
     iget-object v0, p0, Landroid/app/Notification$InboxStyle;->mFlymeSimSlots:Ljava/util/ArrayList;
 
     sget v1, Landroid/app/NotificationBuilderExt;->SIM_SLOT_HIDE:I
@@ -60,7 +60,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 5570
+    .line 4926
     return-void
 .end method
 
@@ -69,7 +69,7 @@
     .param p0, "inboxStyle"    # Landroid/app/Notification$InboxStyle;
 
     .prologue
-    .line 5567
+    .line 4923
     new-instance v0, Ljava/util/ArrayList;
 
     const/4 v1, 0x5
@@ -78,6 +78,6 @@
 
     iput-object v0, p0, Landroid/app/Notification$InboxStyle;->mFlymeSimSlots:Ljava/util/ArrayList;
 
-    .line 5566
+    .line 4922
     return-void
 .end method

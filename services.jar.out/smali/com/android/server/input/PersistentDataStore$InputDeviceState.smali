@@ -15,18 +15,19 @@
 
 
 # static fields
+.field static final synthetic -assertionsDisabled:Z
+
 .field private static final CALIBRATION_NAME:[Ljava/lang/String;
 
 
 # instance fields
 .field private mCurrentKeyboardLayout:Ljava/lang/String;
 
-.field private mKeyboardLayouts:Landroid/util/ArrayMap;
+.field private mKeyboardLayouts:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/util/ArrayMap",
+            "Ljava/util/ArrayList",
             "<",
-            "Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;",
             "Ljava/lang/String;",
             ">;"
         }
@@ -35,49 +36,40 @@
 
 .field private mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
-.field private mUnassociatedKeyboardLayouts:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 
 # direct methods
-.method static synthetic -wrap0(Lcom/android/server/input/PersistentDataStore$InputDeviceState;Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .locals 0
-    .param p1, "pw"    # Ljava/io/PrintWriter;
-    .param p2, "prefix"    # Ljava/lang/String;
-
-    .prologue
-    invoke-direct {p0, p1, p2}, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 4
 
     .prologue
-    .line 342
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    const-class v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move v0, v1
+
+    :goto_0
+    sput-boolean v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->-assertionsDisabled:Z
+
+    .line 305
     const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string/jumbo v1, "x_scale"
+    const-string/jumbo v3, "x_scale"
 
-    const/4 v2, 0x0
+    aput-object v3, v0, v1
 
-    aput-object v1, v0, v2
-
-    .line 343
+    .line 306
     const-string/jumbo v1, "x_ymix"
-
-    const/4 v2, 0x1
 
     aput-object v1, v0, v2
 
@@ -105,42 +97,40 @@
 
     aput-object v1, v0, v2
 
-    .line 342
+    .line 305
     sput-object v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
 
-    .line 341
+    .line 304
     return-void
+
+    :cond_0
+    move v0, v2
+
+    goto :goto_0
 .end method
 
 .method private constructor <init>()V
     .locals 1
 
     .prologue
-    .line 341
+    .line 304
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 345
+    .line 308
     const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/hardware/input/TouchCalibration;
 
     iput-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
-    .line 348
+    .line 310
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    .line 349
-    new-instance v0, Landroid/util/ArrayMap;
-
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
-
-    .line 341
+    .line 304
     return-void
 .end method
 
@@ -153,226 +143,12 @@
     return-void
 .end method
 
-.method private dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .locals 4
-    .param p1, "pw"    # Ljava/io/PrintWriter;
-    .param p2, "prefix"    # Ljava/lang/String;
-
-    .prologue
-    .line 615
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "CurrentKeyboardLayout="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 616
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "UnassociatedKeyboardLayouts="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 617
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "TouchCalibration="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
-
-    invoke-static {v3}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 618
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "Subtype to Layout Mappings:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 619
-    iget-object v2, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
-
-    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
-
-    move-result v0
-
-    .line 620
-    .local v0, "N":I
-    if-eqz v0, :cond_0
-
-    .line 621
-    const/4 v1, 0x0
-
-    .local v1, "i":I
-    :goto_0
-    if-ge v1, v0, :cond_1
-
-    .line 622
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "  "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
-
-    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ": "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    .line 623
-    iget-object v2, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
-
-    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    .line 622
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 621
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    .line 626
-    .end local v1    # "i":I
-    :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "  <none>"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 614
-    :cond_1
-    return-void
-.end method
-
 .method private static stringToSurfaceRotation(Ljava/lang/String;)I
     .locals 3
     .param p0, "s"    # Ljava/lang/String;
 
     .prologue
-    .line 641
+    .line 543
     const-string/jumbo v0, "0"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -381,12 +157,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 642
+    .line 544
     const/4 v0, 0x0
 
     return v0
 
-    .line 644
+    .line 546
     :cond_0
     const-string/jumbo v0, "90"
 
@@ -396,12 +172,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 645
+    .line 547
     const/4 v0, 0x1
 
     return v0
 
-    .line 647
+    .line 549
     :cond_1
     const-string/jumbo v0, "180"
 
@@ -411,12 +187,12 @@
 
     if-eqz v0, :cond_2
 
-    .line 648
+    .line 550
     const/4 v0, 0x2
 
     return v0
 
-    .line 650
+    .line 552
     :cond_2
     const-string/jumbo v0, "270"
 
@@ -426,12 +202,12 @@
 
     if-eqz v0, :cond_3
 
-    .line 651
+    .line 553
     const/4 v0, 0x3
 
     return v0
 
-    .line 653
+    .line 555
     :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -469,10 +245,10 @@
     .param p0, "surfaceRotation"    # I
 
     .prologue
-    .line 631
+    .line 533
     packed-switch p0, :pswitch_data_0
 
-    .line 637
+    .line 539
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -497,31 +273,31 @@
 
     throw v0
 
-    .line 632
+    .line 534
     :pswitch_0
     const-string/jumbo v0, "0"
 
     return-object v0
 
-    .line 633
+    .line 535
     :pswitch_1
     const-string/jumbo v0, "90"
 
     return-object v0
 
-    .line 634
+    .line 536
     :pswitch_2
     const-string/jumbo v0, "180"
 
     return-object v0
 
-    .line 635
+    .line 537
     :pswitch_3
     const-string/jumbo v0, "270"
 
     return-object v0
 
-    .line 631
+    .line 533
     nop
 
     :pswitch_data_0
@@ -539,7 +315,7 @@
     .param p2, "removedIndex"    # I
 
     .prologue
-    .line 434
+    .line 378
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
     invoke-static {v1, p1}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -548,36 +324,36 @@
 
     if-eqz v1, :cond_1
 
-    .line 435
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    .line 379
+    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    .line 436
+    .line 380
     move v0, p2
 
-    .line 437
+    .line 381
     .local v0, "index":I
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ne p2, v1, :cond_0
+    if-ne v0, v1, :cond_0
 
-    .line 438
+    .line 382
     const/4 v0, 0x0
 
-    .line 440
+    .line 384
     :cond_0
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -585,13 +361,13 @@
 
     iput-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    .line 433
+    .line 377
     .end local v0    # "index":I
     :cond_1
     :goto_0
     return-void
 
-    .line 442
+    .line 386
     :cond_2
     const/4 v1, 0x0
 
@@ -609,40 +385,39 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 411
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    .line 355
+    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    .line 410
     invoke-static {v1, p1}, Ljava/util/Collections;->binarySearch(Ljava/util/List;Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 412
+    .line 356
     .local v0, "index":I
     if-ltz v0, :cond_0
 
-    .line 413
+    .line 357
     return v2
 
-    .line 415
+    .line 359
     :cond_0
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     neg-int v2, v0
 
     add-int/lit8 v2, v2, -0x1
 
-    invoke-interface {v1, v2, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-virtual {v1, v2, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    .line 416
+    .line 360
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
     if-nez v1, :cond_1
 
-    .line 417
+    .line 361
     iput-object p1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    .line 419
+    .line 363
     :cond_1
     const/4 v1, 0x1
 
@@ -653,25 +428,8 @@
     .locals 1
 
     .prologue
-    .line 375
+    .line 335
     iget-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getKeyboardLayout(Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;)Ljava/lang/String;
-    .locals 1
-    .param p1, "handle"    # Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;
-
-    .prologue
-    .line 396
-    iget-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
-
-    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
 
     return-object v0
 .end method
@@ -680,16 +438,16 @@
     .locals 2
 
     .prologue
-    .line 388
-    iget-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    .line 348
+    iget-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 389
+    .line 349
     const-class v0, Ljava/lang/String;
 
     invoke-static {v0}, Lcom/android/internal/util/ArrayUtils;->emptyArray(Ljava/lang/Class;)[Ljava/lang/Object;
@@ -700,21 +458,19 @@
 
     return-object v0
 
-    .line 391
+    .line 351
     :cond_0
-    iget-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    .line 392
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
     new-array v1, v1, [Ljava/lang/String;
 
-    .line 391
-    invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
@@ -728,7 +484,7 @@
     .param p1, "surfaceRotation"    # I
 
     .prologue
-    .line 353
+    .line 314
     :try_start_0
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
@@ -738,11 +494,11 @@
 
     return-object v1
 
-    .line 354
+    .line 315
     :catch_0
     move-exception v0
 
-    .line 355
+    .line 316
     .local v0, "ex":Ljava/lang/ArrayIndexOutOfBoundsException;
     const-string/jumbo v1, "InputManager"
 
@@ -750,14 +506,14 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 356
+    .line 317
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public loadFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 25
+    .locals 21
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -767,646 +523,508 @@
     .end annotation
 
     .prologue
-    .line 472
+    .line 423
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
-    move-result v19
+    move-result v15
 
-    .line 473
-    .local v19, "outerDepth":I
+    .line 424
+    .local v15, "outerDepth":I
     :cond_0
     :goto_0
     move-object/from16 v0, p1
 
-    move/from16 v1, v19
+    invoke-static {v0, v15}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
 
-    invoke-static {v0, v1}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
+    move-result v1
 
-    move-result v2
+    if-eqz v1, :cond_c
 
-    if-eqz v2, :cond_12
-
-    .line 474
+    .line 425
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string/jumbo v3, "keyboard-layout"
+    const-string/jumbo v2, "keyboard-layout"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_a
+    if-eqz v1, :cond_4
 
-    .line 475
-    const-string/jumbo v2, "descriptor"
+    .line 426
+    const-string/jumbo v1, "descriptor"
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     move-object/from16 v0, p1
 
-    invoke-interface {v0, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v2, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v10
 
-    .line 476
-    .local v11, "descriptor":Ljava/lang/String;
-    if-nez v11, :cond_1
+    .line 427
+    .local v10, "descriptor":Ljava/lang/String;
+    if-nez v10, :cond_1
 
-    .line 477
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    .line 428
+    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    .line 478
-    const-string/jumbo v3, "Missing descriptor attribute on keyboard-layout."
+    .line 429
+    const-string/jumbo v2, "Missing descriptor attribute on keyboard-layout."
 
-    .line 477
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    .line 428
+    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v1
 
-    .line 481
+    .line 431
     :cond_1
-    const-string/jumbo v2, "current"
+    const-string/jumbo v1, "current"
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     move-object/from16 v0, p1
 
-    invoke-interface {v0, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v2, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    .line 482
-    .local v9, "current":Ljava/lang/String;
-    if-eqz v9, :cond_3
-
-    const-string/jumbo v2, "true"
-
-    invoke-virtual {v9, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    .line 483
+    .line 432
+    .local v8, "current":Ljava/lang/String;
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
+    iget-object v1, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    if-eqz v2, :cond_2
+    invoke-virtual {v1, v10}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    .line 484
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    move-result v1
 
-    .line 485
-    const-string/jumbo v3, "Found multiple current keyboard layouts."
+    if-eqz v1, :cond_2
 
-    .line 484
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    .line 433
+    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    throw v2
+    .line 434
+    const-string/jumbo v2, "Found duplicate keyboard layout."
 
-    .line 487
+    .line 433
+    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 437
     :cond_2
     move-object/from16 v0, p0
 
-    iput-object v11, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
+    iget-object v1, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    .line 490
+    invoke-virtual {v1, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 438
+    if-eqz v8, :cond_0
+
+    const-string/jumbo v1, "true"
+
+    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 439
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
+
+    if-eqz v1, :cond_3
+
+    .line 440
+    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
+
+    .line 441
+    const-string/jumbo v2, "Found multiple current keyboard layouts."
+
+    .line 440
+    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 443
     :cond_3
-    const-string/jumbo v2, "input-method-id"
+    move-object/from16 v0, p0
 
-    const/4 v3, 0x0
+    iput-object v10, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
+
+    goto :goto_0
+
+    .line 445
+    .end local v8    # "current":Ljava/lang/String;
+    .end local v10    # "descriptor":Ljava/lang/String;
+    :cond_4
+    invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "calibration"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 446
+    const-string/jumbo v1, "format"
+
+    const/4 v2, 0x0
 
     move-object/from16 v0, p1
 
-    invoke-interface {v0, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v2, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v12
 
-    .line 492
-    .local v16, "inputMethodId":Ljava/lang/String;
-    const-string/jumbo v2, "input-method-subtype-id"
+    .line 447
+    .local v12, "format":Ljava/lang/String;
+    const-string/jumbo v1, "rotation"
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     move-object/from16 v0, p1
 
-    invoke-interface {v0, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v2, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v17
 
-    .line 493
-    .local v17, "inputMethodSubtypeId":Ljava/lang/String;
-    if-nez v16, :cond_5
+    .line 448
+    .local v17, "rotation":Ljava/lang/String;
+    const/16 v16, -0x1
 
-    if-eqz v17, :cond_5
+    .line 450
+    .local v16, "r":I
+    if-nez v12, :cond_5
 
-    .line 495
-    :cond_4
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    .line 451
+    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    .line 496
-    const-string/jumbo v3, "Found an incomplete input method description"
+    .line 452
+    const-string/jumbo v2, "Missing format attribute on calibration."
 
-    .line 495
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    .line 451
+    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v1
 
-    .line 494
+    .line 454
     :cond_5
-    if-eqz v16, :cond_6
+    const-string/jumbo v1, "affine"
 
-    if-eqz v17, :cond_4
+    invoke-virtual {v12, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 499
+    move-result v1
+
+    if-nez v1, :cond_6
+
+    .line 455
+    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
+
+    .line 456
+    const-string/jumbo v2, "Unsupported format for calibration."
+
+    .line 455
+    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 458
     :cond_6
-    if-eqz v17, :cond_8
+    if-eqz v17, :cond_7
 
-    .line 500
-    new-instance v14, Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;
-
-    .line 501
-    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    .line 500
-    move-object/from16 v0, v16
-
-    invoke-direct {v14, v0, v2}, Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;-><init>(Ljava/lang/String;I)V
-
-    .line 502
-    .local v14, "handle":Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
-
-    invoke-virtual {v2, v14}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_7
-
-    .line 503
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
-
-    .line 504
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Found duplicate subtype to keyboard layout mapping: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 503
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 507
-    :cond_7
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
-
-    invoke-virtual {v2, v14, v11}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto/16 :goto_0
-
-    .line 509
-    .end local v14    # "handle":Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;
-    :cond_8
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
-
-    invoke-interface {v2, v11}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_9
-
-    .line 510
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
-
-    .line 511
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Found duplicate unassociated keyboard layout: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 510
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 513
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
-
-    invoke-interface {v2, v11}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_0
-
-    .line 515
-    .end local v9    # "current":Ljava/lang/String;
-    .end local v11    # "descriptor":Ljava/lang/String;
-    .end local v16    # "inputMethodId":Ljava/lang/String;
-    .end local v17    # "inputMethodSubtypeId":Ljava/lang/String;
-    :cond_a
-    invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "calibration"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 516
-    const-string/jumbo v2, "format"
-
-    const/4 v3, 0x0
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v13
-
-    .line 517
-    .local v13, "format":Ljava/lang/String;
-    const-string/jumbo v2, "rotation"
-
-    const/4 v3, 0x0
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v21
-
-    .line 518
-    .local v21, "rotation":Ljava/lang/String;
-    const/16 v20, -0x1
-
-    .line 520
-    .local v20, "r":I
-    if-nez v13, :cond_b
-
-    .line 521
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
-
-    .line 522
-    const-string/jumbo v3, "Missing format attribute on calibration."
-
-    .line 521
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 524
-    :cond_b
-    const-string/jumbo v2, "affine"
-
-    invoke-virtual {v13, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_c
-
-    .line 525
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
-
-    .line 526
-    const-string/jumbo v3, "Unsupported format for calibration."
-
-    .line 525
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 528
-    :cond_c
-    if-eqz v21, :cond_d
-
-    .line 530
+    .line 460
     :try_start_0
-    invoke-static/range {v21 .. v21}, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->stringToSurfaceRotation(Ljava/lang/String;)I
+    invoke-static/range {v17 .. v17}, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->stringToSurfaceRotation(Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v20
+    move-result v16
 
-    .line 537
-    :cond_d
-    sget-object v2, Landroid/hardware/input/TouchCalibration;->IDENTITY:Landroid/hardware/input/TouchCalibration;
+    .line 467
+    :cond_7
+    sget-object v1, Landroid/hardware/input/TouchCalibration;->IDENTITY:Landroid/hardware/input/TouchCalibration;
 
-    invoke-virtual {v2}, Landroid/hardware/input/TouchCalibration;->getAffineTransform()[F
+    invoke-virtual {v1}, Landroid/hardware/input/TouchCalibration;->getAffineTransform()[F
 
-    move-result-object v18
+    move-result-object v14
 
-    .line 538
-    .local v18, "matrix":[F
+    .line 468
+    .local v14, "matrix":[F
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
-    move-result v10
+    move-result v9
 
-    .line 539
-    .local v10, "depth":I
-    :cond_e
+    .line 469
+    .local v9, "depth":I
+    :cond_8
     :goto_1
     move-object/from16 v0, p1
 
-    invoke-static {v0, v10}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
+    invoke-static {v0, v9}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_10
+    if-eqz v1, :cond_a
 
-    .line 540
+    .line 470
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v18
 
-    .line 541
-    .local v22, "tag":Ljava/lang/String;
+    .line 471
+    .local v18, "tag":Ljava/lang/String;
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->nextText()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v19
 
-    .line 543
-    .local v23, "value":Ljava/lang/String;
-    const/4 v15, 0x0
+    .line 473
+    .local v19, "value":Ljava/lang/String;
+    const/4 v13, 0x0
 
-    .local v15, "i":I
+    .local v13, "i":I
     :goto_2
+    array-length v1, v14
+
+    if-ge v13, v1, :cond_8
+
+    sget-object v1, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
+
+    array-length v1, v1
+
+    if-ge v13, v1, :cond_8
+
+    .line 474
+    sget-object v1, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
+
+    aget-object v1, v1, v13
+
     move-object/from16 v0, v18
 
-    array-length v2, v0
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-ge v15, v2, :cond_e
+    move-result v1
 
-    sget-object v2, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
+    if-eqz v1, :cond_9
 
-    array-length v2, v2
+    .line 475
+    invoke-static/range {v19 .. v19}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    if-ge v15, v2, :cond_e
+    move-result v1
 
-    .line 544
-    sget-object v2, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
-
-    aget-object v2, v2, v15
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_f
-
-    .line 545
-    invoke-static/range {v23 .. v23}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v2
-
-    aput v2, v18, v15
+    aput v1, v14, v13
 
     goto :goto_1
 
-    .line 531
-    .end local v10    # "depth":I
-    .end local v15    # "i":I
-    .end local v18    # "matrix":[F
-    .end local v22    # "tag":Ljava/lang/String;
-    .end local v23    # "value":Ljava/lang/String;
+    .line 461
+    .end local v9    # "depth":I
+    .end local v13    # "i":I
+    .end local v14    # "matrix":[F
+    .end local v18    # "tag":Ljava/lang/String;
+    .end local v19    # "value":Ljava/lang/String;
     :catch_0
-    move-exception v12
+    move-exception v11
 
-    .line 532
-    .local v12, "e":Ljava/lang/IllegalArgumentException;
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    .line 462
+    .local v11, "e":Ljava/lang/IllegalArgumentException;
+    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    .line 533
-    const-string/jumbo v3, "Unsupported rotation for calibration."
+    .line 463
+    const-string/jumbo v2, "Unsupported rotation for calibration."
 
-    .line 532
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    .line 462
+    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v1
 
-    .line 543
-    .end local v12    # "e":Ljava/lang/IllegalArgumentException;
-    .restart local v10    # "depth":I
-    .restart local v15    # "i":I
-    .restart local v18    # "matrix":[F
-    .restart local v22    # "tag":Ljava/lang/String;
-    .restart local v23    # "value":Ljava/lang/String;
-    :cond_f
-    add-int/lit8 v15, v15, 0x1
+    .line 473
+    .end local v11    # "e":Ljava/lang/IllegalArgumentException;
+    .restart local v9    # "depth":I
+    .restart local v13    # "i":I
+    .restart local v14    # "matrix":[F
+    .restart local v18    # "tag":Ljava/lang/String;
+    .restart local v19    # "value":Ljava/lang/String;
+    :cond_9
+    add-int/lit8 v13, v13, 0x1
 
     goto :goto_2
 
-    .line 551
-    .end local v15    # "i":I
-    .end local v22    # "tag":Ljava/lang/String;
-    .end local v23    # "value":Ljava/lang/String;
-    :cond_10
-    const/4 v2, -0x1
+    .line 481
+    .end local v13    # "i":I
+    .end local v18    # "tag":Ljava/lang/String;
+    .end local v19    # "value":Ljava/lang/String;
+    :cond_a
+    const/4 v1, -0x1
 
-    move/from16 v0, v20
+    move/from16 v0, v16
 
-    if-ne v0, v2, :cond_11
+    if-ne v0, v1, :cond_b
 
-    .line 553
-    const/16 v20, 0x0
+    .line 483
+    const/16 v16, 0x0
 
     :goto_3
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
+    iget-object v1, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
-    array-length v2, v2
+    array-length v1, v1
 
-    move/from16 v0, v20
+    move/from16 v0, v16
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
-    .line 554
+    .line 484
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
-    move-object/from16 v24, v0
+    move-object/from16 v20, v0
 
-    new-instance v2, Landroid/hardware/input/TouchCalibration;
+    new-instance v1, Landroid/hardware/input/TouchCalibration;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aget v3, v18, v3
+    aget v2, v14, v2
 
-    .line 555
-    const/4 v4, 0x1
+    .line 485
+    const/4 v3, 0x1
 
-    aget v4, v18, v4
+    aget v3, v14, v3
 
-    const/4 v5, 0x2
+    const/4 v4, 0x2
 
-    aget v5, v18, v5
+    aget v4, v14, v4
 
-    const/4 v6, 0x3
+    const/4 v5, 0x3
 
-    aget v6, v18, v6
+    aget v5, v14, v5
 
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    aget v7, v18, v7
+    aget v6, v14, v6
 
-    const/4 v8, 0x5
+    const/4 v7, 0x5
 
-    aget v8, v18, v8
+    aget v7, v14, v7
 
-    .line 554
-    invoke-direct/range {v2 .. v8}, Landroid/hardware/input/TouchCalibration;-><init>(FFFFFF)V
+    .line 484
+    invoke-direct/range {v1 .. v7}, Landroid/hardware/input/TouchCalibration;-><init>(FFFFFF)V
 
-    aput-object v2, v24, v20
+    aput-object v1, v20, v16
 
-    .line 553
-    add-int/lit8 v20, v20, 0x1
+    .line 483
+    add-int/lit8 v16, v16, 0x1
 
     goto :goto_3
 
-    .line 558
-    :cond_11
+    .line 488
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
-    move-object/from16 v24, v0
+    move-object/from16 v20, v0
 
-    new-instance v2, Landroid/hardware/input/TouchCalibration;
+    new-instance v1, Landroid/hardware/input/TouchCalibration;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aget v3, v18, v3
+    aget v2, v14, v2
 
-    .line 559
-    const/4 v4, 0x1
+    .line 489
+    const/4 v3, 0x1
 
-    aget v4, v18, v4
+    aget v3, v14, v3
 
-    const/4 v5, 0x2
+    const/4 v4, 0x2
 
-    aget v5, v18, v5
+    aget v4, v14, v4
 
-    const/4 v6, 0x3
+    const/4 v5, 0x3
 
-    aget v6, v18, v6
+    aget v5, v14, v5
 
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    aget v7, v18, v7
+    aget v6, v14, v6
 
-    const/4 v8, 0x5
+    const/4 v7, 0x5
 
-    aget v8, v18, v8
+    aget v7, v14, v7
 
-    .line 558
-    invoke-direct/range {v2 .. v8}, Landroid/hardware/input/TouchCalibration;-><init>(FFFFFF)V
+    .line 488
+    invoke-direct/range {v1 .. v7}, Landroid/hardware/input/TouchCalibration;-><init>(FFFFFF)V
 
-    aput-object v2, v24, v20
+    aput-object v1, v20, v16
 
     goto/16 :goto_0
 
-    .line 565
-    .end local v10    # "depth":I
-    .end local v13    # "format":Ljava/lang/String;
-    .end local v18    # "matrix":[F
-    .end local v20    # "r":I
-    .end local v21    # "rotation":Ljava/lang/String;
-    :cond_12
+    .line 495
+    .end local v9    # "depth":I
+    .end local v12    # "format":Ljava/lang/String;
+    .end local v14    # "matrix":[F
+    .end local v16    # "r":I
+    .end local v17    # "rotation":Ljava/lang/String;
+    :cond_c
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iget-object v1, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-static {v2}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+    invoke-static {v1}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
-    .line 569
+    .line 499
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
+    iget-object v1, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    if-nez v2, :cond_13
+    if-nez v1, :cond_d
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iget-object v1, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_14
+    if-eqz v1, :cond_e
 
-    .line 471
-    :cond_13
+    .line 422
+    :cond_d
     :goto_4
     return-void
 
-    .line 570
-    :cond_14
+    .line 500
+    :cond_e
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iget-object v1, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
     move-object/from16 v0, p0
 
-    iput-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
+    iput-object v1, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
     goto :goto_4
 .end method
@@ -1418,30 +1036,30 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 423
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    .line 367
+    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     invoke-static {v1, p1}, Ljava/util/Collections;->binarySearch(Ljava/util/List;Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 424
+    .line 368
     .local v0, "index":I
     if-gez v0, :cond_0
 
-    .line 425
+    .line 369
     return v2
 
-    .line 427
+    .line 371
     :cond_0
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 428
+    .line 372
     invoke-direct {p0, p1, v0}, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->updateCurrentKeyboardLayoutIfRemoved(Ljava/lang/String;I)V
 
-    .line 429
+    .line 373
     const/4 v1, 0x1
 
     return v1
@@ -1460,15 +1078,15 @@
     .end annotation
 
     .prologue
-    .line 457
+    .line 408
     .local p1, "availableKeyboardLayouts":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     const/4 v0, 0x0
 
-    .line 458
+    .line 409
     .local v0, "changed":Z
-    iget-object v4, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    iget-object v4, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
@@ -1484,16 +1102,16 @@
     .restart local v1    # "i":I
     if-lez v2, :cond_1
 
-    .line 459
-    iget-object v4, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    .line 410
+    iget-object v4, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/String;
 
-    .line 460
+    .line 411
     .local v3, "keyboardLayout":Ljava/lang/String;
     invoke-interface {p1, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
@@ -1501,7 +1119,7 @@
 
     if-nez v4, :cond_0
 
-    .line 461
+    .line 412
     const-string/jumbo v4, "InputManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1524,15 +1142,15 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 462
-    iget-object v4, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    .line 413
+    iget-object v4, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v4, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 463
+    .line 414
     invoke-direct {p0, v3, v1}, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->updateCurrentKeyboardLayoutIfRemoved(Ljava/lang/String;I)V
 
-    .line 464
+    .line 415
     const/4 v0, 0x1
 
     :cond_0
@@ -1542,7 +1160,7 @@
     .restart local v2    # "i":I
     goto :goto_0
 
-    .line 467
+    .line 418
     .end local v2    # "i":I
     .end local v3    # "keyboardLayout":Ljava/lang/String;
     .restart local v1    # "i":I
@@ -1551,7 +1169,7 @@
 .end method
 
 .method public saveToXml(Lorg/xmlpull/v1/XmlSerializer;)V
-    .locals 11
+    .locals 9
     .param p1, "serializer"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1560,258 +1178,177 @@
     .end annotation
 
     .prologue
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
-    .line 575
-    iget-object v8, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
+    .line 505
+    iget-object v6, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v5
+    move-result-object v3
 
-    .local v5, "layout$iterator":Ljava/util/Iterator;
+    .local v3, "layout$iterator":Ljava/util/Iterator;
     :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_0
+    if-eqz v6, :cond_1
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    .line 576
-    .local v4, "layout":Ljava/lang/String;
-    const-string/jumbo v8, "keyboard-layout"
+    .line 506
+    .local v2, "layout":Ljava/lang/String;
+    const-string/jumbo v6, "keyboard-layout"
 
-    invoke-interface {p1, v10, v8}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v8, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 577
-    const-string/jumbo v8, "descriptor"
+    .line 507
+    const-string/jumbo v6, "descriptor"
 
-    invoke-interface {p1, v10, v8, v4}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v8, v6, v2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 578
-    const-string/jumbo v8, "keyboard-layout"
+    .line 508
+    iget-object v6, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    invoke-interface {p1, v10, v8}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    .line 509
+    const-string/jumbo v6, "current"
+
+    const-string/jumbo v7, "true"
+
+    invoke-interface {p1, v8, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 511
+    :cond_0
+    const-string/jumbo v6, "keyboard-layout"
+
+    invoke-interface {p1, v8, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     goto :goto_0
 
-    .line 581
-    .end local v4    # "layout":Ljava/lang/String;
-    :cond_0
-    iget-object v8, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
+    .line 514
+    .end local v2    # "layout":Ljava/lang/String;
+    :cond_1
+    const/4 v0, 0x0
 
-    invoke-virtual {v8}, Landroid/util/ArrayMap;->size()I
-
-    move-result v0
-
-    .line 582
-    .local v0, "N":I
-    const/4 v2, 0x0
-
-    .local v2, "i":I
+    .local v0, "i":I
     :goto_1
-    if-ge v2, v0, :cond_2
+    iget-object v6, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
-    .line 583
-    iget-object v8, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
+    array-length v6, v6
 
-    invoke-virtual {v8, v2}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+    if-ge v0, v6, :cond_4
 
-    move-result-object v1
+    .line 515
+    iget-object v6, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
-    check-cast v1, Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;
+    aget-object v6, v6, v0
 
-    .line 584
-    .local v1, "handle":Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;
-    iget-object v8, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
+    if-eqz v6, :cond_3
 
-    invoke-virtual {v8, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    .line 516
+    invoke-static {v0}, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->surfaceRotationToString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    check-cast v4, Ljava/lang/String;
+    .line 517
+    .local v4, "rotation":Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
-    .line 585
-    .restart local v4    # "layout":Ljava/lang/String;
-    const-string/jumbo v8, "keyboard-layout"
+    aget-object v6, v6, v0
 
-    invoke-interface {p1, v10, v8}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-virtual {v6}, Landroid/hardware/input/TouchCalibration;->getAffineTransform()[F
 
-    .line 586
-    const-string/jumbo v8, "descriptor"
+    move-result-object v5
 
-    invoke-interface {p1, v10, v8, v4}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    .line 519
+    .local v5, "transform":[F
+    const-string/jumbo v6, "calibration"
 
-    .line 587
-    const-string/jumbo v8, "input-method-id"
+    invoke-interface {p1, v8, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-virtual {v1}, Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;->getInputMethodId()Ljava/lang/String;
+    .line 520
+    const-string/jumbo v6, "format"
 
-    move-result-object v9
+    const-string/jumbo v7, "affine"
 
-    invoke-interface {p1, v10, v8, v9}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v8, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 588
-    const-string/jumbo v8, "input-method-subtype-id"
+    .line 521
+    const-string/jumbo v6, "rotation"
 
-    .line 589
-    invoke-virtual {v1}, Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;->getSubtypeId()I
+    invoke-interface {p1, v8, v6, v4}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    move-result v9
+    .line 522
+    const/4 v1, 0x0
 
-    invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    .line 588
-    invoke-interface {p1, v10, v8, v9}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 590
-    iget-object v8, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
-
-    invoke-virtual {v4, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_1
-
-    .line 591
-    const-string/jumbo v8, "current"
-
-    const-string/jumbo v9, "true"
-
-    invoke-interface {p1, v10, v8, v9}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 593
-    :cond_1
-    const-string/jumbo v8, "keyboard-layout"
-
-    invoke-interface {p1, v10, v8}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 582
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1
-
-    .line 596
-    .end local v1    # "handle":Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;
-    .end local v4    # "layout":Ljava/lang/String;
-    :cond_2
-    const/4 v2, 0x0
-
+    .local v1, "j":I
     :goto_2
-    iget-object v8, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
+    array-length v6, v5
 
-    array-length v8, v8
+    if-ge v1, v6, :cond_2
 
-    if-ge v2, v8, :cond_5
+    sget-object v6, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
 
-    .line 597
-    iget-object v8, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
+    array-length v6, v6
 
-    aget-object v8, v8, v2
+    if-ge v1, v6, :cond_2
 
-    if-eqz v8, :cond_4
+    .line 523
+    sget-object v6, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
 
-    .line 598
-    invoke-static {v2}, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->surfaceRotationToString(I)Ljava/lang/String;
+    aget-object v6, v6, v1
+
+    invoke-interface {p1, v8, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 524
+    aget v6, v5, v1
+
+    invoke-static {v6}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 599
-    .local v6, "rotation":Ljava/lang/String;
-    iget-object v8, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
+    invoke-interface {p1, v6}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    aget-object v8, v8, v2
+    .line 525
+    sget-object v6, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
 
-    invoke-virtual {v8}, Landroid/hardware/input/TouchCalibration;->getAffineTransform()[F
+    aget-object v6, v6, v1
 
-    move-result-object v7
+    invoke-interface {p1, v8, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 601
-    .local v7, "transform":[F
-    const-string/jumbo v8, "calibration"
-
-    invoke-interface {p1, v10, v8}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 602
-    const-string/jumbo v8, "format"
-
-    const-string/jumbo v9, "affine"
-
-    invoke-interface {p1, v10, v8, v9}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 603
-    const-string/jumbo v8, "rotation"
-
-    invoke-interface {p1, v10, v8, v6}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 604
-    const/4 v3, 0x0
-
-    .local v3, "j":I
-    :goto_3
-    array-length v8, v7
-
-    if-ge v3, v8, :cond_3
-
-    sget-object v8, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
-
-    array-length v8, v8
-
-    if-ge v3, v8, :cond_3
-
-    .line 605
-    sget-object v8, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
-
-    aget-object v8, v8, v3
-
-    invoke-interface {p1, v10, v8}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 606
-    aget v8, v7, v3
-
-    invoke-static {v8}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-interface {p1, v8}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 607
-    sget-object v8, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->CALIBRATION_NAME:[Ljava/lang/String;
-
-    aget-object v8, v8, v3
-
-    invoke-interface {p1, v10, v8}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 604
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_3
-
-    .line 609
-    :cond_3
-    const-string/jumbo v8, "calibration"
-
-    invoke-interface {p1, v10, v8}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 596
-    .end local v3    # "j":I
-    .end local v6    # "rotation":Ljava/lang/String;
-    .end local v7    # "transform":[F
-    :cond_4
-    add-int/lit8 v2, v2, 0x1
+    .line 522
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
-    .line 574
-    :cond_5
+    .line 527
+    :cond_2
+    const-string/jumbo v6, "calibration"
+
+    invoke-interface {p1, v8, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 514
+    .end local v1    # "j":I
+    .end local v4    # "rotation":Ljava/lang/String;
+    .end local v5    # "transform":[F
+    :cond_3
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    .line 504
+    :cond_4
     return-void
 .end method
 
@@ -1820,7 +1357,7 @@
     .param p1, "keyboardLayout"    # Ljava/lang/String;
 
     .prologue
-    .line 379
+    .line 339
     iget-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
     invoke-static {v0, p1}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -1829,62 +1366,22 @@
 
     if-eqz v0, :cond_0
 
-    .line 380
+    .line 340
     const/4 v0, 0x0
 
     return v0
 
-    .line 382
+    .line 342
     :cond_0
     invoke-virtual {p0, p1}, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->addKeyboardLayout(Ljava/lang/String;)Z
 
-    .line 383
+    .line 343
     iput-object p1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    .line 384
+    .line 344
     const/4 v0, 0x1
 
     return v0
-.end method
-
-.method public setKeyboardLayout(Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;Ljava/lang/String;)Z
-    .locals 2
-    .param p1, "imeHandle"    # Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;
-    .param p2, "keyboardLayout"    # Ljava/lang/String;
-
-    .prologue
-    .line 401
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
-
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    .line 402
-    .local v0, "existingLayout":Ljava/lang/String;
-    invoke-static {v0, p2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 403
-    const/4 v1, 0x0
-
-    return v1
-
-    .line 405
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
-
-    invoke-virtual {v1, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 406
-    const/4 v1, 0x1
-
-    return v1
 .end method
 
 .method public setTouchCalibration(ILandroid/hardware/input/TouchCalibration;)Z
@@ -1895,7 +1392,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 362
+    .line 323
     :try_start_0
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
@@ -1907,27 +1404,27 @@
 
     if-nez v1, :cond_0
 
-    .line 363
+    .line 324
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mTouchCalibration:[Landroid/hardware/input/TouchCalibration;
 
     aput-object p2, v1, p1
     :try_end_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 364
+    .line 325
     const/4 v1, 0x1
 
     return v1
 
-    .line 366
+    .line 327
     :cond_0
     return v3
 
-    .line 367
+    .line 328
     :catch_0
     move-exception v0
 
-    .line 368
+    .line 329
     .local v0, "ex":Ljava/lang/ArrayIndexOutOfBoundsException;
     const-string/jumbo v1, "InputManager"
 
@@ -1935,45 +1432,95 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 369
+    .line 330
     return v3
 .end method
 
-.method public switchKeyboardLayout(Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;)Z
-    .locals 2
-    .param p1, "imeHandle"    # Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;
+.method public switchKeyboardLayout(I)Z
+    .locals 6
+    .param p1, "direction"    # I
 
     .prologue
-    .line 448
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
+    const/4 v3, 0x1
 
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v2, 0x0
 
-    move-result-object v0
+    .line 392
+    iget-object v4, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    check-cast v0, Ljava/lang/String;
-
-    .line 449
-    .local v0, "layout":Ljava/lang/String;
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
-
-    invoke-static {v1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    .line 393
+    .local v1, "size":I
+    const/4 v4, 0x2
 
-    .line 450
-    iput-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
+    if-ge v1, v4, :cond_0
 
-    .line 451
-    const/4 v1, 0x1
+    .line 394
+    return v2
 
-    return v1
-
-    .line 453
+    .line 396
     :cond_0
-    const/4 v1, 0x0
+    iget-object v4, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
-    return v1
+    iget-object v5, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
+
+    invoke-static {v4, v5}, Ljava/util/Collections;->binarySearch(Ljava/util/List;Ljava/lang/Object;)I
+
+    move-result v0
+
+    .line 397
+    .local v0, "index":I
+    sget-boolean v4, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->-assertionsDisabled:Z
+
+    if-nez v4, :cond_2
+
+    if-ltz v0, :cond_1
+
+    move v2, v3
+
+    :cond_1
+    if-nez v2, :cond_2
+
+    new-instance v2, Ljava/lang/AssertionError;
+
+    invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
+
+    throw v2
+
+    .line 398
+    :cond_2
+    if-lez p1, :cond_3
+
+    .line 399
+    add-int/lit8 v2, v0, 0x1
+
+    rem-int v0, v2, v1
+
+    .line 403
+    :goto_0
+    iget-object v2, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    iput-object v2, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
+
+    .line 404
+    return v3
+
+    .line 401
+    :cond_3
+    add-int v2, v0, v1
+
+    add-int/lit8 v2, v2, -0x1
+
+    rem-int v0, v2, v1
+
+    goto :goto_0
 .end method

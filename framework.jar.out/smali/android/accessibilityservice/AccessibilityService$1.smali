@@ -3,12 +3,12 @@
 .source "AccessibilityService.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/accessibilityservice/AccessibilityService$Callbacks;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/accessibilityservice/AccessibilityService;->onPerformGestureResult(IZ)V
+    value = Landroid/accessibilityservice/AccessibilityService;->onBind(Landroid/content/Intent;)Landroid/os/IBinder;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,25 +20,15 @@
 # instance fields
 .field final synthetic this$0:Landroid/accessibilityservice/AccessibilityService;
 
-.field final synthetic val$completedSuccessfully:Z
-
-.field final synthetic val$finalCallbackInfo:Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;
-
 
 # direct methods
-.method constructor <init>(Landroid/accessibilityservice/AccessibilityService;ZLandroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;)V
+.method constructor <init>(Landroid/accessibilityservice/AccessibilityService;)V
     .locals 0
     .param p1, "this$0"    # Landroid/accessibilityservice/AccessibilityService;
-    .param p2, "val$completedSuccessfully"    # Z
-    .param p3, "val$finalCallbackInfo"    # Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;
 
     .prologue
-    .line 666
+    .line 645
     iput-object p1, p0, Landroid/accessibilityservice/AccessibilityService$1;->this$0:Landroid/accessibilityservice/AccessibilityService;
-
-    iput-boolean p2, p0, Landroid/accessibilityservice/AccessibilityService$1;->val$completedSuccessfully:Z
-
-    iput-object p3, p0, Landroid/accessibilityservice/AccessibilityService$1;->val$finalCallbackInfo:Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,45 +37,107 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public init(ILandroid/os/IBinder;)V
+    .locals 3
+    .param p1, "connectionId"    # I
+    .param p2, "windowToken"    # Landroid/os/IBinder;
 
     .prologue
-    .line 669
-    iget-boolean v0, p0, Landroid/accessibilityservice/AccessibilityService$1;->val$completedSuccessfully:Z
+    .line 663
+    iget-object v1, p0, Landroid/accessibilityservice/AccessibilityService$1;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
-    if-eqz v0, :cond_0
+    invoke-static {v1, p1}, Landroid/accessibilityservice/AccessibilityService;->-set0(Landroid/accessibilityservice/AccessibilityService;I)I
 
-    .line 670
-    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$1;->val$finalCallbackInfo:Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;
+    .line 664
+    iget-object v1, p0, Landroid/accessibilityservice/AccessibilityService$1;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
-    iget-object v0, v0, Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;->callback:Landroid/accessibilityservice/AccessibilityService$GestureResultCallback;
-
-    .line 671
-    iget-object v1, p0, Landroid/accessibilityservice/AccessibilityService$1;->val$finalCallbackInfo:Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;
-
-    iget-object v1, v1, Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;->gestureDescription:Landroid/accessibilityservice/GestureDescription;
-
-    .line 670
-    invoke-virtual {v0, v1}, Landroid/accessibilityservice/AccessibilityService$GestureResultCallback;->onCompleted(Landroid/accessibilityservice/GestureDescription;)V
+    invoke-static {v1, p2}, Landroid/accessibilityservice/AccessibilityService;->-set1(Landroid/accessibilityservice/AccessibilityService;Landroid/os/IBinder;)Landroid/os/IBinder;
 
     .line 668
-    :goto_0
+    iget-object v1, p0, Landroid/accessibilityservice/AccessibilityService$1;->this$0:Landroid/accessibilityservice/AccessibilityService;
+
+    const-string/jumbo v2, "window"
+
+    invoke-virtual {v1, v2}, Landroid/accessibilityservice/AccessibilityService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/WindowManagerImpl;
+
+    .line 669
+    .local v0, "wm":Landroid/view/WindowManagerImpl;
+    invoke-virtual {v0, p2}, Landroid/view/WindowManagerImpl;->setDefaultToken(Landroid/os/IBinder;)V
+
+    .line 662
     return-void
+.end method
 
-    .line 673
-    :cond_0
-    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$1;->val$finalCallbackInfo:Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;
+.method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+    .locals 1
+    .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
-    iget-object v0, v0, Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;->callback:Landroid/accessibilityservice/AccessibilityService$GestureResultCallback;
+    .prologue
+    .line 658
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$1;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
+    invoke-virtual {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+
+    .line 657
+    return-void
+.end method
+
+.method public onGesture(I)Z
+    .locals 1
+    .param p1, "gestureId"    # I
+
+    .prologue
     .line 674
-    iget-object v1, p0, Landroid/accessibilityservice/AccessibilityService$1;->val$finalCallbackInfo:Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$1;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
-    iget-object v1, v1, Landroid/accessibilityservice/AccessibilityService$GestureResultCallbackInfo;->gestureDescription:Landroid/accessibilityservice/GestureDescription;
+    invoke-virtual {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->onGesture(I)Z
 
-    .line 673
-    invoke-virtual {v0, v1}, Landroid/accessibilityservice/AccessibilityService$GestureResultCallback;->onCancelled(Landroid/accessibilityservice/GestureDescription;)V
+    move-result v0
 
-    goto :goto_0
+    return v0
+.end method
+
+.method public onInterrupt()V
+    .locals 1
+
+    .prologue
+    .line 653
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$1;->this$0:Landroid/accessibilityservice/AccessibilityService;
+
+    invoke-virtual {v0}, Landroid/accessibilityservice/AccessibilityService;->onInterrupt()V
+
+    .line 652
+    return-void
+.end method
+
+.method public onKeyEvent(Landroid/view/KeyEvent;)Z
+    .locals 1
+    .param p1, "event"    # Landroid/view/KeyEvent;
+
+    .prologue
+    .line 679
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$1;->this$0:Landroid/accessibilityservice/AccessibilityService;
+
+    invoke-virtual {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->onKeyEvent(Landroid/view/KeyEvent;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public onServiceConnected()V
+    .locals 1
+
+    .prologue
+    .line 648
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$1;->this$0:Landroid/accessibilityservice/AccessibilityService;
+
+    invoke-virtual {v0}, Landroid/accessibilityservice/AccessibilityService;->onServiceConnected()V
+
+    .line 647
+    return-void
 .end method

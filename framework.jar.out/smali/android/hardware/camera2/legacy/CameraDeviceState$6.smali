@@ -48,7 +48,7 @@
 
     move-result-object v0
 
-    invoke-interface {v0}, Landroid/hardware/camera2/legacy/CameraDeviceState$CameraDeviceStateListener;->onConfiguring()V
+    invoke-interface {v0}, Landroid/hardware/camera2/legacy/CameraDeviceState$CameraDeviceStateListener;->onIdle()V
 
     .line 282
     return-void

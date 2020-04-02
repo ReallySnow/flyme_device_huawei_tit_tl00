@@ -25,13 +25,13 @@
     .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
-    .line 3914
+    .line 3852
     iput-object p1, p0, Landroid/media/MediaPlayer$TimeProvider$EventHandler;->this$1:Landroid/media/MediaPlayer$TimeProvider;
 
-    .line 3915
+    .line 3853
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 3914
+    .line 3852
     return-void
 .end method
 
@@ -44,22 +44,22 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 3920
+    .line 3858
     iget v0, p1, Landroid/os/Message;->what:I
 
     if-ne v0, v1, :cond_0
 
-    .line 3921
+    .line 3859
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 3919
+    .line 3857
     :cond_0
     :goto_0
     return-void
 
-    .line 3923
+    .line 3861
     :pswitch_0
     iget-object v0, p0, Landroid/media/MediaPlayer$TimeProvider$EventHandler;->this$1:Landroid/media/MediaPlayer$TimeProvider;
 
@@ -69,7 +69,7 @@
 
     goto :goto_0
 
-    .line 3926
+    .line 3864
     :pswitch_1
     iget-object v0, p0, Landroid/media/MediaPlayer$TimeProvider$EventHandler;->this$1:Landroid/media/MediaPlayer$TimeProvider;
 
@@ -77,7 +77,7 @@
 
     goto :goto_0
 
-    .line 3929
+    .line 3867
     :pswitch_2
     iget-object v0, p0, Landroid/media/MediaPlayer$TimeProvider$EventHandler;->this$1:Landroid/media/MediaPlayer$TimeProvider;
 
@@ -85,7 +85,7 @@
 
     goto :goto_0
 
-    .line 3932
+    .line 3870
     :pswitch_3
     iget-object v0, p0, Landroid/media/MediaPlayer$TimeProvider$EventHandler;->this$1:Landroid/media/MediaPlayer$TimeProvider;
 
@@ -93,25 +93,12 @@
 
     goto :goto_0
 
-    .line 3935
-    :pswitch_4
-    iget-object v1, p0, Landroid/media/MediaPlayer$TimeProvider$EventHandler;->this$1:Landroid/media/MediaPlayer$TimeProvider;
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Landroid/util/Pair;
-
-    invoke-static {v1, v0}, Landroid/media/MediaPlayer$TimeProvider;->-wrap3(Landroid/media/MediaPlayer$TimeProvider;Landroid/util/Pair;)V
-
-    goto :goto_0
-
-    .line 3921
+    .line 3859
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
         :pswitch_1
         :pswitch_2
         :pswitch_3
-        :pswitch_4
     .end packed-switch
 .end method

@@ -15,22 +15,6 @@
 
 
 # virtual methods
-.method public abstract registrationAssociatedUriChanged([Landroid/net/Uri;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract registrationChangeFailed(ILcom/android/ims/ImsReasonInfo;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract registrationConnected()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -39,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract registrationConnectedWithRadioTech(I)V
+.method public abstract registrationConnected(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +55,7 @@
     .end annotation
 .end method
 
-.method public abstract registrationProgressingWithRadioTech(I)V
+.method public abstract registrationProgressing(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

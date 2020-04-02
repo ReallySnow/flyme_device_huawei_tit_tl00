@@ -39,16 +39,16 @@
     .locals 1
 
     .prologue
-    .line 580
+    .line 570
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 609
+    .line 599
     new-instance v0, Landroid/graphics/Region;
 
     invoke-direct {v0}, Landroid/graphics/Region;-><init>()V
 
     iput-object v0, p0, Landroid/inputmethodservice/InputMethodService$Insets;->touchableRegion:Landroid/graphics/Region;
 
-    .line 580
+    .line 570
     return-void
 .end method

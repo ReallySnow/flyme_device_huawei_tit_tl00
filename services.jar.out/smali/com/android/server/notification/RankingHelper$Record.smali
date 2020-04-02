@@ -23,13 +23,15 @@
 
 .field mFlymeRemind:Z
 
-.field importance:I
+.field keyguard:I
+
+.field notificationSoundTimeout:J
+
+.field peekable:Z
 
 .field pkg:Ljava/lang/String;
 
 .field priority:I
-
-.field soundTimeout:J
 
 .field uid:I
 
@@ -41,12 +43,12 @@
     .locals 1
 
     .prologue
-    .line 558
+    .line 504
     const/16 v0, -0x2710
 
     sput v0, Lcom/android/server/notification/RankingHelper$Record;->UNKNOWN_UID:I
 
-    .line 557
+    .line 503
     return-void
 .end method
 
@@ -54,7 +56,7 @@
     .locals 2
 
     .prologue
-    const/16 v1, -0x3e8
+    const/4 v1, 0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -62,17 +64,21 @@
 
     iput v0, p0, Lcom/android/server/notification/RankingHelper$Record;->uid:I
 
-    iput v1, p0, Lcom/android/server/notification/RankingHelper$Record;->importance:I
-
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/notification/RankingHelper$Record;->priority:I
 
-    iput v1, p0, Lcom/android/server/notification/RankingHelper$Record;->visibility:I
+    iput-boolean v1, p0, Lcom/android/server/notification/RankingHelper$Record;->peekable:Z
+
+    const/16 v0, -0x3e8
+
+    iput v0, p0, Lcom/android/server/notification/RankingHelper$Record;->visibility:I
+
+    iput v1, p0, Lcom/android/server/notification/RankingHelper$Record;->keyguard:I
 
     const-wide/16 v0, 0x0
 
-    iput-wide v0, p0, Lcom/android/server/notification/RankingHelper$Record;->soundTimeout:J
+    iput-wide v0, p0, Lcom/android/server/notification/RankingHelper$Record;->notificationSoundTimeout:J
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/RankingHelper$Record;->initFlymeExtraFields()V
 

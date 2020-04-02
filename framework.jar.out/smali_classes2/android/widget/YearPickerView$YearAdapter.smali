@@ -15,11 +15,11 @@
 
 
 # static fields
-.field private static final ITEM_LAYOUT:I = 0x109010e
+.field private static final ITEM_LAYOUT:I = 0x1090102
 
-.field private static final ITEM_TEXT_ACTIVATED_APPEARANCE:I = 0x1030429
+.field private static final ITEM_TEXT_ACTIVATED_APPEARANCE:I = 0x1030426
 
-.field private static final ITEM_TEXT_APPEARANCE:I = 0x1030428
+.field private static final ITEM_TEXT_APPEARANCE:I = 0x1030425
 
 
 # instance fields
@@ -38,17 +38,17 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 120
+    .line 127
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 121
+    .line 128
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/widget/YearPickerView$YearAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 120
+    .line 127
     return-void
 .end method
 
@@ -58,7 +58,7 @@
     .locals 1
 
     .prologue
-    .line 217
+    .line 224
     const/4 v0, 0x1
 
     return v0
@@ -68,7 +68,7 @@
     .locals 1
 
     .prologue
-    .line 146
+    .line 153
     iget v0, p0, Landroid/widget/YearPickerView$YearAdapter;->mCount:I
 
     return v0
@@ -79,7 +79,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 151
+    .line 158
     invoke-virtual {p0, p1}, Landroid/widget/YearPickerView$YearAdapter;->getYearForPosition(I)I
 
     move-result v0
@@ -96,7 +96,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 150
+    .line 157
     invoke-virtual {p0, p1}, Landroid/widget/YearPickerView$YearAdapter;->getItem(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -109,7 +109,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 156
+    .line 163
     invoke-virtual {p0, p1}, Landroid/widget/YearPickerView$YearAdapter;->getYearForPosition(I)I
 
     move-result v0
@@ -124,7 +124,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 202
+    .line 209
     const/4 v0, 0x0
 
     return v0
@@ -135,7 +135,7 @@
     .param p1, "year"    # I
 
     .prologue
-    .line 160
+    .line 167
     iget v0, p0, Landroid/widget/YearPickerView$YearAdapter;->mMinYear:I
 
     sub-int v0, p1, v0
@@ -150,37 +150,37 @@
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    const/4 v5, 0x0
-
-    .line 175
+    .line 182
     if-nez p2, :cond_2
 
     const/4 v1, 0x1
 
-    .line 176
+    .line 183
     .local v1, "hasNewView":Z
     :goto_0
     if-eqz v1, :cond_3
 
-    .line 177
-    iget-object v6, p0, Landroid/widget/YearPickerView$YearAdapter;->mInflater:Landroid/view/LayoutInflater;
+    .line 184
+    iget-object v5, p0, Landroid/widget/YearPickerView$YearAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x109010e
+    const v6, 0x1090102
 
-    invoke-virtual {v6, v7, p3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    const/4 v7, 0x0
+
+    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v3
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 182
+    .line 189
     .local v3, "v":Landroid/widget/TextView;
     :goto_1
     invoke-virtual {p0, p1}, Landroid/widget/YearPickerView$YearAdapter;->getYearForPosition(I)I
 
     move-result v4
 
-    .line 183
+    .line 190
     .local v4, "year":I
     iget v5, p0, Landroid/widget/YearPickerView$YearAdapter;->mActivatedYear:I
 
@@ -188,7 +188,7 @@
 
     const/4 v0, 0x1
 
-    .line 185
+    .line 192
     .local v0, "activated":Z
     :goto_2
     if-nez v1, :cond_0
@@ -199,22 +199,22 @@
 
     if-eq v5, v0, :cond_1
 
-    .line 187
+    .line 194
     :cond_0
     if-eqz v0, :cond_5
 
-    .line 188
-    const v2, 0x1030429
+    .line 195
+    const v2, 0x1030426
 
-    .line 192
+    .line 199
     .local v2, "textAppearanceResId":I
     :goto_3
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setTextAppearance(I)V
 
-    .line 193
+    .line 200
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setActivated(Z)V
 
-    .line 196
+    .line 203
     .end local v2    # "textAppearanceResId":I
     :cond_1
     invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -223,30 +223,30 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 197
+    .line 204
     return-object v3
 
+    .line 182
     .end local v0    # "activated":Z
     .end local v1    # "hasNewView":Z
     .end local v3    # "v":Landroid/widget/TextView;
     .end local v4    # "year":I
     :cond_2
-    move v1, v5
-
-    .line 175
-    goto :goto_0
+    const/4 v1, 0x0
 
     .restart local v1    # "hasNewView":Z
+    goto :goto_0
+
     :cond_3
     move-object v3, p2
 
-    .line 179
+    .line 186
     check-cast v3, Landroid/widget/TextView;
 
     .restart local v3    # "v":Landroid/widget/TextView;
     goto :goto_1
 
-    .line 183
+    .line 190
     .restart local v4    # "year":I
     :cond_4
     const/4 v0, 0x0
@@ -254,9 +254,9 @@
     .restart local v0    # "activated":Z
     goto :goto_2
 
-    .line 190
+    .line 197
     :cond_5
-    const v2, 0x1030428
+    const v2, 0x1030425
 
     .restart local v2    # "textAppearanceResId":I
     goto :goto_3
@@ -266,7 +266,7 @@
     .locals 1
 
     .prologue
-    .line 207
+    .line 214
     const/4 v0, 0x1
 
     return v0
@@ -277,7 +277,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 164
+    .line 171
     iget v0, p0, Landroid/widget/YearPickerView$YearAdapter;->mMinYear:I
 
     add-int/2addr v0, p1
@@ -289,7 +289,7 @@
     .locals 1
 
     .prologue
-    .line 169
+    .line 176
     const/4 v0, 0x1
 
     return v0
@@ -299,7 +299,7 @@
     .locals 1
 
     .prologue
-    .line 212
+    .line 219
     const/4 v0, 0x0
 
     return v0
@@ -310,28 +310,28 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 222
+    .line 229
     const/4 v0, 0x1
 
     return v0
 .end method
 
-.method public setRange(Landroid/icu/util/Calendar;Landroid/icu/util/Calendar;)V
+.method public setRange(Ljava/util/Calendar;Ljava/util/Calendar;)V
     .locals 3
-    .param p1, "minDate"    # Landroid/icu/util/Calendar;
-    .param p2, "maxDate"    # Landroid/icu/util/Calendar;
+    .param p1, "minDate"    # Ljava/util/Calendar;
+    .param p2, "maxDate"    # Ljava/util/Calendar;
 
     .prologue
     const/4 v2, 0x1
 
-    .line 125
-    invoke-virtual {p1, v2}, Landroid/icu/util/Calendar;->get(I)I
+    .line 132
+    invoke-virtual {p1, v2}, Ljava/util/Calendar;->get(I)I
 
     move-result v1
 
-    .line 126
+    .line 133
     .local v1, "minYear":I
-    invoke-virtual {p2, v2}, Landroid/icu/util/Calendar;->get(I)I
+    invoke-virtual {p2, v2}, Ljava/util/Calendar;->get(I)I
 
     move-result v2
 
@@ -339,7 +339,7 @@
 
     add-int/lit8 v0, v2, 0x1
 
-    .line 128
+    .line 135
     .local v0, "count":I
     iget v2, p0, Landroid/widget/YearPickerView$YearAdapter;->mMinYear:I
 
@@ -349,17 +349,17 @@
 
     if-eq v2, v0, :cond_1
 
-    .line 129
+    .line 136
     :cond_0
     iput v1, p0, Landroid/widget/YearPickerView$YearAdapter;->mMinYear:I
 
-    .line 130
+    .line 137
     iput v0, p0, Landroid/widget/YearPickerView$YearAdapter;->mCount:I
 
-    .line 131
+    .line 138
     invoke-virtual {p0}, Landroid/widget/YearPickerView$YearAdapter;->notifyDataSetInvalidated()V
 
-    .line 124
+    .line 131
     :cond_1
     return-void
 .end method
@@ -369,23 +369,23 @@
     .param p1, "year"    # I
 
     .prologue
-    .line 136
+    .line 143
     iget v0, p0, Landroid/widget/YearPickerView$YearAdapter;->mActivatedYear:I
 
     if-eq v0, p1, :cond_0
 
-    .line 137
+    .line 144
     iput p1, p0, Landroid/widget/YearPickerView$YearAdapter;->mActivatedYear:I
 
-    .line 138
+    .line 145
     invoke-virtual {p0}, Landroid/widget/YearPickerView$YearAdapter;->notifyDataSetChanged()V
 
-    .line 139
+    .line 146
     const/4 v0, 0x1
 
     return v0
 
-    .line 141
+    .line 148
     :cond_0
     const/4 v0, 0x0
 

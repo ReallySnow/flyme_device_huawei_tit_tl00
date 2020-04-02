@@ -87,15 +87,7 @@
     .end annotation
 .end method
 
-.method public abstract recordVideoCallData(Ljava/lang/String;IJJ)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract registerUsageCallback(Ljava/lang/String;Landroid/net/DataUsageRequest;Landroid/os/Messenger;Landroid/os/IBinder;)Landroid/net/DataUsageRequest;
+.method public abstract resetDataUsageHistoryForAllUid(Landroid/net/NetworkTemplate;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -104,14 +96,6 @@
 .end method
 
 .method public abstract setUidForeground(IZ)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract unregisterUsageRequest(Landroid/net/DataUsageRequest;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

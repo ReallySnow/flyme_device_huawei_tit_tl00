@@ -20,13 +20,13 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Landroid/view/animation/Animation;Landroid/view/animation/Animation;)J
+.method static synthetic -wrap0(Lcom/android/server/policy/StatusBarController;Landroid/view/animation/Animation;Landroid/view/animation/Animation;)J
     .locals 2
-    .param p0, "openAnimation"    # Landroid/view/animation/Animation;
-    .param p1, "closeAnimation"    # Landroid/view/animation/Animation;
+    .param p1, "openAnimation"    # Landroid/view/animation/Animation;
+    .param p2, "closeAnimation"    # Landroid/view/animation/Animation;
 
     .prologue
-    invoke-static {p0, p1}, Lcom/android/server/policy/StatusBarController;->calculateStatusBarTransitionStartTime(Landroid/view/animation/Animation;Landroid/view/animation/Animation;)J
+    invoke-direct {p0, p1, p2}, Lcom/android/server/policy/StatusBarController;->calculateStatusBarTransitionStartTime(Landroid/view/animation/Animation;Landroid/view/animation/Animation;)J
 
     move-result-wide v0
 
@@ -34,32 +34,29 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 8
+    .locals 7
 
     .prologue
     const/high16 v2, 0x4000000
 
-    .line 105
+    .line 109
     const-string/jumbo v1, "StatusBar"
 
-    .line 107
+    .line 111
     const/high16 v3, 0x10000000
 
-    .line 108
+    .line 112
     const/high16 v4, 0x40000000    # 2.0f
 
-    .line 109
+    .line 113
     const/4 v5, 0x1
-
-    .line 111
-    const/16 v7, 0x8
 
     move-object v0, p0
 
     move v6, v2
 
-    .line 105
-    invoke-direct/range {v0 .. v7}, Lcom/android/server/policy/BarController;-><init>(Ljava/lang/String;IIIIII)V
+    .line 109
+    invoke-direct/range {v0 .. v6}, Lcom/android/server/policy/BarController;-><init>(Ljava/lang/String;IIIII)V
 
     .line 43
     new-instance v0, Lcom/android/server/policy/StatusBarController$1;
@@ -69,60 +66,60 @@
     .line 42
     iput-object v0, p0, Lcom/android/server/policy/StatusBarController;->mAppTransitionListener:Landroid/view/WindowManagerInternal$AppTransitionListener;
 
-    .line 104
+    .line 108
     return-void
 .end method
 
-.method private static calculateStatusBarTransitionStartTime(Landroid/view/animation/Animation;Landroid/view/animation/Animation;)J
+.method private calculateStatusBarTransitionStartTime(Landroid/view/animation/Animation;Landroid/view/animation/Animation;)J
     .locals 8
-    .param p0, "openAnimation"    # Landroid/view/animation/Animation;
-    .param p1, "closeAnimation"    # Landroid/view/animation/Animation;
+    .param p1, "openAnimation"    # Landroid/view/animation/Animation;
+    .param p2, "closeAnimation"    # Landroid/view/animation/Animation;
 
     .prologue
-    .line 131
-    if-eqz p0, :cond_2
-
+    .line 129
     if-eqz p1, :cond_2
 
-    .line 132
-    invoke-static {p0}, Lcom/android/server/policy/StatusBarController;->findTranslateAnimation(Landroid/view/animation/Animation;)Landroid/view/animation/TranslateAnimation;
+    if-eqz p2, :cond_2
+
+    .line 130
+    invoke-direct {p0, p1}, Lcom/android/server/policy/StatusBarController;->findTranslateAnimation(Landroid/view/animation/Animation;)Landroid/view/animation/TranslateAnimation;
 
     move-result-object v1
 
-    .line 133
+    .line 131
     .local v1, "openTranslateAnimation":Landroid/view/animation/TranslateAnimation;
-    invoke-static {p1}, Lcom/android/server/policy/StatusBarController;->findTranslateAnimation(Landroid/view/animation/Animation;)Landroid/view/animation/TranslateAnimation;
+    invoke-direct {p0, p2}, Lcom/android/server/policy/StatusBarController;->findTranslateAnimation(Landroid/view/animation/Animation;)Landroid/view/animation/TranslateAnimation;
 
     move-result-object v0
 
-    .line 134
+    .line 132
     .local v0, "closeTranslateAnimation":Landroid/view/animation/TranslateAnimation;
     if-eqz v1, :cond_0
 
-    .line 139
+    .line 137
     invoke-virtual {v1}, Landroid/view/animation/TranslateAnimation;->getInterpolator()Landroid/view/animation/Interpolator;
 
     move-result-object v3
 
-    invoke-static {v3}, Lcom/android/server/policy/StatusBarController;->findAlmostThereFraction(Landroid/view/animation/Interpolator;)F
+    invoke-direct {p0, v3}, Lcom/android/server/policy/StatusBarController;->findAlmostThereFraction(Landroid/view/animation/Interpolator;)F
 
     move-result v2
 
-    .line 140
+    .line 138
     .local v2, "t":F
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
-    .line 141
+    .line 139
     invoke-virtual {v1}, Landroid/view/animation/TranslateAnimation;->getStartOffset()J
 
     move-result-wide v6
 
-    .line 140
+    .line 138
     add-long/2addr v4, v6
 
-    .line 142
+    .line 140
     invoke-virtual {v1}, Landroid/view/animation/TranslateAnimation;->getDuration()J
 
     move-result-wide v6
@@ -133,30 +130,30 @@
 
     float-to-long v6, v3
 
-    .line 140
+    .line 138
     add-long/2addr v4, v6
 
-    .line 142
+    .line 140
     const-wide/16 v6, 0x78
 
-    .line 140
+    .line 138
     sub-long/2addr v4, v6
 
     return-wide v4
 
-    .line 143
+    .line 141
     .end local v2    # "t":F
     :cond_0
     if-eqz v0, :cond_1
 
-    .line 144
+    .line 142
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
     return-wide v4
 
-    .line 146
+    .line 144
     :cond_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -164,7 +161,7 @@
 
     return-wide v4
 
-    .line 149
+    .line 147
     .end local v0    # "closeTranslateAnimation":Landroid/view/animation/TranslateAnimation;
     .end local v1    # "openTranslateAnimation":Landroid/view/animation/TranslateAnimation;
     :cond_2
@@ -175,19 +172,19 @@
     return-wide v4
 .end method
 
-.method private static findAlmostThereFraction(Landroid/view/animation/Interpolator;)F
+.method private findAlmostThereFraction(Landroid/view/animation/Interpolator;)F
     .locals 4
-    .param p0, "interpolator"    # Landroid/view/animation/Interpolator;
+    .param p1, "interpolator"    # Landroid/view/animation/Interpolator;
 
     .prologue
-    .line 178
+    .line 176
     const/high16 v1, 0x3f000000    # 0.5f
 
-    .line 179
+    .line 177
     .local v1, "val":F
     const/high16 v0, 0x3e800000    # 0.25f
 
-    .line 180
+    .line 178
     .local v0, "adj":F
     :goto_0
     const v2, 0x3c23d70a    # 0.01f
@@ -196,8 +193,8 @@
 
     if-ltz v2, :cond_1
 
-    .line 181
-    invoke-interface {p0, v1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    .line 179
+    invoke-interface {p1, v1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
     move-result v2
 
@@ -207,10 +204,10 @@
 
     if-gez v2, :cond_0
 
-    .line 182
+    .line 180
     add-float/2addr v1, v0
 
-    .line 186
+    .line 184
     :goto_1
     const/high16 v2, 0x40000000    # 2.0f
 
@@ -218,46 +215,46 @@
 
     goto :goto_0
 
-    .line 184
+    .line 182
     :cond_0
     sub-float/2addr v1, v0
 
     goto :goto_1
 
-    .line 188
+    .line 186
     :cond_1
     return v1
 .end method
 
-.method private static findTranslateAnimation(Landroid/view/animation/Animation;)Landroid/view/animation/TranslateAnimation;
+.method private findTranslateAnimation(Landroid/view/animation/Animation;)Landroid/view/animation/TranslateAnimation;
     .locals 4
-    .param p0, "animation"    # Landroid/view/animation/Animation;
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .prologue
-    .line 159
-    instance-of v3, p0, Landroid/view/animation/TranslateAnimation;
+    .line 157
+    instance-of v3, p1, Landroid/view/animation/TranslateAnimation;
 
     if-eqz v3, :cond_0
 
-    .line 160
-    check-cast p0, Landroid/view/animation/TranslateAnimation;
+    .line 158
+    check-cast p1, Landroid/view/animation/TranslateAnimation;
 
-    .end local p0    # "animation":Landroid/view/animation/Animation;
-    return-object p0
+    .end local p1    # "animation":Landroid/view/animation/Animation;
+    return-object p1
 
-    .line 161
-    .restart local p0    # "animation":Landroid/view/animation/Animation;
+    .line 159
+    .restart local p1    # "animation":Landroid/view/animation/Animation;
     :cond_0
-    instance-of v3, p0, Landroid/view/animation/AnimationSet;
+    instance-of v3, p1, Landroid/view/animation/AnimationSet;
 
     if-eqz v3, :cond_2
 
-    move-object v2, p0
+    move-object v2, p1
 
-    .line 162
+    .line 160
     check-cast v2, Landroid/view/animation/AnimationSet;
 
-    .line 163
+    .line 161
     .local v2, "set":Landroid/view/animation/AnimationSet;
     const/4 v1, 0x0
 
@@ -273,7 +270,7 @@
 
     if-ge v1, v3, :cond_2
 
-    .line 164
+    .line 162
     invoke-virtual {v2}, Landroid/view/animation/AnimationSet;->getAnimations()Ljava/util/List;
 
     move-result-object v3
@@ -284,26 +281,26 @@
 
     check-cast v0, Landroid/view/animation/Animation;
 
-    .line 165
+    .line 163
     .local v0, "a":Landroid/view/animation/Animation;
     instance-of v3, v0, Landroid/view/animation/TranslateAnimation;
 
     if-eqz v3, :cond_1
 
-    .line 166
+    .line 164
     check-cast v0, Landroid/view/animation/TranslateAnimation;
 
     .end local v0    # "a":Landroid/view/animation/Animation;
     return-object v0
 
-    .line 163
+    .line 161
     .restart local v0    # "a":Landroid/view/animation/Animation;
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 170
+    .line 168
     .end local v0    # "a":Landroid/view/animation/Animation;
     .end local v1    # "i":I
     .end local v2    # "set":Landroid/view/animation/AnimationSet;
@@ -319,36 +316,8 @@
     .locals 1
 
     .prologue
-    .line 120
+    .line 118
     iget-object v0, p0, Lcom/android/server/policy/StatusBarController;->mAppTransitionListener:Landroid/view/WindowManagerInternal$AppTransitionListener;
 
     return-object v0
-.end method
-
-.method protected skipAnimation()Z
-    .locals 2
-
-    .prologue
-    .line 116
-    iget-object v0, p0, Lcom/android/server/policy/StatusBarController;->mWin:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->height:I
-
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method

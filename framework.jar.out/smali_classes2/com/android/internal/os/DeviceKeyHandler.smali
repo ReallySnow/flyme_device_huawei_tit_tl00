@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract handleKeyEvent(Landroid/view/KeyEvent;)Landroid/view/KeyEvent;
+.method public abstract handleKeyEvent(Landroid/view/KeyEvent;)Z
 .end method

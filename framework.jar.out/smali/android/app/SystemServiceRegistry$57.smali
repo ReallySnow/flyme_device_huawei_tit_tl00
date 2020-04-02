@@ -1,5 +1,5 @@
 .class final Landroid/app/SystemServiceRegistry$57;
-.super Landroid/app/SystemServiceRegistry$CachedServiceFetcher;
+.super Landroid/app/SystemServiceRegistry$StaticServiceFetcher;
 .source "SystemServiceRegistry.java"
 
 
@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
+        "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
         "<",
-        "Landroid/media/session/MediaSessionManager;",
+        "Landroid/app/trust/TrustManager;",
         ">;"
     }
 .end annotation
@@ -28,34 +28,40 @@
     .locals 0
 
     .prologue
-    .line 624
-    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
+    .line 606
+    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/media/session/MediaSessionManager;
-    .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
+.method public createService()Landroid/app/trust/TrustManager;
+    .locals 2
 
     .prologue
-    .line 627
-    new-instance v0, Landroid/media/session/MediaSessionManager;
+    .line 609
+    const-string/jumbo v1, "trust"
 
-    invoke-direct {v0, p1}, Landroid/media/session/MediaSessionManager;-><init>(Landroid/content/Context;)V
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    return-object v0
+    move-result-object v0
+
+    .line 610
+    .local v0, "b":Landroid/os/IBinder;
+    new-instance v1, Landroid/app/trust/TrustManager;
+
+    invoke-direct {v1, v0}, Landroid/app/trust/TrustManager;-><init>(Landroid/os/IBinder;)V
+
+    return-object v1
 .end method
 
-.method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+.method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
-    .param p1, "ctx"    # Landroid/app/ContextImpl;
 
     .prologue
-    .line 626
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$57;->createService(Landroid/app/ContextImpl;)Landroid/media/session/MediaSessionManager;
+    .line 608
+    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$57;->createService()Landroid/app/trust/TrustManager;
 
     move-result-object v0
 

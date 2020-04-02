@@ -26,15 +26,15 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.ims.internal.IImsVideoCallCallback"
 
-.field static final TRANSACTION_changeCallDataUsage_4:I = 0x5
+.field static final TRANSACTION_changeCallDataUsage:I = 0x5
 
-.field static final TRANSACTION_changeCameraCapabilities_5:I = 0x6
+.field static final TRANSACTION_changeCameraCapabilities:I = 0x6
 
-.field static final TRANSACTION_changePeerDimensions_3:I = 0x4
+.field static final TRANSACTION_changePeerDimensions:I = 0x4
 
 .field static final TRANSACTION_changeVideoQuality:I = 0x7
 
-.field static final TRANSACTION_handleCallSessionEvent_2:I = 0x3
+.field static final TRANSACTION_handleCallSessionEvent:I = 0x3
 
 .field static final TRANSACTION_receiveSessionModifyRequest_0:I = 0x1
 

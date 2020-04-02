@@ -15,8 +15,8 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/telecom/Connection$VideoProvider$VideoProviderBinder;,
-        Landroid/telecom/Connection$VideoProvider$VideoProviderHandler;
+        Landroid/telecom/Connection$VideoProvider$VideoProviderHandler;,
+        Landroid/telecom/Connection$VideoProvider$VideoProviderBinder;
     }
 .end annotation
 
@@ -48,29 +48,15 @@
 
 .field public static final SESSION_EVENT_CAMERA_FAILURE:I = 0x5
 
-.field private static final SESSION_EVENT_CAMERA_FAILURE_STR:Ljava/lang/String; = "CAMERA_FAIL"
-
 .field public static final SESSION_EVENT_CAMERA_READY:I = 0x6
-
-.field private static final SESSION_EVENT_CAMERA_READY_STR:Ljava/lang/String; = "CAMERA_READY"
 
 .field public static final SESSION_EVENT_RX_PAUSE:I = 0x1
 
-.field private static final SESSION_EVENT_RX_PAUSE_STR:Ljava/lang/String; = "RX_PAUSE"
-
 .field public static final SESSION_EVENT_RX_RESUME:I = 0x2
-
-.field private static final SESSION_EVENT_RX_RESUME_STR:Ljava/lang/String; = "RX_RESUME"
 
 .field public static final SESSION_EVENT_TX_START:I = 0x3
 
-.field private static final SESSION_EVENT_TX_START_STR:Ljava/lang/String; = "TX_START"
-
 .field public static final SESSION_EVENT_TX_STOP:I = 0x4
-
-.field private static final SESSION_EVENT_TX_STOP_STR:Ljava/lang/String; = "TX_STOP"
-
-.field private static final SESSION_EVENT_UNKNOWN_STR:Ljava/lang/String; = "UNKNOWN"
 
 .field public static final SESSION_MODIFY_REQUEST_FAIL:I = 0x2
 
@@ -122,10 +108,10 @@
     .locals 4
 
     .prologue
-    .line 1108
+    .line 841
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 961
+    .line 694
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
     const/16 v1, 0x8
@@ -136,10 +122,10 @@
 
     invoke-direct {v0, v1, v2, v3}, Ljava/util/concurrent/ConcurrentHashMap;-><init>(IFI)V
 
-    .line 960
+    .line 693
     iput-object v0, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
-    .line 1109
+    .line 842
     new-instance v0, Landroid/telecom/Connection$VideoProvider$VideoProviderBinder;
 
     const/4 v1, 0x0
@@ -148,7 +134,7 @@
 
     iput-object v0, p0, Landroid/telecom/Connection$VideoProvider;->mBinder:Landroid/telecom/Connection$VideoProvider$VideoProviderBinder;
 
-    .line 1110
+    .line 843
     new-instance v0, Landroid/telecom/Connection$VideoProvider$VideoProviderHandler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -159,7 +145,7 @@
 
     iput-object v0, p0, Landroid/telecom/Connection$VideoProvider;->mMessageHandler:Landroid/telecom/Connection$VideoProvider$VideoProviderHandler;
 
-    .line 1108
+    .line 841
     return-void
 .end method
 
@@ -168,10 +154,10 @@
     .param p1, "looper"    # Landroid/os/Looper;
 
     .prologue
-    .line 1119
+    .line 852
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 961
+    .line 694
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
     const/16 v1, 0x8
@@ -182,10 +168,10 @@
 
     invoke-direct {v0, v1, v2, v3}, Ljava/util/concurrent/ConcurrentHashMap;-><init>(IFI)V
 
-    .line 960
+    .line 693
     iput-object v0, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
-    .line 1120
+    .line 853
     new-instance v0, Landroid/telecom/Connection$VideoProvider$VideoProviderBinder;
 
     const/4 v1, 0x0
@@ -194,92 +180,15 @@
 
     iput-object v0, p0, Landroid/telecom/Connection$VideoProvider;->mBinder:Landroid/telecom/Connection$VideoProvider$VideoProviderBinder;
 
-    .line 1121
+    .line 854
     new-instance v0, Landroid/telecom/Connection$VideoProvider$VideoProviderHandler;
 
     invoke-direct {v0, p0, p1}, Landroid/telecom/Connection$VideoProvider$VideoProviderHandler;-><init>(Landroid/telecom/Connection$VideoProvider;Landroid/os/Looper;)V
 
     iput-object v0, p0, Landroid/telecom/Connection$VideoProvider;->mMessageHandler:Landroid/telecom/Connection$VideoProvider$VideoProviderHandler;
 
-    .line 1119
+    .line 852
     return-void
-.end method
-
-.method public static sessionEventToString(I)Ljava/lang/String;
-    .locals 2
-    .param p0, "event"    # I
-
-    .prologue
-    .line 1469
-    packed-switch p0, :pswitch_data_0
-
-    .line 1483
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "UNKNOWN "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-
-    .line 1471
-    :pswitch_0
-    const-string/jumbo v0, "CAMERA_FAIL"
-
-    return-object v0
-
-    .line 1473
-    :pswitch_1
-    const-string/jumbo v0, "CAMERA_READY"
-
-    return-object v0
-
-    .line 1475
-    :pswitch_2
-    const-string/jumbo v0, "RX_PAUSE"
-
-    return-object v0
-
-    .line 1477
-    :pswitch_3
-    const-string/jumbo v0, "RX_RESUME"
-
-    return-object v0
-
-    .line 1479
-    :pswitch_4
-    const-string/jumbo v0, "TX_START"
-
-    return-object v0
-
-    .line 1481
-    :pswitch_5
-    const-string/jumbo v0, "TX_STOP"
-
-    return-object v0
-
-    .line 1469
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_4
-        :pswitch_5
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
 .end method
 
 
@@ -289,10 +198,10 @@
     .param p1, "dataUsage"    # J
 
     .prologue
-    .line 1407
+    .line 1140
     invoke-virtual {p0, p1, p2}, Landroid/telecom/Connection$VideoProvider;->setCallDataUsage(J)V
 
-    .line 1406
+    .line 1139
     return-void
 .end method
 
@@ -301,12 +210,12 @@
     .param p1, "cameraCapabilities"    # Landroid/telecom/VideoProfile$CameraCapabilities;
 
     .prologue
-    .line 1425
+    .line 1158
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v3, :cond_0
 
-    .line 1426
+    .line 1159
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v3}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
@@ -331,7 +240,7 @@
 
     check-cast v0, Lcom/android/internal/telecom/IVideoCallback;
 
-    .line 1428
+    .line 1161
     .local v0, "callback":Lcom/android/internal/telecom/IVideoCallback;
     :try_start_0
     invoke-interface {v0, p1}, Lcom/android/internal/telecom/IVideoCallback;->changeCameraCapabilities(Landroid/telecom/VideoProfile$CameraCapabilities;)V
@@ -340,11 +249,11 @@
 
     goto :goto_0
 
-    .line 1429
+    .line 1162
     :catch_0
     move-exception v2
 
-    .line 1430
+    .line 1163
     .local v2, "ignored":Landroid/os/RemoteException;
     const-string/jumbo v3, "changeCameraCapabilities callback failed"
 
@@ -360,7 +269,7 @@
 
     goto :goto_0
 
-    .line 1424
+    .line 1157
     .end local v0    # "callback":Lcom/android/internal/telecom/IVideoCallback;
     .end local v1    # "callback$iterator":Ljava/util/Iterator;
     .end local v2    # "ignored":Landroid/os/RemoteException;
@@ -374,12 +283,12 @@
     .param p2, "height"    # I
 
     .prologue
-    .line 1361
+    .line 1094
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v3, :cond_0
 
-    .line 1362
+    .line 1095
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v3}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
@@ -404,7 +313,7 @@
 
     check-cast v0, Lcom/android/internal/telecom/IVideoCallback;
 
-    .line 1364
+    .line 1097
     .local v0, "callback":Lcom/android/internal/telecom/IVideoCallback;
     :try_start_0
     invoke-interface {v0, p1, p2}, Lcom/android/internal/telecom/IVideoCallback;->changePeerDimensions(II)V
@@ -413,11 +322,11 @@
 
     goto :goto_0
 
-    .line 1365
+    .line 1098
     :catch_0
     move-exception v2
 
-    .line 1366
+    .line 1099
     .local v2, "ignored":Landroid/os/RemoteException;
     const-string/jumbo v3, "changePeerDimensions callback failed"
 
@@ -433,7 +342,7 @@
 
     goto :goto_0
 
-    .line 1360
+    .line 1093
     .end local v0    # "callback":Lcom/android/internal/telecom/IVideoCallback;
     .end local v1    # "callback$iterator":Ljava/util/Iterator;
     .end local v2    # "ignored":Landroid/os/RemoteException;
@@ -446,12 +355,12 @@
     .param p1, "videoQuality"    # I
 
     .prologue
-    .line 1450
+    .line 1183
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v3, :cond_0
 
-    .line 1451
+    .line 1184
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v3}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
@@ -476,7 +385,7 @@
 
     check-cast v0, Lcom/android/internal/telecom/IVideoCallback;
 
-    .line 1453
+    .line 1186
     .local v0, "callback":Lcom/android/internal/telecom/IVideoCallback;
     :try_start_0
     invoke-interface {v0, p1}, Lcom/android/internal/telecom/IVideoCallback;->changeVideoQuality(I)V
@@ -485,11 +394,11 @@
 
     goto :goto_0
 
-    .line 1454
+    .line 1187
     :catch_0
     move-exception v2
 
-    .line 1455
+    .line 1188
     .local v2, "ignored":Landroid/os/RemoteException;
     const-string/jumbo v3, "changeVideoQuality callback failed"
 
@@ -505,7 +414,7 @@
 
     goto :goto_0
 
-    .line 1449
+    .line 1182
     .end local v0    # "callback":Lcom/android/internal/telecom/IVideoCallback;
     .end local v1    # "callback$iterator":Ljava/util/Iterator;
     .end local v2    # "ignored":Landroid/os/RemoteException;
@@ -517,7 +426,7 @@
     .locals 1
 
     .prologue
-    .line 1129
+    .line 862
     iget-object v0, p0, Landroid/telecom/Connection$VideoProvider;->mBinder:Landroid/telecom/Connection$VideoProvider$VideoProviderBinder;
 
     return-object v0
@@ -528,12 +437,12 @@
     .param p1, "event"    # I
 
     .prologue
-    .line 1336
+    .line 1069
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v3, :cond_0
 
-    .line 1337
+    .line 1070
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v3}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
@@ -558,7 +467,7 @@
 
     check-cast v0, Lcom/android/internal/telecom/IVideoCallback;
 
-    .line 1339
+    .line 1072
     .local v0, "callback":Lcom/android/internal/telecom/IVideoCallback;
     :try_start_0
     invoke-interface {v0, p1}, Lcom/android/internal/telecom/IVideoCallback;->handleCallSessionEvent(I)V
@@ -567,11 +476,11 @@
 
     goto :goto_0
 
-    .line 1340
+    .line 1073
     :catch_0
     move-exception v2
 
-    .line 1341
+    .line 1074
     .local v2, "ignored":Landroid/os/RemoteException;
     const-string/jumbo v3, "handleCallSessionEvent callback failed"
 
@@ -587,7 +496,7 @@
 
     goto :goto_0
 
-    .line 1335
+    .line 1068
     .end local v0    # "callback":Lcom/android/internal/telecom/IVideoCallback;
     .end local v1    # "callback$iterator":Ljava/util/Iterator;
     .end local v2    # "ignored":Landroid/os/RemoteException;
@@ -630,12 +539,12 @@
     .param p1, "videoProfile"    # Landroid/telecom/VideoProfile;
 
     .prologue
-    .line 1278
+    .line 1011
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v3, :cond_0
 
-    .line 1279
+    .line 1012
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v3}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
@@ -660,7 +569,7 @@
 
     check-cast v0, Lcom/android/internal/telecom/IVideoCallback;
 
-    .line 1281
+    .line 1014
     .local v0, "callback":Lcom/android/internal/telecom/IVideoCallback;
     :try_start_0
     invoke-interface {v0, p1}, Lcom/android/internal/telecom/IVideoCallback;->receiveSessionModifyRequest(Landroid/telecom/VideoProfile;)V
@@ -669,11 +578,11 @@
 
     goto :goto_0
 
-    .line 1282
+    .line 1015
     :catch_0
     move-exception v2
 
-    .line 1283
+    .line 1016
     .local v2, "ignored":Landroid/os/RemoteException;
     const-string/jumbo v3, "receiveSessionModifyRequest callback failed"
 
@@ -689,7 +598,7 @@
 
     goto :goto_0
 
-    .line 1277
+    .line 1010
     .end local v0    # "callback":Lcom/android/internal/telecom/IVideoCallback;
     .end local v1    # "callback$iterator":Ljava/util/Iterator;
     .end local v2    # "ignored":Landroid/os/RemoteException;
@@ -704,12 +613,12 @@
     .param p3, "responseProfile"    # Landroid/telecom/VideoProfile;
 
     .prologue
-    .line 1309
+    .line 1042
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v3, :cond_0
 
-    .line 1310
+    .line 1043
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v3}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
@@ -734,7 +643,7 @@
 
     check-cast v0, Lcom/android/internal/telecom/IVideoCallback;
 
-    .line 1312
+    .line 1045
     .local v0, "callback":Lcom/android/internal/telecom/IVideoCallback;
     :try_start_0
     invoke-interface {v0, p1, p2, p3}, Lcom/android/internal/telecom/IVideoCallback;->receiveSessionModifyResponse(ILandroid/telecom/VideoProfile;Landroid/telecom/VideoProfile;)V
@@ -743,11 +652,11 @@
 
     goto :goto_0
 
-    .line 1314
+    .line 1047
     :catch_0
     move-exception v2
 
-    .line 1315
+    .line 1048
     .local v2, "ignored":Landroid/os/RemoteException;
     const-string/jumbo v3, "receiveSessionModifyResponse callback failed"
 
@@ -763,7 +672,7 @@
 
     goto :goto_0
 
-    .line 1308
+    .line 1041
     .end local v0    # "callback":Lcom/android/internal/telecom/IVideoCallback;
     .end local v1    # "callback$iterator":Ljava/util/Iterator;
     .end local v2    # "ignored":Landroid/os/RemoteException;
@@ -776,12 +685,12 @@
     .param p1, "dataUsage"    # J
 
     .prologue
-    .line 1388
+    .line 1121
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     if-eqz v3, :cond_0
 
-    .line 1389
+    .line 1122
     iget-object v3, p0, Landroid/telecom/Connection$VideoProvider;->mVideoCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v3}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
@@ -806,7 +715,7 @@
 
     check-cast v0, Lcom/android/internal/telecom/IVideoCallback;
 
-    .line 1391
+    .line 1124
     .local v0, "callback":Lcom/android/internal/telecom/IVideoCallback;
     :try_start_0
     invoke-interface {v0, p1, p2}, Lcom/android/internal/telecom/IVideoCallback;->changeCallDataUsage(J)V
@@ -815,11 +724,11 @@
 
     goto :goto_0
 
-    .line 1392
+    .line 1125
     :catch_0
     move-exception v2
 
-    .line 1393
+    .line 1126
     .local v2, "ignored":Landroid/os/RemoteException;
     const-string/jumbo v3, "setCallDataUsage callback failed"
 
@@ -835,7 +744,7 @@
 
     goto :goto_0
 
-    .line 1387
+    .line 1120
     .end local v0    # "callback":Lcom/android/internal/telecom/IVideoCallback;
     .end local v1    # "callback$iterator":Ljava/util/Iterator;
     .end local v2    # "ignored":Landroid/os/RemoteException;

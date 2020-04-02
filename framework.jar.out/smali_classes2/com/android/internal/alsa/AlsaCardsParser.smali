@@ -64,7 +64,7 @@
     .locals 1
 
     .prologue
-    .line 105
+    .line 99
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
@@ -74,96 +74,7 @@
 
     iput-object v0, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
 
-    .line 105
-    return-void
-.end method
-
-.method public static LogDevices(Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 7
-    .param p0, "caption"    # Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;",
-            ">;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 271
-    .local p1, "deviceList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;>;"
-    const-string/jumbo v4, "AlsaCardsParser"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " ----------------"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 272
-    const/4 v2, 0x0
-
-    .line 273
-    .local v2, "listIndex":I
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, "device$iterator":Ljava/util/Iterator;
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
-
-    .line 274
-    .local v0, "device":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
-    add-int/lit8 v3, v2, 0x1
-
-    .end local v2    # "listIndex":I
-    .local v3, "listIndex":I
-    invoke-virtual {v0, v2}, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->log(I)V
-
-    move v2, v3
-
-    .end local v3    # "listIndex":I
-    .restart local v2    # "listIndex":I
-    goto :goto_0
-
-    .line 276
-    .end local v0    # "device":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
-    :cond_0
-    const-string/jumbo v4, "AlsaCardsParser"
-
-    const-string/jumbo v5, "----------------"
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 270
+    .line 99
     return-void
 .end method
 
@@ -181,7 +92,7 @@
     .end annotation
 
     .prologue
-    .line 239
+    .line 195
     .local p0, "recs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;>;"
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -201,18 +112,18 @@
 
     check-cast v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
 
-    .line 240
+    .line 196
     .local v0, "cardRec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     iget v2, v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mCardNum:I
 
     if-ne v2, p1, :cond_0
 
-    .line 241
+    .line 197
     const/4 v2, 0x1
 
     return v2
 
-    .line 244
+    .line 200
     .end local v0    # "cardRec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     :cond_1
     const/4 v2, 0x0
@@ -227,7 +138,7 @@
     .param p1, "heading"    # Ljava/lang/String;
 
     .prologue
-    .line 261
+    .line 217
     return-void
 .end method
 
@@ -236,7 +147,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 149
+    .line 143
     iget-object v0, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -253,7 +164,7 @@
     .param p1, "cardNum"    # I
 
     .prologue
-    .line 153
+    .line 147
     iget-object v2, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -274,16 +185,16 @@
 
     check-cast v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
 
-    .line 154
+    .line 148
     .local v0, "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     iget v2, v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mCardNum:I
 
     if-ne v2, p1, :cond_0
 
-    .line 155
+    .line 149
     return-object v0
 
-    .line 159
+    .line 153
     .end local v0    # "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     :cond_1
     const/4 v2, 0x0
@@ -295,12 +206,12 @@
     .locals 2
 
     .prologue
-    .line 223
+    .line 185
     invoke-virtual {p0}, Lcom/android/internal/alsa/AlsaCardsParser;->getDefaultUsbCard()I
 
     move-result v0
 
-    .line 228
+    .line 187
     .local v0, "card":I
     if-gez v0, :cond_0
 
@@ -310,7 +221,7 @@
 
     if-lez v1, :cond_0
 
-    .line 230
+    .line 189
     invoke-virtual {p0}, Lcom/android/internal/alsa/AlsaCardsParser;->getNumCardRecords()I
 
     move-result v1
@@ -323,95 +234,53 @@
 
     iget v0, v1, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mCardNum:I
 
-    .line 235
+    .line 191
     :cond_0
     return v0
 .end method
 
 .method public getDefaultUsbCard()I
-    .locals 5
+    .locals 3
 
     .prologue
-    .line 179
-    iget-object v1, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
+    .line 174
+    iget-object v2, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
 
-    .line 185
-    .local v1, "prevRecs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;>;"
-    invoke-virtual {p0}, Lcom/android/internal/alsa/AlsaCardsParser;->scan()V
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    .line 191
-    invoke-virtual {p0, v1}, Lcom/android/internal/alsa/AlsaCardsParser;->getNewCardRecords(Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    move-result-object v1
+
+    .local v1, "rec$iterator":Ljava/util/Iterator;
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 198
-    .local v0, "newRecs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;>;"
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    check-cast v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
 
-    move-result-object v3
+    .line 175
+    .local v0, "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
+    iget-boolean v2, v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mIsUsb:Z
 
-    .local v3, "rec$iterator":Ljava/util/Iterator;
-    :cond_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    if-eqz v2, :cond_0
 
-    move-result v4
+    .line 176
+    iget v2, v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mCardNum:I
 
-    if-eqz v4, :cond_1
+    return v2
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
-
-    .line 202
-    .local v2, "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
-    iget-boolean v4, v2, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mIsUsb:Z
-
-    if-eqz v4, :cond_0
-
-    .line 204
-    iget v4, v2, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mCardNum:I
-
-    return v4
-
-    .line 209
-    .end local v2    # "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
+    .line 180
+    .end local v0    # "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     :cond_1
-    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    const/4 v2, -0x1
 
-    move-result-object v3
-
-    :cond_2
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
-
-    .line 213
-    .restart local v2    # "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
-    iget-boolean v4, v2, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mIsUsb:Z
-
-    if-eqz v4, :cond_2
-
-    .line 214
-    iget v4, v2, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mCardNum:I
-
-    return v4
-
-    .line 218
-    .end local v2    # "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
-    :cond_3
-    const/4 v4, -0x1
-
-    return v4
+    return v2
 .end method
 
 .method public getNewCardRecords(Ljava/util/ArrayList;)Ljava/util/ArrayList;
@@ -431,13 +300,13 @@
     .end annotation
 
     .prologue
-    .line 248
+    .line 204
     .local p1, "prevScanRecs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 249
+    .line 205
     .local v0, "newRecs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;>;"
     iget-object v3, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
 
@@ -460,7 +329,7 @@
 
     check-cast v1, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
 
-    .line 251
+    .line 207
     .local v1, "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     iget v3, v1, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mCardNum:I
 
@@ -470,12 +339,12 @@
 
     if-nez v3, :cond_0
 
-    .line 252
+    .line 208
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 255
+    .line 211
     .end local v1    # "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     :cond_1
     return-object v0
@@ -485,7 +354,7 @@
     .locals 1
 
     .prologue
-    .line 163
+    .line 157
     iget-object v0, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -508,7 +377,7 @@
     .end annotation
 
     .prologue
-    .line 145
+    .line 139
     iget-object v0, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
 
     return-object v0
@@ -519,7 +388,7 @@
     .param p1, "cardNum"    # I
 
     .prologue
-    .line 167
+    .line 161
     iget-object v2, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -540,18 +409,18 @@
 
     check-cast v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
 
-    .line 168
+    .line 162
     .local v0, "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     iget v2, v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mCardNum:I
 
     if-ne v2, p1, :cond_0
 
-    .line 169
+    .line 163
     iget-boolean v2, v0, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->mIsUsb:Z
 
     return v2
 
-    .line 173
+    .line 167
     .end local v0    # "rec":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     :cond_1
     const/4 v2, 0x0
@@ -563,38 +432,38 @@
     .locals 8
 
     .prologue
-    .line 111
+    .line 105
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v7, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
 
-    .line 113
+    .line 107
     new-instance v2, Ljava/io/File;
 
     const-string/jumbo v7, "/proc/asound/cards"
 
     invoke-direct {v2, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 115
+    .line 109
     .local v2, "cardsFile":Ljava/io/File;
     :try_start_0
     new-instance v6, Ljava/io/FileReader;
 
     invoke-direct {v6, v2}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
 
-    .line 116
+    .line 110
     .local v6, "reader":Ljava/io/FileReader;
     new-instance v0, Ljava/io/BufferedReader;
 
     invoke-direct {v0, v6}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
-    .line 117
+    .line 111
     .local v0, "bufferedReader":Ljava/io/BufferedReader;
     const-string/jumbo v5, ""
 
-    .line 118
+    .line 112
     .local v5, "line":Ljava/lang/String;
     :goto_0
     invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
@@ -603,38 +472,38 @@
 
     if-eqz v5, :cond_0
 
-    .line 119
+    .line 113
     new-instance v1, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
 
     invoke-direct {v1, p0}, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;-><init>(Lcom/android/internal/alsa/AlsaCardsParser;)V
 
-    .line 123
+    .line 117
     .local v1, "cardRecord":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     const/4 v7, 0x0
 
     invoke-virtual {v1, v5, v7}, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->parse(Ljava/lang/String;I)Z
 
-    .line 125
+    .line 119
     invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 126
+    .line 120
     if-nez v5, :cond_1
 
-    .line 136
+    .line 130
     .end local v1    # "cardRecord":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     :cond_0
     invoke-virtual {v6}, Ljava/io/FileReader;->close()V
 
-    .line 107
+    .line 101
     .end local v0    # "bufferedReader":Ljava/io/BufferedReader;
     .end local v5    # "line":Ljava/lang/String;
     .end local v6    # "reader":Ljava/io/FileReader;
     :goto_1
     return-void
 
-    .line 132
+    .line 126
     .restart local v0    # "bufferedReader":Ljava/io/BufferedReader;
     .restart local v1    # "cardRecord":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     .restart local v5    # "line":Ljava/lang/String;
@@ -644,7 +513,7 @@
 
     invoke-virtual {v1, v5, v7}, Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;->parse(Ljava/lang/String;I)Z
 
-    .line 134
+    .line 128
     iget-object v7, p0, Lcom/android/internal/alsa/AlsaCardsParser;->mCardRecords:Ljava/util/ArrayList;
 
     invoke-virtual {v7, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -654,7 +523,7 @@
 
     goto :goto_0
 
-    .line 137
+    .line 131
     .end local v0    # "bufferedReader":Ljava/io/BufferedReader;
     .end local v1    # "cardRecord":Lcom/android/internal/alsa/AlsaCardsParser$AlsaCardRecord;
     .end local v5    # "line":Ljava/lang/String;
@@ -662,18 +531,18 @@
     :catch_0
     move-exception v3
 
-    .line 138
+    .line 132
     .local v3, "e":Ljava/io/FileNotFoundException;
     invoke-virtual {v3}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
     goto :goto_1
 
-    .line 139
+    .line 133
     .end local v3    # "e":Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v4
 
-    .line 140
+    .line 134
     .local v4, "e":Ljava/io/IOException;
     invoke-virtual {v4}, Ljava/io/IOException;->printStackTrace()V
 

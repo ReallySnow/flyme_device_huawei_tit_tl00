@@ -27,17 +27,17 @@
     .param p1, "connectionCb"    # Landroid/os/IBinder;
 
     .prologue
-    .line 3962
+    .line 3530
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3963
+    .line 3531
     invoke-static {p1}, Lcom/android/internal/widget/IRemoteViewsAdapterConnection$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/widget/IRemoteViewsAdapterConnection;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$ServiceConnectionProxy;->mConnectionCb:Lcom/android/internal/widget/IRemoteViewsAdapterConnection;
 
-    .line 3962
+    .line 3530
     return-void
 .end method
 
@@ -47,7 +47,7 @@
     .locals 3
 
     .prologue
-    .line 3981
+    .line 3549
     :try_start_0
     iget-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$ServiceConnectionProxy;->mConnectionCb:Lcom/android/internal/widget/IRemoteViewsAdapterConnection;
 
@@ -55,15 +55,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 3979
+    .line 3547
     :goto_0
     return-void
 
-    .line 3982
+    .line 3550
     :catch_0
     move-exception v0
 
-    .line 3983
+    .line 3551
     .local v0, "re":Landroid/os/RemoteException;
     const-string/jumbo v1, "AppWidgetServiceImpl"
 
@@ -80,7 +80,7 @@
     .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
-    .line 3969
+    .line 3537
     :try_start_0
     iget-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$ServiceConnectionProxy;->mConnectionCb:Lcom/android/internal/widget/IRemoteViewsAdapterConnection;
 
@@ -88,15 +88,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 3967
+    .line 3535
     :goto_0
     return-void
 
-    .line 3970
+    .line 3538
     :catch_0
     move-exception v0
 
-    .line 3971
+    .line 3539
     .local v0, "re":Landroid/os/RemoteException;
     const-string/jumbo v1, "AppWidgetServiceImpl"
 
@@ -112,9 +112,9 @@
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
-    .line 3976
+    .line 3544
     invoke-virtual {p0}, Lcom/android/server/appwidget/AppWidgetServiceImpl$ServiceConnectionProxy;->disconnect()V
 
-    .line 3975
+    .line 3543
     return-void
 .end method

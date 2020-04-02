@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Landroid/service/voice/AlwaysOnHotwordDetector;
 
     .prologue
-    .line 655
+    .line 650
     iput-object p1, p0, Landroid/service/voice/AlwaysOnHotwordDetector$MyHandler;->this$0:Landroid/service/voice/AlwaysOnHotwordDetector;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,7 +39,7 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 658
+    .line 653
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$MyHandler;->this$0:Landroid/service/voice/AlwaysOnHotwordDetector;
 
     invoke-static {v0}, Landroid/service/voice/AlwaysOnHotwordDetector;->-get4(Landroid/service/voice/AlwaysOnHotwordDetector;)Ljava/lang/Object;
@@ -48,7 +48,7 @@
 
     monitor-enter v1
 
-    .line 659
+    .line 654
     :try_start_0
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$MyHandler;->this$0:Landroid/service/voice/AlwaysOnHotwordDetector;
 
@@ -60,7 +60,7 @@
 
     if-ne v0, v2, :cond_0
 
-    .line 660
+    .line 655
     const-string/jumbo v0, "AlwaysOnHotwordDetector"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -95,25 +95,25 @@
 
     monitor-exit v1
 
-    .line 661
+    .line 656
     return-void
 
     :cond_0
     monitor-exit v1
 
-    .line 665
+    .line 660
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 682
+    .line 677
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 657
+    .line 652
     :goto_0
     return-void
 
-    .line 658
+    .line 653
     :catchall_0
     move-exception v0
 
@@ -121,7 +121,7 @@
 
     throw v0
 
-    .line 667
+    .line 662
     :pswitch_0
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$MyHandler;->this$0:Landroid/service/voice/AlwaysOnHotwordDetector;
 
@@ -135,7 +135,7 @@
 
     goto :goto_0
 
-    .line 670
+    .line 665
     :pswitch_1
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$MyHandler;->this$0:Landroid/service/voice/AlwaysOnHotwordDetector;
 
@@ -151,7 +151,7 @@
 
     goto :goto_0
 
-    .line 673
+    .line 668
     :pswitch_2
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$MyHandler;->this$0:Landroid/service/voice/AlwaysOnHotwordDetector;
 
@@ -163,7 +163,7 @@
 
     goto :goto_0
 
-    .line 676
+    .line 671
     :pswitch_3
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$MyHandler;->this$0:Landroid/service/voice/AlwaysOnHotwordDetector;
 
@@ -175,7 +175,7 @@
 
     goto :goto_0
 
-    .line 679
+    .line 674
     :pswitch_4
     iget-object v0, p0, Landroid/service/voice/AlwaysOnHotwordDetector$MyHandler;->this$0:Landroid/service/voice/AlwaysOnHotwordDetector;
 
@@ -187,7 +187,7 @@
 
     goto :goto_0
 
-    .line 665
+    .line 660
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

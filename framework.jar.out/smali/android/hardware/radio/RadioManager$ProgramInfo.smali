@@ -57,15 +57,15 @@
     .locals 1
 
     .prologue
-    .line 1218
+    .line 1175
     new-instance v0, Landroid/hardware/radio/RadioManager$ProgramInfo$1;
 
     invoke-direct {v0}, Landroid/hardware/radio/RadioManager$ProgramInfo$1;-><init>()V
 
-    .line 1217
+    .line 1174
     sput-object v0, Landroid/hardware/radio/RadioManager$ProgramInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 1137
+    .line 1094
     return-void
 .end method
 
@@ -80,31 +80,31 @@
     .param p7, "metadata"    # Landroid/hardware/radio/RadioMetadata;
 
     .prologue
-    .line 1147
+    .line 1104
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1149
+    .line 1106
     iput p1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mChannel:I
 
-    .line 1150
+    .line 1107
     iput p2, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSubChannel:I
 
-    .line 1151
+    .line 1108
     iput-boolean p3, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mTuned:Z
 
-    .line 1152
+    .line 1109
     iput-boolean p4, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mStereo:Z
 
-    .line 1153
+    .line 1110
     iput-boolean p5, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mDigital:Z
 
-    .line 1154
+    .line 1111
     iput p6, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSignalStrength:I
 
-    .line 1155
+    .line 1112
     iput-object p7, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mMetadata:Landroid/hardware/radio/RadioMetadata;
 
-    .line 1148
+    .line 1105
     return-void
 .end method
 
@@ -117,24 +117,24 @@
 
     const/4 v1, 0x1
 
-    .line 1203
+    .line 1160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1204
+    .line 1161
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mChannel:I
 
-    .line 1205
+    .line 1162
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSubChannel:I
 
-    .line 1206
+    .line 1163
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
@@ -146,7 +146,7 @@
     :goto_0
     iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mTuned:Z
 
-    .line 1207
+    .line 1164
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
@@ -158,7 +158,7 @@
     :goto_1
     iput-boolean v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mStereo:Z
 
-    .line 1208
+    .line 1165
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
@@ -170,21 +170,21 @@
     :cond_0
     iput-boolean v2, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mDigital:Z
 
-    .line 1209
+    .line 1166
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSignalStrength:I
 
-    .line 1210
+    .line 1167
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
     if-ne v0, v1, :cond_3
 
-    .line 1211
+    .line 1168
     sget-object v0, Landroid/hardware/radio/RadioMetadata;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -195,23 +195,23 @@
 
     iput-object v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mMetadata:Landroid/hardware/radio/RadioMetadata;
 
-    .line 1203
+    .line 1160
     :goto_2
     return-void
 
     :cond_1
     move v0, v2
 
-    .line 1206
+    .line 1163
     goto :goto_0
 
     :cond_2
     move v0, v2
 
-    .line 1207
+    .line 1164
     goto :goto_1
 
-    .line 1213
+    .line 1170
     :cond_3
     const/4 v0, 0x0
 
@@ -236,7 +236,7 @@
     .locals 1
 
     .prologue
-    .line 1246
+    .line 1203
     const/4 v0, 0x0
 
     return v0
@@ -251,28 +251,28 @@
 
     const/4 v3, 0x0
 
-    .line 1274
+    .line 1231
     if-ne p0, p1, :cond_0
 
-    .line 1275
+    .line 1232
     return v4
 
-    .line 1276
+    .line 1233
     :cond_0
     instance-of v1, p1, Landroid/hardware/radio/RadioManager$ProgramInfo;
 
     if-nez v1, :cond_1
 
-    .line 1277
+    .line 1234
     return v3
 
     :cond_1
     move-object v0, p1
 
-    .line 1278
+    .line 1235
     check-cast v0, Landroid/hardware/radio/RadioManager$ProgramInfo;
 
-    .line 1279
+    .line 1236
     .local v0, "other":Landroid/hardware/radio/RadioManager$ProgramInfo;
     iget v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mChannel:I
 
@@ -282,10 +282,10 @@
 
     if-eq v1, v2, :cond_2
 
-    .line 1280
+    .line 1237
     return v3
 
-    .line 1281
+    .line 1238
     :cond_2
     iget v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSubChannel:I
 
@@ -295,10 +295,10 @@
 
     if-eq v1, v2, :cond_3
 
-    .line 1282
+    .line 1239
     return v3
 
-    .line 1283
+    .line 1240
     :cond_3
     iget-boolean v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mTuned:Z
 
@@ -308,10 +308,10 @@
 
     if-eq v1, v2, :cond_4
 
-    .line 1284
+    .line 1241
     return v3
 
-    .line 1285
+    .line 1242
     :cond_4
     iget-boolean v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mStereo:Z
 
@@ -321,10 +321,10 @@
 
     if-eq v1, v2, :cond_5
 
-    .line 1286
+    .line 1243
     return v3
 
-    .line 1287
+    .line 1244
     :cond_5
     iget-boolean v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mDigital:Z
 
@@ -334,10 +334,10 @@
 
     if-eq v1, v2, :cond_6
 
-    .line 1288
+    .line 1245
     return v3
 
-    .line 1289
+    .line 1246
     :cond_6
     iget v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSignalStrength:I
 
@@ -347,26 +347,26 @@
 
     if-eq v1, v2, :cond_7
 
-    .line 1290
+    .line 1247
     return v3
 
-    .line 1291
+    .line 1248
     :cond_7
     iget-object v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mMetadata:Landroid/hardware/radio/RadioMetadata;
 
     if-nez v1, :cond_8
 
-    .line 1292
+    .line 1249
     invoke-virtual {v0}, Landroid/hardware/radio/RadioManager$ProgramInfo;->getMetadata()Landroid/hardware/radio/RadioMetadata;
 
     move-result-object v1
 
     if-eqz v1, :cond_9
 
-    .line 1293
+    .line 1250
     return v3
 
-    .line 1294
+    .line 1251
     :cond_8
     iget-object v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mMetadata:Landroid/hardware/radio/RadioMetadata;
 
@@ -380,10 +380,10 @@
 
     if-nez v1, :cond_9
 
-    .line 1295
+    .line 1252
     return v3
 
-    .line 1296
+    .line 1253
     :cond_9
     return v4
 .end method
@@ -392,7 +392,7 @@
     .locals 1
 
     .prologue
-    .line 1163
+    .line 1120
     iget v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mChannel:I
 
     return v0
@@ -402,7 +402,7 @@
     .locals 1
 
     .prologue
-    .line 1200
+    .line 1157
     iget-object v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mMetadata:Landroid/hardware/radio/RadioMetadata;
 
     return-object v0
@@ -412,7 +412,7 @@
     .locals 1
 
     .prologue
-    .line 1193
+    .line 1150
     iget v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSignalStrength:I
 
     return v0
@@ -422,7 +422,7 @@
     .locals 1
 
     .prologue
-    .line 1169
+    .line 1126
     iget v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSubChannel:I
 
     return v0
@@ -436,16 +436,16 @@
 
     const/4 v4, 0x0
 
-    .line 1260
+    .line 1217
     const/16 v0, 0x1f
 
-    .line 1262
+    .line 1219
     .local v0, "prime":I
     iget v2, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mChannel:I
 
     add-int/lit8 v1, v2, 0x1f
 
-    .line 1263
+    .line 1220
     .local v1, "result":I
     mul-int/lit8 v2, v1, 0x1f
 
@@ -453,7 +453,7 @@
 
     add-int v1, v2, v5
 
-    .line 1264
+    .line 1221
     mul-int/lit8 v5, v1, 0x1f
 
     iget-boolean v2, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mTuned:Z
@@ -465,7 +465,7 @@
     :goto_0
     add-int v1, v5, v2
 
-    .line 1265
+    .line 1222
     mul-int/lit8 v5, v1, 0x1f
 
     iget-boolean v2, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mStereo:Z
@@ -477,7 +477,7 @@
     :goto_1
     add-int v1, v5, v2
 
-    .line 1266
+    .line 1223
     mul-int/lit8 v2, v1, 0x1f
 
     iget-boolean v5, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mDigital:Z
@@ -487,14 +487,14 @@
     :goto_2
     add-int v1, v2, v3
 
-    .line 1267
+    .line 1224
     mul-int/lit8 v2, v1, 0x1f
 
     iget v3, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSignalStrength:I
 
     add-int v1, v2, v3
 
-    .line 1268
+    .line 1225
     mul-int/lit8 v2, v1, 0x1f
 
     iget-object v3, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mMetadata:Landroid/hardware/radio/RadioMetadata;
@@ -504,28 +504,28 @@
     :goto_3
     add-int v1, v2, v4
 
-    .line 1269
+    .line 1226
     return v1
 
     :cond_0
     move v2, v4
 
-    .line 1264
+    .line 1221
     goto :goto_0
 
     :cond_1
     move v2, v4
 
-    .line 1265
+    .line 1222
     goto :goto_1
 
     :cond_2
     move v3, v4
 
-    .line 1266
+    .line 1223
     goto :goto_2
 
-    .line 1268
+    .line 1225
     :cond_3
     iget-object v3, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mMetadata:Landroid/hardware/radio/RadioMetadata;
 
@@ -540,7 +540,7 @@
     .locals 1
 
     .prologue
-    .line 1187
+    .line 1144
     iget-boolean v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mDigital:Z
 
     return v0
@@ -550,7 +550,7 @@
     .locals 1
 
     .prologue
-    .line 1181
+    .line 1138
     iget-boolean v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mStereo:Z
 
     return v0
@@ -560,7 +560,7 @@
     .locals 1
 
     .prologue
-    .line 1175
+    .line 1132
     iget-boolean v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mTuned:Z
 
     return v0
@@ -570,7 +570,7 @@
     .locals 3
 
     .prologue
-    .line 1251
+    .line 1208
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -599,87 +599,87 @@
 
     move-result-object v0
 
-    .line 1252
+    .line 1209
     const-string/jumbo v1, ", mTuned="
 
-    .line 1251
+    .line 1208
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 1252
+    .line 1209
     iget-boolean v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mTuned:Z
 
-    .line 1251
+    .line 1208
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 1252
+    .line 1209
     const-string/jumbo v1, ", mStereo="
 
-    .line 1251
+    .line 1208
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 1252
+    .line 1209
     iget-boolean v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mStereo:Z
 
-    .line 1251
+    .line 1208
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 1252
+    .line 1209
     const-string/jumbo v1, ", mDigital="
 
-    .line 1251
+    .line 1208
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 1252
+    .line 1209
     iget-boolean v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mDigital:Z
 
-    .line 1251
+    .line 1208
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 1253
+    .line 1210
     const-string/jumbo v1, ", mSignalStrength="
 
-    .line 1251
+    .line 1208
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 1253
+    .line 1210
     iget v1, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSignalStrength:I
 
-    .line 1251
+    .line 1208
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 1254
+    .line 1211
     iget-object v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mMetadata:Landroid/hardware/radio/RadioMetadata;
 
     if-nez v0, :cond_0
 
     const-string/jumbo v0, ""
 
-    .line 1251
+    .line 1208
     :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 1255
+    .line 1212
     const-string/jumbo v1, "]"
 
-    .line 1251
+    .line 1208
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -690,7 +690,7 @@
 
     return-object v0
 
-    .line 1254
+    .line 1211
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -729,17 +729,17 @@
 
     const/4 v2, 0x0
 
-    .line 1230
+    .line 1187
     iget v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mChannel:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1231
+    .line 1188
     iget v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSubChannel:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1232
+    .line 1189
     iget-boolean v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mTuned:Z
 
     if-eqz v0, :cond_0
@@ -751,7 +751,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 1233
+    .line 1190
     iget-boolean v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mStereo:Z
 
     if-eqz v0, :cond_1
@@ -763,7 +763,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 1234
+    .line 1191
     iget-boolean v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mDigital:Z
 
     if-eqz v0, :cond_2
@@ -775,46 +775,46 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 1235
+    .line 1192
     iget v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mSignalStrength:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1236
+    .line 1193
     iget-object v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mMetadata:Landroid/hardware/radio/RadioMetadata;
 
     if-nez v0, :cond_3
 
-    .line 1237
+    .line 1194
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 1229
+    .line 1186
     :goto_3
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 1232
+    .line 1189
     goto :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 1233
+    .line 1190
     goto :goto_1
 
     :cond_2
     move v0, v2
 
-    .line 1234
+    .line 1191
     goto :goto_2
 
-    .line 1239
+    .line 1196
     :cond_3
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 1240
+    .line 1197
     iget-object v0, p0, Landroid/hardware/radio/RadioManager$ProgramInfo;->mMetadata:Landroid/hardware/radio/RadioMetadata;
 
     invoke-virtual {v0, p1, p2}, Landroid/hardware/radio/RadioMetadata;->writeToParcel(Landroid/os/Parcel;I)V

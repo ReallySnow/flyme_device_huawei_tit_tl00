@@ -93,7 +93,7 @@
     .end annotation
 
     .prologue
-    .line 157
+    .line 155
     .local p4, "globals":Ljava/util/Map;, "Ljava/util/Map<Landroid/renderscript/Script$FieldID;Ljava/lang/Object;>;"
     const-wide/16 v4, 0x0
 
@@ -103,7 +103,7 @@
 
     invoke-direct {v0, v4, v5, v1}, Landroid/renderscript/BaseObj;-><init>(JLandroid/renderscript/RenderScript;)V
 
-    .line 158
+    .line 156
     invoke-static/range {p3 .. p3}, Landroid/renderscript/FieldPacker;->createFromArray([Ljava/lang/Object;)Landroid/renderscript/FieldPacker;
 
     move-result-object v4
@@ -112,21 +112,21 @@
 
     iput-object v4, v0, Landroid/renderscript/ScriptGroup$Closure;->mFP:Landroid/renderscript/FieldPacker;
 
-    .line 160
+    .line 158
     move-object/from16 v0, p3
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/renderscript/ScriptGroup$Closure;->mArgs:[Ljava/lang/Object;
 
-    .line 161
+    .line 159
     move-object/from16 v0, p4
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/renderscript/ScriptGroup$Closure;->mBindings:Ljava/util/Map;
 
-    .line 162
+    .line 160
     new-instance v4, Ljava/util/HashMap;
 
     invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
@@ -135,12 +135,12 @@
 
     iput-object v4, v0, Landroid/renderscript/ScriptGroup$Closure;->mGlobalFuture:Ljava/util/Map;
 
-    .line 164
+    .line 162
     invoke-interface/range {p4 .. p4}, Ljava/util/Map;->size()I
 
     move-result v24
 
-    .line 166
+    .line 164
     .local v24, "numValues":I
     move/from16 v0, v24
 
@@ -148,35 +148,35 @@
 
     move-object/from16 v17, v0
 
-    .line 167
+    .line 165
     .local v17, "fieldIDs":[J
     move/from16 v0, v24
 
     new-array v9, v0, [J
 
-    .line 168
+    .line 166
     .local v9, "values":[J
     move/from16 v0, v24
 
     new-array v10, v0, [I
 
-    .line 169
+    .line 167
     .local v10, "sizes":[I
     move/from16 v0, v24
 
     new-array v11, v0, [J
 
-    .line 170
+    .line 168
     .local v11, "depClosures":[J
     move/from16 v0, v24
 
     new-array v12, v0, [J
 
-    .line 172
+    .line 170
     .local v12, "depFieldIDs":[J
     const/4 v6, 0x0
 
-    .line 173
+    .line 171
     .local v6, "i":I
     invoke-interface/range {p4 .. p4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
@@ -200,13 +200,13 @@
 
     check-cast v20, Ljava/util/Map$Entry;
 
-    .line 174
+    .line 172
     .local v20, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/renderscript/Script$FieldID;Ljava/lang/Object;>;"
     invoke-interface/range {v20 .. v20}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v8
 
-    .line 175
+    .line 173
     .local v8, "obj":Ljava/lang/Object;
     invoke-interface/range {v20 .. v20}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -214,7 +214,7 @@
 
     check-cast v7, Landroid/renderscript/Script$FieldID;
 
-    .line 176
+    .line 174
     .local v7, "fieldID":Landroid/renderscript/Script$FieldID;
     move-object/from16 v0, p1
 
@@ -228,15 +228,15 @@
 
     move-object/from16 v5, p1
 
-    .line 177
+    .line 175
     invoke-direct/range {v4 .. v12}, Landroid/renderscript/ScriptGroup$Closure;->retrieveValueAndDependenceInfo(Landroid/renderscript/RenderScript;ILandroid/renderscript/Script$FieldID;Ljava/lang/Object;[J[I[J[J)V
 
-    .line 179
+    .line 177
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    .line 182
+    .line 180
     .end local v7    # "fieldID":Landroid/renderscript/Script$FieldID;
     .end local v8    # "obj":Ljava/lang/Object;
     .end local v20    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/renderscript/Script$FieldID;Ljava/lang/Object;>;"
@@ -267,7 +267,7 @@
 
     move-result-wide v22
 
-    .line 185
+    .line 183
     .local v22, "id":J
     move-object/from16 v0, p0
 
@@ -275,16 +275,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/renderscript/ScriptGroup$Closure;->setID(J)V
 
-    .line 187
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Landroid/renderscript/ScriptGroup$Closure;->guard:Ldalvik/system/CloseGuard;
-
-    const-string/jumbo v5, "destroy"
-
-    invoke-virtual {v4, v5}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
-
-    .line 156
+    .line 154
     return-void
 .end method
 
@@ -538,15 +529,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/renderscript/ScriptGroup$Closure;->setID(J)V
 
-    .line 152
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Landroid/renderscript/ScriptGroup$Closure;->guard:Ldalvik/system/CloseGuard;
-
-    const-string/jumbo v5, "destroy"
-
-    invoke-virtual {v4, v5}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
-
     .line 116
     return-void
 .end method
@@ -563,23 +545,23 @@
     .param p8, "depFieldIDs"    # [J
 
     .prologue
-    .line 213
+    .line 192
     instance-of v4, p4, Landroid/renderscript/ScriptGroup$Future;
 
     if-eqz v4, :cond_1
 
     move-object v0, p4
 
-    .line 214
+    .line 193
     check-cast v0, Landroid/renderscript/ScriptGroup$Future;
 
-    .line 215
+    .line 194
     .local v0, "f":Landroid/renderscript/ScriptGroup$Future;
     invoke-virtual {v0}, Landroid/renderscript/ScriptGroup$Future;->getValue()Ljava/lang/Object;
 
     move-result-object p4
 
-    .line 216
+    .line 195
     invoke-virtual {v0}, Landroid/renderscript/ScriptGroup$Future;->getClosure()Landroid/renderscript/ScriptGroup$Closure;
 
     move-result-object v4
@@ -590,12 +572,12 @@
 
     aput-wide v4, p7, p2
 
-    .line 217
+    .line 196
     invoke-virtual {v0}, Landroid/renderscript/ScriptGroup$Future;->getFieldID()Landroid/renderscript/Script$FieldID;
 
     move-result-object v1
 
-    .line 218
+    .line 197
     .local v1, "fieldID":Landroid/renderscript/Script$FieldID;
     if-eqz v1, :cond_0
 
@@ -606,7 +588,7 @@
     :goto_0
     aput-wide v4, p8, p2
 
-    .line 224
+    .line 203
     .end local v0    # "f":Landroid/renderscript/ScriptGroup$Future;
     .end local v1    # "fieldID":Landroid/renderscript/Script$FieldID;
     :goto_1
@@ -616,10 +598,10 @@
 
     move-object v2, p4
 
-    .line 225
+    .line 204
     check-cast v2, Landroid/renderscript/ScriptGroup$Input;
 
-    .line 226
+    .line 205
     .local v2, "unbound":Landroid/renderscript/ScriptGroup$Input;
     iget-object v4, p0, Landroid/renderscript/ScriptGroup$Closure;->mArgs:[Ljava/lang/Object;
 
@@ -627,26 +609,26 @@
 
     if-ge p2, v4, :cond_2
 
-    .line 227
+    .line 206
     invoke-virtual {v2, p0, p2}, Landroid/renderscript/ScriptGroup$Input;->addReference(Landroid/renderscript/ScriptGroup$Closure;I)V
 
-    .line 231
+    .line 210
     :goto_2
     const-wide/16 v4, 0x0
 
     aput-wide v4, p5, p2
 
-    .line 232
+    .line 211
     const/4 v4, 0x0
 
     aput v4, p6, p2
 
-    .line 211
+    .line 190
     .end local v2    # "unbound":Landroid/renderscript/ScriptGroup$Input;
     :goto_3
     return-void
 
-    .line 218
+    .line 197
     .restart local v0    # "f":Landroid/renderscript/ScriptGroup$Future;
     .restart local v1    # "fieldID":Landroid/renderscript/Script$FieldID;
     :cond_0
@@ -654,7 +636,7 @@
 
     goto :goto_0
 
-    .line 220
+    .line 199
     .end local v0    # "f":Landroid/renderscript/ScriptGroup$Future;
     .end local v1    # "fieldID":Landroid/renderscript/Script$FieldID;
     :cond_1
@@ -662,34 +644,34 @@
 
     aput-wide v4, p7, p2
 
-    .line 221
+    .line 200
     const-wide/16 v4, 0x0
 
     aput-wide v4, p8, p2
 
     goto :goto_1
 
-    .line 229
+    .line 208
     .restart local v2    # "unbound":Landroid/renderscript/ScriptGroup$Input;
     :cond_2
     invoke-virtual {v2, p0, p3}, Landroid/renderscript/ScriptGroup$Input;->addReference(Landroid/renderscript/ScriptGroup$Closure;Landroid/renderscript/Script$FieldID;)V
 
     goto :goto_2
 
-    .line 234
+    .line 213
     .end local v2    # "unbound":Landroid/renderscript/ScriptGroup$Input;
     :cond_3
     new-instance v3, Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;
 
     invoke-direct {v3, p1, p4}, Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;-><init>(Landroid/renderscript/RenderScript;Ljava/lang/Object;)V
 
-    .line 235
+    .line 214
     .local v3, "vs":Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;
     iget-wide v4, v3, Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;->value:J
 
     aput-wide v4, p5, p2
 
-    .line 236
+    .line 215
     iget v4, v3, Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;->size:I
 
     aput v4, p6, p2
@@ -699,55 +681,12 @@
 
 
 # virtual methods
-.method public destroy()V
-    .locals 1
-
-    .prologue
-    .line 194
-    invoke-super {p0}, Landroid/renderscript/BaseObj;->destroy()V
-
-    .line 195
-    iget-object v0, p0, Landroid/renderscript/ScriptGroup$Closure;->mReturnValue:Landroid/renderscript/Allocation;
-
-    if-eqz v0, :cond_0
-
-    .line 196
-    iget-object v0, p0, Landroid/renderscript/ScriptGroup$Closure;->mReturnValue:Landroid/renderscript/Allocation;
-
-    invoke-virtual {v0}, Landroid/renderscript/Allocation;->destroy()V
-
-    .line 193
-    :cond_0
-    return-void
-.end method
-
-.method protected finalize()V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Throwable;
-        }
-    .end annotation
-
-    .prologue
-    .line 203
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroid/renderscript/ScriptGroup$Closure;->mReturnValue:Landroid/renderscript/Allocation;
-
-    .line 204
-    invoke-super {p0}, Landroid/renderscript/BaseObj;->finalize()V
-
-    .line 200
-    return-void
-.end method
-
 .method public getGlobal(Landroid/renderscript/Script$FieldID;)Landroid/renderscript/ScriptGroup$Future;
     .locals 3
     .param p1, "field"    # Landroid/renderscript/Script$FieldID;
 
     .prologue
-    .line 262
+    .line 241
     iget-object v2, p0, Landroid/renderscript/ScriptGroup$Closure;->mGlobalFuture:Ljava/util/Map;
 
     invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -756,24 +695,24 @@
 
     check-cast v0, Landroid/renderscript/ScriptGroup$Future;
 
-    .line 264
+    .line 243
     .local v0, "f":Landroid/renderscript/ScriptGroup$Future;
     if-nez v0, :cond_1
 
-    .line 269
+    .line 248
     iget-object v2, p0, Landroid/renderscript/ScriptGroup$Closure;->mBindings:Ljava/util/Map;
 
     invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 270
+    .line 249
     .local v1, "obj":Ljava/lang/Object;
     instance-of v2, v1, Landroid/renderscript/ScriptGroup$Future;
 
     if-eqz v2, :cond_0
 
-    .line 271
+    .line 250
     check-cast v1, Landroid/renderscript/ScriptGroup$Future;
 
     .end local v1    # "obj":Ljava/lang/Object;
@@ -781,7 +720,7 @@
 
     move-result-object v1
 
-    .line 273
+    .line 252
     .restart local v1    # "obj":Ljava/lang/Object;
     :cond_0
     new-instance v0, Landroid/renderscript/ScriptGroup$Future;
@@ -789,13 +728,13 @@
     .end local v0    # "f":Landroid/renderscript/ScriptGroup$Future;
     invoke-direct {v0, p0, p1, v1}, Landroid/renderscript/ScriptGroup$Future;-><init>(Landroid/renderscript/ScriptGroup$Closure;Landroid/renderscript/Script$FieldID;Ljava/lang/Object;)V
 
-    .line 274
+    .line 253
     .restart local v0    # "f":Landroid/renderscript/ScriptGroup$Future;
     iget-object v2, p0, Landroid/renderscript/ScriptGroup$Closure;->mGlobalFuture:Ljava/util/Map;
 
     invoke-interface {v2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 277
+    .line 256
     .end local v1    # "obj":Ljava/lang/Object;
     :cond_1
     return-object v0
@@ -807,12 +746,12 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 247
+    .line 226
     iget-object v0, p0, Landroid/renderscript/ScriptGroup$Closure;->mReturnFuture:Landroid/renderscript/ScriptGroup$Future;
 
     if-nez v0, :cond_0
 
-    .line 248
+    .line 227
     new-instance v0, Landroid/renderscript/ScriptGroup$Future;
 
     iget-object v1, p0, Landroid/renderscript/ScriptGroup$Closure;->mReturnValue:Landroid/renderscript/Allocation;
@@ -821,7 +760,7 @@
 
     iput-object v0, p0, Landroid/renderscript/ScriptGroup$Closure;->mReturnFuture:Landroid/renderscript/ScriptGroup$Future;
 
-    .line 251
+    .line 230
     :cond_0
     iget-object v0, p0, Landroid/renderscript/ScriptGroup$Closure;->mReturnFuture:Landroid/renderscript/ScriptGroup$Future;
 
@@ -834,12 +773,12 @@
     .param p2, "obj"    # Ljava/lang/Object;
 
     .prologue
-    .line 281
+    .line 260
     instance-of v0, p2, Landroid/renderscript/ScriptGroup$Future;
 
     if-eqz v0, :cond_0
 
-    .line 282
+    .line 261
     check-cast p2, Landroid/renderscript/ScriptGroup$Future;
 
     .end local p2    # "obj":Ljava/lang/Object;
@@ -847,21 +786,21 @@
 
     move-result-object p2
 
-    .line 284
+    .line 263
     .restart local p2    # "obj":Ljava/lang/Object;
     :cond_0
     iget-object v0, p0, Landroid/renderscript/ScriptGroup$Closure;->mArgs:[Ljava/lang/Object;
 
     aput-object p2, v0, p1
 
-    .line 285
+    .line 264
     new-instance v7, Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;
 
     iget-object v0, p0, Landroid/renderscript/ScriptGroup$Closure;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-direct {v7, v0, p2}, Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;-><init>(Landroid/renderscript/RenderScript;Ljava/lang/Object;)V
 
-    .line 286
+    .line 265
     .local v7, "vs":Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;
     iget-object v0, p0, Landroid/renderscript/ScriptGroup$Closure;->mRS:Landroid/renderscript/RenderScript;
 
@@ -879,7 +818,7 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/renderscript/RenderScript;->nClosureSetArg(JIJI)V
 
-    .line 280
+    .line 259
     return-void
 .end method
 
@@ -889,12 +828,12 @@
     .param p2, "obj"    # Ljava/lang/Object;
 
     .prologue
-    .line 290
+    .line 269
     instance-of v1, p2, Landroid/renderscript/ScriptGroup$Future;
 
     if-eqz v1, :cond_0
 
-    .line 291
+    .line 270
     check-cast p2, Landroid/renderscript/ScriptGroup$Future;
 
     .end local p2    # "obj":Ljava/lang/Object;
@@ -902,21 +841,21 @@
 
     move-result-object p2
 
-    .line 293
+    .line 272
     .restart local p2    # "obj":Ljava/lang/Object;
     :cond_0
     iget-object v1, p0, Landroid/renderscript/ScriptGroup$Closure;->mBindings:Ljava/util/Map;
 
     invoke-interface {v1, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 294
+    .line 273
     new-instance v0, Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;
 
     iget-object v1, p0, Landroid/renderscript/ScriptGroup$Closure;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-direct {v0, v1, p2}, Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;-><init>(Landroid/renderscript/RenderScript;Ljava/lang/Object;)V
 
-    .line 295
+    .line 274
     .local v0, "vs":Landroid/renderscript/ScriptGroup$Closure$ValueAndSize;
     iget-object v1, p0, Landroid/renderscript/ScriptGroup$Closure;->mRS:Landroid/renderscript/RenderScript;
 
@@ -938,6 +877,6 @@
 
     invoke-virtual/range {v1 .. v8}, Landroid/renderscript/RenderScript;->nClosureSetGlobal(JJJI)V
 
-    .line 289
+    .line 268
     return-void
 .end method

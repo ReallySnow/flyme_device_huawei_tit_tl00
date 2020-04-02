@@ -25,7 +25,7 @@
     .param p2, "$anonymous0"    # Landroid/os/Looper;
 
     .prologue
-    .line 310
+    .line 256
     iput-object p1, p0, Landroid/os/storage/StorageManager$ObbListenerDelegate$1;->this$1:Landroid/os/storage/StorageManager$ObbListenerDelegate;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -40,21 +40,21 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 313
+    .line 259
     iget-object v1, p0, Landroid/os/storage/StorageManager$ObbListenerDelegate$1;->this$1:Landroid/os/storage/StorageManager$ObbListenerDelegate;
 
     invoke-virtual {v1}, Landroid/os/storage/StorageManager$ObbListenerDelegate;->getListener()Landroid/os/storage/OnObbStateChangeListener;
 
     move-result-object v0
 
-    .line 314
+    .line 260
     .local v0, "changeListener":Landroid/os/storage/OnObbStateChangeListener;
     if-nez v0, :cond_0
 
-    .line 315
+    .line 261
     return-void
 
-    .line 318
+    .line 264
     :cond_0
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -64,6 +64,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/storage/OnObbStateChangeListener;->onObbStateChange(Ljava/lang/String;I)V
 
-    .line 312
+    .line 258
     return-void
 .end method

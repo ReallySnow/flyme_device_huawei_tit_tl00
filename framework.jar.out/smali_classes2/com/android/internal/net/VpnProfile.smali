@@ -85,7 +85,7 @@
     .locals 1
 
     .prologue
-    .line 204
+    .line 199
     new-instance v0, Lcom/android/internal/net/VpnProfile$1;
 
     invoke-direct {v0}, Lcom/android/internal/net/VpnProfile$1;-><init>()V
@@ -492,7 +492,11 @@
 
     aget-object v5, v2, v5
 
-    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v5
 
@@ -666,7 +670,7 @@
     .locals 1
 
     .prologue
-    .line 218
+    .line 213
     const/4 v0, 0x0
 
     return v0
@@ -855,21 +859,12 @@
     const/4 v3, 0x0
 
     .line 180
-    iget v2, p0, Lcom/android/internal/net/VpnProfile;->type:I
-
-    if-nez v2, :cond_0
-
-    .line 181
-    return v3
-
-    .line 185
-    :cond_0
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/net/VpnProfile;->server:Ljava/lang/String;
 
     invoke-static {v2}, Ljava/net/InetAddress;->parseNumericAddress(Ljava/lang/String;)Ljava/net/InetAddress;
 
-    .line 187
+    .line 182
     iget-object v2, p0, Lcom/android/internal/net/VpnProfile;->dnsServers:Ljava/lang/String;
 
     const-string/jumbo v4, " +"
@@ -883,33 +878,33 @@
     move v2, v3
 
     :goto_0
-    if-ge v2, v5, :cond_1
+    if-ge v2, v5, :cond_0
 
     aget-object v0, v4, v2
 
-    .line 188
+    .line 183
     .local v0, "dnsServer":Ljava/lang/String;
     iget-object v6, p0, Lcom/android/internal/net/VpnProfile;->dnsServers:Ljava/lang/String;
 
     invoke-static {v6}, Ljava/net/InetAddress;->parseNumericAddress(Ljava/lang/String;)Ljava/net/InetAddress;
 
-    .line 187
+    .line 182
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 190
+    .line 185
     .end local v0    # "dnsServer":Ljava/lang/String;
-    :cond_1
+    :cond_0
     iget-object v2, p0, Lcom/android/internal/net/VpnProfile;->dnsServers:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
-    .line 191
+    .line 186
     const-string/jumbo v2, "VpnProfile"
 
     const-string/jumbo v4, "DNS required"
@@ -918,20 +913,20 @@
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 192
+    .line 187
     return v3
 
-    .line 196
-    :cond_2
+    .line 191
+    :cond_1
     const/4 v2, 0x1
 
     return v2
 
-    .line 198
+    .line 193
     :catch_0
     move-exception v1
 
-    .line 199
+    .line 194
     .local v1, "e":Ljava/lang/IllegalArgumentException;
     const-string/jumbo v2, "VpnProfile"
 
@@ -939,7 +934,7 @@
 
     invoke-static {v2, v4, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 200
+    .line 195
     return v3
 .end method
 

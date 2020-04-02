@@ -209,7 +209,7 @@
     .param p1, "group"    # Landroid/app/NotificationGroup;
 
     .prologue
-    .line 483
+    .line 478
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -219,15 +219,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 481
+    .line 476
     :goto_0
     return-void
 
-    .line 484
+    .line 479
     :catch_0
     move-exception v0
 
-    .line 485
+    .line 480
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -245,7 +245,7 @@
     .param p1, "profile"    # Lcyanogenmod/app/Profile;
 
     .prologue
-    .line 321
+    .line 318
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -255,15 +255,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 319
+    .line 316
     :goto_0
     return-void
 
-    .line 322
+    .line 319
     :catch_0
     move-exception v0
 
-    .line 323
+    .line 320
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -280,7 +280,7 @@
     .locals 3
 
     .prologue
-    .line 308
+    .line 305
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -294,11 +294,11 @@
 
     return-object v1
 
-    .line 309
+    .line 306
     :catch_0
     move-exception v0
 
-    .line 310
+    .line 307
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -308,7 +308,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 312
+    .line 309
     const/4 v1, 0x0
 
     return-object v1
@@ -319,16 +319,16 @@
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 550
+    .line 545
     invoke-virtual {p0, p1}, Lcyanogenmod/app/ProfileManager;->getNotificationGroupForPackage(Ljava/lang/String;)Landroid/app/NotificationGroup;
 
     move-result-object v1
 
-    .line 551
+    .line 546
     .local v1, "notificationGroup":Landroid/app/NotificationGroup;
     if-nez v1, :cond_0
 
-    .line 552
+    .line 547
     invoke-virtual {p0}, Lcyanogenmod/app/ProfileManager;->getActiveProfile()Lcyanogenmod/app/Profile;
 
     move-result-object v2
@@ -337,11 +337,11 @@
 
     move-result-object v0
 
-    .line 553
+    .line 548
     .local v0, "defaultGroup":Lcyanogenmod/app/ProfileGroup;
     return-object v0
 
-    .line 555
+    .line 550
     .end local v0    # "defaultGroup":Lcyanogenmod/app/ProfileGroup;
     :cond_0
     invoke-virtual {p0}, Lcyanogenmod/app/ProfileManager;->getActiveProfile()Lcyanogenmod/app/Profile;
@@ -364,7 +364,7 @@
     .param p1, "uuid"    # Ljava/util/UUID;
 
     .prologue
-    .line 536
+    .line 531
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -382,11 +382,11 @@
 
     return-object v1
 
-    .line 537
+    .line 532
     :catch_0
     move-exception v0
 
-    .line 538
+    .line 533
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -396,7 +396,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 540
+    .line 535
     const/4 v1, 0x0
 
     return-object v1
@@ -407,7 +407,7 @@
     .param p1, "pkg"    # Ljava/lang/String;
 
     .prologue
-    .line 522
+    .line 517
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -421,11 +421,11 @@
 
     return-object v1
 
-    .line 523
+    .line 518
     :catch_0
     move-exception v0
 
-    .line 524
+    .line 519
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -435,7 +435,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 526
+    .line 521
     const/4 v1, 0x0
 
     return-object v1
@@ -445,7 +445,7 @@
     .locals 3
 
     .prologue
-    .line 469
+    .line 464
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -459,11 +459,11 @@
 
     return-object v1
 
-    .line 470
+    .line 465
     :catch_0
     move-exception v0
 
-    .line 471
+    .line 466
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -473,7 +473,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 473
+    .line 468
     const/4 v1, 0x0
 
     return-object v1
@@ -486,7 +486,7 @@
     .end annotation
 
     .prologue
-    .line 361
+    .line 356
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -500,11 +500,11 @@
 
     return-object v1
 
-    .line 362
+    .line 357
     :catch_0
     move-exception v0
 
-    .line 363
+    .line 358
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -514,7 +514,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 365
+    .line 360
     const/4 v1, 0x0
 
     return-object v1
@@ -525,7 +525,7 @@
     .param p1, "profileUuid"    # Ljava/util/UUID;
 
     .prologue
-    .line 375
+    .line 370
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -543,11 +543,11 @@
 
     return-object v1
 
-    .line 376
+    .line 371
     :catch_0
     move-exception v0
 
-    .line 377
+    .line 372
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -557,7 +557,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 379
+    .line 374
     const/4 v1, 0x0
 
     return-object v1
@@ -567,7 +567,7 @@
     .locals 6
 
     .prologue
-    .line 388
+    .line 383
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -577,13 +577,13 @@
 
     move-result-object v3
 
-    .line 389
+    .line 384
     .local v3, "profiles":[Lcyanogenmod/app/Profile;
     array-length v4, v3
 
     new-array v2, v4, [Ljava/lang/String;
 
-    .line 390
+    .line 385
     .local v2, "names":[Ljava/lang/String;
     const/4 v1, 0x0
 
@@ -593,7 +593,7 @@
 
     if-ge v1, v4, :cond_0
 
-    .line 391
+    .line 386
     aget-object v4, v3, v1
 
     invoke-virtual {v4}, Lcyanogenmod/app/Profile;->getName()Ljava/lang/String;
@@ -604,23 +604,23 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 390
+    .line 385
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 393
+    .line 388
     :cond_0
     return-object v2
 
-    .line 394
+    .line 389
     .end local v1    # "i":I
     .end local v2    # "names":[Ljava/lang/String;
     .end local v3    # "profiles":[Lcyanogenmod/app/Profile;
     :catch_0
     move-exception v0
 
-    .line 395
+    .line 390
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v4, "ProfileManager"
 
@@ -630,7 +630,7 @@
 
     invoke-static {v4, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 397
+    .line 392
     const/4 v4, 0x0
 
     return-object v4
@@ -640,7 +640,7 @@
     .locals 3
 
     .prologue
-    .line 406
+    .line 401
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -654,11 +654,11 @@
 
     return-object v1
 
-    .line 407
+    .line 402
     :catch_0
     move-exception v0
 
-    .line 408
+    .line 403
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -668,7 +668,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 410
+    .line 405
     const/4 v1, 0x0
 
     return-object v1
@@ -678,7 +678,7 @@
     .locals 3
 
     .prologue
-    .line 577
+    .line 572
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -692,11 +692,11 @@
 
     return v1
 
-    .line 578
+    .line 573
     :catch_0
     move-exception v0
 
-    .line 579
+    .line 574
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -706,7 +706,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 581
+    .line 576
     const/4 v1, 0x0
 
     return v1
@@ -717,7 +717,7 @@
     .param p1, "notificationGroupName"    # Ljava/lang/String;
 
     .prologue
-    .line 453
+    .line 448
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -731,11 +731,11 @@
 
     return v1
 
-    .line 454
+    .line 449
     :catch_0
     move-exception v0
 
-    .line 455
+    .line 450
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -745,7 +745,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 458
+    .line 453
     const/4 v1, 0x1
 
     return v1
@@ -756,7 +756,7 @@
     .param p1, "profileName"    # Ljava/lang/String;
 
     .prologue
-    .line 420
+    .line 415
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -770,11 +770,11 @@
 
     return v1
 
-    .line 421
+    .line 416
     :catch_0
     move-exception v0
 
-    .line 422
+    .line 417
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -784,7 +784,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 425
+    .line 420
     const/4 v1, 0x1
 
     return v1
@@ -795,7 +795,7 @@
     .param p1, "profileUuid"    # Ljava/util/UUID;
 
     .prologue
-    .line 436
+    .line 431
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -813,11 +813,11 @@
 
     return v1
 
-    .line 437
+    .line 432
     :catch_0
     move-exception v0
 
-    .line 438
+    .line 433
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -827,7 +827,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 441
+    .line 436
     const/4 v1, 0x1
 
     return v1
@@ -838,7 +838,7 @@
     .param p1, "group"    # Landroid/app/NotificationGroup;
 
     .prologue
-    .line 496
+    .line 491
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -848,15 +848,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 494
+    .line 489
     :goto_0
     return-void
 
-    .line 497
+    .line 492
     :catch_0
     move-exception v0
 
-    .line 498
+    .line 493
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -874,7 +874,7 @@
     .param p1, "profile"    # Lcyanogenmod/app/Profile;
 
     .prologue
-    .line 333
+    .line 330
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -884,15 +884,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 331
+    .line 328
     :goto_0
     return-void
 
-    .line 334
+    .line 331
     :catch_0
     move-exception v0
 
-    .line 335
+    .line 332
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -909,7 +909,7 @@
     .locals 4
 
     .prologue
-    .line 563
+    .line 558
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -920,15 +920,15 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 561
+    .line 556
     :goto_0
     return-void
 
-    .line 566
+    .line 561
     :catch_0
     move-exception v1
 
-    .line 567
+    .line 562
     .local v1, "e":Ljava/lang/SecurityException;
     const-string/jumbo v2, "ProfileManager"
 
@@ -940,12 +940,12 @@
 
     goto :goto_0
 
-    .line 564
+    .line 559
     .end local v1    # "e":Ljava/lang/SecurityException;
     :catch_1
     move-exception v0
 
-    .line 565
+    .line 560
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v2, "ProfileManager"
 
@@ -965,7 +965,7 @@
     .end annotation
 
     .prologue
-    .line 284
+    .line 281
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -975,15 +975,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 282
+    .line 279
     :goto_0
     return-void
 
-    .line 285
+    .line 282
     :catch_0
     move-exception v0
 
-    .line 286
+    .line 283
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -1001,7 +1001,7 @@
     .param p1, "profileUuid"    # Ljava/util/UUID;
 
     .prologue
-    .line 296
+    .line 293
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -1015,15 +1015,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 294
+    .line 291
     :goto_0
     return-void
 
-    .line 297
+    .line 294
     :catch_0
     move-exception v0
 
-    .line 298
+    .line 295
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -1041,7 +1041,7 @@
     .param p1, "group"    # Landroid/app/NotificationGroup;
 
     .prologue
-    .line 509
+    .line 504
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -1051,15 +1051,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 507
+    .line 502
     :goto_0
     return-void
 
-    .line 510
+    .line 505
     :catch_0
     move-exception v0
 
-    .line 511
+    .line 506
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 
@@ -1077,7 +1077,7 @@
     .param p1, "profile"    # Lcyanogenmod/app/Profile;
 
     .prologue
-    .line 345
+    .line 342
     :try_start_0
     invoke-static {}, Lcyanogenmod/app/ProfileManager;->getService()Lcyanogenmod/app/IProfileManager;
 
@@ -1087,15 +1087,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 343
+    .line 340
     :goto_0
     return-void
 
-    .line 346
+    .line 343
     :catch_0
     move-exception v0
 
-    .line 347
+    .line 344
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "ProfileManager"
 

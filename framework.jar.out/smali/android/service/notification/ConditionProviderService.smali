@@ -6,21 +6,13 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/service/notification/ConditionProviderService$H;,
-        Landroid/service/notification/ConditionProviderService$Provider;
+        Landroid/service/notification/ConditionProviderService$Provider;,
+        Landroid/service/notification/ConditionProviderService$H;
     }
 .end annotation
 
 
 # static fields
-.field public static final EXTRA_RULE_ID:Ljava/lang/String; = "android.service.notification.extra.RULE_ID"
-
-.field public static final META_DATA_CONFIGURATION_ACTIVITY:Ljava/lang/String; = "android.service.zen.automatic.configurationActivity"
-
-.field public static final META_DATA_RULE_INSTANCE_LIMIT:Ljava/lang/String; = "android.service.zen.automatic.ruleInstanceLimit"
-
-.field public static final META_DATA_RULE_TYPE:Ljava/lang/String; = "android.service.zen.automatic.ruleType"
-
 .field public static final SERVICE_INTERFACE:Ljava/lang/String; = "android.service.notification.ConditionProviderService"
 
 
@@ -55,10 +47,10 @@
     .locals 2
 
     .prologue
-    .line 59
+    .line 49
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 60
+    .line 50
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -73,15 +65,15 @@
 
     move-result-object v0
 
-    .line 61
+    .line 51
     const-string/jumbo v1, "["
 
-    .line 60
+    .line 50
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 61
+    .line 51
     invoke-virtual {p0}, Landroid/service/notification/ConditionProviderService;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -90,15 +82,15 @@
 
     move-result-object v1
 
-    .line 60
+    .line 50
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 61
+    .line 51
     const-string/jumbo v1, "]"
 
-    .line 60
+    .line 50
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -109,7 +101,7 @@
 
     iput-object v0, p0, Landroid/service/notification/ConditionProviderService;->TAG:Ljava/lang/String;
 
-    .line 63
+    .line 53
     new-instance v0, Landroid/service/notification/ConditionProviderService$H;
 
     const/4 v1, 0x0
@@ -118,7 +110,7 @@
 
     iput-object v0, p0, Landroid/service/notification/ConditionProviderService;->mHandler:Landroid/service/notification/ConditionProviderService$H;
 
-    .line 59
+    .line 49
     return-void
 .end method
 
@@ -126,26 +118,26 @@
     .locals 1
 
     .prologue
-    .line 121
+    .line 71
     iget-object v0, p0, Landroid/service/notification/ConditionProviderService;->mNoMan:Landroid/app/INotificationManager;
 
     if-nez v0, :cond_0
 
-    .line 123
+    .line 73
     const-string/jumbo v0, "notification"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 122
+    .line 72
     invoke-static {v0}, Landroid/app/INotificationManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/INotificationManager;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/service/notification/ConditionProviderService;->mNoMan:Landroid/app/INotificationManager;
 
-    .line 125
+    .line 75
     :cond_0
     iget-object v0, p0, Landroid/service/notification/ConditionProviderService;->mNoMan:Landroid/app/INotificationManager;
 
@@ -156,24 +148,24 @@
     .locals 2
 
     .prologue
-    .line 164
+    .line 101
     iget-object v0, p0, Landroid/service/notification/ConditionProviderService;->mProvider:Landroid/service/notification/ConditionProviderService$Provider;
 
     if-nez v0, :cond_0
 
-    .line 165
+    .line 102
     iget-object v0, p0, Landroid/service/notification/ConditionProviderService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "Condition provider service not yet bound."
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 166
+    .line 103
     const/4 v0, 0x0
 
     return v0
 
-    .line 168
+    .line 105
     :cond_0
     const/4 v0, 0x1
 
@@ -187,12 +179,12 @@
     .param p1, "condition"    # Landroid/service/notification/Condition;
 
     .prologue
-    .line 137
+    .line 79
     if-nez p1, :cond_0
 
     return-void
 
-    .line 138
+    .line 80
     :cond_0
     const/4 v0, 0x1
 
@@ -204,7 +196,7 @@
 
     invoke-virtual {p0, v0}, Landroid/service/notification/ConditionProviderService;->notifyConditions([Landroid/service/notification/Condition;)V
 
-    .line 136
+    .line 78
     return-void
 .end method
 
@@ -213,7 +205,7 @@
     .param p1, "conditions"    # [Landroid/service/notification/Condition;
 
     .prologue
-    .line 147
+    .line 84
     invoke-direct {p0}, Landroid/service/notification/ConditionProviderService;->isBound()Z
 
     move-result v1
@@ -225,7 +217,7 @@
     :cond_0
     return-void
 
-    .line 149
+    .line 86
     :cond_1
     :try_start_0
     invoke-direct {p0}, Landroid/service/notification/ConditionProviderService;->getNotificationInterface()Landroid/app/INotificationManager;
@@ -242,15 +234,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 146
+    .line 83
     :goto_0
     return-void
 
-    .line 150
+    .line 87
     :catch_0
     move-exception v0
 
-    .line 151
+    .line 88
     .local v0, "ex":Landroid/os/RemoteException;
     iget-object v1, p0, Landroid/service/notification/ConditionProviderService;->TAG:Ljava/lang/String;
 
@@ -268,19 +260,19 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 157
+    .line 94
     iget-object v0, p0, Landroid/service/notification/ConditionProviderService;->mProvider:Landroid/service/notification/ConditionProviderService$Provider;
 
     if-nez v0, :cond_0
 
-    .line 158
+    .line 95
     new-instance v0, Landroid/service/notification/ConditionProviderService$Provider;
 
     invoke-direct {v0, p0, v1}, Landroid/service/notification/ConditionProviderService$Provider;-><init>(Landroid/service/notification/ConditionProviderService;Landroid/service/notification/ConditionProviderService$Provider;)V
 
     iput-object v0, p0, Landroid/service/notification/ConditionProviderService;->mProvider:Landroid/service/notification/ConditionProviderService$Provider;
 
-    .line 160
+    .line 97
     :cond_0
     iget-object v0, p0, Landroid/service/notification/ConditionProviderService;->mProvider:Landroid/service/notification/ConditionProviderService$Provider;
 
@@ -290,13 +282,7 @@
 .method public abstract onConnected()V
 .end method
 
-.method public onRequestConditions(I)V
-    .locals 0
-    .param p1, "relevance"    # I
-
-    .prologue
-    .line 106
-    return-void
+.method public abstract onRequestConditions(I)V
 .end method
 
 .method public abstract onSubscribe(Landroid/net/Uri;)V

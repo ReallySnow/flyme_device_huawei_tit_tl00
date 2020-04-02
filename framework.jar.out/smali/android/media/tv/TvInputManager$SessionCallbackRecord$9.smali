@@ -27,7 +27,7 @@
     .param p1, "this$1"    # Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     .prologue
-    .line 625
+    .line 506
     iput-object p1, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$9;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 628
+    .line 509
     iget-object v0, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$9;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     invoke-static {v0}, Landroid/media/tv/TvInputManager$SessionCallbackRecord;->-get1(Landroid/media/tv/TvInputManager$SessionCallbackRecord;)Landroid/media/tv/TvInputManager$SessionCallback;
@@ -56,6 +56,6 @@
 
     invoke-virtual {v0, v1}, Landroid/media/tv/TvInputManager$SessionCallback;->onContentAllowed(Landroid/media/tv/TvInputManager$Session;)V
 
-    .line 627
+    .line 508
     return-void
 .end method

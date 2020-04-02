@@ -33,13 +33,13 @@
     .param p1, "this$0"    # Landroid/app/Activity;
 
     .prologue
-    .line 7103
+    .line 6596
     iput-object p1, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
-    .line 7104
+    .line 6597
     invoke-direct {p0, p1}, Landroid/app/FragmentHostCallback;-><init>(Landroid/app/Activity;)V
 
-    .line 7103
+    .line 6596
     return-void
 .end method
 
@@ -50,12 +50,12 @@
     .param p1, "fragment"    # Landroid/app/Fragment;
 
     .prologue
-    .line 7182
+    .line 6662
     iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v0, p1}, Landroid/app/Activity;->onAttachFragment(Landroid/app/Fragment;)V
 
-    .line 7181
+    .line 6661
     return-void
 .end method
 
@@ -67,12 +67,12 @@
     .param p4, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 7109
+    .line 6602
     iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/app/Activity;->dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
-    .line 7108
+    .line 6601
     return-void
 .end method
 
@@ -81,7 +81,7 @@
     .param p1, "id"    # I
 
     .prologue
-    .line 7188
+    .line 6668
     iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
@@ -95,7 +95,7 @@
     .locals 1
 
     .prologue
-    .line 7134
+    .line 6627
     iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     return-object v0
@@ -105,7 +105,7 @@
     .locals 1
 
     .prologue
-    .line 7133
+    .line 6626
     invoke-virtual {p0}, Landroid/app/Activity$HostCallbacks;->onGetHost()Landroid/app/Activity;
 
     move-result-object v0
@@ -117,14 +117,14 @@
     .locals 2
 
     .prologue
-    .line 7119
+    .line 6612
     iget-object v1, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v1}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    .line 7120
+    .line 6613
     .local v0, "result":Landroid/view/LayoutInflater;
     invoke-virtual {p0}, Landroid/app/Activity$HostCallbacks;->onUseFragmentManagerInflaterFactory()Z
 
@@ -132,7 +132,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 7121
+    .line 6614
     iget-object v1, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v0, v1}, Landroid/view/LayoutInflater;->cloneInContext(Landroid/content/Context;)Landroid/view/LayoutInflater;
@@ -141,7 +141,7 @@
 
     return-object v1
 
-    .line 7123
+    .line 6616
     :cond_0
     return-object v0
 .end method
@@ -150,14 +150,14 @@
     .locals 2
 
     .prologue
-    .line 7176
+    .line 6656
     iget-object v1, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
-    .line 7177
+    .line 6657
     .local v0, "w":Landroid/view/Window;
     if-nez v0, :cond_0
 
@@ -182,14 +182,14 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 7193
+    .line 6673
     iget-object v2, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v2}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
-    .line 7194
+    .line 6674
     .local v0, "w":Landroid/view/Window;
     if-eqz v0, :cond_0
 
@@ -209,7 +209,7 @@
     .locals 1
 
     .prologue
-    .line 7171
+    .line 6651
     iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
@@ -233,12 +233,12 @@
     .locals 1
 
     .prologue
-    .line 7139
+    .line 6632
     iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->invalidateOptionsMenu()V
 
-    .line 7138
+    .line 6631
     return-void
 .end method
 
@@ -249,7 +249,7 @@
     .param p3, "requestCode"    # I
 
     .prologue
-    .line 7164
+    .line 6644
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -270,7 +270,7 @@
 
     move-result-object v1
 
-    .line 7165
+    .line 6645
     .local v1, "who":Ljava/lang/String;
     iget-object v2, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
@@ -282,7 +282,7 @@
 
     move-result-object v0
 
-    .line 7166
+    .line 6646
     .local v0, "intent":Landroid/content/Intent;
     iget-object v2, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
@@ -290,7 +290,7 @@
 
     invoke-virtual {v2, v1, v0, p3, v3}, Landroid/app/Activity;->startActivityForResult(Ljava/lang/String;Landroid/content/Intent;ILandroid/os/Bundle;)V
 
-    .line 7163
+    .line 6643
     return-void
 .end method
 
@@ -299,7 +299,7 @@
     .param p1, "fragment"    # Landroid/app/Fragment;
 
     .prologue
-    .line 7114
+    .line 6607
     iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
@@ -327,98 +327,20 @@
     .param p4, "options"    # Landroid/os/Bundle;
 
     .prologue
-    .line 7145
+    .line 6638
     iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/app/Activity;->startActivityFromFragment(Landroid/app/Fragment;Landroid/content/Intent;ILandroid/os/Bundle;)V
 
-    .line 7144
+    .line 6637
     return-void
-.end method
-
-.method public onStartIntentSenderFromFragment(Landroid/app/Fragment;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
-    .locals 9
-    .param p1, "fragment"    # Landroid/app/Fragment;
-    .param p2, "intent"    # Landroid/content/IntentSender;
-    .param p3, "requestCode"    # I
-    .param p4, "fillInIntent"    # Landroid/content/Intent;
-    .param p5, "flagsMask"    # I
-    .param p6, "flagsValues"    # I
-    .param p7, "extraFlags"    # I
-    .param p8, "options"    # Landroid/os/Bundle;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/IntentSender$SendIntentException;
-        }
-    .end annotation
-
-    .prologue
-    .line 7152
-    iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
-
-    iget-object v0, v0, Landroid/app/Activity;->mParent:Landroid/app/Activity;
-
-    if-nez v0, :cond_1
-
-    .line 7153
-    iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
-
-    iget-object v2, p1, Landroid/app/Fragment;->mWho:Ljava/lang/String;
-
-    move-object v1, p2
-
-    move v3, p3
-
-    move-object v4, p4
-
-    move v5, p5
-
-    move v6, p6
-
-    move-object/from16 v7, p8
-
-    invoke-static/range {v0 .. v7}, Landroid/app/Activity;->-wrap0(Landroid/app/Activity;Landroid/content/IntentSender;Ljava/lang/String;ILandroid/content/Intent;IILandroid/os/Bundle;)V
-
-    .line 7151
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 7155
-    :cond_1
-    if-eqz p8, :cond_0
-
-    .line 7156
-    iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
-
-    iget-object v0, v0, Landroid/app/Activity;->mParent:Landroid/app/Activity;
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move v3, p3
-
-    move-object v4, p4
-
-    move v5, p5
-
-    move v6, p6
-
-    move/from16 v7, p7
-
-    move-object/from16 v8, p8
-
-    invoke-virtual/range {v0 .. v8}, Landroid/app/Activity;->startIntentSenderFromChildFragment(Landroid/app/Fragment;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
-
-    goto :goto_0
 .end method
 
 .method public onUseFragmentManagerInflaterFactory()Z
     .locals 2
 
     .prologue
-    .line 7129
+    .line 6622
     iget-object v0, p0, Landroid/app/Activity$HostCallbacks;->this$0:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;

@@ -26,16 +26,6 @@
     .end annotation
 .end field
 
-.field public static final REASON_CANCELED:I = 0x0
-
-.field public static final REASON_CONSTRAINTS_NOT_SATISFIED:I = 0x1
-
-.field public static final REASON_DEVICE_IDLE:I = 0x4
-
-.field public static final REASON_PREEMPT:I = 0x2
-
-.field public static final REASON_TIMEOUT:I = 0x3
-
 
 # instance fields
 .field private final callback:Landroid/os/IBinder;
@@ -44,13 +34,7 @@
 
 .field private final jobId:I
 
-.field private final mTriggeredContentAuthorities:[Ljava/lang/String;
-
-.field private final mTriggeredContentUris:[Landroid/net/Uri;
-
 .field private final overrideDeadlineExpired:Z
-
-.field private stopReason:I
 
 
 # direct methods
@@ -58,49 +42,41 @@
     .locals 1
 
     .prologue
-    .line 158
+    .line 96
     new-instance v0, Landroid/app/job/JobParameters$1;
 
     invoke-direct {v0}, Landroid/app/job/JobParameters$1;-><init>()V
 
     sput-object v0, Landroid/app/job/JobParameters;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 30
+    .line 29
     return-void
 .end method
 
-.method public constructor <init>(Landroid/os/IBinder;ILandroid/os/PersistableBundle;Z[Landroid/net/Uri;[Ljava/lang/String;)V
+.method public constructor <init>(Landroid/os/IBinder;ILandroid/os/PersistableBundle;Z)V
     .locals 0
     .param p1, "callback"    # Landroid/os/IBinder;
     .param p2, "jobId"    # I
     .param p3, "extras"    # Landroid/os/PersistableBundle;
     .param p4, "overrideDeadlineExpired"    # Z
-    .param p5, "triggeredContentUris"    # [Landroid/net/Uri;
-    .param p6, "triggeredContentAuthorities"    # [Ljava/lang/String;
 
     .prologue
-    .line 53
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 56
+    .line 39
     iput p2, p0, Landroid/app/job/JobParameters;->jobId:I
 
-    .line 57
+    .line 40
     iput-object p3, p0, Landroid/app/job/JobParameters;->extras:Landroid/os/PersistableBundle;
 
-    .line 58
+    .line 41
     iput-object p1, p0, Landroid/app/job/JobParameters;->callback:Landroid/os/IBinder;
 
-    .line 59
+    .line 42
     iput-boolean p4, p0, Landroid/app/job/JobParameters;->overrideDeadlineExpired:Z
 
-    .line 60
-    iput-object p5, p0, Landroid/app/job/JobParameters;->mTriggeredContentUris:[Landroid/net/Uri;
-
-    .line 61
-    iput-object p6, p0, Landroid/app/job/JobParameters;->mTriggeredContentAuthorities:[Ljava/lang/String;
-
-    .line 55
+    .line 38
     return-void
 .end method
 
@@ -111,31 +87,31 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 127
+    .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 128
+    .line 77
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, p0, Landroid/app/job/JobParameters;->jobId:I
 
-    .line 129
+    .line 78
     invoke-virtual {p1}, Landroid/os/Parcel;->readPersistableBundle()Landroid/os/PersistableBundle;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/app/job/JobParameters;->extras:Landroid/os/PersistableBundle;
 
-    .line 130
+    .line 79
     invoke-virtual {p1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/app/job/JobParameters;->callback:Landroid/os/IBinder;
 
-    .line 131
+    .line 80
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -145,35 +121,10 @@
     :goto_0
     iput-boolean v0, p0, Landroid/app/job/JobParameters;->overrideDeadlineExpired:Z
 
-    .line 132
-    sget-object v0, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, [Landroid/net/Uri;
-
-    iput-object v0, p0, Landroid/app/job/JobParameters;->mTriggeredContentUris:[Landroid/net/Uri;
-
-    .line 133
-    invoke-virtual {p1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/app/job/JobParameters;->mTriggeredContentAuthorities:[Ljava/lang/String;
-
-    .line 134
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/app/job/JobParameters;->stopReason:I
-
-    .line 127
+    .line 76
     return-void
 
-    .line 131
+    .line 80
     :cond_0
     const/4 v0, 0x0
 
@@ -196,7 +147,7 @@
     .locals 1
 
     .prologue
-    .line 144
+    .line 85
     const/4 v0, 0x0
 
     return v0
@@ -206,7 +157,7 @@
     .locals 1
 
     .prologue
-    .line 124
+    .line 73
     iget-object v0, p0, Landroid/app/job/JobParameters;->callback:Landroid/os/IBinder;
 
     invoke-static {v0}, Landroid/app/job/IJobCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/job/IJobCallback;
@@ -220,7 +171,7 @@
     .locals 1
 
     .prologue
-    .line 85
+    .line 58
     iget-object v0, p0, Landroid/app/job/JobParameters;->extras:Landroid/os/PersistableBundle;
 
     return-object v0
@@ -230,62 +181,20 @@
     .locals 1
 
     .prologue
-    .line 68
+    .line 49
     iget v0, p0, Landroid/app/job/JobParameters;->jobId:I
 
     return v0
-.end method
-
-.method public getStopReason()I
-    .locals 1
-
-    .prologue
-    .line 76
-    iget v0, p0, Landroid/app/job/JobParameters;->stopReason:I
-
-    return v0
-.end method
-
-.method public getTriggeredContentAuthorities()[Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 119
-    iget-object v0, p0, Landroid/app/job/JobParameters;->mTriggeredContentAuthorities:[Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getTriggeredContentUris()[Landroid/net/Uri;
-    .locals 1
-
-    .prologue
-    .line 107
-    iget-object v0, p0, Landroid/app/job/JobParameters;->mTriggeredContentUris:[Landroid/net/Uri;
-
-    return-object v0
 .end method
 
 .method public isOverrideDeadlineExpired()Z
     .locals 1
 
     .prologue
-    .line 95
+    .line 68
     iget-boolean v0, p0, Landroid/app/job/JobParameters;->overrideDeadlineExpired:Z
 
     return v0
-.end method
-
-.method public setStopReason(I)V
-    .locals 0
-    .param p1, "reason"    # I
-
-    .prologue
-    .line 139
-    iput p1, p0, Landroid/app/job/JobParameters;->stopReason:I
-
-    .line 138
-    return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -294,22 +203,22 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 149
+    .line 90
     iget v0, p0, Landroid/app/job/JobParameters;->jobId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 150
+    .line 91
     iget-object v0, p0, Landroid/app/job/JobParameters;->extras:Landroid/os/PersistableBundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writePersistableBundle(Landroid/os/PersistableBundle;)V
 
-    .line 151
+    .line 92
     iget-object v0, p0, Landroid/app/job/JobParameters;->callback:Landroid/os/IBinder;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 152
+    .line 93
     iget-boolean v0, p0, Landroid/app/job/JobParameters;->overrideDeadlineExpired:Z
 
     if-eqz v0, :cond_0
@@ -319,25 +228,10 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 153
-    iget-object v0, p0, Landroid/app/job/JobParameters;->mTriggeredContentUris:[Landroid/net/Uri;
-
-    invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
-
-    .line 154
-    iget-object v0, p0, Landroid/app/job/JobParameters;->mTriggeredContentAuthorities:[Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
-
-    .line 155
-    iget v0, p0, Landroid/app/job/JobParameters;->stopReason:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 148
+    .line 89
     return-void
 
-    .line 152
+    .line 93
     :cond_0
     const/4 v0, 0x0
 

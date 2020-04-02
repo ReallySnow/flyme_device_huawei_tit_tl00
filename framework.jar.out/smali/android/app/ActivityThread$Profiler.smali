@@ -33,7 +33,7 @@
     .locals 0
 
     .prologue
-    .line 551
+    .line 464
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,44 +46,44 @@
     .param p1, "profilerInfo"    # Landroid/app/ProfilerInfo;
 
     .prologue
-    .line 559
+    .line 472
     iget-object v1, p1, Landroid/app/ProfilerInfo;->profileFd:Landroid/os/ParcelFileDescriptor;
 
-    .line 560
+    .line 473
     .local v1, "fd":Landroid/os/ParcelFileDescriptor;
     iget-boolean v2, p0, Landroid/app/ActivityThread$Profiler;->profiling:Z
 
     if-eqz v2, :cond_1
 
-    .line 561
+    .line 474
     if-eqz v1, :cond_0
 
-    .line 563
+    .line 476
     :try_start_0
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 568
+    .line 481
     :cond_0
     :goto_0
     return-void
 
-    .line 564
+    .line 477
     :catch_0
     move-exception v0
 
     .local v0, "e":Ljava/io/IOException;
     goto :goto_0
 
-    .line 570
+    .line 483
     .end local v0    # "e":Ljava/io/IOException;
     :cond_1
     iget-object v2, p0, Landroid/app/ActivityThread$Profiler;->profileFd:Landroid/os/ParcelFileDescriptor;
 
     if-eqz v2, :cond_2
 
-    .line 572
+    .line 485
     :try_start_1
     iget-object v2, p0, Landroid/app/ActivityThread$Profiler;->profileFd:Landroid/os/ParcelFileDescriptor;
 
@@ -91,30 +91,30 @@
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 577
+    .line 490
     :cond_2
     :goto_1
     iget-object v2, p1, Landroid/app/ProfilerInfo;->profileFile:Ljava/lang/String;
 
     iput-object v2, p0, Landroid/app/ActivityThread$Profiler;->profileFile:Ljava/lang/String;
 
-    .line 578
+    .line 491
     iput-object v1, p0, Landroid/app/ActivityThread$Profiler;->profileFd:Landroid/os/ParcelFileDescriptor;
 
-    .line 579
+    .line 492
     iget v2, p1, Landroid/app/ProfilerInfo;->samplingInterval:I
 
     iput v2, p0, Landroid/app/ActivityThread$Profiler;->samplingInterval:I
 
-    .line 580
+    .line 493
     iget-boolean v2, p1, Landroid/app/ProfilerInfo;->autoStopProfiler:Z
 
     iput-boolean v2, p0, Landroid/app/ActivityThread$Profiler;->autoStopProfiler:Z
 
-    .line 558
+    .line 471
     return-void
 
-    .line 573
+    .line 486
     :catch_1
     move-exception v0
 
@@ -123,14 +123,14 @@
 .end method
 
 .method public startProfiling()V
-    .locals 9
+    .locals 8
 
     .prologue
     const/4 v4, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    .line 583
+    .line 496
     iget-object v0, p0, Landroid/app/ActivityThread$Profiler;->profileFd:Landroid/os/ParcelFileDescriptor;
 
     if-eqz v0, :cond_0
@@ -139,23 +139,13 @@
 
     if-eqz v0, :cond_1
 
-    .line 584
+    .line 497
     :cond_0
     return-void
 
-    .line 587
+    .line 500
     :cond_1
     :try_start_0
-    const-string/jumbo v0, "debug.traceview-buffer-size-mb"
-
-    const/16 v1, 0x8
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v6
-
-    .line 588
-    .local v6, "bufferSize":I
     iget-object v0, p0, Landroid/app/ActivityThread$Profiler;->profileFile:Ljava/lang/String;
 
     iget-object v1, p0, Landroid/app/ActivityThread$Profiler;->profileFd:Landroid/os/ParcelFileDescriptor;
@@ -164,49 +154,44 @@
 
     move-result-object v1
 
-    .line 589
-    mul-int/lit16 v2, v6, 0x400
+    .line 501
+    iget v3, p0, Landroid/app/ActivityThread$Profiler;->samplingInterval:I
 
-    mul-int/lit16 v2, v2, 0x400
-
-    iget v5, p0, Landroid/app/ActivityThread$Profiler;->samplingInterval:I
-
-    if-eqz v5, :cond_2
+    if-eqz v3, :cond_2
 
     :goto_0
     iget v5, p0, Landroid/app/ActivityThread$Profiler;->samplingInterval:I
 
+    const/high16 v2, 0x800000
+
     const/4 v3, 0x0
 
-    .line 588
+    .line 500
     invoke-static/range {v0 .. v5}, Ldalvik/system/VMDebug;->startMethodTracing(Ljava/lang/String;Ljava/io/FileDescriptor;IIZI)V
 
-    .line 590
+    .line 502
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/app/ActivityThread$Profiler;->profiling:Z
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 582
-    .end local v6    # "bufferSize":I
+    .line 495
     :goto_1
     return-void
 
-    .restart local v6    # "bufferSize":I
     :cond_2
-    move v4, v3
+    move v4, v2
 
-    .line 589
+    .line 501
     goto :goto_0
 
-    .line 591
-    .end local v6    # "bufferSize":I
+    .line 503
     :catch_0
-    move-exception v7
+    move-exception v6
 
-    .line 592
-    .local v7, "e":Ljava/lang/RuntimeException;
+    .line 504
+    .local v6, "e":Ljava/lang/RuntimeException;
     const-string/jumbo v0, "ActivityThread"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -231,13 +216,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 594
+    .line 506
     :try_start_1
     iget-object v0, p0, Landroid/app/ActivityThread$Profiler;->profileFd:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    .line 595
+    .line 507
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/app/ActivityThread$Profiler;->profileFd:Landroid/os/ParcelFileDescriptor;
@@ -246,17 +231,17 @@
 
     goto :goto_1
 
-    .line 596
+    .line 508
     :catch_1
-    move-exception v8
+    move-exception v7
 
-    .line 597
-    .local v8, "e2":Ljava/io/IOException;
+    .line 509
+    .local v7, "e2":Ljava/io/IOException;
     const-string/jumbo v0, "ActivityThread"
 
     const-string/jumbo v1, "Failure closing profile fd"
 
-    invoke-static {v0, v1, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 .end method
@@ -267,25 +252,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 602
+    .line 514
     iget-boolean v1, p0, Landroid/app/ActivityThread$Profiler;->profiling:Z
 
     if-eqz v1, :cond_1
 
-    .line 603
+    .line 515
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/app/ActivityThread$Profiler;->profiling:Z
 
-    .line 604
+    .line 516
     invoke-static {}, Landroid/os/Debug;->stopMethodTracing()V
 
-    .line 605
+    .line 517
     iget-object v1, p0, Landroid/app/ActivityThread$Profiler;->profileFd:Landroid/os/ParcelFileDescriptor;
 
     if-eqz v1, :cond_0
 
-    .line 607
+    .line 519
     :try_start_0
     iget-object v1, p0, Landroid/app/ActivityThread$Profiler;->profileFd:Landroid/os/ParcelFileDescriptor;
 
@@ -293,19 +278,19 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 611
+    .line 523
     :cond_0
     :goto_0
     iput-object v2, p0, Landroid/app/ActivityThread$Profiler;->profileFd:Landroid/os/ParcelFileDescriptor;
 
-    .line 612
+    .line 524
     iput-object v2, p0, Landroid/app/ActivityThread$Profiler;->profileFile:Ljava/lang/String;
 
-    .line 601
+    .line 513
     :cond_1
     return-void
 
-    .line 608
+    .line 520
     :catch_0
     move-exception v0
 

@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/lights/LightsService;
 
     .prologue
-    .line 222
+    .line 163
     iput-object p1, p0, Lcom/android/server/lights/LightsService$1;->this$0:Lcom/android/server/lights/LightsService;
 
     invoke-direct {p0}, Lcom/android/server/lights/LightsManager;-><init>()V
@@ -39,12 +39,12 @@
     .param p1, "id"    # I
 
     .prologue
-    .line 225
+    .line 166
     const/16 v0, 0xa
 
     if-ge p1, v0, :cond_0
 
-    .line 226
+    .line 167
     iget-object v0, p0, Lcom/android/server/lights/LightsService$1;->this$0:Lcom/android/server/lights/LightsService;
 
     iget-object v0, v0, Lcom/android/server/lights/LightsService;->mLights:[Lcom/android/server/lights/LightsService$LightImpl;
@@ -53,7 +53,7 @@
 
     return-object v0
 
-    .line 228
+    .line 169
     :cond_0
     const/4 v0, 0x0
 

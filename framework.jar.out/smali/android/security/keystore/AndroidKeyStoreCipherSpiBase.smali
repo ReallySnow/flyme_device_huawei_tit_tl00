@@ -35,27 +35,27 @@
     .locals 1
 
     .prologue
-    .line 95
+    .line 94
     invoke-direct {p0}, Ljavax/crypto/CipherSpi;-><init>()V
 
-    .line 72
+    .line 71
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeymasterPurposeOverride:I
 
-    .line 96
+    .line 95
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeyStore:Landroid/security/KeyStore;
 
-    .line 95
+    .line 94
     return-void
 .end method
 
 .method private ensureKeystoreOperationInitialized()V
-    .locals 12
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidKeyException;,
@@ -64,30 +64,30 @@
     .end annotation
 
     .prologue
-    .line 226
+    .line 225
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mMainDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
     if-eqz v0, :cond_0
 
-    .line 227
+    .line 226
     return-void
 
-    .line 229
+    .line 228
     :cond_0
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
     if-eqz v0, :cond_1
 
-    .line 230
+    .line 229
     return-void
 
-    .line 232
+    .line 231
     :cond_1
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKey:Landroid/security/keystore/AndroidKeyStoreKey;
 
     if-nez v0, :cond_2
 
-    .line 233
+    .line 232
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Not initialized"
@@ -96,29 +96,29 @@
 
     throw v0
 
-    .line 236
+    .line 235
     :cond_2
     new-instance v4, Landroid/security/keymaster/KeymasterArguments;
 
     invoke-direct {v4}, Landroid/security/keymaster/KeymasterArguments;-><init>()V
 
-    .line 237
+    .line 236
     .local v4, "keymasterInputArgs":Landroid/security/keymaster/KeymasterArguments;
     invoke-virtual {p0, v4}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->addAlgorithmSpecificParametersToBegin(Landroid/security/keymaster/KeymasterArguments;)V
 
-    .line 239
+    .line 238
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mRng:Ljava/security/SecureRandom;
 
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->getAdditionalEntropyAmountForBegin()I
 
     move-result v1
 
-    .line 238
+    .line 237
     invoke-static {v0, v1}, Landroid/security/keystore/KeyStoreCryptoOperationUtils;->getRandomBytesToMixIntoKeystoreRng(Ljava/security/SecureRandom;I)[B
 
     move-result-object v5
 
-    .line 242
+    .line 241
     .local v5, "additionalEntropy":[B
     iget v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeymasterPurposeOverride:I
 
@@ -126,56 +126,49 @@
 
     if-eq v0, v1, :cond_3
 
-    .line 243
+    .line 242
     iget v2, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeymasterPurposeOverride:I
 
-    .line 248
+    .line 247
     .local v2, "purpose":I
     :goto_0
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeyStore:Landroid/security/KeyStore;
 
-    .line 249
+    .line 248
     iget-object v1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKey:Landroid/security/keystore/AndroidKeyStoreKey;
 
     invoke-virtual {v1}, Landroid/security/keystore/AndroidKeyStoreKey;->getAlias()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 254
-    iget-object v3, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKey:Landroid/security/keystore/AndroidKeyStoreKey;
-
-    invoke-virtual {v3}, Landroid/security/keystore/AndroidKeyStoreKey;->getUid()I
-
-    move-result v6
-
-    .line 251
+    .line 250
     const/4 v3, 0x1
 
-    .line 248
-    invoke-virtual/range {v0 .. v6}, Landroid/security/KeyStore;->begin(Ljava/lang/String;IZLandroid/security/keymaster/KeymasterArguments;[BI)Landroid/security/keymaster/OperationResult;
+    .line 247
+    invoke-virtual/range {v0 .. v5}, Landroid/security/KeyStore;->begin(Ljava/lang/String;IZLandroid/security/keymaster/KeymasterArguments;[B)Landroid/security/keymaster/OperationResult;
 
-    move-result-object v8
+    move-result-object v7
 
-    .line 255
-    .local v8, "opResult":Landroid/security/keymaster/OperationResult;
-    if-nez v8, :cond_5
+    .line 253
+    .local v7, "opResult":Landroid/security/keymaster/OperationResult;
+    if-nez v7, :cond_5
 
-    .line 256
+    .line 254
     new-instance v0, Landroid/security/keystore/KeyStoreConnectException;
 
     invoke-direct {v0}, Landroid/security/keystore/KeyStoreConnectException;-><init>()V
 
     throw v0
 
-    .line 245
+    .line 244
     .end local v2    # "purpose":I
-    .end local v8    # "opResult":Landroid/security/keymaster/OperationResult;
+    .end local v7    # "opResult":Landroid/security/keymaster/OperationResult;
     :cond_3
     iget-boolean v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mEncrypting:Z
 
     if-eqz v0, :cond_4
 
-    .line 246
+    .line 245
     const/4 v2, 0x0
 
     .restart local v2    # "purpose":I
@@ -188,76 +181,76 @@
     .restart local v2    # "purpose":I
     goto :goto_0
 
-    .line 261
-    .restart local v8    # "opResult":Landroid/security/keymaster/OperationResult;
+    .line 259
+    .restart local v7    # "opResult":Landroid/security/keymaster/OperationResult;
     :cond_5
-    iget-object v0, v8, Landroid/security/keymaster/OperationResult;->token:Landroid/os/IBinder;
+    iget-object v0, v7, Landroid/security/keymaster/OperationResult;->token:Landroid/os/IBinder;
 
     iput-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationToken:Landroid/os/IBinder;
 
-    .line 262
-    iget-wide v0, v8, Landroid/security/keymaster/OperationResult;->operationHandle:J
+    .line 260
+    iget-wide v0, v7, Landroid/security/keymaster/OperationResult;->operationHandle:J
 
     iput-wide v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationHandle:J
 
-    .line 266
+    .line 264
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeyStore:Landroid/security/KeyStore;
 
     iget-object v1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKey:Landroid/security/keystore/AndroidKeyStoreKey;
 
-    iget v3, v8, Landroid/security/keymaster/OperationResult;->resultCode:I
+    iget v3, v7, Landroid/security/keymaster/OperationResult;->resultCode:I
 
-    .line 265
+    .line 263
     invoke-static {v0, v1, v3}, Landroid/security/keystore/KeyStoreCryptoOperationUtils;->getExceptionForCipherInit(Landroid/security/KeyStore;Landroid/security/keystore/AndroidKeyStoreKey;I)Ljava/security/GeneralSecurityException;
 
-    move-result-object v7
+    move-result-object v6
 
-    .line 267
-    .local v7, "e":Ljava/security/GeneralSecurityException;
-    if-eqz v7, :cond_8
+    .line 265
+    .local v6, "e":Ljava/security/GeneralSecurityException;
+    if-eqz v6, :cond_8
 
-    .line 268
-    instance-of v0, v7, Ljava/security/InvalidKeyException;
+    .line 266
+    instance-of v0, v6, Ljava/security/InvalidKeyException;
 
     if-eqz v0, :cond_6
 
-    .line 269
-    check-cast v7, Ljava/security/InvalidKeyException;
+    .line 267
+    check-cast v6, Ljava/security/InvalidKeyException;
 
-    .end local v7    # "e":Ljava/security/GeneralSecurityException;
-    throw v7
+    .end local v6    # "e":Ljava/security/GeneralSecurityException;
+    throw v6
 
-    .line 270
-    .restart local v7    # "e":Ljava/security/GeneralSecurityException;
+    .line 268
+    .restart local v6    # "e":Ljava/security/GeneralSecurityException;
     :cond_6
-    instance-of v0, v7, Ljava/security/InvalidAlgorithmParameterException;
+    instance-of v0, v6, Ljava/security/InvalidAlgorithmParameterException;
 
     if-eqz v0, :cond_7
 
+    .line 269
+    check-cast v6, Ljava/security/InvalidAlgorithmParameterException;
+
+    .end local v6    # "e":Ljava/security/GeneralSecurityException;
+    throw v6
+
     .line 271
-    check-cast v7, Ljava/security/InvalidAlgorithmParameterException;
-
-    .end local v7    # "e":Ljava/security/GeneralSecurityException;
-    throw v7
-
-    .line 273
-    .restart local v7    # "e":Ljava/security/GeneralSecurityException;
+    .restart local v6    # "e":Ljava/security/GeneralSecurityException;
     :cond_7
     new-instance v0, Ljava/security/ProviderException;
 
     const-string/jumbo v1, "Unexpected exception type"
 
-    invoke-direct {v0, v1, v7}, Ljava/security/ProviderException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1, v6}, Ljava/security/ProviderException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v0
 
-    .line 277
+    .line 275
     :cond_8
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationToken:Landroid/os/IBinder;
 
     if-nez v0, :cond_9
 
-    .line 278
+    .line 276
     new-instance v0, Ljava/security/ProviderException;
 
     const-string/jumbo v1, "Keystore returned null operation token"
@@ -266,17 +259,17 @@
 
     throw v0
 
-    .line 280
+    .line 278
     :cond_9
     iget-wide v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationHandle:J
 
-    const-wide/16 v10, 0x0
+    const-wide/16 v8, 0x0
 
-    cmp-long v0, v0, v10
+    cmp-long v0, v0, v8
 
     if-nez v0, :cond_a
 
-    .line 281
+    .line 279
     new-instance v0, Ljava/security/ProviderException;
 
     const-string/jumbo v1, "Keystore returned invalid operation handle"
@@ -285,16 +278,16 @@
 
     throw v0
 
-    .line 284
+    .line 282
     :cond_a
-    iget-object v0, v8, Landroid/security/keymaster/OperationResult;->outParams:Landroid/security/keymaster/KeymasterArguments;
+    iget-object v0, v7, Landroid/security/keymaster/OperationResult;->outParams:Landroid/security/keymaster/KeymasterArguments;
 
     invoke-virtual {p0, v0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->loadAlgorithmSpecificParametersFromBeginResult(Landroid/security/keymaster/KeymasterArguments;)V
 
-    .line 285
+    .line 283
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeyStore:Landroid/security/KeyStore;
 
-    iget-object v1, v8, Landroid/security/keymaster/OperationResult;->token:Landroid/os/IBinder;
+    iget-object v1, v7, Landroid/security/keymaster/OperationResult;->token:Landroid/os/IBinder;
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->createMainDataStreamer(Landroid/security/KeyStore;Landroid/os/IBinder;)Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
@@ -302,24 +295,24 @@
 
     iput-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mMainDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
-    .line 287
+    .line 285
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeyStore:Landroid/security/KeyStore;
 
-    iget-object v1, v8, Landroid/security/keymaster/OperationResult;->token:Landroid/os/IBinder;
+    iget-object v1, v7, Landroid/security/keymaster/OperationResult;->token:Landroid/os/IBinder;
 
     invoke-virtual {p0, v0, v1}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->createAdditionalAuthenticationDataStreamer(Landroid/security/KeyStore;Landroid/os/IBinder;)Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
     move-result-object v0
 
-    .line 286
+    .line 284
     iput-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
-    .line 288
+    .line 286
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamerClosed:Z
 
-    .line 225
+    .line 224
     return-void
 .end method
 
@@ -334,60 +327,60 @@
     .prologue
     const/4 v7, 0x1
 
-    .line 352
+    .line 350
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
     if-eqz v0, :cond_0
 
-    .line 353
+    .line 351
     iget-boolean v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamerClosed:Z
 
     if-eqz v0, :cond_1
 
-    .line 351
+    .line 349
     :cond_0
     return-void
 
-    .line 356
+    .line 354
     :cond_1
     :try_start_0
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
-    .line 357
+    .line 355
     sget-object v1, Llibcore/util/EmptyArray;->BYTE:[B
 
     const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    .line 358
+    .line 356
     const/4 v4, 0x0
 
-    .line 359
+    .line 357
     const/4 v5, 0x0
 
-    .line 356
+    .line 354
     invoke-interface/range {v0 .. v5}, Landroid/security/keystore/KeyStoreCryptoOperationStreamer;->doFinal([BII[B[B)[B
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v6
 
-    .line 362
+    .line 360
     .local v6, "output":[B
     iput-boolean v7, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamerClosed:Z
 
-    .line 364
+    .line 362
     if-eqz v6, :cond_0
 
     array-length v0, v6
 
     if-lez v0, :cond_0
 
-    .line 365
+    .line 363
     new-instance v0, Ljava/security/ProviderException;
 
-    .line 366
+    .line 364
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -414,20 +407,20 @@
 
     move-result-object v1
 
-    .line 365
+    .line 363
     invoke-direct {v0, v1}, Ljava/security/ProviderException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 361
+    .line 359
     .end local v6    # "output":[B
     :catchall_0
     move-exception v0
 
-    .line 362
+    .line 360
     iput-boolean v7, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamerClosed:Z
 
-    .line 361
+    .line 359
     throw v0
 .end method
 
@@ -443,10 +436,10 @@
     .end annotation
 
     .prologue
-    .line 158
+    .line 157
     packed-switch p1, :pswitch_data_0
 
-    .line 168
+    .line 167
     new-instance v0, Ljava/security/InvalidParameterException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -471,22 +464,22 @@
 
     throw v0
 
-    .line 161
+    .line 160
     :pswitch_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mEncrypting:Z
 
-    .line 170
+    .line 169
     :goto_0
     invoke-virtual {p0, p1, p2}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->initKey(ILjava/security/Key;)V
 
-    .line 171
+    .line 170
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKey:Landroid/security/keystore/AndroidKeyStoreKey;
 
     if-nez v0, :cond_0
 
-    .line 172
+    .line 171
     new-instance v0, Ljava/security/ProviderException;
 
     const-string/jumbo v1, "initKey did not initialize the key"
@@ -495,7 +488,7 @@
 
     throw v0
 
-    .line 165
+    .line 164
     :pswitch_1
     const/4 v0, 0x0
 
@@ -503,14 +496,14 @@
 
     goto :goto_0
 
-    .line 174
+    .line 173
     :cond_0
     iput-object p3, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mRng:Ljava/security/SecureRandom;
 
-    .line 157
+    .line 156
     return-void
 
-    .line 158
+    .line 157
     nop
 
     :pswitch_data_0
@@ -527,41 +520,41 @@
     .param p0, "opmode"    # I
 
     .prologue
-    .line 799
+    .line 735
     packed-switch p0, :pswitch_data_0
 
-    .line 809
+    .line 745
     invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
-    .line 801
+    .line 737
     :pswitch_0
     const-string/jumbo v0, "ENCRYPT_MODE"
 
     return-object v0
 
-    .line 803
+    .line 739
     :pswitch_1
     const-string/jumbo v0, "DECRYPT_MODE"
 
     return-object v0
 
-    .line 805
+    .line 741
     :pswitch_2
     const-string/jumbo v0, "WRAP_MODE"
 
     return-object v0
 
-    .line 807
+    .line 743
     :pswitch_3
     const-string/jumbo v0, "UNWRAP_MODE"
 
     return-object v0
 
-    .line 799
+    .line 735
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -582,7 +575,7 @@
     .param p2, "operationToken"    # Landroid/os/IBinder;
 
     .prologue
-    .line 316
+    .line 314
     const/4 v0, 0x0
 
     return-object v0
@@ -594,22 +587,22 @@
     .param p2, "operationToken"    # Landroid/os/IBinder;
 
     .prologue
-    .line 300
+    .line 298
     new-instance v0, Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer;
 
-    .line 301
+    .line 299
     new-instance v1, Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer$MainDataStream;
 
     invoke-direct {v1, p1, p2}, Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer$MainDataStream;-><init>(Landroid/security/KeyStore;Landroid/os/IBinder;)V
 
-    .line 300
+    .line 298
     invoke-direct {v0, v1}, Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer;-><init>(Landroid/security/keystore/KeyStoreCryptoOperationChunkedStreamer$Stream;)V
 
     return-object v0
 .end method
 
 .method protected final engineDoFinal(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I
-    .locals 9
+    .locals 1
     .param p1, "input"    # Ljava/nio/ByteBuffer;
     .param p2, "output"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
@@ -621,167 +614,12 @@
     .end annotation
 
     .prologue
-    const/4 v5, 0x0
+    .line 514
+    invoke-super {p0, p1, p2}, Ljavax/crypto/CipherSpi;->engineDoFinal(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I
 
-    .line 547
-    if-nez p1, :cond_0
+    move-result v0
 
-    .line 548
-    new-instance v6, Ljava/lang/NullPointerException;
-
-    const-string/jumbo v7, "input == null"
-
-    invoke-direct {v6, v7}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v6
-
-    .line 550
-    :cond_0
-    if-nez p2, :cond_1
-
-    .line 551
-    new-instance v6, Ljava/lang/NullPointerException;
-
-    const-string/jumbo v7, "output == null"
-
-    invoke-direct {v6, v7}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v6
-
-    .line 554
-    :cond_1
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
-
-    move-result v2
-
-    .line 556
-    .local v2, "inputSize":I
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasArray()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    .line 559
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
-
-    move-result-object v6
-
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->arrayOffset()I
-
-    move-result v7
-
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
-
-    move-result v8
-
-    add-int/2addr v7, v8
-
-    .line 558
-    invoke-virtual {p0, v6, v7, v2}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineDoFinal([BII)[B
-
-    move-result-object v3
-
-    .line 560
-    .local v3, "outputArray":[B
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
-
-    move-result v6
-
-    add-int/2addr v6, v2
-
-    invoke-virtual {p1, v6}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
-
-    .line 567
-    :goto_0
-    if-eqz v3, :cond_2
-
-    array-length v5, v3
-
-    .line 568
-    .local v5, "outputSize":I
-    :cond_2
-    if-lez v5, :cond_3
-
-    .line 569
-    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->remaining()I
-
-    move-result v4
-
-    .line 571
-    .local v4, "outputBufferAvailable":I
-    :try_start_0
-    invoke-virtual {p2, v3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
-    :try_end_0
-    .catch Ljava/nio/BufferOverflowException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 578
-    .end local v4    # "outputBufferAvailable":I
-    :cond_3
-    return v5
-
-    .line 562
-    .end local v3    # "outputArray":[B
-    .end local v5    # "outputSize":I
-    :cond_4
-    new-array v1, v2, [B
-
-    .line 563
-    .local v1, "inputArray":[B
-    invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
-
-    .line 564
-    invoke-virtual {p0, v1, v5, v2}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineDoFinal([BII)[B
-
-    move-result-object v3
-
-    .restart local v3    # "outputArray":[B
-    goto :goto_0
-
-    .line 572
-    .end local v1    # "inputArray":[B
-    .restart local v4    # "outputBufferAvailable":I
-    .restart local v5    # "outputSize":I
-    :catch_0
-    move-exception v0
-
-    .line 573
-    .local v0, "e":Ljava/nio/BufferOverflowException;
-    new-instance v6, Ljavax/crypto/ShortBufferException;
-
-    .line 574
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "Output buffer too small. Produced: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ", available: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 573
-    invoke-direct {v6, v7}, Ljavax/crypto/ShortBufferException;-><init>(Ljava/lang/String;)V
-
-    throw v6
+    return v0
 .end method
 
 .method protected final engineDoFinal([BII[BI)I
@@ -802,31 +640,31 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 531
+    .line 498
     invoke-virtual {p0, p1, p2, p3}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineDoFinal([BII)[B
 
     move-result-object v1
 
-    .line 532
+    .line 499
     .local v1, "outputCopy":[B
     if-nez v1, :cond_0
 
-    .line 533
+    .line 500
     return v3
 
-    .line 535
+    .line 502
     :cond_0
     array-length v2, p4
 
     sub-int v0, v2, p5
 
-    .line 536
+    .line 503
     .local v0, "outputAvailable":I
     array-length v2, v1
 
     if-le v2, v0, :cond_1
 
-    .line 537
+    .line 504
     new-instance v2, Ljavax/crypto/ShortBufferException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -839,18 +677,18 @@
 
     move-result-object v3
 
-    .line 538
+    .line 505
     array-length v4, v1
 
-    .line 537
+    .line 504
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    .line 538
+    .line 505
     const-string/jumbo v4, ", available: "
 
-    .line 537
+    .line 504
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -867,13 +705,13 @@
 
     throw v2
 
-    .line 540
+    .line 507
     :cond_1
     array-length v2, v1
 
     invoke-static {v1, v3, p4, p5, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    .line 541
+    .line 508
     array-length v2, v1
 
     return v2
@@ -892,12 +730,12 @@
     .end annotation
 
     .prologue
-    .line 489
+    .line 456
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
     if-eqz v0, :cond_0
 
-    .line 491
+    .line 458
     new-instance v0, Ljavax/crypto/IllegalBlockSizeException;
 
     invoke-direct {v0}, Ljavax/crypto/IllegalBlockSizeException;-><init>()V
@@ -908,12 +746,12 @@
 
     move-result-object v0
 
-    .line 490
+    .line 457
     check-cast v0, Ljavax/crypto/IllegalBlockSizeException;
 
     throw v0
 
-    .line 495
+    .line 462
     :cond_0
     :try_start_0
     invoke-direct {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->ensureKeystoreOperationInitialized()V
@@ -921,27 +759,27 @@
     .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 502
+    .line 469
     :try_start_1
     invoke-direct {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->flushAAD()V
 
-    .line 505
+    .line 472
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mRng:Ljava/security/SecureRandom;
 
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->getAdditionalEntropyAmountForFinish()I
 
     move-result v1
 
-    .line 504
+    .line 471
     invoke-static {v0, v1}, Landroid/security/keystore/KeyStoreCryptoOperationUtils;->getRandomBytesToMixIntoKeystoreRng(Ljava/security/SecureRandom;I)[B
 
     move-result-object v5
 
-    .line 506
+    .line 473
     .local v5, "additionalEntropy":[B
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mMainDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
-    .line 508
+    .line 475
     const/4 v4, 0x0
 
     move-object v1, p1
@@ -950,27 +788,27 @@
 
     move v3, p3
 
-    .line 506
+    .line 473
     invoke-interface/range {v0 .. v5}, Landroid/security/keystore/KeyStoreCryptoOperationStreamer;->doFinal([BII[B[B)[B
     :try_end_1
     .catch Landroid/security/KeyStoreException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v8
 
-    .line 523
+    .line 490
     .local v8, "output":[B
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->resetWhilePreservingInitState()V
 
-    .line 524
+    .line 491
     return-object v8
 
-    .line 496
+    .line 463
     .end local v5    # "additionalEntropy":[B
     .end local v8    # "output":[B
     :catch_0
     move-exception v7
 
-    .line 497
+    .line 464
     .local v7, "e":Ljava/security/GeneralSecurityException;
     new-instance v0, Ljavax/crypto/IllegalBlockSizeException;
 
@@ -984,12 +822,12 @@
 
     throw v0
 
-    .line 510
+    .line 477
     .end local v7    # "e":Ljava/security/GeneralSecurityException;
     :catch_1
     move-exception v6
 
-    .line 511
+    .line 478
     .local v6, "e":Landroid/security/KeyStoreException;
     invoke-virtual {v6}, Landroid/security/KeyStoreException;->getErrorCode()I
 
@@ -997,7 +835,7 @@
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 519
+    .line 486
     new-instance v0, Ljavax/crypto/IllegalBlockSizeException;
 
     invoke-direct {v0}, Ljavax/crypto/IllegalBlockSizeException;-><init>()V
@@ -1010,7 +848,7 @@
 
     throw v0
 
-    .line 513
+    .line 480
     :sswitch_0
     new-instance v0, Ljavax/crypto/IllegalBlockSizeException;
 
@@ -1024,7 +862,7 @@
 
     throw v0
 
-    .line 515
+    .line 482
     :sswitch_1
     new-instance v0, Ljavax/crypto/BadPaddingException;
 
@@ -1038,7 +876,7 @@
 
     throw v0
 
-    .line 517
+    .line 484
     :sswitch_2
     new-instance v0, Ljavax/crypto/AEADBadTagException;
 
@@ -1052,7 +890,7 @@
 
     throw v0
 
-    .line 511
+    .line 478
     nop
 
     :sswitch_data_0
@@ -1073,7 +911,7 @@
     .end annotation
 
     .prologue
-    .line 735
+    .line 671
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -1098,49 +936,49 @@
     .end annotation
 
     .prologue
-    .line 124
+    .line 123
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->resetAll()V
 
-    .line 126
+    .line 125
     const/4 v0, 0x0
 
-    .line 128
+    .line 127
     .local v0, "success":Z
     :try_start_0
     invoke-direct {p0, p1, p2, p4}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->init(ILjava/security/Key;Ljava/security/SecureRandom;)V
 
-    .line 129
+    .line 128
     invoke-virtual {p0, p3}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->initAlgorithmSpecificParameters(Ljava/security/AlgorithmParameters;)V
 
-    .line 130
+    .line 129
     invoke-direct {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->ensureKeystoreOperationInitialized()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 131
+    .line 130
     const/4 v0, 0x1
 
-    .line 133
+    .line 132
     if-nez v0, :cond_0
 
-    .line 134
+    .line 133
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->resetAll()V
 
-    .line 123
+    .line 122
     :cond_0
     return-void
 
-    .line 132
+    .line 131
     :catchall_0
     move-exception v1
 
-    .line 133
+    .line 132
     if-nez v0, :cond_1
 
-    .line 134
+    .line 133
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->resetAll()V
 
-    .line 132
+    .line 131
     :cond_1
     throw v1
 .end method
@@ -1157,47 +995,47 @@
     .end annotation
 
     .prologue
-    .line 102
+    .line 101
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->resetAll()V
 
-    .line 104
+    .line 103
     const/4 v1, 0x0
 
-    .line 106
+    .line 105
     .local v1, "success":Z
     :try_start_0
     invoke-direct {p0, p1, p2, p3}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->init(ILjava/security/Key;Ljava/security/SecureRandom;)V
 
-    .line 107
+    .line 106
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->initAlgorithmSpecificParameters()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 109
+    .line 108
     :try_start_1
     invoke-direct {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->ensureKeystoreOperationInitialized()V
     :try_end_1
     .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 113
+    .line 112
     const/4 v1, 0x1
 
-    .line 115
+    .line 114
     if-nez v1, :cond_0
 
-    .line 116
+    .line 115
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->resetAll()V
 
-    .line 101
+    .line 100
     :cond_0
     return-void
 
-    .line 110
+    .line 109
     :catch_0
     move-exception v0
 
-    .line 111
+    .line 110
     .local v0, "e":Ljava/security/InvalidAlgorithmParameterException;
     :try_start_2
     new-instance v2, Ljava/security/InvalidKeyException;
@@ -1208,18 +1046,18 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 114
+    .line 113
     .end local v0    # "e":Ljava/security/InvalidAlgorithmParameterException;
     :catchall_0
     move-exception v2
 
-    .line 115
+    .line 114
     if-nez v1, :cond_1
 
-    .line 116
+    .line 115
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->resetAll()V
 
-    .line 114
+    .line 113
     :cond_1
     throw v2
 .end method
@@ -1238,49 +1076,49 @@
     .end annotation
 
     .prologue
-    .line 142
+    .line 141
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->resetAll()V
 
-    .line 144
+    .line 143
     const/4 v0, 0x0
 
-    .line 146
+    .line 145
     .local v0, "success":Z
     :try_start_0
     invoke-direct {p0, p1, p2, p4}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->init(ILjava/security/Key;Ljava/security/SecureRandom;)V
 
-    .line 147
+    .line 146
     invoke-virtual {p0, p3}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->initAlgorithmSpecificParameters(Ljava/security/spec/AlgorithmParameterSpec;)V
 
-    .line 148
+    .line 147
     invoke-direct {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->ensureKeystoreOperationInitialized()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 149
+    .line 148
     const/4 v0, 0x1
 
-    .line 151
+    .line 150
     if-nez v0, :cond_0
 
-    .line 152
+    .line 151
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->resetAll()V
 
-    .line 141
+    .line 140
     :cond_0
     return-void
 
-    .line 150
+    .line 149
     :catchall_0
     move-exception v1
 
-    .line 151
+    .line 150
     if-nez v0, :cond_1
 
-    .line 152
+    .line 151
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->resetAll()V
 
-    .line 150
+    .line 149
     :cond_1
     throw v1
 .end method
@@ -1295,7 +1133,7 @@
     .end annotation
 
     .prologue
-    .line 723
+    .line 659
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -1313,7 +1151,7 @@
     .end annotation
 
     .prologue
-    .line 730
+    .line 666
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -1334,12 +1172,12 @@
     .end annotation
 
     .prologue
-    .line 665
+    .line 601
     iget-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKey:Landroid/security/keystore/AndroidKeyStoreKey;
 
     if-nez v4, :cond_0
 
-    .line 666
+    .line 602
     new-instance v4, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v5, "Not initilized"
@@ -1348,7 +1186,7 @@
 
     throw v4
 
-    .line 669
+    .line 605
     :cond_0
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->isEncrypting()Z
 
@@ -1356,22 +1194,22 @@
 
     if-eqz v4, :cond_1
 
-    .line 670
+    .line 606
     new-instance v4, Ljava/lang/IllegalStateException;
 
-    .line 671
+    .line 607
     const-string/jumbo v5, "Cipher must be initialized in Cipher.WRAP_MODE to wrap keys"
 
-    .line 670
+    .line 606
     invoke-direct {v4, v5}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v4
 
-    .line 674
+    .line 610
     :cond_1
     if-nez p1, :cond_2
 
-    .line 675
+    .line 611
     new-instance v4, Ljava/lang/NullPointerException;
 
     const-string/jumbo v5, "wrappedKey == null"
@@ -1380,7 +1218,7 @@
 
     throw v4
 
-    .line 680
+    .line 616
     :cond_2
     :try_start_0
     array-length v4, p1
@@ -1394,14 +1232,14 @@
 
     move-result-object v2
 
-    .line 685
+    .line 621
     .local v2, "encoded":[B
     packed-switch p3, :pswitch_data_0
 
-    .line 714
+    .line 650
     new-instance v4, Ljava/security/InvalidParameterException;
 
-    .line 715
+    .line 651
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -1420,17 +1258,17 @@
 
     move-result-object v5
 
-    .line 714
+    .line 650
     invoke-direct {v4, v5}, Ljava/security/InvalidParameterException;-><init>(Ljava/lang/String;)V
 
     throw v4
 
-    .line 681
+    .line 617
     .end local v2    # "encoded":[B
     :catch_0
     move-exception v0
 
-    .line 682
+    .line 618
     .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v4, Ljava/security/InvalidKeyException;
 
@@ -1440,7 +1278,7 @@
 
     throw v4
 
-    .line 688
+    .line 624
     .end local v0    # "e":Ljava/security/GeneralSecurityException;
     .restart local v2    # "encoded":[B
     :pswitch_0
@@ -1450,13 +1288,13 @@
 
     return-object v4
 
-    .line 693
+    .line 629
     :pswitch_1
     invoke-static {p2}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
 
     move-result-object v3
 
-    .line 695
+    .line 631
     .local v3, "keyFactory":Ljava/security/KeyFactory;
     :try_start_1
     new-instance v4, Ljava/security/spec/PKCS8EncodedKeySpec;
@@ -1471,23 +1309,23 @@
 
     return-object v4
 
-    .line 696
+    .line 632
     :catch_1
     move-exception v1
 
-    .line 697
+    .line 633
     .local v1, "e":Ljava/security/spec/InvalidKeySpecException;
     new-instance v4, Ljava/security/InvalidKeyException;
 
-    .line 698
+    .line 634
     const-string/jumbo v5, "Failed to create private key from its PKCS#8 encoded form"
 
-    .line 697
+    .line 633
     invoke-direct {v4, v5, v1}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v4
 
-    .line 704
+    .line 640
     .end local v1    # "e":Ljava/security/spec/InvalidKeySpecException;
     .end local v3    # "keyFactory":Ljava/security/KeyFactory;
     :pswitch_2
@@ -1495,7 +1333,7 @@
 
     move-result-object v3
 
-    .line 706
+    .line 642
     .restart local v3    # "keyFactory":Ljava/security/KeyFactory;
     :try_start_2
     new-instance v4, Ljava/security/spec/X509EncodedKeySpec;
@@ -1510,23 +1348,23 @@
 
     return-object v4
 
-    .line 707
+    .line 643
     :catch_2
     move-exception v1
 
-    .line 708
+    .line 644
     .restart local v1    # "e":Ljava/security/spec/InvalidKeySpecException;
     new-instance v4, Ljava/security/InvalidKeyException;
 
-    .line 709
+    .line 645
     const-string/jumbo v5, "Failed to create public key from its X.509 encoded form"
 
-    .line 708
+    .line 644
     invoke-direct {v4, v5, v1}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v4
 
-    .line 685
+    .line 621
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_2
@@ -1536,7 +1374,7 @@
 .end method
 
 .method protected final engineUpdate(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I
-    .locals 9
+    .locals 1
     .param p1, "input"    # Ljava/nio/ByteBuffer;
     .param p2, "output"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
@@ -1546,167 +1384,12 @@
     .end annotation
 
     .prologue
-    const/4 v5, 0x0
+    .line 388
+    invoke-super {p0, p1, p2}, Ljavax/crypto/CipherSpi;->engineUpdate(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I
 
-    .line 390
-    if-nez p1, :cond_0
+    move-result v0
 
-    .line 391
-    new-instance v6, Ljava/lang/NullPointerException;
-
-    const-string/jumbo v7, "input == null"
-
-    invoke-direct {v6, v7}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v6
-
-    .line 393
-    :cond_0
-    if-nez p2, :cond_1
-
-    .line 394
-    new-instance v6, Ljava/lang/NullPointerException;
-
-    const-string/jumbo v7, "output == null"
-
-    invoke-direct {v6, v7}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v6
-
-    .line 397
-    :cond_1
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
-
-    move-result v2
-
-    .line 399
-    .local v2, "inputSize":I
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasArray()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    .line 402
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
-
-    move-result-object v6
-
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->arrayOffset()I
-
-    move-result v7
-
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
-
-    move-result v8
-
-    add-int/2addr v7, v8
-
-    .line 401
-    invoke-virtual {p0, v6, v7, v2}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineUpdate([BII)[B
-
-    move-result-object v3
-
-    .line 403
-    .local v3, "outputArray":[B
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
-
-    move-result v6
-
-    add-int/2addr v6, v2
-
-    invoke-virtual {p1, v6}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
-
-    .line 410
-    :goto_0
-    if-eqz v3, :cond_2
-
-    array-length v5, v3
-
-    .line 411
-    .local v5, "outputSize":I
-    :cond_2
-    if-lez v5, :cond_3
-
-    .line 412
-    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->remaining()I
-
-    move-result v4
-
-    .line 414
-    .local v4, "outputBufferAvailable":I
-    :try_start_0
-    invoke-virtual {p2, v3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
-    :try_end_0
-    .catch Ljava/nio/BufferOverflowException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 421
-    .end local v4    # "outputBufferAvailable":I
-    :cond_3
-    return v5
-
-    .line 405
-    .end local v3    # "outputArray":[B
-    .end local v5    # "outputSize":I
-    :cond_4
-    new-array v1, v2, [B
-
-    .line 406
-    .local v1, "inputArray":[B
-    invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
-
-    .line 407
-    invoke-virtual {p0, v1, v5, v2}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineUpdate([BII)[B
-
-    move-result-object v3
-
-    .restart local v3    # "outputArray":[B
-    goto :goto_0
-
-    .line 415
-    .end local v1    # "inputArray":[B
-    .restart local v4    # "outputBufferAvailable":I
-    .restart local v5    # "outputSize":I
-    :catch_0
-    move-exception v0
-
-    .line 416
-    .local v0, "e":Ljava/nio/BufferOverflowException;
-    new-instance v6, Ljavax/crypto/ShortBufferException;
-
-    .line 417
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "Output buffer too small. Produced: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ", available: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 416
-    invoke-direct {v6, v7}, Ljavax/crypto/ShortBufferException;-><init>(Ljava/lang/String;)V
-
-    throw v6
+    return v0
 .end method
 
 .method protected final engineUpdate([BII[BI)I
@@ -1725,31 +1408,31 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 374
+    .line 372
     invoke-virtual {p0, p1, p2, p3}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineUpdate([BII)[B
 
     move-result-object v1
 
-    .line 375
+    .line 373
     .local v1, "outputCopy":[B
     if-nez v1, :cond_0
 
-    .line 376
+    .line 374
     return v3
 
-    .line 378
+    .line 376
     :cond_0
     array-length v2, p4
 
     sub-int v0, v2, p5
 
-    .line 379
+    .line 377
     .local v0, "outputAvailable":I
     array-length v2, v1
 
     if-le v2, v0, :cond_1
 
-    .line 380
+    .line 378
     new-instance v2, Ljavax/crypto/ShortBufferException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1762,18 +1445,18 @@
 
     move-result-object v3
 
-    .line 381
+    .line 379
     array-length v4, v1
 
-    .line 380
+    .line 378
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    .line 381
+    .line 379
     const-string/jumbo v4, ", available: "
 
-    .line 380
+    .line 378
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -1790,13 +1473,13 @@
 
     throw v2
 
-    .line 383
+    .line 381
     :cond_1
     array-length v2, v1
 
     invoke-static {v1, v3, p4, p5, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    .line 384
+    .line 382
     array-length v2, v1
 
     return v2
@@ -1811,15 +1494,15 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 321
+    .line 319
     iget-object v3, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
     if-eqz v3, :cond_0
 
-    .line 322
+    .line 320
     return-object v4
 
-    .line 325
+    .line 323
     :cond_0
     :try_start_0
     invoke-direct {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->ensureKeystoreOperationInitialized()V
@@ -1827,30 +1510,30 @@
     .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 331
+    .line 329
     if-nez p3, :cond_1
 
-    .line 332
+    .line 330
     return-object v4
 
-    .line 326
+    .line 324
     :catch_0
     move-exception v1
 
-    .line 327
+    .line 325
     .local v1, "e":Ljava/security/GeneralSecurityException;
     iput-object v1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
-    .line 328
+    .line 326
     return-object v4
 
-    .line 337
+    .line 335
     .end local v1    # "e":Ljava/security/GeneralSecurityException;
     :cond_1
     :try_start_1
     invoke-direct {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->flushAAD()V
 
-    .line 338
+    .line 336
     iget-object v3, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mMainDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
     invoke-interface {v3, p1, p2, p3}, Landroid/security/keystore/KeyStoreCryptoOperationStreamer;->update([BII)[B
@@ -1859,28 +1542,28 @@
 
     move-result-object v2
 
-    .line 344
+    .line 342
     .local v2, "output":[B
     array-length v3, v2
 
     if-nez v3, :cond_2
 
-    .line 345
+    .line 343
     return-object v4
 
-    .line 339
+    .line 337
     .end local v2    # "output":[B
     :catch_1
     move-exception v0
 
-    .line 340
+    .line 338
     .local v0, "e":Landroid/security/KeyStoreException;
     iput-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
-    .line 341
+    .line 339
     return-object v4
 
-    .line 348
+    .line 346
     .end local v0    # "e":Landroid/security/KeyStoreException;
     .restart local v2    # "output":[B
     :cond_2
@@ -1892,10 +1575,10 @@
     .param p1, "src"    # Ljava/nio/ByteBuffer;
 
     .prologue
-    .line 462
+    .line 429
     if-nez p1, :cond_0
 
-    .line 463
+    .line 430
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "src == null"
@@ -1904,7 +1587,7 @@
 
     throw v3
 
-    .line 465
+    .line 432
     :cond_0
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
@@ -1912,10 +1595,10 @@
 
     if-nez v3, :cond_1
 
-    .line 466
+    .line 433
     return-void
 
-    .line 472
+    .line 439
     :cond_1
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasArray()Z
 
@@ -1923,12 +1606,12 @@
 
     if-eqz v3, :cond_2
 
-    .line 473
+    .line 440
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
 
     move-result-object v0
 
-    .line 474
+    .line 441
     .local v0, "input":[B
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->arrayOffset()I
 
@@ -1940,13 +1623,13 @@
 
     add-int v2, v3, v4
 
-    .line 475
+    .line 442
     .local v2, "inputOffset":I
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v1
 
-    .line 476
+    .line 443
     .local v1, "inputLen":I
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->limit()I
 
@@ -1954,14 +1637,14 @@
 
     invoke-virtual {p1, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    .line 483
+    .line 450
     :goto_0
     invoke-virtual {p0, v0, v2, v1}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineUpdateAAD([BII)V
 
-    .line 461
+    .line 428
     return-void
 
-    .line 478
+    .line 445
     .end local v0    # "input":[B
     .end local v1    # "inputLen":I
     .end local v2    # "inputOffset":I
@@ -1972,15 +1655,15 @@
 
     new-array v0, v3, [B
 
-    .line 479
+    .line 446
     .restart local v0    # "input":[B
     const/4 v2, 0x0
 
-    .line 480
+    .line 447
     .restart local v2    # "inputOffset":I
     array-length v1, v0
 
-    .line 481
+    .line 448
     .restart local v1    # "inputLen":I
     invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
@@ -1994,15 +1677,15 @@
     .param p3, "inputLen"    # I
 
     .prologue
-    .line 426
+    .line 393
     iget-object v3, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
     if-eqz v3, :cond_0
 
-    .line 427
+    .line 394
     return-void
 
-    .line 431
+    .line 398
     :cond_0
     :try_start_0
     invoke-direct {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->ensureKeystoreOperationInitialized()V
@@ -2010,41 +1693,41 @@
     .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 437
+    .line 404
     iget-boolean v3, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamerClosed:Z
 
     if-eqz v3, :cond_1
 
-    .line 438
+    .line 405
     new-instance v3, Ljava/lang/IllegalStateException;
 
-    .line 439
+    .line 406
     const-string/jumbo v4, "AAD can only be provided before Cipher.update is invoked"
 
-    .line 438
+    .line 405
     invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v3
 
-    .line 432
+    .line 399
     :catch_0
     move-exception v1
 
-    .line 433
+    .line 400
     .local v1, "e":Ljava/security/GeneralSecurityException;
     iput-object v1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
-    .line 434
+    .line 401
     return-void
 
-    .line 442
+    .line 409
     .end local v1    # "e":Ljava/security/GeneralSecurityException;
     :cond_1
     iget-object v3, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
     if-nez v3, :cond_2
 
-    .line 443
+    .line 410
     new-instance v3, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v4, "This cipher does not support AAD"
@@ -2053,7 +1736,7 @@
 
     throw v3
 
-    .line 448
+    .line 415
     :cond_2
     :try_start_1
     iget-object v3, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
@@ -2064,7 +1747,7 @@
 
     move-result-object v2
 
-    .line 454
+    .line 421
     .local v2, "output":[B
     if-eqz v2, :cond_3
 
@@ -2072,7 +1755,7 @@
 
     if-lez v3, :cond_3
 
-    .line 455
+    .line 422
     new-instance v3, Ljava/security/ProviderException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2085,18 +1768,18 @@
 
     move-result-object v4
 
-    .line 456
+    .line 423
     array-length v5, v2
 
-    .line 455
+    .line 422
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    .line 456
+    .line 423
     const-string/jumbo v5, " bytes"
 
-    .line 455
+    .line 422
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -2109,19 +1792,19 @@
 
     throw v3
 
-    .line 449
+    .line 416
     .end local v2    # "output":[B
     :catch_1
     move-exception v0
 
-    .line 450
+    .line 417
     .local v0, "e":Landroid/security/KeyStoreException;
     iput-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
-    .line 451
+    .line 418
     return-void
 
-    .line 425
+    .line 392
     .end local v0    # "e":Landroid/security/KeyStoreException;
     .restart local v2    # "output":[B
     :cond_3
@@ -2139,12 +1822,12 @@
     .end annotation
 
     .prologue
-    .line 584
+    .line 520
     iget-object v8, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKey:Landroid/security/keystore/AndroidKeyStoreKey;
 
     if-nez v8, :cond_0
 
-    .line 585
+    .line 521
     new-instance v8, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v9, "Not initilized"
@@ -2153,7 +1836,7 @@
 
     throw v8
 
-    .line 588
+    .line 524
     :cond_0
     invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->isEncrypting()Z
 
@@ -2161,22 +1844,22 @@
 
     if-nez v8, :cond_1
 
-    .line 589
+    .line 525
     new-instance v8, Ljava/lang/IllegalStateException;
 
-    .line 590
+    .line 526
     const-string/jumbo v9, "Cipher must be initialized in Cipher.WRAP_MODE to wrap keys"
 
-    .line 589
+    .line 525
     invoke-direct {v8, v9}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v8
 
-    .line 593
+    .line 529
     :cond_1
     if-nez p1, :cond_2
 
-    .line 594
+    .line 530
     new-instance v8, Ljava/lang/NullPointerException;
 
     const-string/jumbo v9, "key == null"
@@ -2185,17 +1868,17 @@
 
     throw v8
 
-    .line 596
+    .line 532
     :cond_2
     const/4 v2, 0x0
 
-    .line 597
+    .line 533
     .local v2, "encoded":[B
     instance-of v8, p1, Ljavax/crypto/SecretKey;
 
     if-eqz v8, :cond_5
 
-    .line 598
+    .line 534
     const-string/jumbo v8, "RAW"
 
     invoke-interface {p1}, Ljava/security/Key;->getFormat()Ljava/lang/String;
@@ -2208,17 +1891,17 @@
 
     if-eqz v8, :cond_3
 
-    .line 599
+    .line 535
     invoke-interface {p1}, Ljava/security/Key;->getEncoded()[B
 
     move-result-object v2
 
-    .line 601
+    .line 537
     .end local v2    # "encoded":[B
     :cond_3
     if-nez v2, :cond_4
 
-    .line 603
+    .line 539
     :try_start_0
     invoke-interface {p1}, Ljava/security/Key;->getAlgorithm()Ljava/lang/String;
 
@@ -2228,21 +1911,21 @@
 
     move-result-object v4
 
-    .line 606
+    .line 542
     .local v4, "keyFactory":Ljavax/crypto/SecretKeyFactory;
     check-cast p1, Ljavax/crypto/SecretKey;
 
     .end local p1    # "key":Ljava/security/Key;
     const-class v8, Ljavax/crypto/spec/SecretKeySpec;
 
-    .line 605
+    .line 541
     invoke-virtual {v4, p1, v8}, Ljavax/crypto/SecretKeyFactory;->getKeySpec(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;
 
     move-result-object v7
 
     check-cast v7, Ljavax/crypto/spec/SecretKeySpec;
 
-    .line 607
+    .line 543
     .local v7, "spec":Ljavax/crypto/spec/SecretKeySpec;
     invoke-virtual {v7}, Ljavax/crypto/spec/SecretKeySpec;->getEncoded()[B
     :try_end_0
@@ -2251,41 +1934,41 @@
 
     move-result-object v2
 
-    .line 650
+    .line 586
     .end local v4    # "keyFactory":Ljavax/crypto/SecretKeyFactory;
     .end local v7    # "spec":Ljavax/crypto/spec/SecretKeySpec;
     :cond_4
     :goto_0
     if-nez v2, :cond_a
 
-    .line 651
+    .line 587
     new-instance v8, Ljava/security/InvalidKeyException;
 
-    .line 652
+    .line 588
     const-string/jumbo v9, "Failed to wrap key because it does not export its key material"
 
-    .line 651
+    .line 587
     invoke-direct {v8, v9}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
 
     throw v8
 
-    .line 608
+    .line 544
     :catch_0
     move-exception v0
 
-    .line 609
+    .line 545
     .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v8, Ljava/security/InvalidKeyException;
 
-    .line 610
+    .line 546
     const-string/jumbo v9, "Failed to wrap key because it does not export its key material"
 
-    .line 609
+    .line 545
     invoke-direct {v8, v9, v0}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v8
 
-    .line 614
+    .line 550
     .end local v0    # "e":Ljava/security/GeneralSecurityException;
     .restart local v2    # "encoded":[B
     .restart local p1    # "key":Ljava/security/Key;
@@ -2294,7 +1977,7 @@
 
     if-eqz v8, :cond_7
 
-    .line 615
+    .line 551
     const-string/jumbo v8, "PKCS8"
 
     invoke-interface {p1}, Ljava/security/Key;->getFormat()Ljava/lang/String;
@@ -2307,17 +1990,17 @@
 
     if-eqz v8, :cond_6
 
-    .line 616
+    .line 552
     invoke-interface {p1}, Ljava/security/Key;->getEncoded()[B
 
     move-result-object v2
 
-    .line 618
+    .line 554
     .end local v2    # "encoded":[B
     :cond_6
     if-nez v2, :cond_4
 
-    .line 620
+    .line 556
     :try_start_1
     invoke-interface {p1}, Ljava/security/Key;->getAlgorithm()Ljava/lang/String;
 
@@ -2327,7 +2010,7 @@
 
     move-result-object v3
 
-    .line 622
+    .line 558
     .local v3, "keyFactory":Ljava/security/KeyFactory;
     const-class v8, Ljava/security/spec/PKCS8EncodedKeySpec;
 
@@ -2337,7 +2020,7 @@
 
     check-cast v5, Ljava/security/spec/PKCS8EncodedKeySpec;
 
-    .line 623
+    .line 559
     .local v5, "spec":Ljava/security/spec/PKCS8EncodedKeySpec;
     invoke-virtual {v5}, Ljava/security/spec/PKCS8EncodedKeySpec;->getEncoded()[B
     :try_end_1
@@ -2349,26 +2032,26 @@
     .local v2, "encoded":[B
     goto :goto_0
 
-    .line 624
+    .line 560
     .end local v2    # "encoded":[B
     .end local v3    # "keyFactory":Ljava/security/KeyFactory;
     .end local v5    # "spec":Ljava/security/spec/PKCS8EncodedKeySpec;
     :catch_1
     move-exception v0
 
-    .line 625
+    .line 561
     .restart local v0    # "e":Ljava/security/GeneralSecurityException;
     new-instance v8, Ljava/security/InvalidKeyException;
 
-    .line 626
+    .line 562
     const-string/jumbo v9, "Failed to wrap key because it does not export its key material"
 
-    .line 625
+    .line 561
     invoke-direct {v8, v9, v0}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v8
 
-    .line 630
+    .line 566
     .end local v0    # "e":Ljava/security/GeneralSecurityException;
     .local v2, "encoded":[B
     :cond_7
@@ -2376,7 +2059,7 @@
 
     if-eqz v8, :cond_9
 
-    .line 631
+    .line 567
     const-string/jumbo v8, "X.509"
 
     invoke-interface {p1}, Ljava/security/Key;->getFormat()Ljava/lang/String;
@@ -2389,17 +2072,17 @@
 
     if-eqz v8, :cond_8
 
-    .line 632
+    .line 568
     invoke-interface {p1}, Ljava/security/Key;->getEncoded()[B
 
     move-result-object v2
 
-    .line 634
+    .line 570
     .end local v2    # "encoded":[B
     :cond_8
     if-nez v2, :cond_4
 
-    .line 636
+    .line 572
     :try_start_2
     invoke-interface {p1}, Ljava/security/Key;->getAlgorithm()Ljava/lang/String;
 
@@ -2409,7 +2092,7 @@
 
     move-result-object v3
 
-    .line 638
+    .line 574
     .restart local v3    # "keyFactory":Ljava/security/KeyFactory;
     const-class v8, Ljava/security/spec/X509EncodedKeySpec;
 
@@ -2419,7 +2102,7 @@
 
     check-cast v6, Ljava/security/spec/X509EncodedKeySpec;
 
-    .line 639
+    .line 575
     .local v6, "spec":Ljava/security/spec/X509EncodedKeySpec;
     invoke-virtual {v6}, Ljava/security/spec/X509EncodedKeySpec;->getEncoded()[B
     :try_end_2
@@ -2431,26 +2114,26 @@
     .local v2, "encoded":[B
     goto :goto_0
 
-    .line 640
+    .line 576
     .end local v2    # "encoded":[B
     .end local v3    # "keyFactory":Ljava/security/KeyFactory;
     .end local v6    # "spec":Ljava/security/spec/X509EncodedKeySpec;
     :catch_2
     move-exception v0
 
-    .line 641
+    .line 577
     .restart local v0    # "e":Ljava/security/GeneralSecurityException;
     new-instance v8, Ljava/security/InvalidKeyException;
 
-    .line 642
+    .line 578
     const-string/jumbo v9, "Failed to wrap key because it does not export its key material"
 
-    .line 641
+    .line 577
     invoke-direct {v8, v9, v0}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v8
 
-    .line 647
+    .line 583
     .end local v0    # "e":Ljava/security/GeneralSecurityException;
     .local v2, "encoded":[B
     :cond_9
@@ -2486,7 +2169,7 @@
 
     throw v8
 
-    .line 656
+    .line 592
     .end local v2    # "encoded":[B
     .end local p1    # "key":Ljava/security/Key;
     :cond_a
@@ -2503,11 +2186,11 @@
 
     return-object v8
 
-    .line 657
+    .line 593
     :catch_3
     move-exception v1
 
-    .line 658
+    .line 594
     .local v1, "e":Ljavax/crypto/BadPaddingException;
     new-instance v8, Ljavax/crypto/IllegalBlockSizeException;
 
@@ -2531,37 +2214,37 @@
     .end annotation
 
     .prologue
-    .line 742
+    .line 678
     :try_start_0
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationToken:Landroid/os/IBinder;
 
-    .line 743
+    .line 679
     .local v0, "operationToken":Landroid/os/IBinder;
     if-eqz v0, :cond_0
 
-    .line 744
+    .line 680
     iget-object v1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeyStore:Landroid/security/KeyStore;
 
     invoke-virtual {v1, v0}, Landroid/security/KeyStore;->abort(Landroid/os/IBinder;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 747
+    .line 683
     :cond_0
     invoke-super {p0}, Ljavax/crypto/CipherSpi;->finalize()V
 
-    .line 740
+    .line 676
     return-void
 
-    .line 746
+    .line 682
     .end local v0    # "operationToken":Landroid/os/IBinder;
     :catchall_0
     move-exception v1
 
-    .line 747
+    .line 683
     invoke-super {p0}, Ljavax/crypto/CipherSpi;->finalize()V
 
-    .line 746
+    .line 682
     throw v1
 .end method
 
@@ -2575,12 +2258,12 @@
     .locals 2
 
     .prologue
-    .line 785
+    .line 721
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mMainDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
     if-nez v0, :cond_0
 
-    .line 786
+    .line 722
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Not initialized"
@@ -2589,7 +2272,7 @@
 
     throw v0
 
-    .line 788
+    .line 724
     :cond_0
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mMainDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
@@ -2604,7 +2287,7 @@
     .locals 1
 
     .prologue
-    .line 781
+    .line 717
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeyStore:Landroid/security/KeyStore;
 
     return-object v0
@@ -2614,7 +2297,7 @@
     .locals 1
 
     .prologue
-    .line 768
+    .line 704
     iget v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeymasterPurposeOverride:I
 
     return v0
@@ -2624,7 +2307,7 @@
     .locals 2
 
     .prologue
-    .line 753
+    .line 689
     iget-wide v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationHandle:J
 
     return-wide v0
@@ -2634,12 +2317,12 @@
     .locals 2
 
     .prologue
-    .line 792
+    .line 728
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mMainDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
     if-nez v0, :cond_0
 
-    .line 793
+    .line 729
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Not initialized"
@@ -2648,7 +2331,7 @@
 
     throw v0
 
-    .line 795
+    .line 731
     :cond_0
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mMainDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
@@ -2695,7 +2378,7 @@
     .locals 1
 
     .prologue
-    .line 776
+    .line 712
     iget-boolean v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mEncrypting:Z
 
     return v0
@@ -2712,54 +2395,54 @@
 
     const/4 v4, 0x0
 
-    .line 186
+    .line 185
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationToken:Landroid/os/IBinder;
 
-    .line 187
+    .line 186
     .local v0, "operationToken":Landroid/os/IBinder;
     if-eqz v0, :cond_0
 
-    .line 188
+    .line 187
     iget-object v1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeyStore:Landroid/security/KeyStore;
 
     invoke-virtual {v1, v0}, Landroid/security/KeyStore;->abort(Landroid/os/IBinder;)I
 
-    .line 190
+    .line 189
     :cond_0
     iput-boolean v5, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mEncrypting:Z
 
-    .line 191
+    .line 190
     const/4 v1, -0x1
 
     iput v1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeymasterPurposeOverride:I
 
-    .line 192
+    .line 191
     iput-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKey:Landroid/security/keystore/AndroidKeyStoreKey;
 
-    .line 193
+    .line 192
     iput-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mRng:Ljava/security/SecureRandom;
 
-    .line 194
+    .line 193
     iput-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationToken:Landroid/os/IBinder;
 
-    .line 195
+    .line 194
     const-wide/16 v2, 0x0
 
     iput-wide v2, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationHandle:J
 
-    .line 196
+    .line 195
     iput-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mMainDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
-    .line 197
+    .line 196
     iput-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
-    .line 198
+    .line 197
     iput-boolean v5, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamerClosed:Z
 
-    .line 199
+    .line 198
     iput-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
-    .line 185
+    .line 184
     return-void
 .end method
 
@@ -2769,42 +2452,42 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 212
+    .line 211
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationToken:Landroid/os/IBinder;
 
-    .line 213
+    .line 212
     .local v0, "operationToken":Landroid/os/IBinder;
     if-eqz v0, :cond_0
 
-    .line 214
+    .line 213
     iget-object v1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeyStore:Landroid/security/KeyStore;
 
     invoke-virtual {v1, v0}, Landroid/security/KeyStore;->abort(Landroid/os/IBinder;)I
 
-    .line 216
+    .line 215
     :cond_0
     iput-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationToken:Landroid/os/IBinder;
 
-    .line 217
+    .line 216
     const-wide/16 v2, 0x0
 
     iput-wide v2, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mOperationHandle:J
 
-    .line 218
+    .line 217
     iput-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mMainDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
-    .line 219
+    .line 218
     iput-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
-    .line 220
+    .line 219
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamerClosed:Z
 
-    .line 221
+    .line 220
     iput-object v4, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
-    .line 211
+    .line 210
     return-void
 .end method
 
@@ -2813,10 +2496,10 @@
     .param p1, "key"    # Landroid/security/keystore/AndroidKeyStoreKey;
 
     .prologue
-    .line 757
+    .line 693
     iput-object p1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKey:Landroid/security/keystore/AndroidKeyStoreKey;
 
-    .line 756
+    .line 692
     return-void
 .end method
 
@@ -2825,9 +2508,9 @@
     .param p1, "keymasterPurpose"    # I
 
     .prologue
-    .line 764
+    .line 700
     iput p1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mKeymasterPurposeOverride:I
 
-    .line 763
+    .line 699
     return-void
 .end method

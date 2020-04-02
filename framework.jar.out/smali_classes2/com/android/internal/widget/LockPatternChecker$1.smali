@@ -27,17 +27,6 @@
 # instance fields
 .field private mThrottleTimeout:I
 
-.field private patternCopy:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Lcom/android/internal/widget/LockPatternView$Cell;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field final synthetic val$callback:Lcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;
 
 .field final synthetic val$challenge:J
@@ -50,19 +39,19 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/List;Lcom/android/internal/widget/LockPatternUtils;JILcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;)V
+.method constructor <init>(Lcom/android/internal/widget/LockPatternUtils;Ljava/util/List;JILcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;)V
     .locals 1
-    .param p2, "val$utils"    # Lcom/android/internal/widget/LockPatternUtils;
+    .param p1, "val$utils"    # Lcom/android/internal/widget/LockPatternUtils;
     .param p3, "val$challenge"    # J
     .param p5, "val$userId"    # I
     .param p6, "val$callback"    # Lcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;
 
     .prologue
-    .line 63
-    .local p1, "val$pattern":Ljava/util/List;, "Ljava/util/List<Lcom/android/internal/widget/LockPatternView$Cell;>;"
-    iput-object p1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$pattern:Ljava/util/List;
+    .line 55
+    .local p2, "val$pattern":Ljava/util/List;, "Ljava/util/List<Lcom/android/internal/widget/LockPatternView$Cell;>;"
+    iput-object p1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$utils:Lcom/android/internal/widget/LockPatternUtils;
 
-    iput-object p2, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$utils:Lcom/android/internal/widget/LockPatternUtils;
+    iput-object p2, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$pattern:Ljava/util/List;
 
     iput-wide p3, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$challenge:J
 
@@ -82,7 +71,7 @@
     .param p1, "args"    # [Ljava/lang/Object;
 
     .prologue
-    .line 75
+    .line 59
     check-cast p1, [Ljava/lang/Void;
 
     .end local p1    # "args":[Ljava/lang/Object;
@@ -98,11 +87,11 @@
     .param p1, "args"    # [Ljava/lang/Void;
 
     .prologue
-    .line 77
+    .line 61
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$utils:Lcom/android/internal/widget/LockPatternUtils;
 
-    iget-object v2, p0, Lcom/android/internal/widget/LockPatternChecker$1;->patternCopy:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$pattern:Ljava/util/List;
 
     iget-wide v4, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$challenge:J
 
@@ -116,11 +105,11 @@
 
     return-object v1
 
-    .line 78
+    .line 62
     :catch_0
     move-exception v0
 
-    .line 79
+    .line 63
     .local v0, "ex":Lcom/android/internal/widget/LockPatternUtils$RequestThrottledException;
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils$RequestThrottledException;->getTimeoutMs()I
 
@@ -128,7 +117,7 @@
 
     iput v1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->mThrottleTimeout:I
 
-    .line 80
+    .line 64
     const/4 v1, 0x0
 
     return-object v1
@@ -139,7 +128,7 @@
     .param p1, "result"    # Ljava/lang/Object;
 
     .prologue
-    .line 85
+    .line 69
     check-cast p1, [B
 
     .end local p1    # "result":Ljava/lang/Object;
@@ -153,30 +142,13 @@
     .param p1, "result"    # [B
 
     .prologue
-    .line 86
+    .line 70
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$callback:Lcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;
 
     iget v1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->mThrottleTimeout:I
 
     invoke-interface {v0, p1, v1}, Lcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;->onVerified([BI)V
 
-    .line 85
-    return-void
-.end method
-
-.method protected onPreExecute()V
-    .locals 2
-
-    .prologue
-    .line 71
-    new-instance v0, Ljava/util/ArrayList;
-
-    iget-object v1, p0, Lcom/android/internal/widget/LockPatternChecker$1;->val$pattern:Ljava/util/List;
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    iput-object v0, p0, Lcom/android/internal/widget/LockPatternChecker$1;->patternCopy:Ljava/util/List;
-
-    .line 68
+    .line 69
     return-void
 .end method

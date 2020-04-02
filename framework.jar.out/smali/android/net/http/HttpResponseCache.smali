@@ -17,13 +17,13 @@
     .param p1, "delegate"    # Lcom/android/okhttp/AndroidShimResponseCache;
 
     .prologue
-    .line 156
+    .line 155
     invoke-direct {p0}, Ljava/net/ResponseCache;-><init>()V
 
-    .line 157
+    .line 156
     iput-object p1, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
-    .line 156
+    .line 155
     return-void
 .end method
 
@@ -31,24 +31,24 @@
     .locals 2
 
     .prologue
-    .line 165
+    .line 164
     invoke-static {}, Ljava/net/ResponseCache;->getDefault()Ljava/net/ResponseCache;
 
     move-result-object v0
 
-    .line 166
+    .line 165
     .local v0, "installed":Ljava/net/ResponseCache;
     instance-of v1, v0, Landroid/net/http/HttpResponseCache;
 
     if-eqz v1, :cond_0
 
-    .line 167
+    .line 166
     check-cast v0, Landroid/net/http/HttpResponseCache;
 
     .end local v0    # "installed":Ljava/net/ResponseCache;
     return-object v0
 
-    .line 169
+    .line 168
     .restart local v0    # "installed":Ljava/net/ResponseCache;
     :cond_0
     const/4 v1, 0x0
@@ -71,30 +71,30 @@
 
     monitor-enter v6
 
-    .line 184
+    .line 183
     :try_start_0
     invoke-static {}, Ljava/net/ResponseCache;->getDefault()Ljava/net/ResponseCache;
 
     move-result-object v1
 
-    .line 185
+    .line 184
     .local v1, "installed":Ljava/net/ResponseCache;
     instance-of v5, v1, Landroid/net/http/HttpResponseCache;
 
     if-eqz v5, :cond_1
 
-    .line 186
+    .line 185
     move-object v0, v1
 
     check-cast v0, Landroid/net/http/HttpResponseCache;
 
     move-object v2, v0
 
-    .line 188
+    .line 187
     .local v2, "installedResponseCache":Landroid/net/http/HttpResponseCache;
     iget-object v4, v2, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
-    .line 189
+    .line 188
     .local v4, "trueResponseCache":Lcom/android/okhttp/AndroidShimResponseCache;
     invoke-virtual {v4, p0, p1, p2}, Lcom/android/okhttp/AndroidShimResponseCache;->isEquivalent(Ljava/io/File;J)Z
     :try_end_0
@@ -106,15 +106,15 @@
 
     monitor-exit v6
 
-    .line 190
+    .line 189
     return-object v2
 
-    .line 193
+    .line 192
     :cond_0
     :try_start_1
     invoke-virtual {v4}, Lcom/android/okhttp/AndroidShimResponseCache;->close()V
 
-    .line 198
+    .line 197
     .end local v2    # "installedResponseCache":Landroid/net/http/HttpResponseCache;
     .end local v4    # "trueResponseCache":Lcom/android/okhttp/AndroidShimResponseCache;
     :cond_1
@@ -122,13 +122,13 @@
 
     move-result-object v4
 
-    .line 199
+    .line 198
     .restart local v4    # "trueResponseCache":Lcom/android/okhttp/AndroidShimResponseCache;
     new-instance v3, Landroid/net/http/HttpResponseCache;
 
     invoke-direct {v3, v4}, Landroid/net/http/HttpResponseCache;-><init>(Lcom/android/okhttp/AndroidShimResponseCache;)V
 
-    .line 200
+    .line 199
     .local v3, "newResponseCache":Landroid/net/http/HttpResponseCache;
     invoke-static {v3}, Ljava/net/ResponseCache;->setDefault(Ljava/net/ResponseCache;)V
     :try_end_1
@@ -136,7 +136,7 @@
 
     monitor-exit v6
 
-    .line 201
+    .line 200
     return-object v3
 
     .end local v1    # "installed":Ljava/net/ResponseCache;
@@ -161,25 +161,25 @@
     .end annotation
 
     .prologue
-    .line 278
+    .line 277
     invoke-static {}, Ljava/net/ResponseCache;->getDefault()Ljava/net/ResponseCache;
 
     move-result-object v0
 
     if-ne v0, p0, :cond_0
 
-    .line 279
+    .line 278
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/net/ResponseCache;->setDefault(Ljava/net/ResponseCache;)V
 
-    .line 281
+    .line 280
     :cond_0
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
     invoke-virtual {v0}, Lcom/android/okhttp/AndroidShimResponseCache;->close()V
 
-    .line 277
+    .line 276
     return-void
 .end method
 
@@ -192,25 +192,25 @@
     .end annotation
 
     .prologue
-    .line 288
+    .line 287
     invoke-static {}, Ljava/net/ResponseCache;->getDefault()Ljava/net/ResponseCache;
 
     move-result-object v0
 
     if-ne v0, p0, :cond_0
 
-    .line 289
+    .line 288
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/net/ResponseCache;->setDefault(Ljava/net/ResponseCache;)V
 
-    .line 291
+    .line 290
     :cond_0
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
     invoke-virtual {v0}, Lcom/android/okhttp/AndroidShimResponseCache;->delete()V
 
-    .line 287
+    .line 286
     return-void
 .end method
 
@@ -218,7 +218,7 @@
     .locals 2
 
     .prologue
-    .line 242
+    .line 241
     :try_start_0
     iget-object v1, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
@@ -226,11 +226,11 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 240
+    .line 239
     :goto_0
     return-void
 
-    .line 243
+    .line 242
     :catch_0
     move-exception v0
 
@@ -265,7 +265,7 @@
     .end annotation
 
     .prologue
-    .line 206
+    .line 205
     .local p3, "requestHeaders":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;"
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
@@ -280,7 +280,7 @@
     .locals 1
 
     .prologue
-    .line 297
+    .line 296
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
     invoke-virtual {v0}, Lcom/android/okhttp/AndroidShimResponseCache;->getCache()Lcom/android/okhttp/Cache;
@@ -294,7 +294,7 @@
     .locals 1
 
     .prologue
-    .line 261
+    .line 260
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
     invoke-virtual {v0}, Lcom/android/okhttp/AndroidShimResponseCache;->getHitCount()I
@@ -308,7 +308,7 @@
     .locals 1
 
     .prologue
-    .line 252
+    .line 251
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
     invoke-virtual {v0}, Lcom/android/okhttp/AndroidShimResponseCache;->getNetworkCount()I
@@ -322,7 +322,7 @@
     .locals 1
 
     .prologue
-    .line 270
+    .line 269
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
     invoke-virtual {v0}, Lcom/android/okhttp/AndroidShimResponseCache;->getRequestCount()I
@@ -336,7 +336,7 @@
     .locals 2
 
     .prologue
-    .line 232
+    .line 231
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
     invoke-virtual {v0}, Lcom/android/okhttp/AndroidShimResponseCache;->maxSize()J
@@ -357,7 +357,7 @@
     .end annotation
 
     .prologue
-    .line 210
+    .line 209
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/okhttp/AndroidShimResponseCache;->put(Ljava/net/URI;Ljava/net/URLConnection;)Ljava/net/CacheRequest;
@@ -371,7 +371,7 @@
     .locals 4
 
     .prologue
-    .line 220
+    .line 219
     :try_start_0
     iget-object v1, p0, Landroid/net/http/HttpResponseCache;->delegate:Lcom/android/okhttp/AndroidShimResponseCache;
 
@@ -383,11 +383,11 @@
 
     return-wide v2
 
-    .line 221
+    .line 220
     :catch_0
     move-exception v0
 
-    .line 223
+    .line 222
     .local v0, "e":Ljava/io/IOException;
     const-wide/16 v2, -0x1
 

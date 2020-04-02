@@ -58,7 +58,7 @@
     .prologue
     const/4 v4, -0x1
 
-    .line 133
+    .line 132
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 117
@@ -74,10 +74,10 @@
     .line 120
     iput v4, p0, Landroid/media/MediaMuxer;->mLastTrackIndex:I
 
-    .line 134
+    .line 133
     if-nez p1, :cond_0
 
-    .line 135
+    .line 134
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "path must not be null"
@@ -86,16 +86,16 @@
 
     throw v3
 
-    .line 137
+    .line 136
     :cond_0
     if-eqz p2, :cond_1
 
-    .line 138
+    .line 137
     const/4 v3, 0x1
 
     if-eq p2, v3, :cond_1
 
-    .line 139
+    .line 138
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "format is invalid"
@@ -104,11 +104,11 @@
 
     throw v3
 
-    .line 143
+    .line 142
     :cond_1
     const/4 v1, 0x0
 
-    .line 145
+    .line 144
     .local v1, "file":Ljava/io/RandomAccessFile;
     :try_start_0
     new-instance v2, Ljava/io/RandomAccessFile;
@@ -119,7 +119,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 146
+    .line 145
     .local v2, "file":Ljava/io/RandomAccessFile;
     :try_start_1
     invoke-virtual {v2}, Ljava/io/RandomAccessFile;->getFD()Ljava/io/FileDescriptor;
@@ -127,7 +127,7 @@
     .end local v1    # "file":Ljava/io/RandomAccessFile;
     move-result-object v0
 
-    .line 147
+    .line 146
     .local v0, "fd":Ljava/io/FileDescriptor;
     invoke-static {v0, p2}, Landroid/media/MediaMuxer;->nativeSetup(Ljava/io/FileDescriptor;I)J
 
@@ -135,12 +135,12 @@
 
     iput-wide v4, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
-    .line 148
+    .line 147
     const/4 v3, 0x0
 
     iput v3, p0, Landroid/media/MediaMuxer;->mState:I
 
-    .line 149
+    .line 148
     iget-object v3, p0, Landroid/media/MediaMuxer;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     const-string/jumbo v4, "release"
@@ -149,32 +149,32 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 151
+    .line 150
     if-eqz v2, :cond_2
 
-    .line 152
+    .line 151
     invoke-virtual {v2}, Ljava/io/RandomAccessFile;->close()V
 
-    .line 133
+    .line 132
     :cond_2
     return-void
 
-    .line 150
+    .line 149
     .end local v0    # "fd":Ljava/io/FileDescriptor;
     .end local v2    # "file":Ljava/io/RandomAccessFile;
     .restart local v1    # "file":Ljava/io/RandomAccessFile;
     :catchall_0
     move-exception v3
 
-    .line 151
+    .line 150
     .end local v1    # "file":Ljava/io/RandomAccessFile;
     :goto_0
     if-eqz v1, :cond_3
 
-    .line 152
+    .line 151
     invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
 
-    .line 150
+    .line 149
     :cond_3
     throw v3
 
@@ -220,10 +220,10 @@
     .param p1, "format"    # Landroid/media/MediaFormat;
 
     .prologue
-    .line 392
+    .line 269
     if-nez p1, :cond_0
 
-    .line 393
+    .line 270
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v9, "format must not be null."
@@ -232,13 +232,13 @@
 
     throw v8
 
-    .line 395
+    .line 272
     :cond_0
     iget v8, p0, Landroid/media/MediaMuxer;->mState:I
 
     if-eqz v8, :cond_1
 
-    .line 396
+    .line 273
     new-instance v8, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v9, "Muxer is not initialized."
@@ -247,7 +247,7 @@
 
     throw v8
 
-    .line 398
+    .line 275
     :cond_1
     iget-wide v8, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
@@ -257,7 +257,7 @@
 
     if-nez v8, :cond_2
 
-    .line 399
+    .line 276
     new-instance v8, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v9, "Muxer has been released!"
@@ -266,46 +266,46 @@
 
     throw v8
 
-    .line 401
+    .line 278
     :cond_2
     const/4 v6, -0x1
 
-    .line 403
+    .line 280
     .local v6, "trackIndex":I
     invoke-virtual {p1}, Landroid/media/MediaFormat;->getMap()Ljava/util/Map;
 
     move-result-object v2
 
-    .line 405
+    .line 282
     .local v2, "formatMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const/4 v4, 0x0
 
-    .line 406
+    .line 283
     .local v4, "keys":[Ljava/lang/String;
     const/4 v7, 0x0
 
-    .line 407
+    .line 284
     .local v7, "values":[Ljava/lang/Object;
     invoke-interface {v2}, Ljava/util/Map;->size()I
 
     move-result v5
 
-    .line 408
+    .line 285
     .local v5, "mapSize":I
     if-lez v5, :cond_4
 
-    .line 409
+    .line 286
     new-array v4, v5, [Ljava/lang/String;
 
-    .line 410
+    .line 287
     .local v4, "keys":[Ljava/lang/String;
     new-array v7, v5, [Ljava/lang/Object;
 
-    .line 411
+    .line 288
     .local v7, "values":[Ljava/lang/Object;
     const/4 v3, 0x0
 
-    .line 412
+    .line 289
     .local v3, "i":I
     invoke-interface {v2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
@@ -329,7 +329,7 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 413
+    .line 290
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -339,19 +339,19 @@
 
     aput-object v8, v4, v3
 
-    .line 414
+    .line 291
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v8
 
     aput-object v8, v7, v3
 
-    .line 415
+    .line 292
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 417
+    .line 294
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     :cond_3
     iget-wide v8, p0, Landroid/media/MediaMuxer;->mNativeObject:J
@@ -360,12 +360,12 @@
 
     move-result v6
 
-    .line 424
+    .line 301
     iget v8, p0, Landroid/media/MediaMuxer;->mLastTrackIndex:I
 
     if-lt v8, v6, :cond_5
 
-    .line 425
+    .line 302
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v9, "Invalid format."
@@ -374,7 +374,7 @@
 
     throw v8
 
-    .line 419
+    .line 296
     .end local v1    # "entry$iterator":Ljava/util/Iterator;
     .end local v3    # "i":I
     .local v4, "keys":[Ljava/lang/String;
@@ -388,7 +388,7 @@
 
     throw v8
 
-    .line 427
+    .line 304
     .restart local v1    # "entry$iterator":Ljava/util/Iterator;
     .restart local v3    # "i":I
     .local v4, "keys":[Ljava/lang/String;
@@ -396,7 +396,7 @@
     :cond_5
     iput v6, p0, Landroid/media/MediaMuxer;->mLastTrackIndex:I
 
-    .line 428
+    .line 305
     return v6
 .end method
 
@@ -411,18 +411,18 @@
     .prologue
     const-wide/16 v2, 0x0
 
-    .line 255
+    .line 249
     :try_start_0
     iget-object v0, p0, Landroid/media/MediaMuxer;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     if-eqz v0, :cond_0
 
-    .line 256
+    .line 250
     iget-object v0, p0, Landroid/media/MediaMuxer;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->warnIfOpen()V
 
-    .line 258
+    .line 252
     :cond_0
     iget-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
@@ -430,33 +430,33 @@
 
     if-eqz v0, :cond_1
 
-    .line 259
+    .line 253
     iget-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
     invoke-static {v0, v1}, Landroid/media/MediaMuxer;->nativeRelease(J)V
 
-    .line 260
+    .line 254
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 263
+    .line 257
     :cond_1
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 253
+    .line 247
     return-void
 
-    .line 262
+    .line 256
     :catchall_0
     move-exception v0
 
-    .line 263
+    .line 257
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 262
+    .line 256
     throw v0
 .end method
 
@@ -466,17 +466,17 @@
     .prologue
     const-wide/16 v2, 0x0
 
-    .line 484
+    .line 359
     iget v0, p0, Landroid/media/MediaMuxer;->mState:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 485
+    .line 360
     invoke-virtual {p0}, Landroid/media/MediaMuxer;->stop()V
 
-    .line 487
+    .line 362
     :cond_0
     iget-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
@@ -484,26 +484,26 @@
 
     if-eqz v0, :cond_1
 
-    .line 488
+    .line 363
     iget-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
     invoke-static {v0, v1}, Landroid/media/MediaMuxer;->nativeRelease(J)V
 
-    .line 489
+    .line 364
     iput-wide v2, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
-    .line 490
+    .line 365
     iget-object v0, p0, Landroid/media/MediaMuxer;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
-    .line 492
+    .line 367
     :cond_1
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/media/MediaMuxer;->mState:I
 
-    .line 483
+    .line 358
     return-void
 .end method
 
@@ -517,7 +517,7 @@
 
     const-wide/high16 v6, 0x3fe0000000000000L    # 0.5
 
-    .line 200
+    .line 197
     mul-float v3, p1, v8
 
     float-to-double v4, v3
@@ -526,7 +526,7 @@
 
     double-to-int v0, v4
 
-    .line 201
+    .line 198
     .local v0, "latitudex10000":I
     mul-float v3, p2, v8
 
@@ -536,7 +536,7 @@
 
     double-to-int v1, v4
 
-    .line 203
+    .line 200
     .local v1, "longitudex10000":I
     const v3, 0xdbba0
 
@@ -546,7 +546,7 @@
 
     if-ge v0, v3, :cond_1
 
-    .line 204
+    .line 201
     :cond_0
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -572,7 +572,7 @@
 
     move-result-object v2
 
-    .line 205
+    .line 202
     .local v2, "msg":Ljava/lang/String;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -580,7 +580,7 @@
 
     throw v3
 
-    .line 207
+    .line 204
     .end local v2    # "msg":Ljava/lang/String;
     :cond_1
     const v3, 0x1b7740
@@ -591,7 +591,7 @@
 
     if-ge v1, v3, :cond_3
 
-    .line 208
+    .line 205
     :cond_2
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -617,7 +617,7 @@
 
     move-result-object v2
 
-    .line 209
+    .line 206
     .restart local v2    # "msg":Ljava/lang/String;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -625,7 +625,7 @@
 
     throw v3
 
-    .line 212
+    .line 209
     .end local v2    # "msg":Ljava/lang/String;
     :cond_3
     iget v3, p0, Landroid/media/MediaMuxer;->mState:I
@@ -640,15 +640,15 @@
 
     if-eqz v3, :cond_4
 
-    .line 213
+    .line 210
     iget-wide v4, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
     invoke-static {v4, v5, v0, v1}, Landroid/media/MediaMuxer;->nativeSetLocation(JII)V
 
-    .line 199
+    .line 196
     return-void
 
-    .line 215
+    .line 212
     :cond_4
     new-instance v3, Ljava/lang/IllegalStateException;
 
@@ -664,7 +664,7 @@
     .param p1, "degrees"    # I
 
     .prologue
-    .line 173
+    .line 170
     if-eqz p1, :cond_0
 
     const/16 v0, 0x5a
@@ -679,7 +679,7 @@
 
     if-eq p1, v0, :cond_0
 
-    .line 174
+    .line 171
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -704,21 +704,21 @@
 
     throw v0
 
-    .line 176
+    .line 173
     :cond_0
     iget v0, p0, Landroid/media/MediaMuxer;->mState:I
 
     if-nez v0, :cond_1
 
-    .line 177
+    .line 174
     iget-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
     invoke-static {v0, v1, p1}, Landroid/media/MediaMuxer;->nativeSetOrientationHint(JI)V
 
-    .line 172
+    .line 169
     return-void
 
-    .line 179
+    .line 176
     :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -733,7 +733,7 @@
     .locals 4
 
     .prologue
-    .line 227
+    .line 222
     iget-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
     const-wide/16 v2, 0x0
@@ -742,7 +742,7 @@
 
     if-nez v0, :cond_0
 
-    .line 228
+    .line 223
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Muxer has been released!"
@@ -751,26 +751,26 @@
 
     throw v0
 
-    .line 230
+    .line 225
     :cond_0
     iget v0, p0, Landroid/media/MediaMuxer;->mState:I
 
     if-nez v0, :cond_1
 
-    .line 231
+    .line 226
     iget-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
     invoke-static {v0, v1}, Landroid/media/MediaMuxer;->nativeStart(J)V
 
-    .line 232
+    .line 227
     const/4 v0, 0x1
 
     iput v0, p0, Landroid/media/MediaMuxer;->mState:I
 
-    .line 226
+    .line 221
     return-void
 
-    .line 234
+    .line 229
     :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -785,27 +785,27 @@
     .locals 2
 
     .prologue
-    .line 244
+    .line 238
     iget v0, p0, Landroid/media/MediaMuxer;->mState:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 245
+    .line 239
     iget-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
     invoke-static {v0, v1}, Landroid/media/MediaMuxer;->nativeStop(J)V
 
-    .line 246
+    .line 240
     const/4 v0, 0x2
 
     iput v0, p0, Landroid/media/MediaMuxer;->mState:I
 
-    .line 243
+    .line 237
     return-void
 
-    .line 248
+    .line 242
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -825,14 +825,14 @@
     .prologue
     const-wide/16 v2, 0x0
 
-    .line 447
+    .line 322
     if-ltz p1, :cond_0
 
     iget v0, p0, Landroid/media/MediaMuxer;->mLastTrackIndex:I
 
     if-le p1, v0, :cond_1
 
-    .line 448
+    .line 323
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -842,11 +842,11 @@
 
     throw v0
 
-    .line 451
+    .line 326
     :cond_1
     if-nez p2, :cond_2
 
-    .line 452
+    .line 327
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "byteBuffer must not be null"
@@ -855,11 +855,11 @@
 
     throw v0
 
-    .line 455
+    .line 330
     :cond_2
     if-nez p3, :cond_3
 
-    .line 456
+    .line 331
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "bufferInfo must not be null"
@@ -868,7 +868,7 @@
 
     throw v0
 
-    .line 458
+    .line 333
     :cond_3
     iget v0, p3, Landroid/media/MediaCodec$BufferInfo;->size:I
 
@@ -878,7 +878,7 @@
 
     if-gez v0, :cond_5
 
-    .line 461
+    .line 336
     :cond_4
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -888,7 +888,7 @@
 
     throw v0
 
-    .line 459
+    .line 334
     :cond_5
     iget v0, p3, Landroid/media/MediaCodec$BufferInfo;->offset:I
 
@@ -902,21 +902,21 @@
 
     if-gt v0, v1, :cond_4
 
-    .line 460
+    .line 335
     iget-wide v0, p3, Landroid/media/MediaCodec$BufferInfo;->presentationTimeUs:J
 
     cmp-long v0, v0, v2
 
     if-ltz v0, :cond_4
 
-    .line 465
+    .line 340
     iget-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
     cmp-long v0, v0, v2
 
     if-nez v0, :cond_6
 
-    .line 466
+    .line 341
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Muxer has been released!"
@@ -925,7 +925,7 @@
 
     throw v0
 
-    .line 469
+    .line 344
     :cond_6
     iget v0, p0, Landroid/media/MediaMuxer;->mState:I
 
@@ -933,7 +933,7 @@
 
     if-eq v0, v1, :cond_7
 
-    .line 470
+    .line 345
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Can\'t write, muxer is not started"
@@ -942,16 +942,16 @@
 
     throw v0
 
-    .line 473
+    .line 348
     :cond_7
     iget-wide v0, p0, Landroid/media/MediaMuxer;->mNativeObject:J
 
-    .line 474
+    .line 349
     iget v4, p3, Landroid/media/MediaCodec$BufferInfo;->offset:I
 
     iget v5, p3, Landroid/media/MediaCodec$BufferInfo;->size:I
 
-    .line 475
+    .line 350
     iget-wide v6, p3, Landroid/media/MediaCodec$BufferInfo;->presentationTimeUs:J
 
     iget v8, p3, Landroid/media/MediaCodec$BufferInfo;->flags:I
@@ -960,9 +960,9 @@
 
     move-object v3, p2
 
-    .line 473
+    .line 348
     invoke-static/range {v0 .. v8}, Landroid/media/MediaMuxer;->nativeWriteSampleData(JILjava/nio/ByteBuffer;IIJI)V
 
-    .line 446
+    .line 321
     return-void
 .end method

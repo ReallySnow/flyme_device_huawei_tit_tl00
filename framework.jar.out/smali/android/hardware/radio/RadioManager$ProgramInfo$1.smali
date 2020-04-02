@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 1218
+    .line 1175
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,7 +45,7 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 1220
+    .line 1177
     new-instance v0, Landroid/hardware/radio/RadioManager$ProgramInfo;
 
     const/4 v1, 0x0
@@ -60,7 +60,7 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 1219
+    .line 1176
     invoke-virtual {p0, p1}, Landroid/hardware/radio/RadioManager$ProgramInfo$1;->createFromParcel(Landroid/os/Parcel;)Landroid/hardware/radio/RadioManager$ProgramInfo;
 
     move-result-object v0
@@ -73,7 +73,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 1224
+    .line 1181
     new-array v0, p1, [Landroid/hardware/radio/RadioManager$ProgramInfo;
 
     return-object v0
@@ -84,7 +84,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 1223
+    .line 1180
     invoke-virtual {p0, p1}, Landroid/hardware/radio/RadioManager$ProgramInfo$1;->newArray(I)[Landroid/hardware/radio/RadioManager$ProgramInfo;
 
     move-result-object v0

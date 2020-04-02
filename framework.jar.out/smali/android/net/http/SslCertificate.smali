@@ -42,12 +42,12 @@
     .locals 1
 
     .prologue
-    .line 52
+    .line 50
     const-string/jumbo v0, "yyyy-MM-dd HH:mm:ssZ"
 
     sput-object v0, Landroid/net/http/SslCertificate;->ISO_8601_DATE_FORMAT:Ljava/lang/String;
 
-    .line 47
+    .line 45
     return-void
 .end method
 
@@ -61,7 +61,7 @@
     .end annotation
 
     .prologue
-    .line 158
+    .line 156
     invoke-static {p3}, Landroid/net/http/SslCertificate;->parseDate(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v3
@@ -80,7 +80,7 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/net/http/SslCertificate;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;Ljava/security/cert/X509Certificate;)V
 
-    .line 157
+    .line 155
     return-void
 .end method
 
@@ -94,7 +94,7 @@
     .end annotation
 
     .prologue
-    .line 172
+    .line 170
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -109,7 +109,7 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/net/http/SslCertificate;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;Ljava/security/cert/X509Certificate;)V
 
-    .line 171
+    .line 169
     return-void
 .end method
 
@@ -122,41 +122,41 @@
     .param p5, "x509Certificate"    # Ljava/security/cert/X509Certificate;
 
     .prologue
-    .line 187
+    .line 185
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 191
+    .line 189
     new-instance v0, Landroid/net/http/SslCertificate$DName;
 
     invoke-direct {v0, p0, p1}, Landroid/net/http/SslCertificate$DName;-><init>(Landroid/net/http/SslCertificate;Ljava/lang/String;)V
 
     iput-object v0, p0, Landroid/net/http/SslCertificate;->mIssuedTo:Landroid/net/http/SslCertificate$DName;
 
-    .line 192
+    .line 190
     new-instance v0, Landroid/net/http/SslCertificate$DName;
 
     invoke-direct {v0, p0, p2}, Landroid/net/http/SslCertificate$DName;-><init>(Landroid/net/http/SslCertificate;Ljava/lang/String;)V
 
     iput-object v0, p0, Landroid/net/http/SslCertificate;->mIssuedBy:Landroid/net/http/SslCertificate$DName;
 
-    .line 193
+    .line 191
     invoke-static {p3}, Landroid/net/http/SslCertificate;->cloneDate(Ljava/util/Date;)Ljava/util/Date;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/net/http/SslCertificate;->mValidNotBefore:Ljava/util/Date;
 
-    .line 194
+    .line 192
     invoke-static {p4}, Landroid/net/http/SslCertificate;->cloneDate(Ljava/util/Date;)Ljava/util/Date;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/net/http/SslCertificate;->mValidNotAfter:Ljava/util/Date;
 
-    .line 195
+    .line 193
     iput-object p5, p0, Landroid/net/http/SslCertificate;->mX509Certificate:Ljava/security/cert/X509Certificate;
 
-    .line 190
+    .line 188
     return-void
 .end method
 
@@ -165,7 +165,7 @@
     .param p1, "certificate"    # Ljava/security/cert/X509Certificate;
 
     .prologue
-    .line 180
+    .line 178
     invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
 
     move-result-object v0
@@ -174,7 +174,7 @@
 
     move-result-object v1
 
-    .line 181
+    .line 179
     invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getIssuerDN()Ljava/security/Principal;
 
     move-result-object v0
@@ -183,12 +183,12 @@
 
     move-result-object v2
 
-    .line 182
+    .line 180
     invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getNotBefore()Ljava/util/Date;
 
     move-result-object v3
 
-    .line 183
+    .line 181
     invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getNotAfter()Ljava/util/Date;
 
     move-result-object v4
@@ -197,10 +197,10 @@
 
     move-object v5, p1
 
-    .line 180
+    .line 178
     invoke-direct/range {v0 .. v5}, Landroid/net/http/SslCertificate;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;Ljava/security/cert/X509Certificate;)V
 
-    .line 179
+    .line 177
     return-void
 .end method
 
@@ -211,13 +211,13 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 331
+    .line 329
     if-nez p0, :cond_0
 
-    .line 332
+    .line 330
     return-object v0
 
-    .line 334
+    .line 332
     :cond_0
     invoke-virtual {p0}, Ljava/util/Date;->clone()Ljava/lang/Object;
 
@@ -233,21 +233,21 @@
     .param p0, "bytes"    # [B
 
     .prologue
-    .line 284
+    .line 282
     if-nez p0, :cond_0
 
-    .line 285
+    .line 283
     const-string/jumbo v3, ""
 
     return-object v3
 
-    .line 287
+    .line 285
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 288
+    .line 286
     .local v2, "sb":Ljava/lang/StringBuilder;
     const/4 v1, 0x0
 
@@ -257,34 +257,34 @@
 
     if-ge v1, v3, :cond_2
 
-    .line 289
+    .line 287
     aget-byte v0, p0, v1
 
-    .line 290
+    .line 288
     .local v0, "b":B
     const/4 v3, 0x1
 
-    invoke-static {v2, v0, v3}, Lcom/android/internal/util/HexDump;->appendByteAsHex(Ljava/lang/StringBuilder;BZ)Ljava/lang/StringBuilder;
+    invoke-static {v2, v0, v3}, Ljava/lang/IntegralToString;->appendByteAsHex(Ljava/lang/StringBuilder;BZ)Ljava/lang/StringBuilder;
 
-    .line 291
+    .line 289
     add-int/lit8 v3, v1, 0x1
 
     array-length v4, p0
 
     if-eq v3, v4, :cond_1
 
-    .line 292
+    .line 290
     const/16 v3, 0x3a
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 288
+    .line 286
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 295
+    .line 293
     .end local v0    # "b":B
     :cond_2
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -300,15 +300,15 @@
     .param p2, "certificateDate"    # Ljava/util/Date;
 
     .prologue
-    .line 506
+    .line 504
     if-nez p2, :cond_0
 
-    .line 507
+    .line 505
     const-string/jumbo v0, ""
 
     return-object v0
 
-    .line 509
+    .line 507
     :cond_0
     invoke-static {p1}, Landroid/text/format/DateFormat;->getDateFormat(Landroid/content/Context;)Ljava/text/DateFormat;
 
@@ -326,15 +326,15 @@
     .param p0, "date"    # Ljava/util/Date;
 
     .prologue
-    .line 321
+    .line 319
     if-nez p0, :cond_0
 
-    .line 322
+    .line 320
     const-string/jumbo v0, ""
 
     return-object v0
 
-    .line 324
+    .line 322
     :cond_0
     new-instance v0, Ljava/text/SimpleDateFormat;
 
@@ -355,34 +355,34 @@
     .param p1, "algorithm"    # Ljava/lang/String;
 
     .prologue
-    .line 268
+    .line 266
     if-nez p0, :cond_0
 
-    .line 269
+    .line 267
     const-string/jumbo v5, ""
 
     return-object v5
 
-    .line 272
+    .line 270
     :cond_0
     :try_start_0
     invoke-virtual {p0}, Ljava/security/cert/X509Certificate;->getEncoded()[B
 
     move-result-object v0
 
-    .line 273
+    .line 271
     .local v0, "bytes":[B
     invoke-static {p1}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
     move-result-object v4
 
-    .line 274
+    .line 272
     .local v4, "md":Ljava/security/MessageDigest;
     invoke-virtual {v4, v0}, Ljava/security/MessageDigest;->digest([B)[B
 
     move-result-object v1
 
-    .line 275
+    .line 273
     .local v1, "digest":[B
     invoke-static {v1}, Landroid/net/http/SslCertificate;->fingerprint([B)Ljava/lang/String;
     :try_end_0
@@ -393,25 +393,25 @@
 
     return-object v5
 
-    .line 278
+    .line 276
     .end local v0    # "bytes":[B
     .end local v1    # "digest":[B
     .end local v4    # "md":Ljava/security/MessageDigest;
     :catch_0
     move-exception v2
 
-    .line 279
+    .line 277
     .local v2, "ignored":Ljava/security/NoSuchAlgorithmException;
     const-string/jumbo v5, ""
 
     return-object v5
 
-    .line 276
+    .line 274
     .end local v2    # "ignored":Ljava/security/NoSuchAlgorithmException;
     :catch_1
     move-exception v3
 
-    .line 277
+    .line 275
     .local v3, "ignored":Ljava/security/cert/CertificateEncodingException;
     const-string/jumbo v5, ""
 
@@ -423,30 +423,30 @@
     .param p0, "x509Certificate"    # Ljava/security/cert/X509Certificate;
 
     .prologue
-    .line 254
+    .line 252
     if-nez p0, :cond_0
 
-    .line 255
+    .line 253
     const-string/jumbo v1, ""
 
     return-object v1
 
-    .line 257
+    .line 255
     :cond_0
     invoke-virtual {p0}, Ljava/security/cert/X509Certificate;->getSerialNumber()Ljava/math/BigInteger;
 
     move-result-object v0
 
-    .line 258
+    .line 256
     .local v0, "serialNumber":Ljava/math/BigInteger;
     if-nez v0, :cond_1
 
-    .line 259
+    .line 257
     const-string/jumbo v1, ""
 
     return-object v1
 
-    .line 261
+    .line 259
     :cond_1
     invoke-virtual {v0}, Ljava/math/BigInteger;->toByteArray()[B
 
@@ -464,7 +464,7 @@
     .param p0, "string"    # Ljava/lang/String;
 
     .prologue
-    .line 311
+    .line 309
     :try_start_0
     new-instance v1, Ljava/text/SimpleDateFormat;
 
@@ -480,11 +480,11 @@
 
     return-object v1
 
-    .line 312
+    .line 310
     :catch_0
     move-exception v0
 
-    .line 313
+    .line 311
     .local v0, "e":Ljava/text/ParseException;
     const/4 v1, 0x0
 
@@ -498,13 +498,13 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 122
+    .line 120
     if-nez p0, :cond_0
 
-    .line 123
+    .line 121
     return-object v1
 
-    .line 126
+    .line 124
     :cond_0
     const-string/jumbo v1, "x509-certificate"
 
@@ -512,14 +512,14 @@
 
     move-result-object v7
 
-    .line 127
+    .line 125
     .local v7, "bytes":[B
     if-nez v7, :cond_1
 
-    .line 128
+    .line 126
     const/4 v6, 0x0
 
-    .line 138
+    .line 136
     :goto_0
     new-instance v1, Landroid/net/http/SslCertificate;
 
@@ -529,14 +529,14 @@
 
     move-result-object v2
 
-    .line 139
+    .line 137
     const-string/jumbo v3, "issued-by"
 
     invoke-virtual {p0, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 140
+    .line 138
     const-string/jumbo v4, "valid-not-before"
 
     invoke-virtual {p0, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -547,7 +547,7 @@
 
     move-result-object v4
 
-    .line 141
+    .line 139
     const-string/jumbo v5, "valid-not-after"
 
     invoke-virtual {p0, v5}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -558,12 +558,12 @@
 
     move-result-object v5
 
-    .line 138
+    .line 136
     invoke-direct/range {v1 .. v6}, Landroid/net/http/SslCertificate;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;Ljava/security/cert/X509Certificate;)V
 
     return-object v1
 
-    .line 131
+    .line 129
     :cond_1
     :try_start_0
     const-string/jumbo v1, "X.509"
@@ -572,7 +572,7 @@
 
     move-result-object v9
 
-    .line 132
+    .line 130
     .local v9, "certFactory":Ljava/security/cert/CertificateFactory;
     new-instance v1, Ljava/io/ByteArrayInputStream;
 
@@ -582,7 +582,7 @@
 
     move-result-object v8
 
-    .line 133
+    .line 131
     .local v8, "cert":Ljava/security/cert/Certificate;
     move-object v0, v8
 
@@ -595,14 +595,14 @@
     .local v6, "x509Certificate":Ljava/security/cert/X509Certificate;
     goto :goto_0
 
-    .line 134
+    .line 132
     .end local v6    # "x509Certificate":Ljava/security/cert/X509Certificate;
     .end local v8    # "cert":Ljava/security/cert/Certificate;
     .end local v9    # "certFactory":Ljava/security/cert/CertificateFactory;
     :catch_0
     move-exception v10
 
-    .line 135
+    .line 133
     .local v10, "e":Ljava/security/cert/CertificateException;
     const/4 v6, 0x0
 
@@ -617,19 +617,19 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 98
+    .line 96
     if-nez p0, :cond_0
 
-    .line 99
+    .line 97
     return-object v3
 
-    .line 101
+    .line 99
     :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 102
+    .line 100
     .local v0, "bundle":Landroid/os/Bundle;
     const-string/jumbo v3, "issued-to"
 
@@ -643,7 +643,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 103
+    .line 101
     const-string/jumbo v3, "issued-by"
 
     invoke-virtual {p0}, Landroid/net/http/SslCertificate;->getIssuedBy()Landroid/net/http/SslCertificate$DName;
@@ -656,7 +656,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 104
+    .line 102
     const-string/jumbo v3, "valid-not-before"
 
     invoke-virtual {p0}, Landroid/net/http/SslCertificate;->getValidNotBefore()Ljava/lang/String;
@@ -665,7 +665,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 105
+    .line 103
     const-string/jumbo v3, "valid-not-after"
 
     invoke-virtual {p0}, Landroid/net/http/SslCertificate;->getValidNotAfter()Ljava/lang/String;
@@ -674,14 +674,14 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 106
+    .line 104
     iget-object v2, p0, Landroid/net/http/SslCertificate;->mX509Certificate:Ljava/security/cert/X509Certificate;
 
-    .line 107
+    .line 105
     .local v2, "x509Certificate":Ljava/security/cert/X509Certificate;
     if-eqz v2, :cond_1
 
-    .line 109
+    .line 107
     :try_start_0
     const-string/jumbo v3, "x509-certificate"
 
@@ -693,12 +693,12 @@
     :try_end_0
     .catch Ljava/security/cert/CertificateEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 113
+    .line 111
     :cond_1
     :goto_0
     return-object v0
 
-    .line 110
+    .line 108
     :catch_0
     move-exception v1
 
@@ -712,7 +712,7 @@
     .locals 1
 
     .prologue
-    .line 247
+    .line 245
     iget-object v0, p0, Landroid/net/http/SslCertificate;->mIssuedBy:Landroid/net/http/SslCertificate$DName;
 
     return-object v0
@@ -722,7 +722,7 @@
     .locals 1
 
     .prologue
-    .line 240
+    .line 238
     iget-object v0, p0, Landroid/net/http/SslCertificate;->mIssuedTo:Landroid/net/http/SslCertificate$DName;
 
     return-object v0
@@ -734,7 +734,7 @@
     .end annotation
 
     .prologue
-    .line 233
+    .line 231
     iget-object v0, p0, Landroid/net/http/SslCertificate;->mValidNotAfter:Ljava/util/Date;
 
     invoke-static {v0}, Landroid/net/http/SslCertificate;->formatDate(Ljava/util/Date;)Ljava/lang/String;
@@ -748,7 +748,7 @@
     .locals 1
 
     .prologue
-    .line 222
+    .line 220
     iget-object v0, p0, Landroid/net/http/SslCertificate;->mValidNotAfter:Ljava/util/Date;
 
     invoke-static {v0}, Landroid/net/http/SslCertificate;->cloneDate(Ljava/util/Date;)Ljava/util/Date;
@@ -764,7 +764,7 @@
     .end annotation
 
     .prologue
-    .line 214
+    .line 212
     iget-object v0, p0, Landroid/net/http/SslCertificate;->mValidNotBefore:Ljava/util/Date;
 
     invoke-static {v0}, Landroid/net/http/SslCertificate;->formatDate(Ljava/util/Date;)Ljava/lang/String;
@@ -778,7 +778,7 @@
     .locals 1
 
     .prologue
-    .line 203
+    .line 201
     iget-object v0, p0, Landroid/net/http/SslCertificate;->mValidNotBefore:Ljava/util/Date;
 
     invoke-static {v0}, Landroid/net/http/SslCertificate;->cloneDate(Ljava/util/Date;)Ljava/util/Date;
@@ -795,32 +795,49 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 451
+    .line 449
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    .line 454
+    .line 452
     .local v2, "factory":Landroid/view/LayoutInflater;
-    const v6, 0x10900e8
+    const v6, 0x10900e1
 
-    .line 453
+    .line 451
     invoke-virtual {v2, v6, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 457
+    .line 455
     .local v0, "certificateView":Landroid/view/View;
     invoke-virtual {p0}, Landroid/net/http/SslCertificate;->getIssuedTo()Landroid/net/http/SslCertificate$DName;
 
     move-result-object v5
 
-    .line 458
+    .line 456
     .local v5, "issuedTo":Landroid/net/http/SslCertificate$DName;
     if-eqz v5, :cond_0
 
+    .line 457
+    const v6, 0x10203db
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    .line 458
+    invoke-virtual {v5}, Landroid/net/http/SslCertificate$DName;->getCName()Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 457
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
     .line 459
-    const v6, 0x102041d
+    const v6, 0x10203dd
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -829,7 +846,7 @@
     check-cast v6, Landroid/widget/TextView;
 
     .line 460
-    invoke-virtual {v5}, Landroid/net/http/SslCertificate$DName;->getCName()Ljava/lang/String;
+    invoke-virtual {v5}, Landroid/net/http/SslCertificate$DName;->getOName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -837,7 +854,7 @@
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 461
-    const v6, 0x102041f
+    const v6, 0x10203df
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -846,33 +863,16 @@
     check-cast v6, Landroid/widget/TextView;
 
     .line 462
-    invoke-virtual {v5}, Landroid/net/http/SslCertificate$DName;->getOName()Ljava/lang/String;
+    invoke-virtual {v5}, Landroid/net/http/SslCertificate$DName;->getUName()Ljava/lang/String;
 
     move-result-object v7
 
     .line 461
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 463
-    const v6, 0x1020421
-
-    invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/widget/TextView;
-
-    .line 464
-    invoke-virtual {v5}, Landroid/net/http/SslCertificate$DName;->getUName()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 463
-    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 467
+    .line 465
     :cond_0
-    const v6, 0x1020423
+    const v6, 0x10203e1
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -880,27 +880,44 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    .line 468
+    .line 466
     iget-object v7, p0, Landroid/net/http/SslCertificate;->mX509Certificate:Ljava/security/cert/X509Certificate;
 
     invoke-static {v7}, Landroid/net/http/SslCertificate;->getSerialNumber(Ljava/security/cert/X509Certificate;)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 467
+    .line 465
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 471
+    .line 469
     invoke-virtual {p0}, Landroid/net/http/SslCertificate;->getIssuedBy()Landroid/net/http/SslCertificate$DName;
 
     move-result-object v3
 
-    .line 472
+    .line 470
     .local v3, "issuedBy":Landroid/net/http/SslCertificate$DName;
     if-eqz v3, :cond_1
 
+    .line 471
+    const v6, 0x10203e3
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    .line 472
+    invoke-virtual {v3}, Landroid/net/http/SslCertificate$DName;->getCName()Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 471
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
     .line 473
-    const v6, 0x1020425
+    const v6, 0x10203e5
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -909,7 +926,7 @@
     check-cast v6, Landroid/widget/TextView;
 
     .line 474
-    invoke-virtual {v3}, Landroid/net/http/SslCertificate$DName;->getCName()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/net/http/SslCertificate$DName;->getOName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -917,7 +934,7 @@
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 475
-    const v6, 0x1020427
+    const v6, 0x10203e7
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -926,31 +943,14 @@
     check-cast v6, Landroid/widget/TextView;
 
     .line 476
-    invoke-virtual {v3}, Landroid/net/http/SslCertificate$DName;->getOName()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/net/http/SslCertificate$DName;->getUName()Ljava/lang/String;
 
     move-result-object v7
 
     .line 475
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 477
-    const v6, 0x1020429
-
-    invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/widget/TextView;
-
-    .line 478
-    invoke-virtual {v3}, Landroid/net/http/SslCertificate$DName;->getUName()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 477
-    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 482
+    .line 480
     :cond_1
     invoke-virtual {p0}, Landroid/net/http/SslCertificate;->getValidNotBeforeDate()Ljava/util/Date;
 
@@ -960,9 +960,9 @@
 
     move-result-object v4
 
-    .line 483
+    .line 481
     .local v4, "issuedOn":Ljava/lang/String;
-    const v6, 0x102042c
+    const v6, 0x10203ea
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -972,7 +972,7 @@
 
     invoke-virtual {v6, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 487
+    .line 485
     invoke-virtual {p0}, Landroid/net/http/SslCertificate;->getValidNotAfterDate()Ljava/util/Date;
 
     move-result-object v6
@@ -981,9 +981,9 @@
 
     move-result-object v1
 
-    .line 488
+    .line 486
     .local v1, "expiresOn":Ljava/lang/String;
-    const v6, 0x102042e
+    const v6, 0x10203ec
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -993,8 +993,29 @@
 
     invoke-virtual {v6, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 490
+    const v6, 0x10203ef
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    .line 491
+    iget-object v7, p0, Landroid/net/http/SslCertificate;->mX509Certificate:Ljava/security/cert/X509Certificate;
+
+    const-string/jumbo v8, "SHA256"
+
+    invoke-static {v7, v8}, Landroid/net/http/SslCertificate;->getDigest(Ljava/security/cert/X509Certificate;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 490
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
     .line 492
-    const v6, 0x1020431
+    const v6, 0x10203f1
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1005,7 +1026,7 @@
     .line 493
     iget-object v7, p0, Landroid/net/http/SslCertificate;->mX509Certificate:Ljava/security/cert/X509Certificate;
 
-    const-string/jumbo v8, "SHA256"
+    const-string/jumbo v8, "SHA1"
 
     invoke-static {v7, v8}, Landroid/net/http/SslCertificate;->getDigest(Ljava/security/cert/X509Certificate;Ljava/lang/String;)Ljava/lang/String;
 
@@ -1014,28 +1035,7 @@
     .line 492
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 494
-    const v6, 0x1020433
-
-    invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/widget/TextView;
-
     .line 495
-    iget-object v7, p0, Landroid/net/http/SslCertificate;->mX509Certificate:Ljava/security/cert/X509Certificate;
-
-    const-string/jumbo v8, "SHA1"
-
-    invoke-static {v7, v8}, Landroid/net/http/SslCertificate;->getDigest(Ljava/security/cert/X509Certificate;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 494
-    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 497
     return-object v0
 .end method
 
@@ -1043,7 +1043,7 @@
     .locals 2
 
     .prologue
-    .line 302
+    .line 300
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1070,30 +1070,30 @@
 
     move-result-object v0
 
-    .line 303
+    .line 301
     const-string/jumbo v1, "Issued by: "
 
-    .line 302
+    .line 300
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 303
+    .line 301
     iget-object v1, p0, Landroid/net/http/SslCertificate;->mIssuedBy:Landroid/net/http/SslCertificate$DName;
 
     invoke-virtual {v1}, Landroid/net/http/SslCertificate$DName;->getDName()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 302
+    .line 300
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 303
+    .line 301
     const-string/jumbo v1, ";\n"
 
-    .line 302
+    .line 300
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0

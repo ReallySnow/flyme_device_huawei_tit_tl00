@@ -63,12 +63,12 @@
     .param p2, "payload"    # [B
 
     .prologue
-    .line 74
+    .line 73
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v1
 
-    .line 80
+    .line 78
     .local v1, "pm":Landroid/content/pm/IPackageManager;
     :try_start_0
     const-string/jumbo v2, "preferred-activity"
@@ -79,16 +79,16 @@
 
     if-eqz v2, :cond_0
 
-    .line 82
+    .line 80
     const/4 v2, 0x0
 
     invoke-interface {v1, p2, v2}, Landroid/content/pm/IPackageManager;->restorePreferredActivities([BI)V
 
-    .line 73
+    .line 72
     :goto_0
     return-void
 
-    .line 80
+    .line 78
     :cond_0
     const-string/jumbo v2, "default-apps"
 
@@ -98,7 +98,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 85
+    .line 83
     const/4 v2, 0x0
 
     invoke-interface {v1, p2, v2}, Landroid/content/pm/IPackageManager;->restoreDefaultApps([BI)V
@@ -107,11 +107,11 @@
 
     goto :goto_0
 
-    .line 93
+    .line 91
     :catch_0
     move-exception v0
 
-    .line 94
+    .line 92
     .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v2, "PreferredBackup"
 
@@ -137,7 +137,7 @@
 
     goto :goto_0
 
-    .line 80
+    .line 78
     .end local v0    # "e":Ljava/lang/Exception;
     :cond_1
     :try_start_1
@@ -149,14 +149,14 @@
 
     if-eqz v2, :cond_2
 
-    .line 88
+    .line 86
     const/4 v2, 0x0
 
     invoke-interface {v1, p2, v2}, Landroid/content/pm/IPackageManager;->restoreIntentFilterVerification([BI)V
 
     goto :goto_0
 
-    .line 91
+    .line 89
     :cond_2
     const-string/jumbo v2, "PreferredBackup"
 
@@ -195,7 +195,7 @@
 
     move-result-object v1
 
-    .line 56
+    .line 55
     .local v1, "pm":Landroid/content/pm/IPackageManager;
     :try_start_0
     const-string/jumbo v2, "preferred-activity"
@@ -206,7 +206,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 58
+    .line 57
     const/4 v2, 0x0
 
     invoke-interface {v1, v2}, Landroid/content/pm/IPackageManager;->getPreferredActivityBackup(I)[B
@@ -215,7 +215,7 @@
 
     return-object v2
 
-    .line 56
+    .line 55
     :cond_0
     const-string/jumbo v2, "default-apps"
 
@@ -225,7 +225,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 60
+    .line 59
     const/4 v2, 0x0
 
     invoke-interface {v1, v2}, Landroid/content/pm/IPackageManager;->getDefaultAppsBackup(I)[B
@@ -234,7 +234,7 @@
 
     return-object v2
 
-    .line 56
+    .line 55
     :cond_1
     const-string/jumbo v2, "intent-verification"
 
@@ -244,7 +244,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 62
+    .line 61
     const/4 v2, 0x0
 
     invoke-interface {v1, v2}, Landroid/content/pm/IPackageManager;->getIntentFilterVerificationBackup(I)[B
@@ -253,7 +253,7 @@
 
     return-object v2
 
-    .line 64
+    .line 63
     :cond_2
     const-string/jumbo v2, "PreferredBackup"
 
@@ -279,17 +279,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 69
+    .line 68
     :goto_0
     const/4 v2, 0x0
 
     return-object v2
 
-    .line 66
+    .line 65
     :catch_0
     move-exception v0
 
-    .line 67
+    .line 66
     .local v0, "e":Ljava/lang/Exception;
     const-string/jumbo v2, "PreferredBackup"
 

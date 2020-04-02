@@ -30,7 +30,7 @@
     .param p3, "val$intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 60
+    .line 59
     iput-object p1, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->this$0:Lcom/android/server/updates/ConfigUpdateInstallReceiver;
 
     iput-object p2, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->val$context:Landroid/content/Context;
@@ -50,7 +50,7 @@
     .prologue
     const v10, 0xc864
 
-    .line 65
+    .line 64
     :try_start_0
     iget-object v7, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->this$0:Lcom/android/server/updates/ConfigUpdateInstallReceiver;
 
@@ -62,7 +62,7 @@
 
     move-result-object v0
 
-    .line 67
+    .line 66
     .local v0, "altContent":[B
     iget-object v7, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->this$0:Lcom/android/server/updates/ConfigUpdateInstallReceiver;
 
@@ -72,7 +72,7 @@
 
     move-result v2
 
-    .line 69
+    .line 68
     .local v2, "altVersion":I
     iget-object v7, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->this$0:Lcom/android/server/updates/ConfigUpdateInstallReceiver;
 
@@ -82,7 +82,7 @@
 
     move-result-object v1
 
-    .line 71
+    .line 70
     .local v1, "altRequiredHash":Ljava/lang/String;
     iget-object v7, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->this$0:Lcom/android/server/updates/ConfigUpdateInstallReceiver;
 
@@ -90,7 +90,7 @@
 
     move-result v4
 
-    .line 73
+    .line 72
     .local v4, "currentVersion":I
     iget-object v7, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->this$0:Lcom/android/server/updates/ConfigUpdateInstallReceiver;
 
@@ -102,7 +102,7 @@
 
     move-result-object v3
 
-    .line 74
+    .line 73
     .local v3, "currentHash":Ljava/lang/String;
     iget-object v7, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->this$0:Lcom/android/server/updates/ConfigUpdateInstallReceiver;
 
@@ -112,14 +112,14 @@
 
     if-nez v7, :cond_0
 
-    .line 75
+    .line 74
     const-string/jumbo v7, "ConfigUpdateInstallReceiver"
 
     const-string/jumbo v8, "Not installing, new version is <= current version"
 
     invoke-static {v7, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 62
+    .line 61
     .end local v0    # "altContent":[B
     .end local v1    # "altRequiredHash":Ljava/lang/String;
     .end local v2    # "altVersion":I
@@ -128,7 +128,7 @@
     :goto_0
     return-void
 
-    .line 76
+    .line 75
     .restart local v0    # "altContent":[B
     .restart local v1    # "altRequiredHash":Ljava/lang/String;
     .restart local v2    # "altVersion":I
@@ -143,10 +143,10 @@
 
     if-nez v7, :cond_2
 
-    .line 78
+    .line 77
     const-string/jumbo v7, "Current hash did not match required value"
 
-    .line 77
+    .line 76
     const v8, 0xc864
 
     invoke-static {v8, v7}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
@@ -155,7 +155,7 @@
 
     goto :goto_0
 
-    .line 86
+    .line 85
     .end local v0    # "altContent":[B
     .end local v1    # "altRequiredHash":Ljava/lang/String;
     .end local v2    # "altVersion":I
@@ -164,7 +164,7 @@
     :catch_0
     move-exception v5
 
-    .line 87
+    .line 86
     .local v5, "e":Ljava/lang/Exception;
     const-string/jumbo v7, "ConfigUpdateInstallReceiver"
 
@@ -172,12 +172,12 @@
 
     invoke-static {v7, v8, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 89
+    .line 88
     invoke-virtual {v5}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v6
 
-    .line 90
+    .line 89
     .local v6, "errMsg":Ljava/lang/String;
     invoke-virtual {v6}, Ljava/lang/String;->length()I
 
@@ -187,7 +187,7 @@
 
     if-le v7, v8, :cond_1
 
-    .line 91
+    .line 90
     const/4 v7, 0x0
 
     const/16 v8, 0x63
@@ -196,13 +196,13 @@
 
     move-result-object v6
 
-    .line 93
+    .line 92
     :cond_1
     invoke-static {v10, v6}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
     goto :goto_0
 
-    .line 81
+    .line 80
     .end local v5    # "e":Ljava/lang/Exception;
     .end local v6    # "errMsg":Ljava/lang/String;
     .restart local v0    # "altContent":[B
@@ -218,19 +218,19 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 82
+    .line 81
     iget-object v7, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->this$0:Lcom/android/server/updates/ConfigUpdateInstallReceiver;
 
     invoke-virtual {v7, v0, v2}, Lcom/android/server/updates/ConfigUpdateInstallReceiver;->install([BI)V
 
-    .line 83
+    .line 82
     const-string/jumbo v7, "ConfigUpdateInstallReceiver"
 
     const-string/jumbo v8, "Installation successful"
 
     invoke-static {v7, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 84
+    .line 83
     iget-object v7, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->this$0:Lcom/android/server/updates/ConfigUpdateInstallReceiver;
 
     iget-object v8, p0, Lcom/android/server/updates/ConfigUpdateInstallReceiver$1;->val$context:Landroid/content/Context;

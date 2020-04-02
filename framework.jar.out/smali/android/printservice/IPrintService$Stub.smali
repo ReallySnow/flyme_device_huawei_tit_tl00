@@ -28,25 +28,23 @@
 
 .field static final TRANSACTION_createPrinterDiscoverySession:I = 0x4
 
-.field static final TRANSACTION_destroyPrinterDiscoverySession:I = 0xb
+.field static final TRANSACTION_destroyPrinterDiscoverySession:I = 0xa
 
 .field static final TRANSACTION_onPrintJobQueued:I = 0x3
 
 .field static final TRANSACTION_requestCancelPrintJob:I = 0x2
 
-.field static final TRANSACTION_requestCustomPrinterIcon_8:I = 0x9
-
 .field static final TRANSACTION_setClient:I = 0x1
 
-.field static final TRANSACTION_startPrinterDiscovery_4:I = 0x5
+.field static final TRANSACTION_startPrinterDiscovery:I = 0x5
 
-.field static final TRANSACTION_startPrinterStateTracking_7:I = 0x8
+.field static final TRANSACTION_startPrinterStateTracking:I = 0x8
 
-.field static final TRANSACTION_stopPrinterDiscovery_5:I = 0x6
+.field static final TRANSACTION_stopPrinterDiscovery:I = 0x6
 
-.field static final TRANSACTION_stopPrinterStateTracking:I = 0xa
+.field static final TRANSACTION_stopPrinterStateTracking:I = 0x9
 
-.field static final TRANSACTION_validatePrinters_6:I = 0x7
+.field static final TRANSACTION_validatePrinters:I = 0x7
 
 
 # direct methods
@@ -139,7 +137,7 @@
     .line 43
     sparse-switch p1, :sswitch_data_0
 
-    .line 158
+    .line 145
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v4
@@ -379,7 +377,7 @@
 
     .line 135
     :goto_3
-    invoke-virtual {p0, v1}, Landroid/printservice/IPrintService$Stub;->requestCustomPrinterIcon(Landroid/print/PrinterId;)V
+    invoke-virtual {p0, v1}, Landroid/printservice/IPrintService$Stub;->stopPrinterStateTracking(Landroid/print/PrinterId;)V
 
     .line 136
     return v5
@@ -398,47 +396,10 @@
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 142
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    .line 143
-    sget-object v4, Landroid/print/PrinterId;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v4, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/print/PrinterId;
-
-    .line 148
-    :goto_4
-    invoke-virtual {p0, v1}, Landroid/printservice/IPrintService$Stub;->stopPrinterStateTracking(Landroid/print/PrinterId;)V
-
-    .line 149
-    return v5
-
-    .line 146
-    :cond_4
-    const/4 v1, 0x0
-
-    .restart local v1    # "_arg0":Landroid/print/PrinterId;
-    goto :goto_4
-
-    .line 153
-    .end local v1    # "_arg0":Landroid/print/PrinterId;
-    :sswitch_b
-    const-string/jumbo v4, "android.printservice.IPrintService"
-
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 154
+    .line 141
     invoke-virtual {p0}, Landroid/printservice/IPrintService$Stub;->destroyPrinterDiscoverySession()V
 
-    .line 155
+    .line 142
     return v5
 
     .line 43
@@ -454,7 +415,6 @@
         0x8 -> :sswitch_8
         0x9 -> :sswitch_9
         0xa -> :sswitch_a
-        0xb -> :sswitch_b
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

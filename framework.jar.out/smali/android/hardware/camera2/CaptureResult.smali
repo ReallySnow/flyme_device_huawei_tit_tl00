@@ -6,10 +6,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/hardware/camera2/CaptureResult$Key;,
         Landroid/hardware/camera2/CaptureResult$1;,
         Landroid/hardware/camera2/CaptureResult$2;,
-        Landroid/hardware/camera2/CaptureResult$3;,
-        Landroid/hardware/camera2/CaptureResult$Key;
+        Landroid/hardware/camera2/CaptureResult$3;
     }
 .end annotation
 
@@ -349,20 +349,6 @@
 .end field
 
 .field public static final CONTROL_MODE:Landroid/hardware/camera2/CaptureResult$Key;
-    .annotation runtime Landroid/hardware/camera2/impl/PublicKey;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/hardware/camera2/CaptureResult$Key",
-            "<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field public static final CONTROL_POST_RAW_SENSITIVITY_BOOST:Landroid/hardware/camera2/CaptureResult$Key;
     .annotation runtime Landroid/hardware/camera2/impl/PublicKey;
     .end annotation
 
@@ -814,32 +800,6 @@
             "Landroid/hardware/camera2/CaptureResult$Key",
             "<",
             "Landroid/graphics/Rect;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field public static final SENSOR_DYNAMIC_BLACK_LEVEL:Landroid/hardware/camera2/CaptureResult$Key;
-    .annotation runtime Landroid/hardware/camera2/impl/PublicKey;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/hardware/camera2/CaptureResult$Key",
-            "<[F>;"
-        }
-    .end annotation
-.end field
-
-.field public static final SENSOR_DYNAMIC_WHITE_LEVEL:Landroid/hardware/camera2/CaptureResult$Key;
-    .annotation runtime Landroid/hardware/camera2/impl/PublicKey;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/hardware/camera2/CaptureResult$Key",
-            "<",
-            "Ljava/lang/Integer;",
             ">;"
         }
     .end annotation
@@ -1593,19 +1553,7 @@
     .line 2096
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->CONTROL_VIDEO_STABILIZATION_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2132
-    new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
-
-    const-string/jumbo v1, "android.control.postRawSensitivityBoost"
-
-    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
-
-    .line 2131
-    sput-object v0, Landroid/hardware/camera2/CaptureResult;->CONTROL_POST_RAW_SENSITIVITY_BOOST:Landroid/hardware/camera2/CaptureResult$Key;
-
-    .line 2180
+    .line 2145
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.edge.mode"
@@ -1614,10 +1562,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2179
+    .line 2144
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->EDGE_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2215
+    .line 2180
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.flash.mode"
@@ -1626,10 +1574,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2214
+    .line 2179
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->FLASH_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2258
+    .line 2223
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.flash.state"
@@ -1638,10 +1586,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2257
+    .line 2222
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->FLASH_STATE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2282
+    .line 2247
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.hotPixel.mode"
@@ -1650,10 +1598,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2281
+    .line 2246
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->HOT_PIXEL_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2294
+    .line 2259
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.jpeg.gpsLocation"
@@ -1662,10 +1610,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2293
+    .line 2258
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->JPEG_GPS_LOCATION:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2305
+    .line 2270
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.jpeg.gpsCoordinates"
@@ -1674,10 +1622,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2304
+    .line 2269
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->JPEG_GPS_COORDINATES:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2315
+    .line 2280
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.jpeg.gpsProcessingMethod"
@@ -1686,10 +1634,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2314
+    .line 2279
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->JPEG_GPS_PROCESSING_METHOD:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2325
+    .line 2290
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.jpeg.gpsTimestamp"
@@ -1698,10 +1646,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2324
+    .line 2289
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->JPEG_GPS_TIMESTAMP:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2366
+    .line 2331
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.jpeg.orientation"
@@ -1710,10 +1658,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2365
+    .line 2330
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->JPEG_ORIENTATION:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2378
+    .line 2343
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.jpeg.quality"
@@ -1722,10 +1670,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2377
+    .line 2342
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->JPEG_QUALITY:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2389
+    .line 2354
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.jpeg.thumbnailQuality"
@@ -1734,10 +1682,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2388
+    .line 2353
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->JPEG_THUMBNAIL_QUALITY:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2424
+    .line 2389
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.jpeg.thumbnailSize"
@@ -1746,10 +1694,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2423
+    .line 2388
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->JPEG_THUMBNAIL_SIZE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2461
+    .line 2426
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.aperture"
@@ -1758,10 +1706,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2460
+    .line 2425
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_APERTURE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2491
+    .line 2456
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.filterDensity"
@@ -1770,10 +1718,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2490
+    .line 2455
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_FILTER_DENSITY:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2516
+    .line 2481
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.focalLength"
@@ -1782,10 +1730,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2515
+    .line 2480
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_FOCAL_LENGTH:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2535
+    .line 2500
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.focusDistance"
@@ -1794,10 +1742,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2534
+    .line 2499
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_FOCUS_DISTANCE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2556
+    .line 2521
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.focusRange"
@@ -1808,10 +1756,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Landroid/hardware/camera2/utils/TypeReference;)V
 
-    .line 2555
+    .line 2520
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_FOCUS_RANGE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2598
+    .line 2563
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.opticalStabilizationMode"
@@ -1820,10 +1768,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2597
+    .line 2562
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_OPTICAL_STABILIZATION_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2645
+    .line 2610
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.state"
@@ -1832,10 +1780,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2644
+    .line 2609
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_STATE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2682
+    .line 2647
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.poseRotation"
@@ -1844,10 +1792,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2681
+    .line 2646
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_POSE_ROTATION:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2722
+    .line 2687
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.poseTranslation"
@@ -1856,10 +1804,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2721
+    .line 2686
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_POSE_TRANSLATION:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2785
+    .line 2750
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.intrinsicCalibration"
@@ -1868,10 +1816,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2784
+    .line 2749
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_INTRINSIC_CALIBRATION:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2824
+    .line 2789
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.lens.radialDistortion"
@@ -1880,10 +1828,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2823
+    .line 2788
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LENS_RADIAL_DISTORTION:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2879
+    .line 2844
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.noiseReduction.mode"
@@ -1892,10 +1840,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2878
+    .line 2843
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->NOISE_REDUCTION_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2903
+    .line 2868
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.quirks.partialResult"
@@ -1904,10 +1852,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2902
+    .line 2867
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->QUIRKS_PARTIAL_RESULT:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2919
+    .line 2884
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.request.frameCount"
@@ -1916,10 +1864,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2918
+    .line 2883
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->REQUEST_FRAME_COUNT:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2932
+    .line 2897
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.request.id"
@@ -1928,10 +1876,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2931
+    .line 2896
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->REQUEST_ID:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2950
+    .line 2915
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.request.pipelineDepth"
@@ -1940,10 +1888,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2949
+    .line 2914
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->REQUEST_PIPELINE_DEPTH:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 2993
+    .line 2958
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.scaler.cropRegion"
@@ -1952,10 +1900,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 2992
+    .line 2957
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SCALER_CROP_REGION:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3018
+    .line 2983
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sensor.exposureTime"
@@ -1964,10 +1912,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3017
+    .line 2982
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_EXPOSURE_TIME:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3110
+    .line 3075
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sensor.frameDuration"
@@ -1976,10 +1924,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3109
+    .line 3074
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_FRAME_DURATION:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3142
+    .line 3103
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sensor.sensitivity"
@@ -1988,10 +1936,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3141
+    .line 3102
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_SENSITIVITY:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3172
+    .line 3133
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sensor.timestamp"
@@ -2000,10 +1948,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3171
+    .line 3132
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_TIMESTAMP:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3187
+    .line 3148
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sensor.neutralColorPoint"
@@ -2012,10 +1960,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3186
+    .line 3147
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_NEUTRAL_COLOR_POINT:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3214
+    .line 3175
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sensor.noiseProfile"
@@ -2026,10 +1974,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Landroid/hardware/camera2/utils/TypeReference;)V
 
-    .line 3213
+    .line 3174
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_NOISE_PROFILE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3254
+    .line 3215
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sensor.greenSplit"
@@ -2038,10 +1986,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3253
+    .line 3214
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_GREEN_SPLIT:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3271
+    .line 3232
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sensor.testPatternData"
@@ -2050,10 +1998,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3270
+    .line 3231
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_TEST_PATTERN_DATA:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3306
+    .line 3267
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sensor.testPatternMode"
@@ -2062,10 +2010,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3305
+    .line 3266
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_TEST_PATTERN_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3331
+    .line 3292
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sensor.rollingShutterSkew"
@@ -2074,34 +2022,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3330
+    .line 3291
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_ROLLING_SHUTTER_SKEW:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3372
-    new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
-
-    const-string/jumbo v1, "android.sensor.dynamicBlackLevel"
-
-    const-class v2, [F
-
-    invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
-
-    .line 3371
-    sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_DYNAMIC_BLACK_LEVEL:Landroid/hardware/camera2/CaptureResult$Key;
-
-    .line 3395
-    new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
-
-    const-string/jumbo v1, "android.sensor.dynamicWhiteLevel"
-
-    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
-
-    .line 3394
-    sput-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_DYNAMIC_WHITE_LEVEL:Landroid/hardware/camera2/CaptureResult$Key;
-
-    .line 3448
+    .line 3345
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.shading.mode"
@@ -2110,10 +2034,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3447
+    .line 3344
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SHADING_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3473
+    .line 3370
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.faceDetectMode"
@@ -2122,10 +2046,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3472
+    .line 3369
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_DETECT_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3487
+    .line 3384
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.faceIds"
@@ -2134,10 +2058,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3486
+    .line 3383
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_IDS:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3502
+    .line 3399
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.faceLandmarks"
@@ -2146,10 +2070,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3501
+    .line 3398
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_LANDMARKS:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3517
+    .line 3414
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.faceRectangles"
@@ -2158,10 +2082,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3516
+    .line 3413
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_RECTANGLES:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3531
+    .line 3428
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.faceScores"
@@ -2170,10 +2094,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3530
+    .line 3427
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_SCORES:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3544
+    .line 3441
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.faces"
@@ -2182,10 +2106,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3543
+    .line 3440
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACES:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3610
+    .line 3495
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.lensShadingCorrectionMap"
@@ -2194,10 +2118,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3609
+    .line 3494
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_LENS_SHADING_CORRECTION_MAP:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3690
+    .line 3564
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.lensShadingMap"
@@ -2206,10 +2130,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3689
+    .line 3563
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_LENS_SHADING_MAP:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3711
+    .line 3585
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.predictedColorGains"
@@ -2218,10 +2142,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3710
+    .line 3584
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_PREDICTED_COLOR_GAINS:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3735
+    .line 3609
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.predictedColorTransform"
@@ -2230,10 +2154,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3734
+    .line 3608
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_PREDICTED_COLOR_TRANSFORM:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3774
+    .line 3648
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.sceneFlicker"
@@ -2242,10 +2166,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3773
+    .line 3647
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_SCENE_FLICKER:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3789
+    .line 3663
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.hotPixelMapMode"
@@ -2254,10 +2178,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3788
+    .line 3662
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_HOT_PIXEL_MAP_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3810
+    .line 3684
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.hotPixelMap"
@@ -2266,10 +2190,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3809
+    .line 3683
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_HOT_PIXEL_MAP:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3838
+    .line 3712
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.statistics.lensShadingMapMode"
@@ -2278,10 +2202,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3837
+    .line 3711
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_LENS_SHADING_MAP_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3855
+    .line 3729
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.tonemap.curveBlue"
@@ -2290,10 +2214,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3854
+    .line 3728
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->TONEMAP_CURVE_BLUE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3872
+    .line 3746
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.tonemap.curveGreen"
@@ -2302,10 +2226,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3871
+    .line 3745
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->TONEMAP_CURVE_GREEN:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3932
+    .line 3806
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.tonemap.curveRed"
@@ -2314,10 +2238,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3931
+    .line 3805
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->TONEMAP_CURVE_RED:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 3992
+    .line 3866
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.tonemap.curve"
@@ -2326,10 +2250,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 3991
+    .line 3865
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->TONEMAP_CURVE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 4041
+    .line 3915
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.tonemap.mode"
@@ -2338,10 +2262,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 4040
+    .line 3914
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->TONEMAP_MODE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 4062
+    .line 3936
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.tonemap.gamma"
@@ -2350,10 +2274,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 4061
+    .line 3935
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->TONEMAP_GAMMA:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 4087
+    .line 3961
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.tonemap.presetCurve"
@@ -2362,10 +2286,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 4086
+    .line 3960
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->TONEMAP_PRESET_CURVE:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 4104
+    .line 3978
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.led.transmit"
@@ -2374,10 +2298,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 4103
+    .line 3977
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->LED_TRANSMIT:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 4123
+    .line 3997
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.blackLevel.lock"
@@ -2386,10 +2310,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 4122
+    .line 3996
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->BLACK_LEVEL_LOCK:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 4193
+    .line 4067
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.sync.frameNumber"
@@ -2398,10 +2322,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 4192
+    .line 4066
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->SYNC_FRAME_NUMBER:Landroid/hardware/camera2/CaptureResult$Key;
 
-    .line 4243
+    .line 4117
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const-string/jumbo v1, "android.reprocess.effectiveExposureFactor"
@@ -2410,7 +2334,7 @@
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 4242
+    .line 4116
     sput-object v0, Landroid/hardware/camera2/CaptureResult;->REPROCESS_EFFECTIVE_EXPOSURE_FACTOR:Landroid/hardware/camera2/CaptureResult$Key;
 
     .line 52

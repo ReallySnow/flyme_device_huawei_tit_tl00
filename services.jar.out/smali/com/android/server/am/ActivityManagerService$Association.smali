@@ -17,10 +17,6 @@
 # instance fields
 .field mCount:I
 
-.field mLastState:I
-
-.field mLastStateUptime:J
-
 .field mNesting:I
 
 .field final mSourceProcess:Ljava/lang/String;
@@ -28,8 +24,6 @@
 .field final mSourceUid:I
 
 .field mStartTime:J
-
-.field mStateTimes:[J
 
 .field final mTargetComponent:Landroid/content/ComponentName;
 
@@ -42,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/String;ILandroid/content/ComponentName;Ljava/lang/String;)V
-    .locals 1
+    .locals 0
     .param p1, "sourceUid"    # I
     .param p2, "sourceProcess"    # Ljava/lang/String;
     .param p3, "targetUid"    # I
@@ -50,36 +44,24 @@
     .param p5, "targetProcess"    # Ljava/lang/String;
 
     .prologue
-    .line 973
+    .line 853
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 968
-    const/16 v0, 0x11
-
-    iput v0, p0, Lcom/android/server/am/ActivityManagerService$Association;->mLastState:I
-
-    .line 970
-    const/16 v0, 0x12
-
-    new-array v0, v0, [J
-
-    iput-object v0, p0, Lcom/android/server/am/ActivityManagerService$Association;->mStateTimes:[J
-
-    .line 975
+    .line 855
     iput p1, p0, Lcom/android/server/am/ActivityManagerService$Association;->mSourceUid:I
 
-    .line 976
+    .line 856
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$Association;->mSourceProcess:Ljava/lang/String;
 
-    .line 977
+    .line 857
     iput p3, p0, Lcom/android/server/am/ActivityManagerService$Association;->mTargetUid:I
 
-    .line 978
+    .line 858
     iput-object p4, p0, Lcom/android/server/am/ActivityManagerService$Association;->mTargetComponent:Landroid/content/ComponentName;
 
-    .line 979
+    .line 859
     iput-object p5, p0, Lcom/android/server/am/ActivityManagerService$Association;->mTargetProcess:Ljava/lang/String;
 
-    .line 974
+    .line 854
     return-void
 .end method

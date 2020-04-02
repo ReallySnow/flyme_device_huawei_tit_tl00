@@ -4,8 +4,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/os/BatteryStatsImpl$Uid;-><init>(Lcom/android/internal/os/BatteryStatsImpl;I)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/internal/os/BatteryStatsImpl$Uid;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -28,17 +28,16 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;Lcom/android/internal/os/BatteryStatsImpl;I)V
+.method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;Lcom/android/internal/os/BatteryStatsImpl;)V
     .locals 0
     .param p1, "this$1"    # Lcom/android/internal/os/BatteryStatsImpl$Uid;
     .param p2, "this$0"    # Lcom/android/internal/os/BatteryStatsImpl;
-    .param p3, "$anonymous0"    # I
 
     .prologue
-    .line 5305
+    .line 4422
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$1;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
-    invoke-direct {p0, p2, p3}, Lcom/android/internal/os/BatteryStatsImpl$OverflowArrayMap;-><init>(Lcom/android/internal/os/BatteryStatsImpl;I)V
+    invoke-direct {p0, p2}, Lcom/android/internal/os/BatteryStatsImpl$OverflowArrayMap;-><init>(Lcom/android/internal/os/BatteryStatsImpl;)V
 
     return-void
 .end method
@@ -46,19 +45,15 @@
 
 # virtual methods
 .method public instantiateObject()Lcom/android/internal/os/BatteryStatsImpl$Uid$Wakelock;
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 5307
+    .line 4423
     new-instance v0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Wakelock;
 
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$1;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
-    iget-object v1, v1, Lcom/android/internal/os/BatteryStatsImpl$Uid;->mBsi:Lcom/android/internal/os/BatteryStatsImpl;
-
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$1;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
-
-    invoke-direct {v0, v1, v2}, Lcom/android/internal/os/BatteryStatsImpl$Uid$Wakelock;-><init>(Lcom/android/internal/os/BatteryStatsImpl;Lcom/android/internal/os/BatteryStatsImpl$Uid;)V
+    invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl$Uid$Wakelock;-><init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;)V
 
     return-object v0
 .end method
@@ -67,7 +62,7 @@
     .locals 1
 
     .prologue
-    .line 5306
+    .line 4423
     invoke-virtual {p0}, Lcom/android/internal/os/BatteryStatsImpl$Uid$1;->instantiateObject()Lcom/android/internal/os/BatteryStatsImpl$Uid$Wakelock;
 
     move-result-object v0

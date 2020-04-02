@@ -167,6 +167,7 @@
     :cond_1
     const/4 v0, 0x1
 
+    .restart local v0    # "newValue":Z
     goto :goto_0
 .end method
 
@@ -314,27 +315,25 @@
 .end method
 
 .method public setChecked(Z)V
-    .locals 3
+    .locals 2
     .param p1, "checked"    # Z
 
     .prologue
-    const/4 v1, 0x1
-
     .line 77
-    iget-boolean v2, p0, Landroid/preference/TwoStatePreference;->mChecked:Z
+    iget-boolean v1, p0, Landroid/preference/TwoStatePreference;->mChecked:Z
 
-    if-eq v2, p1, :cond_1
+    if-eq v1, p1, :cond_1
 
-    move v0, v1
+    const/4 v0, 0x1
 
     .line 78
     .local v0, "changed":Z
     :goto_0
     if-nez v0, :cond_2
 
-    iget-boolean v2, p0, Landroid/preference/TwoStatePreference;->mCheckedSet:Z
+    iget-boolean v1, p0, Landroid/preference/TwoStatePreference;->mCheckedSet:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
     .line 75
     :cond_0
@@ -346,14 +345,16 @@
     :cond_1
     const/4 v0, 0x0
 
+    .restart local v0    # "changed":Z
     goto :goto_0
 
     .line 79
-    .restart local v0    # "changed":Z
     :cond_2
     iput-boolean p1, p0, Landroid/preference/TwoStatePreference;->mChecked:Z
 
     .line 80
+    const/4 v1, 0x1
+
     iput-boolean v1, p0, Landroid/preference/TwoStatePreference;->mCheckedSet:Z
 
     .line 81
@@ -474,45 +475,51 @@
 .end method
 
 .method public shouldDisableDependents()Z
-    .locals 3
+    .locals 2
 
     .prologue
-    const/4 v1, 0x1
-
     .line 100
-    iget-boolean v2, p0, Landroid/preference/TwoStatePreference;->mDisableDependentsState:Z
+    iget-boolean v1, p0, Landroid/preference/TwoStatePreference;->mDisableDependentsState:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_0
 
     iget-boolean v0, p0, Landroid/preference/TwoStatePreference;->mChecked:Z
 
     .line 101
-    .local v0, "shouldDisable":Z
     :goto_0
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2
 
     invoke-super {p0}, Landroid/preference/Preference;->shouldDisableDependents()Z
 
     move-result v1
 
-    :cond_0
+    :goto_1
     return v1
 
     .line 100
-    .end local v0    # "shouldDisable":Z
-    :cond_1
-    iget-boolean v2, p0, Landroid/preference/TwoStatePreference;->mChecked:Z
+    :cond_0
+    iget-boolean v1, p0, Landroid/preference/TwoStatePreference;->mChecked:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_1
 
     const/4 v0, 0x0
 
+    .local v0, "shouldDisable":Z
     goto :goto_0
 
+    .end local v0    # "shouldDisable":Z
+    :cond_1
+    const/4 v0, 0x1
+
+    .restart local v0    # "shouldDisable":Z
+    goto :goto_0
+
+    .line 101
+    .end local v0    # "shouldDisable":Z
     :cond_2
-    move v0, v1
+    const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method syncSummaryView(Landroid/view/View;)V

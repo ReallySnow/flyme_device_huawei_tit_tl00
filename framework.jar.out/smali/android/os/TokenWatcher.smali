@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/os/TokenWatcher$1;,
-        Landroid/os/TokenWatcher$Death;
+        Landroid/os/TokenWatcher$Death;,
+        Landroid/os/TokenWatcher$1;
     }
 .end annotation
 

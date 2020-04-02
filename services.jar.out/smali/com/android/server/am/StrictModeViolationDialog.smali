@@ -71,7 +71,7 @@
     .line 44
     invoke-direct {p0, p1}, Lcom/android/server/am/BaseErrorDialog;-><init>(Landroid/content/Context;)V
 
-    .line 85
+    .line 86
     new-instance v2, Lcom/android/server/am/StrictModeViolationDialog$1;
 
     invoke-direct {v2, p0}, Lcom/android/server/am/StrictModeViolationDialog$1;-><init>(Lcom/android/server/am/StrictModeViolationDialog;)V
@@ -135,7 +135,7 @@
     aput-object v3, v2, v6
 
     .line 55
-    const v3, 0x1040428
+    const v3, 0x10403f2
 
     .line 54
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
@@ -149,7 +149,7 @@
     invoke-virtual {p0, v5}, Lcom/android/server/am/StrictModeViolationDialog;->setCancelable(Z)V
 
     .line 67
-    const v2, 0x1040492
+    const v2, 0x1040460
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -173,7 +173,7 @@
     if-eqz v2, :cond_0
 
     .line 72
-    const v2, 0x104041d
+    const v2, 0x10403e9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -193,6 +193,15 @@
 
     .line 76
     :cond_0
+    const v2, 0x10403e0
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2}, Lcom/android/server/am/StrictModeViolationDialog;->setTitle(Ljava/lang/CharSequence;)V
+
+    .line 77
     invoke-virtual {p0}, Lcom/android/server/am/StrictModeViolationDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -201,7 +210,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->addPrivateFlags(I)V
 
-    .line 77
+    .line 78
     invoke-virtual {p0}, Lcom/android/server/am/StrictModeViolationDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -230,20 +239,20 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 80
+    .line 81
     iget-object v2, p0, Lcom/android/server/am/StrictModeViolationDialog;->mHandler:Landroid/os/Handler;
 
-    .line 81
+    .line 82
     iget-object v3, p0, Lcom/android/server/am/StrictModeViolationDialog;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v3, v5}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v3
 
-    .line 82
+    .line 83
     const-wide/32 v4, 0xea60
 
-    .line 80
+    .line 81
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 43
@@ -266,7 +275,7 @@
     aput-object v3, v2, v5
 
     .line 60
-    const v3, 0x1040429
+    const v3, 0x10403f3
 
     .line 59
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;

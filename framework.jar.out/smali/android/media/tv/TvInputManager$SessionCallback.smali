@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 347
+    .line 248
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,7 +33,7 @@
     .param p2, "channelUri"    # Landroid/net/Uri;
 
     .prologue
-    .line 373
+    .line 274
     return-void
 .end method
 
@@ -42,7 +42,7 @@
     .param p1, "session"    # Landroid/media/tv/TvInputManager$Session;
 
     .prologue
-    .line 440
+    .line 341
     return-void
 .end method
 
@@ -52,17 +52,7 @@
     .param p2, "rating"    # Landroid/media/tv/TvContentRating;
 
     .prologue
-    .line 450
-    return-void
-.end method
-
-.method onError(Landroid/media/tv/TvInputManager$Session;I)V
-    .locals 0
-    .param p1, "session"    # Landroid/media/tv/TvInputManager$Session;
-    .param p2, "error"    # I
-
-    .prologue
-    .line 536
+    .line 351
     return-void
 .end method
 
@@ -75,17 +65,7 @@
     .param p5, "bottom"    # I
 
     .prologue
-    .line 463
-    return-void
-.end method
-
-.method onRecordingStopped(Landroid/media/tv/TvInputManager$Session;Landroid/net/Uri;)V
-    .locals 0
-    .param p1, "session"    # Landroid/media/tv/TvInputManager$Session;
-    .param p2, "recordedProgramUri"    # Landroid/net/Uri;
-
-    .prologue
-    .line 526
+    .line 366
     return-void
 .end method
 
@@ -94,7 +74,7 @@
     .param p1, "session"    # Landroid/media/tv/TvInputManager$Session;
 
     .prologue
-    .line 354
+    .line 255
     return-void
 .end method
 
@@ -105,7 +85,7 @@
     .param p3, "eventArgs"    # Landroid/os/Bundle;
 
     .prologue
-    .line 473
+    .line 378
     return-void
 .end method
 
@@ -114,7 +94,7 @@
     .param p1, "session"    # Landroid/media/tv/TvInputManager$Session;
 
     .prologue
-    .line 363
+    .line 264
     return-void
 .end method
 
@@ -124,7 +104,7 @@
     .param p2, "timeMs"    # J
 
     .prologue
-    .line 505
+    .line 417
     return-void
 .end method
 
@@ -134,7 +114,7 @@
     .param p2, "timeMs"    # J
 
     .prologue
-    .line 496
+    .line 407
     return-void
 .end method
 
@@ -144,7 +124,7 @@
     .param p2, "status"    # I
 
     .prologue
-    .line 487
+    .line 392
     return-void
 .end method
 
@@ -155,7 +135,7 @@
     .param p3, "trackId"    # Ljava/lang/String;
 
     .prologue
-    .line 395
+    .line 296
     return-void
 .end method
 
@@ -174,18 +154,8 @@
     .end annotation
 
     .prologue
-    .line 382
+    .line 283
     .local p2, "tracks":Ljava/util/List;, "Ljava/util/List<Landroid/media/tv/TvTrackInfo;>;"
-    return-void
-.end method
-
-.method onTuned(Landroid/media/tv/TvInputManager$Session;Landroid/net/Uri;)V
-    .locals 0
-    .param p1, "session"    # Landroid/media/tv/TvInputManager$Session;
-    .param p2, "channelUri"    # Landroid/net/Uri;
-
-    .prologue
-    .line 515
     return-void
 .end method
 
@@ -194,7 +164,7 @@
     .param p1, "session"    # Landroid/media/tv/TvInputManager$Session;
 
     .prologue
-    .line 415
+    .line 316
     return-void
 .end method
 
@@ -205,7 +175,7 @@
     .param p3, "height"    # I
 
     .prologue
-    .line 407
+    .line 308
     return-void
 .end method
 
@@ -215,6 +185,6 @@
     .param p2, "reason"    # I
 
     .prologue
-    .line 431
+    .line 332
     return-void
 .end method

@@ -23,6 +23,8 @@
 
 .field public static final fallbackring:I = 0x1100005
 
+.field public static final incognito_mode_start_page:I = 0x1100006
+
 .field public static final loaderror:I = 0x1100000
 
 .field public static final nodomain:I = 0x1100001
@@ -33,7 +35,7 @@
     .locals 0
 
     .prologue
-    .line 27673
+    .line 24449
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

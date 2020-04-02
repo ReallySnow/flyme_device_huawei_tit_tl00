@@ -315,11 +315,12 @@
     .line 107
     return-void
 
+    .line 108
     .end local v0    # "tagName":Ljava/lang/String;
     :cond_1
     move-object v0, p3
 
-    .line 108
+    .restart local v0    # "tagName":Ljava/lang/String;
     goto :goto_0
 .end method
 
@@ -484,10 +485,11 @@
     .line 90
     return-void
 
+    .line 91
     .end local v0    # "tagName":Ljava/lang/String;
     :cond_2
     move-object v0, p3
 
-    .line 91
+    .restart local v0    # "tagName":Ljava/lang/String;
     goto :goto_0
 .end method

@@ -69,27 +69,27 @@
     .locals 1
 
     .prologue
-    .line 33
+    .line 34
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 44
+    .line 45
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/telephony/CallTracker;->mHandoverConnections:Ljava/util/ArrayList;
 
-    .line 48
+    .line 49
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/telephony/CallTracker;->mNumberConverted:Z
 
-    .line 49
+    .line 50
     const/4 v0, 0x3
 
     iput v0, p0, Lcom/android/internal/telephony/CallTracker;->VALID_COMPARE_LENGTH:I
 
-    .line 33
+    .line 34
     return-void
 .end method
 
@@ -99,7 +99,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 153
+    .line 154
     iget v1, p0, Lcom/android/internal/telephony/CallTracker;->mPendingOperations:I
 
     if-nez v1, :cond_0
@@ -110,30 +110,30 @@
     return v0
 .end method
 
-.method private compareGid1(Lcom/android/internal/telephony/Phone;Ljava/lang/String;)Z
+.method private compareGid1(Lcom/android/internal/telephony/PhoneBase;Ljava/lang/String;)Z
     .locals 5
-    .param p1, "phone"    # Lcom/android/internal/telephony/Phone;
+    .param p1, "phoneBase"    # Lcom/android/internal/telephony/PhoneBase;
     .param p2, "serviceGid1"    # Ljava/lang/String;
 
     .prologue
     const/4 v3, 0x0
 
-    .line 265
-    invoke-virtual {p1}, Lcom/android/internal/telephony/Phone;->getGroupIdLevel1()Ljava/lang/String;
+    .line 263
+    invoke-virtual {p1}, Lcom/android/internal/telephony/PhoneBase;->getGroupIdLevel1()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 266
+    .line 264
     .local v0, "gid1":Ljava/lang/String;
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    .line 267
+    .line 265
     .local v1, "gid_length":I
     const/4 v2, 0x1
 
-    .line 269
+    .line 267
     .local v2, "ret":Z
     if-eqz p2, :cond_0
 
@@ -145,7 +145,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 270
+    .line 268
     :cond_0
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -167,10 +167,10 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 271
+    .line 269
     return v2
 
-    .line 274
+    .line 272
     :cond_1
     if-eqz v0, :cond_2
 
@@ -180,7 +180,7 @@
 
     if-lt v4, v1, :cond_2
 
-    .line 275
+    .line 273
     invoke-virtual {v0, v3, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
@@ -189,11 +189,11 @@
 
     move-result v3
 
-    .line 274
+    .line 272
     :cond_2
     if-nez v3, :cond_3
 
-    .line 276
+    .line 274
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -224,10 +224,10 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 277
+    .line 275
     const/4 v2, 0x0
 
-    .line 279
+    .line 277
     :cond_3
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -254,10 +254,10 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 280
+    .line 278
     return v2
 
-    .line 279
+    .line 277
     :cond_4
     const-string/jumbo v3, "Different"
 
@@ -273,29 +273,29 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 178
+    .line 179
     const-string/jumbo v2, "ril.test.emergencynumber"
 
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 183
+    .line 184
     .local v0, "testEn":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
-    .line 184
+    .line 185
     const-string/jumbo v2, ":"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 185
+    .line 186
     .local v1, "values":[Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -319,42 +319,36 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 186
+    .line 187
     array-length v2, v1
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_0
 
-    .line 187
+    .line 188
     const/4 v2, 0x0
 
     aget-object v2, v1, v2
 
-    .line 188
+    .line 189
     invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->stripSeparators(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 187
+    .line 188
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     .line 190
     iget-object v2, p0, Lcom/android/internal/telephony/CallTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
-    if-eqz v2, :cond_0
-
-    .line 191
-    iget-object v2, p0, Lcom/android/internal/telephony/CallTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
-
     invoke-interface {v2}, Lcom/android/internal/telephony/CommandsInterface;->testingEmergencyCall()V
 
-    .line 193
-    :cond_0
+    .line 191
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -369,18 +363,18 @@
 
     move-result-object v2
 
-    .line 194
+    .line 192
     const-string/jumbo v3, " to "
 
-    .line 193
+    .line 191
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    .line 194
+    .line 192
     aget-object v3, v1, v4
 
-    .line 193
+    .line 191
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -391,30 +385,30 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 195
+    .line 193
     aget-object p1, v1, v4
 
-    .line 199
+    .line 197
     .end local v1    # "values":[Ljava/lang/String;
-    :cond_1
+    :cond_0
     return-object p1
 .end method
 
-.method protected convertNumberIfNecessary(Lcom/android/internal/telephony/Phone;Ljava/lang/String;)Ljava/lang/String;
+.method protected convertNumberIfNecessary(Lcom/android/internal/telephony/PhoneBase;Ljava/lang/String;)Ljava/lang/String;
     .locals 13
-    .param p1, "phone"    # Lcom/android/internal/telephony/Phone;
+    .param p1, "phoneBase"    # Lcom/android/internal/telephony/PhoneBase;
     .param p2, "dialNumber"    # Ljava/lang/String;
 
     .prologue
-    .line 203
+    .line 201
     if-nez p2, :cond_0
 
-    .line 204
+    .line 202
     return-object p2
 
-    .line 206
+    .line 204
     :cond_0
-    invoke-virtual {p1}, Lcom/android/internal/telephony/Phone;->getContext()Landroid/content/Context;
+    invoke-virtual {p1}, Lcom/android/internal/telephony/PhoneBase;->getContext()Landroid/content/Context;
 
     move-result-object v7
 
@@ -422,15 +416,15 @@
 
     move-result-object v7
 
-    .line 207
-    const v8, 0x107004f
+    .line 205
+    const v8, 0x1070047
 
-    .line 206
+    .line 204
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 208
+    .line 206
     .local v1, "convertMaps":[Ljava/lang/String;
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -442,28 +436,28 @@
 
     move-result-object v7
 
-    .line 209
+    .line 207
     array-length v8, v1
 
-    .line 208
+    .line 206
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    .line 210
+    .line 208
     const-string/jumbo v8, " dialNumber.length() "
 
-    .line 208
+    .line 206
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    .line 210
+    .line 208
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v8
 
-    .line 208
+    .line 206
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v7
@@ -474,7 +468,7 @@
 
     invoke-virtual {p0, v7}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 212
+    .line 210
     array-length v7, v1
 
     const/4 v8, 0x1
@@ -489,19 +483,19 @@
 
     if-ge v7, v8, :cond_2
 
-    .line 213
+    .line 211
     :cond_1
     return-object p2
 
-    .line 218
+    .line 216
     :cond_2
     const-string/jumbo v5, ""
 
-    .line 219
+    .line 217
     .local v5, "outNumber":Ljava/lang/String;
     const/4 v4, 0x0
 
-    .line 220
+    .line 218
     .local v4, "needConvert":Z
     const/4 v7, 0x0
 
@@ -512,7 +506,7 @@
 
     aget-object v0, v1, v7
 
-    .line 221
+    .line 219
     .local v0, "convertMap":Ljava/lang/String;
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -534,14 +528,14 @@
 
     invoke-virtual {p0, v9}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 222
+    .line 220
     const-string/jumbo v9, ":"
 
     invoke-virtual {v0, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v2
 
-    .line 223
+    .line 221
     .local v2, "entry":[Ljava/lang/String;
     array-length v9, v2
 
@@ -549,7 +543,7 @@
 
     if-le v9, v10, :cond_6
 
-    .line 224
+    .line 222
     const/4 v9, 0x1
 
     aget-object v9, v2, v9
@@ -560,7 +554,7 @@
 
     move-result-object v6
 
-    .line 225
+    .line 223
     .local v6, "tmpArray":[Ljava/lang/String;
     const/4 v9, 0x0
 
@@ -582,7 +576,7 @@
 
     if-eqz v9, :cond_6
 
-    .line 226
+    .line 224
     array-length v9, v6
 
     const/4 v10, 0x2
@@ -599,7 +593,7 @@
 
     if-eqz v9, :cond_7
 
-    .line 230
+    .line 228
     :cond_3
     invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
 
@@ -607,15 +601,15 @@
 
     if-eqz v9, :cond_4
 
-    .line 231
+    .line 229
     const/4 v4, 0x1
 
-    .line 234
+    .line 232
     :cond_4
     :goto_1
     if-eqz v4, :cond_6
 
-    .line 235
+    .line 233
     const/4 v9, 0x0
 
     aget-object v9, v6, v9
@@ -638,12 +632,12 @@
 
     if-eqz v9, :cond_9
 
-    .line 236
-    invoke-virtual {p1}, Lcom/android/internal/telephony/Phone;->getLine1Number()Ljava/lang/String;
+    .line 234
+    invoke-virtual {p1}, Lcom/android/internal/telephony/PhoneBase;->getLine1Number()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 237
+    .line 235
     .local v3, "mdn":Ljava/lang/String;
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -651,7 +645,7 @@
 
     if-nez v9, :cond_5
 
-    .line 238
+    .line 236
     const-string/jumbo v9, "+"
 
     invoke-virtual {v3, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -660,41 +654,41 @@
 
     if-eqz v9, :cond_8
 
-    .line 239
+    .line 237
     move-object v5, v3
 
-    .line 248
+    .line 246
     .end local v3    # "mdn":Ljava/lang/String;
     :cond_5
     :goto_2
     const/4 v4, 0x0
 
-    .line 220
+    .line 218
     .end local v6    # "tmpArray":[Ljava/lang/String;
     :cond_6
     add-int/lit8 v7, v7, 0x1
 
     goto/16 :goto_0
 
-    .line 227
+    .line 225
     .restart local v6    # "tmpArray":[Ljava/lang/String;
     :cond_7
     const/4 v9, 0x1
 
     aget-object v9, v6, v9
 
-    invoke-direct {p0, p1, v9}, Lcom/android/internal/telephony/CallTracker;->compareGid1(Lcom/android/internal/telephony/Phone;Ljava/lang/String;)Z
+    invoke-direct {p0, p1, v9}, Lcom/android/internal/telephony/CallTracker;->compareGid1(Lcom/android/internal/telephony/PhoneBase;Ljava/lang/String;)Z
 
     move-result v9
 
     if-eqz v9, :cond_4
 
-    .line 228
+    .line 226
     const/4 v4, 0x1
 
     goto :goto_1
 
-    .line 241
+    .line 239
     .restart local v3    # "mdn":Ljava/lang/String;
     :cond_8
     new-instance v9, Ljava/lang/StringBuilder;
@@ -735,7 +729,7 @@
 
     goto :goto_2
 
-    .line 246
+    .line 244
     .end local v3    # "mdn":Ljava/lang/String;
     :cond_9
     const/4 v9, 0x0
@@ -744,7 +738,7 @@
 
     goto :goto_2
 
-    .line 254
+    .line 252
     .end local v0    # "convertMap":Ljava/lang/String;
     .end local v2    # "entry":[Ljava/lang/String;
     .end local v6    # "tmpArray":[Ljava/lang/String;
@@ -755,20 +749,20 @@
 
     if-nez v7, :cond_b
 
-    .line 255
+    .line 253
     const-string/jumbo v7, "convertNumberIfNecessary: convert service number"
 
     invoke-virtual {p0, v7}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 256
+    .line 254
     const/4 v7, 0x1
 
     iput-boolean v7, p0, Lcom/android/internal/telephony/CallTracker;->mNumberConverted:Z
 
-    .line 257
+    .line 255
     return-object v5
 
-    .line 260
+    .line 258
     :cond_b
     return-object p2
 .end method
@@ -780,12 +774,12 @@
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 294
+    .line 292
     const-string/jumbo v0, "CallTracker:"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 295
+    .line 293
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -808,7 +802,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 296
+    .line 294
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -831,7 +825,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 297
+    .line 295
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -854,7 +848,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 293
+    .line 291
     return-void
 .end method
 
@@ -865,7 +859,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 97
+    .line 98
     iget-object v2, p0, Lcom/android/internal/telephony/CallTracker;->mHandoverConnections:Ljava/util/ArrayList;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -886,7 +880,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/Connection;
 
-    .line 98
+    .line 99
     .local v0, "hoConn":Lcom/android/internal/telephony/Connection;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -912,7 +906,7 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 99
+    .line 100
     invoke-virtual {v0}, Lcom/android/internal/telephony/Connection;->getAddress()Ljava/lang/String;
 
     move-result-object v2
@@ -931,7 +925,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 100
+    .line 101
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -956,10 +950,10 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 101
+    .line 102
     return-object v0
 
-    .line 104
+    .line 105
     .end local v0    # "hoConn":Lcom/android/internal/telephony/Connection;
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/CallTracker;->mHandoverConnections:Ljava/util/ArrayList;
@@ -981,7 +975,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/Connection;
 
-    .line 105
+    .line 106
     .restart local v0    # "hoConn":Lcom/android/internal/telephony/Connection;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1007,7 +1001,7 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 106
+    .line 107
     invoke-virtual {v0}, Lcom/android/internal/telephony/Connection;->getStateBeforeHandover()Lcom/android/internal/telephony/Call$State;
 
     move-result-object v2
@@ -1020,7 +1014,7 @@
 
     if-ne v2, v3, :cond_2
 
-    .line 107
+    .line 108
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1045,10 +1039,10 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 108
+    .line 109
     return-object v0
 
-    .line 111
+    .line 112
     .end local v0    # "hoConn":Lcom/android/internal/telephony/Connection;
     :cond_3
     return-object v4
@@ -1067,10 +1061,10 @@
     .locals 0
 
     .prologue
-    .line 127
+    .line 128
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallTracker;->pollCallsWhenSafe()V
 
-    .line 126
+    .line 127
     return-void
 .end method
 
@@ -1081,14 +1075,14 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 89
+    .line 90
     if-eqz p1, :cond_0
 
     instance-of v1, p1, Lcom/android/internal/telephony/CommandException;
 
     if-eqz v1, :cond_0
 
-    .line 90
+    .line 91
     check-cast p1, Lcom/android/internal/telephony/CommandException;
 
     .end local p1    # "e":Ljava/lang/Throwable;
@@ -1096,15 +1090,15 @@
 
     move-result-object v1
 
-    .line 91
+    .line 92
     sget-object v2, Lcom/android/internal/telephony/CommandException$Error;->RADIO_NOT_AVAILABLE:Lcom/android/internal/telephony/CommandException$Error;
 
-    .line 90
+    .line 91
     if-ne v1, v2, :cond_0
 
     const/4 v0, 0x1
 
-    .line 89
+    .line 90
     :cond_0
     return v0
 .end method
@@ -1127,7 +1121,7 @@
     .end annotation
 
     .prologue
-    .line 115
+    .line 116
     .local p2, "c":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/telephony/Connection;>;"
     sget-object v0, Lcom/android/internal/telephony/Call$SrvccState;->STARTED:Lcom/android/internal/telephony/Call$SrvccState;
 
@@ -1135,12 +1129,12 @@
 
     if-eqz p2, :cond_1
 
-    .line 117
+    .line 118
     iget-object v0, p0, Lcom/android/internal/telephony/CallTracker;->mHandoverConnections:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p2}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 123
+    .line 124
     :cond_0
     :goto_0
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1169,16 +1163,16 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CallTracker;->log(Ljava/lang/String;)V
 
-    .line 114
+    .line 115
     return-void
 
-    .line 118
+    .line 119
     :cond_1
     sget-object v0, Lcom/android/internal/telephony/Call$SrvccState;->COMPLETED:Lcom/android/internal/telephony/Call$SrvccState;
 
     if-eq p1, v0, :cond_0
 
-    .line 121
+    .line 122
     iget-object v0, p0, Lcom/android/internal/telephony/CallTracker;->mHandoverConnections:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
@@ -1191,19 +1185,19 @@
     .param p1, "what"    # I
 
     .prologue
-    .line 140
+    .line 141
     iget v0, p0, Lcom/android/internal/telephony/CallTracker;->mPendingOperations:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/internal/telephony/CallTracker;->mPendingOperations:I
 
-    .line 141
+    .line 142
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/CallTracker;->mLastRelevantPoll:Landroid/os/Message;
 
-    .line 142
+    .line 143
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/CallTracker;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
@@ -1215,23 +1209,23 @@
     .locals 4
 
     .prologue
-    .line 81
+    .line 82
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallTracker;->obtainMessage()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 83
+    .line 84
     .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x3
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 84
+    .line 85
     const-wide/16 v2, 0xfa
 
     invoke-virtual {p0, v0, v2, v3}, Lcom/android/internal/telephony/CallTracker;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 80
+    .line 81
     return-void
 .end method
 
@@ -1241,31 +1235,31 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 71
+    .line 72
     iput-boolean v1, p0, Lcom/android/internal/telephony/CallTracker;->mNeedsPoll:Z
 
-    .line 73
+    .line 74
     invoke-direct {p0}, Lcom/android/internal/telephony/CallTracker;->checkNoOperationsPending()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 74
+    .line 75
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/CallTracker;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/telephony/CallTracker;->mLastRelevantPoll:Landroid/os/Message;
 
-    .line 75
+    .line 76
     iget-object v0, p0, Lcom/android/internal/telephony/CallTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     iget-object v1, p0, Lcom/android/internal/telephony/CallTracker;->mLastRelevantPoll:Landroid/os/Message;
 
     invoke-interface {v0, v1}, Lcom/android/internal/telephony/CommandsInterface;->getCurrentCalls(Landroid/os/Message;)V
 
-    .line 70
+    .line 71
     :cond_0
     return-void
 .end method

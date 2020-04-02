@@ -1180,7 +1180,7 @@
 
     sput-object v0, Landroid/os/BuildExt;->HIDE_INFO:Ljava/lang/Boolean;
 
-    .line 455
+    .line 446
     const-string/jumbo v0, "ro.meizu.has_smartbar"
 
     invoke-static {v0}, Landroid/os/BuildExt;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -1292,7 +1292,7 @@
     .param p0, "productModel"    # Ljava/lang/String;
 
     .prologue
-    .line 530
+    .line 521
     const-string/jumbo v0, "ro.product.flyme.model"
 
     invoke-static {v0}, Landroid/os/BuildExt;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -1310,7 +1310,7 @@
     .locals 1
 
     .prologue
-    .line 437
+    .line 428
     sget-object v0, Landroid/os/BuildExt;->IS_MX3:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -1335,13 +1335,13 @@
 
     if-eqz v0, :cond_1
 
-    .line 438
+    .line 429
     :cond_0
     const/16 v0, 0x7f8
 
     return v0
 
-    .line 439
+    .line 430
     :cond_1
     sget-object v0, Landroid/os/BuildExt;->IS_M1_NOTE:Ljava/lang/Boolean;
 
@@ -1359,13 +1359,13 @@
 
     if-eqz v0, :cond_3
 
-    .line 441
+    .line 432
     :cond_2
     const/16 v0, 0x800
 
     return v0
 
-    .line 443
+    .line 434
     :cond_3
     const/16 v0, 0xff
 
@@ -1376,16 +1376,16 @@
     .locals 7
 
     .prologue
-    .line 474
+    .line 465
     const-string/jumbo v0, "/proc/lk_info/colortype"
 
-    .line 475
+    .line 466
     .local v0, "clolorTypePath":Ljava/lang/String;
     new-instance v2, Ljava/io/File;
 
     invoke-direct {v2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 476
+    .line 467
     .local v2, "file":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
@@ -1393,16 +1393,16 @@
 
     if-nez v6, :cond_0
 
-    .line 477
+    .line 468
     const-string/jumbo v6, "unknown"
 
     return-object v6
 
-    .line 479
+    .line 470
     :cond_0
     const/4 v3, 0x0
 
-    .line 481
+    .line 472
     .local v3, "reader":Ljava/io/BufferedReader;
     :try_start_0
     new-instance v4, Ljava/io/BufferedReader;
@@ -1415,11 +1415,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 482
+    .line 473
     .local v4, "reader":Ljava/io/BufferedReader;
     const/4 v5, 0x0
 
-    .line 483
+    .line 474
     .end local v3    # "reader":Ljava/io/BufferedReader;
     .local v5, "tempString":Ljava/lang/String;
     :try_start_1
@@ -1430,14 +1430,14 @@
     .local v5, "tempString":Ljava/lang/String;
     if-eqz v5, :cond_1
 
-    .line 484
+    .line 475
     invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v6
 
     return-object v6
 
-    .line 486
+    .line 477
     :cond_1
     invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
     :try_end_1
@@ -1445,7 +1445,7 @@
 
     move-object v3, v4
 
-    .line 489
+    .line 480
     .end local v4    # "reader":Ljava/io/BufferedReader;
     .end local v5    # "tempString":Ljava/lang/String;
     :goto_0
@@ -1453,7 +1453,7 @@
 
     return-object v6
 
-    .line 487
+    .line 478
     .restart local v3    # "reader":Ljava/io/BufferedReader;
     :catch_0
     move-exception v1
@@ -1480,7 +1480,7 @@
     .param p0, "property"    # Ljava/lang/String;
 
     .prologue
-    .line 502
+    .line 493
     const/4 v0, -0x1
 
     invoke-static {p0, v0}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
@@ -1495,7 +1495,7 @@
     .param p0, "property"    # Ljava/lang/String;
 
     .prologue
-    .line 497
+    .line 488
     const-string/jumbo v0, "unknown"
 
     invoke-static {p0, v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -1512,7 +1512,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 373
+    .line 364
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -1527,10 +1527,10 @@
 
     if-ne v0, v3, :cond_0
 
-    .line 374
+    .line 365
     return v3
 
-    .line 376
+    .line 367
     :cond_0
     const/4 v0, 0x0
 
@@ -1620,9 +1620,7 @@
     :try_start_0
     const-string/jumbo v3, "android.hardware.nfc"
 
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v4}, Landroid/content/pm/IPackageManager;->hasSystemFeature(Ljava/lang/String;I)Z
+    invoke-interface {v2, v3}, Landroid/content/pm/IPackageManager;->hasSystemFeature(Ljava/lang/String;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1711,7 +1709,7 @@
     .locals 2
 
     .prologue
-    .line 461
+    .line 452
     sget-object v0, Landroid/os/BuildExt;->HAS_SMARTBAR:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -1726,12 +1724,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 462
+    .line 453
     const/4 v0, 0x1
 
     return v0
 
-    .line 464
+    .line 455
     :cond_0
     const/4 v0, 0x0
 
@@ -1744,7 +1742,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 424
+    .line 415
     sget-object v1, Landroid/os/BuildExt;->IS_M1_NOTE:Ljava/lang/Boolean;
 
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -1753,10 +1751,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 425
+    .line 416
     return v2
 
-    .line 427
+    .line 418
     :cond_0
     const-string/jumbo v1, "sys/devices/mx_tsp/appid"
 
@@ -1764,11 +1762,11 @@
 
     move-result-object v0
 
-    .line 428
+    .line 419
     .local v0, "deviceTpColor":Ljava/lang/String;
     if-eqz v0, :cond_2
 
-    .line 429
+    .line 420
     const-string/jumbo v1, "B:"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -1783,14 +1781,14 @@
 
     move-result v1
 
-    .line 428
+    .line 419
     if-eqz v1, :cond_2
 
-    .line 430
+    .line 421
     :cond_1
     return v2
 
-    .line 433
+    .line 424
     :cond_2
     const/4 v1, 0x0
 
@@ -1801,7 +1799,7 @@
     .locals 2
 
     .prologue
-    .line 303
+    .line 294
     const-string/jumbo v0, "brcm43341"
 
     const-string/jumbo v1, "ro.nfc.platform"
@@ -1816,12 +1814,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 304
+    .line 295
     const/4 v0, 0x1
 
     return v0
 
-    .line 306
+    .line 297
     :cond_0
     const/4 v0, 0x0
 
@@ -1912,39 +1910,39 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 353
+    .line 344
     const-string/jumbo v2, "gsm.sim.operator.numeric"
 
-    .line 352
+    .line 343
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 354
+    .line 345
     .local v0, "prop":Ljava/lang/String;
     if-eqz v0, :cond_0
 
-    .line 357
+    .line 348
     const-string/jumbo v2, ","
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 358
+    .line 349
     .local v1, "tempProp":[Ljava/lang/String;
     array-length v2, v1
 
     if-eqz v2, :cond_0
 
-    .line 359
+    .line 350
     aget-object v2, v1, v5
 
     invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 363
+    .line 354
     .end local v1    # "tempProp":[Ljava/lang/String;
     :cond_0
     const-string/jumbo v2, "BuildExt"
@@ -1969,7 +1967,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 364
+    .line 355
     const-string/jumbo v2, "46000"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2002,13 +2000,13 @@
 
     if-eqz v2, :cond_2
 
-    .line 365
+    .line 356
     :cond_1
     const/4 v2, 0x1
 
     return v2
 
-    .line 367
+    .line 358
     :cond_2
     return v5
 .end method
@@ -2017,7 +2015,7 @@
     .locals 2
 
     .prologue
-    .line 534
+    .line 525
     const-string/jumbo v0, "unknown"
 
     const-string/jumbo v1, "ro.cm.version"
@@ -2047,7 +2045,7 @@
     .locals 2
 
     .prologue
-    .line 506
+    .line 497
     const-string/jumbo v0, "ro.meizu.build.isdaily"
 
     invoke-static {v0}, Landroid/os/BuildExt;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -2122,7 +2120,7 @@
     .locals 2
 
     .prologue
-    .line 389
+    .line 380
     const-string/jumbo v0, "true"
 
     const-string/jumbo v1, "ro.product.jcopupgrade"
@@ -2137,12 +2135,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 390
+    .line 381
     const/4 v0, 0x1
 
     return v0
 
-    .line 392
+    .line 383
     :cond_0
     const/4 v0, 0x0
 
@@ -2153,7 +2151,7 @@
     .locals 2
 
     .prologue
-    .line 317
+    .line 308
     const-string/jumbo v0, "TD"
 
     const-string/jumbo v1, "sys.baseband"
@@ -2168,12 +2166,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 318
+    .line 309
     const/4 v0, 0x1
 
     return v0
 
-    .line 320
+    .line 311
     :cond_0
     const/4 v0, 0x0
 
@@ -2184,7 +2182,7 @@
     .locals 2
 
     .prologue
-    .line 324
+    .line 315
     const-string/jumbo v0, "UMTS"
 
     const-string/jumbo v1, "sys.baseband"
@@ -2199,12 +2197,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 325
+    .line 316
     const/4 v0, 0x1
 
     return v0
 
-    .line 327
+    .line 318
     :cond_0
     const/4 v0, 0x0
 
@@ -2268,7 +2266,7 @@
     .locals 1
 
     .prologue
-    .line 447
+    .line 438
     invoke-static {}, Landroid/os/BuildExt;->isFlymeRom()Z
 
     move-result v0
@@ -2290,7 +2288,7 @@
     .locals 2
 
     .prologue
-    .line 310
+    .line 301
     const-string/jumbo v0, "nxppn547"
 
     const-string/jumbo v1, "ro.nfc.platform"
@@ -2305,12 +2303,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 311
+    .line 302
     const/4 v0, 0x1
 
     return v0
 
-    .line 313
+    .line 304
     :cond_0
     const/4 v0, 0x0
 
@@ -2389,14 +2387,14 @@
 
     const/4 v4, 0x0
 
-    .line 519
+    .line 510
     const-string/jumbo v2, "ro.meizu.hardware.version"
 
     invoke-static {v2}, Landroid/os/BuildExt;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 521
+    .line 512
     .local v0, "hardwareInfo":Ljava/lang/String;
     const/4 v2, 0x2
 
@@ -2410,7 +2408,7 @@
 
     aput-object v2, v1, v5
 
-    .line 522
+    .line 513
     .local v1, "intlCode":[Ljava/lang/String;
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -2434,61 +2432,19 @@
 
     if-eqz v2, :cond_0
 
-    .line 523
+    .line 514
     return v5
 
-    .line 526
+    .line 517
     :cond_0
     return v4
-.end method
-
-.method public static isQcomPlatform()Z
-    .locals 2
-
-    .prologue
-    .line 294
-    const-string/jumbo v1, "ro.board.platform"
-
-    invoke-static {v1}, Landroid/os/BuildExt;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 295
-    .local v0, "platformQcom":Ljava/lang/String;
-    const-string/jumbo v1, "msm"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "sdm"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 296
-    :cond_0
-    const/4 v1, 0x1
-
-    return v1
-
-    .line 299
-    :cond_1
-    const/4 v1, 0x0
-
-    return v1
 .end method
 
 .method public static isShopDemoVersion()Z
     .locals 1
 
     .prologue
-    .line 493
+    .line 484
     sget-object v0, Landroid/os/BuildExt;->IS_SHOPDEMO:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -2504,39 +2460,39 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 333
+    .line 324
     const-string/jumbo v2, "gsm.sim.operator.numeric"
 
-    .line 332
+    .line 323
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 334
+    .line 325
     .local v0, "prop":Ljava/lang/String;
     if-eqz v0, :cond_0
 
-    .line 337
+    .line 328
     const-string/jumbo v2, ","
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 338
+    .line 329
     .local v1, "tempProp":[Ljava/lang/String;
     array-length v2, v1
 
     if-eqz v2, :cond_0
 
-    .line 339
+    .line 330
     aget-object v2, v1, v5
 
     invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 343
+    .line 334
     .end local v1    # "tempProp":[Ljava/lang/String;
     :cond_0
     const-string/jumbo v2, "BuildExt"
@@ -2561,7 +2517,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 344
+    .line 335
     const-string/jumbo v2, "46001"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2570,12 +2526,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 345
+    .line 336
     const/4 v2, 0x1
 
     return v2
 
-    .line 347
+    .line 338
     :cond_1
     return v5
 .end method
@@ -2584,7 +2540,7 @@
     .locals 2
 
     .prologue
-    .line 510
+    .line 501
     const-string/jumbo v0, "ro.meizu.build.isbeta"
 
     invoke-static {v0}, Landroid/os/BuildExt;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -2607,20 +2563,20 @@
     .prologue
     const/4 v10, 0x0
 
-    .line 397
+    .line 388
     const/4 v2, 0x0
 
-    .line 398
+    .line 389
     .local v2, "fin":Ljava/io/FileInputStream;
     const/16 v7, 0x80
 
     new-array v4, v7, [B
 
-    .line 399
+    .line 390
     .local v4, "inOutb":[B
     const/4 v5, 0x0
 
-    .line 401
+    .line 392
     .local v5, "str":Ljava/lang/String;
     :try_start_0
     new-instance v3, Ljava/io/FileInputStream;
@@ -2635,13 +2591,13 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 402
+    .line 393
     .end local v2    # "fin":Ljava/io/FileInputStream;
     .local v3, "fin":Ljava/io/FileInputStream;
     :try_start_1
     invoke-virtual {v3, v4}, Ljava/io/FileInputStream;->read([B)I
 
-    .line 403
+    .line 394
     new-instance v6, Ljava/lang/String;
 
     const-string/jumbo v7, "UTF-8"
@@ -2652,7 +2608,7 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_8
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 404
+    .line 395
     .local v6, "str":Ljava/lang/String;
     :try_start_2
     const-string/jumbo v7, "BuildExt"
@@ -2678,34 +2634,34 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 405
+    .line 396
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
     :try_end_2
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_7
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_9
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    .line 411
+    .line 402
     if-eqz v3, :cond_0
 
-    .line 413
+    .line 404
     :try_start_3
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 414
+    .line 405
     return-object v6
 
-    .line 415
+    .line 406
     :catch_0
     move-exception v1
 
-    .line 419
+    .line 410
     :cond_0
     return-object v10
 
-    .line 408
+    .line 399
     .end local v3    # "fin":Ljava/io/FileInputStream;
     .end local v6    # "str":Ljava/lang/String;
     .restart local v2    # "fin":Ljava/io/FileInputStream;
@@ -2713,7 +2669,7 @@
     :catch_1
     move-exception v1
 
-    .line 409
+    .line 400
     .end local v2    # "fin":Ljava/io/FileInputStream;
     .end local v5    # "str":Ljava/lang/String;
     .local v1, "e":Ljava/io/IOException;
@@ -2727,34 +2683,34 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 411
+    .line 402
     if-eqz v2, :cond_1
 
-    .line 413
+    .line 404
     :try_start_5
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
-    .line 414
+    .line 405
     return-object v5
 
-    .line 415
+    .line 406
     :catch_2
     move-exception v1
 
-    .line 419
+    .line 410
     :cond_1
     return-object v10
 
-    .line 406
+    .line 397
     .end local v1    # "e":Ljava/io/IOException;
     .restart local v2    # "fin":Ljava/io/FileInputStream;
     .restart local v5    # "str":Ljava/lang/String;
     :catch_3
     move-exception v0
 
-    .line 407
+    .line 398
     .end local v2    # "fin":Ljava/io/FileInputStream;
     .end local v5    # "str":Ljava/lang/String;
     .local v0, "e":Ljava/io/FileNotFoundException;
@@ -2768,53 +2724,53 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    .line 411
+    .line 402
     if-eqz v2, :cond_2
 
-    .line 413
+    .line 404
     :try_start_7
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_4
 
-    .line 414
+    .line 405
     return-object v5
 
-    .line 415
+    .line 406
     :catch_4
     move-exception v1
 
-    .line 419
+    .line 410
     :cond_2
     return-object v10
 
-    .line 410
+    .line 401
     .end local v0    # "e":Ljava/io/FileNotFoundException;
     :catchall_0
     move-exception v7
 
-    .line 411
+    .line 402
     :goto_2
     if-eqz v2, :cond_3
 
-    .line 413
+    .line 404
     :try_start_8
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_5
 
-    .line 414
+    .line 405
     return-object v5
 
-    .line 415
+    .line 406
     :catch_5
     move-exception v1
 
-    .line 419
+    .line 410
     :cond_3
     return-object v10
 
-    .line 410
+    .line 401
     .restart local v3    # "fin":Ljava/io/FileInputStream;
     .restart local v5    # "str":Ljava/lang/String;
     :catchall_1
@@ -2843,7 +2799,7 @@
     .restart local v2    # "fin":Ljava/io/FileInputStream;
     goto :goto_2
 
-    .line 406
+    .line 397
     .end local v2    # "fin":Ljava/io/FileInputStream;
     .restart local v3    # "fin":Ljava/io/FileInputStream;
     .local v5, "str":Ljava/lang/String;
@@ -2876,7 +2832,7 @@
     .restart local v2    # "fin":Ljava/io/FileInputStream;
     goto :goto_1
 
-    .line 408
+    .line 399
     .end local v0    # "e":Ljava/io/FileNotFoundException;
     .end local v2    # "fin":Ljava/io/FileInputStream;
     .restart local v3    # "fin":Ljava/io/FileInputStream;
@@ -2917,26 +2873,26 @@
     .param p1, "enable"    # Z
 
     .prologue
-    .line 380
+    .line 371
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
     const-string/jumbo v2, "smartmx_ese"
 
-    .line 381
+    .line 372
     if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    .line 380
+    .line 371
     :goto_0
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 379
+    .line 370
     return-void
 
-    .line 381
+    .line 372
     :cond_0
     const/4 v0, 0x0
 

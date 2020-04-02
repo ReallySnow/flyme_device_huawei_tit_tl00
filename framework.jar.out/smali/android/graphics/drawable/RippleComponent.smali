@@ -14,7 +14,7 @@
 # instance fields
 .field protected final mBounds:Landroid/graphics/Rect;
 
-.field protected mDensityScale:F
+.field protected mDensity:F
 
 .field private final mForceSoftware:Z
 
@@ -41,19 +41,19 @@
     .param p3, "forceSoftware"    # Z
 
     .prologue
-    .line 62
+    .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 63
+    .line 62
     iput-object p1, p0, Landroid/graphics/drawable/RippleComponent;->mOwner:Landroid/graphics/drawable/RippleDrawable;
 
-    .line 64
+    .line 63
     iput-object p2, p0, Landroid/graphics/drawable/RippleComponent;->mBounds:Landroid/graphics/Rect;
 
-    .line 65
+    .line 64
     iput-boolean p3, p0, Landroid/graphics/drawable/RippleComponent;->mForceSoftware:Z
 
-    .line 62
+    .line 61
     return-void
 .end method
 
@@ -63,20 +63,20 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 213
+    .line 212
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
     if-eqz v0, :cond_0
 
-    .line 214
+    .line 213
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
-    .line 215
+    .line 214
     iput-object v1, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
-    .line 212
+    .line 211
     :cond_0
     return-void
 .end method
@@ -87,34 +87,34 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 237
+    .line 236
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mHardwareAnimator:Landroid/graphics/drawable/RippleComponent$RenderNodeAnimatorSet;
 
     if-eqz v0, :cond_0
 
-    .line 238
+    .line 237
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mHardwareAnimator:Landroid/graphics/drawable/RippleComponent$RenderNodeAnimatorSet;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/RippleComponent$RenderNodeAnimatorSet;->end()V
 
-    .line 239
+    .line 238
     iput-object v1, p0, Landroid/graphics/drawable/RippleComponent;->mHardwareAnimator:Landroid/graphics/drawable/RippleComponent$RenderNodeAnimatorSet;
 
-    .line 242
+    .line 241
     :cond_0
     iget-boolean v0, p0, Landroid/graphics/drawable/RippleComponent;->mHasPendingHardwareAnimator:Z
 
     if-eqz v0, :cond_1
 
-    .line 243
+    .line 242
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/graphics/drawable/RippleComponent;->mHasPendingHardwareAnimator:Z
 
-    .line 247
+    .line 246
     invoke-virtual {p0}, Landroid/graphics/drawable/RippleComponent;->jumpValuesToExit()V
 
-    .line 236
+    .line 235
     :cond_1
     return-void
 .end method
@@ -125,20 +125,20 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 224
+    .line 223
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
     if-eqz v0, :cond_0
 
-    .line 225
+    .line 224
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->end()V
 
-    .line 226
+    .line 225
     iput-object v1, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
-    .line 223
+    .line 222
     :cond_0
     return-void
 .end method
@@ -150,7 +150,7 @@
     .prologue
     const/high16 v3, 0x40000000    # 2.0f
 
-    .line 89
+    .line 88
     invoke-virtual {p0}, Landroid/graphics/Rect;->width()I
 
     move-result v2
@@ -159,7 +159,7 @@
 
     div-float v1, v2, v3
 
-    .line 90
+    .line 89
     .local v1, "halfWidth":F
     invoke-virtual {p0}, Landroid/graphics/Rect;->height()I
 
@@ -169,7 +169,7 @@
 
     div-float v0, v2, v3
 
-    .line 91
+    .line 90
     .local v0, "halfHeight":F
     mul-float v2, v1, v1
 
@@ -194,17 +194,17 @@
     .param p2, "p"    # Landroid/graphics/Paint;
 
     .prologue
-    .line 196
+    .line 195
     iget-boolean v0, p0, Landroid/graphics/drawable/RippleComponent;->mHasPendingHardwareAnimator:Z
 
     if-eqz v0, :cond_0
 
-    .line 197
+    .line 196
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/graphics/drawable/RippleComponent;->mHasPendingHardwareAnimator:Z
 
-    .line 199
+    .line 198
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0, p2}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
@@ -215,15 +215,15 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mHardwareAnimator:Landroid/graphics/drawable/RippleComponent$RenderNodeAnimatorSet;
 
-    .line 200
+    .line 199
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mHardwareAnimator:Landroid/graphics/drawable/RippleComponent$RenderNodeAnimatorSet;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/RippleComponent$RenderNodeAnimatorSet;->start(Landroid/view/DisplayListCanvas;)V
 
-    .line 204
+    .line 203
     invoke-virtual {p0}, Landroid/graphics/drawable/RippleComponent;->jumpValuesToExit()V
 
-    .line 195
+    .line 194
     :cond_0
     return-void
 .end method
@@ -234,13 +234,13 @@
     .locals 0
 
     .prologue
-    .line 133
+    .line 132
     invoke-direct {p0}, Landroid/graphics/drawable/RippleComponent;->cancelSoftwareAnimations()V
 
-    .line 134
+    .line 133
     invoke-direct {p0}, Landroid/graphics/drawable/RippleComponent;->endHardwareAnimations()V
 
-    .line 132
+    .line 131
     return-void
 .end method
 
@@ -259,7 +259,7 @@
     .param p2, "p"    # Landroid/graphics/Paint;
 
     .prologue
-    .line 154
+    .line 153
     iget-boolean v2, p0, Landroid/graphics/drawable/RippleComponent;->mForceSoftware:Z
 
     if-nez v2, :cond_1
@@ -270,50 +270,50 @@
 
     if-eqz v2, :cond_1
 
-    .line 155
+    .line 154
     instance-of v0, p1, Landroid/view/DisplayListCanvas;
 
-    .line 156
+    .line 155
     :goto_0
     iget-boolean v2, p0, Landroid/graphics/drawable/RippleComponent;->mHasDisplayListCanvas:Z
 
     if-eq v2, v0, :cond_0
 
-    .line 157
+    .line 156
     iput-boolean v0, p0, Landroid/graphics/drawable/RippleComponent;->mHasDisplayListCanvas:Z
 
-    .line 159
+    .line 158
     if-nez v0, :cond_0
 
-    .line 161
+    .line 160
     invoke-direct {p0}, Landroid/graphics/drawable/RippleComponent;->endHardwareAnimations()V
 
-    .line 165
+    .line 164
     :cond_0
     if-eqz v0, :cond_2
 
     move-object v1, p1
 
-    .line 166
+    .line 165
     check-cast v1, Landroid/view/DisplayListCanvas;
 
-    .line 167
+    .line 166
     .local v1, "hw":Landroid/view/DisplayListCanvas;
     invoke-direct {p0, v1, p2}, Landroid/graphics/drawable/RippleComponent;->startPendingAnimation(Landroid/view/DisplayListCanvas;Landroid/graphics/Paint;)V
 
-    .line 169
+    .line 168
     iget-object v2, p0, Landroid/graphics/drawable/RippleComponent;->mHardwareAnimator:Landroid/graphics/drawable/RippleComponent$RenderNodeAnimatorSet;
 
     if-eqz v2, :cond_2
 
-    .line 170
+    .line 169
     invoke-virtual {p0, v1}, Landroid/graphics/drawable/RippleComponent;->drawHardware(Landroid/view/DisplayListCanvas;)Z
 
     move-result v2
 
     return v2
 
-    .line 154
+    .line 153
     .end local v1    # "hw":Landroid/view/DisplayListCanvas;
     :cond_1
     const/4 v0, 0x0
@@ -321,7 +321,7 @@
     .local v0, "hasDisplayListCanvas":Z
     goto :goto_0
 
-    .line 174
+    .line 173
     .end local v0    # "hasDisplayListCanvas":Z
     :cond_2
     invoke-virtual {p0, p1, p2}, Landroid/graphics/drawable/RippleComponent;->drawSoftware(Landroid/graphics/Canvas;Landroid/graphics/Paint;)Z
@@ -341,13 +341,13 @@
     .locals 0
 
     .prologue
-    .line 141
+    .line 140
     invoke-direct {p0}, Landroid/graphics/drawable/RippleComponent;->endSoftwareAnimations()V
 
-    .line 142
+    .line 141
     invoke-direct {p0}, Landroid/graphics/drawable/RippleComponent;->endHardwareAnimations()V
 
-    .line 140
+    .line 139
     return-void
 .end method
 
@@ -356,27 +356,27 @@
     .param p1, "fast"    # Z
 
     .prologue
-    .line 100
+    .line 99
     invoke-virtual {p0}, Landroid/graphics/drawable/RippleComponent;->cancel()V
 
-    .line 102
+    .line 101
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/RippleComponent;->createSoftwareEnter(Z)Landroid/animation/Animator;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
-    .line 104
+    .line 103
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
     if-eqz v0, :cond_0
 
-    .line 105
+    .line 104
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
-    .line 99
+    .line 98
     :cond_0
     return-void
 .end method
@@ -385,27 +385,27 @@
     .locals 1
 
     .prologue
-    .line 113
+    .line 112
     invoke-virtual {p0}, Landroid/graphics/drawable/RippleComponent;->cancel()V
 
-    .line 115
+    .line 114
     iget-boolean v0, p0, Landroid/graphics/drawable/RippleComponent;->mHasDisplayListCanvas:Z
 
     if-eqz v0, :cond_0
 
-    .line 118
+    .line 117
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/drawable/RippleComponent;->mHasPendingHardwareAnimator:Z
 
-    .line 121
+    .line 120
     invoke-virtual {p0}, Landroid/graphics/drawable/RippleComponent;->invalidateSelf()V
 
-    .line 112
+    .line 111
     :goto_0
     return-void
 
-    .line 123
+    .line 122
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/RippleComponent;->createSoftwareExit()Landroid/animation/Animator;
 
@@ -413,7 +413,7 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
-    .line 124
+    .line 123
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mSoftwareAnimator:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
@@ -426,7 +426,7 @@
     .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 185
+    .line 184
     iget v1, p0, Landroid/graphics/drawable/RippleComponent;->mTargetRadius:F
 
     float-to-double v2, v1
@@ -437,7 +437,7 @@
 
     double-to-int v0, v2
 
-    .line 186
+    .line 185
     .local v0, "r":I
     neg-int v1, v0
 
@@ -445,7 +445,7 @@
 
     invoke-virtual {p1, v1, v2, v0, v0}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 184
+    .line 183
     return-void
 .end method
 
@@ -453,14 +453,14 @@
     .locals 2
 
     .prologue
-    .line 252
+    .line 251
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mOwner:Landroid/graphics/drawable/RippleDrawable;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/RippleDrawable;->invalidateSelf(Z)V
 
-    .line 251
+    .line 250
     return-void
 .end method
 
@@ -468,7 +468,7 @@
     .locals 1
 
     .prologue
-    .line 256
+    .line 255
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mHardwareAnimator:Landroid/graphics/drawable/RippleComponent$RenderNodeAnimatorSet;
 
     if-eqz v0, :cond_0
@@ -481,11 +481,11 @@
 
     if-nez v0, :cond_1
 
-    .line 257
+    .line 256
     :cond_0
     iget-boolean v0, p0, Landroid/graphics/drawable/RippleComponent;->mHasPendingHardwareAnimator:Z
 
-    .line 256
+    .line 255
     :goto_0
     return v0
 
@@ -502,12 +502,12 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 68
     iget-boolean v0, p0, Landroid/graphics/drawable/RippleComponent;->mHasMaxRadius:Z
 
     if-nez v0, :cond_0
 
-    .line 70
+    .line 69
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mBounds:Landroid/graphics/Rect;
 
     invoke-static {v0}, Landroid/graphics/drawable/RippleComponent;->getTargetRadius(Landroid/graphics/Rect;)F
@@ -516,12 +516,12 @@
 
     iput v0, p0, Landroid/graphics/drawable/RippleComponent;->mTargetRadius:F
 
-    .line 71
+    .line 70
     iget v0, p0, Landroid/graphics/drawable/RippleComponent;->mTargetRadius:F
 
     invoke-virtual {p0, v0}, Landroid/graphics/drawable/RippleComponent;->onTargetRadiusChanged(F)V
 
-    .line 68
+    .line 67
     :cond_0
     return-void
 .end method
@@ -532,12 +532,12 @@
     .prologue
     const/high16 v4, 0x40000000    # 2.0f
 
-    .line 261
+    .line 260
     iget-boolean v3, p0, Landroid/graphics/drawable/RippleComponent;->mHasMaxRadius:Z
 
     if-nez v3, :cond_0
 
-    .line 262
+    .line 261
     iget-object v3, p0, Landroid/graphics/drawable/RippleComponent;->mBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
@@ -548,7 +548,7 @@
 
     div-float v1, v3, v4
 
-    .line 263
+    .line 262
     .local v1, "halfWidth":F
     iget-object v3, p0, Landroid/graphics/drawable/RippleComponent;->mBounds:Landroid/graphics/Rect;
 
@@ -560,14 +560,14 @@
 
     div-float v0, v3, v4
 
-    .line 264
+    .line 263
     .local v0, "halfHeight":F
     mul-float v3, v1, v1
 
-    .line 265
+    .line 264
     mul-float v4, v0, v0
 
-    .line 264
+    .line 263
     add-float/2addr v3, v4
 
     float-to-double v4, v3
@@ -578,11 +578,11 @@
 
     double-to-float v2, v4
 
-    .line 267
+    .line 266
     .local v2, "targetRadius":F
     invoke-virtual {p0, v2}, Landroid/graphics/drawable/RippleComponent;->onTargetRadiusChanged(F)V
 
-    .line 260
+    .line 259
     .end local v0    # "halfHeight":F
     .end local v1    # "halfWidth":F
     .end local v2    # "targetRadius":F
@@ -595,50 +595,44 @@
     .param p1, "targetRadius"    # F
 
     .prologue
-    .line 276
+    .line 275
     return-void
 .end method
 
-.method public final setup(FI)V
-    .locals 2
+.method public final setup(FF)V
+    .locals 1
     .param p1, "maxRadius"    # F
-    .param p2, "densityDpi"    # I
+    .param p2, "density"    # F
 
     .prologue
-    .line 76
+    .line 75
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
 
     if-ltz v0, :cond_0
 
-    .line 77
+    .line 76
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/drawable/RippleComponent;->mHasMaxRadius:Z
 
-    .line 78
+    .line 77
     iput p1, p0, Landroid/graphics/drawable/RippleComponent;->mTargetRadius:F
 
-    .line 83
+    .line 82
     :goto_0
-    int-to-float v0, p2
+    iput p2, p0, Landroid/graphics/drawable/RippleComponent;->mDensity:F
 
-    const v1, 0x3bcccccd    # 0.00625f
-
-    mul-float/2addr v0, v1
-
-    iput v0, p0, Landroid/graphics/drawable/RippleComponent;->mDensityScale:F
-
-    .line 85
+    .line 84
     iget v0, p0, Landroid/graphics/drawable/RippleComponent;->mTargetRadius:F
 
     invoke-virtual {p0, v0}, Landroid/graphics/drawable/RippleComponent;->onTargetRadiusChanged(F)V
 
-    .line 75
+    .line 74
     return-void
 
-    .line 80
+    .line 79
     :cond_0
     iget-object v0, p0, Landroid/graphics/drawable/RippleComponent;->mBounds:Landroid/graphics/Rect;
 

@@ -47,7 +47,7 @@
     .end annotation
 .end method
 
-.method public abstract onConnectionEvent(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
+.method public abstract onMergeFailed(Landroid/telecom/ParcelableCall;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -72,14 +72,6 @@
 .end method
 
 .method public abstract setPostDialWait(Ljava/lang/String;Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract silenceRinger()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

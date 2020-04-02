@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/provider/MediaStore$Video$VideoColumns;,
         Landroid/provider/MediaStore$Video$Media;,
-        Landroid/provider/MediaStore$Video$Thumbnails;,
-        Landroid/provider/MediaStore$Video$VideoColumns;
+        Landroid/provider/MediaStore$Video$Thumbnails;
     }
 .end annotation
 
@@ -31,7 +31,7 @@
     .locals 0
 
     .prologue
-    .line 1962
+    .line 1942
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,7 +46,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1970
+    .line 1950
     const-string/jumbo v5, "_display_name"
 
     move-object v0, p0

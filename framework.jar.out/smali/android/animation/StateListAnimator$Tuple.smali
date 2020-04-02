@@ -27,16 +27,16 @@
     .param p2, "animator"    # Landroid/animation/Animator;
 
     .prologue
-    .line 282
+    .line 281
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 283
+    .line 282
     iput-object p1, p0, Landroid/animation/StateListAnimator$Tuple;->mSpecs:[I
 
-    .line 284
+    .line 283
     iput-object p2, p0, Landroid/animation/StateListAnimator$Tuple;->mAnimator:Landroid/animation/Animator;
 
-    .line 282
+    .line 281
     return-void
 .end method
 
@@ -57,7 +57,7 @@
     .locals 1
 
     .prologue
-    .line 298
+    .line 297
     iget-object v0, p0, Landroid/animation/StateListAnimator$Tuple;->mAnimator:Landroid/animation/Animator;
 
     return-object v0
@@ -67,7 +67,7 @@
     .locals 1
 
     .prologue
-    .line 291
+    .line 290
     iget-object v0, p0, Landroid/animation/StateListAnimator$Tuple;->mSpecs:[I
 
     return-object v0

@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/graphics/Matrix$1;,
-        Landroid/graphics/Matrix$ScaleToFit;
+        Landroid/graphics/Matrix$ScaleToFit;,
+        Landroid/graphics/Matrix$1;
     }
 .end annotation
 
@@ -331,28 +331,23 @@
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
     invoke-static {v0, v1}, Landroid/graphics/Matrix;->finalizer(J)V
-
-    .line 830
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 832
+    .line 831
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
     .line 827
     return-void
 
-    .line 831
+    .line 830
     :catchall_0
     move-exception v0
 
-    .line 832
+    .line 831
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 831
+    .line 830
     throw v0
 .end method
 
@@ -708,7 +703,7 @@
     .locals 2
 
     .prologue
-    .line 837
+    .line 836
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
     return-wide v0

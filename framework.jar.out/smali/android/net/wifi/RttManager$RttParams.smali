@@ -59,8 +59,6 @@
 
 .field public requestType:I
 
-.field public secure:Z
-
 
 # direct methods
 .method public constructor <init>()V
@@ -71,44 +69,44 @@
 
     const/4 v1, 0x0
 
-    .line 463
+    .line 436
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 465
+    .line 438
     iput v0, p0, Landroid/net/wifi/RttManager$RttParams;->deviceType:I
 
-    .line 466
+    .line 439
     iput v0, p0, Landroid/net/wifi/RttManager$RttParams;->requestType:I
 
-    .line 467
+    .line 440
     iput v1, p0, Landroid/net/wifi/RttManager$RttParams;->numberBurst:I
 
-    .line 468
+    .line 441
     const/16 v0, 0x8
 
     iput v0, p0, Landroid/net/wifi/RttManager$RttParams;->numSamplesPerBurst:I
 
-    .line 469
+    .line 442
     iput v1, p0, Landroid/net/wifi/RttManager$RttParams;->numRetriesPerMeasurementFrame:I
 
-    .line 470
+    .line 443
     iput v1, p0, Landroid/net/wifi/RttManager$RttParams;->numRetriesPerFTMR:I
 
-    .line 471
+    .line 444
     const/16 v0, 0xf
 
     iput v0, p0, Landroid/net/wifi/RttManager$RttParams;->burstTimeout:I
 
-    .line 472
+    .line 445
     const/4 v0, 0x2
 
     iput v0, p0, Landroid/net/wifi/RttManager$RttParams;->preamble:I
 
-    .line 473
+    .line 446
     const/4 v0, 0x4
 
     iput v0, p0, Landroid/net/wifi/RttManager$RttParams;->bandwidth:I
 
-    .line 463
+    .line 436
     return-void
 .end method

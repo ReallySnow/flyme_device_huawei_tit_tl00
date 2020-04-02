@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/dreams/DreamController;
 
     .prologue
-    .line 76
+    .line 72
     iput-object p1, p0, Lcom/android/server/dreams/DreamController$1;->this$0:Lcom/android/server/dreams/DreamController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 79
+    .line 75
     iget-object v0, p0, Lcom/android/server/dreams/DreamController$1;->this$0:Lcom/android/server/dreams/DreamController;
 
     invoke-static {v0}, Lcom/android/server/dreams/DreamController;->-get0(Lcom/android/server/dreams/DreamController;)Lcom/android/server/dreams/DreamController$DreamRecord;
@@ -70,12 +70,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 78
+    .line 74
     :cond_0
     :goto_0
     return-void
 
-    .line 80
+    .line 76
     :cond_1
     const-string/jumbo v0, "DreamController"
 
@@ -83,7 +83,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 81
+    .line 77
     iget-object v0, p0, Lcom/android/server/dreams/DreamController$1;->this$0:Lcom/android/server/dreams/DreamController;
 
     const/4 v1, 0x1

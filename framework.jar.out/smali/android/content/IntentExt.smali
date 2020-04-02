@@ -22,13 +22,19 @@
 
 .field public static final ACTION_SUB_DISPLAY_SCREEN_ON:Ljava/lang/String; = "android.intent.action.SUB_DISPLAY_SCREEN_ON"
 
+.field public static final ACTION_SUB_MAIN:Ljava/lang/String; = "flyme.intent.action.SUB_MAIN"
+
+.field public static final ACTION_SUB_NORMAL:Ljava/lang/String; = "flyme.intent.action.SUB_NORMAL_ACTION"
+
+.field public static final CATEGORY_SUB_HOME:Ljava/lang/String; = "flyme.intent.category.SUB_HOME"
+
+.field public static final CATEGORY_SUB_LAUNCHER:Ljava/lang/String; = "flyme.intent.category.SUB_LAUNCHER"
+
 .field public static final EXTRA_PREFERRED_NWM_PADDING:Ljava/lang/String; = "android.intent.extra.MEIZU_PREFERRED_NWM_PADDING"
 
 .field public static final EXTRA_REQUEST_RESULT_FROM_CHOOSERACTIVITY:Ljava/lang/String; = "android.intent.extra.requset_result"
 
 .field public static final MEIZU_FLAG_ACCESS_FROM:I = 0x400
-
-.field public static final MEIZU_FLAG_ACTIVITYINFO_BLACKLIST:I = 0x8000000
 
 .field public static final MEIZU_FLAG_ACTIVITY_FAST_STARTING:I = 0x20
 
@@ -36,21 +42,13 @@
 
 .field public static final MEIZU_FLAG_ACTIVITY_START_FROM_KEYGUARD:I = 0x10
 
-.field public static final MEIZU_FLAG_IMMEDIATE_BROADCAST:I = 0x10000000
-
 .field public static final MEIZU_FLAG_KEEP_SHOW_FOR_KEYGUARD:I = 0x100000
-
-.field public static final MEIZU_FLAG_LAUNCH_APP_BEHIND:I = 0x20000000
-
-.field public static final MEIZU_FLAG_LAUNCH_APP_BEHIND_HIDE_RECENT:I = 0x40000000
 
 .field public static final MEIZU_FLAG_PREVIEW_ON_KEYGUARD:I = 0x20000
 
 .field public static final MEIZU_FLAG_REMOVE_SECOND_ACTIVITY:I = 0x40
 
 .field public static final MEIZU_FLAG_SPLIT_MODE:I = 0x10000
-
-.field public static final MEIZU_FLAG_START_FROM_JOB_SERVICE:I = 0x400000
 
 .field public static final MEIZU_FLAG_START_FROM_LAUNCHER:I = 0x40000
 
@@ -60,9 +58,7 @@
 
 .field public static final MEIZU_FLAG_STOP_RECOMMEND:I = 0x800
 
-.field public static final MEIZU_FLAG_UNINSTALL:I = 0x4000000
-
-.field public static final MEIZU_FLAG_WINDOW_MODE_APP:I = 0x800000
+.field public static final MEIZU_FLAG_UNINSTALL:I = 0x400000
 
 .field public static final MZ_ACTION_APP_DOWN_PROMPT:Ljava/lang/String; = "meizu.intent.action.APP_DOWNLOAD_PROMPT"
 
@@ -100,8 +96,6 @@
 
 .field public static final MZ_ACTION_HANDOVER_SEND_MULTIPLE:Ljava/lang/String; = "meizu.intent.action.HANDOVER_SEND_MULTIPLE"
 
-.field public static final MZ_ACTION_HDR_MODE:Ljava/lang/String; = "meizu.intent.action.HDRModeSwitch"
-
 .field public static final MZ_ACTION_MEIZU_DEVICE_NAME_CHANGE:Ljava/lang/String; = "meizu.intent.action.ACTION_MEIZU_DEVICE_NAME_CHANGE"
 
 .field public static final MZ_ACTION_MEIZU_FILE_CHANGED:Ljava/lang/String; = "meizu.intent.action.MEIZU_FILE_CHANGED"
@@ -111,10 +105,6 @@
 .field public static final MZ_ACTION_MEIZU_STK_INSTALLED:Ljava/lang/String; = "meizu.intent.action.stk_installed"
 
 .field public static final MZ_ACTION_MTP_LOCK:Ljava/lang/String; = "meizu.intent.action.MTPLOCK"
-
-.field public static final MZ_ACTION_MTP_OPEN:Ljava/lang/String; = "meizu.intent.action.MTP_OPEN"
-
-.field public static final MZ_ACTION_MTP_START_SERVICE:Ljava/lang/String; = "meizu.intent.action.MTP_START_SERVICE"
 
 .field public static final MZ_ACTION_PACKAGE_CHANGED:Ljava/lang/String; = "meizu.intent.action.PACKAGE_CHANGED"
 
@@ -153,8 +143,6 @@
 .field public static final MZ_ACTION_WIFIP2P_SENDFILE_MODE:Ljava/lang/String; = "meizu.intent.action.WIFIP2P_SENDFILE_MODE"
 
 .field public static final MZ_ACTION_WIFI_DISPLAY_DISPLAY_DISCONNCET:Ljava/lang/String; = "meizu.intent.action.WIFI_DISPLAY_DISPLAY_DISCONNCET"
-
-.field public static final MZ_ACTION_WINDOW_MODE_VISIBLE:Ljava/lang/String; = "meizu.intent.action.WINDOW_MODE_VISIBLE"
 
 .field public static final MZ_EXTRA_LONGPRESSKEY:Ljava/lang/String; = "meizu.intent.extra.LONGPRESSKEY"
 
@@ -195,14 +183,14 @@
     .param p1, "flags"    # I
 
     .prologue
-    .line 471
+    .line 417
     iget v0, p0, Landroid/content/IntentExt;->mAccessSrcFlags:I
 
     or-int/2addr v0, p1
 
     iput v0, p0, Landroid/content/IntentExt;->mAccessSrcFlags:I
 
-    .line 470
+    .line 416
     return-void
 .end method
 
@@ -211,14 +199,14 @@
     .param p1, "flags"    # I
 
     .prologue
-    .line 455
+    .line 401
     iget v0, p0, Landroid/content/IntentExt;->mMeizuFlags:I
 
     or-int/2addr v0, p1
 
     iput v0, p0, Landroid/content/IntentExt;->mMeizuFlags:I
 
-    .line 454
+    .line 400
     return-void
 .end method
 
@@ -226,7 +214,7 @@
     .locals 1
 
     .prologue
-    .line 555
+    .line 501
     iget-object v0, p0, Landroid/content/IntentExt;->mAccessPackageLabel:Ljava/lang/String;
 
     return-object v0
@@ -236,7 +224,7 @@
     .locals 1
 
     .prologue
-    .line 547
+    .line 493
     iget-object v0, p0, Landroid/content/IntentExt;->mAccessPackageName:Ljava/lang/String;
 
     return-object v0
@@ -246,7 +234,7 @@
     .locals 1
 
     .prologue
-    .line 539
+    .line 485
     iget-object v0, p0, Landroid/content/IntentExt;->mAccessSrcClassName:Ljava/lang/String;
 
     return-object v0
@@ -256,7 +244,7 @@
     .locals 1
 
     .prologue
-    .line 525
+    .line 471
     iget v0, p0, Landroid/content/IntentExt;->mAccessSrcFlags:I
 
     return v0
@@ -266,7 +254,7 @@
     .locals 1
 
     .prologue
-    .line 532
+    .line 478
     iget-object v0, p0, Landroid/content/IntentExt;->mAccessSrcPackageName:Ljava/lang/String;
 
     return-object v0
@@ -276,7 +264,7 @@
     .locals 1
 
     .prologue
-    .line 518
+    .line 464
     iget v0, p0, Landroid/content/IntentExt;->mMeizuFlags:I
 
     return v0
@@ -287,10 +275,10 @@
     .param p1, "label"    # Ljava/lang/String;
 
     .prologue
-    .line 511
+    .line 457
     iput-object p1, p0, Landroid/content/IntentExt;->mAccessPackageLabel:Ljava/lang/String;
 
-    .line 510
+    .line 456
     return-void
 .end method
 
@@ -299,10 +287,10 @@
     .param p1, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 503
+    .line 449
     iput-object p1, p0, Landroid/content/IntentExt;->mAccessPackageName:Ljava/lang/String;
 
-    .line 502
+    .line 448
     return-void
 .end method
 
@@ -311,10 +299,10 @@
     .param p1, "className"    # Ljava/lang/String;
 
     .prologue
-    .line 495
+    .line 441
     iput-object p1, p0, Landroid/content/IntentExt;->mAccessSrcClassName:Ljava/lang/String;
 
-    .line 494
+    .line 440
     return-void
 .end method
 
@@ -323,10 +311,10 @@
     .param p1, "flags"    # I
 
     .prologue
-    .line 479
+    .line 425
     iput p1, p0, Landroid/content/IntentExt;->mAccessSrcFlags:I
 
-    .line 478
+    .line 424
     return-void
 .end method
 
@@ -335,10 +323,10 @@
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 487
+    .line 433
     iput-object p1, p0, Landroid/content/IntentExt;->mAccessSrcPackageName:Ljava/lang/String;
 
-    .line 486
+    .line 432
     return-void
 .end method
 
@@ -347,9 +335,9 @@
     .param p1, "flags"    # I
 
     .prologue
-    .line 463
+    .line 409
     iput p1, p0, Landroid/content/IntentExt;->mMeizuFlags:I
 
-    .line 462
+    .line 408
     return-void
 .end method

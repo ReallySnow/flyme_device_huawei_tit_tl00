@@ -19,8 +19,6 @@
 
 .field public event:I
 
-.field public geoDescription:Ljava/lang/String;
-
 .field public listener:Lcom/android/internal/telephony/CallerInfoAsyncQuery$OnQueryCompleteListener;
 
 .field public number:Ljava/lang/String;
@@ -33,7 +31,7 @@
     .locals 0
 
     .prologue
-    .line 82
+    .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

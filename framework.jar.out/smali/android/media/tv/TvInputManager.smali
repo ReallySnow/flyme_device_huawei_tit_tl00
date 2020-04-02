@@ -6,13 +6,13 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/media/tv/TvInputManager$Hardware;,
-        Landroid/media/tv/TvInputManager$HardwareCallback;,
-        Landroid/media/tv/TvInputManager$Session;,
         Landroid/media/tv/TvInputManager$SessionCallback;,
         Landroid/media/tv/TvInputManager$SessionCallbackRecord;,
         Landroid/media/tv/TvInputManager$TvInputCallback;,
-        Landroid/media/tv/TvInputManager$TvInputCallbackRecord;
+        Landroid/media/tv/TvInputManager$TvInputCallbackRecord;,
+        Landroid/media/tv/TvInputManager$HardwareCallback;,
+        Landroid/media/tv/TvInputManager$Session;,
+        Landroid/media/tv/TvInputManager$Hardware;
     }
 .end annotation
 
@@ -23,8 +23,6 @@
 .field public static final ACTION_PARENTAL_CONTROLS_ENABLED_CHANGED:Ljava/lang/String; = "android.media.tv.action.PARENTAL_CONTROLS_ENABLED_CHANGED"
 
 .field public static final ACTION_QUERY_CONTENT_RATING_SYSTEMS:Ljava/lang/String; = "android.media.tv.action.QUERY_CONTENT_RATING_SYSTEMS"
-
-.field public static final ACTION_SETUP_INPUTS:Ljava/lang/String; = "android.media.tv.action.SETUP_INPUTS"
 
 .field public static final DVB_DEVICE_DEMUX:I = 0x0
 
@@ -43,16 +41,6 @@
 .field public static final INPUT_STATE_DISCONNECTED:I = 0x2
 
 .field public static final META_DATA_CONTENT_RATING_SYSTEMS:Ljava/lang/String; = "android.media.tv.metadata.CONTENT_RATING_SYSTEMS"
-
-.field static final RECORDING_ERROR_END:I = 0x2
-
-.field public static final RECORDING_ERROR_INSUFFICIENT_SPACE:I = 0x1
-
-.field public static final RECORDING_ERROR_RESOURCE_BUSY:I = 0x2
-
-.field static final RECORDING_ERROR_START:I = 0x0
-
-.field public static final RECORDING_ERROR_UNKNOWN:I = 0x0
 
 .field private static final TAG:Ljava/lang/String; = "TvInputManager"
 
@@ -182,71 +170,71 @@
     .param p2, "userId"    # I
 
     .prologue
-    .line 865
+    .line 687
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 322
+    .line 222
     new-instance v6, Ljava/lang/Object;
 
     invoke-direct {v6}, Ljava/lang/Object;-><init>()V
 
     iput-object v6, p0, Landroid/media/tv/TvInputManager;->mLock:Ljava/lang/Object;
 
-    .line 325
+    .line 225
     new-instance v6, Ljava/util/LinkedList;
 
     invoke-direct {v6}, Ljava/util/LinkedList;-><init>()V
 
     iput-object v6, p0, Landroid/media/tv/TvInputManager;->mCallbackRecords:Ljava/util/List;
 
-    .line 329
+    .line 229
     new-instance v6, Landroid/util/ArrayMap;
 
     invoke-direct {v6}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v6, p0, Landroid/media/tv/TvInputManager;->mStateMap:Ljava/util/Map;
 
-    .line 333
+    .line 233
     new-instance v6, Landroid/util/SparseArray;
 
     invoke-direct {v6}, Landroid/util/SparseArray;-><init>()V
 
-    .line 332
+    .line 232
     iput-object v6, p0, Landroid/media/tv/TvInputManager;->mSessionCallbackRecordMap:Landroid/util/SparseArray;
 
-    .line 866
+    .line 688
     iput-object p1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
-    .line 867
+    .line 689
     iput p2, p0, Landroid/media/tv/TvInputManager;->mUserId:I
 
-    .line 868
+    .line 690
     new-instance v6, Landroid/media/tv/TvInputManager$1;
 
     invoke-direct {v6, p0}, Landroid/media/tv/TvInputManager$1;-><init>(Landroid/media/tv/TvInputManager;)V
 
     iput-object v6, p0, Landroid/media/tv/TvInputManager;->mClient:Landroid/media/tv/ITvInputClient;
 
-    .line 1094
+    .line 880
     new-instance v5, Landroid/media/tv/TvInputManager$2;
 
     invoke-direct {v5, p0}, Landroid/media/tv/TvInputManager$2;-><init>(Landroid/media/tv/TvInputManager;)V
 
-    .line 1144
+    .line 921
     .local v5, "managerCallback":Landroid/media/tv/ITvInputManagerCallback;
     :try_start_0
     iget-object v6, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
-    .line 1145
+    .line 922
     iget-object v6, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
     iget v7, p0, Landroid/media/tv/TvInputManager;->mUserId:I
 
     invoke-interface {v6, v5, v7}, Landroid/media/tv/ITvInputManager;->registerCallback(Landroid/media/tv/ITvInputManagerCallback;I)V
 
-    .line 1146
+    .line 923
     iget-object v6, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
     iget v7, p0, Landroid/media/tv/TvInputManager;->mUserId:I
@@ -255,7 +243,7 @@
 
     move-result-object v3
 
-    .line 1147
+    .line 924
     .local v3, "infos":Ljava/util/List;, "Ljava/util/List<Landroid/media/tv/TvInputInfo;>;"
     iget-object v7, p0, Landroid/media/tv/TvInputManager;->mLock:Ljava/lang/Object;
 
@@ -263,7 +251,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1148
+    .line 925
     :try_start_1
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -275,7 +263,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -283,13 +271,13 @@
 
     check-cast v1, Landroid/media/tv/TvInputInfo;
 
-    .line 1149
+    .line 926
     .local v1, "info":Landroid/media/tv/TvInputInfo;
     invoke-virtual {v1}, Landroid/media/tv/TvInputInfo;->getId()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 1150
+    .line 927
     .local v4, "inputId":Ljava/lang/String;
     iget-object v6, p0, Landroid/media/tv/TvInputManager;->mStateMap:Ljava/util/Map;
 
@@ -311,7 +299,7 @@
 
     goto :goto_0
 
-    .line 1147
+    .line 924
     .end local v1    # "info":Landroid/media/tv/TvInputInfo;
     .end local v2    # "info$iterator":Ljava/util/Iterator;
     .end local v4    # "inputId":Ljava/lang/String;
@@ -325,156 +313,65 @@
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 1154
+    .line 931
     .end local v3    # "infos":Ljava/util/List;, "Ljava/util/List<Landroid/media/tv/TvInputInfo;>;"
     :catch_0
     move-exception v0
 
-    .line 1155
+    .line 932
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v6, "TvInputManager"
 
-    move-result-object v6
+    const-string/jumbo v7, "TvInputManager initialization failed"
 
-    throw v6
+    invoke-static {v6, v7, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 687
     .end local v0    # "e":Landroid/os/RemoteException;
+    :cond_0
+    :goto_1
+    return-void
+
     .restart local v2    # "info$iterator":Ljava/util/Iterator;
     .restart local v3    # "infos":Ljava/util/List;, "Ljava/util/List<Landroid/media/tv/TvInputInfo;>;"
-    :cond_0
+    :cond_1
     :try_start_3
     monitor-exit v7
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 865
-    .end local v2    # "info$iterator":Ljava/util/Iterator;
-    .end local v3    # "infos":Ljava/util/List;, "Ljava/util/List<Landroid/media/tv/TvInputInfo;>;"
-    :cond_1
-    return-void
-.end method
-
-.method private createSessionInternal(Ljava/lang/String;ZLandroid/media/tv/TvInputManager$SessionCallback;Landroid/os/Handler;)V
-    .locals 9
-    .param p1, "inputId"    # Ljava/lang/String;
-    .param p2, "isRecordingSession"    # Z
-    .param p3, "callback"    # Landroid/media/tv/TvInputManager$SessionCallback;
-    .param p4, "handler"    # Landroid/os/Handler;
-
-    .prologue
-    .line 1423
-    invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 1424
-    invoke-static {p3}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 1425
-    invoke-static {p4}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 1426
-    new-instance v7, Landroid/media/tv/TvInputManager$SessionCallbackRecord;
-
-    invoke-direct {v7, p3, p4}, Landroid/media/tv/TvInputManager$SessionCallbackRecord;-><init>(Landroid/media/tv/TvInputManager$SessionCallback;Landroid/os/Handler;)V
-
-    .line 1427
-    .local v7, "record":Landroid/media/tv/TvInputManager$SessionCallbackRecord;
-    iget-object v8, p0, Landroid/media/tv/TvInputManager;->mSessionCallbackRecordMap:Landroid/util/SparseArray;
-
-    monitor-enter v8
-
-    .line 1428
-    :try_start_0
-    iget v4, p0, Landroid/media/tv/TvInputManager;->mNextSeq:I
-
-    add-int/lit8 v0, v4, 0x1
-
-    iput v0, p0, Landroid/media/tv/TvInputManager;->mNextSeq:I
-
-    .line 1429
-    .local v4, "seq":I
-    iget-object v0, p0, Landroid/media/tv/TvInputManager;->mSessionCallbackRecordMap:Landroid/util/SparseArray;
-
-    invoke-virtual {v0, v4, v7}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 1431
-    :try_start_1
-    iget-object v0, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
-
-    iget-object v1, p0, Landroid/media/tv/TvInputManager;->mClient:Landroid/media/tv/ITvInputClient;
-
-    iget v5, p0, Landroid/media/tv/TvInputManager;->mUserId:I
-
-    move-object v2, p1
-
-    move v3, p2
-
-    invoke-interface/range {v0 .. v5}, Landroid/media/tv/ITvInputManager;->createSession(Landroid/media/tv/ITvInputClient;Ljava/lang/String;ZII)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit v8
-
-    .line 1422
-    return-void
-
-    .line 1432
-    :catch_0
-    move-exception v6
-
-    .line 1433
-    .local v6, "e":Landroid/os/RemoteException;
-    :try_start_2
-    invoke-virtual {v6}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v0
-
-    throw v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    .line 1427
-    .end local v4    # "seq":I
-    .end local v6    # "e":Landroid/os/RemoteException;
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v8
-
-    throw v0
+    goto :goto_1
 .end method
 
 
 # virtual methods
-.method public acquireTvInputHardware(ILandroid/media/tv/TvInputInfo;Landroid/media/tv/TvInputManager$HardwareCallback;)Landroid/media/tv/TvInputManager$Hardware;
+.method public acquireTvInputHardware(ILandroid/media/tv/TvInputManager$HardwareCallback;Landroid/media/tv/TvInputInfo;)Landroid/media/tv/TvInputManager$Hardware;
     .locals 5
     .param p1, "deviceId"    # I
-    .param p2, "info"    # Landroid/media/tv/TvInputInfo;
-    .param p3, "callback"    # Landroid/media/tv/TvInputManager$HardwareCallback;
+    .param p2, "callback"    # Landroid/media/tv/TvInputManager$HardwareCallback;
+    .param p3, "info"    # Landroid/media/tv/TvInputInfo;
 
     .prologue
-    .line 1545
+    .line 1247
     :try_start_0
     new-instance v1, Landroid/media/tv/TvInputManager$Hardware;
 
-    .line 1546
+    .line 1248
     iget-object v2, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
     new-instance v3, Landroid/media/tv/TvInputManager$3;
 
-    invoke-direct {v3, p0, p3}, Landroid/media/tv/TvInputManager$3;-><init>(Landroid/media/tv/TvInputManager;Landroid/media/tv/TvInputManager$HardwareCallback;)V
+    invoke-direct {v3, p0, p2}, Landroid/media/tv/TvInputManager$3;-><init>(Landroid/media/tv/TvInputManager;Landroid/media/tv/TvInputManager$HardwareCallback;)V
 
-    .line 1556
+    .line 1258
     iget v4, p0, Landroid/media/tv/TvInputManager;->mUserId:I
 
-    .line 1546
-    invoke-interface {v2, p1, v3, p2, v4}, Landroid/media/tv/ITvInputManager;->acquireTvInputHardware(ILandroid/media/tv/ITvInputHardwareCallback;Landroid/media/tv/TvInputInfo;I)Landroid/media/tv/ITvInputHardware;
+    .line 1248
+    invoke-interface {v2, p1, v3, p3, v4}, Landroid/media/tv/ITvInputManager;->acquireTvInputHardware(ILandroid/media/tv/ITvInputHardwareCallback;Landroid/media/tv/TvInputInfo;I)Landroid/media/tv/ITvInputHardware;
 
     move-result-object v2
 
-    .line 1545
+    .line 1247
     const/4 v3, 0x0
 
     invoke-direct {v1, v2, v3}, Landroid/media/tv/TvInputManager$Hardware;-><init>(Landroid/media/tv/ITvInputHardware;Landroid/media/tv/TvInputManager$Hardware;)V
@@ -483,32 +380,17 @@
 
     return-object v1
 
-    .line 1557
+    .line 1259
     :catch_0
     move-exception v0
 
-    .line 1558
+    .line 1260
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
-.end method
-
-.method public acquireTvInputHardware(ILandroid/media/tv/TvInputManager$HardwareCallback;Landroid/media/tv/TvInputInfo;)Landroid/media/tv/TvInputManager$Hardware;
-    .locals 1
-    .param p1, "deviceId"    # I
-    .param p2, "callback"    # Landroid/media/tv/TvInputManager$HardwareCallback;
-    .param p3, "info"    # Landroid/media/tv/TvInputInfo;
-
-    .prologue
-    .line 1524
-    invoke-virtual {p0, p1, p3, p2}, Landroid/media/tv/TvInputManager;->acquireTvInputHardware(ILandroid/media/tv/TvInputInfo;Landroid/media/tv/TvInputManager$HardwareCallback;)Landroid/media/tv/TvInputManager$Hardware;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public addBlockedRating(Landroid/media/tv/TvContentRating;)V
@@ -516,10 +398,10 @@
     .param p1, "rating"    # Landroid/media/tv/TvContentRating;
 
     .prologue
-    .line 1349
+    .line 1097
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1351
+    .line 1099
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -533,18 +415,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1348
+    .line 1096
     return-void
 
-    .line 1352
+    .line 1100
     :catch_0
     move-exception v0
 
-    .line 1353
+    .line 1101
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -556,7 +438,7 @@
     .param p3, "config"    # Landroid/media/tv/TvStreamConfig;
 
     .prologue
-    .line 1473
+    .line 1200
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -570,49 +452,104 @@
 
     return v1
 
-    .line 1474
+    .line 1201
     :catch_0
     move-exception v0
 
-    .line 1475
+    .line 1202
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
 
-.method public createRecordingSession(Ljava/lang/String;Landroid/media/tv/TvInputManager$SessionCallback;Landroid/os/Handler;)V
-    .locals 1
-    .param p1, "inputId"    # Ljava/lang/String;
-    .param p2, "callback"    # Landroid/media/tv/TvInputManager$SessionCallback;
-    .param p3, "handler"    # Landroid/os/Handler;
-
-    .prologue
-    .line 1418
-    const/4 v0, 0x1
-
-    invoke-direct {p0, p1, v0, p2, p3}, Landroid/media/tv/TvInputManager;->createSessionInternal(Ljava/lang/String;ZLandroid/media/tv/TvInputManager$SessionCallback;Landroid/os/Handler;)V
-
-    .line 1417
-    return-void
-.end method
-
 .method public createSession(Ljava/lang/String;Landroid/media/tv/TvInputManager$SessionCallback;Landroid/os/Handler;)V
-    .locals 1
+    .locals 7
     .param p1, "inputId"    # Ljava/lang/String;
     .param p2, "callback"    # Landroid/media/tv/TvInputManager$SessionCallback;
     .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 1402
-    const/4 v0, 0x0
+    .line 1150
+    invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {p0, p1, v0, p2, p3}, Landroid/media/tv/TvInputManager;->createSessionInternal(Ljava/lang/String;ZLandroid/media/tv/TvInputManager$SessionCallback;Landroid/os/Handler;)V
+    .line 1151
+    invoke-static {p2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1401
+    .line 1152
+    invoke-static {p3}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 1153
+    new-instance v1, Landroid/media/tv/TvInputManager$SessionCallbackRecord;
+
+    invoke-direct {v1, p2, p3}, Landroid/media/tv/TvInputManager$SessionCallbackRecord;-><init>(Landroid/media/tv/TvInputManager$SessionCallback;Landroid/os/Handler;)V
+
+    .line 1154
+    .local v1, "record":Landroid/media/tv/TvInputManager$SessionCallbackRecord;
+    iget-object v4, p0, Landroid/media/tv/TvInputManager;->mSessionCallbackRecordMap:Landroid/util/SparseArray;
+
+    monitor-enter v4
+
+    .line 1155
+    :try_start_0
+    iget v2, p0, Landroid/media/tv/TvInputManager;->mNextSeq:I
+
+    add-int/lit8 v3, v2, 0x1
+
+    iput v3, p0, Landroid/media/tv/TvInputManager;->mNextSeq:I
+
+    .line 1156
+    .local v2, "seq":I
+    iget-object v3, p0, Landroid/media/tv/TvInputManager;->mSessionCallbackRecordMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v3, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1158
+    :try_start_1
+    iget-object v3, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
+
+    iget-object v5, p0, Landroid/media/tv/TvInputManager;->mClient:Landroid/media/tv/ITvInputClient;
+
+    iget v6, p0, Landroid/media/tv/TvInputManager;->mUserId:I
+
+    invoke-interface {v3, v5, p1, v2, v6}, Landroid/media/tv/ITvInputManager;->createSession(Landroid/media/tv/ITvInputClient;Ljava/lang/String;II)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v4
+
+    .line 1149
     return-void
+
+    .line 1159
+    :catch_0
+    move-exception v0
+
+    .line 1160
+    .local v0, "e":Landroid/os/RemoteException;
+    :try_start_2
+    new-instance v3, Ljava/lang/RuntimeException;
+
+    invoke-direct {v3, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v3
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    .line 1154
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v2    # "seq":I
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
 .end method
 
 .method public getAvailableTvStreamConfigList(Ljava/lang/String;)Ljava/util/List;
@@ -631,7 +568,7 @@
     .end annotation
 
     .prologue
-    .line 1455
+    .line 1182
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -645,15 +582,15 @@
 
     return-object v1
 
-    .line 1456
+    .line 1183
     :catch_0
     move-exception v0
 
-    .line 1457
+    .line 1184
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -671,13 +608,13 @@
     .end annotation
 
     .prologue
-    .line 1328
+    .line 1077
     :try_start_0
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1329
+    .line 1078
     .local v3, "ratings":Ljava/util/List;, "Ljava/util/List<Landroid/media/tv/TvContentRating;>;"
     iget-object v4, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -705,7 +642,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 1330
+    .line 1079
     .local v1, "rating":Ljava/lang/String;
     invoke-static {v1}, Landroid/media/tv/TvContentRating;->unflattenFromString(Ljava/lang/String;)Landroid/media/tv/TvContentRating;
 
@@ -717,22 +654,22 @@
 
     goto :goto_0
 
-    .line 1333
+    .line 1082
     .end local v1    # "rating":Ljava/lang/String;
     .end local v2    # "rating$iterator":Ljava/util/Iterator;
     .end local v3    # "ratings":Ljava/util/List;, "Ljava/util/List<Landroid/media/tv/TvContentRating;>;"
     :catch_0
     move-exception v0
 
-    .line 1334
+    .line 1083
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    move-result-object v4
+    invoke-direct {v4, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v4
 
-    .line 1332
+    .line 1081
     .end local v0    # "e":Landroid/os/RemoteException;
     .restart local v2    # "rating$iterator":Ljava/util/Iterator;
     .restart local v3    # "ratings":Ljava/util/List;, "Ljava/util/List<Landroid/media/tv/TvContentRating;>;"
@@ -753,7 +690,7 @@
     .end annotation
 
     .prologue
-    .line 1588
+    .line 1286
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -765,15 +702,15 @@
 
     return-object v1
 
-    .line 1589
+    .line 1287
     :catch_0
     move-exception v0
 
-    .line 1590
+    .line 1288
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -791,7 +728,7 @@
     .end annotation
 
     .prologue
-    .line 1502
+    .line 1228
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -803,15 +740,15 @@
 
     return-object v1
 
-    .line 1503
+    .line 1229
     :catch_0
     move-exception v0
 
-    .line 1504
+    .line 1230
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -821,15 +758,15 @@
     .param p1, "inputId"    # Ljava/lang/String;
 
     .prologue
-    .line 1229
+    .line 979
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1230
+    .line 980
     iget-object v2, p0, Landroid/media/tv/TvInputManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1231
+    .line 981
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mStateMap:Ljava/util/Map;
 
@@ -839,11 +776,11 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 1232
+    .line 982
     .local v0, "state":Ljava/lang/Integer;
     if-nez v0, :cond_0
 
-    .line 1233
+    .line 983
     const-string/jumbo v1, "TvInputManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -868,14 +805,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1234
+    .line 984
     const/4 v1, 0x2
 
     monitor-exit v2
 
     return v1
 
-    .line 1236
+    .line 986
     :cond_0
     :try_start_1
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -888,7 +825,7 @@
 
     return v1
 
-    .line 1230
+    .line 980
     .end local v0    # "state":Ljava/lang/Integer;
     :catchall_0
     move-exception v1
@@ -911,7 +848,7 @@
     .end annotation
 
     .prologue
-    .line 1383
+    .line 1130
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -925,15 +862,15 @@
 
     return-object v1
 
-    .line 1384
+    .line 1131
     :catch_0
     move-exception v0
 
-    .line 1385
+    .line 1132
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -943,10 +880,10 @@
     .param p1, "inputId"    # Ljava/lang/String;
 
     .prologue
-    .line 1180
+    .line 957
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1182
+    .line 959
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -960,15 +897,15 @@
 
     return-object v1
 
-    .line 1183
+    .line 960
     :catch_0
     move-exception v0
 
-    .line 1184
+    .line 961
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -986,7 +923,7 @@
     .end annotation
 
     .prologue
-    .line 1166
+    .line 943
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -1000,15 +937,15 @@
 
     return-object v1
 
-    .line 1167
+    .line 944
     :catch_0
     move-exception v0
 
-    .line 1168
+    .line 945
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -1017,7 +954,7 @@
     .locals 3
 
     .prologue
-    .line 1280
+    .line 1030
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -1031,15 +968,15 @@
 
     return v1
 
-    .line 1281
+    .line 1031
     :catch_0
     move-exception v0
 
-    .line 1282
+    .line 1032
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -1049,10 +986,10 @@
     .param p1, "rating"    # Landroid/media/tv/TvContentRating;
 
     .prologue
-    .line 1311
+    .line 1060
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1313
+    .line 1062
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -1070,15 +1007,15 @@
 
     return v1
 
-    .line 1314
+    .line 1063
     :catch_0
     move-exception v0
 
-    .line 1315
+    .line 1064
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -1087,7 +1024,7 @@
     .locals 3
 
     .prologue
-    .line 1487
+    .line 1214
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -1101,15 +1038,15 @@
 
     return v1
 
-    .line 1488
+    .line 1215
     :catch_0
     move-exception v0
 
-    .line 1489
+    .line 1216
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -1120,14 +1057,14 @@
     .param p2, "device"    # I
 
     .prologue
-    .line 1608
+    .line 1306
     if-ltz p2, :cond_0
 
     const/4 v1, 0x2
 
     if-ge v1, p2, :cond_1
 
-    .line 1609
+    .line 1307
     :cond_0
     :try_start_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -1156,19 +1093,19 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1612
+    .line 1310
     :catch_0
     move-exception v0
 
-    .line 1613
+    .line 1311
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
-    .line 1611
+    .line 1309
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_1
     :try_start_1
@@ -1189,18 +1126,18 @@
     .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 1247
+    .line 997
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1248
+    .line 998
     invoke-static {p2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1249
+    .line 999
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1250
+    .line 1000
     :try_start_0
     iget-object v0, p0, Landroid/media/tv/TvInputManager;->mCallbackRecords:Ljava/util/List;
 
@@ -1214,10 +1151,10 @@
 
     monitor-exit v1
 
-    .line 1246
+    .line 996
     return-void
 
-    .line 1249
+    .line 999
     :catchall_0
     move-exception v0
 
@@ -1232,7 +1169,7 @@
     .param p2, "hardware"    # Landroid/media/tv/TvInputManager$Hardware;
 
     .prologue
-    .line 1574
+    .line 1272
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -1246,18 +1183,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1572
+    .line 1270
     return-void
 
-    .line 1575
+    .line 1273
     :catch_0
     move-exception v0
 
-    .line 1576
+    .line 1274
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -1267,10 +1204,10 @@
     .param p1, "rating"    # Landroid/media/tv/TvContentRating;
 
     .prologue
-    .line 1368
+    .line 1115
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1370
+    .line 1117
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -1284,18 +1221,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1367
+    .line 1114
     return-void
 
-    .line 1371
+    .line 1118
     :catch_0
     move-exception v0
 
-    .line 1372
+    .line 1119
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -1305,7 +1242,7 @@
     .param p1, "enabled"    # Z
 
     .prologue
-    .line 1298
+    .line 1047
     :try_start_0
     iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
 
@@ -1315,18 +1252,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1296
+    .line 1045
     return-void
 
-    .line 1299
+    .line 1048
     :catch_0
     move-exception v0
 
-    .line 1300
+    .line 1049
     .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -1336,15 +1273,15 @@
     .param p1, "callback"    # Landroid/media/tv/TvInputManager$TvInputCallback;
 
     .prologue
-    .line 1260
+    .line 1010
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1261
+    .line 1011
     iget-object v3, p0, Landroid/media/tv/TvInputManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1262
+    .line 1012
     :try_start_0
     iget-object v2, p0, Landroid/media/tv/TvInputManager;->mCallbackRecords:Ljava/util/List;
 
@@ -1352,24 +1289,24 @@
 
     move-result-object v0
 
-    .line 1263
+    .line 1013
     .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/tv/TvInputManager$TvInputCallbackRecord;>;"
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    .line 1262
+    .line 1012
     if-eqz v2, :cond_1
 
-    .line 1264
+    .line 1014
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/media/tv/TvInputManager$TvInputCallbackRecord;
 
-    .line 1265
+    .line 1015
     .local v1, "record":Landroid/media/tv/TvInputManager$TvInputCallbackRecord;
     invoke-virtual {v1}, Landroid/media/tv/TvInputManager$TvInputCallbackRecord;->getCallback()Landroid/media/tv/TvInputManager$TvInputCallback;
 
@@ -1377,7 +1314,7 @@
 
     if-ne v2, p1, :cond_0
 
-    .line 1266
+    .line 1016
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1386,10 +1323,10 @@
     :cond_1
     monitor-exit v3
 
-    .line 1259
+    .line 1009
     return-void
 
-    .line 1261
+    .line 1011
     .end local v0    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/media/tv/TvInputManager$TvInputCallbackRecord;>;"
     :catchall_0
     move-exception v2
@@ -1397,38 +1334,4 @@
     monitor-exit v3
 
     throw v2
-.end method
-
-.method public updateTvInputInfo(Landroid/media/tv/TvInputInfo;)V
-    .locals 3
-    .param p1, "inputInfo"    # Landroid/media/tv/TvInputInfo;
-
-    .prologue
-    .line 1206
-    invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 1208
-    :try_start_0
-    iget-object v1, p0, Landroid/media/tv/TvInputManager;->mService:Landroid/media/tv/ITvInputManager;
-
-    iget v2, p0, Landroid/media/tv/TvInputManager;->mUserId:I
-
-    invoke-interface {v1, p1, v2}, Landroid/media/tv/ITvInputManager;->updateTvInputInfo(Landroid/media/tv/TvInputInfo;I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 1205
-    return-void
-
-    .line 1209
-    :catch_0
-    move-exception v0
-
-    .line 1210
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v1
-
-    throw v1
 .end method

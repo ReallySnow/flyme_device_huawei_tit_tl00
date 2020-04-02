@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Landroid/service/media/MediaBrowserService;
 
     .prologue
-    .line 182
+    .line 162
     iput-object p1, p0, Landroid/service/media/MediaBrowserService$ServiceBinder;->this$0:Landroid/service/media/MediaBrowserService;
 
     invoke-direct {p0}, Landroid/service/media/IMediaBrowserService$Stub;-><init>()V
@@ -44,48 +44,26 @@
 
 
 # virtual methods
-.method public addSubscription(Ljava/lang/String;Landroid/os/IBinder;Landroid/os/Bundle;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
-    .locals 7
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "token"    # Landroid/os/IBinder;
-    .param p3, "options"    # Landroid/os/Bundle;
-    .param p4, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
-
-    .prologue
-    .line 259
-    iget-object v0, p0, Landroid/service/media/MediaBrowserService$ServiceBinder;->this$0:Landroid/service/media/MediaBrowserService;
-
-    invoke-static {v0}, Landroid/service/media/MediaBrowserService;->-get1(Landroid/service/media/MediaBrowserService;)Landroid/os/Handler;
-
-    move-result-object v6
-
-    new-instance v0, Landroid/service/media/MediaBrowserService$ServiceBinder$3;
-
-    move-object v1, p0
-
-    move-object v2, p4
-
-    move-object v3, p1
-
-    move-object v4, p2
-
-    move-object v5, p3
-
-    invoke-direct/range {v0 .. v5}, Landroid/service/media/MediaBrowserService$ServiceBinder$3;-><init>(Landroid/service/media/MediaBrowserService$ServiceBinder;Landroid/service/media/IMediaBrowserServiceCallbacks;Ljava/lang/String;Landroid/os/IBinder;Landroid/os/Bundle;)V
-
-    invoke-virtual {v6, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    .line 258
-    return-void
-.end method
-
-.method public addSubscriptionDeprecated(Ljava/lang/String;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
-    .locals 0
+.method public addSubscription(Ljava/lang/String;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
+    .locals 2
     .param p1, "id"    # Ljava/lang/String;
     .param p2, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
 
     .prologue
-    .line 252
+    .line 234
+    iget-object v0, p0, Landroid/service/media/MediaBrowserService$ServiceBinder;->this$0:Landroid/service/media/MediaBrowserService;
+
+    invoke-static {v0}, Landroid/service/media/MediaBrowserService;->-get1(Landroid/service/media/MediaBrowserService;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/service/media/MediaBrowserService$ServiceBinder$3;
+
+    invoke-direct {v1, p0, p2, p1}, Landroid/service/media/MediaBrowserService$ServiceBinder$3;-><init>(Landroid/service/media/MediaBrowserService$ServiceBinder;Landroid/service/media/IMediaBrowserServiceCallbacks;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    .line 233
     return-void
 .end method
 
@@ -96,12 +74,12 @@
     .param p3, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
 
     .prologue
-    .line 187
+    .line 167
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v5
 
-    .line 188
+    .line 168
     .local v5, "uid":I
     iget-object v0, p0, Landroid/service/media/MediaBrowserService$ServiceBinder;->this$0:Landroid/service/media/MediaBrowserService;
 
@@ -111,7 +89,7 @@
 
     if-nez v0, :cond_0
 
-    .line 189
+    .line 169
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -128,10 +106,10 @@
 
     move-result-object v1
 
-    .line 190
+    .line 170
     const-string/jumbo v2, " package="
 
-    .line 189
+    .line 169
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -148,7 +126,7 @@
 
     throw v0
 
-    .line 193
+    .line 173
     :cond_0
     iget-object v0, p0, Landroid/service/media/MediaBrowserService$ServiceBinder;->this$0:Landroid/service/media/MediaBrowserService;
 
@@ -170,7 +148,7 @@
 
     invoke-virtual {v6, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 185
+    .line 165
     return-void
 .end method
 
@@ -179,7 +157,7 @@
     .param p1, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
 
     .prologue
-    .line 237
+    .line 217
     iget-object v0, p0, Landroid/service/media/MediaBrowserService$ServiceBinder;->this$0:Landroid/service/media/MediaBrowserService;
 
     invoke-static {v0}, Landroid/service/media/MediaBrowserService;->-get1(Landroid/service/media/MediaBrowserService;)Landroid/os/Handler;
@@ -192,18 +170,17 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 236
+    .line 216
     return-void
 .end method
 
-.method public getMediaItem(Ljava/lang/String;Landroid/os/ResultReceiver;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
+.method public getMediaItem(Ljava/lang/String;Landroid/os/ResultReceiver;)V
     .locals 2
     .param p1, "mediaId"    # Ljava/lang/String;
     .param p2, "receiver"    # Landroid/os/ResultReceiver;
-    .param p3, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
 
     .prologue
-    .line 307
+    .line 276
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -212,11 +189,11 @@
 
     if-nez p2, :cond_1
 
-    .line 308
+    .line 277
     :cond_0
     return-void
 
-    .line 311
+    .line 280
     :cond_1
     iget-object v0, p0, Landroid/service/media/MediaBrowserService$ServiceBinder;->this$0:Landroid/service/media/MediaBrowserService;
 
@@ -226,22 +203,21 @@
 
     new-instance v1, Landroid/service/media/MediaBrowserService$ServiceBinder$5;
 
-    invoke-direct {v1, p0, p3, p1, p2}, Landroid/service/media/MediaBrowserService$ServiceBinder$5;-><init>(Landroid/service/media/MediaBrowserService$ServiceBinder;Landroid/service/media/IMediaBrowserServiceCallbacks;Ljava/lang/String;Landroid/os/ResultReceiver;)V
+    invoke-direct {v1, p0, p1, p2}, Landroid/service/media/MediaBrowserService$ServiceBinder$5;-><init>(Landroid/service/media/MediaBrowserService$ServiceBinder;Ljava/lang/String;Landroid/os/ResultReceiver;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 306
+    .line 275
     return-void
 .end method
 
-.method public removeSubscription(Ljava/lang/String;Landroid/os/IBinder;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
+.method public removeSubscription(Ljava/lang/String;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
     .locals 2
     .param p1, "id"    # Ljava/lang/String;
-    .param p2, "token"    # Landroid/os/IBinder;
-    .param p3, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
+    .param p2, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
 
     .prologue
-    .line 285
+    .line 255
     iget-object v0, p0, Landroid/service/media/MediaBrowserService$ServiceBinder;->this$0:Landroid/service/media/MediaBrowserService;
 
     invoke-static {v0}, Landroid/service/media/MediaBrowserService;->-get1(Landroid/service/media/MediaBrowserService;)Landroid/os/Handler;
@@ -250,20 +226,10 @@
 
     new-instance v1, Landroid/service/media/MediaBrowserService$ServiceBinder$4;
 
-    invoke-direct {v1, p0, p3, p1, p2}, Landroid/service/media/MediaBrowserService$ServiceBinder$4;-><init>(Landroid/service/media/MediaBrowserService$ServiceBinder;Landroid/service/media/IMediaBrowserServiceCallbacks;Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-direct {v1, p0, p2, p1}, Landroid/service/media/MediaBrowserService$ServiceBinder$4;-><init>(Landroid/service/media/MediaBrowserService$ServiceBinder;Landroid/service/media/IMediaBrowserServiceCallbacks;Ljava/lang/String;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 284
-    return-void
-.end method
-
-.method public removeSubscriptionDeprecated(Ljava/lang/String;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
-    .locals 0
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "callbacks"    # Landroid/service/media/IMediaBrowserServiceCallbacks;
-
-    .prologue
-    .line 278
+    .line 254
     return-void
 .end method

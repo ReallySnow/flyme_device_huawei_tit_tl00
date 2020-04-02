@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/wifi/ScanDetailCache;
 
     .prologue
-    .line 109
+    .line 93
     iput-object p1, p0, Lcom/android/server/wifi/ScanDetailCache$1;->this$0:Lcom/android/server/wifi/ScanDetailCache;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,16 +45,16 @@
     .prologue
     move-object v0, p1
 
-    .line 111
+    .line 95
     check-cast v0, Lcom/android/server/wifi/ScanDetail;
 
     .local v0, "a":Lcom/android/server/wifi/ScanDetail;
     move-object v1, p2
 
-    .line 112
+    .line 96
     check-cast v1, Lcom/android/server/wifi/ScanDetail;
 
-    .line 113
+    .line 97
     .local v1, "b":Lcom/android/server/wifi/ScanDetail;
     invoke-virtual {v0}, Lcom/android/server/wifi/ScanDetail;->getSeen()J
 
@@ -68,12 +68,12 @@
 
     if-lez v2, :cond_0
 
-    .line 114
+    .line 98
     const/4 v2, 0x1
 
     return v2
 
-    .line 116
+    .line 100
     :cond_0
     invoke-virtual {v0}, Lcom/android/server/wifi/ScanDetail;->getSeen()J
 
@@ -87,12 +87,12 @@
 
     if-gez v2, :cond_1
 
-    .line 117
+    .line 101
     const/4 v2, -0x1
 
     return v2
 
-    .line 119
+    .line 103
     :cond_1
     invoke-virtual {v0}, Lcom/android/server/wifi/ScanDetail;->getBSSIDString()Ljava/lang/String;
 

@@ -12,15 +12,9 @@
 
 .field private static final HAL_DATASPACE_DEPTH:I = 0x1000
 
-.field private static final HAL_DATASPACE_RANGE_SHIFT:I = 0x1b
-
-.field private static final HAL_DATASPACE_STANDARD_SHIFT:I = 0x10
-
-.field private static final HAL_DATASPACE_TRANSFER_SHIFT:I = 0x16
+.field private static final HAL_DATASPACE_JFIF:I = 0x101
 
 .field private static final HAL_DATASPACE_UNKNOWN:I = 0x0
-
-.field private static final HAL_DATASPACE_V0_JFIF:I = 0x8c20000
 
 .field private static final HAL_PIXEL_FORMAT_BLOB:I = 0x21
 
@@ -115,7 +109,7 @@
     .line 91
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1670
+    .line 1656
     new-instance v13, Landroid/util/SparseIntArray;
 
     invoke-direct {v13}, Landroid/util/SparseIntArray;-><init>()V
@@ -124,7 +118,7 @@
 
     iput-object v13, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mOutputFormats:Landroid/util/SparseIntArray;
 
-    .line 1673
+    .line 1659
     new-instance v13, Landroid/util/SparseIntArray;
 
     invoke-direct {v13}, Landroid/util/SparseIntArray;-><init>()V
@@ -133,7 +127,7 @@
 
     iput-object v13, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mHighResOutputFormats:Landroid/util/SparseIntArray;
 
-    .line 1675
+    .line 1661
     new-instance v13, Landroid/util/SparseIntArray;
 
     invoke-direct {v13}, Landroid/util/SparseIntArray;-><init>()V
@@ -142,7 +136,7 @@
 
     iput-object v13, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mAllOutputFormats:Landroid/util/SparseIntArray;
 
-    .line 1677
+    .line 1663
     new-instance v13, Landroid/util/SparseIntArray;
 
     invoke-direct {v13}, Landroid/util/SparseIntArray;-><init>()V
@@ -151,7 +145,7 @@
 
     iput-object v13, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mInputFormats:Landroid/util/SparseIntArray;
 
-    .line 1679
+    .line 1665
     new-instance v13, Landroid/util/SparseIntArray;
 
     invoke-direct {v13}, Landroid/util/SparseIntArray;-><init>()V
@@ -160,17 +154,17 @@
 
     iput-object v13, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthOutputFormats:Landroid/util/SparseIntArray;
 
-    .line 1682
+    .line 1668
     new-instance v13, Ljava/util/HashMap;
 
     invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    .line 1681
+    .line 1667
     move-object/from16 v0, p0
 
     iput-object v13, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mHighSpeedVideoSizeMap:Ljava/util/HashMap;
 
-    .line 1685
+    .line 1671
     new-instance v13, Ljava/util/HashMap;
 
     invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
@@ -851,19 +845,19 @@
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .prologue
-    .line 1506
+    .line 1502
     const-string/jumbo v10, "HighResolutionOutputs("
 
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1507
+    .line 1503
     invoke-virtual/range {p0 .. p0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getOutputFormats()[I
 
     move-result-object v3
 
-    .line 1508
+    .line 1504
     .local v3, "formats":[I
     const/4 v10, 0x0
 
@@ -876,7 +870,7 @@
 
     aget v2, v3, v11
 
-    .line 1509
+    .line 1505
     .local v2, "format":I
     move-object/from16 v0, p0
 
@@ -884,11 +878,11 @@
 
     move-result-object v7
 
-    .line 1510
+    .line 1506
     .local v7, "sizes":[Landroid/util/Size;
     if-nez v7, :cond_1
 
-    .line 1508
+    .line 1504
     :cond_0
     add-int/lit8 v10, v11, 0x1
 
@@ -896,7 +890,7 @@
 
     goto :goto_0
 
-    .line 1511
+    .line 1507
     :cond_1
     const/4 v10, 0x0
 
@@ -907,7 +901,7 @@
 
     aget-object v6, v7, v10
 
-    .line 1512
+    .line 1508
     .local v6, "size":Landroid/util/Size;
     move-object/from16 v0, p0
 
@@ -915,7 +909,7 @@
 
     move-result-wide v4
 
-    .line 1513
+    .line 1509
     .local v4, "minFrameDuration":J
     move-object/from16 v0, p0
 
@@ -923,7 +917,7 @@
 
     move-result-wide v8
 
-    .line 1514
+    .line 1510
     .local v8, "stallDuration":J
     const-string/jumbo v14, "[w:%d, h:%d, format:%s(%d), min_duration:%d, stall:%d], "
 
@@ -931,7 +925,7 @@
 
     new-array v15, v15, [Ljava/lang/Object;
 
-    .line 1515
+    .line 1511
     invoke-virtual {v6}, Landroid/util/Size;->getWidth()I
 
     move-result v16
@@ -966,7 +960,7 @@
 
     aput-object v16, v15, v17
 
-    .line 1516
+    .line 1512
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v16
@@ -991,7 +985,7 @@
 
     aput-object v16, v15, v17
 
-    .line 1514
+    .line 1510
     invoke-static {v14, v15}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v14
@@ -1000,12 +994,12 @@
 
     invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1511
+    .line 1507
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_1
 
-    .line 1520
+    .line 1516
     .end local v2    # "format":I
     .end local v4    # "minFrameDuration":J
     .end local v6    # "size":Landroid/util/Size;
@@ -1028,7 +1022,7 @@
 
     if-ne v10, v11, :cond_3
 
-    .line 1521
+    .line 1517
     invoke-virtual/range {p1 .. p1}, Ljava/lang/StringBuilder;->length()I
 
     move-result v10
@@ -1043,7 +1037,7 @@
 
     invoke-virtual {v0, v10, v11}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    .line 1523
+    .line 1519
     :cond_3
     const-string/jumbo v10, ")"
 
@@ -1051,7 +1045,7 @@
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1505
+    .line 1501
     return-void
 .end method
 
@@ -1062,17 +1056,17 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1566
+    .line 1562
     const-string/jumbo v4, "HighSpeedVideoConfigurations("
 
     invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1567
+    .line 1563
     invoke-virtual {p0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getHighSpeedVideoSizes()[Landroid/util/Size;
 
     move-result-object v3
 
-    .line 1568
+    .line 1564
     .local v3, "sizes":[Landroid/util/Size;
     array-length v7, v3
 
@@ -1083,13 +1077,13 @@
 
     aget-object v2, v3, v6
 
-    .line 1569
+    .line 1565
     .local v2, "size":Landroid/util/Size;
     invoke-virtual {p0, v2}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getHighSpeedVideoFpsRangesFor(Landroid/util/Size;)[Landroid/util/Range;
 
     move-result-object v1
 
-    .line 1570
+    .line 1566
     .local v1, "ranges":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
     array-length v8, v1
 
@@ -1100,7 +1094,7 @@
 
     aget-object v0, v1, v4
 
-    .line 1571
+    .line 1567
     .local v0, "range":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     const-string/jumbo v9, "[w:%d, h:%d, min_fps:%d, max_fps:%d], "
 
@@ -1118,7 +1112,7 @@
 
     aput-object v11, v10, v5
 
-    .line 1572
+    .line 1568
     invoke-virtual {v2}, Landroid/util/Size;->getHeight()I
 
     move-result v11
@@ -1147,19 +1141,19 @@
 
     aput-object v11, v10, v12
 
-    .line 1571
+    .line 1567
     invoke-static {v9, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v9
 
     invoke-virtual {p1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1570
+    .line 1566
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
-    .line 1568
+    .line 1564
     .end local v0    # "range":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     :cond_0
     add-int/lit8 v4, v6, 0x1
@@ -1168,7 +1162,7 @@
 
     goto :goto_0
 
-    .line 1576
+    .line 1572
     .end local v1    # "ranges":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
     .end local v2    # "size":Landroid/util/Size;
     :cond_1
@@ -1186,7 +1180,7 @@
 
     if-ne v4, v5, :cond_2
 
-    .line 1577
+    .line 1573
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->length()I
 
     move-result v4
@@ -1199,13 +1193,13 @@
 
     invoke-virtual {p1, v4, v5}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    .line 1579
+    .line 1575
     :cond_2
     const-string/jumbo v4, ")"
 
     invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1565
+    .line 1561
     return-void
 .end method
 
@@ -1216,17 +1210,17 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1527
+    .line 1523
     const-string/jumbo v4, "Inputs("
 
     invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1528
+    .line 1524
     invoke-virtual {p0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getInputFormats()[I
 
     move-result-object v1
 
-    .line 1529
+    .line 1525
     .local v1, "formats":[I
     array-length v7, v1
 
@@ -1237,13 +1231,13 @@
 
     aget v0, v1, v6
 
-    .line 1530
+    .line 1526
     .local v0, "format":I
     invoke-virtual {p0, v0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getInputSizes(I)[Landroid/util/Size;
 
     move-result-object v3
 
-    .line 1531
+    .line 1527
     .local v3, "sizes":[Landroid/util/Size;
     array-length v8, v3
 
@@ -1254,7 +1248,7 @@
 
     aget-object v2, v3, v4
 
-    .line 1532
+    .line 1528
     .local v2, "size":Landroid/util/Size;
     const-string/jumbo v9, "[w:%d, h:%d, format:%s(%d)], "
 
@@ -1272,7 +1266,7 @@
 
     aput-object v11, v10, v5
 
-    .line 1533
+    .line 1529
     invoke-virtual {v2}, Landroid/util/Size;->getHeight()I
 
     move-result v11
@@ -1301,19 +1295,19 @@
 
     aput-object v11, v10, v12
 
-    .line 1532
+    .line 1528
     invoke-static {v9, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v9
 
     invoke-virtual {p1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1531
+    .line 1527
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
-    .line 1529
+    .line 1525
     .end local v2    # "size":Landroid/util/Size;
     :cond_0
     add-int/lit8 v4, v6, 0x1
@@ -1322,7 +1316,7 @@
 
     goto :goto_0
 
-    .line 1537
+    .line 1533
     .end local v0    # "format":I
     .end local v3    # "sizes":[Landroid/util/Size;
     :cond_1
@@ -1340,7 +1334,7 @@
 
     if-ne v4, v5, :cond_2
 
-    .line 1538
+    .line 1534
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->length()I
 
     move-result v4
@@ -1353,13 +1347,13 @@
 
     invoke-virtual {p1, v4, v5}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    .line 1540
+    .line 1536
     :cond_2
     const-string/jumbo v4, ")"
 
     invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1526
+    .line 1522
     return-void
 .end method
 
@@ -1368,19 +1362,19 @@
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .prologue
-    .line 1486
+    .line 1482
     const-string/jumbo v10, "Outputs("
 
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1487
+    .line 1483
     invoke-virtual/range {p0 .. p0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getOutputFormats()[I
 
     move-result-object v3
 
-    .line 1488
+    .line 1484
     .local v3, "formats":[I
     const/4 v10, 0x0
 
@@ -1393,7 +1387,7 @@
 
     aget v2, v3, v11
 
-    .line 1489
+    .line 1485
     .local v2, "format":I
     move-object/from16 v0, p0
 
@@ -1401,7 +1395,7 @@
 
     move-result-object v7
 
-    .line 1490
+    .line 1486
     .local v7, "sizes":[Landroid/util/Size;
     const/4 v10, 0x0
 
@@ -1412,7 +1406,7 @@
 
     aget-object v6, v7, v10
 
-    .line 1491
+    .line 1487
     .local v6, "size":Landroid/util/Size;
     move-object/from16 v0, p0
 
@@ -1420,7 +1414,7 @@
 
     move-result-wide v4
 
-    .line 1492
+    .line 1488
     .local v4, "minFrameDuration":J
     move-object/from16 v0, p0
 
@@ -1428,7 +1422,7 @@
 
     move-result-wide v8
 
-    .line 1493
+    .line 1489
     .local v8, "stallDuration":J
     const-string/jumbo v14, "[w:%d, h:%d, format:%s(%d), min_duration:%d, stall:%d], "
 
@@ -1436,7 +1430,7 @@
 
     new-array v15, v15, [Ljava/lang/Object;
 
-    .line 1494
+    .line 1490
     invoke-virtual {v6}, Landroid/util/Size;->getWidth()I
 
     move-result v16
@@ -1471,7 +1465,7 @@
 
     aput-object v16, v15, v17
 
-    .line 1495
+    .line 1491
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v16
@@ -1496,7 +1490,7 @@
 
     aput-object v16, v15, v17
 
-    .line 1493
+    .line 1489
     invoke-static {v14, v15}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v14
@@ -1505,12 +1499,12 @@
 
     invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1490
+    .line 1486
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_1
 
-    .line 1488
+    .line 1484
     .end local v4    # "minFrameDuration":J
     .end local v6    # "size":Landroid/util/Size;
     .end local v8    # "stallDuration":J
@@ -1521,7 +1515,7 @@
 
     goto :goto_0
 
-    .line 1499
+    .line 1495
     .end local v2    # "format":I
     .end local v7    # "sizes":[Landroid/util/Size;
     :cond_1
@@ -1541,7 +1535,7 @@
 
     if-ne v10, v11, :cond_2
 
-    .line 1500
+    .line 1496
     invoke-virtual/range {p1 .. p1}, Ljava/lang/StringBuilder;->length()I
 
     move-result v10
@@ -1556,7 +1550,7 @@
 
     invoke-virtual {v0, v10, v11}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    .line 1502
+    .line 1498
     :cond_2
     const-string/jumbo v10, ")"
 
@@ -1564,7 +1558,7 @@
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1485
+    .line 1481
     return-void
 .end method
 
@@ -1579,17 +1573,17 @@
 
     const/4 v5, 0x0
 
-    .line 1544
+    .line 1540
     const-string/jumbo v4, "ValidOutputFormatsForInput("
 
     invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1545
+    .line 1541
     invoke-virtual {p0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getInputFormats()[I
 
     move-result-object v2
 
-    .line 1546
+    .line 1542
     .local v2, "inputFormats":[I
     array-length v6, v2
 
@@ -1600,7 +1594,7 @@
 
     aget v1, v2, v4
 
-    .line 1547
+    .line 1543
     .local v1, "inputFormat":I
     const-string/jumbo v7, "[in:%s(%d), out:"
 
@@ -1624,12 +1618,12 @@
 
     invoke-virtual {p1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1548
+    .line 1544
     invoke-virtual {p0, v1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getValidOutputFormatsForInput(I)[I
 
     move-result-object v3
 
-    .line 1549
+    .line 1545
     .local v3, "outputFormats":[I
     const/4 v0, 0x0
 
@@ -1639,7 +1633,7 @@
 
     if-ge v0, v7, :cond_1
 
-    .line 1550
+    .line 1546
     const-string/jumbo v7, "%s(%d)"
 
     new-array v8, v11, [Ljava/lang/Object;
@@ -1652,7 +1646,7 @@
 
     aput-object v9, v8, v5
 
-    .line 1551
+    .line 1547
     aget v9, v3, v0
 
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1661,43 +1655,43 @@
 
     aput-object v9, v8, v10
 
-    .line 1550
+    .line 1546
     invoke-static {v7, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
     invoke-virtual {p1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1552
+    .line 1548
     array-length v7, v3
 
     add-int/lit8 v7, v7, -0x1
 
     if-ge v0, v7, :cond_0
 
-    .line 1553
+    .line 1549
     const-string/jumbo v7, ", "
 
     invoke-virtual {p1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1549
+    .line 1545
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 1556
+    .line 1552
     :cond_1
     const-string/jumbo v7, "], "
 
     invoke-virtual {p1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1546
+    .line 1542
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 1559
+    .line 1555
     .end local v0    # "i":I
     .end local v1    # "inputFormat":I
     .end local v3    # "outputFormats":[I
@@ -1716,7 +1710,7 @@
 
     if-ne v4, v5, :cond_3
 
-    .line 1560
+    .line 1556
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->length()I
 
     move-result v4
@@ -1729,13 +1723,13 @@
 
     invoke-virtual {p1, v4, v5}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    .line 1562
+    .line 1558
     :cond_3
     const-string/jumbo v4, ")"
 
     invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1543
+    .line 1539
     return-void
 .end method
 
@@ -1754,13 +1748,13 @@
     .local p1, "element":Ljava/lang/Object;, "TT;"
     const/4 v2, 0x0
 
-    .line 1410
+    .line 1406
     if-nez p0, :cond_0
 
-    .line 1411
+    .line 1407
     return v2
 
-    .line 1414
+    .line 1410
     :cond_0
     array-length v3, p0
 
@@ -1771,7 +1765,7 @@
 
     aget-object v0, p0, v1
 
-    .line 1415
+    .line 1411
     .local v0, "el":Ljava/lang/Object;, "TT;"
     invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -1779,18 +1773,18 @@
 
     if-eqz v4, :cond_1
 
-    .line 1416
+    .line 1412
     const/4 v1, 0x1
 
     return v1
 
-    .line 1414
+    .line 1410
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1420
+    .line 1416
     .end local v0    # "el":Ljava/lang/Object;, "TT;"
     :cond_2
     return v2
@@ -1801,7 +1795,7 @@
     .param p0, "format"    # I
 
     .prologue
-    .line 1034
+    .line 1033
     invoke-static {p0}, Landroid/graphics/ImageFormat;->isPublicFormat(I)Z
 
     move-result v0
@@ -1814,23 +1808,23 @@
 
     if-eqz v0, :cond_1
 
-    .line 1039
+    .line 1038
     :cond_0
     return p0
 
-    .line 1035
+    .line 1034
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 1036
+    .line 1035
     const-string/jumbo v1, "format 0x%x was not defined in either ImageFormat or PixelFormat"
 
-    .line 1035
+    .line 1034
     const/4 v2, 0x1
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    .line 1036
+    .line 1035
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
@@ -1839,7 +1833,7 @@
 
     aput-object v3, v2, v4
 
-    .line 1035
+    .line 1034
     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -1854,33 +1848,33 @@
     .param p0, "format"    # I
 
     .prologue
-    .line 999
+    .line 998
     sparse-switch p0, :sswitch_data_0
 
-    .line 1009
+    .line 1008
     invoke-static {p0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->checkArgumentFormat(I)I
 
     move-result v0
 
     return v0
 
-    .line 1004
+    .line 1003
     :sswitch_0
     return p0
 
-    .line 1006
+    .line 1005
     :sswitch_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 1007
+    .line 1006
     const-string/jumbo v1, "ImageFormat.JPEG is an unknown internal format"
 
-    .line 1006
+    .line 1005
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 999
+    .line 998
     :sswitch_data_0
     .sparse-switch
         0x21 -> :sswitch_0
@@ -1899,30 +1893,30 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 956
+    .line 955
     invoke-static {p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->checkArgumentFormat(I)I
 
-    .line 958
+    .line 957
     invoke-static {p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->imageFormatToInternal(I)I
 
     move-result v1
 
-    .line 959
+    .line 958
     .local v1, "internalFormat":I
     invoke-static {p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->imageFormatToDataspace(I)I
 
     move-result v0
 
-    .line 961
+    .line 960
     .local v0, "internalDataspace":I
     if-eqz p2, :cond_1
 
-    .line 962
+    .line 961
     const/16 v2, 0x1000
 
     if-ne v0, v2, :cond_0
 
-    .line 963
+    .line 962
     iget-object v2, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthOutputFormats:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, v1}, Landroid/util/SparseIntArray;->indexOfKey(I)I
@@ -1931,10 +1925,10 @@
 
     if-ltz v2, :cond_2
 
-    .line 964
+    .line 963
     return p1
 
-    .line 967
+    .line 966
     :cond_0
     iget-object v2, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mAllOutputFormats:Landroid/util/SparseIntArray;
 
@@ -1944,10 +1938,10 @@
 
     if-ltz v2, :cond_2
 
-    .line 968
+    .line 967
     return p1
 
-    .line 972
+    .line 971
     :cond_1
     iget-object v2, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mInputFormats:Landroid/util/SparseIntArray;
 
@@ -1957,29 +1951,29 @@
 
     if-ltz v2, :cond_2
 
-    .line 973
+    .line 972
     return p1
 
-    .line 977
+    .line 976
     :cond_2
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    .line 978
+    .line 977
     const-string/jumbo v3, "format %x is not supported by this stream configuration map"
 
-    .line 977
+    .line 976
     const/4 v4, 0x1
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    .line 978
+    .line 977
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
     aput-object v5, v4, v6
 
-    .line 977
+    .line 976
     invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
@@ -1994,13 +1988,13 @@
     .param p0, "format"    # I
 
     .prologue
-    .line 1116
+    .line 1115
     sparse-switch p0, :sswitch_data_0
 
-    .line 1128
+    .line 1127
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 1129
+    .line 1128
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2019,48 +2013,48 @@
 
     move-result-object v1
 
-    .line 1128
+    .line 1127
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 1118
+    .line 1117
     :sswitch_0
     const/16 v0, 0x101
 
     return v0
 
-    .line 1120
+    .line 1119
     :sswitch_1
     const v0, 0x44363159
 
     return v0
 
-    .line 1122
+    .line 1121
     :sswitch_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 1123
+    .line 1122
     const-string/jumbo v1, "ImageFormat.JPEG is an unknown internal format"
 
-    .line 1122
+    .line 1121
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 1125
+    .line 1124
     :sswitch_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 1126
+    .line 1125
     const-string/jumbo v1, "IMPLEMENTATION_DEFINED must not leak to public API"
 
-    .line 1125
+    .line 1124
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 1116
+    .line 1115
     :sswitch_data_0
     .sparse-switch
         0x21 -> :sswitch_0
@@ -2075,123 +2069,117 @@
     .param p1, "format"    # I
 
     .prologue
-    .line 1583
+    .line 1579
     sparse-switch p1, :sswitch_data_0
 
-    .line 1621
+    .line 1615
     const-string/jumbo v0, "UNKNOWN"
 
     return-object v0
 
-    .line 1585
+    .line 1581
     :sswitch_0
     const-string/jumbo v0, "YV12"
 
     return-object v0
 
-    .line 1587
+    .line 1583
     :sswitch_1
     const-string/jumbo v0, "YUV_420_888"
 
     return-object v0
 
-    .line 1589
+    .line 1585
     :sswitch_2
     const-string/jumbo v0, "NV21"
 
     return-object v0
 
-    .line 1591
+    .line 1587
     :sswitch_3
     const-string/jumbo v0, "NV16"
 
     return-object v0
 
-    .line 1593
+    .line 1589
     :sswitch_4
     const-string/jumbo v0, "RGB_565"
 
     return-object v0
 
-    .line 1595
+    .line 1591
     :sswitch_5
     const-string/jumbo v0, "RGBA_8888"
 
     return-object v0
 
-    .line 1597
+    .line 1593
     :sswitch_6
     const-string/jumbo v0, "RGBX_8888"
 
     return-object v0
 
-    .line 1599
+    .line 1595
     :sswitch_7
     const-string/jumbo v0, "RGB_888"
 
     return-object v0
 
-    .line 1601
+    .line 1597
     :sswitch_8
     const-string/jumbo v0, "JPEG"
 
     return-object v0
 
-    .line 1603
+    .line 1599
     :sswitch_9
     const-string/jumbo v0, "YUY2"
 
     return-object v0
 
-    .line 1605
+    .line 1601
     :sswitch_a
     const-string/jumbo v0, "Y8"
 
     return-object v0
 
-    .line 1607
+    .line 1603
     :sswitch_b
     const-string/jumbo v0, "Y16"
 
     return-object v0
 
-    .line 1609
+    .line 1605
     :sswitch_c
     const-string/jumbo v0, "RAW_SENSOR"
 
     return-object v0
 
-    .line 1611
+    .line 1607
     :sswitch_d
-    const-string/jumbo v0, "RAW_PRIVATE"
-
-    return-object v0
-
-    .line 1613
-    :sswitch_e
     const-string/jumbo v0, "RAW10"
 
     return-object v0
 
-    .line 1615
-    :sswitch_f
+    .line 1609
+    :sswitch_e
     const-string/jumbo v0, "DEPTH16"
 
     return-object v0
 
-    .line 1617
-    :sswitch_10
+    .line 1611
+    :sswitch_f
     const-string/jumbo v0, "DEPTH_POINT_CLOUD"
 
     return-object v0
 
-    .line 1619
-    :sswitch_11
+    .line 1613
+    :sswitch_10
     const-string/jumbo v0, "PRIVATE"
 
     return-object v0
 
-    .line 1583
+    .line 1579
     nop
 
     :sswitch_data_0
@@ -2204,16 +2192,15 @@
         0x11 -> :sswitch_2
         0x14 -> :sswitch_9
         0x20 -> :sswitch_c
-        0x22 -> :sswitch_11
+        0x22 -> :sswitch_10
         0x23 -> :sswitch_1
-        0x24 -> :sswitch_d
-        0x25 -> :sswitch_e
+        0x25 -> :sswitch_d
         0x100 -> :sswitch_8
-        0x101 -> :sswitch_10
+        0x101 -> :sswitch_f
         0x20203859 -> :sswitch_a
         0x20363159 -> :sswitch_b
         0x32315659 -> :sswitch_0
-        0x44363159 -> :sswitch_f
+        0x44363159 -> :sswitch_e
     .end sparse-switch
 .end method
 
@@ -2225,10 +2212,10 @@
     .prologue
     const/16 v0, 0x1000
 
-    .line 1386
+    .line 1379
     packed-switch p1, :pswitch_data_0
 
-    .line 1394
+    .line 1387
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "duration was invalid"
@@ -2237,41 +2224,41 @@
 
     throw v0
 
-    .line 1388
+    .line 1381
     :pswitch_0
     if-ne p2, v0, :cond_0
 
-    .line 1389
+    .line 1382
     iget-object v0, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthMinFrameDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
 
-    .line 1388
+    .line 1381
     :goto_0
     return-object v0
 
-    .line 1389
+    .line 1382
     :cond_0
     iget-object v0, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mMinFrameDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
 
     goto :goto_0
 
-    .line 1391
+    .line 1384
     :pswitch_1
     if-ne p2, v0, :cond_1
 
-    .line 1392
+    .line 1385
     iget-object v0, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthStallDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
 
-    .line 1391
+    .line 1384
     :goto_1
     return-object v0
 
-    .line 1392
+    .line 1385
     :cond_1
     iget-object v0, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mStallDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
 
     goto :goto_1
 
-    .line 1386
+    .line 1379
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -2284,7 +2271,7 @@
     .param p1, "output"    # Z
 
     .prologue
-    .line 1356
+    .line 1349
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mAllOutputFormats:Landroid/util/SparseIntArray;
@@ -2306,14 +2293,14 @@
     .param p4, "duration"    # I
 
     .prologue
-    .line 1362
+    .line 1355
     invoke-direct {p0, p1, p2, p3}, Landroid/hardware/camera2/params/StreamConfigurationMap;->isSupportedInternalConfiguration(IILandroid/util/Size;)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 1363
+    .line 1356
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "size was not supported"
@@ -2322,13 +2309,13 @@
 
     throw v2
 
-    .line 1366
+    .line 1359
     :cond_0
     invoke-direct {p0, p4, p2}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getDurations(II)[Landroid/hardware/camera2/params/StreamConfigurationDuration;
 
     move-result-object v1
 
-    .line 1368
+    .line 1361
     .local v1, "durations":[Landroid/hardware/camera2/params/StreamConfigurationDuration;
     const/4 v2, 0x0
 
@@ -2339,7 +2326,7 @@
 
     aget-object v0, v1, v2
 
-    .line 1369
+    .line 1362
     .local v0, "configurationDuration":Landroid/hardware/camera2/params/StreamConfigurationDuration;
     invoke-virtual {v0}, Landroid/hardware/camera2/params/StreamConfigurationDuration;->getFormat()I
 
@@ -2347,7 +2334,7 @@
 
     if-ne v4, p1, :cond_1
 
-    .line 1370
+    .line 1363
     invoke-virtual {v0}, Landroid/hardware/camera2/params/StreamConfigurationDuration;->getWidth()I
 
     move-result v4
@@ -2358,7 +2345,7 @@
 
     if-ne v4, v5, :cond_1
 
-    .line 1371
+    .line 1364
     invoke-virtual {v0}, Landroid/hardware/camera2/params/StreamConfigurationDuration;->getHeight()I
 
     move-result v4
@@ -2369,20 +2356,20 @@
 
     if-ne v4, v5, :cond_1
 
-    .line 1372
+    .line 1365
     invoke-virtual {v0}, Landroid/hardware/camera2/params/StreamConfigurationDuration;->getDuration()J
 
     move-result-wide v2
 
     return-wide v2
 
-    .line 1368
+    .line 1361
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 1376
+    .line 1369
     .end local v0    # "configurationDuration":Landroid/hardware/camera2/params/StreamConfigurationDuration;
     :cond_2
     const-wide/16 v2, 0x0
@@ -2398,318 +2385,290 @@
     .param p4, "highRes"    # Z
 
     .prologue
-    .line 1273
-    const/16 v15, 0x1000
-
-    move/from16 v0, p2
-
-    if-ne v0, v15, :cond_0
-
-    if-eqz p4, :cond_0
-
-    .line 1274
-    const/4 v15, 0x0
-
-    new-array v15, v15, [Landroid/util/Size;
-
-    return-object v15
-
-    .line 1278
-    :cond_0
-    if-nez p3, :cond_3
+    .line 1272
+    if-nez p3, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v8, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mInputFormats:Landroid/util/SparseIntArray;
 
-    .line 1283
+    .line 1277
     .local v8, "formatsMap":Landroid/util/SparseIntArray;
     :goto_0
     move/from16 v0, p1
 
     invoke-virtual {v8, v0}, Landroid/util/SparseIntArray;->get(I)I
 
-    move-result v14
+    move-result v13
 
-    .line 1284
-    .local v14, "sizesCount":I
-    if-eqz p3, :cond_1
+    .line 1278
+    .local v13, "sizesCount":I
+    if-eqz p3, :cond_0
 
-    const/16 v15, 0x1000
+    const/16 v14, 0x1000
 
     move/from16 v0, p2
 
-    if-ne v0, v15, :cond_6
+    if-ne v0, v14, :cond_5
 
+    :cond_0
+    if-nez v13, :cond_5
+
+    .line 1281
     :cond_1
-    if-nez v14, :cond_6
+    new-instance v14, Ljava/lang/IllegalArgumentException;
 
-    .line 1287
-    :cond_2
-    new-instance v15, Ljava/lang/IllegalArgumentException;
+    const-string/jumbo v15, "format not available"
 
-    const-string/jumbo v16, "format not available"
+    invoke-direct {v14, v15}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct/range {v15 .. v16}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    throw v14
 
-    throw v15
-
-    .line 1279
+    .line 1273
     .end local v8    # "formatsMap":Landroid/util/SparseIntArray;
-    .end local v14    # "sizesCount":I
-    :cond_3
-    const/16 v15, 0x1000
+    .end local v13    # "sizesCount":I
+    :cond_2
+    const/16 v14, 0x1000
 
     move/from16 v0, p2
 
-    if-ne v0, v15, :cond_4
+    if-ne v0, v14, :cond_3
 
     move-object/from16 v0, p0
 
     iget-object v8, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthOutputFormats:Landroid/util/SparseIntArray;
 
+    .restart local v8    # "formatsMap":Landroid/util/SparseIntArray;
     goto :goto_0
 
-    .line 1280
-    :cond_4
-    if-eqz p4, :cond_5
+    .line 1274
+    .end local v8    # "formatsMap":Landroid/util/SparseIntArray;
+    :cond_3
+    if-eqz p4, :cond_4
 
     move-object/from16 v0, p0
 
     iget-object v8, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mHighResOutputFormats:Landroid/util/SparseIntArray;
 
+    .restart local v8    # "formatsMap":Landroid/util/SparseIntArray;
     goto :goto_0
 
-    .line 1281
-    :cond_5
+    .line 1275
+    .end local v8    # "formatsMap":Landroid/util/SparseIntArray;
+    :cond_4
     move-object/from16 v0, p0
 
     iget-object v8, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mOutputFormats:Landroid/util/SparseIntArray;
 
+    .restart local v8    # "formatsMap":Landroid/util/SparseIntArray;
     goto :goto_0
 
-    .line 1285
-    .restart local v8    # "formatsMap":Landroid/util/SparseIntArray;
-    .restart local v14    # "sizesCount":I
-    :cond_6
-    if-eqz p3, :cond_7
+    .line 1279
+    .restart local v13    # "sizesCount":I
+    :cond_5
+    if-eqz p3, :cond_6
 
-    const/16 v15, 0x1000
+    const/16 v14, 0x1000
 
     move/from16 v0, p2
 
-    if-eq v0, v15, :cond_7
+    if-eq v0, v14, :cond_6
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mAllOutputFormats:Landroid/util/SparseIntArray;
+    iget-object v14, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mAllOutputFormats:Landroid/util/SparseIntArray;
 
     move/from16 v0, p1
 
-    invoke-virtual {v15, v0}, Landroid/util/SparseIntArray;->get(I)I
+    invoke-virtual {v14, v0}, Landroid/util/SparseIntArray;->get(I)I
 
-    move-result v15
+    move-result v14
 
-    if-eqz v15, :cond_2
+    if-eqz v14, :cond_1
 
-    .line 1290
-    :cond_7
-    new-array v13, v14, [Landroid/util/Size;
+    .line 1284
+    :cond_6
+    new-array v12, v13, [Landroid/util/Size;
 
-    .line 1291
-    .local v13, "sizes":[Landroid/util/Size;
-    const/4 v11, 0x0
+    .line 1285
+    .local v12, "sizes":[Landroid/util/Size;
+    const/4 v10, 0x0
 
-    .line 1294
-    .local v11, "sizeIndex":I
-    const/16 v15, 0x1000
+    .line 1288
+    .local v10, "sizeIndex":I
+    const/16 v14, 0x1000
 
     move/from16 v0, p2
 
-    if-ne v0, v15, :cond_9
+    if-ne v0, v14, :cond_8
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
 
-    .line 1296
+    .line 1290
     .local v3, "configurations":[Landroid/hardware/camera2/params/StreamConfiguration;
     :goto_1
-    const/16 v15, 0x1000
-
-    move/from16 v0, p2
-
-    if-ne v0, v15, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-object v10, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthMinFrameDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
-
-    .line 1298
-    .local v10, "minFrameDurations":[Landroid/hardware/camera2/params/StreamConfigurationDuration;
-    :goto_2
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     array-length v0, v3
 
-    move/from16 v17, v0
+    move/from16 v16, v0
 
-    move/from16 v16, v15
+    move v15, v14
 
-    move v12, v11
+    move v11, v10
 
-    .end local v11    # "sizeIndex":I
-    .local v12, "sizeIndex":I
-    :goto_3
+    .end local v10    # "sizeIndex":I
+    .local v11, "sizeIndex":I
+    :goto_2
     move/from16 v0, v16
 
-    move/from16 v1, v17
+    if-ge v15, v0, :cond_d
 
-    if-ge v0, v1, :cond_f
+    aget-object v2, v3, v15
 
-    aget-object v2, v3, v16
-
-    .line 1299
+    .line 1291
     .local v2, "config":Landroid/hardware/camera2/params/StreamConfiguration;
     invoke-virtual {v2}, Landroid/hardware/camera2/params/StreamConfiguration;->getFormat()I
 
     move-result v5
 
-    .line 1300
+    .line 1292
     .local v5, "fmt":I
     move/from16 v0, p1
 
-    if-ne v5, v0, :cond_b
+    if-ne v5, v0, :cond_9
 
     invoke-virtual {v2}, Landroid/hardware/camera2/params/StreamConfiguration;->isOutput()Z
 
-    move-result v15
+    move-result v14
 
     move/from16 v0, p3
 
-    if-ne v15, v0, :cond_b
+    if-ne v14, v0, :cond_9
 
-    .line 1301
-    if-eqz p3, :cond_e
+    .line 1293
+    if-eqz p3, :cond_c
 
     move-object/from16 v0, p0
 
-    iget-boolean v15, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mListHighResolution:Z
+    iget-boolean v14, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mListHighResolution:Z
 
-    if-eqz v15, :cond_e
+    if-eqz v14, :cond_c
 
-    .line 1304
+    .line 1296
     const-wide/16 v6, 0x0
 
-    .line 1305
+    .line 1297
     .local v6, "duration":J
     const/4 v9, 0x0
 
     .local v9, "i":I
-    :goto_4
-    array-length v15, v10
+    :goto_3
+    move-object/from16 v0, p0
 
-    if-ge v9, v15, :cond_8
+    iget-object v14, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mMinFrameDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
 
-    .line 1306
-    aget-object v4, v10, v9
+    array-length v14, v14
 
-    .line 1307
+    if-ge v9, v14, :cond_7
+
+    .line 1298
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mMinFrameDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
+
+    aget-object v4, v14, v9
+
+    .line 1299
     .local v4, "d":Landroid/hardware/camera2/params/StreamConfigurationDuration;
     invoke-virtual {v4}, Landroid/hardware/camera2/params/StreamConfigurationDuration;->getFormat()I
 
-    move-result v15
+    move-result v14
 
-    if-ne v15, v5, :cond_c
+    if-ne v14, v5, :cond_a
 
-    .line 1308
+    .line 1300
     invoke-virtual {v4}, Landroid/hardware/camera2/params/StreamConfigurationDuration;->getWidth()I
 
-    move-result v15
+    move-result v14
 
     invoke-virtual {v2}, Landroid/hardware/camera2/params/StreamConfiguration;->getSize()Landroid/util/Size;
 
-    move-result-object v18
+    move-result-object v17
 
-    invoke-virtual/range {v18 .. v18}, Landroid/util/Size;->getWidth()I
+    invoke-virtual/range {v17 .. v17}, Landroid/util/Size;->getWidth()I
 
-    move-result v18
+    move-result v17
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    if-ne v15, v0, :cond_c
+    if-ne v14, v0, :cond_a
 
-    .line 1309
+    .line 1301
     invoke-virtual {v4}, Landroid/hardware/camera2/params/StreamConfigurationDuration;->getHeight()I
 
-    move-result v15
+    move-result v14
 
     invoke-virtual {v2}, Landroid/hardware/camera2/params/StreamConfiguration;->getSize()Landroid/util/Size;
 
-    move-result-object v18
+    move-result-object v17
 
-    invoke-virtual/range {v18 .. v18}, Landroid/util/Size;->getHeight()I
+    invoke-virtual/range {v17 .. v17}, Landroid/util/Size;->getHeight()I
 
-    move-result v18
+    move-result v17
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    if-ne v15, v0, :cond_c
+    if-ne v14, v0, :cond_a
 
-    .line 1310
+    .line 1302
     invoke-virtual {v4}, Landroid/hardware/camera2/params/StreamConfigurationDuration;->getDuration()J
 
     move-result-wide v6
 
-    .line 1314
+    .line 1306
     .end local v4    # "d":Landroid/hardware/camera2/params/StreamConfigurationDuration;
-    :cond_8
-    const/16 v15, 0x1000
-
-    move/from16 v0, p2
-
-    if-eq v0, v15, :cond_e
-
-    .line 1315
+    :cond_7
     const-wide/32 v18, 0x2faf080
 
-    cmp-long v15, v6, v18
+    cmp-long v14, v6, v18
 
-    if-lez v15, :cond_d
+    if-lez v14, :cond_b
 
-    const/4 v15, 0x1
+    const/4 v14, 0x1
 
-    :goto_5
+    :goto_4
     move/from16 v0, p4
 
-    if-eq v0, v15, :cond_e
+    if-eq v0, v14, :cond_c
 
-    move v11, v12
+    move v10, v11
 
-    .line 1298
+    .line 1290
     .end local v6    # "duration":J
     .end local v9    # "i":I
-    .end local v12    # "sizeIndex":I
-    .restart local v11    # "sizeIndex":I
-    :goto_6
-    add-int/lit8 v15, v16, 0x1
-
-    move/from16 v16, v15
-
-    move v12, v11
-
     .end local v11    # "sizeIndex":I
-    .restart local v12    # "sizeIndex":I
-    goto :goto_3
+    .restart local v10    # "sizeIndex":I
+    :goto_5
+    add-int/lit8 v14, v15, 0x1
 
-    .line 1294
+    move v15, v14
+
+    move v11, v10
+
+    .end local v10    # "sizeIndex":I
+    .restart local v11    # "sizeIndex":I
+    goto :goto_2
+
+    .line 1288
     .end local v2    # "config":Landroid/hardware/camera2/params/StreamConfiguration;
     .end local v3    # "configurations":[Landroid/hardware/camera2/params/StreamConfiguration;
     .end local v5    # "fmt":I
-    .end local v10    # "minFrameDurations":[Landroid/hardware/camera2/params/StreamConfigurationDuration;
-    .end local v12    # "sizeIndex":I
-    .restart local v11    # "sizeIndex":I
-    :cond_9
+    .end local v11    # "sizeIndex":I
+    .restart local v10    # "sizeIndex":I
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
@@ -2717,119 +2676,106 @@
     .restart local v3    # "configurations":[Landroid/hardware/camera2/params/StreamConfiguration;
     goto :goto_1
 
-    .line 1296
-    :cond_a
-    move-object/from16 v0, p0
-
-    iget-object v10, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mMinFrameDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
-
-    .restart local v10    # "minFrameDurations":[Landroid/hardware/camera2/params/StreamConfigurationDuration;
-    goto :goto_2
-
-    .end local v11    # "sizeIndex":I
+    .end local v10    # "sizeIndex":I
     .restart local v2    # "config":Landroid/hardware/camera2/params/StreamConfiguration;
     .restart local v5    # "fmt":I
-    .restart local v12    # "sizeIndex":I
-    :cond_b
-    move v11, v12
-
-    .line 1300
-    .end local v12    # "sizeIndex":I
     .restart local v11    # "sizeIndex":I
-    goto :goto_6
+    :cond_9
+    move v10, v11
 
-    .line 1305
+    .line 1292
     .end local v11    # "sizeIndex":I
+    .restart local v10    # "sizeIndex":I
+    goto :goto_5
+
+    .line 1297
+    .end local v10    # "sizeIndex":I
     .restart local v4    # "d":Landroid/hardware/camera2/params/StreamConfigurationDuration;
     .restart local v6    # "duration":J
     .restart local v9    # "i":I
-    .restart local v12    # "sizeIndex":I
-    :cond_c
+    .restart local v11    # "sizeIndex":I
+    :cond_a
     add-int/lit8 v9, v9, 0x1
+
+    goto :goto_3
+
+    .line 1306
+    .end local v4    # "d":Landroid/hardware/camera2/params/StreamConfigurationDuration;
+    :cond_b
+    const/4 v14, 0x0
 
     goto :goto_4
 
-    .line 1315
-    .end local v4    # "d":Landroid/hardware/camera2/params/StreamConfigurationDuration;
-    :cond_d
-    const/4 v15, 0x0
+    .line 1310
+    .end local v6    # "duration":J
+    .end local v9    # "i":I
+    :cond_c
+    add-int/lit8 v10, v11, 0x1
+
+    .end local v11    # "sizeIndex":I
+    .restart local v10    # "sizeIndex":I
+    invoke-virtual {v2}, Landroid/hardware/camera2/params/StreamConfiguration;->getSize()Landroid/util/Size;
+
+    move-result-object v14
+
+    aput-object v14, v12, v11
 
     goto :goto_5
 
-    .line 1319
-    .end local v6    # "duration":J
-    .end local v9    # "i":I
-    :cond_e
-    add-int/lit8 v11, v12, 0x1
-
-    .end local v12    # "sizeIndex":I
+    .line 1314
+    .end local v2    # "config":Landroid/hardware/camera2/params/StreamConfiguration;
+    .end local v5    # "fmt":I
+    .end local v10    # "sizeIndex":I
     .restart local v11    # "sizeIndex":I
-    invoke-virtual {v2}, Landroid/hardware/camera2/params/StreamConfiguration;->getSize()Landroid/util/Size;
+    :cond_d
+    if-eq v11, v13, :cond_e
+
+    .line 1315
+    new-instance v14, Ljava/lang/AssertionError;
+
+    .line 1316
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v16, "Too few sizes (expected "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v15
 
-    aput-object v15, v13, v12
+    invoke-virtual {v15, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto :goto_6
+    move-result-object v15
 
-    .line 1323
-    .end local v2    # "config":Landroid/hardware/camera2/params/StreamConfiguration;
-    .end local v5    # "fmt":I
-    .end local v11    # "sizeIndex":I
-    .restart local v12    # "sizeIndex":I
-    :cond_f
-    if-eq v12, v14, :cond_10
+    const-string/jumbo v16, ", actual "
 
-    .line 1324
-    new-instance v15, Ljava/lang/AssertionError;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1325
-    new-instance v16, Ljava/lang/StringBuilder;
+    move-result-object v15
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v15, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v17, "Too few sizes (expected "
+    move-result-object v15
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v16, ")"
 
-    move-result-object v16
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v16
+    move-result-object v15
 
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v15
 
-    const-string/jumbo v17, ", actual "
+    .line 1315
+    invoke-direct {v14, v15}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    throw v14
 
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    const-string/jumbo v17, ")"
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    .line 1324
-    invoke-direct/range {v15 .. v16}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
-
-    throw v15
-
-    .line 1328
-    :cond_10
-    return-object v13
+    .line 1319
+    :cond_e
+    return-object v12
 .end method
 
 .method private getPublicFormatCount(Z)I
@@ -2837,22 +2783,35 @@
     .param p1, "output"    # Z
 
     .prologue
-    .line 1400
+    .line 1393
     invoke-direct {p0, p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getFormatsMap(Z)Landroid/util/SparseIntArray;
 
     move-result-object v0
 
-    .line 1401
+    .line 1394
     .local v0, "formatsMap":Landroid/util/SparseIntArray;
     invoke-virtual {v0}, Landroid/util/SparseIntArray;->size()I
 
     move-result v1
 
-    .line 1402
+    .line 1395
     .local v1, "size":I
-    if-eqz p1, :cond_0
+    const/16 v2, 0x24
 
-    .line 1403
+    invoke-virtual {v0, v2}, Landroid/util/SparseIntArray;->indexOfKey(I)I
+
+    move-result v2
+
+    if-ltz v2, :cond_0
+
+    .line 1396
+    add-int/lit8 v1, v1, -0x1
+
+    .line 1398
+    :cond_0
+    if-eqz p1, :cond_1
+
+    .line 1399
     iget-object v2, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthOutputFormats:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2}, Landroid/util/SparseIntArray;->size()I
@@ -2861,8 +2820,8 @@
 
     add-int/2addr v1, v2
 
-    .line 1406
-    :cond_0
+    .line 1402
+    :cond_1
     return v1
 .end method
 
@@ -2873,24 +2832,24 @@
     .param p3, "highRes"    # Z
 
     .prologue
-    .line 1259
+    .line 1258
     :try_start_0
     invoke-direct {p0, p1, p2}, Landroid/hardware/camera2/params/StreamConfigurationMap;->checkArgumentFormatSupported(IZ)I
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1264
+    .line 1263
     invoke-static {p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->imageFormatToInternal(I)I
 
     move-result v2
 
-    .line 1265
+    .line 1264
     .local v2, "internalFormat":I
     invoke-static {p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->imageFormatToDataspace(I)I
 
     move-result v0
 
-    .line 1267
+    .line 1266
     .local v0, "dataspace":I
     invoke-direct {p0, v2, v0, p2, p3}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getInternalFormatSizes(IIZZ)[Landroid/util/Size;
 
@@ -2898,13 +2857,13 @@
 
     return-object v3
 
-    .line 1260
+    .line 1259
     .end local v0    # "dataspace":I
     .end local v2    # "internalFormat":I
     :catch_0
     move-exception v1
 
-    .line 1261
+    .line 1260
     .local v1, "e":Ljava/lang/IllegalArgumentException;
     const/4 v3, 0x0
 
@@ -2916,24 +2875,24 @@
     .param p1, "output"    # Z
 
     .prologue
-    .line 1333
+    .line 1324
     invoke-direct {p0, p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getPublicFormatCount(Z)I
 
     move-result v6
 
     new-array v1, v6, [I
 
-    .line 1335
+    .line 1326
     .local v1, "formats":[I
     const/4 v2, 0x0
 
-    .line 1337
+    .line 1328
     .local v2, "i":I
     invoke-direct {p0, p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getFormatsMap(Z)Landroid/util/SparseIntArray;
 
     move-result-object v5
 
-    .line 1338
+    .line 1329
     .local v5, "map":Landroid/util/SparseIntArray;
     const/4 v4, 0x0
 
@@ -2943,15 +2902,20 @@
 
     move-result v6
 
-    if-ge v4, v6, :cond_0
+    if-ge v4, v6, :cond_1
 
-    .line 1339
+    .line 1330
     invoke-virtual {v5, v4}, Landroid/util/SparseIntArray;->keyAt(I)I
 
     move-result v0
 
-    .line 1340
+    .line 1331
     .local v0, "format":I
+    const/16 v6, 0x24
+
+    if-eq v0, v6, :cond_0
+
+    .line 1332
     add-int/lit8 v3, v2, 0x1
 
     .end local v2    # "i":I
@@ -2962,21 +2926,22 @@
 
     aput v6, v1, v2
 
-    .line 1338
-    add-int/lit8 v4, v4, 0x1
-
     move v2, v3
 
+    .line 1329
     .end local v3    # "i":I
     .restart local v2    # "i":I
+    :cond_0
+    add-int/lit8 v4, v4, 0x1
+
     goto :goto_0
 
-    .line 1342
+    .line 1335
     .end local v0    # "format":I
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_1
+    if-eqz p1, :cond_2
 
-    .line 1343
+    .line 1336
     const/4 v4, 0x0
 
     :goto_1
@@ -2986,9 +2951,9 @@
 
     move-result v6
 
-    if-ge v4, v6, :cond_1
+    if-ge v4, v6, :cond_2
 
-    .line 1344
+    .line 1337
     add-int/lit8 v3, v2, 0x1
 
     .end local v2    # "i":I
@@ -3005,7 +2970,7 @@
 
     aput v6, v1, v2
 
-    .line 1343
+    .line 1336
     add-int/lit8 v4, v4, 0x1
 
     move v2, v3
@@ -3014,13 +2979,13 @@
     .restart local v2    # "i":I
     goto :goto_1
 
-    .line 1347
-    :cond_1
+    .line 1340
+    :cond_2
     array-length v6, v1
 
-    if-eq v6, v2, :cond_2
+    if-eq v6, v2, :cond_3
 
-    .line 1348
+    .line 1341
     new-instance v6, Ljava/lang/AssertionError;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -3057,8 +3022,8 @@
 
     throw v6
 
-    .line 1351
-    :cond_2
+    .line 1344
+    :cond_3
     return-object v1
 .end method
 
@@ -3067,27 +3032,27 @@
     .param p0, "format"    # I
 
     .prologue
-    .line 1224
+    .line 1223
     sparse-switch p0, :sswitch_data_0
 
-    .line 1231
+    .line 1230
     const/4 v0, 0x0
 
     return v0
 
-    .line 1226
+    .line 1225
     :sswitch_0
-    const/high16 v0, 0x8c20000
+    const/16 v0, 0x101
 
     return v0
 
-    .line 1229
+    .line 1228
     :sswitch_1
     const/16 v0, 0x1000
 
     return v0
 
-    .line 1224
+    .line 1223
     nop
 
     :sswitch_data_0
@@ -3103,25 +3068,25 @@
     .param p0, "format"    # I
 
     .prologue
-    .line 1182
+    .line 1181
     sparse-switch p0, :sswitch_data_0
 
-    .line 1189
+    .line 1188
     return p0
 
-    .line 1185
+    .line 1184
     :sswitch_0
     const/16 v0, 0x21
 
     return v0
 
-    .line 1187
+    .line 1186
     :sswitch_1
     const v0, 0x20363159
 
     return v0
 
-    .line 1182
+    .line 1181
     nop
 
     :sswitch_data_0
@@ -3139,13 +3104,13 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1246
+    .line 1245
     if-nez p0, :cond_0
 
-    .line 1247
+    .line 1246
     return-object v1
 
-    .line 1250
+    .line 1249
     :cond_0
     const/4 v0, 0x0
 
@@ -3155,7 +3120,7 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 1251
+    .line 1250
     aget v1, p0, v0
 
     invoke-static {v1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->imageFormatToInternal(I)I
@@ -3164,12 +3129,12 @@
 
     aput v1, p0, v0
 
-    .line 1250
+    .line 1249
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1254
+    .line 1253
     :cond_1
     return-object p0
 .end method
@@ -3179,31 +3144,31 @@
     .param p0, "format"    # I
 
     .prologue
-    .line 1073
+    .line 1072
     sparse-switch p0, :sswitch_data_0
 
-    .line 1080
+    .line 1079
     return p0
 
-    .line 1075
+    .line 1074
     :sswitch_0
     const/16 v0, 0x100
 
     return v0
 
-    .line 1077
+    .line 1076
     :sswitch_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 1078
+    .line 1077
     const-string/jumbo v1, "ImageFormat.JPEG is an unknown internal format"
 
-    .line 1077
+    .line 1076
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 1073
+    .line 1072
     :sswitch_data_0
     .sparse-switch
         0x21 -> :sswitch_0
@@ -3218,13 +3183,13 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1142
+    .line 1141
     if-nez p0, :cond_0
 
-    .line 1143
+    .line 1142
     return-object v1
 
-    .line 1146
+    .line 1145
     :cond_0
     const/4 v0, 0x0
 
@@ -3234,7 +3199,7 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 1147
+    .line 1146
     aget v1, p0, v0
 
     invoke-static {v1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->imageFormatToPublic(I)I
@@ -3243,12 +3208,12 @@
 
     aput v1, p0, v0
 
-    .line 1146
+    .line 1145
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1150
+    .line 1149
     :cond_1
     return-object p0
 .end method
@@ -3341,14 +3306,14 @@
     .param p3, "size"    # Landroid/util/Size;
 
     .prologue
-    .line 1426
+    .line 1422
     const/16 v2, 0x1000
 
     if-ne p2, v2, :cond_0
 
     iget-object v0, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
 
-    .line 1428
+    .line 1424
     .local v0, "configurations":[Landroid/hardware/camera2/params/StreamConfiguration;
     :goto_0
     const/4 v1, 0x0
@@ -3359,7 +3324,7 @@
 
     if-ge v1, v2, :cond_2
 
-    .line 1429
+    .line 1425
     aget-object v2, v0, v1
 
     invoke-virtual {v2}, Landroid/hardware/camera2/params/StreamConfiguration;->getFormat()I
@@ -3368,7 +3333,7 @@
 
     if-ne v2, p1, :cond_1
 
-    .line 1430
+    .line 1426
     aget-object v2, v0, v1
 
     invoke-virtual {v2}, Landroid/hardware/camera2/params/StreamConfiguration;->getSize()Landroid/util/Size;
@@ -3379,15 +3344,15 @@
 
     move-result v2
 
-    .line 1429
+    .line 1425
     if-eqz v2, :cond_1
 
-    .line 1431
+    .line 1427
     const/4 v2, 0x1
 
     return v2
 
-    .line 1426
+    .line 1422
     .end local v0    # "configurations":[Landroid/hardware/camera2/params/StreamConfiguration;
     .end local v1    # "i":I
     :cond_0
@@ -3396,14 +3361,14 @@
     .restart local v0    # "configurations":[Landroid/hardware/camera2/params/StreamConfiguration;
     goto :goto_0
 
-    .line 1428
+    .line 1424
     .restart local v1    # "i":I
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 1435
+    .line 1431
     :cond_2
     const/4 v2, 0x0
 
@@ -3419,22 +3384,22 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 923
+    .line 922
     if-nez p1, :cond_0
 
-    .line 924
+    .line 923
     return v1
 
-    .line 926
+    .line 925
     :cond_0
     if-ne p0, p1, :cond_1
 
-    .line 927
+    .line 926
     const/4 v1, 0x1
 
     return v1
 
-    .line 929
+    .line 928
     :cond_1
     instance-of v2, p1, Landroid/hardware/camera2/params/StreamConfigurationMap;
 
@@ -3442,10 +3407,10 @@
 
     move-object v0, p1
 
-    .line 930
+    .line 929
     check-cast v0, Landroid/hardware/camera2/params/StreamConfigurationMap;
 
-    .line 932
+    .line 931
     .local v0, "other":Landroid/hardware/camera2/params/StreamConfigurationMap;
     iget-object v2, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
 
@@ -3457,7 +3422,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 933
+    .line 932
     iget-object v2, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mMinFrameDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
 
     iget-object v3, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mMinFrameDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
@@ -3466,10 +3431,10 @@
 
     move-result v2
 
-    .line 932
+    .line 931
     if-eqz v2, :cond_2
 
-    .line 934
+    .line 933
     iget-object v2, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mStallDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
 
     iget-object v3, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mStallDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
@@ -3478,10 +3443,10 @@
 
     move-result v2
 
-    .line 932
+    .line 931
     if-eqz v2, :cond_2
 
-    .line 935
+    .line 934
     iget-object v2, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
 
     iget-object v3, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
@@ -3490,25 +3455,25 @@
 
     move-result v2
 
-    .line 932
+    .line 931
     if-eqz v2, :cond_2
 
-    .line 936
+    .line 935
     iget-object v1, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mHighSpeedVideoConfigurations:[Landroid/hardware/camera2/params/HighSpeedVideoConfiguration;
 
-    .line 937
+    .line 936
     iget-object v2, v0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mHighSpeedVideoConfigurations:[Landroid/hardware/camera2/params/HighSpeedVideoConfiguration;
 
-    .line 936
+    .line 935
     invoke-static {v1, v2}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
 
     move-result v1
 
-    .line 932
+    .line 931
     :cond_2
     return v1
 
-    .line 939
+    .line 938
     .end local v0    # "other":Landroid/hardware/camera2/params/StreamConfigurationMap;
     :cond_3
     return v1
@@ -4068,20 +4033,20 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 868
+    .line 867
     invoke-direct {p0, p1, v2}, Landroid/hardware/camera2/params/StreamConfigurationMap;->checkArgumentFormatSupported(IZ)I
 
-    .line 870
+    .line 869
     invoke-static {p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->imageFormatToInternal(I)I
 
     move-result v0
 
-    .line 871
+    .line 870
     invoke-static {p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->imageFormatToDataspace(I)I
 
     move-result v1
 
-    .line 870
+    .line 869
     invoke-direct {p0, v0, v1, p2, v2}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getInternalFormatDuration(IILandroid/util/Size;I)J
 
     move-result-wide v0
@@ -4105,7 +4070,7 @@
     .end annotation
 
     .prologue
-    .line 905
+    .line 904
     .local p1, "klass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p1}, Landroid/hardware/camera2/params/StreamConfigurationMap;->isOutputSupportedFor(Ljava/lang/Class;)Z
 
@@ -4113,7 +4078,7 @@
 
     if-nez v0, :cond_0
 
-    .line 906
+    .line 905
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "klass was not supported"
@@ -4122,16 +4087,16 @@
 
     throw v0
 
-    .line 909
+    .line 908
     :cond_0
     const/16 v0, 0x22
 
-    .line 910
+    .line 909
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    .line 909
+    .line 908
     invoke-direct {p0, v0, v1, p2, v2}, Landroid/hardware/camera2/params/StreamConfigurationMap;->getInternalFormatDuration(IILandroid/util/Size;I)J
 
     move-result-wide v0
@@ -4171,12 +4136,12 @@
     .locals 3
 
     .prologue
-    .line 948
+    .line 947
     const/4 v0, 0x5
 
     new-array v0, v0, [[Ljava/lang/Object;
 
-    .line 949
+    .line 948
     iget-object v1, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
 
     const/4 v2, 0x0
@@ -4189,14 +4154,14 @@
 
     aput-object v1, v0, v2
 
-    .line 950
+    .line 949
     iget-object v1, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mStallDurations:[Landroid/hardware/camera2/params/StreamConfigurationDuration;
 
     const/4 v2, 0x2
 
     aput-object v1, v0, v2
 
-    .line 951
+    .line 950
     iget-object v1, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
 
     const/4 v2, 0x3
@@ -4209,7 +4174,7 @@
 
     aput-object v1, v0, v2
 
-    .line 948
+    .line 947
     invoke-static {v0}, Landroid/hardware/camera2/utils/HashCodeHelpers;->hashCodeGeneric([Ljava/lang/Object;)I
 
     move-result v0
@@ -4387,11 +4352,11 @@
     :cond_1
     iget-object v1, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
 
+    .restart local v1    # "configs":[Landroid/hardware/camera2/params/StreamConfiguration;
     goto :goto_0
 
     .line 425
     .restart local v0    # "config":Landroid/hardware/camera2/params/StreamConfiguration;
-    .restart local v1    # "configs":[Landroid/hardware/camera2/params/StreamConfiguration;
     :cond_2
     if-eqz v2, :cond_3
 
@@ -4427,16 +4392,32 @@
     .locals 2
 
     .prologue
-    .line 1470
+    .line 1466
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string/jumbo v1, "StreamConfiguration("
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 1471
+    .line 1467
     .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-direct {p0, v0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->appendOutputsString(Ljava/lang/StringBuilder;)V
+
+    .line 1468
+    const-string/jumbo v1, ", "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 1469
+    invoke-direct {p0, v0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->appendHighResOutputsString(Ljava/lang/StringBuilder;)V
+
+    .line 1470
+    const-string/jumbo v1, ", "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 1471
+    invoke-direct {p0, v0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->appendInputsString(Ljava/lang/StringBuilder;)V
 
     .line 1472
     const-string/jumbo v1, ", "
@@ -4444,7 +4425,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1473
-    invoke-direct {p0, v0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->appendHighResOutputsString(Ljava/lang/StringBuilder;)V
+    invoke-direct {p0, v0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->appendValidOutputFormatsForInputString(Ljava/lang/StringBuilder;)V
 
     .line 1474
     const-string/jumbo v1, ", "
@@ -4452,30 +4433,14 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1475
-    invoke-direct {p0, v0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->appendInputsString(Ljava/lang/StringBuilder;)V
-
-    .line 1476
-    const-string/jumbo v1, ", "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 1477
-    invoke-direct {p0, v0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->appendValidOutputFormatsForInputString(Ljava/lang/StringBuilder;)V
-
-    .line 1478
-    const-string/jumbo v1, ", "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 1479
     invoke-direct {p0, v0}, Landroid/hardware/camera2/params/StreamConfigurationMap;->appendHighSpeedVideoConfigurationsString(Ljava/lang/StringBuilder;)V
 
-    .line 1480
+    .line 1476
     const-string/jumbo v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1482
+    .line 1478
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

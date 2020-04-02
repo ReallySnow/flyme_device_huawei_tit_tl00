@@ -25,13 +25,13 @@
     .param p2, "next"    # Landroid/view/ViewRootImpl$InputStage;
 
     .prologue
-    .line 4207
+    .line 3997
     iput-object p1, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
-    .line 4208
+    .line 3998
     invoke-direct {p0, p1, p2}, Landroid/view/ViewRootImpl$InputStage;-><init>(Landroid/view/ViewRootImpl;Landroid/view/ViewRootImpl$InputStage;)V
 
-    .line 4207
+    .line 3997
     return-void
 .end method
 
@@ -40,13 +40,20 @@
     .param p1, "q"    # Landroid/view/ViewRootImpl$QueuedInputEvent;
 
     .prologue
-    .line 4225
+    .line 4015
     iget-object v0, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
     check-cast v0, Landroid/view/KeyEvent;
 
-    .line 4229
+    .line 4019
     .local v0, "event":Landroid/view/KeyEvent;
+
+    invoke-direct {p0, v0}, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->flymeEnsureTM(Landroid/view/KeyEvent;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_flyme_0
+
     iget-object v1, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-static {v1, v0}, Landroid/view/ViewRootImpl;->-wrap1(Landroid/view/ViewRootImpl;Landroid/view/KeyEvent;)Z
@@ -55,20 +62,21 @@
 
     if-eqz v1, :cond_0
 
-    .line 4230
+    .line 4020
     const/4 v1, 0x1
 
     return v1
 
-    .line 4235
+    .line 4025
     :cond_0
+    :cond_flyme_0
     iget-object v1, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mFallbackEventHandler:Landroid/view/FallbackEventHandler;
 
     invoke-interface {v1, v0}, Landroid/view/FallbackEventHandler;->preDispatchKeyEvent(Landroid/view/KeyEvent;)V
 
-    .line 4236
+    .line 4026
     const/4 v1, 0x0
 
     return v1
@@ -81,12 +89,12 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 4240
+    .line 4030
     iget-object v1, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
     check-cast v1, Landroid/view/MotionEvent;
 
-    .line 4243
+    .line 4033
     .local v1, "event":Landroid/view/MotionEvent;
     iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
@@ -94,20 +102,20 @@
 
     if-eqz v2, :cond_0
 
-    .line 4244
+    .line 4034
     iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v2, v2, Landroid/view/ViewRootImpl;->mTranslator:Landroid/content/res/CompatibilityInfo$Translator;
 
     invoke-virtual {v2, v1}, Landroid/content/res/CompatibilityInfo$Translator;->translateEventInScreenToAppWindow(Landroid/view/MotionEvent;)V
 
-    .line 4248
+    .line 4038
     :cond_0
     invoke-virtual {v1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 4249
+    .line 4039
     .local v0, "action":I
     if-eqz v0, :cond_1
 
@@ -115,7 +123,7 @@
 
     if-ne v0, v2, :cond_2
 
-    .line 4250
+    .line 4040
     :cond_1
     iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
@@ -123,7 +131,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/ViewRootImpl;->ensureTouchMode(Z)Z
 
-    .line 4254
+    .line 4044
     :cond_2
     iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
@@ -131,7 +139,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 4255
+    .line 4045
     const/4 v2, 0x0
 
     iget-object v3, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
@@ -142,7 +150,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/view/MotionEvent;->offsetLocation(FF)V
 
-    .line 4259
+    .line 4049
     :cond_3
     invoke-virtual {v1}, Landroid/view/MotionEvent;->isTouchEvent()Z
 
@@ -150,7 +158,7 @@
 
     if-eqz v2, :cond_4
 
-    .line 4260
+    .line 4050
     iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v2, v2, Landroid/view/ViewRootImpl;->mLastTouchPoint:Landroid/graphics/PointF;
@@ -161,7 +169,7 @@
 
     iput v3, v2, Landroid/graphics/PointF;->x:F
 
-    .line 4261
+    .line 4051
     iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v2, v2, Landroid/view/ViewRootImpl;->mLastTouchPoint:Landroid/graphics/PointF;
@@ -172,16 +180,7 @@
 
     iput v3, v2, Landroid/graphics/PointF;->y:F
 
-    .line 4262
-    iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
-
-    invoke-virtual {v1}, Landroid/view/MotionEvent;->getSource()I
-
-    move-result v3
-
-    iput v3, v2, Landroid/view/ViewRootImpl;->mLastTouchSource:I
-
-    .line 4264
+    .line 4053
     :cond_4
     return v4
 .end method
@@ -195,21 +194,21 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 4213
+    .line 4003
     iget-object v1, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
     instance-of v1, v1, Landroid/view/KeyEvent;
 
     if-eqz v1, :cond_0
 
-    .line 4214
+    .line 4004
     invoke-direct {p0, p1}, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->processKeyEvent(Landroid/view/ViewRootImpl$QueuedInputEvent;)I
 
     move-result v1
 
     return v1
 
-    .line 4216
+    .line 4006
     :cond_0
     iget-object v1, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
@@ -217,20 +216,53 @@
 
     move-result v0
 
-    .line 4217
+    .line 4007
     .local v0, "source":I
     and-int/lit8 v1, v0, 0x2
 
     if-eqz v1, :cond_1
 
-    .line 4218
+    .line 4008
     invoke-direct {p0, p1}, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->processPointerEvent(Landroid/view/ViewRootImpl$QueuedInputEvent;)I
 
     move-result v1
 
     return v1
 
-    .line 4221
+    .line 4011
     :cond_1
+    return v2
+.end method
+
+.method private flymeEnsureTM(Landroid/view/KeyEvent;)Z
+    .locals 3
+    .param p1, "event"    # Landroid/view/KeyEvent;
+
+    .prologue
+    const/4 v2, 0x1
+
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
+
+    move-result v0
+
+    const/16 v1, 0x7a
+
+    if-ne v0, v1, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->isCtrlPressed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
+    invoke-virtual {v0, v2}, Landroid/view/ViewRootImpl;->ensureTouchMode(Z)Z
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
     return v2
 .end method

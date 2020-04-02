@@ -42,7 +42,7 @@
 
 .field static final TRANSACTION_deviceSelect:I = 0x8
 
-.field static final TRANSACTION_getActiveSource_1:I = 0x2
+.field static final TRANSACTION_getActiveSource:I = 0x2
 
 .field static final TRANSACTION_getDeviceList:I = 0x17
 
@@ -50,11 +50,11 @@
 
 .field static final TRANSACTION_getPortInfo:I = 0xb
 
-.field static final TRANSACTION_getSupportedTypes_0:I = 0x1
+.field static final TRANSACTION_getSupportedTypes:I = 0x1
 
 .field static final TRANSACTION_getSystemAudioMode:I = 0xd
 
-.field static final TRANSACTION_oneTouchPlay_2:I = 0x3
+.field static final TRANSACTION_oneTouchPlay:I = 0x3
 
 .field static final TRANSACTION_portSelect:I = 0x9
 
@@ -601,11 +601,13 @@
     :cond_1
     const/16 v17, 0x0
 
+    .restart local v17    # "_arg2":Z
     goto :goto_1
 
     .line 156
     .end local v3    # "_arg0":I
     .end local v13    # "_arg1":I
+    .end local v17    # "_arg2":Z
     :sswitch_b
     const-string/jumbo v26, "android.hardware.hdmi.IHdmiControlService"
 
@@ -865,7 +867,7 @@
     const/4 v12, 0x1
 
     .line 212
-    .local v12, "_arg0":Z
+    .restart local v12    # "_arg0":Z
     :goto_5
     move-object/from16 v0, p0
 
@@ -884,9 +886,11 @@
     :cond_5
     const/4 v12, 0x0
 
+    .restart local v12    # "_arg0":Z
     goto :goto_5
 
     .line 218
+    .end local v12    # "_arg0":Z
     :sswitch_12
     const-string/jumbo v26, "android.hardware.hdmi.IHdmiControlService"
 
@@ -925,9 +929,11 @@
     :cond_6
     const/4 v12, 0x0
 
+    .restart local v12    # "_arg0":Z
     goto :goto_6
 
     .line 227
+    .end local v12    # "_arg0":Z
     :sswitch_13
     const-string/jumbo v26, "android.hardware.hdmi.IHdmiControlService"
 
@@ -1012,9 +1018,11 @@
     :cond_7
     const/4 v12, 0x0
 
+    .restart local v12    # "_arg0":Z
     goto :goto_7
 
     .line 249
+    .end local v12    # "_arg0":Z
     :sswitch_15
     const-string/jumbo v26, "android.hardware.hdmi.IHdmiControlService"
 
@@ -1173,12 +1181,14 @@
     :cond_8
     const/16 v19, 0x0
 
+    .restart local v19    # "_arg3":Z
     goto :goto_8
 
     .line 289
     .end local v3    # "_arg0":I
     .end local v13    # "_arg1":I
     .end local v18    # "_arg2":[B
+    .end local v19    # "_arg3":Z
     :sswitch_19
     const-string/jumbo v26, "android.hardware.hdmi.IHdmiControlService"
 

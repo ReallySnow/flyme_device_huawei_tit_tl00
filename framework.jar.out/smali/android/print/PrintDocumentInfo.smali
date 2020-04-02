@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/print/PrintDocumentInfo$1;,
-        Landroid/print/PrintDocumentInfo$Builder;
+        Landroid/print/PrintDocumentInfo$Builder;,
+        Landroid/print/PrintDocumentInfo$1;
     }
 .end annotation
 
@@ -83,15 +83,15 @@
     .locals 1
 
     .prologue
-    .line 368
+    .line 352
     new-instance v0, Landroid/print/PrintDocumentInfo$1;
 
     invoke-direct {v0}, Landroid/print/PrintDocumentInfo$1;-><init>()V
 
-    .line 367
+    .line 351
     sput-object v0, Landroid/print/PrintDocumentInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 77
+    .line 70
     return-void
 .end method
 
@@ -99,87 +99,50 @@
     .locals 0
 
     .prologue
-    .line 126
+    .line 112
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 4
+    .locals 2
     .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    .line 147
+    .line 133
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 148
+    .line 134
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkStringNotEmpty(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
     iput-object v0, p0, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
 
-    .line 149
+    .line 135
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/print/PrintDocumentInfo;->mPageCount:I
 
-    .line 150
-    iget v0, p0, Landroid/print/PrintDocumentInfo;->mPageCount:I
-
-    const/4 v3, -0x1
-
-    if-eq v0, v3, :cond_0
-
-    iget v0, p0, Landroid/print/PrintDocumentInfo;->mPageCount:I
-
-    if-lez v0, :cond_1
-
-    :cond_0
-    move v0, v1
-
-    :goto_0
-    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkArgument(Z)V
-
-    .line 151
+    .line 136
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/print/PrintDocumentInfo;->mContentType:I
 
-    .line 152
+    .line 137
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    invoke-static {v0, v1}, Lcom/android/internal/util/Preconditions;->checkArgumentNonnegative(J)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/print/PrintDocumentInfo;->mDataSize:J
 
-    .line 147
+    .line 133
     return-void
-
-    :cond_1
-    move v0, v2
-
-    .line 150
-    goto :goto_0
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/print/PrintDocumentInfo;)V
@@ -197,30 +160,30 @@
     .param p1, "prototype"    # Landroid/print/PrintDocumentInfo;
 
     .prologue
-    .line 135
+    .line 121
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 136
+    .line 122
     iget-object v0, p1, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
 
-    .line 137
+    .line 123
     iget v0, p1, Landroid/print/PrintDocumentInfo;->mPageCount:I
 
     iput v0, p0, Landroid/print/PrintDocumentInfo;->mPageCount:I
 
-    .line 138
+    .line 124
     iget v0, p1, Landroid/print/PrintDocumentInfo;->mContentType:I
 
     iput v0, p0, Landroid/print/PrintDocumentInfo;->mContentType:I
 
-    .line 139
+    .line 125
     iget-wide v0, p1, Landroid/print/PrintDocumentInfo;->mDataSize:J
 
     iput-wide v0, p0, Landroid/print/PrintDocumentInfo;->mDataSize:J
 
-    .line 135
+    .line 121
     return-void
 .end method
 
@@ -243,32 +206,32 @@
     return-void
 .end method
 
-.method private contentTypeToString(I)Ljava/lang/String;
+.method private contentTyepToString(I)Ljava/lang/String;
     .locals 1
     .param p1, "contentType"    # I
 
     .prologue
-    .line 274
+    .line 259
     packed-switch p1, :pswitch_data_0
 
-    .line 282
+    .line 267
     const-string/jumbo v0, "CONTENT_TYPE_UNKNOWN"
 
     return-object v0
 
-    .line 276
+    .line 261
     :pswitch_0
     const-string/jumbo v0, "CONTENT_TYPE_DOCUMENT"
 
     return-object v0
 
-    .line 279
+    .line 264
     :pswitch_1
     const-string/jumbo v0, "CONTENT_TYPE_PHOTO"
 
     return-object v0
 
-    .line 274
+    .line 259
     nop
 
     :pswitch_data_0
@@ -284,7 +247,7 @@
     .locals 1
 
     .prologue
-    .line 211
+    .line 196
     const/4 v0, 0x0
 
     return v0
@@ -299,20 +262,20 @@
 
     const/4 v6, 0x0
 
-    .line 236
+    .line 221
     if-ne p0, p1, :cond_0
 
-    .line 237
+    .line 222
     return v7
 
-    .line 239
+    .line 224
     :cond_0
     if-nez p1, :cond_1
 
-    .line 240
+    .line 225
     return v6
 
-    .line 242
+    .line 227
     :cond_1
     invoke-virtual {p0}, Landroid/print/PrintDocumentInfo;->getClass()Ljava/lang/Class;
 
@@ -324,16 +287,16 @@
 
     if-eq v1, v2, :cond_2
 
-    .line 243
+    .line 228
     return v6
 
     :cond_2
     move-object v0, p1
 
-    .line 245
+    .line 230
     check-cast v0, Landroid/print/PrintDocumentInfo;
 
-    .line 246
+    .line 231
     .local v0, "other":Landroid/print/PrintDocumentInfo;
     iget-object v1, p0, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
 
@@ -345,10 +308,10 @@
 
     if-nez v1, :cond_3
 
-    .line 247
+    .line 232
     return v6
 
-    .line 249
+    .line 234
     :cond_3
     iget v1, p0, Landroid/print/PrintDocumentInfo;->mContentType:I
 
@@ -356,10 +319,10 @@
 
     if-eq v1, v2, :cond_4
 
-    .line 250
+    .line 235
     return v6
 
-    .line 252
+    .line 237
     :cond_4
     iget v1, p0, Landroid/print/PrintDocumentInfo;->mPageCount:I
 
@@ -367,10 +330,10 @@
 
     if-eq v1, v2, :cond_5
 
-    .line 253
+    .line 238
     return v6
 
-    .line 255
+    .line 240
     :cond_5
     iget-wide v2, p0, Landroid/print/PrintDocumentInfo;->mDataSize:J
 
@@ -380,10 +343,10 @@
 
     if-eqz v1, :cond_6
 
-    .line 256
+    .line 241
     return v6
 
-    .line 258
+    .line 243
     :cond_6
     return v7
 .end method
@@ -392,7 +355,7 @@
     .locals 1
 
     .prologue
-    .line 186
+    .line 171
     iget v0, p0, Landroid/print/PrintDocumentInfo;->mContentType:I
 
     return v0
@@ -402,7 +365,7 @@
     .locals 2
 
     .prologue
-    .line 195
+    .line 180
     iget-wide v0, p0, Landroid/print/PrintDocumentInfo;->mDataSize:J
 
     return-wide v0
@@ -412,7 +375,7 @@
     .locals 1
 
     .prologue
-    .line 162
+    .line 147
     iget-object v0, p0, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
 
     return-object v0
@@ -422,7 +385,7 @@
     .locals 1
 
     .prologue
-    .line 173
+    .line 158
     iget v0, p0, Landroid/print/PrintDocumentInfo;->mPageCount:I
 
     return v0
@@ -432,10 +395,10 @@
     .locals 6
 
     .prologue
-    .line 224
+    .line 209
     const/16 v0, 0x1f
 
-    .line 226
+    .line 211
     .local v0, "prime":I
     iget-object v2, p0, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
 
@@ -450,7 +413,7 @@
     :goto_0
     add-int/lit8 v1, v2, 0x1f
 
-    .line 227
+    .line 212
     .local v1, "result":I
     mul-int/lit8 v2, v1, 0x1f
 
@@ -458,14 +421,14 @@
 
     add-int v1, v2, v3
 
-    .line 228
+    .line 213
     mul-int/lit8 v2, v1, 0x1f
 
     iget v3, p0, Landroid/print/PrintDocumentInfo;->mPageCount:I
 
     add-int v1, v2, v3
 
-    .line 229
+    .line 214
     mul-int/lit8 v2, v1, 0x1f
 
     iget-wide v4, p0, Landroid/print/PrintDocumentInfo;->mDataSize:J
@@ -474,7 +437,7 @@
 
     add-int v1, v2, v3
 
-    .line 230
+    .line 215
     mul-int/lit8 v2, v1, 0x1f
 
     iget-wide v4, p0, Landroid/print/PrintDocumentInfo;->mDataSize:J
@@ -487,10 +450,10 @@
 
     add-int v1, v2, v3
 
-    .line 231
+    .line 216
     return v1
 
-    .line 226
+    .line 211
     .end local v1    # "result":I
     :cond_0
     const/4 v2, 0x0
@@ -503,10 +466,10 @@
     .param p1, "dataSize"    # J
 
     .prologue
-    .line 206
+    .line 191
     iput-wide p1, p0, Landroid/print/PrintDocumentInfo;->mDataSize:J
 
-    .line 205
+    .line 190
     return-void
 .end method
 
@@ -514,18 +477,18 @@
     .locals 4
 
     .prologue
-    .line 263
+    .line 248
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 264
+    .line 249
     .local v0, "builder":Ljava/lang/StringBuilder;
     const-string/jumbo v1, "PrintDocumentInfo{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 265
+    .line 250
     const-string/jumbo v1, "name="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -536,7 +499,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 266
+    .line 251
     const-string/jumbo v1, ", pageCount="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -547,7 +510,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 267
+    .line 252
     const-string/jumbo v1, ", contentType="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -556,13 +519,13 @@
 
     iget v2, p0, Landroid/print/PrintDocumentInfo;->mContentType:I
 
-    invoke-direct {p0, v2}, Landroid/print/PrintDocumentInfo;->contentTypeToString(I)Ljava/lang/String;
+    invoke-direct {p0, v2}, Landroid/print/PrintDocumentInfo;->contentTyepToString(I)Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 268
+    .line 253
     const-string/jumbo v1, ", dataSize="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -573,12 +536,12 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    .line 269
+    .line 254
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 270
+    .line 255
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -592,26 +555,26 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 216
+    .line 201
     iget-object v0, p0, Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 217
+    .line 202
     iget v0, p0, Landroid/print/PrintDocumentInfo;->mPageCount:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 218
+    .line 203
     iget v0, p0, Landroid/print/PrintDocumentInfo;->mContentType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 219
+    .line 204
     iget-wide v0, p0, Landroid/print/PrintDocumentInfo;->mDataSize:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 215
+    .line 200
     return-void
 .end method

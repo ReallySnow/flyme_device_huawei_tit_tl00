@@ -12,8 +12,6 @@
 
 .field public static final GET_TEXT_WITH_STYLES:I = 0x1
 
-.field public static final INPUT_CONTENT_GRANT_READ_URI_PERMISSION:I = 0x1
-
 
 # virtual methods
 .method public abstract beginBatchEdit()Z
@@ -22,13 +20,7 @@
 .method public abstract clearMetaKeyStates(I)Z
 .end method
 
-.method public abstract closeConnection()V
-.end method
-
 .method public abstract commitCompletion(Landroid/view/inputmethod/CompletionInfo;)Z
-.end method
-
-.method public abstract commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
 .end method
 
 .method public abstract commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)Z
@@ -38,9 +30,6 @@
 .end method
 
 .method public abstract deleteSurroundingText(II)Z
-.end method
-
-.method public abstract deleteSurroundingTextInCodePoints(II)Z
 .end method
 
 .method public abstract endBatchEdit()Z
@@ -53,9 +42,6 @@
 .end method
 
 .method public abstract getExtractedText(Landroid/view/inputmethod/ExtractedTextRequest;I)Landroid/view/inputmethod/ExtractedText;
-.end method
-
-.method public abstract getHandler()Landroid/os/Handler;
 .end method
 
 .method public abstract getSelectedText(I)Ljava/lang/CharSequence;

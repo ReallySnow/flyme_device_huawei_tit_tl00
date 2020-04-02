@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x0
     name = "WpaConfigFileObserver"
 .end annotation
 
@@ -19,22 +19,22 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wifi/WifiConfigStore;)V
+.method public constructor <init>(Lcom/android/server/wifi/WifiConfigStore;)V
     .locals 2
     .param p1, "this$0"    # Lcom/android/server/wifi/WifiConfigStore;
 
     .prologue
-    .line 1378
+    .line 709
     iput-object p1, p0, Lcom/android/server/wifi/WifiConfigStore$WpaConfigFileObserver;->this$0:Lcom/android/server/wifi/WifiConfigStore;
 
-    .line 1379
+    .line 710
     const-string/jumbo v0, "/data/misc/wifi/wpa_supplicant.conf"
 
     const/16 v1, 0x8
 
     invoke-direct {p0, v0, v1}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
 
-    .line 1378
+    .line 709
     return-void
 .end method
 
@@ -46,19 +46,19 @@
     .param p2, "path"    # Ljava/lang/String;
 
     .prologue
-    .line 1384
+    .line 715
     const/16 v1, 0x8
 
     if-ne p1, v1, :cond_0
 
-    .line 1385
+    .line 716
     new-instance v0, Ljava/io/File;
 
     const-string/jumbo v1, "/data/misc/wifi/wpa_supplicant.conf"
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 1386
+    .line 717
     .local v0, "file":Ljava/io/File;
     invoke-static {}, Lcom/android/server/wifi/WifiConfigStore;->-get0()Z
 
@@ -90,9 +90,9 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/android/server/wifi/WifiConfigStore;->-wrap1(Lcom/android/server/wifi/WifiConfigStore;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lcom/android/server/wifi/WifiConfigStore;->-wrap2(Lcom/android/server/wifi/WifiConfigStore;Ljava/lang/String;)V
 
-    .line 1383
+    .line 714
     .end local v0    # "file":Ljava/io/File;
     :cond_0
     return-void

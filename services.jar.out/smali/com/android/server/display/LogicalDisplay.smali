@@ -28,7 +28,7 @@
 
 .field private mPrimaryDisplayDeviceInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-.field private mRequestedColorMode:I
+.field private mRequestedColorTransformId:I
 
 .field private mRequestedModeId:I
 
@@ -112,7 +112,7 @@
     .line 287
     move-object/from16 v0, p0
 
-    iget v11, v0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorMode:I
+    iget v11, v0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorTransformId:I
 
     move-object/from16 v0, p0
 
@@ -121,7 +121,7 @@
     .line 286
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v11, v12}, Lcom/android/server/display/DisplayDevice;->requestDisplayModesInTransactionLocked(II)V
+    invoke-virtual {v0, v11, v12}, Lcom/android/server/display/DisplayDevice;->requestColorTransformAndModeInTransactionLocked(II)V
 
     .line 293
     :goto_1
@@ -346,7 +346,7 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v11, v12}, Lcom/android/server/display/DisplayDevice;->requestDisplayModesInTransactionLocked(II)V
+    invoke-virtual {v0, v11, v12}, Lcom/android/server/display/DisplayDevice;->requestColorTransformAndModeInTransactionLocked(II)V
 
     goto/16 :goto_1
 
@@ -357,16 +357,18 @@
     :cond_3
     const/4 v10, 0x1
 
+    .restart local v10    # "rotated":Z
     goto :goto_2
 
     .line 318
+    .end local v10    # "rotated":Z
     :cond_4
     const/4 v10, 0x0
 
+    .restart local v10    # "rotated":Z
     goto :goto_2
 
     .line 319
-    .restart local v10    # "rotated":Z
     :cond_5
     iget v9, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
@@ -532,13 +534,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "mRequestedColorMode="
+    const-string/jumbo v1, "mRequestedColorTransformId="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorMode:I
+    iget v1, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorTransformId:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -900,12 +902,12 @@
     return-object v0
 .end method
 
-.method public getRequestedColorModeLocked()I
+.method public getRequestedColorTransformIdLocked()I
     .locals 1
 
     .prologue
     .line 401
-    iget v0, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorMode:I
+    iget v0, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorTransformId:I
 
     return v0
 .end method
@@ -1051,13 +1053,13 @@
     return-void
 .end method
 
-.method public setRequestedColorModeLocked(I)V
+.method public setRequestedColorTransformIdLocked(I)V
     .locals 0
-    .param p1, "colorMode"    # I
+    .param p1, "colorTransformId"    # I
 
     .prologue
     .line 396
-    iput p1, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorMode:I
+    iput p1, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorTransformId:I
 
     .line 395
     return-void
@@ -1329,34 +1331,36 @@
     .line 239
     iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
 
-    iget v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->colorMode:I
+    iget v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->colorTransformId:I
 
-    iput v2, v1, Landroid/view/DisplayInfo;->colorMode:I
+    iput v2, v1, Landroid/view/DisplayInfo;->colorTransformId:I
 
     .line 240
     iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
 
+    iget v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->defaultColorTransformId:I
+
+    iput v2, v1, Landroid/view/DisplayInfo;->defaultColorTransformId:I
+
     .line 241
-    iget-object v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->supportedColorModes:[I
+    iget-object v2, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
 
     .line 242
-    iget-object v3, v0, Lcom/android/server/display/DisplayDeviceInfo;->supportedColorModes:[I
+    iget-object v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+
+    .line 243
+    iget-object v3, v0, Lcom/android/server/display/DisplayDeviceInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
 
     array-length v3, v3
 
-    .line 240
-    invoke-static {v2, v3}, Ljava/util/Arrays;->copyOf([II)[I
+    .line 241
+    invoke-static {v1, v3}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, v1, Landroid/view/DisplayInfo;->supportedColorModes:[I
+    check-cast v1, [Landroid/view/Display$ColorTransform;
 
-    .line 243
-    iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
-
-    iget-object v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
-
-    iput-object v2, v1, Landroid/view/DisplayInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
+    iput-object v1, v2, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
 
     .line 244
     iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;

@@ -18,11 +18,9 @@
 
 .field private static final MSG_WRITE:I = 0x12c
 
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "ActivityManager"
 
-.field private static final TAG_CONFIGURATION:Ljava/lang/String;
-
-.field public static final UNSUPPORTED_ZOOM_FLAG_DONT_NOTIFY:I = 0x4
+.field private static final TAG_CONFIGURATION:Ljava/lang/String; = "ActivityManager"
 
 
 # instance fields
@@ -46,42 +44,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    .prologue
-    .line 50
-    const-string/jumbo v0, "ActivityManager"
-
-    sput-object v0, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
-
-    .line 51
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    sget-object v1, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_CONFIGURATION:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/am/CompatModePackages;->TAG_CONFIGURATION:Ljava/lang/String;
-
-    .line 49
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Ljava/io/File;Landroid/os/Handler;)V
     .locals 15
     .param p1, "service"    # Lcom/android/server/am/ActivityManagerService;
@@ -89,22 +51,22 @@
     .param p3, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 84
+    .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 63
+    .line 60
     new-instance v12, Ljava/util/HashMap;
 
     invoke-direct {v12}, Ljava/util/HashMap;-><init>()V
 
     iput-object v12, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
 
-    .line 85
+    .line 82
     move-object/from16 v0, p1
 
     iput-object v0, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    .line 86
+    .line 83
     new-instance v12, Landroid/util/AtomicFile;
 
     new-instance v13, Ljava/io/File;
@@ -119,7 +81,7 @@
 
     iput-object v12, p0, Lcom/android/server/am/CompatModePackages;->mFile:Landroid/util/AtomicFile;
 
-    .line 87
+    .line 84
     new-instance v12, Lcom/android/server/am/CompatModePackages$CompatHandler;
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
@@ -130,10 +92,10 @@
 
     iput-object v12, p0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
 
-    .line 89
+    .line 86
     const/4 v6, 0x0
 
-    .line 91
+    .line 88
     .local v6, "fis":Ljava/io/FileInputStream;
     :try_start_0
     iget-object v12, p0, Lcom/android/server/am/CompatModePackages;->mFile:Landroid/util/AtomicFile;
@@ -142,13 +104,13 @@
 
     move-result-object v6
 
-    .line 92
+    .line 89
     .local v6, "fis":Ljava/io/FileInputStream;
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v9
 
-    .line 93
+    .line 90
     .local v9, "parser":Lorg/xmlpull/v1/XmlPullParser;
     sget-object v12, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
@@ -158,24 +120,24 @@
 
     invoke-interface {v9, v6, v12}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    .line 94
+    .line 91
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v5
 
-    .line 95
+    .line 92
     .local v5, "eventType":I
     :goto_0
     const/4 v12, 0x2
 
     if-eq v5, v12, :cond_0
 
-    .line 96
+    .line 93
     const/4 v12, 0x1
 
     if-eq v5, v12, :cond_0
 
-    .line 97
+    .line 94
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->next()I
     :try_end_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_5
@@ -186,34 +148,34 @@
 
     goto :goto_0
 
-    .line 99
+    .line 96
     :cond_0
     const/4 v12, 0x1
 
     if-ne v5, v12, :cond_2
 
-    .line 134
+    .line 131
     if-eqz v6, :cond_1
 
-    .line 136
+    .line 133
     :try_start_1
     invoke-virtual {v6}, Ljava/io/FileInputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 100
+    .line 97
     :cond_1
     :goto_1
     return-void
 
-    .line 137
+    .line 134
     :catch_0
     move-exception v4
 
     .local v4, "e1":Ljava/io/IOException;
     goto :goto_1
 
-    .line 103
+    .line 100
     .end local v4    # "e1":Ljava/io/IOException;
     :cond_2
     :try_start_2
@@ -221,7 +183,7 @@
 
     move-result-object v11
 
-    .line 104
+    .line 101
     .local v11, "tagName":Ljava/lang/String;
     const-string/jumbo v12, "compat-packages"
 
@@ -231,23 +193,23 @@
 
     if-eqz v12, :cond_6
 
-    .line 105
+    .line 102
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v5
 
-    .line 107
+    .line 104
     :cond_3
     const/4 v12, 0x2
 
     if-ne v5, v12, :cond_5
 
-    .line 108
+    .line 105
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v11
 
-    .line 109
+    .line 106
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v12
@@ -256,7 +218,7 @@
 
     if-ne v12, v13, :cond_5
 
-    .line 110
+    .line 107
     const-string/jumbo v12, "pkg"
 
     invoke-virtual {v12, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -265,7 +227,7 @@
 
     if-eqz v12, :cond_5
 
-    .line 111
+    .line 108
     const-string/jumbo v12, "name"
 
     const/4 v13, 0x0
@@ -274,11 +236,11 @@
 
     move-result-object v10
 
-    .line 112
+    .line 109
     .local v10, "pkg":Ljava/lang/String;
     if-eqz v10, :cond_5
 
-    .line 113
+    .line 110
     const-string/jumbo v12, "mode"
 
     const/4 v13, 0x0
@@ -291,15 +253,15 @@
 
     move-result-object v7
 
-    .line 114
+    .line 111
     .local v7, "mode":Ljava/lang/String;
     const/4 v8, 0x0
 
-    .line 115
+    .line 112
     .local v8, "modeInt":I
     if-eqz v7, :cond_4
 
-    .line 117
+    .line 114
     :try_start_3
     invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_3
@@ -310,7 +272,7 @@
 
     move-result v8
 
-    .line 121
+    .line 118
     :cond_4
     :goto_2
     :try_start_4
@@ -322,7 +284,7 @@
 
     invoke-virtual {v12, v10, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 126
+    .line 123
     .end local v7    # "mode":Ljava/lang/String;
     .end local v8    # "modeInt":I
     .end local v10    # "pkg":Ljava/lang/String;
@@ -335,22 +297,22 @@
 
     move-result v5
 
-    .line 127
+    .line 124
     const/4 v12, 0x1
 
     if-ne v5, v12, :cond_3
 
-    .line 134
+    .line 131
     :cond_6
     if-eqz v6, :cond_7
 
-    .line 136
+    .line 133
     :try_start_5
     invoke-virtual {v6}, Ljava/io/FileInputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
-    .line 84
+    .line 81
     .end local v5    # "eventType":I
     .end local v6    # "fis":Ljava/io/FileInputStream;
     .end local v9    # "parser":Lorg/xmlpull/v1/XmlPullParser;
@@ -359,7 +321,7 @@
     :goto_3
     return-void
 
-    .line 118
+    .line 115
     .restart local v5    # "eventType":I
     .restart local v6    # "fis":Ljava/io/FileInputStream;
     .restart local v7    # "mode":Ljava/lang/String;
@@ -373,7 +335,7 @@
     .local v2, "e":Ljava/lang/NumberFormatException;
     goto :goto_2
 
-    .line 137
+    .line 134
     .end local v2    # "e":Ljava/lang/NumberFormatException;
     .end local v7    # "mode":Ljava/lang/String;
     .end local v8    # "modeInt":I
@@ -384,7 +346,7 @@
     .restart local v4    # "e1":Ljava/io/IOException;
     goto :goto_3
 
-    .line 131
+    .line 128
     .end local v4    # "e1":Ljava/io/IOException;
     .end local v5    # "eventType":I
     .end local v6    # "fis":Ljava/io/FileInputStream;
@@ -393,12 +355,12 @@
     :catch_3
     move-exception v1
 
-    .line 132
+    .line 129
     .local v1, "e":Ljava/io/IOException;
     if-eqz v6, :cond_8
 
     :try_start_6
-    sget-object v12, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
+    const-string/jumbo v12, "ActivityManager"
 
     const-string/jumbo v13, "Error reading compat-packages"
 
@@ -406,11 +368,11 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    .line 134
+    .line 131
     :cond_8
     if-eqz v6, :cond_7
 
-    .line 136
+    .line 133
     :try_start_7
     invoke-virtual {v6}, Ljava/io/FileInputStream;->close()V
     :try_end_7
@@ -418,23 +380,23 @@
 
     goto :goto_3
 
-    .line 137
+    .line 134
     :catch_4
     move-exception v4
 
     .restart local v4    # "e1":Ljava/io/IOException;
     goto :goto_3
 
-    .line 129
+    .line 126
     .end local v1    # "e":Ljava/io/IOException;
     .end local v4    # "e1":Ljava/io/IOException;
     :catch_5
     move-exception v3
 
-    .line 130
+    .line 127
     .local v3, "e":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_8
-    sget-object v12, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
+    const-string/jumbo v12, "ActivityManager"
 
     const-string/jumbo v13, "Error reading compat-packages"
 
@@ -442,10 +404,10 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    .line 134
+    .line 131
     if-eqz v6, :cond_7
 
-    .line 136
+    .line 133
     :try_start_9
     invoke-virtual {v6}, Ljava/io/FileInputStream;->close()V
     :try_end_9
@@ -453,34 +415,34 @@
 
     goto :goto_3
 
-    .line 137
+    .line 134
     :catch_6
     move-exception v4
 
     .restart local v4    # "e1":Ljava/io/IOException;
     goto :goto_3
 
-    .line 133
+    .line 130
     .end local v3    # "e":Lorg/xmlpull/v1/XmlPullParserException;
     .end local v4    # "e1":Ljava/io/IOException;
     :catchall_0
     move-exception v12
 
-    .line 134
+    .line 131
     if-eqz v6, :cond_9
 
-    .line 136
+    .line 133
     :try_start_a
     invoke-virtual {v6}, Ljava/io/FileInputStream;->close()V
     :try_end_a
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_7
 
-    .line 133
+    .line 130
     :cond_9
     :goto_4
     throw v12
 
-    .line 137
+    .line 134
     :catch_7
     move-exception v4
 
@@ -493,7 +455,7 @@
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 148
+    .line 145
     iget-object v1, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -502,7 +464,7 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 149
+    .line 146
     .local v0, "flags":Ljava/lang/Integer;
     if-eqz v0, :cond_0
 
@@ -519,407 +481,392 @@
     goto :goto_0
 .end method
 
-.method private removePackage(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "packageName"    # Ljava/lang/String;
-
-    .prologue
-    .line 164
-    iget-object v0, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 165
-    iget-object v0, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 166
-    invoke-direct {p0}, Lcom/android/server/am/CompatModePackages;->scheduleWrite()V
-
-    .line 163
-    :cond_0
-    return-void
-.end method
-
-.method private scheduleWrite()V
-    .locals 4
-
-    .prologue
-    const/16 v2, 0x12c
-
-    .line 194
-    iget-object v1, p0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
-
-    invoke-virtual {v1, v2}, Lcom/android/server/am/CompatModePackages$CompatHandler;->removeMessages(I)V
-
-    .line 195
-    iget-object v1, p0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
-
-    invoke-virtual {v1, v2}, Lcom/android/server/am/CompatModePackages$CompatHandler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v0
-
-    .line 196
-    .local v0, "msg":Landroid/os/Message;
-    iget-object v1, p0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
-
-    const-wide/16 v2, 0x2710
-
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/am/CompatModePackages$CompatHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    .line 193
-    return-void
-.end method
-
 .method private setPackageScreenCompatModeLocked(Landroid/content/pm/ApplicationInfo;I)V
-    .locals 13
+    .locals 16
     .param p1, "ai"    # Landroid/content/pm/ApplicationInfo;
     .param p2, "mode"    # I
 
     .prologue
-    .line 315
-    iget-object v7, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    .line 274
+    move-object/from16 v0, p1
 
-    .line 317
-    .local v7, "packageName":Ljava/lang/String;
-    invoke-direct {p0, v7}, Lcom/android/server/am/CompatModePackages;->getPackageFlags(Ljava/lang/String;)I
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    move-result v2
+    .line 276
+    .local v10, "packageName":Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    .line 320
-    .local v2, "curFlags":I
+    invoke-direct {v0, v10}, Lcom/android/server/am/CompatModePackages;->getPackageFlags(Ljava/lang/String;)I
+
+    move-result v4
+
+    .line 279
+    .local v4, "curFlags":I
     packed-switch p2, :pswitch_data_0
 
-    .line 331
-    sget-object v10, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
+    .line 290
+    const-string/jumbo v13, "ActivityManager"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "Unknown screen compat mode req #"
+    const-string/jumbo v15, "Unknown screen compat mode req #"
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-virtual {v11, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move/from16 v0, p2
 
-    move-result-object v11
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v12, "; ignoring"
+    move-result-object v14
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v15, "; ignoring"
 
-    move-result-object v11
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v11
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v10, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v14
 
-    .line 332
+    invoke-static {v13, v14}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 291
     return-void
 
-    .line 322
+    .line 281
     :pswitch_0
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    .line 335
-    .local v4, "enable":Z
+    .line 294
+    .local v6, "enable":Z
     :goto_0
-    move v6, v2
+    move v9, v4
 
-    .line 336
-    .local v6, "newFlags":I
-    if-eqz v4, :cond_4
+    .line 295
+    .local v9, "newFlags":I
+    if-eqz v6, :cond_4
 
-    .line 337
-    or-int/lit8 v6, v2, 0x2
+    .line 296
+    or-int/lit8 v9, v9, 0x2
 
-    .line 342
+    .line 301
     :goto_1
-    invoke-virtual {p0, p1}, Lcom/android/server/am/CompatModePackages;->compatibilityInfoForPackageLocked(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/CompatibilityInfo;
+    invoke-virtual/range {p0 .. p1}, Lcom/android/server/am/CompatModePackages;->compatibilityInfoForPackageLocked(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/CompatibilityInfo;
 
-    move-result-object v1
+    move-result-object v3
 
-    .line 343
-    .local v1, "ci":Landroid/content/res/CompatibilityInfo;
-    invoke-virtual {v1}, Landroid/content/res/CompatibilityInfo;->alwaysSupportsScreen()Z
+    .line 302
+    .local v3, "ci":Landroid/content/res/CompatibilityInfo;
+    invoke-virtual {v3}, Landroid/content/res/CompatibilityInfo;->alwaysSupportsScreen()Z
 
-    move-result v10
+    move-result v13
 
-    if-eqz v10, :cond_0
+    if-eqz v13, :cond_0
 
-    .line 344
-    sget-object v10, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
+    .line 303
+    const-string/jumbo v13, "ActivityManager"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "Ignoring compat mode change of "
+    const-string/jumbo v15, "Ignoring compat mode change of "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    .line 345
-    const-string/jumbo v12, "; compatibility never needed"
+    .line 304
+    const-string/jumbo v15, "; compatibility never needed"
 
-    .line 344
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 303
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-static {v10, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v14}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 346
-    const/4 v6, 0x0
+    .line 305
+    const/4 v9, 0x0
 
-    .line 348
+    .line 307
     :cond_0
-    invoke-virtual {v1}, Landroid/content/res/CompatibilityInfo;->neverSupportsScreen()Z
+    invoke-virtual {v3}, Landroid/content/res/CompatibilityInfo;->neverSupportsScreen()Z
 
-    move-result v10
+    move-result v13
 
-    if-eqz v10, :cond_1
+    if-eqz v13, :cond_1
 
-    .line 349
-    sget-object v10, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
+    .line 308
+    const-string/jumbo v13, "ActivityManager"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "Ignoring compat mode change of "
+    const-string/jumbo v15, "Ignoring compat mode change of "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    .line 350
-    const-string/jumbo v12, "; compatibility always needed"
+    .line 309
+    const-string/jumbo v15, "; compatibility always needed"
 
-    .line 349
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 308
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-static {v10, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v14}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 351
-    const/4 v6, 0x0
+    .line 310
+    const/4 v9, 0x0
 
-    .line 354
+    .line 313
     :cond_1
-    if-eq v6, v2, :cond_8
+    if-eq v9, v4, :cond_8
 
-    .line 355
-    if-eqz v6, :cond_5
+    .line 314
+    if-eqz v9, :cond_5
 
-    .line 356
-    iget-object v10, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
+    .line 315
+    move-object/from16 v0, p0
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    iget-object v13, v0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
 
-    move-result-object v11
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v10, v7, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v14
 
-    .line 362
+    invoke-virtual {v13, v10, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 321
     :goto_2
-    invoke-virtual {p0, p1}, Lcom/android/server/am/CompatModePackages;->compatibilityInfoForPackageLocked(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/CompatibilityInfo;
+    invoke-virtual/range {p0 .. p1}, Lcom/android/server/am/CompatModePackages;->compatibilityInfoForPackageLocked(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/CompatibilityInfo;
 
-    move-result-object v1
+    move-result-object v3
 
-    .line 364
-    invoke-direct {p0}, Lcom/android/server/am/CompatModePackages;->scheduleWrite()V
+    .line 323
+    move-object/from16 v0, p0
 
-    .line 366
-    iget-object v10, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v13, v0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
 
-    invoke-virtual {v10}, Lcom/android/server/am/ActivityManagerService;->getFocusedStack()Lcom/android/server/am/ActivityStack;
+    const/16 v14, 0x12c
+
+    invoke-virtual {v13, v14}, Lcom/android/server/am/CompatModePackages$CompatHandler;->removeMessages(I)V
+
+    .line 324
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
+
+    const/16 v14, 0x12c
+
+    invoke-virtual {v13, v14}, Lcom/android/server/am/CompatModePackages$CompatHandler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v8
 
-    .line 367
-    .local v8, "stack":Lcom/android/server/am/ActivityStack;
-    invoke-virtual {v8, v7}, Lcom/android/server/am/ActivityStack;->restartPackage(Ljava/lang/String;)Lcom/android/server/am/ActivityRecord;
+    .line 325
+    .local v8, "msg":Landroid/os/Message;
+    move-object/from16 v0, p0
 
-    move-result-object v9
+    iget-object v13, v0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
 
-    .line 370
-    .local v9, "starting":Lcom/android/server/am/ActivityRecord;
-    iget-object v10, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
+    const-wide/16 v14, 0x2710
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mLruProcesses:Ljava/util/ArrayList;
+    invoke-virtual {v13, v8, v14, v15}, Lcom/android/server/am/CompatModePackages$CompatHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
+    .line 327
+    move-object/from16 v0, p0
 
-    move-result v10
+    iget-object v13, v0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    add-int/lit8 v5, v10, -0x1
+    invoke-virtual {v13}, Lcom/android/server/am/ActivityManagerService;->getFocusedStack()Lcom/android/server/am/ActivityStack;
 
-    .local v5, "i":I
+    move-result-object v11
+
+    .line 328
+    .local v11, "stack":Lcom/android/server/am/ActivityStack;
+    invoke-virtual {v11, v10}, Lcom/android/server/am/ActivityStack;->restartPackage(Ljava/lang/String;)Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v12
+
+    .line 331
+    .local v12, "starting":Lcom/android/server/am/ActivityRecord;
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v13, v13, Lcom/android/server/am/ActivityManagerService;->mLruProcesses:Ljava/util/ArrayList;
+
+    invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
+
+    move-result v13
+
+    add-int/lit8 v7, v13, -0x1
+
+    .local v7, "i":I
     :goto_3
-    if-ltz v5, :cond_7
+    if-ltz v7, :cond_7
 
-    .line 371
-    iget-object v10, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
+    .line 332
+    move-object/from16 v0, p0
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mLruProcesses:Ljava/util/ArrayList;
+    iget-object v13, v0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v10, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    iget-object v13, v13, Lcom/android/server/am/ActivityManagerService;->mLruProcesses:Ljava/util/ArrayList;
 
-    move-result-object v0
+    invoke-virtual {v13, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    check-cast v0, Lcom/android/server/am/ProcessRecord;
+    move-result-object v2
 
-    .line 372
-    .local v0, "app":Lcom/android/server/am/ProcessRecord;
-    iget-object v10, v0, Lcom/android/server/am/ProcessRecord;->pkgList:Landroid/util/ArrayMap;
+    check-cast v2, Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v10, v7}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
+    .line 333
+    .local v2, "app":Lcom/android/server/am/ProcessRecord;
+    iget-object v13, v2, Lcom/android/server/am/ProcessRecord;->pkgList:Landroid/util/ArrayMap;
 
-    move-result v10
+    invoke-virtual {v13, v10}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
 
-    if-nez v10, :cond_6
+    move-result v13
 
-    .line 370
+    if-nez v13, :cond_6
+
+    .line 331
     :cond_2
     :goto_4
-    add-int/lit8 v5, v5, -0x1
+    add-int/lit8 v7, v7, -0x1
 
     goto :goto_3
 
-    .line 325
-    .end local v0    # "app":Lcom/android/server/am/ProcessRecord;
-    .end local v1    # "ci":Landroid/content/res/CompatibilityInfo;
-    .end local v4    # "enable":Z
-    .end local v5    # "i":I
-    .end local v6    # "newFlags":I
-    .end local v8    # "stack":Lcom/android/server/am/ActivityStack;
-    .end local v9    # "starting":Lcom/android/server/am/ActivityRecord;
+    .line 284
+    .end local v2    # "app":Lcom/android/server/am/ProcessRecord;
+    .end local v3    # "ci":Landroid/content/res/CompatibilityInfo;
+    .end local v6    # "enable":Z
+    .end local v7    # "i":I
+    .end local v8    # "msg":Landroid/os/Message;
+    .end local v9    # "newFlags":I
+    .end local v11    # "stack":Lcom/android/server/am/ActivityStack;
+    .end local v12    # "starting":Lcom/android/server/am/ActivityRecord;
     :pswitch_1
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
-    .line 326
-    .restart local v4    # "enable":Z
+    .line 285
+    .restart local v6    # "enable":Z
     goto/16 :goto_0
 
-    .line 328
-    .end local v4    # "enable":Z
+    .line 287
+    .end local v6    # "enable":Z
     :pswitch_2
-    and-int/lit8 v10, v2, 0x2
+    and-int/lit8 v13, v4, 0x2
 
-    if-nez v10, :cond_3
+    if-nez v13, :cond_3
 
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
-    .restart local v4    # "enable":Z
+    .restart local v6    # "enable":Z
     goto/16 :goto_0
 
-    .end local v4    # "enable":Z
+    .end local v6    # "enable":Z
     :cond_3
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    .restart local v4    # "enable":Z
+    .restart local v6    # "enable":Z
     goto/16 :goto_0
 
-    .line 339
-    .restart local v6    # "newFlags":I
+    .line 298
+    .restart local v9    # "newFlags":I
     :cond_4
-    and-int/lit8 v6, v2, -0x3
+    and-int/lit8 v9, v9, -0x3
 
     goto/16 :goto_1
 
-    .line 358
-    .restart local v1    # "ci":Landroid/content/res/CompatibilityInfo;
+    .line 317
+    .restart local v3    # "ci":Landroid/content/res/CompatibilityInfo;
     :cond_5
-    iget-object v10, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v10, v7}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v13, v0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
+
+    invoke-virtual {v13, v10}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_2
 
-    .line 376
-    .restart local v0    # "app":Lcom/android/server/am/ProcessRecord;
-    .restart local v5    # "i":I
-    .restart local v8    # "stack":Lcom/android/server/am/ActivityStack;
-    .restart local v9    # "starting":Lcom/android/server/am/ActivityRecord;
+    .line 337
+    .restart local v2    # "app":Lcom/android/server/am/ProcessRecord;
+    .restart local v7    # "i":I
+    .restart local v8    # "msg":Landroid/os/Message;
+    .restart local v11    # "stack":Lcom/android/server/am/ActivityStack;
+    .restart local v12    # "starting":Lcom/android/server/am/ActivityRecord;
     :cond_6
     :try_start_0
-    iget-object v10, v0, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
+    iget-object v13, v2, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
-    if-eqz v10, :cond_2
+    if-eqz v13, :cond_2
 
-    .line 379
-    iget-object v10, v0, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
+    .line 340
+    iget-object v13, v2, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
-    invoke-interface {v10, v7, v1}, Landroid/app/IApplicationThread;->updatePackageCompatibilityInfo(Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)V
+    invoke-interface {v13, v10, v3}, Landroid/app/IApplicationThread;->updatePackageCompatibilityInfo(Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_4
 
-    .line 381
+    .line 342
     :catch_0
-    move-exception v3
+    move-exception v5
 
-    .local v3, "e":Ljava/lang/Exception;
+    .local v5, "e":Ljava/lang/Exception;
     goto :goto_4
 
-    .line 385
-    .end local v0    # "app":Lcom/android/server/am/ProcessRecord;
-    .end local v3    # "e":Ljava/lang/Exception;
+    .line 346
+    .end local v2    # "app":Lcom/android/server/am/ProcessRecord;
+    .end local v5    # "e":Ljava/lang/Exception;
     :cond_7
-    if-eqz v9, :cond_8
+    if-eqz v12, :cond_8
 
-    .line 386
-    const/4 v10, 0x0
+    .line 347
+    const/4 v13, 0x0
 
-    const/4 v11, 0x0
+    invoke-virtual {v11, v12, v13}, Lcom/android/server/am/ActivityStack;->ensureActivityConfigurationLocked(Lcom/android/server/am/ActivityRecord;I)Z
 
-    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/am/ActivityStack;->ensureActivityConfigurationLocked(Lcom/android/server/am/ActivityRecord;IZ)Z
+    .line 350
+    const/4 v13, 0x0
 
-    .line 389
-    const/4 v10, 0x0
+    invoke-virtual {v11, v12, v13}, Lcom/android/server/am/ActivityStack;->ensureActivitiesVisibleLocked(Lcom/android/server/am/ActivityRecord;I)V
 
-    const/4 v11, 0x0
-
-    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/am/ActivityStack;->ensureActivitiesVisibleLocked(Lcom/android/server/am/ActivityRecord;IZ)V
-
-    .line 314
-    .end local v5    # "i":I
-    .end local v8    # "stack":Lcom/android/server/am/ActivityStack;
-    .end local v9    # "starting":Lcom/android/server/am/ActivityRecord;
+    .line 273
+    .end local v7    # "i":I
+    .end local v8    # "msg":Landroid/os/Message;
+    .end local v11    # "stack":Lcom/android/server/am/ActivityStack;
+    .end local v12    # "starting":Lcom/android/server/am/ActivityRecord;
     :cond_8
     return-void
 
-    .line 320
+    .line 279
     nop
 
     :pswitch_data_0
@@ -939,7 +886,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 200
+    .line 175
     new-instance v0, Landroid/content/res/CompatibilityInfo;
 
     iget-object v2, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -948,14 +895,14 @@
 
     iget v2, v2, Landroid/content/res/Configuration;->screenLayout:I
 
-    .line 201
+    .line 176
     iget-object v3, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
 
     iget v3, v3, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
 
-    .line 202
+    .line 177
     iget-object v4, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     invoke-direct {p0, v4}, Lcom/android/server/am/CompatModePackages;->getPackageFlags(Ljava/lang/String;)I
@@ -968,11 +915,11 @@
 
     const/4 v1, 0x1
 
-    .line 200
+    .line 175
     :cond_0
     invoke-direct {v0, p1, v2, v3, v1}, Landroid/content/res/CompatibilityInfo;-><init>(Landroid/content/pm/ApplicationInfo;IIZ)V
 
-    .line 204
+    .line 179
     .local v0, "ci":Landroid/content/res/CompatibilityInfo;
     return-object v0
 .end method
@@ -984,7 +931,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 208
+    .line 183
     iget-object v3, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     invoke-direct {p0, v3}, Lcom/android/server/am/CompatModePackages;->getPackageFlags(Ljava/lang/String;)I
@@ -997,29 +944,29 @@
 
     const/4 v0, 0x1
 
-    .line 209
+    .line 184
     .local v0, "enabled":Z
     :goto_0
     new-instance v1, Landroid/content/res/CompatibilityInfo;
 
-    .line 210
+    .line 185
     iget-object v3, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
 
     iget v3, v3, Landroid/content/res/Configuration;->screenLayout:I
 
-    .line 211
+    .line 186
     iget-object v4, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
 
     iget v4, v4, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
 
-    .line 209
+    .line 184
     invoke-direct {v1, p1, v3, v4, v0}, Landroid/content/res/CompatibilityInfo;-><init>(Landroid/content/pm/ApplicationInfo;IIZ)V
 
-    .line 212
+    .line 187
     .local v1, "info":Landroid/content/res/CompatibilityInfo;
     invoke-virtual {v1}, Landroid/content/res/CompatibilityInfo;->alwaysSupportsScreen()Z
 
@@ -1027,12 +974,12 @@
 
     if-eqz v3, :cond_1
 
-    .line 213
+    .line 188
     const/4 v2, -0x2
 
     return v2
 
-    .line 208
+    .line 183
     .end local v0    # "enabled":Z
     .end local v1    # "info":Landroid/content/res/CompatibilityInfo;
     :cond_0
@@ -1041,7 +988,7 @@
     .restart local v0    # "enabled":Z
     goto :goto_0
 
-    .line 215
+    .line 190
     .restart local v1    # "info":Landroid/content/res/CompatibilityInfo;
     :cond_1
     invoke-virtual {v1}, Landroid/content/res/CompatibilityInfo;->neverSupportsScreen()Z
@@ -1050,12 +997,12 @@
 
     if-eqz v3, :cond_2
 
-    .line 216
+    .line 191
     const/4 v2, -0x1
 
     return v2
 
-    .line 218
+    .line 193
     :cond_2
     if-eqz v0, :cond_3
 
@@ -1066,30 +1013,32 @@
 .end method
 
 .method public getFrontActivityAskCompatModeLocked()Z
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 223
+    const/4 v2, 0x0
+
+    .line 198
     iget-object v1, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
     invoke-virtual {v1}, Lcom/android/server/am/ActivityManagerService;->getFocusedStack()Lcom/android/server/am/ActivityStack;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+    invoke-virtual {v1, v2}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked(Lcom/android/server/am/ActivityRecord;)Lcom/android/server/am/ActivityRecord;
 
     move-result-object v0
 
-    .line 224
+    .line 199
     .local v0, "r":Lcom/android/server/am/ActivityRecord;
     if-nez v0, :cond_0
 
-    .line 225
+    .line 200
     const/4 v1, 0x0
 
     return v1
 
-    .line 227
+    .line 202
     :cond_0
     iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
 
@@ -1101,30 +1050,32 @@
 .end method
 
 .method public getFrontActivityScreenCompatModeLocked()I
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 273
+    const/4 v2, 0x0
+
+    .line 232
     iget-object v1, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
     invoke-virtual {v1}, Lcom/android/server/am/ActivityManagerService;->getFocusedStack()Lcom/android/server/am/ActivityStack;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+    invoke-virtual {v1, v2}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked(Lcom/android/server/am/ActivityRecord;)Lcom/android/server/am/ActivityRecord;
 
     move-result-object v0
 
-    .line 274
+    .line 233
     .local v0, "r":Lcom/android/server/am/ActivityRecord;
     if-nez v0, :cond_0
 
-    .line 275
+    .line 234
     const/4 v1, -0x3
 
     return v1
 
-    .line 277
+    .line 236
     :cond_0
     iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
@@ -1144,7 +1095,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 231
+    .line 206
     invoke-direct {p0, p1}, Lcom/android/server/am/CompatModePackages;->getPackageFlags(Ljava/lang/String;)I
 
     move-result v1
@@ -1159,37 +1110,15 @@
     return v0
 .end method
 
-.method public getPackageNotifyUnsupportedZoomLocked(Ljava/lang/String;)Z
-    .locals 2
-    .param p1, "packageName"    # Ljava/lang/String;
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 235
-    invoke-direct {p0, p1}, Lcom/android/server/am/CompatModePackages;->getPackageFlags(Ljava/lang/String;)I
-
-    move-result v1
-
-    and-int/lit8 v1, v1, 0x4
-
-    if-nez v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
-.end method
-
 .method public getPackageScreenCompatModeLocked(Ljava/lang/String;)I
     .locals 5
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
-    .line 290
+    .line 249
     const/4 v0, 0x0
 
-    .line 292
+    .line 251
     .local v0, "ai":Landroid/content/pm/ApplicationInfo;
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
@@ -1206,17 +1135,17 @@
 
     move-result-object v0
 
-    .line 295
+    .line 254
     .end local v0    # "ai":Landroid/content/pm/ApplicationInfo;
     :goto_0
     if-nez v0, :cond_0
 
-    .line 296
+    .line 255
     const/4 v2, -0x3
 
     return v2
 
-    .line 298
+    .line 257
     :cond_0
     invoke-virtual {p0, v0}, Lcom/android/server/am/CompatModePackages;->computeCompatModeLocked(Landroid/content/pm/ApplicationInfo;)I
 
@@ -1224,7 +1153,7 @@
 
     return v2
 
-    .line 293
+    .line 252
     .restart local v0    # "ai":Landroid/content/pm/ApplicationInfo;
     :catch_0
     move-exception v1
@@ -1247,98 +1176,118 @@
     .end annotation
 
     .prologue
-    .line 144
+    .line 141
     iget-object v0, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
 
     return-object v0
 .end method
 
 .method public handlePackageAddedLocked(Ljava/lang/String;Z)V
-    .locals 7
+    .locals 9
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "updated"    # Z
 
     .prologue
-    .line 171
+    const/16 v8, 0x12c
+
+    .line 150
     const/4 v0, 0x0
 
-    .line 173
+    .line 152
     .local v0, "ai":Landroid/content/pm/ApplicationInfo;
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v4
-
-    const/4 v5, 0x0
+    move-result-object v5
 
     const/4 v6, 0x0
 
-    invoke-interface {v4, p1, v5, v6}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    const/4 v7, 0x0
+
+    invoke-interface {v5, p1, v6, v7}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
-    .line 176
+    .line 155
     .end local v0    # "ai":Landroid/content/pm/ApplicationInfo;
     :goto_0
     if-nez v0, :cond_0
 
-    .line 177
+    .line 156
     return-void
 
-    .line 179
+    .line 158
     :cond_0
     invoke-virtual {p0, v0}, Lcom/android/server/am/CompatModePackages;->compatibilityInfoForPackageLocked(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/CompatibilityInfo;
 
     move-result-object v1
 
-    .line 180
+    .line 159
     .local v1, "ci":Landroid/content/res/CompatibilityInfo;
     invoke-virtual {v1}, Landroid/content/res/CompatibilityInfo;->alwaysSupportsScreen()Z
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_3
+    if-nez v5, :cond_3
 
-    .line 181
+    .line 160
     invoke-virtual {v1}, Landroid/content/res/CompatibilityInfo;->neverSupportsScreen()Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_2
+    if-eqz v5, :cond_2
 
     const/4 v3, 0x0
 
-    .line 183
+    .line 162
     .local v3, "mayCompat":Z
     :goto_1
     if-eqz p2, :cond_1
 
-    .line 186
+    .line 165
     if-nez v3, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
+    iget-object v5, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
 
-    invoke-virtual {v4, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_1
+    if-eqz v5, :cond_1
 
-    .line 187
-    iget-object v4, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
+    .line 166
+    iget-object v5, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
 
-    invoke-virtual {v4, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 188
-    invoke-direct {p0}, Lcom/android/server/am/CompatModePackages;->scheduleWrite()V
+    .line 167
+    iget-object v5, p0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
 
-    .line 170
+    invoke-virtual {v5, v8}, Lcom/android/server/am/CompatModePackages$CompatHandler;->removeMessages(I)V
+
+    .line 168
+    iget-object v5, p0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
+
+    invoke-virtual {v5, v8}, Lcom/android/server/am/CompatModePackages$CompatHandler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v4
+
+    .line 169
+    .local v4, "msg":Landroid/os/Message;
+    iget-object v5, p0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
+
+    const-wide/16 v6, 0x2710
+
+    invoke-virtual {v5, v4, v6, v7}, Lcom/android/server/am/CompatModePackages$CompatHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
+    .line 149
+    .end local v4    # "msg":Landroid/os/Message;
     :cond_1
     return-void
 
-    .line 181
+    .line 160
     .end local v3    # "mayCompat":Z
     :cond_2
     const/4 v3, 0x1
@@ -1346,7 +1295,7 @@
     .restart local v3    # "mayCompat":Z
     goto :goto_1
 
-    .line 180
+    .line 159
     .end local v3    # "mayCompat":Z
     :cond_3
     const/4 v3, 0x0
@@ -1354,7 +1303,7 @@
     .restart local v3    # "mayCompat":Z
     goto :goto_1
 
-    .line 174
+    .line 153
     .end local v1    # "ci":Landroid/content/res/CompatibilityInfo;
     .end local v3    # "mayCompat":Z
     .restart local v0    # "ai":Landroid/content/pm/ApplicationInfo;
@@ -1365,35 +1314,11 @@
     goto :goto_0
 .end method
 
-.method public handlePackageDataClearedLocked(Ljava/lang/String;)V
-    .locals 0
-    .param p1, "packageName"    # Ljava/lang/String;
-
-    .prologue
-    .line 154
-    invoke-direct {p0, p1}, Lcom/android/server/am/CompatModePackages;->removePackage(Ljava/lang/String;)V
-
-    .line 152
-    return-void
-.end method
-
-.method public handlePackageUninstalledLocked(Ljava/lang/String;)V
-    .locals 0
-    .param p1, "packageName"    # Ljava/lang/String;
-
-    .prologue
-    .line 160
-    invoke-direct {p0, p1}, Lcom/android/server/am/CompatModePackages;->removePackage(Ljava/lang/String;)V
-
-    .line 157
-    return-void
-.end method
-
 .method saveCompatModes()V
     .locals 20
 
     .prologue
-    .line 396
+    .line 357
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -1402,10 +1327,8 @@
 
     monitor-enter v18
 
+    .line 358
     :try_start_0
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
-
-    .line 397
     new-instance v13, Ljava/util/HashMap;
 
     move-object/from16 v0, p0
@@ -1423,13 +1346,10 @@
     .local v13, "pkgs":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     monitor-exit v18
 
-    .line 396
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
-
-    .line 400
+    .line 361
     const/4 v7, 0x0
 
-    .line 403
+    .line 364
     .local v7, "fos":Ljava/io/FileOutputStream;
     :try_start_1
     move-object/from16 v0, p0
@@ -1442,13 +1362,13 @@
 
     move-result-object v7
 
-    .line 404
+    .line 365
     .local v7, "fos":Ljava/io/FileOutputStream;
     new-instance v11, Lcom/android/internal/util/FastXmlSerializer;
 
     invoke-direct {v11}, Lcom/android/internal/util/FastXmlSerializer;-><init>()V
 
-    .line 405
+    .line 366
     .local v11, "out":Lorg/xmlpull/v1/XmlSerializer;
     sget-object v17, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
@@ -1460,7 +1380,7 @@
 
     invoke-interface {v11, v7, v0}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
-    .line 406
+    .line 367
     const/16 v17, 0x1
 
     invoke-static/range {v17 .. v17}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -1475,7 +1395,7 @@
 
     invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 407
+    .line 368
     const-string/jumbo v17, "http://xmlpull.org/v1/doc/features.html#indent-output"
 
     const/16 v18, 0x1
@@ -1486,7 +1406,7 @@
 
     invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->setFeature(Ljava/lang/String;Z)V
 
-    .line 408
+    .line 369
     const-string/jumbo v17, "compat-packages"
 
     const/16 v18, 0x0
@@ -1497,12 +1417,12 @@
 
     invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 410
+    .line 371
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v14
 
-    .line 411
+    .line 372
     .local v14, "pm":Landroid/content/pm/IPackageManager;
     move-object/from16 v0, p0
 
@@ -1520,7 +1440,7 @@
 
     iget v15, v0, Landroid/content/res/Configuration;->screenLayout:I
 
-    .line 412
+    .line 373
     .local v15, "screenLayout":I
     move-object/from16 v0, p0
 
@@ -1540,7 +1460,7 @@
 
     move/from16 v16, v0
 
-    .line 413
+    .line 374
     .local v16, "smallestScreenWidthDp":I
     invoke-virtual {v13}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
@@ -1550,7 +1470,7 @@
 
     move-result-object v9
 
-    .line 414
+    .line 375
     .local v9, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;>;"
     :cond_0
     :goto_0
@@ -1560,14 +1480,14 @@
 
     if-eqz v17, :cond_2
 
-    .line 415
+    .line 376
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Ljava/util/Map$Entry;
 
-    .line 416
+    .line 377
     .local v6, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
     invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -1575,7 +1495,7 @@
 
     check-cast v12, Ljava/lang/String;
 
-    .line 417
+    .line 378
     .local v12, "pkg":Ljava/lang/String;
     invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -1589,14 +1509,14 @@
 
     move-result v10
 
-    .line 418
+    .line 379
     .local v10, "mode":I
     if-eqz v10, :cond_0
 
-    .line 421
+    .line 382
     const/4 v3, 0x0
 
-    .line 423
+    .line 384
     .local v3, "ai":Landroid/content/pm/ApplicationInfo;
     const/16 v17, 0x0
 
@@ -1614,26 +1534,26 @@
 
     move-result-object v3
 
-    .line 426
+    .line 387
     .end local v3    # "ai":Landroid/content/pm/ApplicationInfo;
     :goto_1
     if-eqz v3, :cond_0
 
-    .line 429
+    .line 390
     :try_start_3
     new-instance v8, Landroid/content/res/CompatibilityInfo;
 
-    .line 430
+    .line 391
     const/16 v17, 0x0
 
-    .line 429
+    .line 390
     move/from16 v0, v16
 
     move/from16 v1, v17
 
     invoke-direct {v8, v3, v15, v0, v1}, Landroid/content/res/CompatibilityInfo;-><init>(Landroid/content/pm/ApplicationInfo;IIZ)V
 
-    .line 431
+    .line 392
     .local v8, "info":Landroid/content/res/CompatibilityInfo;
     invoke-virtual {v8}, Landroid/content/res/CompatibilityInfo;->alwaysSupportsScreen()Z
 
@@ -1641,14 +1561,14 @@
 
     if-nez v17, :cond_0
 
-    .line 434
+    .line 395
     invoke-virtual {v8}, Landroid/content/res/CompatibilityInfo;->neverSupportsScreen()Z
 
     move-result v17
 
     if-nez v17, :cond_0
 
-    .line 437
+    .line 398
     const-string/jumbo v17, "pkg"
 
     const/16 v18, 0x0
@@ -1659,7 +1579,7 @@
 
     invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 438
+    .line 399
     const-string/jumbo v17, "name"
 
     const/16 v18, 0x0
@@ -1670,7 +1590,7 @@
 
     invoke-interface {v11, v0, v1, v12}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 439
+    .line 400
     const-string/jumbo v17, "mode"
 
     invoke-static {v10}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -1687,7 +1607,7 @@
 
     invoke-interface {v11, v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 440
+    .line 401
     const-string/jumbo v17, "pkg"
 
     const/16 v18, 0x0
@@ -1702,7 +1622,7 @@
 
     goto :goto_0
 
-    .line 447
+    .line 408
     .end local v6    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
     .end local v7    # "fos":Ljava/io/FileOutputStream;
     .end local v8    # "info":Landroid/content/res/CompatibilityInfo;
@@ -1716,9 +1636,9 @@
     :catch_0
     move-exception v5
 
-    .line 448
+    .line 409
     .local v5, "e1":Ljava/io/IOException;
-    sget-object v17, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
+    const-string/jumbo v17, "ActivityManager"
 
     const-string/jumbo v18, "Error writing compat packages"
 
@@ -1728,10 +1648,10 @@
 
     invoke-static {v0, v1, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 449
+    .line 410
     if-eqz v7, :cond_1
 
-    .line 450
+    .line 411
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/CompatModePackages;->mFile:Landroid/util/AtomicFile;
@@ -1742,24 +1662,22 @@
 
     invoke-virtual {v0, v7}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
-    .line 394
+    .line 355
     .end local v5    # "e1":Ljava/io/IOException;
     :cond_1
     :goto_2
     return-void
 
-    .line 396
+    .line 357
     .end local v13    # "pkgs":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     :catchall_0
     move-exception v17
 
     monitor-exit v18
 
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
-
     throw v17
 
-    .line 424
+    .line 385
     .restart local v3    # "ai":Landroid/content/pm/ApplicationInfo;
     .restart local v6    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
     .restart local v7    # "fos":Ljava/io/FileOutputStream;
@@ -1777,7 +1695,7 @@
     .local v4, "e":Landroid/os/RemoteException;
     goto :goto_1
 
-    .line 443
+    .line 404
     .end local v3    # "ai":Landroid/content/pm/ApplicationInfo;
     .end local v4    # "e":Landroid/os/RemoteException;
     .end local v6    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
@@ -1795,10 +1713,10 @@
 
     invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 444
+    .line 405
     invoke-interface {v11}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
 
-    .line 446
+    .line 407
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/CompatModePackages;->mFile:Landroid/util/AtomicFile;
@@ -1815,31 +1733,33 @@
 .end method
 
 .method public setFrontActivityAskCompatModeLocked(Z)V
-    .locals 2
+    .locals 3
     .param p1, "ask"    # Z
 
     .prologue
-    .line 239
+    const/4 v2, 0x0
+
+    .line 210
     iget-object v1, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
     invoke-virtual {v1}, Lcom/android/server/am/ActivityManagerService;->getFocusedStack()Lcom/android/server/am/ActivityStack;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+    invoke-virtual {v1, v2}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked(Lcom/android/server/am/ActivityRecord;)Lcom/android/server/am/ActivityRecord;
 
     move-result-object v0
 
-    .line 240
+    .line 211
     .local v0, "r":Lcom/android/server/am/ActivityRecord;
     if-eqz v0, :cond_0
 
-    .line 241
+    .line 212
     iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
 
     invoke-virtual {p0, v1, p1}, Lcom/android/server/am/CompatModePackages;->setPackageAskCompatModeLocked(Ljava/lang/String;Z)V
 
-    .line 238
+    .line 209
     :cond_0
     return-void
 .end method
@@ -1849,32 +1769,34 @@
     .param p1, "mode"    # I
 
     .prologue
-    .line 281
+    const/4 v2, 0x0
+
+    .line 240
     iget-object v1, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
     invoke-virtual {v1}, Lcom/android/server/am/ActivityManagerService;->getFocusedStack()Lcom/android/server/am/ActivityStack;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+    invoke-virtual {v1, v2}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked(Lcom/android/server/am/ActivityRecord;)Lcom/android/server/am/ActivityRecord;
 
     move-result-object v0
 
-    .line 282
+    .line 241
     .local v0, "r":Lcom/android/server/am/ActivityRecord;
     if-nez v0, :cond_0
 
-    .line 283
-    sget-object v1, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
+    .line 242
+    const-string/jumbo v1, "ActivityManager"
 
     const-string/jumbo v2, "setFrontActivityScreenCompatMode failed: no top activity"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 284
+    .line 243
     return-void
 
-    .line 286
+    .line 245
     :cond_0
     iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
@@ -1882,124 +1804,85 @@
 
     invoke-direct {p0, v1, p1}, Lcom/android/server/am/CompatModePackages;->setPackageScreenCompatModeLocked(Landroid/content/pm/ApplicationInfo;I)V
 
-    .line 280
+    .line 239
     return-void
 .end method
 
 .method public setPackageAskCompatModeLocked(Ljava/lang/String;Z)V
-    .locals 4
+    .locals 6
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "ask"    # Z
 
     .prologue
-    .line 246
+    const/16 v5, 0x12c
+
+    .line 217
     invoke-direct {p0, p1}, Lcom/android/server/am/CompatModePackages;->getPackageFlags(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 247
+    .line 218
     .local v0, "curFlags":I
     if-eqz p2, :cond_1
 
-    and-int/lit8 v1, v0, -0x2
+    and-int/lit8 v2, v0, -0x2
 
-    .line 248
-    .local v1, "newFlags":I
+    .line 219
+    .local v2, "newFlags":I
     :goto_0
-    if-eq v0, v1, :cond_0
+    if-eq v0, v2, :cond_0
 
-    .line 249
-    if-eqz v1, :cond_2
+    .line 220
+    if-eqz v2, :cond_2
 
-    .line 250
-    iget-object v2, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
+    .line 221
+    iget-object v3, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v2, p1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, p1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 254
+    .line 225
     :goto_1
-    invoke-direct {p0}, Lcom/android/server/am/CompatModePackages;->scheduleWrite()V
+    iget-object v3, p0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
 
-    .line 245
+    invoke-virtual {v3, v5}, Lcom/android/server/am/CompatModePackages$CompatHandler;->removeMessages(I)V
+
+    .line 226
+    iget-object v3, p0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
+
+    invoke-virtual {v3, v5}, Lcom/android/server/am/CompatModePackages$CompatHandler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v1
+
+    .line 227
+    .local v1, "msg":Landroid/os/Message;
+    iget-object v3, p0, Lcom/android/server/am/CompatModePackages;->mHandler:Lcom/android/server/am/CompatModePackages$CompatHandler;
+
+    const-wide/16 v4, 0x2710
+
+    invoke-virtual {v3, v1, v4, v5}, Lcom/android/server/am/CompatModePackages$CompatHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
+    .line 216
+    .end local v1    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 
-    .line 247
-    .end local v1    # "newFlags":I
+    .line 218
+    .end local v2    # "newFlags":I
     :cond_1
-    or-int/lit8 v1, v0, 0x1
+    or-int/lit8 v2, v0, 0x1
 
+    .restart local v2    # "newFlags":I
     goto :goto_0
 
-    .line 252
-    .restart local v1    # "newFlags":I
+    .line 223
     :cond_2
-    iget-object v2, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
+    iget-object v3, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
 
-    invoke-virtual {v2, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_1
-.end method
-
-.method public setPackageNotifyUnsupportedZoomLocked(Ljava/lang/String;Z)V
-    .locals 4
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "notify"    # Z
-
-    .prologue
-    .line 259
-    invoke-direct {p0, p1}, Lcom/android/server/am/CompatModePackages;->getPackageFlags(Ljava/lang/String;)I
-
-    move-result v0
-
-    .line 260
-    .local v0, "curFlags":I
-    if-eqz p2, :cond_1
-
-    and-int/lit8 v1, v0, -0x5
-
-    .line 262
-    .local v1, "newFlags":I
-    :goto_0
-    if-eq v0, v1, :cond_0
-
-    .line 263
-    if-eqz v1, :cond_2
-
-    .line 264
-    iget-object v2, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, p1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 268
-    :goto_1
-    invoke-direct {p0}, Lcom/android/server/am/CompatModePackages;->scheduleWrite()V
-
-    .line 258
-    :cond_0
-    return-void
-
-    .line 261
-    .end local v1    # "newFlags":I
-    :cond_1
-    or-int/lit8 v1, v0, 0x4
-
-    goto :goto_0
-
-    .line 266
-    .restart local v1    # "newFlags":I
-    :cond_2
-    iget-object v2, p0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
-
-    invoke-virtual {v2, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 .end method
@@ -2010,10 +1893,10 @@
     .param p2, "mode"    # I
 
     .prologue
-    .line 302
+    .line 261
     const/4 v0, 0x0
 
-    .line 304
+    .line 263
     .local v0, "ai":Landroid/content/pm/ApplicationInfo;
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
@@ -2030,13 +1913,13 @@
 
     move-result-object v0
 
-    .line 307
+    .line 266
     .end local v0    # "ai":Landroid/content/pm/ApplicationInfo;
     :goto_0
     if-nez v0, :cond_0
 
-    .line 308
-    sget-object v2, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
+    .line 267
+    const-string/jumbo v2, "ActivityManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2058,17 +1941,17 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 309
+    .line 268
     return-void
 
-    .line 311
+    .line 270
     :cond_0
     invoke-direct {p0, v0, p2}, Lcom/android/server/am/CompatModePackages;->setPackageScreenCompatModeLocked(Landroid/content/pm/ApplicationInfo;I)V
 
-    .line 301
+    .line 260
     return-void
 
-    .line 305
+    .line 264
     .restart local v0    # "ai":Landroid/content/pm/ApplicationInfo;
     :catch_0
     move-exception v1

@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/twilight/TwilightService;->onStart()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/twilight/TwilightService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/twilight/TwilightService;
 
     .prologue
-    .line 81
+    .line 108
     iput-object p1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,24 +37,22 @@
 
 
 # virtual methods
-.method public getLastTwilightState()Lcom/android/server/twilight/TwilightState;
+.method public getCurrentState()Lcom/android/server/twilight/TwilightState;
     .locals 2
 
     .prologue
-    .line 109
+    .line 116
     iget-object v0, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
 
-    invoke-static {v0}, Lcom/android/server/twilight/TwilightService;->-get1(Lcom/android/server/twilight/TwilightService;)Landroid/util/ArrayMap;
-
-    move-result-object v1
+    iget-object v1, v0, Lcom/android/server/twilight/TwilightService;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 110
+    .line 117
     :try_start_0
     iget-object v0, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
 
-    iget-object v0, v0, Lcom/android/server/twilight/TwilightService;->mLastTwilightState:Lcom/android/server/twilight/TwilightState;
+    iget-object v0, v0, Lcom/android/server/twilight/TwilightService;->mTwilightState:Lcom/android/server/twilight/TwilightState;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -62,7 +60,7 @@
 
     return-object v0
 
-    .line 109
+    .line 116
     :catchall_0
     move-exception v0
 
@@ -72,169 +70,63 @@
 .end method
 
 .method public registerListener(Lcom/android/server/twilight/TwilightListener;Landroid/os/Handler;)V
-    .locals 4
+    .locals 3
     .param p1, "listener"    # Lcom/android/server/twilight/TwilightListener;
     .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 85
-    iget-object v1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
+    .line 128
+    iget-object v0, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
 
-    invoke-static {v1}, Lcom/android/server/twilight/TwilightService;->-get1(Lcom/android/server/twilight/TwilightService;)Landroid/util/ArrayMap;
+    iget-object v1, v0, Lcom/android/server/twilight/TwilightService;->mLock:Ljava/lang/Object;
 
-    move-result-object v2
+    monitor-enter v1
 
-    monitor-enter v2
-
-    .line 86
+    .line 129
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
+    iget-object v0, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
 
-    invoke-static {v1}, Lcom/android/server/twilight/TwilightService;->-get1(Lcom/android/server/twilight/TwilightService;)Landroid/util/ArrayMap;
+    iget-object v0, v0, Lcom/android/server/twilight/TwilightService;->mListeners:Ljava/util/ArrayList;
 
-    move-result-object v1
+    new-instance v2, Lcom/android/server/twilight/TwilightService$TwilightListenerRecord;
 
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->isEmpty()Z
+    invoke-direct {v2, p1, p2}, Lcom/android/server/twilight/TwilightService$TwilightListenerRecord;-><init>(Lcom/android/server/twilight/TwilightListener;Landroid/os/Handler;)V
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 131
+    iget-object v0, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
+
+    iget-object v0, v0, Lcom/android/server/twilight/TwilightService;->mListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 87
-    .local v0, "wasEmpty":Z
-    iget-object v1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
+    const/4 v2, 0x1
 
-    invoke-static {v1}, Lcom/android/server/twilight/TwilightService;->-get1(Lcom/android/server/twilight/TwilightService;)Landroid/util/ArrayMap;
+    if-ne v0, v2, :cond_0
 
-    move-result-object v1
+    .line 132
+    iget-object v0, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
 
-    invoke-virtual {v1, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v0, v0, Lcom/android/server/twilight/TwilightService;->mLocationHandler:Lcom/android/server/twilight/TwilightService$LocationHandler;
 
-    .line 89
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
-
-    invoke-static {v1}, Lcom/android/server/twilight/TwilightService;->-get1(Lcom/android/server/twilight/TwilightService;)Landroid/util/ArrayMap;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->isEmpty()Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    :goto_0
-    monitor-exit v2
-
-    .line 84
-    return-void
-
-    .line 90
-    :cond_1
-    :try_start_1
-    iget-object v1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
-
-    invoke-static {v1}, Lcom/android/server/twilight/TwilightService;->-get0(Lcom/android/server/twilight/TwilightService;)Landroid/os/Handler;
-
-    move-result-object v1
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    .line 85
-    .end local v0    # "wasEmpty":Z
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v2
-
-    throw v1
-.end method
-
-.method public unregisterListener(Lcom/android/server/twilight/TwilightListener;)V
-    .locals 4
-    .param p1, "listener"    # Lcom/android/server/twilight/TwilightListener;
-
-    .prologue
-    .line 97
-    iget-object v1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
-
-    invoke-static {v1}, Lcom/android/server/twilight/TwilightService;->-get1(Lcom/android/server/twilight/TwilightService;)Landroid/util/ArrayMap;
-
-    move-result-object v2
-
-    monitor-enter v2
-
-    .line 98
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
-
-    invoke-static {v1}, Lcom/android/server/twilight/TwilightService;->-get1(Lcom/android/server/twilight/TwilightService;)Landroid/util/ArrayMap;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->isEmpty()Z
-
-    move-result v0
-
-    .line 99
-    .local v0, "wasEmpty":Z
-    iget-object v1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
-
-    invoke-static {v1}, Lcom/android/server/twilight/TwilightService;->-get1(Lcom/android/server/twilight/TwilightService;)Landroid/util/ArrayMap;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 101
-    if-nez v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
-
-    invoke-static {v1}, Lcom/android/server/twilight/TwilightService;->-get1(Lcom/android/server/twilight/TwilightService;)Landroid/util/ArrayMap;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->isEmpty()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 102
-    iget-object v1, p0, Lcom/android/server/twilight/TwilightService$1;->this$0:Lcom/android/server/twilight/TwilightService;
-
-    invoke-static {v1}, Lcom/android/server/twilight/TwilightService;->-get0(Lcom/android/server/twilight/TwilightService;)Landroid/os/Handler;
-
-    move-result-object v1
-
-    const/4 v3, 0x2
-
-    invoke-virtual {v1, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0}, Lcom/android/server/twilight/TwilightService$LocationHandler;->enableLocationUpdates()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit v2
+    monitor-exit v1
 
-    .line 96
+    .line 127
     return-void
 
-    .line 97
-    .end local v0    # "wasEmpty":Z
+    .line 128
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    monitor-exit v2
+    monitor-exit v1
 
-    throw v1
+    throw v0
 .end method

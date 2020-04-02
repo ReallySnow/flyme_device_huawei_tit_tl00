@@ -9,9 +9,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/os/ResultReceiver$1;,
+        Landroid/os/ResultReceiver$MyRunnable;,
         Landroid/os/ResultReceiver$MyResultReceiver;,
-        Landroid/os/ResultReceiver$MyRunnable;
+        Landroid/os/ResultReceiver$1;
     }
 .end annotation
 

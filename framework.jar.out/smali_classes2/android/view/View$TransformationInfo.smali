@@ -58,22 +58,22 @@
     .prologue
     const/high16 v1, 0x3f800000    # 1.0f
 
-    .line 3294
+    .line 3133
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3302
+    .line 3141
     new-instance v0, Landroid/graphics/Matrix;
 
     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$TransformationInfo;->mMatrix:Landroid/graphics/Matrix;
 
-    .line 3318
+    .line 3157
     iput v1, p0, Landroid/view/View$TransformationInfo;->mAlpha:F
 
-    .line 3325
+    .line 3164
     iput v1, p0, Landroid/view/View$TransformationInfo;->mTransitionAlpha:F
 
-    .line 3294
+    .line 3133
     return-void
 .end method

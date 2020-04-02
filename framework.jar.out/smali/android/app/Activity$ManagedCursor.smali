@@ -70,18 +70,18 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 797
+    .line 763
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 798
+    .line 764
     iput-object p1, p0, Landroid/app/Activity$ManagedCursor;->mCursor:Landroid/database/Cursor;
 
-    .line 799
+    .line 765
     iput-boolean v0, p0, Landroid/app/Activity$ManagedCursor;->mReleased:Z
 
-    .line 800
+    .line 766
     iput-boolean v0, p0, Landroid/app/Activity$ManagedCursor;->mUpdated:Z
 
-    .line 797
+    .line 763
     return-void
 .end method

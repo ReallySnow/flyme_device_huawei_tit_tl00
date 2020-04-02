@@ -36,7 +36,7 @@
     .param p4, "val$localUserId"    # I
 
     .prologue
-    .line 578
+    .line 563
     iput-object p1, p0, Lcom/android/server/am/ServiceRecord$3;->this$0:Lcom/android/server/am/ServiceRecord;
 
     iput-object p2, p0, Lcom/android/server/am/ServiceRecord$3;->val$localPackageName:Ljava/lang/String;
@@ -56,35 +56,35 @@
     .locals 4
 
     .prologue
-    .line 582
+    .line 567
     const-class v1, Lcom/android/server/notification/NotificationManagerInternal;
 
-    .line 581
+    .line 566
     invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/server/notification/NotificationManagerInternal;
 
-    .line 583
+    .line 568
     .local v0, "nmi":Lcom/android/server/notification/NotificationManagerInternal;
     if-nez v0, :cond_0
 
-    .line 584
+    .line 569
     return-void
 
-    .line 586
+    .line 571
     :cond_0
     iget-object v1, p0, Lcom/android/server/am/ServiceRecord$3;->val$localPackageName:Ljava/lang/String;
 
     iget v2, p0, Lcom/android/server/am/ServiceRecord$3;->val$localForegroundId:I
 
-    .line 587
+    .line 572
     iget v3, p0, Lcom/android/server/am/ServiceRecord$3;->val$localUserId:I
 
-    .line 586
+    .line 571
     invoke-interface {v0, v1, v2, v3}, Lcom/android/server/notification/NotificationManagerInternal;->removeForegroundServiceFlagFromNotification(Ljava/lang/String;II)V
 
-    .line 580
+    .line 565
     return-void
 .end method

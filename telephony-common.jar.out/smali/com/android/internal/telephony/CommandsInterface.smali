@@ -162,12 +162,6 @@
 .method public abstract explicitCallTransfer(Landroid/os/Message;)V
 .end method
 
-.method public abstract getAdnRecord(Landroid/os/Message;)V
-.end method
-
-.method public abstract getAllowedCarriers(Landroid/os/Message;)V
-.end method
-
 .method public abstract getAtr(Landroid/os/Message;)V
 .end method
 
@@ -331,6 +325,9 @@
 .method public abstract invokeOemRilRequestStrings([Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
+.method public abstract needsOldRilFeature(Ljava/lang/String;)Z
+.end method
+
 .method public abstract nvReadItem(ILandroid/os/Message;)V
 .end method
 
@@ -371,12 +368,6 @@
 .end method
 
 .method public abstract registerFoT53ClirlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
-.end method
-
-.method public abstract registerForAdnInitDone(Landroid/os/Handler;ILjava/lang/Object;)V
-.end method
-
-.method public abstract registerForAdnRecordsInfo(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
 .method public abstract registerForAvailable(Landroid/os/Handler;ILjava/lang/Object;)V
@@ -443,9 +434,6 @@
 .end method
 
 .method public abstract registerForOn(Landroid/os/Handler;ILjava/lang/Object;)V
-.end method
-
-.method public abstract registerForPcoData(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
 .method public abstract registerForRadioCapabilityChanged(Landroid/os/Handler;ILjava/lang/Object;)V
@@ -544,20 +532,6 @@
 .method public abstract separateConnection(ILandroid/os/Message;)V
 .end method
 
-.method public abstract setAllowedCarriers(Ljava/util/List;Landroid/os/Message;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Landroid/service/carrier/CarrierIdentifier;",
-            ">;",
-            "Landroid/os/Message;",
-            ")V"
-        }
-    .end annotation
-.end method
-
 .method public abstract setBandMode(ILandroid/os/Message;)V
 .end method
 
@@ -609,7 +583,13 @@
 .method public abstract setInitialAttachApn(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
+.method public abstract setLocalCallHold(Z)V
+.end method
+
 .method public abstract setLocationUpdates(ZLandroid/os/Message;)V
+.end method
+
+.method public abstract setMaxTransmitPower(ILandroid/os/Message;)V
 .end method
 
 .method public abstract setMute(ZLandroid/os/Message;)V
@@ -711,7 +691,7 @@
 .method public abstract setUiccSubscription(IZLandroid/os/Message;)V
 .end method
 
-.method public abstract setupDataCall(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/os/Message;)V
+.method public abstract setupDataCall(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
 .method public abstract startDtmf(CLandroid/os/Message;)V
@@ -750,7 +730,7 @@
 .method public abstract supplyIccPukForApp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
-.method public abstract supplyNetworkDepersonalization(Ljava/lang/String;Landroid/os/Message;)V
+.method public abstract supplyNetworkDepersonalization(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
 .method public abstract switchWaitingOrHoldingAndActive(Landroid/os/Message;)V
@@ -819,12 +799,6 @@
 .method public abstract unSetOnUnsolOemHookRaw(Landroid/os/Handler;)V
 .end method
 
-.method public abstract unregisterForAdnInitDone(Landroid/os/Handler;)V
-.end method
-
-.method public abstract unregisterForAdnRecordsInfo(Landroid/os/Handler;)V
-.end method
-
 .method public abstract unregisterForAvailable(Landroid/os/Handler;)V
 .end method
 
@@ -891,9 +865,6 @@
 .method public abstract unregisterForOn(Landroid/os/Handler;)V
 .end method
 
-.method public abstract unregisterForPcoData(Landroid/os/Handler;)V
-.end method
-
 .method public abstract unregisterForRadioCapabilityChanged(Landroid/os/Handler;)V
 .end method
 
@@ -934,9 +905,6 @@
 .end method
 
 .method public abstract unsetOnIccRefresh(Landroid/os/Handler;)V
-.end method
-
-.method public abstract updateAdnRecord(Lcom/android/internal/telephony/uicc/SimPhoneBookAdnRecord;Landroid/os/Message;)V
 .end method
 
 .method public abstract writeSmsToRuim(ILjava/lang/String;Landroid/os/Message;)V

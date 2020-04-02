@@ -57,15 +57,15 @@
     .param p2, "h"    # I
 
     .prologue
-    .line 6527
+    .line 6350
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 6517
+    .line 6340
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/widget/AbsListView$LayoutParams;->itemId:J
 
-    .line 6526
+    .line 6349
     return-void
 .end method
 
@@ -76,18 +76,18 @@
     .param p3, "viewType"    # I
 
     .prologue
-    .line 6531
+    .line 6354
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 6517
+    .line 6340
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/widget/AbsListView$LayoutParams;->itemId:J
 
-    .line 6532
+    .line 6355
     iput p3, p0, Landroid/widget/AbsListView$LayoutParams;->viewType:I
 
-    .line 6530
+    .line 6353
     return-void
 .end method
 
@@ -97,15 +97,15 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 6523
+    .line 6346
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$LayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 6517
+    .line 6340
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/widget/AbsListView$LayoutParams;->itemId:J
 
-    .line 6522
+    .line 6345
     return-void
 .end method
 
@@ -114,15 +114,15 @@
     .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
 
     .prologue
-    .line 6536
+    .line 6359
     invoke-direct {p0, p1}, Landroid/view/ViewGroup$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 6517
+    .line 6340
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/widget/AbsListView$LayoutParams;->itemId:J
 
-    .line 6535
+    .line 6358
     return-void
 .end method
 
@@ -133,37 +133,37 @@
     .param p1, "encoder"    # Landroid/view/ViewHierarchyEncoder;
 
     .prologue
-    .line 6542
+    .line 6365
     invoke-super {p0, p1}, Landroid/view/ViewGroup$LayoutParams;->encodeProperties(Landroid/view/ViewHierarchyEncoder;)V
 
-    .line 6544
+    .line 6367
     const-string/jumbo v0, "list:viewType"
 
     iget v1, p0, Landroid/widget/AbsListView$LayoutParams;->viewType:I
 
     invoke-virtual {p1, v0, v1}, Landroid/view/ViewHierarchyEncoder;->addProperty(Ljava/lang/String;I)V
 
-    .line 6545
+    .line 6368
     const-string/jumbo v0, "list:recycledHeaderFooter"
 
     iget-boolean v1, p0, Landroid/widget/AbsListView$LayoutParams;->recycledHeaderFooter:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/view/ViewHierarchyEncoder;->addProperty(Ljava/lang/String;Z)V
 
-    .line 6546
+    .line 6369
     const-string/jumbo v0, "list:forceAdd"
 
     iget-boolean v1, p0, Landroid/widget/AbsListView$LayoutParams;->forceAdd:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/view/ViewHierarchyEncoder;->addProperty(Ljava/lang/String;Z)V
 
-    .line 6547
+    .line 6370
     const-string/jumbo v0, "list:isEnabled"
 
     iget-boolean v1, p0, Landroid/widget/AbsListView$LayoutParams;->isEnabled:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/view/ViewHierarchyEncoder;->addProperty(Ljava/lang/String;Z)V
 
-    .line 6541
+    .line 6364
     return-void
 .end method

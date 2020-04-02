@@ -27,13 +27,13 @@
     .param p1, "absListView"    # Landroid/widget/AbsListView;
 
     .prologue
-    .line 8260
+    .line 8081
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 8261
+    .line 8082
     iput-object p1, p0, Landroid/widget/AbsListView$FlymeInjector$FlymeBackPressedListener;->mAbsListView:Landroid/widget/AbsListView;
 
-    .line 8260
+    .line 8081
     return-void
 .end method
 
@@ -45,7 +45,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 8267
+    .line 8088
     iget-object v0, p0, Landroid/widget/AbsListView$FlymeInjector$FlymeBackPressedListener;->mAbsListView:Landroid/widget/AbsListView;
 
     invoke-virtual {v0}, Landroid/widget/AbsListView;->getCheckedItemCount()I
@@ -54,22 +54,22 @@
 
     if-lez v0, :cond_0
 
-    .line 8268
+    .line 8089
     iget-object v0, p0, Landroid/widget/AbsListView$FlymeInjector$FlymeBackPressedListener;->mAbsListView:Landroid/widget/AbsListView;
 
     invoke-virtual {v0}, Landroid/widget/AbsListView;->clearChoices()V
 
-    .line 8269
+    .line 8090
     iget-object v0, p0, Landroid/widget/AbsListView$FlymeInjector$FlymeBackPressedListener;->mAbsListView:Landroid/widget/AbsListView;
 
     invoke-virtual {v0}, Landroid/widget/AbsListView;->requestLayout()V
 
-    .line 8270
+    .line 8091
     const/4 v0, 0x1
 
     return v0
 
-    .line 8272
+    .line 8093
     :cond_0
     return v1
 .end method

@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 79
+    .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,12 +49,12 @@
 
     const/4 v4, 0x0
 
-    .line 81
+    .line 80
     new-instance v2, Landroid/net/wifi/BatchedScanResult;
 
     invoke-direct {v2}, Landroid/net/wifi/BatchedScanResult;-><init>()V
 
-    .line 82
+    .line 81
     .local v2, "result":Landroid/net/wifi/BatchedScanResult;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -65,7 +65,7 @@
     :goto_0
     iput-boolean v3, v2, Landroid/net/wifi/BatchedScanResult;->truncated:Z
 
-    .line 83
+    .line 82
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -73,7 +73,7 @@
     .local v0, "count":I
     move v1, v0
 
-    .line 84
+    .line 83
     .end local v0    # "count":I
     .local v1, "count":I
     :goto_1
@@ -83,7 +83,7 @@
     .restart local v0    # "count":I
     if-lez v1, :cond_1
 
-    .line 85
+    .line 84
     iget-object v4, v2, Landroid/net/wifi/BatchedScanResult;->scanResults:Ljava/util/List;
 
     sget-object v3, Landroid/net/wifi/ScanResult;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -106,10 +106,10 @@
     :cond_0
     move v3, v4
 
-    .line 82
+    .line 81
     goto :goto_0
 
-    .line 87
+    .line 86
     .restart local v0    # "count":I
     :cond_1
     return-object v2
@@ -120,7 +120,7 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 80
+    .line 79
     invoke-virtual {p0, p1}, Landroid/net/wifi/BatchedScanResult$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/BatchedScanResult;
 
     move-result-object v0
@@ -133,7 +133,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 91
+    .line 90
     new-array v0, p1, [Landroid/net/wifi/BatchedScanResult;
 
     return-object v0
@@ -144,7 +144,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 90
+    .line 89
     invoke-virtual {p0, p1}, Landroid/net/wifi/BatchedScanResult$1;->newArray(I)[Landroid/net/wifi/BatchedScanResult;
 
     move-result-object v0

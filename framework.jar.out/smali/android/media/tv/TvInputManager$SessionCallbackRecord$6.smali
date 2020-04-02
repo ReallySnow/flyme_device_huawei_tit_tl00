@@ -33,7 +33,7 @@
     .param p3, "val$height"    # I
 
     .prologue
-    .line 598
+    .line 479
     iput-object p1, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$6;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     iput p2, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$6;->val$width:I
@@ -51,7 +51,7 @@
     .locals 4
 
     .prologue
-    .line 601
+    .line 482
     iget-object v0, p0, Landroid/media/tv/TvInputManager$SessionCallbackRecord$6;->this$1:Landroid/media/tv/TvInputManager$SessionCallbackRecord;
 
     invoke-static {v0}, Landroid/media/tv/TvInputManager$SessionCallbackRecord;->-get1(Landroid/media/tv/TvInputManager$SessionCallbackRecord;)Landroid/media/tv/TvInputManager$SessionCallback;
@@ -70,6 +70,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/media/tv/TvInputManager$SessionCallback;->onVideoSizeChanged(Landroid/media/tv/TvInputManager$Session;II)V
 
-    .line 600
+    .line 481
     return-void
 .end method

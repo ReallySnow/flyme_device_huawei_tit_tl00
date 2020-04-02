@@ -33,17 +33,17 @@
     .param p1, "controller"    # Landroid/media/session/MediaController;
 
     .prologue
-    .line 1059
+    .line 970
     invoke-direct {p0}, Landroid/media/session/ISessionControllerCallback$Stub;-><init>()V
 
-    .line 1060
+    .line 971
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
-    .line 1059
+    .line 970
     return-void
 .end method
 
@@ -55,7 +55,7 @@
     .param p2, "extras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 1073
+    .line 984
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -64,16 +64,16 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1074
+    .line 985
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1075
+    .line 986
     const/4 v1, 0x1
 
     invoke-static {v0, v1, p1, p2}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1072
+    .line 983
     :cond_0
     return-void
 .end method
@@ -85,7 +85,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1115
+    .line 1026
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -94,16 +94,16 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1116
+    .line 1027
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1117
+    .line 1028
     const/4 v1, 0x7
 
     invoke-static {v0, v1, p1, v2}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1114
+    .line 1025
     :cond_0
     return-void
 .end method
@@ -115,7 +115,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1089
+    .line 1000
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -124,16 +124,16 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1090
+    .line 1001
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1091
+    .line 1002
     const/4 v1, 0x3
 
     invoke-static {v0, v1, p1, v2}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1088
+    .line 999
     :cond_0
     return-void
 .end method
@@ -145,14 +145,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1160
+    .line 1071
     const-string/jumbo v1, "MediaController"
 
     const-string/jumbo v2, "CallBackStub: onPlayItemResponse"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1161
+    .line 1072
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -161,11 +161,11 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1162
+    .line 1073
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1163
+    .line 1074
     new-instance v1, Ljava/lang/Boolean;
 
     invoke-direct {v1, p1}, Ljava/lang/Boolean;-><init>(Z)V
@@ -174,7 +174,7 @@
 
     invoke-static {v0, v2, v1, v3}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1159
+    .line 1070
     :cond_0
     return-void
 .end method
@@ -186,7 +186,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1081
+    .line 992
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -195,16 +195,16 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1082
+    .line 993
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1083
+    .line 994
     const/4 v1, 0x2
 
     invoke-static {v0, v1, p1, v2}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1080
+    .line 991
     :cond_0
     return-void
 .end method
@@ -216,12 +216,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1097
+    .line 1008
     if-nez p1, :cond_1
 
     const/4 v1, 0x0
 
-    .line 1099
+    .line 1010
     :goto_0
     iget-object v2, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
@@ -231,20 +231,20 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1100
+    .line 1011
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1101
+    .line 1012
     const/4 v2, 0x5
 
     invoke-static {v0, v2, v1, v3}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1096
+    .line 1007
     :cond_0
     return-void
 
-    .line 1097
+    .line 1008
     .end local v0    # "controller":Landroid/media/session/MediaController;
     :cond_1
     invoke-virtual {p1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
@@ -262,7 +262,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1107
+    .line 1018
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -271,16 +271,16 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1108
+    .line 1019
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1109
+    .line 1020
     const/4 v1, 0x6
 
     invoke-static {v0, v1, p1, v2}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1106
+    .line 1017
     :cond_0
     return-void
 .end method
@@ -291,7 +291,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1065
+    .line 976
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -300,16 +300,16 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1066
+    .line 977
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1067
+    .line 978
     const/16 v1, 0x8
 
     invoke-static {v0, v1, v2, v2}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1064
+    .line 975
     :cond_0
     return-void
 .end method
@@ -321,14 +321,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1133
+    .line 1044
     const-string/jumbo v1, "MediaController"
 
     const-string/jumbo v2, "CallBackStub: onUpdateFolderInfoBrowsedPlayer"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1134
+    .line 1045
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -337,16 +337,16 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1135
+    .line 1046
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1136
+    .line 1047
     const/16 v1, 0x9
 
     invoke-static {v0, v1, p1, v3}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1132
+    .line 1043
     :cond_0
     return-void
 .end method
@@ -357,14 +357,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1151
+    .line 1062
     const-string/jumbo v1, "MediaController"
 
     const-string/jumbo v2, "CallBackStub: onUpdateNowPlayingContentChange"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1152
+    .line 1063
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -373,16 +373,16 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1153
+    .line 1064
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1154
+    .line 1065
     const/16 v1, 0xb
 
     invoke-static {v0, v1, v3, v3}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1150
+    .line 1061
     :cond_0
     return-void
 .end method
@@ -394,14 +394,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1142
+    .line 1053
     const-string/jumbo v1, "MediaController"
 
     const-string/jumbo v2, "CallBackStub: onUpdateNowPlayingEntries"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1143
+    .line 1054
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -410,16 +410,16 @@
 
     check-cast v0, Landroid/media/session/MediaController;
 
-    .line 1144
+    .line 1055
     .local v0, "controller":Landroid/media/session/MediaController;
     if-eqz v0, :cond_0
 
-    .line 1145
+    .line 1056
     const/16 v1, 0xa
 
     invoke-static {v0, v1, p1, v3}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1141
+    .line 1052
     :cond_0
     return-void
 .end method
@@ -431,7 +431,7 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 1123
+    .line 1034
     iget-object v1, p0, Landroid/media/session/MediaController$CallbackStub;->mController:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -440,11 +440,11 @@
 
     check-cast v6, Landroid/media/session/MediaController;
 
-    .line 1124
+    .line 1035
     .local v6, "controller":Landroid/media/session/MediaController;
     if-eqz v6, :cond_0
 
-    .line 1125
+    .line 1036
     new-instance v0, Landroid/media/session/MediaController$PlaybackInfo;
 
     iget v1, p1, Landroid/media/session/ParcelableVolumeInfo;->volumeType:I
@@ -453,21 +453,21 @@
 
     iget v3, p1, Landroid/media/session/ParcelableVolumeInfo;->controlType:I
 
-    .line 1126
+    .line 1037
     iget v4, p1, Landroid/media/session/ParcelableVolumeInfo;->maxVolume:I
 
     iget v5, p1, Landroid/media/session/ParcelableVolumeInfo;->currentVolume:I
 
-    .line 1125
+    .line 1036
     invoke-direct/range {v0 .. v5}, Landroid/media/session/MediaController$PlaybackInfo;-><init>(ILandroid/media/AudioAttributes;III)V
 
-    .line 1127
+    .line 1038
     .local v0, "info":Landroid/media/session/MediaController$PlaybackInfo;
     const/4 v1, 0x4
 
     invoke-static {v6, v1, v0, v7}, Landroid/media/session/MediaController;->-wrap0(Landroid/media/session/MediaController;ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 1122
+    .line 1033
     .end local v0    # "info":Landroid/media/session/MediaController$PlaybackInfo;
     :cond_0
     return-void

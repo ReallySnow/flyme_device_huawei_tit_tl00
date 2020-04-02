@@ -28,9 +28,9 @@
 
 .field static final TRANSACTION_abandonSession:I = 0x4
 
-.field static final TRANSACTION_createSession_0:I = 0x1
+.field static final TRANSACTION_createSession:I = 0x1
 
-.field static final TRANSACTION_getAllSessions_6:I = 0x7
+.field static final TRANSACTION_getAllSessions:I = 0x7
 
 .field static final TRANSACTION_getMySessions:I = 0x8
 
@@ -46,9 +46,9 @@
 
 .field static final TRANSACTION_unregisterCallback:I = 0xa
 
-.field static final TRANSACTION_updateSessionAppIcon_1:I = 0x2
+.field static final TRANSACTION_updateSessionAppIcon:I = 0x2
 
-.field static final TRANSACTION_updateSessionAppLabel_2:I = 0x3
+.field static final TRANSACTION_updateSessionAppLabel:I = 0x3
 
 
 # direct methods
@@ -781,6 +781,7 @@
     :cond_7
     const/4 v13, 0x0
 
+    .restart local v13    # "_arg1":Z
     goto :goto_7
 
     .line 39

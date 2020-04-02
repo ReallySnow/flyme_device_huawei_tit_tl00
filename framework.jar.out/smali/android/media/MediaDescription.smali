@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/media/MediaDescription$1;,
-        Landroid/media/MediaDescription$Builder;
+        Landroid/media/MediaDescription$Builder;,
+        Landroid/media/MediaDescription$1;
     }
 .end annotation
 

@@ -481,7 +481,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x1040547
+    const v2, 0x104050b
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -491,7 +491,7 @@
 
     .line 104
     :cond_0
-    const v1, 0x1040546
+    const v1, 0x104050a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -523,7 +523,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x1040549
+    const v2, 0x104050d
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -533,7 +533,7 @@
 
     .line 110
     :cond_2
-    const v1, 0x1040548
+    const v1, 0x104050c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

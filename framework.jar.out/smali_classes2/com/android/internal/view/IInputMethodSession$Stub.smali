@@ -40,7 +40,7 @@
 
 .field static final TRANSACTION_updateCursorAnchorInfo:I = 0xa
 
-.field static final TRANSACTION_updateExtractedText_1:I = 0x2
+.field static final TRANSACTION_updateExtractedText:I = 0x2
 
 .field static final TRANSACTION_updateSelection:I = 0x3
 
@@ -313,9 +313,11 @@
     :cond_1
     const/4 v11, 0x0
 
+    .restart local v11    # "_arg0":Z
     goto :goto_1
 
     .line 98
+    .end local v11    # "_arg0":Z
     :sswitch_5
     const-string/jumbo v1, "com.android.internal.view.IInputMethodSession"
 

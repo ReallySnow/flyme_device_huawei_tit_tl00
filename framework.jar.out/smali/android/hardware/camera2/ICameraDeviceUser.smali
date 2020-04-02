@@ -14,24 +14,8 @@
 .end annotation
 
 
-# static fields
-.field public static final NO_IN_FLIGHT_REPEATING_FRAMES:I = -0x1
-
-.field public static final TEMPLATE_MANUAL:I = 0x6
-
-.field public static final TEMPLATE_PREVIEW:I = 0x1
-
-.field public static final TEMPLATE_RECORD:I = 0x3
-
-.field public static final TEMPLATE_STILL_CAPTURE:I = 0x2
-
-.field public static final TEMPLATE_VIDEO_SNAPSHOT:I = 0x4
-
-.field public static final TEMPLATE_ZERO_SHUTTER_LAG:I = 0x5
-
-
 # virtual methods
-.method public abstract beginConfigure()V
+.method public abstract beginConfigure()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -39,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract cancelRequest(I)J
+.method public abstract cancelRequest(ILandroid/hardware/camera2/utils/LongParcelable;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -47,7 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract createDefaultRequest(I)Landroid/hardware/camera2/impl/CameraMetadataNative;
+.method public abstract createDefaultRequest(ILandroid/hardware/camera2/impl/CameraMetadataNative;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +55,7 @@
     .end annotation
 .end method
 
-.method public abstract deleteStream(I)V
+.method public abstract deleteStream(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -87,7 +71,7 @@
     .end annotation
 .end method
 
-.method public abstract endConfigure(Z)V
+.method public abstract endConfigure(Z)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -95,7 +79,7 @@
     .end annotation
 .end method
 
-.method public abstract flush()J
+.method public abstract flush(Landroid/hardware/camera2/utils/LongParcelable;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -103,7 +87,7 @@
     .end annotation
 .end method
 
-.method public abstract getCameraInfo()Landroid/hardware/camera2/impl/CameraMetadataNative;
+.method public abstract getCameraInfo(Landroid/hardware/camera2/impl/CameraMetadataNative;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -111,7 +95,7 @@
     .end annotation
 .end method
 
-.method public abstract getInputSurface()Landroid/view/Surface;
+.method public abstract getInputSurface(Landroid/view/Surface;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -119,7 +103,7 @@
     .end annotation
 .end method
 
-.method public abstract prepare(I)V
+.method public abstract prepare(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -127,7 +111,7 @@
     .end annotation
 .end method
 
-.method public abstract prepare2(II)V
+.method public abstract prepare2(II)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -135,7 +119,7 @@
     .end annotation
 .end method
 
-.method public abstract setDeferredConfiguration(ILandroid/hardware/camera2/params/OutputConfiguration;)V
+.method public abstract submitRequest(Landroid/hardware/camera2/CaptureRequest;ZLandroid/hardware/camera2/utils/LongParcelable;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -143,7 +127,19 @@
     .end annotation
 .end method
 
-.method public abstract submitRequest(Landroid/hardware/camera2/CaptureRequest;Z)Landroid/hardware/camera2/utils/SubmitInfo;
+.method public abstract submitRequestList(Ljava/util/List;ZLandroid/hardware/camera2/utils/LongParcelable;)I
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Landroid/hardware/camera2/CaptureRequest;",
+            ">;Z",
+            "Landroid/hardware/camera2/utils/LongParcelable;",
+            ")I"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -151,7 +147,7 @@
     .end annotation
 .end method
 
-.method public abstract submitRequestList([Landroid/hardware/camera2/CaptureRequest;Z)Landroid/hardware/camera2/utils/SubmitInfo;
+.method public abstract tearDown(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -159,15 +155,7 @@
     .end annotation
 .end method
 
-.method public abstract tearDown(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract waitUntilIdle()V
+.method public abstract waitUntilIdle()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

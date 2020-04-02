@@ -15,21 +15,17 @@
 
 
 # instance fields
-.field public band:I
+.field band:I
 
-.field public bucket:I
+.field bucket:I
 
-.field public channels:[Lcom/android/server/wifi/WifiNative$ChannelSettings;
+.field channels:[Lcom/android/server/wifi/WifiNative$ChannelSettings;
 
-.field public max_period_ms:I
+.field num_channels:I
 
-.field public num_channels:I
+.field period_ms:I
 
-.field public period_ms:I
-
-.field public report_events:I
-
-.field public step_count:I
+.field report_events:I
 
 
 # direct methods
@@ -37,7 +33,7 @@
     .locals 0
 
     .prologue
-    .line 1689
+    .line 1436
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

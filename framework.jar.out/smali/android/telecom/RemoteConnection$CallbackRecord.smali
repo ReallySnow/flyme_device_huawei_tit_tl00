@@ -27,16 +27,16 @@
     .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 1426
+    .line 1351
     invoke-direct {p0}, Landroid/telecom/RemoteConnection$Callback;-><init>()V
 
-    .line 1427
+    .line 1352
     iput-object p1, p0, Landroid/telecom/RemoteConnection$CallbackRecord;->mCallback:Landroid/telecom/RemoteConnection$Callback;
 
-    .line 1428
+    .line 1353
     iput-object p2, p0, Landroid/telecom/RemoteConnection$CallbackRecord;->mHandler:Landroid/os/Handler;
 
-    .line 1426
+    .line 1351
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .locals 1
 
     .prologue
-    .line 1432
+    .line 1357
     iget-object v0, p0, Landroid/telecom/RemoteConnection$CallbackRecord;->mCallback:Landroid/telecom/RemoteConnection$Callback;
 
     return-object v0
@@ -56,7 +56,7 @@
     .locals 1
 
     .prologue
-    .line 1436
+    .line 1361
     iget-object v0, p0, Landroid/telecom/RemoteConnection$CallbackRecord;->mHandler:Landroid/os/Handler;
 
     return-object v0

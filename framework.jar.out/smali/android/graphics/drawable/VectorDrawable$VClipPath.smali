@@ -14,60 +14,35 @@
 .end annotation
 
 
-# static fields
-.field private static final NATIVE_ALLOCATION_SIZE:I = 0x78
-
-
-# instance fields
-.field private final mNativePtr:J
-
-
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 0
 
     .prologue
-    .line 1528
+    .line 1468
     invoke-direct {p0}, Landroid/graphics/drawable/VectorDrawable$VPath;-><init>()V
 
-    .line 1529
-    invoke-static {}, Landroid/graphics/drawable/VectorDrawable;->-wrap19()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mNativePtr:J
-
-    .line 1528
     return-void
 .end method
 
 .method public constructor <init>(Landroid/graphics/drawable/VectorDrawable$VClipPath;)V
-    .locals 2
+    .locals 0
     .param p1, "copy"    # Landroid/graphics/drawable/VectorDrawable$VClipPath;
 
     .prologue
-    .line 1533
+    .line 1473
     invoke-direct {p0, p1}, Landroid/graphics/drawable/VectorDrawable$VPath;-><init>(Landroid/graphics/drawable/VectorDrawable$VPath;)V
 
-    .line 1534
-    iget-wide v0, p1, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mNativePtr:J
-
-    invoke-static {v0, v1}, Landroid/graphics/drawable/VectorDrawable;->-wrap20(J)J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mNativePtr:J
-
-    .line 1532
+    .line 1472
     return-void
 .end method
 
 .method private updateStateFromTypedArray(Landroid/content/res/TypedArray;)V
-    .locals 5
+    .locals 4
     .param p1, "a"    # Landroid/content/res/TypedArray;
 
     .prologue
-    .line 1577
+    .line 1485
     iget v2, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mChangingConfigurations:I
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->getChangingConfigurations()I
@@ -78,28 +53,21 @@
 
     iput v2, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mChangingConfigurations:I
 
-    .line 1579
+    .line 1487
     const/4 v2, 0x0
 
     invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 1580
+    .line 1488
     .local v1, "pathName":Ljava/lang/String;
     if-eqz v1, :cond_0
 
-    .line 1581
+    .line 1489
     iput-object v1, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mPathName:Ljava/lang/String;
 
-    .line 1582
-    iget-wide v2, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mNativePtr:J
-
-    iget-object v4, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mPathName:Ljava/lang/String;
-
-    invoke-static {v2, v3, v4}, Landroid/graphics/drawable/VectorDrawable;->-wrap30(JLjava/lang/String;)V
-
-    .line 1585
+    .line 1492
     :cond_0
     const/4 v2, 0x1
 
@@ -107,72 +75,24 @@
 
     move-result-object v0
 
-    .line 1586
-    .local v0, "pathDataString":Ljava/lang/String;
+    .line 1493
+    .local v0, "pathData":Ljava/lang/String;
     if-eqz v0, :cond_1
 
-    .line 1587
-    new-instance v2, Landroid/util/PathParser$PathData;
+    .line 1494
+    invoke-static {v0}, Landroid/util/PathParser;->createNodesFromPathData(Ljava/lang/String;)[Landroid/util/PathParser$PathDataNode;
 
-    invoke-direct {v2, v0}, Landroid/util/PathParser$PathData;-><init>(Ljava/lang/String;)V
+    move-result-object v2
 
-    iput-object v2, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mPathData:Landroid/util/PathParser$PathData;
+    iput-object v2, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mNodes:[Landroid/util/PathParser$PathDataNode;
 
-    .line 1588
-    iget-wide v2, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mNativePtr:J
-
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v4
-
-    invoke-static {v2, v3, v0, v4}, Landroid/graphics/drawable/VectorDrawable;->-wrap32(JLjava/lang/String;I)V
-
-    .line 1575
+    .line 1483
     :cond_1
     return-void
 .end method
 
 
 # virtual methods
-.method public applyTheme(Landroid/content/res/Resources$Theme;)V
-    .locals 0
-    .param p1, "theme"    # Landroid/content/res/Resources$Theme;
-
-    .prologue
-    .line 1556
-    return-void
-.end method
-
-.method public canApplyTheme()Z
-    .locals 1
-
-    .prologue
-    .line 1552
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getNativePtr()J
-    .locals 2
-
-    .prologue
-    .line 1539
-    iget-wide v0, p0, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mNativePtr:J
-
-    return-wide v0
-.end method
-
-.method getNativeSize()I
-    .locals 1
-
-    .prologue
-    .line 1572
-    const/16 v0, 0x78
-
-    return v0
-.end method
-
 .method public inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
     .locals 2
     .param p1, "r"    # Landroid/content/res/Resources;
@@ -180,42 +100,31 @@
     .param p3, "theme"    # Landroid/content/res/Resources$Theme;
 
     .prologue
-    .line 1545
+    .line 1478
     sget-object v1, Lcom/android/internal/R$styleable;->VectorDrawableClipPath:[I
 
-    .line 1544
+    .line 1477
     invoke-static {p1, p3, p2, v1}, Landroid/graphics/drawable/VectorDrawable;->obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 1546
+    .line 1479
     .local v0, "a":Landroid/content/res/TypedArray;
     invoke-direct {p0, v0}, Landroid/graphics/drawable/VectorDrawable$VClipPath;->updateStateFromTypedArray(Landroid/content/res/TypedArray;)V
 
-    .line 1547
+    .line 1480
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 1543
+    .line 1476
     return-void
 .end method
 
-.method public isStateful()Z
+.method public isClipPath()Z
     .locals 1
 
     .prologue
-    .line 1567
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public onStateChange([I)Z
-    .locals 1
-    .param p1, "stateSet"    # [I
-
-    .prologue
-    .line 1562
-    const/4 v0, 0x0
+    .line 1500
+    const/4 v0, 0x1
 
     return v0
 .end method

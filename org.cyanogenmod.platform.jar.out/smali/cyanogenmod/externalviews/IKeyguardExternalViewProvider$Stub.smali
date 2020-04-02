@@ -44,9 +44,9 @@
 
 .field static final TRANSACTION_onScreenTurnedOn:I = 0x6
 
-.field static final TRANSACTION_registerCallback_7:I = 0x8
+.field static final TRANSACTION_registerCallback:I = 0x8
 
-.field static final TRANSACTION_unregisterCallback_8:I = 0x9
+.field static final TRANSACTION_unregisterCallback:I = 0x9
 
 
 # direct methods
@@ -220,9 +220,11 @@
     :cond_0
     const/4 v10, 0x0
 
+    .restart local v10    # "_arg0":Z
     goto :goto_0
 
     .line 114
+    .end local v10    # "_arg0":Z
     :sswitch_4
     const-string/jumbo v0, "cyanogenmod.externalviews.IKeyguardExternalViewProvider"
 
@@ -266,9 +268,11 @@
     :cond_1
     const/4 v10, 0x0
 
+    .restart local v10    # "_arg0":Z
     goto :goto_1
 
     .line 128
+    .end local v10    # "_arg0":Z
     :sswitch_6
     const-string/jumbo v0, "cyanogenmod.externalviews.IKeyguardExternalViewProvider"
 

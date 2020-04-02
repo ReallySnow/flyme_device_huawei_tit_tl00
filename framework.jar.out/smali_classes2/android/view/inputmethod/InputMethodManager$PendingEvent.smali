@@ -39,7 +39,7 @@
     .param p1, "this$0"    # Landroid/view/inputmethod/InputMethodManager;
 
     .prologue
-    .line 2381
+    .line 2234
     iput-object p1, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,27 +65,27 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 2390
+    .line 2243
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->mEvent:Landroid/view/InputEvent;
 
-    .line 2391
+    .line 2244
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->mToken:Ljava/lang/Object;
 
-    .line 2392
+    .line 2245
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->mInputMethodId:Ljava/lang/String;
 
-    .line 2393
+    .line 2246
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->mCallback:Landroid/view/inputmethod/InputMethodManager$FinishedInputEventCallback;
 
-    .line 2394
+    .line 2247
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->mHandler:Landroid/os/Handler;
 
-    .line 2395
+    .line 2248
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->mHandled:Z
 
-    .line 2389
+    .line 2242
     return-void
 .end method
 
@@ -93,7 +93,7 @@
     .locals 3
 
     .prologue
-    .line 2400
+    .line 2253
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->mCallback:Landroid/view/inputmethod/InputMethodManager$FinishedInputEventCallback;
 
     iget-object v1, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->mToken:Ljava/lang/Object;
@@ -102,14 +102,14 @@
 
     invoke-interface {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager$FinishedInputEventCallback;->onFinishedInputEvent(Ljava/lang/Object;Z)V
 
-    .line 2402
+    .line 2255
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v1, v0, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
 
     monitor-enter v1
 
-    .line 2403
+    .line 2256
     :try_start_0
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$PendingEvent;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
@@ -119,10 +119,10 @@
 
     monitor-exit v1
 
-    .line 2399
+    .line 2252
     return-void
 
-    .line 2402
+    .line 2255
     :catchall_0
     move-exception v0
 

@@ -36,7 +36,7 @@
     .param p4, "val$conference"    # Landroid/telecom/RemoteConference;
 
     .prologue
-    .line 1347
+    .line 1309
     iput-object p1, p0, Landroid/telecom/RemoteConnection$16;->this$0:Landroid/telecom/RemoteConnection;
 
     iput-object p2, p0, Landroid/telecom/RemoteConnection$16;->val$callback:Landroid/telecom/RemoteConnection$Callback;
@@ -56,7 +56,7 @@
     .locals 3
 
     .prologue
-    .line 1350
+    .line 1312
     iget-object v0, p0, Landroid/telecom/RemoteConnection$16;->val$callback:Landroid/telecom/RemoteConnection$Callback;
 
     iget-object v1, p0, Landroid/telecom/RemoteConnection$16;->val$connection:Landroid/telecom/RemoteConnection;
@@ -65,6 +65,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/telecom/RemoteConnection$Callback;->onConferenceChanged(Landroid/telecom/RemoteConnection;Landroid/telecom/RemoteConference;)V
 
-    .line 1349
+    .line 1311
     return-void
 .end method

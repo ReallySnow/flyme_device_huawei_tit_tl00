@@ -97,26 +97,26 @@
     .param p1, "str"    # Ljava/lang/String;
 
     .prologue
-    .line 142
+    .line 160
     iget-object v1, p0, Lcom/android/server/usage/IntervalStats;->mStringCache:Landroid/util/ArraySet;
 
     invoke-virtual {v1, p1}, Landroid/util/ArraySet;->indexOf(Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 143
+    .line 161
     .local v0, "index":I
     if-gez v0, :cond_0
 
-    .line 144
+    .line 162
     iget-object v1, p0, Lcom/android/server/usage/IntervalStats;->mStringCache:Landroid/util/ArraySet;
 
     invoke-virtual {v1, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 145
+    .line 163
     return-object p1
 
-    .line 147
+    .line 165
     :cond_0
     iget-object v1, p0, Lcom/android/server/usage/IntervalStats;->mStringCache:Landroid/util/ArraySet;
 
@@ -134,21 +134,21 @@
     .param p1, "eventType"    # I
 
     .prologue
-    .line 85
+    .line 86
     packed-switch p1, :pswitch_data_0
 
-    .line 92
+    .line 93
     const/4 v0, 0x0
 
     return v0
 
-    .line 90
+    .line 91
     :pswitch_0
     const/4 v0, 0x1
 
     return v0
 
-    .line 85
+    .line 86
     nop
 
     :pswitch_data_0
@@ -168,12 +168,12 @@
     .param p2, "className"    # Ljava/lang/String;
 
     .prologue
-    .line 76
+    .line 77
     new-instance v0, Landroid/app/usage/UsageEvents$Event;
 
     invoke-direct {v0}, Landroid/app/usage/UsageEvents$Event;-><init>()V
 
-    .line 77
+    .line 78
     .local v0, "event":Landroid/app/usage/UsageEvents$Event;
     invoke-direct {p0, p1}, Lcom/android/server/usage/IntervalStats;->getCachedStringRef(Ljava/lang/String;)Ljava/lang/String;
 
@@ -181,17 +181,17 @@
 
     iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
 
-    .line 78
+    .line 79
     if-eqz p2, :cond_0
 
-    .line 79
+    .line 80
     invoke-direct {p0, p2}, Lcom/android/server/usage/IntervalStats;->getCachedStringRef(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
 
-    .line 81
+    .line 82
     :cond_0
     return-object v0
 .end method
@@ -201,7 +201,7 @@
     .param p1, "config"    # Landroid/content/res/Configuration;
 
     .prologue
-    .line 61
+    .line 62
     iget-object v1, p0, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -210,36 +210,36 @@
 
     check-cast v0, Landroid/app/usage/ConfigurationStats;
 
-    .line 62
+    .line 63
     .local v0, "configStats":Landroid/app/usage/ConfigurationStats;
     if-nez v0, :cond_0
 
-    .line 63
+    .line 64
     new-instance v0, Landroid/app/usage/ConfigurationStats;
 
     .end local v0    # "configStats":Landroid/app/usage/ConfigurationStats;
     invoke-direct {v0}, Landroid/app/usage/ConfigurationStats;-><init>()V
 
-    .line 64
+    .line 65
     .restart local v0    # "configStats":Landroid/app/usage/ConfigurationStats;
     iget-wide v2, p0, Lcom/android/server/usage/IntervalStats;->beginTime:J
 
     iput-wide v2, v0, Landroid/app/usage/ConfigurationStats;->mBeginTimeStamp:J
 
-    .line 65
+    .line 66
     iget-wide v2, p0, Lcom/android/server/usage/IntervalStats;->endTime:J
 
     iput-wide v2, v0, Landroid/app/usage/ConfigurationStats;->mEndTimeStamp:J
 
-    .line 66
+    .line 67
     iput-object p1, v0, Landroid/app/usage/ConfigurationStats;->mConfiguration:Landroid/content/res/Configuration;
 
-    .line 67
+    .line 68
     iget-object v1, p0, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 69
+    .line 70
     :cond_0
     return-object v0
 .end method
@@ -287,13 +287,18 @@
     iput-wide v2, v0, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
 
     .line 51
+    const-wide/16 v2, 0x0
+
+    iput-wide v2, v0, Landroid/app/usage/UsageStats;->mBeginIdleTime:J
+
+    .line 52
     iget-object v1, p0, Lcom/android/server/usage/IntervalStats;->packageStats:Landroid/util/ArrayMap;
 
     iget-object v2, v0, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 53
+    .line 54
     :cond_0
     return-object v0
 .end method
@@ -307,36 +312,36 @@
     .prologue
     const/4 v6, 0x1
 
-    .line 96
+    .line 97
     invoke-virtual {p0, p1}, Lcom/android/server/usage/IntervalStats;->getOrCreateUsageStats(Ljava/lang/String;)Landroid/app/usage/UsageStats;
 
     move-result-object v0
 
-    .line 100
+    .line 101
     .local v0, "usageStats":Landroid/app/usage/UsageStats;
     const/4 v1, 0x2
 
     if-eq p4, v1, :cond_0
 
-    .line 101
+    .line 102
     const/4 v1, 0x3
 
     if-ne p4, v1, :cond_2
 
-    .line 102
+    .line 103
     :cond_0
     iget v1, v0, Landroid/app/usage/UsageStats;->mLastEvent:I
 
     if-eq v1, v6, :cond_1
 
-    .line 103
+    .line 104
     iget v1, v0, Landroid/app/usage/UsageStats;->mLastEvent:I
 
     const/4 v2, 0x4
 
     if-ne v1, v2, :cond_2
 
-    .line 104
+    .line 105
     :cond_1
     iget-wide v2, v0, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
@@ -348,7 +353,7 @@
 
     iput-wide v2, v0, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
-    .line 108
+    .line 109
     :cond_2
     invoke-direct {p0, p4}, Lcom/android/server/usage/IntervalStats;->isStatefulEvent(I)Z
 
@@ -356,37 +361,59 @@
 
     if-eqz v1, :cond_3
 
-    .line 109
+    .line 110
     iput p4, v0, Landroid/app/usage/UsageStats;->mLastEvent:I
 
-    .line 112
+    .line 113
     :cond_3
     const/4 v1, 0x6
 
     if-eq p4, v1, :cond_4
 
-    .line 113
+    .line 114
     iput-wide p2, v0, Landroid/app/usage/UsageStats;->mLastTimeUsed:J
 
-    .line 115
+    .line 116
     :cond_4
-    iput-wide p2, v0, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
+    iput-wide p2, v0, Landroid/app/usage/UsageStats;->mLastTimeSystemUsed:J
 
     .line 117
+    iput-wide p2, v0, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
+
+    .line 119
     if-ne p4, v6, :cond_5
 
-    .line 118
+    .line 120
     iget v1, v0, Landroid/app/usage/UsageStats;->mLaunchCount:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, v0, Landroid/app/usage/UsageStats;->mLaunchCount:I
 
-    .line 121
+    .line 123
     :cond_5
     iput-wide p2, p0, Lcom/android/server/usage/IntervalStats;->endTime:J
 
-    .line 95
+    .line 96
+    return-void
+.end method
+
+.method updateBeginIdleTime(Ljava/lang/String;J)V
+    .locals 2
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "timeStamp"    # J
+
+    .prologue
+    .line 133
+    invoke-virtual {p0, p1}, Lcom/android/server/usage/IntervalStats;->getOrCreateUsageStats(Ljava/lang/String;)Landroid/app/usage/UsageStats;
+
+    move-result-object v0
+
+    .line 134
+    .local v0, "usageStats":Landroid/app/usage/UsageStats;
+    iput-wide p2, v0, Landroid/app/usage/UsageStats;->mBeginIdleTime:J
+
+    .line 132
     return-void
 .end method
 
@@ -396,12 +423,12 @@
     .param p2, "timeStamp"    # J
 
     .prologue
-    .line 125
+    .line 143
     iget-object v2, p0, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
 
     if-eqz v2, :cond_0
 
-    .line 126
+    .line 144
     iget-object v2, p0, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
 
     iget-object v3, p0, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
@@ -412,7 +439,7 @@
 
     check-cast v0, Landroid/app/usage/ConfigurationStats;
 
-    .line 127
+    .line 145
     .local v0, "activeStats":Landroid/app/usage/ConfigurationStats;
     iget-wide v2, v0, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
 
@@ -424,44 +451,63 @@
 
     iput-wide v2, v0, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
 
-    .line 128
+    .line 146
     const-wide/16 v2, 0x1
 
     sub-long v2, p2, v2
 
     iput-wide v2, v0, Landroid/app/usage/ConfigurationStats;->mLastTimeActive:J
 
-    .line 131
+    .line 149
     .end local v0    # "activeStats":Landroid/app/usage/ConfigurationStats;
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 132
+    .line 150
     invoke-virtual {p0, p1}, Lcom/android/server/usage/IntervalStats;->getOrCreateConfigurationStats(Landroid/content/res/Configuration;)Landroid/app/usage/ConfigurationStats;
 
     move-result-object v1
 
-    .line 133
+    .line 151
     .local v1, "configStats":Landroid/app/usage/ConfigurationStats;
     iput-wide p2, v1, Landroid/app/usage/ConfigurationStats;->mLastTimeActive:J
 
-    .line 134
+    .line 152
     iget v2, v1, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
 
     add-int/lit8 v2, v2, 0x1
 
     iput v2, v1, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
 
-    .line 135
+    .line 153
     iget-object v2, v1, Landroid/app/usage/ConfigurationStats;->mConfiguration:Landroid/content/res/Configuration;
 
     iput-object v2, p0, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
 
-    .line 138
+    .line 156
     .end local v1    # "configStats":Landroid/app/usage/ConfigurationStats;
     :cond_1
     iput-wide p2, p0, Lcom/android/server/usage/IntervalStats;->endTime:J
 
-    .line 124
+    .line 142
+    return-void
+.end method
+
+.method updateSystemLastUsedTime(Ljava/lang/String;J)V
+    .locals 2
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "lastUsedTime"    # J
+
+    .prologue
+    .line 138
+    invoke-virtual {p0, p1}, Lcom/android/server/usage/IntervalStats;->getOrCreateUsageStats(Ljava/lang/String;)Landroid/app/usage/UsageStats;
+
+    move-result-object v0
+
+    .line 139
+    .local v0, "usageStats":Landroid/app/usage/UsageStats;
+    iput-wide p2, v0, Landroid/app/usage/UsageStats;->mLastTimeSystemUsed:J
+
+    .line 137
     return-void
 .end method

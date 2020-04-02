@@ -20,7 +20,7 @@
 
 .field private final mFocusController:Lcom/android/server/audio/MediaFocusControl;
 
-.field private mFocusDispatcher:Landroid/media/IAudioFocusDispatcher;
+.field private final mFocusDispatcher:Landroid/media/IAudioFocusDispatcher;
 
 .field private final mFocusGainRequest:I
 
@@ -354,10 +354,10 @@
 
     const/4 v1, -0x1
 
-    .line 228
+    .line 227
     packed-switch p1, :pswitch_data_0
 
-    .line 258
+    .line 257
     :goto_0
     const-string/jumbo v0, "MediaFocusControl"
 
@@ -381,24 +381,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 259
+    .line 258
     const/4 v0, 0x0
 
     return v0
 
-    .line 230
+    .line 229
     :pswitch_0
     iget v0, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
 
     packed-switch v0, :pswitch_data_1
 
-    .line 239
+    .line 238
     :pswitch_1
     iget v0, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
 
     packed-switch v0, :pswitch_data_2
 
-    .line 248
+    .line 247
     :pswitch_2
     iget v0, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
 
@@ -406,33 +406,33 @@
 
     goto :goto_0
 
-    .line 251
+    .line 250
     :pswitch_3
     const/4 v0, -0x3
 
     return v0
 
-    .line 235
+    .line 234
     :pswitch_4
     return v1
 
-    .line 243
+    .line 242
     :pswitch_5
     return v2
 
-    .line 245
+    .line 244
     :pswitch_6
     return v1
 
-    .line 253
+    .line 252
     :pswitch_7
     return v2
 
-    .line 255
+    .line 254
     :pswitch_8
     return v1
 
-    .line 228
+    .line 227
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -441,7 +441,7 @@
         :pswitch_1
     .end packed-switch
 
-    .line 230
+    .line 229
     :pswitch_data_1
     .packed-switch -0x3
         :pswitch_4
@@ -450,7 +450,7 @@
         :pswitch_4
     .end packed-switch
 
-    .line 239
+    .line 238
     :pswitch_data_2
     .packed-switch -0x3
         :pswitch_5
@@ -459,7 +459,7 @@
         :pswitch_5
     .end packed-switch
 
-    .line 248
+    .line 247
     :pswitch_data_3
     .packed-switch -0x3
         :pswitch_3
@@ -646,13 +646,13 @@
     .end annotation
 
     .prologue
-    .line 217
+    .line 216
     invoke-virtual {p0}, Lcom/android/server/audio/FocusRequester;->release()V
 
-    .line 218
+    .line 217
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 216
+    .line 215
     return-void
 .end method
 
@@ -701,153 +701,152 @@
     .param p1, "focusGain"    # I
 
     .prologue
-    .line 267
+    .line 266
     invoke-direct {p0, p1}, Lcom/android/server/audio/FocusRequester;->focusLossForGainRequest(I)I
 
     move-result v0
 
-    .line 268
+    .line 267
     .local v0, "focusLoss":I
     invoke-virtual {p0, v0}, Lcom/android/server/audio/FocusRequester;->handleFocusLoss(I)V
 
-    .line 266
+    .line 265
     return-void
 .end method
 
 .method handleFocusGain(I)V
-    .locals 5
+    .locals 4
     .param p1, "focusGain"    # I
 
     .prologue
-    .line 276
-    const/4 v2, 0x0
+    .line 275
+    const/4 v1, 0x0
 
     :try_start_0
-    iput v2, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
+    iput v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
 
-    .line 277
-    iget-object v2, p0, Lcom/android/server/audio/FocusRequester;->mFocusController:Lcom/android/server/audio/MediaFocusControl;
+    .line 276
+    iget-object v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusController:Lcom/android/server/audio/MediaFocusControl;
 
     invoke-virtual {p0}, Lcom/android/server/audio/FocusRequester;->toAudioFocusInfo()Landroid/media/AudioFocusInfo;
 
-    move-result-object v3
-
-    .line 278
-    const/4 v4, 0x1
+    move-result-object v2
 
     .line 277
-    invoke-virtual {v2, v3, v4}, Lcom/android/server/audio/MediaFocusControl;->notifyExtPolicyFocusGrant_syncAf(Landroid/media/AudioFocusInfo;I)V
+    const/4 v3, 0x1
 
-    .line 279
+    .line 276
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/audio/MediaFocusControl;->notifyExtPolicyFocusGrant_syncAf(Landroid/media/AudioFocusInfo;I)V
+
+    .line 278
     iget-object v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusDispatcher:Landroid/media/IAudioFocusDispatcher;
 
-    .line 280
-    .local v1, "fd":Landroid/media/IAudioFocusDispatcher;
     if-eqz v1, :cond_0
 
-    .line 285
+    .line 283
+    iget-object v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusDispatcher:Landroid/media/IAudioFocusDispatcher;
+
     iget-object v2, p0, Lcom/android/server/audio/FocusRequester;->mClientId:Ljava/lang/String;
 
     invoke-interface {v1, p1, v2}, Landroid/media/IAudioFocusDispatcher;->dispatchAudioFocusChange(ILjava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 274
-    .end local v1    # "fd":Landroid/media/IAudioFocusDispatcher;
+    .line 273
     :cond_0
     :goto_0
     return-void
 
-    .line 287
+    .line 285
     :catch_0
     move-exception v0
 
-    .line 288
+    .line 286
     .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v2, "MediaFocusControl"
+    const-string/jumbo v1, "MediaFocusControl"
 
-    const-string/jumbo v3, "Failure to signal gain of audio focus due to: "
+    const-string/jumbo v2, "Failure to signal gain of audio focus due to: "
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
 
 .method handleFocusLoss(I)V
-    .locals 5
+    .locals 4
     .param p1, "focusLoss"    # I
 
     .prologue
-    .line 297
+    .line 295
     :try_start_0
-    iget v2, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
+    iget v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
 
-    if-eq p1, v2, :cond_1
+    if-eq p1, v1, :cond_1
 
-    .line 298
+    .line 296
     iput p1, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
 
+    .line 302
+    iget-object v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusController:Lcom/android/server/audio/MediaFocusControl;
+
+    invoke-virtual {v1}, Lcom/android/server/audio/MediaFocusControl;->mustNotifyFocusOwnerOnDuck()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 303
+    iget v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
+
+    const/4 v2, -0x3
+
+    if-ne v1, v2, :cond_0
+
     .line 304
-    iget-object v2, p0, Lcom/android/server/audio/FocusRequester;->mFocusController:Lcom/android/server/audio/MediaFocusControl;
+    iget v1, p0, Lcom/android/server/audio/FocusRequester;->mGrantFlags:I
 
-    invoke-virtual {v2}, Lcom/android/server/audio/MediaFocusControl;->mustNotifyFocusOwnerOnDuck()Z
+    and-int/lit8 v1, v1, 0x2
 
-    move-result v2
+    if-nez v1, :cond_0
 
-    if-nez v2, :cond_0
+    .line 310
+    iget-object v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusController:Lcom/android/server/audio/MediaFocusControl;
 
-    .line 305
-    iget v2, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
-
-    const/4 v3, -0x3
-
-    if-ne v2, v3, :cond_0
-
-    .line 306
-    iget v2, p0, Lcom/android/server/audio/FocusRequester;->mGrantFlags:I
-
-    and-int/lit8 v2, v2, 0x2
-
-    if-nez v2, :cond_0
-
-    .line 312
-    iget-object v2, p0, Lcom/android/server/audio/FocusRequester;->mFocusController:Lcom/android/server/audio/MediaFocusControl;
-
-    .line 313
+    .line 311
     invoke-virtual {p0}, Lcom/android/server/audio/FocusRequester;->toAudioFocusInfo()Landroid/media/AudioFocusInfo;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
+
+    .line 310
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/audio/MediaFocusControl;->notifyExtPolicyFocusLoss_syncAf(Landroid/media/AudioFocusInfo;Z)V
 
     .line 312
-    invoke-virtual {v2, v3, v4}, Lcom/android/server/audio/MediaFocusControl;->notifyExtPolicyFocusLoss_syncAf(Landroid/media/AudioFocusInfo;Z)V
-
-    .line 314
     return-void
 
-    .line 316
+    .line 314
     :cond_0
     iget-object v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusDispatcher:Landroid/media/IAudioFocusDispatcher;
 
-    .line 317
-    .local v1, "fd":Landroid/media/IAudioFocusDispatcher;
     if-eqz v1, :cond_1
 
-    .line 322
-    iget-object v2, p0, Lcom/android/server/audio/FocusRequester;->mFocusController:Lcom/android/server/audio/MediaFocusControl;
+    .line 319
+    iget-object v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusController:Lcom/android/server/audio/MediaFocusControl;
 
-    .line 323
+    .line 320
     invoke-virtual {p0}, Lcom/android/server/audio/FocusRequester;->toAudioFocusInfo()Landroid/media/AudioFocusInfo;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    .line 322
-    invoke-virtual {v2, v3, v4}, Lcom/android/server/audio/MediaFocusControl;->notifyExtPolicyFocusLoss_syncAf(Landroid/media/AudioFocusInfo;Z)V
+    .line 319
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/audio/MediaFocusControl;->notifyExtPolicyFocusLoss_syncAf(Landroid/media/AudioFocusInfo;Z)V
 
-    .line 324
+    .line 321
+    iget-object v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusDispatcher:Landroid/media/IAudioFocusDispatcher;
+
     iget v2, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
 
     iget-object v3, p0, Lcom/android/server/audio/FocusRequester;->mClientId:Ljava/lang/String;
@@ -856,23 +855,22 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 295
-    .end local v1    # "fd":Landroid/media/IAudioFocusDispatcher;
+    .line 293
     :cond_1
     :goto_0
     return-void
 
-    .line 327
+    .line 324
     :catch_0
     move-exception v0
 
-    .line 328
+    .line 325
     .local v0, "e":Landroid/os/RemoteException;
-    const-string/jumbo v2, "MediaFocusControl"
+    const-string/jumbo v1, "MediaFocusControl"
 
-    const-string/jumbo v3, "Failure to signal loss of audio focus due to:"
+    const-string/jumbo v2, "Failure to signal loss of audio focus due to:"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -1035,11 +1033,6 @@
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/server/audio/FocusRequester;->mDeathHandler:Lcom/android/server/audio/MediaFocusControl$AudioFocusDeathHandler;
-
-    .line 208
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/android/server/audio/FocusRequester;->mFocusDispatcher:Landroid/media/IAudioFocusDispatcher;
     :try_end_0
     .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1048,11 +1041,11 @@
     :goto_0
     return-void
 
-    .line 210
+    .line 209
     :catch_0
     move-exception v0
 
-    .line 211
+    .line 210
     .local v0, "e":Ljava/util/NoSuchElementException;
     const-string/jumbo v1, "MediaFocusControl"
 
@@ -1067,7 +1060,7 @@
     .locals 7
 
     .prologue
-    .line 333
+    .line 330
     new-instance v0, Landroid/media/AudioFocusInfo;
 
     iget-object v1, p0, Lcom/android/server/audio/FocusRequester;->mAttributes:Landroid/media/AudioAttributes;
@@ -1076,14 +1069,14 @@
 
     iget-object v3, p0, Lcom/android/server/audio/FocusRequester;->mPackageName:Ljava/lang/String;
 
-    .line 334
+    .line 331
     iget v4, p0, Lcom/android/server/audio/FocusRequester;->mFocusGainRequest:I
 
     iget v5, p0, Lcom/android/server/audio/FocusRequester;->mFocusLossReceived:I
 
     iget v6, p0, Lcom/android/server/audio/FocusRequester;->mGrantFlags:I
 
-    .line 333
+    .line 330
     invoke-direct/range {v0 .. v6}, Landroid/media/AudioFocusInfo;-><init>(Landroid/media/AudioAttributes;Ljava/lang/String;Ljava/lang/String;III)V
 
     return-object v0

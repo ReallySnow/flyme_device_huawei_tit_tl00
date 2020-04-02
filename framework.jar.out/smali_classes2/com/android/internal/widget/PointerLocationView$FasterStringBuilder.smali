@@ -201,8 +201,6 @@
     .prologue
     const/16 v8, 0x30
 
-    const/4 v5, 0x0
-
     .line 797
     if-gez p1, :cond_0
 
@@ -210,7 +208,7 @@
 
     .line 798
     .local v5, "negative":Z
-    :cond_0
+    :goto_0
     if-eqz v5, :cond_1
 
     .line 799
@@ -226,6 +224,14 @@
 
     .line 802
     return-object p0
+
+    .line 797
+    .end local v5    # "negative":Z
+    :cond_0
+    const/4 v5, 0x0
+
+    .restart local v5    # "negative":Z
+    goto :goto_0
 
     .line 806
     :cond_1
@@ -293,7 +299,7 @@
     .line 821
     .end local v3    # "index":I
     .restart local v4    # "index":I
-    :goto_0
+    :goto_1
     if-ge p1, v2, :cond_4
 
     .line 822
@@ -312,17 +318,17 @@
     .restart local v3    # "index":I
     aput-char v8, v0, v4
 
-    :goto_1
+    :goto_2
     move v4, v3
 
     .end local v3    # "index":I
     .restart local v4    # "index":I
-    goto :goto_0
+    goto :goto_1
 
     .line 830
     .end local v4    # "index":I
     .restart local v3    # "index":I
-    :goto_2
+    :goto_3
     div-int v1, p1, v2
 
     .line 831
@@ -354,7 +360,7 @@
 
     .end local v4    # "index":I
     .restart local v3    # "index":I
-    goto :goto_2
+    goto :goto_3
 
     .line 836
     .end local v3    # "index":I
@@ -372,7 +378,7 @@
 
     .end local v4    # "index":I
     .restart local v3    # "index":I
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method public append(Ljava/lang/String;)Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;

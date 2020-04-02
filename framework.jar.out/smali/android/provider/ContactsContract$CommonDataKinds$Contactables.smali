@@ -32,32 +32,32 @@
     .locals 2
 
     .prologue
-    .line 7521
+    .line 7367
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 7522
+    .line 7368
     const-string/jumbo v1, "contactables"
 
-    .line 7521
+    .line 7367
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Contactables;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 7529
+    .line 7375
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Contactables;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "filter"
 
-    .line 7528
+    .line 7374
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Contactables;->CONTENT_FILTER_URI:Landroid/net/Uri;
 
-    .line 7515
+    .line 7361
     return-void
 .end method
 
@@ -65,7 +65,7 @@
     .locals 0
 
     .prologue
-    .line 7515
+    .line 7361
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

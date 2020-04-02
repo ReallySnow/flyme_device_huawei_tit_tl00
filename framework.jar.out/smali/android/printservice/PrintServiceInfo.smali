@@ -38,8 +38,6 @@
 
 .field private final mId:Ljava/lang/String;
 
-.field private mIsEnabled:Z
-
 .field private final mResolveInfo:Landroid/content/pm/ResolveInfo;
 
 .field private final mSettingsActivityName:Ljava/lang/String;
@@ -50,7 +48,7 @@
     .locals 1
 
     .prologue
-    .line 52
+    .line 51
     const-class v0, Landroid/printservice/PrintServiceInfo;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -59,15 +57,15 @@
 
     sput-object v0, Landroid/printservice/PrintServiceInfo;->LOG_TAG:Ljava/lang/String;
 
-    .line 312
+    .line 277
     new-instance v0, Landroid/printservice/PrintServiceInfo$1;
 
     invoke-direct {v0}, Landroid/printservice/PrintServiceInfo$1;-><init>()V
 
-    .line 311
+    .line 276
     sput-object v0, Landroid/printservice/PrintServiceInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 50
+    .line 49
     return-void
 .end method
 
@@ -79,22 +77,22 @@
     .param p4, "advancedPrintOptionsActivityName"    # Ljava/lang/String;
 
     .prologue
-    .line 90
+    .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 92
+    .line 88
     new-instance v0, Landroid/content/ComponentName;
 
     iget-object v1, p1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     iget-object v1, v1, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
-    .line 93
+    .line 89
     iget-object v2, p1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     iget-object v2, v2, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
-    .line 92
+    .line 88
     invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {v0}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
@@ -103,52 +101,38 @@
 
     iput-object v0, p0, Landroid/printservice/PrintServiceInfo;->mId:Ljava/lang/String;
 
-    .line 94
+    .line 90
     iput-object p1, p0, Landroid/printservice/PrintServiceInfo;->mResolveInfo:Landroid/content/pm/ResolveInfo;
 
-    .line 95
+    .line 91
     iput-object p2, p0, Landroid/printservice/PrintServiceInfo;->mSettingsActivityName:Ljava/lang/String;
 
-    .line 96
+    .line 92
     iput-object p3, p0, Landroid/printservice/PrintServiceInfo;->mAddPrintersActivityName:Ljava/lang/String;
 
-    .line 97
+    .line 93
     iput-object p4, p0, Landroid/printservice/PrintServiceInfo;->mAdvancedPrintOptionsActivityName:Ljava/lang/String;
 
-    .line 91
+    .line 87
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 2
+    .locals 1
     .param p1, "parcel"    # Landroid/os/Parcel;
 
     .prologue
-    const/4 v0, 0x0
-
-    .line 73
+    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 74
+    .line 71
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Landroid/printservice/PrintServiceInfo;->mId:Ljava/lang/String;
+    iput-object v0, p0, Landroid/printservice/PrintServiceInfo;->mId:Ljava/lang/String;
 
-    .line 75
-    invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    iput-boolean v0, p0, Landroid/printservice/PrintServiceInfo;->mIsEnabled:Z
-
-    .line 76
+    .line 72
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -159,28 +143,28 @@
 
     iput-object v0, p0, Landroid/printservice/PrintServiceInfo;->mResolveInfo:Landroid/content/pm/ResolveInfo;
 
-    .line 77
+    .line 73
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/printservice/PrintServiceInfo;->mSettingsActivityName:Ljava/lang/String;
 
-    .line 78
+    .line 74
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/printservice/PrintServiceInfo;->mAddPrintersActivityName:Ljava/lang/String;
 
-    .line 79
+    .line 75
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/printservice/PrintServiceInfo;->mAdvancedPrintOptionsActivityName:Ljava/lang/String;
 
-    .line 73
+    .line 70
     return-void
 .end method
 
@@ -190,49 +174,49 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 118
+    .line 105
     const/4 v11, 0x0
 
-    .line 119
+    .line 106
     .local v11, "settingsActivityName":Ljava/lang/String;
     const/4 v1, 0x0
 
-    .line 120
+    .line 107
     .local v1, "addPrintersActivityName":Ljava/lang/String;
     const/4 v2, 0x0
 
-    .line 122
+    .line 109
     .local v2, "advancedPrintOptionsActivityName":Ljava/lang/String;
     const/4 v9, 0x0
 
-    .line 123
+    .line 110
     .local v9, "parser":Landroid/content/res/XmlResourceParser;
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v8
 
-    .line 124
+    .line 111
     .local v8, "packageManager":Landroid/content/pm/PackageManager;
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    .line 125
+    .line 112
     const-string/jumbo v15, "android.printservice"
 
-    .line 124
+    .line 111
     invoke-virtual {v14, v8, v15}, Landroid/content/pm/ServiceInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
 
     move-result-object v9
 
-    .line 126
+    .line 113
     .local v9, "parser":Landroid/content/res/XmlResourceParser;
     if-eqz v9, :cond_1
 
-    .line 128
+    .line 115
     const/4 v12, 0x0
 
-    .line 129
+    .line 116
     .local v12, "type":I
     :goto_0
     const/4 v14, 0x1
@@ -243,7 +227,7 @@
 
     if-eq v12, v14, :cond_0
 
-    .line 130
+    .line 117
     :try_start_0
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
 
@@ -251,13 +235,13 @@
 
     goto :goto_0
 
-    .line 133
+    .line 120
     :cond_0
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 134
+    .line 121
     .local v7, "nodeName":Ljava/lang/String;
     const-string/jumbo v14, "print-service"
 
@@ -267,7 +251,7 @@
 
     if-nez v14, :cond_2
 
-    .line 135
+    .line 122
     sget-object v14, Landroid/printservice/PrintServiceInfo;->LOG_TAG:Ljava/lang/String;
 
     const-string/jumbo v15, "Ignoring meta-data that does not start with print-service tag"
@@ -279,17 +263,17 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 163
+    .line 150
     .end local v1    # "addPrintersActivityName":Ljava/lang/String;
     .end local v2    # "advancedPrintOptionsActivityName":Ljava/lang/String;
     .end local v11    # "settingsActivityName":Ljava/lang/String;
     :goto_1
     if-eqz v9, :cond_1
 
-    .line 164
+    .line 151
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 169
+    .line 156
     .end local v7    # "nodeName":Ljava/lang/String;
     .end local v12    # "type":I
     :cond_1
@@ -302,7 +286,7 @@
 
     return-object v14
 
-    .line 139
+    .line 126
     .restart local v1    # "addPrintersActivityName":Ljava/lang/String;
     .restart local v2    # "advancedPrintOptionsActivityName":Ljava/lang/String;
     .restart local v7    # "nodeName":Ljava/lang/String;
@@ -316,45 +300,45 @@
 
     iget-object v14, v14, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    .line 138
+    .line 125
     invoke-virtual {v8, v14}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
 
     move-result-object v10
 
-    .line 140
+    .line 127
     .local v10, "resources":Landroid/content/res/Resources;
     invoke-static {v9}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v3
 
-    .line 142
+    .line 129
     .local v3, "allAttributes":Landroid/util/AttributeSet;
     sget-object v14, Lcom/android/internal/R$styleable;->PrintService:[I
 
-    .line 141
+    .line 128
     invoke-virtual {v10, v3, v14}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v4
 
-    .line 145
+    .line 132
     .local v4, "attributes":Landroid/content/res/TypedArray;
     const/4 v14, 0x0
 
-    .line 144
+    .line 131
     invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v11
 
-    .line 148
+    .line 135
     .local v11, "settingsActivityName":Ljava/lang/String;
     const/4 v14, 0x1
 
-    .line 147
+    .line 134
     invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 150
+    .line 137
     .local v1, "addPrintersActivityName":Ljava/lang/String;
     const/4 v14, 0x3
 
@@ -362,7 +346,7 @@
 
     move-result-object v2
 
-    .line 153
+    .line 140
     .local v2, "advancedPrintOptionsActivityName":Ljava/lang/String;
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
     :try_end_1
@@ -373,7 +357,7 @@
 
     goto :goto_1
 
-    .line 155
+    .line 142
     .end local v1    # "addPrintersActivityName":Ljava/lang/String;
     .end local v2    # "advancedPrintOptionsActivityName":Ljava/lang/String;
     .end local v3    # "allAttributes":Landroid/util/AttributeSet;
@@ -384,7 +368,7 @@
     :catch_0
     move-exception v6
 
-    .line 156
+    .line 143
     .local v6, "ioe":Ljava/io/IOException;
     :try_start_2
     sget-object v14, Landroid/printservice/PrintServiceInfo;->LOG_TAG:Ljava/lang/String;
@@ -411,20 +395,20 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 163
+    .line 150
     if-eqz v9, :cond_1
 
-    .line 164
+    .line 151
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
     goto :goto_2
 
-    .line 159
+    .line 146
     .end local v6    # "ioe":Ljava/io/IOException;
     :catch_1
     move-exception v5
 
-    .line 160
+    .line 147
     .local v5, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_3
     sget-object v14, Landroid/printservice/PrintServiceInfo;->LOG_TAG:Ljava/lang/String;
@@ -439,7 +423,7 @@
 
     move-result-object v15
 
-    .line 161
+    .line 148
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
@@ -452,7 +436,7 @@
 
     move-object/from16 v16, v0
 
-    .line 160
+    .line 147
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v15
@@ -465,20 +449,20 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 163
+    .line 150
     if-eqz v9, :cond_1
 
-    .line 164
+    .line 151
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
     goto :goto_2
 
-    .line 157
+    .line 144
     .end local v5    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :catch_2
     move-exception v13
 
-    .line 158
+    .line 145
     .local v13, "xppe":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_4
     sget-object v14, Landroid/printservice/PrintServiceInfo;->LOG_TAG:Ljava/lang/String;
@@ -505,26 +489,26 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 163
+    .line 150
     if-eqz v9, :cond_1
 
-    .line 164
+    .line 151
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
     goto/16 :goto_2
 
-    .line 162
+    .line 149
     .end local v13    # "xppe":Lorg/xmlpull/v1/XmlPullParserException;
     :catchall_0
     move-exception v14
 
-    .line 163
+    .line 150
     if-eqz v9, :cond_3
 
-    .line 164
+    .line 151
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 162
+    .line 149
     :cond_3
     throw v14
 .end method
@@ -535,7 +519,7 @@
     .locals 1
 
     .prologue
-    .line 256
+    .line 224
     const/4 v0, 0x0
 
     return v0
@@ -550,20 +534,20 @@
 
     const/4 v3, 0x0
 
-    .line 276
+    .line 242
     if-ne p0, p1, :cond_0
 
-    .line 277
+    .line 243
     return v4
 
-    .line 279
+    .line 245
     :cond_0
     if-nez p1, :cond_1
 
-    .line 280
+    .line 246
     return v3
 
-    .line 282
+    .line 248
     :cond_1
     invoke-virtual {p0}, Landroid/printservice/PrintServiceInfo;->getClass()Ljava/lang/Class;
 
@@ -575,30 +559,30 @@
 
     if-eq v1, v2, :cond_2
 
-    .line 283
+    .line 249
     return v3
 
     :cond_2
     move-object v0, p1
 
-    .line 285
+    .line 251
     check-cast v0, Landroid/printservice/PrintServiceInfo;
 
-    .line 286
+    .line 252
     .local v0, "other":Landroid/printservice/PrintServiceInfo;
     iget-object v1, p0, Landroid/printservice/PrintServiceInfo;->mId:Ljava/lang/String;
 
     if-nez v1, :cond_3
 
-    .line 287
+    .line 253
     iget-object v1, v0, Landroid/printservice/PrintServiceInfo;->mId:Ljava/lang/String;
 
     if-eqz v1, :cond_4
 
-    .line 288
+    .line 254
     return v3
 
-    .line 290
+    .line 256
     :cond_3
     iget-object v1, p0, Landroid/printservice/PrintServiceInfo;->mId:Ljava/lang/String;
 
@@ -610,10 +594,10 @@
 
     if-nez v1, :cond_4
 
-    .line 291
+    .line 257
     return v3
 
-    .line 293
+    .line 259
     :cond_4
     return v4
 .end method
@@ -622,7 +606,7 @@
     .locals 1
 
     .prologue
-    .line 235
+    .line 204
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mAddPrintersActivityName:Ljava/lang/String;
 
     return-object v0
@@ -632,34 +616,8 @@
     .locals 1
 
     .prologue
-    .line 248
+    .line 217
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mAdvancedPrintOptionsActivityName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getComponentName()Landroid/content/ComponentName;
-    .locals 3
-
-    .prologue
-    .line 106
-    new-instance v0, Landroid/content/ComponentName;
-
-    iget-object v1, p0, Landroid/printservice/PrintServiceInfo;->mResolveInfo:Landroid/content/pm/ResolveInfo;
-
-    iget-object v1, v1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
-
-    iget-object v1, v1, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
-
-    .line 107
-    iget-object v2, p0, Landroid/printservice/PrintServiceInfo;->mResolveInfo:Landroid/content/pm/ResolveInfo;
-
-    iget-object v2, v2, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
-
-    iget-object v2, v2, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
-
-    .line 106
-    invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     return-object v0
 .end method
@@ -668,7 +626,7 @@
     .locals 1
 
     .prologue
-    .line 182
+    .line 169
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mId:Ljava/lang/String;
 
     return-object v0
@@ -678,7 +636,7 @@
     .locals 1
 
     .prologue
-    .line 209
+    .line 178
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mResolveInfo:Landroid/content/pm/ResolveInfo;
 
     return-object v0
@@ -688,7 +646,7 @@
     .locals 1
 
     .prologue
-    .line 222
+    .line 191
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mSettingsActivityName:Ljava/lang/String;
 
     return-object v0
@@ -698,7 +656,7 @@
     .locals 1
 
     .prologue
-    .line 271
+    .line 237
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mId:Ljava/lang/String;
 
     if-nez v0, :cond_0
@@ -720,44 +678,22 @@
     goto :goto_0
 .end method
 
-.method public isEnabled()Z
-    .locals 1
-
-    .prologue
-    .line 191
-    iget-boolean v0, p0, Landroid/printservice/PrintServiceInfo;->mIsEnabled:Z
-
-    return v0
-.end method
-
-.method public setIsEnabled(Z)V
-    .locals 0
-    .param p1, "isEnabled"    # Z
-
-    .prologue
-    .line 200
-    iput-boolean p1, p0, Landroid/printservice/PrintServiceInfo;->mIsEnabled:Z
-
-    .line 199
-    return-void
-.end method
-
 .method public toString()Ljava/lang/String;
     .locals 3
 
     .prologue
-    .line 298
+    .line 264
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 299
+    .line 265
     .local v0, "builder":Ljava/lang/StringBuilder;
     const-string/jumbo v1, "PrintServiceInfo{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 300
+    .line 266
     const-string/jumbo v1, "id="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -768,18 +704,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 301
-    const-string/jumbo v1, "isEnabled="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v2, p0, Landroid/printservice/PrintServiceInfo;->mIsEnabled:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    .line 302
+    .line 267
     const-string/jumbo v1, ", resolveInfo="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -790,7 +715,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 303
+    .line 268
     const-string/jumbo v1, ", settingsActivityName="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -801,7 +726,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 304
+    .line 269
     const-string/jumbo v1, ", addPrintersActivityName="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -812,25 +737,25 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 305
+    .line 270
     const-string/jumbo v1, ", advancedPrintOptionsActivityName="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 306
+    .line 271
     iget-object v2, p0, Landroid/printservice/PrintServiceInfo;->mAdvancedPrintOptionsActivityName:Ljava/lang/String;
 
-    .line 305
+    .line 270
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 307
+    .line 272
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 308
+    .line 273
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -844,51 +769,33 @@
     .param p2, "flagz"    # I
 
     .prologue
-    const/4 v1, 0x0
-
-    .line 261
+    .line 228
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mId:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 262
-    iget-boolean v0, p0, Landroid/printservice/PrintServiceInfo;->mIsEnabled:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    int-to-byte v0, v0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
-
-    .line 263
+    .line 229
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mResolveInfo:Landroid/content/pm/ResolveInfo;
+
+    const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 264
+    .line 230
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mSettingsActivityName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 265
+    .line 231
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mAddPrintersActivityName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 266
+    .line 232
     iget-object v0, p0, Landroid/printservice/PrintServiceInfo;->mAdvancedPrintOptionsActivityName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 260
+    .line 227
     return-void
-
-    :cond_0
-    move v0, v1
-
-    .line 262
-    goto :goto_0
 .end method

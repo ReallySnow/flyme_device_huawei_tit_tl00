@@ -3,7 +3,7 @@
 .source "DeviceIdleController.java"
 
 # interfaces
-.implements Landroid/app/AlarmManager$OnAlarmListener;
+.implements Landroid/location/LocationListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/server/DeviceIdleController;
 
     .prologue
-    .line 376
+    .line 353
     iput-object p1, p0, Lcom/android/server/DeviceIdleController$4;->this$0:Lcom/android/server/DeviceIdleController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,35 +37,63 @@
 
 
 # virtual methods
-.method public onAlarm()V
-    .locals 3
+.method public onLocationChanged(Landroid/location/Location;)V
+    .locals 2
+    .param p1, "location"    # Landroid/location/Location;
 
     .prologue
-    .line 379
+    .line 356
     iget-object v1, p0, Lcom/android/server/DeviceIdleController$4;->this$0:Lcom/android/server/DeviceIdleController;
 
     monitor-enter v1
 
-    .line 380
+    .line 357
     :try_start_0
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$4;->this$0:Lcom/android/server/DeviceIdleController;
 
-    const-string/jumbo v2, "s:alarm"
-
-    invoke-virtual {v0, v2}, Lcom/android/server/DeviceIdleController;->stepIdleStateLocked(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->receivedGpsLocationLocked(Landroid/location/Location;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
-    .line 378
+    .line 355
     return-void
 
-    .line 379
+    .line 356
     :catchall_0
     move-exception v0
 
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public onProviderDisabled(Ljava/lang/String;)V
+    .locals 0
+    .param p1, "provider"    # Ljava/lang/String;
+
+    .prologue
+    .line 370
+    return-void
+.end method
+
+.method public onProviderEnabled(Ljava/lang/String;)V
+    .locals 0
+    .param p1, "provider"    # Ljava/lang/String;
+
+    .prologue
+    .line 366
+    return-void
+.end method
+
+.method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
+    .locals 0
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "status"    # I
+    .param p3, "extras"    # Landroid/os/Bundle;
+
+    .prologue
+    .line 362
+    return-void
 .end method

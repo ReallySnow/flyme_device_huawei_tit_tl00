@@ -7,8 +7,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/widget/ShareActionProvider$OnShareTargetSelectedListener;,
-        Landroid/widget/ShareActionProvider$ShareActivityChooserModelPolicy;,
-        Landroid/widget/ShareActionProvider$ShareMenuItemOnMenuItemClickListener;
+        Landroid/widget/ShareActionProvider$ShareMenuItemOnMenuItemClickListener;,
+        Landroid/widget/ShareActionProvider$ShareActivityChooserModelPolicy;
     }
 .end annotation
 
@@ -222,13 +222,13 @@
     invoke-virtual {v0, p0}, Landroid/widget/ActivityChooserView;->setProvider(Landroid/view/ActionProvider;)V
 
     .line 179
-    const v4, 0x104053b
+    const v4, 0x10404ff
 
     .line 178
     invoke-virtual {v0, v4}, Landroid/widget/ActivityChooserView;->setDefaultActionButtonContentDescription(I)V
 
     .line 181
-    const v4, 0x104053a
+    const v4, 0x10404fe
 
     .line 180
     invoke-virtual {v0, v4}, Landroid/widget/ActivityChooserView;->setExpandActivityOverflowButtonContentDescription(I)V
@@ -330,7 +330,7 @@
     .line 220
     iget-object v7, p0, Landroid/widget/ShareActionProvider;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040568
+    const v8, 0x104052b
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

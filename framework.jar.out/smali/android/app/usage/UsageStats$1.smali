@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 163
+    .line 202
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,12 +45,12 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 166
+    .line 205
     new-instance v0, Landroid/app/usage/UsageStats;
 
     invoke-direct {v0}, Landroid/app/usage/UsageStats;-><init>()V
 
-    .line 167
+    .line 206
     .local v0, "stats":Landroid/app/usage/UsageStats;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -58,49 +58,63 @@
 
     iput-object v1, v0, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
-    .line 168
+    .line 207
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     iput-wide v2, v0, Landroid/app/usage/UsageStats;->mBeginTimeStamp:J
 
-    .line 169
+    .line 208
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     iput-wide v2, v0, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
 
-    .line 170
+    .line 209
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     iput-wide v2, v0, Landroid/app/usage/UsageStats;->mLastTimeUsed:J
 
-    .line 171
+    .line 210
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     iput-wide v2, v0, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
-    .line 172
+    .line 211
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/app/usage/UsageStats;->mLaunchCount:I
 
-    .line 173
+    .line 212
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/app/usage/UsageStats;->mLastEvent:I
 
-    .line 174
+    .line 213
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v2
+
+    iput-wide v2, v0, Landroid/app/usage/UsageStats;->mBeginIdleTime:J
+
+    .line 214
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v2
+
+    iput-wide v2, v0, Landroid/app/usage/UsageStats;->mLastTimeSystemUsed:J
+
+    .line 215
     return-object v0
 .end method
 
@@ -109,7 +123,7 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 165
+    .line 204
     invoke-virtual {p0, p1}, Landroid/app/usage/UsageStats$1;->createFromParcel(Landroid/os/Parcel;)Landroid/app/usage/UsageStats;
 
     move-result-object v0
@@ -122,7 +136,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 179
+    .line 220
     new-array v0, p1, [Landroid/app/usage/UsageStats;
 
     return-object v0
@@ -133,7 +147,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 178
+    .line 219
     invoke-virtual {p0, p1}, Landroid/app/usage/UsageStats$1;->newArray(I)[Landroid/app/usage/UsageStats;
 
     move-result-object v0

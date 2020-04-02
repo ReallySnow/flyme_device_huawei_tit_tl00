@@ -95,12 +95,12 @@
     .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
-    .line 179
+    .line 176
     invoke-static {}, Landroid/os/Debug;->getVmFeatureList()[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 184
+    .line 181
     .local v3, "vmFeatures":[Ljava/lang/String;
     array-length v4, v3
 
@@ -114,7 +114,7 @@
 
     add-int/lit8 v2, v4, 0x4
 
-    .line 185
+    .line 182
     .local v2, "size":I
     array-length v4, v3
 
@@ -124,7 +124,7 @@
     :goto_0
     if-ltz v0, :cond_0
 
-    .line 186
+    .line 183
     aget-object v4, v3, v0
 
     invoke-virtual {v4}, Ljava/lang/String;->length()I
@@ -135,12 +135,12 @@
 
     add-int/2addr v2, v4
 
-    .line 185
+    .line 182
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 187
+    .line 184
     :cond_0
     sget-object v4, Landroid/ddm/DdmHandleHello;->FRAMEWORK_FEATURES:[Ljava/lang/String;
 
@@ -151,7 +151,7 @@
     :goto_1
     if-ltz v0, :cond_1
 
-    .line 188
+    .line 185
     sget-object v4, Landroid/ddm/DdmHandleHello;->FRAMEWORK_FEATURES:[Ljava/lang/String;
 
     aget-object v4, v4, v0
@@ -164,24 +164,24 @@
 
     add-int/2addr v2, v4
 
-    .line 187
+    .line 184
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_1
 
-    .line 190
+    .line 187
     :cond_1
     invoke-static {v2}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
-    .line 191
+    .line 188
     .local v1, "out":Ljava/nio/ByteBuffer;
     sget-object v4, Lorg/apache/harmony/dalvik/ddmc/ChunkHandler;->CHUNK_ORDER:Ljava/nio/ByteOrder;
 
     invoke-virtual {v1, v4}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    .line 192
+    .line 189
     array-length v4, v3
 
     sget-object v5, Landroid/ddm/DdmHandleHello;->FRAMEWORK_FEATURES:[Ljava/lang/String;
@@ -192,7 +192,7 @@
 
     invoke-virtual {v1, v4}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 193
+    .line 190
     array-length v4, v3
 
     add-int/lit8 v0, v4, -0x1
@@ -200,7 +200,7 @@
     :goto_2
     if-ltz v0, :cond_2
 
-    .line 194
+    .line 191
     aget-object v4, v3, v0
 
     invoke-virtual {v4}, Ljava/lang/String;->length()I
@@ -209,17 +209,17 @@
 
     invoke-virtual {v1, v4}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 195
+    .line 192
     aget-object v4, v3, v0
 
     invoke-static {v1, v4}, Landroid/ddm/DdmHandleHello;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
 
-    .line 193
+    .line 190
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_2
 
-    .line 197
+    .line 194
     :cond_2
     sget-object v4, Landroid/ddm/DdmHandleHello;->FRAMEWORK_FEATURES:[Ljava/lang/String;
 
@@ -230,7 +230,7 @@
     :goto_3
     if-ltz v0, :cond_3
 
-    .line 198
+    .line 195
     sget-object v4, Landroid/ddm/DdmHandleHello;->FRAMEWORK_FEATURES:[Ljava/lang/String;
 
     aget-object v4, v4, v0
@@ -241,19 +241,19 @@
 
     invoke-virtual {v1, v4}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 199
+    .line 196
     sget-object v4, Landroid/ddm/DdmHandleHello;->FRAMEWORK_FEATURES:[Ljava/lang/String;
 
     aget-object v4, v4, v0
 
     invoke-static {v1, v4}, Landroid/ddm/DdmHandleHello;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
 
-    .line 197
+    .line 194
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_3
 
-    .line 202
+    .line 199
     :cond_3
     new-instance v4, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
@@ -265,12 +265,12 @@
 .end method
 
 .method private handleHELO(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .locals 15
+    .locals 14
     .param p1, "request"    # Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     .prologue
     .line 112
-    invoke-static/range {p1 .. p1}, Landroid/ddm/DdmHandleHello;->wrapChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Ljava/nio/ByteBuffer;
+    invoke-static {p1}, Landroid/ddm/DdmHandleHello;->wrapChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
@@ -278,54 +278,54 @@
     .local v1, "in":Ljava/nio/ByteBuffer;
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->getInt()I
 
-    move-result v6
+    move-result v5
 
     .line 121
-    .local v6, "serverProtoVers":I
-    const-string/jumbo v13, "java.vm.name"
+    .local v5, "serverProtoVers":I
+    const-string/jumbo v12, "java.vm.name"
 
-    const-string/jumbo v14, "?"
+    const-string/jumbo v13, "?"
 
-    invoke-static {v13, v14}, Ljava/lang/System;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v12, v13}, Ljava/lang/System;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
     .line 122
-    .local v10, "vmName":Ljava/lang/String;
-    const-string/jumbo v13, "java.vm.version"
+    .local v9, "vmName":Ljava/lang/String;
+    const-string/jumbo v12, "java.vm.version"
 
-    const-string/jumbo v14, "?"
+    const-string/jumbo v13, "?"
 
-    invoke-static {v13, v14}, Ljava/lang/System;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v12, v13}, Ljava/lang/System;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    .line 123
+    .local v11, "vmVersion":Ljava/lang/String;
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v12
 
-    .line 123
-    .local v12, "vmVersion":Ljava/lang/String;
-    new-instance v13, Ljava/lang/StringBuilder;
+    const-string/jumbo v13, " v"
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v12
 
-    move-result-object v13
+    invoke-virtual {v12, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v14, " v"
+    move-result-object v12
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
-
-    invoke-virtual {v13, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
+    move-result-object v7
 
     .line 128
-    .local v8, "vmIdent":Ljava/lang/String;
+    .local v7, "vmIdent":Ljava/lang/String;
     invoke-static {}, Landroid/ddm/DdmHandleAppName;->getAppName()Ljava/lang/String;
 
     move-result-object v0
@@ -334,254 +334,235 @@
     .local v0, "appName":Ljava/lang/String;
     invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
 
-    move-result-object v11
+    move-result-object v10
 
     .line 132
-    .local v11, "vmRuntime":Ldalvik/system/VMRuntime;
-    invoke-virtual {v11}, Ldalvik/system/VMRuntime;->is64Bit()Z
+    .local v10, "vmRuntime":Ldalvik/system/VMRuntime;
+    invoke-virtual {v10}, Ldalvik/system/VMRuntime;->is64Bit()Z
 
-    move-result v13
+    move-result v12
 
-    if-eqz v13, :cond_2
+    if-eqz v12, :cond_2
 
     const-string/jumbo v2, "64-bit"
 
     .line 133
     .local v2, "instructionSetDescription":Ljava/lang/String;
     :goto_0
-    invoke-virtual {v11}, Ldalvik/system/VMRuntime;->vmInstructionSet()Ljava/lang/String;
+    invoke-virtual {v10}, Ldalvik/system/VMRuntime;->vmInstructionSet()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
     .line 134
-    .local v9, "vmInstructionSet":Ljava/lang/String;
-    if-eqz v9, :cond_0
+    .local v8, "vmInstructionSet":Ljava/lang/String;
+    if-eqz v8, :cond_0
 
-    invoke-virtual {v9}, Ljava/lang/String;->length()I
+    invoke-virtual {v8}, Ljava/lang/String;->length()I
 
-    move-result v13
+    move-result v12
 
-    if-lez v13, :cond_0
+    if-lez v12, :cond_0
 
     .line 135
-    new-instance v13, Ljava/lang/StringBuilder;
+    new-instance v12, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v13, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v12
 
-    const-string/jumbo v14, " ("
+    const-string/jumbo v13, " ("
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v12
 
-    const-string/jumbo v14, ")"
+    const-string/jumbo v13, ")"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     .line 137
     :cond_0
-    new-instance v13, Ljava/lang/StringBuilder;
+    new-instance v12, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v14, "CheckJNI="
+    const-string/jumbo v13, "CheckJNI="
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    .line 138
-    invoke-virtual {v11}, Ldalvik/system/VMRuntime;->isCheckJniEnabled()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3
-
-    const-string/jumbo v13, "true"
-
-    .line 137
-    :goto_1
-    invoke-virtual {v14, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v13
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 138
+    invoke-virtual {v10}, Ldalvik/system/VMRuntime;->isCheckJniEnabled()Z
 
-    move-result-object v7
+    move-result v12
 
-    .line 139
-    .local v7, "vmFlags":Ljava/lang/String;
-    invoke-virtual {v11}, Ldalvik/system/VMRuntime;->isNativeDebuggable()Z
+    if-eqz v12, :cond_3
 
-    move-result v3
+    const-string/jumbo v12, "true"
+
+    .line 137
+    :goto_1
+    invoke-virtual {v13, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    .line 141
+    .local v6, "vmFlags":Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/String;->length()I
+
+    move-result v12
+
+    mul-int/lit8 v12, v12, 0x2
+
+    .line 140
+    add-int/lit8 v12, v12, 0x1c
 
     .line 142
-    .local v3, "isNativeDebuggable":Z
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v13
 
     mul-int/lit8 v13, v13, 0x2
 
-    .line 141
-    add-int/lit8 v13, v13, 0x1c
+    .line 140
+    add-int/2addr v12, v13
 
     .line 143
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v14
+    move-result v13
 
-    mul-int/lit8 v14, v14, 0x2
+    mul-int/lit8 v13, v13, 0x2
 
-    .line 141
-    add-int/2addr v13, v14
+    .line 140
+    add-int/2addr v12, v13
 
     .line 144
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
 
-    move-result v14
+    move-result v13
 
-    mul-int/lit8 v14, v14, 0x2
+    mul-int/lit8 v13, v13, 0x2
 
-    .line 141
-    add-int/2addr v13, v14
+    .line 140
+    add-int/2addr v12, v13
+
+    invoke-static {v12}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v3
 
     .line 145
-    invoke-virtual {v7}, Ljava/lang/String;->length()I
+    .local v3, "out":Ljava/nio/ByteBuffer;
+    sget-object v12, Lorg/apache/harmony/dalvik/ddmc/ChunkHandler;->CHUNK_ORDER:Ljava/nio/ByteOrder;
 
-    move-result v14
+    invoke-virtual {v3, v12}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    mul-int/lit8 v14, v14, 0x2
+    .line 146
+    const/4 v12, 0x1
 
-    .line 141
-    add-int/2addr v13, v14
-
-    add-int/lit8 v13, v13, 0x1
-
-    invoke-static {v13}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
-
-    move-result-object v4
+    invoke-virtual {v3, v12}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
     .line 147
-    .local v4, "out":Ljava/nio/ByteBuffer;
-    sget-object v13, Lorg/apache/harmony/dalvik/ddmc/ChunkHandler;->CHUNK_ORDER:Ljava/nio/ByteOrder;
-
-    invoke-virtual {v4, v13}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
-
-    .line 148
-    const/4 v13, 0x1
-
-    invoke-virtual {v4, v13}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
-
-    .line 149
     invoke-static {}, Landroid/os/Process;->myPid()I
 
-    move-result v13
+    move-result v12
 
-    invoke-virtual {v4, v13}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-virtual {v3, v12}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 150
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
-
-    move-result v13
-
-    invoke-virtual {v4, v13}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
-
-    .line 151
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v13
-
-    invoke-virtual {v4, v13}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
-
-    .line 152
-    invoke-static {v4, v8}, Landroid/ddm/DdmHandleHello;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
-
-    .line 153
-    invoke-static {v4, v0}, Landroid/ddm/DdmHandleHello;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
-
-    .line 154
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
-
-    move-result v13
-
-    invoke-virtual {v4, v13}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
-
-    .line 155
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v13
-
-    invoke-virtual {v4, v13}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
-
-    .line 156
-    invoke-static {v4, v2}, Landroid/ddm/DdmHandleHello;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
-
-    .line 157
+    .line 148
     invoke-virtual {v7}, Ljava/lang/String;->length()I
 
-    move-result v13
+    move-result v12
 
-    invoke-virtual {v4, v13}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-virtual {v3, v12}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+
+    .line 149
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v12
+
+    invoke-virtual {v3, v12}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+
+    .line 150
+    invoke-static {v3, v7}, Landroid/ddm/DdmHandleHello;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
+
+    .line 151
+    invoke-static {v3, v0}, Landroid/ddm/DdmHandleHello;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
+
+    .line 152
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v12
+
+    invoke-virtual {v3, v12}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+
+    .line 153
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v12
+
+    invoke-virtual {v3, v12}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+
+    .line 154
+    invoke-static {v3, v2}, Landroid/ddm/DdmHandleHello;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
+
+    .line 155
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v12
+
+    invoke-virtual {v3, v12}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+
+    .line 156
+    invoke-static {v3, v6}, Landroid/ddm/DdmHandleHello;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
 
     .line 158
-    invoke-static {v4, v7}, Landroid/ddm/DdmHandleHello;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
+    new-instance v4, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
-    .line 159
-    if-eqz v3, :cond_4
+    sget v12, Landroid/ddm/DdmHandleHello;->CHUNK_HELO:I
 
-    const/4 v13, 0x1
+    invoke-direct {v4, v12, v3}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(ILjava/nio/ByteBuffer;)V
 
-    :goto_2
-    int-to-byte v13, v13
-
-    invoke-virtual {v4, v13}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
-
-    .line 161
-    new-instance v5, Lorg/apache/harmony/dalvik/ddmc/Chunk;
-
-    sget v13, Landroid/ddm/DdmHandleHello;->CHUNK_HELO:I
-
-    invoke-direct {v5, v13, v4}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(ILjava/nio/ByteBuffer;)V
-
-    .line 167
-    .local v5, "reply":Lorg/apache/harmony/dalvik/ddmc/Chunk;
+    .line 164
+    .local v4, "reply":Lorg/apache/harmony/dalvik/ddmc/Chunk;
     invoke-static {}, Landroid/os/Debug;->waitingForDebugger()Z
 
-    move-result v13
+    move-result v12
 
-    if-eqz v13, :cond_1
+    if-eqz v12, :cond_1
 
-    .line 168
-    const/4 v13, 0x0
+    .line 165
+    const/4 v12, 0x0
 
-    invoke-static {v13}, Landroid/ddm/DdmHandleHello;->sendWAIT(I)V
+    invoke-static {v12}, Landroid/ddm/DdmHandleHello;->sendWAIT(I)V
 
-    .line 170
+    .line 167
     :cond_1
-    return-object v5
+    return-object v4
 
     .line 132
     .end local v2    # "instructionSetDescription":Ljava/lang/String;
-    .end local v3    # "isNativeDebuggable":Z
-    .end local v4    # "out":Ljava/nio/ByteBuffer;
-    .end local v5    # "reply":Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .end local v7    # "vmFlags":Ljava/lang/String;
-    .end local v9    # "vmInstructionSet":Ljava/lang/String;
+    .end local v3    # "out":Ljava/nio/ByteBuffer;
+    .end local v4    # "reply":Lorg/apache/harmony/dalvik/ddmc/Chunk;
+    .end local v6    # "vmFlags":Ljava/lang/String;
+    .end local v8    # "vmInstructionSet":Ljava/lang/String;
     :cond_2
     const-string/jumbo v2, "32-bit"
 
@@ -589,20 +570,11 @@
     goto/16 :goto_0
 
     .line 138
-    .restart local v9    # "vmInstructionSet":Ljava/lang/String;
+    .restart local v8    # "vmInstructionSet":Ljava/lang/String;
     :cond_3
-    const-string/jumbo v13, "false"
+    const-string/jumbo v12, "false"
 
     goto/16 :goto_1
-
-    .line 159
-    .restart local v3    # "isNativeDebuggable":Z
-    .restart local v4    # "out":Ljava/nio/ByteBuffer;
-    .restart local v7    # "vmFlags":Ljava/lang/String;
-    :cond_4
-    const/4 v13, 0x0
-
-    goto :goto_2
 .end method
 
 .method public static register()V
@@ -636,14 +608,14 @@
 
     const/4 v3, 0x0
 
-    .line 210
+    .line 207
     new-array v0, v4, [B
 
     int-to-byte v2, p0
 
     aput-byte v2, v0, v3
 
-    .line 211
+    .line 208
     .local v0, "data":[B
     new-instance v1, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
@@ -651,11 +623,11 @@
 
     invoke-direct {v1, v2, v0, v3, v4}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(I[BII)V
 
-    .line 212
+    .line 209
     .local v1, "waitChunk":Lorg/apache/harmony/dalvik/ddmc/Chunk;
     invoke-static {v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->sendChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)V
 
-    .line 209
+    .line 206
     return-void
 .end method
 

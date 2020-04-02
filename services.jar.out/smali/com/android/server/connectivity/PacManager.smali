@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/connectivity/PacManager$1;,
-        Lcom/android/server/connectivity/PacManager$PacRefreshIntentReceiver;
+        Lcom/android/server/connectivity/PacManager$PacRefreshIntentReceiver;,
+        Lcom/android/server/connectivity/PacManager$1;
     }
 .end annotation
 
@@ -53,9 +53,9 @@
 
 .field private mCurrentPac:Ljava/lang/String;
 
-.field private volatile mHasDownloaded:Z
+.field private mHasDownloaded:Z
 
-.field private volatile mHasSentBroadcast:Z
+.field private mHasSentBroadcast:Z
 
 .field private mLastPort:I
 
@@ -67,7 +67,7 @@
 
 .field private mPacRefreshIntent:Landroid/app/PendingIntent;
 
-.field private volatile mPacUrl:Landroid/net/Uri;
+.field private mPacUrl:Landroid/net/Uri;
     .annotation build Lcom/android/internal/annotations/GuardedBy;
         value = "mProxyLock"
     .end annotation
@@ -232,29 +232,29 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 144
+    .line 138
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 77
+    .line 76
     sget-object v0, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
 
     iput-object v0, p0, Lcom/android/server/connectivity/PacManager;->mPacUrl:Landroid/net/Uri;
 
-    .line 99
+    .line 98
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/connectivity/PacManager;->mProxyLock:Ljava/lang/Object;
 
-    .line 106
+    .line 100
     new-instance v0, Lcom/android/server/connectivity/PacManager$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/connectivity/PacManager$1;-><init>(Lcom/android/server/connectivity/PacManager;)V
 
     iput-object v0, p0, Lcom/android/server/connectivity/PacManager;->mPacDownloader:Ljava/lang/Runnable;
 
-    .line 134
+    .line 128
     new-instance v0, Landroid/os/HandlerThread;
 
     const-string/jumbo v1, "android.pacmanager"
@@ -263,20 +263,20 @@
 
     iput-object v0, p0, Lcom/android/server/connectivity/PacManager;->mNetThread:Landroid/os/HandlerThread;
 
-    .line 145
+    .line 139
     iput-object p1, p0, Lcom/android/server/connectivity/PacManager;->mContext:Landroid/content/Context;
 
-    .line 146
+    .line 140
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/connectivity/PacManager;->mLastPort:I
 
-    .line 147
+    .line 141
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager;->mNetThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
-    .line 148
+    .line 142
     new-instance v0, Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mNetThread:Landroid/os/HandlerThread;
@@ -289,42 +289,42 @@
 
     iput-object v0, p0, Lcom/android/server/connectivity/PacManager;->mNetThreadHandler:Landroid/os/Handler;
 
-    .line 151
+    .line 145
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "android.net.proxy.PAC_REFRESH"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 150
+    .line 144
     invoke-static {p1, v2, v0, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/connectivity/PacManager;->mPacRefreshIntent:Landroid/app/PendingIntent;
 
-    .line 152
+    .line 146
     new-instance v0, Lcom/android/server/connectivity/PacManager$PacRefreshIntentReceiver;
 
     invoke-direct {v0, p0}, Lcom/android/server/connectivity/PacManager$PacRefreshIntentReceiver;-><init>(Lcom/android/server/connectivity/PacManager;)V
 
-    .line 153
+    .line 147
     new-instance v1, Landroid/content/IntentFilter;
 
     const-string/jumbo v2, "android.net.proxy.PAC_REFRESH"
 
     invoke-direct {v1, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 152
+    .line 146
     invoke-virtual {p1, v0, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 154
+    .line 148
     iput-object p2, p0, Lcom/android/server/connectivity/PacManager;->mConnectivityHandler:Landroid/os/Handler;
 
-    .line 155
+    .line 149
     iput p3, p0, Lcom/android/server/connectivity/PacManager;->mProxyMessage:I
 
-    .line 144
+    .line 138
     return-void
 .end method
 
@@ -334,28 +334,28 @@
     .prologue
     const v3, 0x40000005    # 2.0000012f
 
-    .line 292
+    .line 288
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mContext:Landroid/content/Context;
 
     if-nez v1, :cond_0
 
-    .line 293
+    .line 289
     const-string/jumbo v1, "PacManager"
 
     const-string/jumbo v2, "No context for binding"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 294
+    .line 290
     return-void
 
-    .line 296
+    .line 292
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 297
+    .line 293
     .local v0, "intent":Landroid/content/Intent;
     const-string/jumbo v1, "com.android.pacprocessor"
 
@@ -363,7 +363,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 298
+    .line 294
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mProxyConnection:Landroid/content/ServiceConnection;
 
     if-eqz v1, :cond_1
@@ -372,17 +372,17 @@
 
     if-eqz v1, :cond_1
 
-    .line 300
+    .line 296
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mNetThreadHandler:Landroid/os/Handler;
 
     iget-object v2, p0, Lcom/android/server/connectivity/PacManager;->mPacDownloader:Ljava/lang/Runnable;
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 301
+    .line 297
     return-void
 
-    .line 303
+    .line 299
     :cond_1
     new-instance v1, Lcom/android/server/connectivity/PacManager$2;
 
@@ -390,20 +390,20 @@
 
     iput-object v1, p0, Lcom/android/server/connectivity/PacManager;->mConnection:Landroid/content/ServiceConnection;
 
-    .line 335
+    .line 331
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/server/connectivity/PacManager;->mConnection:Landroid/content/ServiceConnection;
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
-    .line 338
+    .line 334
     new-instance v0, Landroid/content/Intent;
 
     .end local v0    # "intent":Landroid/content/Intent;
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 339
+    .line 335
     .restart local v0    # "intent":Landroid/content/Intent;
     const-string/jumbo v1, "com.android.proxyhandler"
 
@@ -411,21 +411,21 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 340
+    .line 336
     new-instance v1, Lcom/android/server/connectivity/PacManager$3;
 
     invoke-direct {v1, p0}, Lcom/android/server/connectivity/PacManager$3;-><init>(Lcom/android/server/connectivity/PacManager;)V
 
     iput-object v1, p0, Lcom/android/server/connectivity/PacManager;->mProxyConnection:Landroid/content/ServiceConnection;
 
-    .line 373
+    .line 369
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/server/connectivity/PacManager;->mProxyConnection:Landroid/content/ServiceConnection;
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
-    .line 291
+    .line 287
     return-void
 .end method
 
@@ -441,7 +441,7 @@
     .prologue
     const-wide/32 v10, 0x1312d00
 
-    .line 212
+    .line 208
     new-instance v6, Ljava/net/URL;
 
     invoke-virtual {p0}, Landroid/net/Uri;->toString()Ljava/lang/String;
@@ -450,7 +450,7 @@
 
     invoke-direct {v6, v8}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
-    .line 213
+    .line 209
     .local v6, "url":Ljava/net/URL;
     sget-object v8, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
@@ -458,11 +458,11 @@
 
     move-result-object v7
 
-    .line 214
+    .line 210
     .local v7, "urlConnection":Ljava/net/URLConnection;
     const-wide/16 v2, -0x1
 
-    .line 216
+    .line 212
     .local v2, "contentLength":J
     :try_start_0
     const-string/jumbo v8, "Content-Length"
@@ -477,13 +477,13 @@
 
     move-result-wide v2
 
-    .line 220
+    .line 216
     :goto_0
     cmp-long v8, v2, v10
 
     if-lez v8, :cond_0
 
-    .line 221
+    .line 217
     new-instance v8, Ljava/io/IOException;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -514,19 +514,19 @@
 
     throw v8
 
-    .line 223
+    .line 219
     :cond_0
     new-instance v1, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 224
+    .line 220
     .local v1, "bytes":Ljava/io/ByteArrayOutputStream;
     const/16 v8, 0x400
 
     new-array v0, v8, [B
 
-    .line 226
+    .line 222
     .local v0, "buffer":[B
     :cond_1
     invoke-virtual {v7}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
@@ -542,12 +542,12 @@
 
     if-eq v4, v8, :cond_2
 
-    .line 227
+    .line 223
     const/4 v8, 0x0
 
     invoke-virtual {v1, v0, v8, v4}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    .line 228
+    .line 224
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->size()I
 
     move-result v8
@@ -558,7 +558,7 @@
 
     if-lez v8, :cond_1
 
-    .line 229
+    .line 225
     new-instance v8, Ljava/io/IOException;
 
     const-string/jumbo v9, "PAC too big"
@@ -567,7 +567,7 @@
 
     throw v8
 
-    .line 232
+    .line 228
     :cond_2
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toString()Ljava/lang/String;
 
@@ -575,7 +575,7 @@
 
     return-object v8
 
-    .line 217
+    .line 213
     .end local v0    # "buffer":[B
     .end local v1    # "bytes":Ljava/io/ByteArrayOutputStream;
     .end local v4    # "count":I
@@ -590,12 +590,12 @@
     .locals 2
 
     .prologue
-    .line 159
+    .line 153
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager;->mAlarmManager:Landroid/app/AlarmManager;
 
     if-nez v0, :cond_0
 
-    .line 160
+    .line 154
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager;->mContext:Landroid/content/Context;
 
     const-string/jumbo v1, "alarm"
@@ -608,7 +608,7 @@
 
     iput-object v0, p0, Lcom/android/server/connectivity/PacManager;->mAlarmManager:Landroid/app/AlarmManager;
 
-    .line 162
+    .line 156
     :cond_0
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager;->mAlarmManager:Landroid/app/AlarmManager;
 
@@ -620,7 +620,7 @@
     .param p1, "delayIndex"    # I
 
     .prologue
-    .line 264
+    .line 260
     invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->getPacChangeDelay()Ljava/lang/String;
 
     move-result-object v1
@@ -631,13 +631,13 @@
 
     move-result-object v0
 
-    .line 265
+    .line 261
     .local v0, "list":[Ljava/lang/String;
     array-length v1, v0
 
     if-ge p1, v1, :cond_0
 
-    .line 266
+    .line 262
     aget-object v1, v0, p1
 
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
@@ -646,7 +646,7 @@
 
     return-wide v2
 
-    .line 268
+    .line 264
     :cond_0
     const-wide/16 v2, 0x0
 
@@ -660,15 +660,15 @@
     .prologue
     const/4 v0, 0x3
 
-    .line 236
+    .line 232
     add-int/lit8 p1, p1, 0x1
 
     if-le p1, v0, :cond_0
 
-    .line 237
+    .line 233
     return v0
 
-    .line 239
+    .line 235
     :cond_0
     return p1
 .end method
@@ -677,26 +677,26 @@
     .locals 5
 
     .prologue
-    .line 253
+    .line 249
     iget-object v3, p0, Lcom/android/server/connectivity/PacManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 257
+    .line 253
     .local v0, "cr":Landroid/content/ContentResolver;
     const-string/jumbo v3, "conn.pac_change_delay"
 
-    .line 258
+    .line 254
     const-string/jumbo v4, "8 32 120 14400 43200"
 
-    .line 256
+    .line 252
     invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 259
+    .line 255
     .local v1, "defaultDelay":Ljava/lang/String;
     const-string/jumbo v3, "pac_change_delay"
 
@@ -704,7 +704,7 @@
 
     move-result-object v2
 
-    .line 260
+    .line 256
     .local v2, "val":Ljava/lang/String;
     if-nez v2, :cond_0
 
@@ -723,17 +723,17 @@
     .locals 1
 
     .prologue
-    .line 243
+    .line 239
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/connectivity/PacManager;->mCurrentDelay:I
 
-    .line 244
+    .line 240
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Lcom/android/server/connectivity/PacManager;->setDownloadIn(I)V
 
-    .line 242
+    .line 238
     return-void
 .end method
 
@@ -741,7 +741,7 @@
     .locals 1
 
     .prologue
-    .line 248
+    .line 244
     iget v0, p0, Lcom/android/server/connectivity/PacManager;->mCurrentDelay:I
 
     invoke-direct {p0, v0}, Lcom/android/server/connectivity/PacManager;->getNextDelay(I)I
@@ -750,12 +750,12 @@
 
     iput v0, p0, Lcom/android/server/connectivity/PacManager;->mCurrentDelay:I
 
-    .line 249
+    .line 245
     iget v0, p0, Lcom/android/server/connectivity/PacManager;->mCurrentDelay:I
 
     invoke-direct {p0, v0}, Lcom/android/server/connectivity/PacManager;->setDownloadIn(I)V
 
-    .line 247
+    .line 243
     return-void
 .end method
 
@@ -764,7 +764,7 @@
     .param p1, "proxy"    # Landroid/net/ProxyInfo;
 
     .prologue
-    .line 391
+    .line 387
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager;->mConnectivityHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mConnectivityHandler:Landroid/os/Handler;
@@ -777,7 +777,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 390
+    .line 386
     return-void
 .end method
 
@@ -787,7 +787,7 @@
     .prologue
     monitor-enter p0
 
-    .line 395
+    .line 391
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/connectivity/PacManager;->mHasDownloaded:Z
 
@@ -804,17 +804,17 @@
     :cond_0
     monitor-exit p0
 
-    .line 396
+    .line 392
     return-void
 
-    .line 398
+    .line 394
     :cond_1
     :try_start_1
     iget-boolean v0, p0, Lcom/android/server/connectivity/PacManager;->mHasSentBroadcast:Z
 
     if-nez v0, :cond_2
 
-    .line 399
+    .line 395
     new-instance v0, Landroid/net/ProxyInfo;
 
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mPacUrl:Landroid/net/Uri;
@@ -825,7 +825,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/server/connectivity/PacManager;->sendPacBroadcast(Landroid/net/ProxyInfo;)V
 
-    .line 400
+    .line 396
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/connectivity/PacManager;->mHasSentBroadcast:Z
@@ -835,7 +835,7 @@
     :cond_2
     monitor-exit p0
 
-    .line 394
+    .line 390
     return-void
 
     :catchall_0
@@ -851,46 +851,46 @@
     .param p1, "script"    # Ljava/lang/String;
 
     .prologue
-    .line 278
+    .line 274
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
 
     if-nez v1, :cond_0
 
-    .line 279
+    .line 275
     const-string/jumbo v1, "PacManager"
 
     const-string/jumbo v2, "setCurrentProxyScript: no proxy service"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 280
+    .line 276
     const/4 v1, 0x0
 
     return v1
 
-    .line 283
+    .line 279
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
 
     invoke-interface {v1, p1}, Lcom/android/net/IProxyService;->setPacFile(Ljava/lang/String;)V
 
-    .line 284
+    .line 280
     iput-object p1, p0, Lcom/android/server/connectivity/PacManager;->mCurrentPac:Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 288
+    .line 284
     :goto_0
     const/4 v1, 0x1
 
     return v1
 
-    .line 285
+    .line 281
     :catch_0
     move-exception v0
 
-    .line 286
+    .line 282
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "PacManager"
 
@@ -906,12 +906,12 @@
     .param p1, "delayIndex"    # I
 
     .prologue
-    .line 272
+    .line 268
     invoke-direct {p0, p1}, Lcom/android/server/connectivity/PacManager;->getDownloadDelay(I)J
 
     move-result-wide v0
 
-    .line 273
+    .line 269
     .local v0, "delay":J
     const-wide/16 v4, 0x3e8
 
@@ -923,7 +923,7 @@
 
     add-long v2, v4, v6
 
-    .line 274
+    .line 270
     .local v2, "timeTillTrigger":J
     invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->getAlarmManager()Landroid/app/AlarmManager;
 
@@ -935,7 +935,7 @@
 
     invoke-virtual {v4, v6, v2, v3, v5}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
-    .line 271
+    .line 267
     return-void
 .end method
 
@@ -945,47 +945,47 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 378
+    .line 374
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager;->mConnection:Landroid/content/ServiceConnection;
 
     if-eqz v0, :cond_0
 
-    .line 379
+    .line 375
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mConnection:Landroid/content/ServiceConnection;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    .line 380
+    .line 376
     iput-object v2, p0, Lcom/android/server/connectivity/PacManager;->mConnection:Landroid/content/ServiceConnection;
 
-    .line 382
+    .line 378
     :cond_0
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager;->mProxyConnection:Landroid/content/ServiceConnection;
 
     if-eqz v0, :cond_1
 
-    .line 383
+    .line 379
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mProxyConnection:Landroid/content/ServiceConnection;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    .line 384
+    .line 380
     iput-object v2, p0, Lcom/android/server/connectivity/PacManager;->mProxyConnection:Landroid/content/ServiceConnection;
 
-    .line 386
+    .line 382
     :cond_1
     iput-object v2, p0, Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
 
-    .line 387
+    .line 383
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/connectivity/PacManager;->mLastPort:I
 
-    .line 377
+    .line 373
     return-void
 .end method
 
@@ -1000,7 +1000,7 @@
 
     monitor-enter p0
 
-    .line 175
+    .line 169
     :try_start_0
     sget-object v1, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
 
@@ -1014,7 +1014,7 @@
 
     if-nez v1, :cond_1
 
-    .line 176
+    .line 170
     invoke-virtual {p1}, Landroid/net/ProxyInfo;->getPacFileUrl()Landroid/net/Uri;
 
     move-result-object v1
@@ -1037,34 +1037,88 @@
 
     monitor-exit p0
 
-    .line 178
+    .line 172
     return v4
 
-    .line 180
+    .line 174
     :cond_0
     :try_start_1
+    iget-object v2, p0, Lcom/android/server/connectivity/PacManager;->mProxyLock:Ljava/lang/Object;
+
+    monitor-enter v2
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    .line 175
+    :try_start_2
     invoke-virtual {p1}, Landroid/net/ProxyInfo;->getPacFileUrl()Landroid/net/Uri;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/server/connectivity/PacManager;->mPacUrl:Landroid/net/Uri;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 181
+    :try_start_3
+    monitor-exit v2
+
+    .line 177
     const/4 v1, 0x0
 
     iput v1, p0, Lcom/android/server/connectivity/PacManager;->mCurrentDelay:I
 
-    .line 182
+    .line 178
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/server/connectivity/PacManager;->mHasSentBroadcast:Z
 
-    .line 183
+    .line 179
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/server/connectivity/PacManager;->mHasDownloaded:Z
 
+    .line 180
+    invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->getAlarmManager()Landroid/app/AlarmManager;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/connectivity/PacManager;->mPacRefreshIntent:Landroid/app/PendingIntent;
+
+    invoke-virtual {v1, v2}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
+
+    .line 181
+    invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->bind()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    .line 182
+    const/4 v1, 0x1
+
+    monitor-exit p0
+
+    return v1
+
+    .line 174
+    :catchall_0
+    move-exception v1
+
+    :try_start_4
+    monitor-exit v2
+
+    throw v1
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    :catchall_1
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
+
     .line 184
+    :cond_1
+    :try_start_5
     invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->getAlarmManager()Landroid/app/AlarmManager;
 
     move-result-object v1
@@ -1074,132 +1128,102 @@
     invoke-virtual {v1, v2}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
     .line 185
-    invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->bind()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    .line 186
-    const/4 v1, 0x1
-
-    monitor-exit p0
-
-    return v1
-
-    .line 188
-    :cond_1
-    :try_start_2
-    invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->getAlarmManager()Landroid/app/AlarmManager;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/connectivity/PacManager;->mPacRefreshIntent:Landroid/app/PendingIntent;
-
-    invoke-virtual {v1, v2}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
-
-    .line 189
     iget-object v2, p0, Lcom/android/server/connectivity/PacManager;->mProxyLock:Ljava/lang/Object;
 
     monitor-enter v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    .line 190
-    :try_start_3
+    .line 186
+    :try_start_6
     sget-object v1, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
 
     iput-object v1, p0, Lcom/android/server/connectivity/PacManager;->mPacUrl:Landroid/net/Uri;
 
-    .line 191
+    .line 187
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/server/connectivity/PacManager;->mCurrentPac:Ljava/lang/String;
 
-    .line 192
+    .line 188
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
     if-eqz v1, :cond_2
 
-    .line 194
-    :try_start_4
+    .line 190
+    :try_start_7
     iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
 
     invoke-interface {v1}, Lcom/android/net/IProxyService;->stopPacSystem()V
-    :try_end_4
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_7
+    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_0
+    .catchall {:try_start_7 .. :try_end_7} :catchall_3
 
-    .line 198
-    :try_start_5
+    .line 194
+    :try_start_8
     invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->unbind()V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
     :cond_2
     :goto_0
-    :try_start_6
+    :try_start_9
     monitor-exit v2
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     monitor-exit p0
 
-    .line 202
+    .line 198
     return v4
 
-    .line 195
+    .line 191
     :catch_0
     move-exception v0
 
-    .line 196
+    .line 192
     .local v0, "e":Landroid/os/RemoteException;
-    :try_start_7
+    :try_start_a
     const-string/jumbo v1, "PacManager"
 
     const-string/jumbo v3, "Failed to stop PAC service"
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_3
 
-    .line 198
-    :try_start_8
+    .line 194
+    :try_start_b
     invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->unbind()V
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_2
 
     goto :goto_0
 
-    .line 189
+    .line 185
     .end local v0    # "e":Landroid/os/RemoteException;
-    :catchall_0
-    move-exception v1
-
-    :try_start_9
-    monitor-exit v2
-
-    throw v1
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
-
-    :catchall_1
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-
-    .line 197
     :catchall_2
     move-exception v1
 
-    .line 198
-    :try_start_a
+    :try_start_c
+    monitor-exit v2
+
+    throw v1
+    :try_end_c
+    .catchall {:try_start_c .. :try_end_c} :catchall_1
+
+    .line 193
+    :catchall_3
+    move-exception v1
+
+    .line 194
+    :try_start_d
     invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->unbind()V
 
-    .line 197
+    .line 193
     throw v1
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_0
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_2
 .end method

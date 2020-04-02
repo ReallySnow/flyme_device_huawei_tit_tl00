@@ -15,15 +15,9 @@
 
 
 # static fields
-.field public static final FT_EAP:I = 0x7
-
-.field public static final FT_PSK:I = 0x6
-
 .field public static final IEEE8021X:I = 0x3
 
 .field public static final NONE:I = 0x0
-
-.field public static final OSEN:I = 0x5
 
 .field public static final WPA2_PSK:I = 0x4
 
@@ -41,8 +35,8 @@
     .locals 3
 
     .prologue
-    .line 117
-    const/16 v0, 0x8
+    .line 95
+    const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -70,35 +64,17 @@
 
     aput-object v1, v0, v2
 
-    .line 118
+    .line 96
     const-string/jumbo v1, "WPA2_PSK"
 
     const/4 v2, 0x4
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "OSEN"
-
-    const/4 v2, 0x5
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "FT_PSK"
-
-    const/4 v2, 0x6
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "FT_EAP"
-
-    const/4 v2, 0x7
-
-    aput-object v1, v0, v2
-
-    .line 117
+    .line 95
     sput-object v0, Landroid/net/wifi/WifiConfiguration$KeyMgmt;->strings:[Ljava/lang/String;
 
-    .line 78
+    .line 74
     return-void
 .end method
 
@@ -106,7 +82,7 @@
     .locals 0
 
     .prologue
-    .line 79
+    .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

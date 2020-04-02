@@ -28,11 +28,11 @@
 
 .field static final TRANSACTION_createCustomTileWithTag:I = 0x1
 
-.field static final TRANSACTION_registerListener_2:I = 0x3
+.field static final TRANSACTION_registerListener:I = 0x3
 
 .field static final TRANSACTION_removeCustomTileFromListener:I = 0x5
 
-.field static final TRANSACTION_removeCustomTileWithTag_1:I = 0x2
+.field static final TRANSACTION_removeCustomTileWithTag:I = 0x2
 
 .field static final TRANSACTION_unregisterListener:I = 0x4
 

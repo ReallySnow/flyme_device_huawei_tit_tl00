@@ -40,36 +40,36 @@
     .param p1, "this$0"    # Landroid/widget/Editor;
 
     .prologue
-    .line 6806
+    .line 6212
     iput-object p1, p0, Landroid/widget/Editor$OptionWrapper;->this$0:Landroid/widget/Editor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 6801
+    .line 6207
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v1, p0, Landroid/widget/Editor$OptionWrapper;->mTmpRect:Landroid/graphics/Rect;
 
-    .line 6802
+    .line 6208
     new-instance v1, Landroid/graphics/RectF;
 
     invoke-direct {v1}, Landroid/graphics/RectF;-><init>()V
 
     iput-object v1, p0, Landroid/widget/Editor$OptionWrapper;->mClipRectF:Landroid/graphics/RectF;
 
-    .line 6803
+    .line 6209
     const-wide/16 v2, -0x1
 
     iput-wide v2, p0, Landroid/widget/Editor$OptionWrapper;->mDismissTime:J
 
-    .line 6804
+    .line 6210
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/widget/Editor$OptionWrapper;->mVisibleBeforeTouch:Z
 
-    .line 6807
+    .line 6213
     invoke-virtual {p1}, Landroid/widget/Editor;->flymeGetFieldTextView()Landroid/widget/TextView;
 
     move-result-object v1
@@ -88,7 +88,7 @@
 
     iget v0, v1, Landroid/util/DisplayMetrics;->density:F
 
-    .line 6808
+    .line 6214
     .local v0, "density":F
     const/high16 v1, 0x42000000    # 32.0f
 
@@ -100,7 +100,7 @@
 
     iput v1, p0, Landroid/widget/Editor$OptionWrapper;->kSelectionModeOffset:I
 
-    .line 6806
+    .line 6212
     return-void
 .end method
 
@@ -109,20 +109,20 @@
     .param p1, "target"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 6867
+    .line 6273
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
     if-eqz v0, :cond_0
 
     if-nez p1, :cond_1
 
-    .line 6870
+    .line 6276
     :cond_0
     const/4 v0, 0x0
 
     return v0
 
-    .line 6868
+    .line 6274
     :cond_1
     iget v0, p1, Landroid/graphics/Rect;->right:I
 
@@ -130,24 +130,24 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 6869
+    .line 6275
     iget v0, p1, Landroid/graphics/Rect;->bottom:I
 
     iget v1, p1, Landroid/graphics/Rect;->top:I
 
     if-lt v0, v1, :cond_0
 
-    .line 6872
+    .line 6278
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/widget/Editor$OptionWrapper;->mDismissTime:J
 
-    .line 6873
+    .line 6279
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mClipRectF:Landroid/graphics/RectF;
 
     invoke-virtual {v0, p1}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
 
-    .line 6874
+    .line 6280
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mClipRectF:Landroid/graphics/RectF;
 
     iget v1, v0, Landroid/graphics/RectF;->bottom:F
@@ -160,7 +160,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->bottom:F
 
-    .line 6875
+    .line 6281
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
     iget-object v1, p0, Landroid/widget/Editor$OptionWrapper;->this$0:Landroid/widget/Editor;
@@ -184,7 +184,7 @@
     .locals 1
 
     .prologue
-    .line 6860
+    .line 6266
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
     if-eqz v0, :cond_0
@@ -197,12 +197,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 6861
+    .line 6267
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
     invoke-virtual {v0}, Lcom/meizu/widget/OptionPopupWindow;->dismiss()V
 
-    .line 6863
+    .line 6269
     :cond_0
     const/4 v0, 0x1
 
@@ -213,7 +213,7 @@
     .locals 1
 
     .prologue
-    .line 6833
+    .line 6239
     iget-boolean v0, p0, Landroid/widget/Editor$OptionWrapper;->mVisibleBeforeTouch:Z
 
     return v0
@@ -223,14 +223,14 @@
     .locals 2
 
     .prologue
-    .line 6818
+    .line 6224
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/widget/Editor$OptionWrapper;->mDismissTime:J
 
-    .line 6819
+    .line 6225
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->this$0:Landroid/widget/Editor;
 
     invoke-virtual {v0}, Landroid/widget/Editor;->flymeInvokeMethodGetPositionListener()Landroid/widget/Editor$PositionListener;
@@ -239,7 +239,7 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/Editor$PositionListener;->removeSubscriber(Landroid/widget/Editor$TextViewPositionListener;)V
 
-    .line 6817
+    .line 6223
     return-void
 .end method
 
@@ -249,7 +249,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 6823
+    .line 6229
     iget-wide v4, p0, Landroid/widget/Editor$OptionWrapper;->mDismissTime:J
 
     const-wide/16 v6, 0x0
@@ -258,14 +258,14 @@
 
     if-gez v3, :cond_0
 
-    .line 6824
+    .line 6230
     iput-boolean v2, p0, Landroid/widget/Editor$OptionWrapper;->mVisibleBeforeTouch:Z
 
-    .line 6822
+    .line 6228
     :goto_0
     return-void
 
-    .line 6826
+    .line 6232
     :cond_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -275,7 +275,7 @@
 
     sub-long v0, v4, v6
 
-    .line 6827
+    .line 6233
     .local v0, "diff":J
     const-wide/16 v4, 0x20
 
@@ -288,7 +288,7 @@
     :cond_1
     iput-boolean v2, p0, Landroid/widget/Editor$OptionWrapper;->mVisibleBeforeTouch:Z
 
-    .line 6828
+    .line 6234
     const-wide/16 v2, -0x1
 
     iput-wide v2, p0, Landroid/widget/Editor$OptionWrapper;->mDismissTime:J
@@ -304,15 +304,15 @@
 
     const/4 v1, 0x0
 
-    .line 6846
+    .line 6252
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
     if-nez v0, :cond_0
 
-    .line 6847
+    .line 6253
     return v1
 
-    .line 6850
+    .line 6256
     :cond_0
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
@@ -322,10 +322,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 6851
+    .line 6257
     return v2
 
-    .line 6854
+    .line 6260
     :cond_1
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->this$0:Landroid/widget/Editor;
 
@@ -335,14 +335,14 @@
 
     invoke-virtual {v0, p0, v1}, Landroid/widget/Editor$PositionListener;->addSubscriber(Landroid/widget/Editor$TextViewPositionListener;Z)V
 
-    .line 6855
+    .line 6261
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->this$0:Landroid/widget/Editor;
 
     iget-object v1, p0, Landroid/widget/Editor$OptionWrapper;->mTmpRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/Editor;->getActiveBound(Landroid/graphics/Rect;Z)V
 
-    .line 6856
+    .line 6262
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mTmpRect:Landroid/graphics/Rect;
 
     invoke-direct {p0, v0}, Landroid/widget/Editor$OptionWrapper;->update(Landroid/graphics/Rect;)Z
@@ -357,12 +357,12 @@
     .param p1, "cb"    # Landroid/view/ActionMode$Callback;
 
     .prologue
-    .line 6837
+    .line 6243
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
     if-nez v0, :cond_0
 
-    .line 6838
+    .line 6244
     new-instance v0, Lcom/meizu/widget/OptionPopupWindow;
 
     iget-object v1, p0, Landroid/widget/Editor$OptionWrapper;->this$0:Landroid/widget/Editor;
@@ -379,12 +379,12 @@
 
     iput-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
-    .line 6839
+    .line 6245
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
     invoke-virtual {v0, p0}, Lcom/meizu/widget/OptionPopupWindow;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
 
-    .line 6842
+    .line 6248
     :cond_0
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
@@ -409,7 +409,7 @@
     .param p4, "parentScrolled"    # Z
 
     .prologue
-    .line 6813
+    .line 6219
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->this$0:Landroid/widget/Editor;
 
     iget-object v1, p0, Landroid/widget/Editor$OptionWrapper;->mTmpRect:Landroid/graphics/Rect;
@@ -418,11 +418,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/Editor;->getActiveBound(Landroid/graphics/Rect;Z)V
 
-    .line 6814
+    .line 6220
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mTmpRect:Landroid/graphics/Rect;
 
     invoke-direct {p0, v0}, Landroid/widget/Editor$OptionWrapper;->update(Landroid/graphics/Rect;)Z
 
-    .line 6812
+    .line 6218
     return-void
 .end method

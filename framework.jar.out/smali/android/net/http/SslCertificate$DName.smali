@@ -33,36 +33,36 @@
     .param p2, "dName"    # Ljava/lang/String;
 
     .prologue
-    .line 377
+    .line 375
     iput-object p1, p0, Landroid/net/http/SslCertificate$DName;->this$0:Landroid/net/http/SslCertificate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 378
+    .line 376
     if-eqz p2, :cond_2
 
-    .line 379
+    .line 377
     iput-object p2, p0, Landroid/net/http/SslCertificate$DName;->mDName:Ljava/lang/String;
 
-    .line 381
+    .line 379
     :try_start_0
     new-instance v4, Lcom/android/org/bouncycastle/asn1/x509/X509Name;
 
     invoke-direct {v4, p2}, Lcom/android/org/bouncycastle/asn1/x509/X509Name;-><init>(Ljava/lang/String;)V
 
-    .line 383
+    .line 381
     .local v4, "x509Name":Lcom/android/org/bouncycastle/asn1/x509/X509Name;
     invoke-virtual {v4}, Lcom/android/org/bouncycastle/asn1/x509/X509Name;->getValues()Ljava/util/Vector;
 
     move-result-object v3
 
-    .line 384
+    .line 382
     .local v3, "val":Ljava/util/Vector;
     invoke-virtual {v4}, Lcom/android/org/bouncycastle/asn1/x509/X509Name;->getOIDs()Ljava/util/Vector;
 
     move-result-object v2
 
-    .line 386
+    .line 384
     .local v2, "oid":Ljava/util/Vector;
     const/4 v1, 0x0
 
@@ -74,7 +74,7 @@
 
     if-ge v1, v5, :cond_2
 
-    .line 387
+    .line 385
     invoke-virtual {v2, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -87,12 +87,12 @@
 
     if-eqz v5, :cond_1
 
-    .line 388
+    .line 386
     iget-object v5, p0, Landroid/net/http/SslCertificate$DName;->mCName:Ljava/lang/String;
 
     if-nez v5, :cond_0
 
-    .line 389
+    .line 387
     invoke-virtual {v3, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -101,14 +101,14 @@
 
     iput-object v5, p0, Landroid/net/http/SslCertificate$DName;->mCName:Ljava/lang/String;
 
-    .line 386
+    .line 384
     :cond_0
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 394
+    .line 392
     :cond_1
     invoke-virtual {v2, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
@@ -122,12 +122,12 @@
 
     if-eqz v5, :cond_3
 
-    .line 395
+    .line 393
     iget-object v5, p0, Landroid/net/http/SslCertificate$DName;->mOName:Ljava/lang/String;
 
     if-nez v5, :cond_3
 
-    .line 396
+    .line 394
     invoke-virtual {v3, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -138,7 +138,7 @@
 
     goto :goto_1
 
-    .line 408
+    .line 406
     .end local v1    # "i":I
     .end local v2    # "oid":Ljava/util/Vector;
     .end local v3    # "val":Ljava/util/Vector;
@@ -146,11 +146,11 @@
     :catch_0
     move-exception v0
 
-    .line 377
+    .line 375
     :cond_2
     return-void
 
-    .line 401
+    .line 399
     .restart local v1    # "i":I
     .restart local v2    # "oid":Ljava/util/Vector;
     .restart local v3    # "val":Ljava/util/Vector;
@@ -168,12 +168,12 @@
 
     if-eqz v5, :cond_0
 
-    .line 402
+    .line 400
     iget-object v5, p0, Landroid/net/http/SslCertificate$DName;->mUName:Ljava/lang/String;
 
     if-nez v5, :cond_0
 
-    .line 403
+    .line 401
     invoke-virtual {v3, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -193,7 +193,7 @@
     .locals 1
 
     .prologue
-    .line 425
+    .line 423
     iget-object v0, p0, Landroid/net/http/SslCertificate$DName;->mCName:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -213,7 +213,7 @@
     .locals 1
 
     .prologue
-    .line 418
+    .line 416
     iget-object v0, p0, Landroid/net/http/SslCertificate$DName;->mDName:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -233,7 +233,7 @@
     .locals 1
 
     .prologue
-    .line 432
+    .line 430
     iget-object v0, p0, Landroid/net/http/SslCertificate$DName;->mOName:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -253,7 +253,7 @@
     .locals 1
 
     .prologue
-    .line 439
+    .line 437
     iget-object v0, p0, Landroid/net/http/SslCertificate$DName;->mUName:Ljava/lang/String;
 
     if-eqz v0, :cond_0

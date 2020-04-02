@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "cyanogenmod.weather.ICMWeatherManager"
 
-.field static final TRANSACTION_cancelRequest_5:I = 0x6
+.field static final TRANSACTION_cancelRequest:I = 0x6
 
-.field static final TRANSACTION_getActiveWeatherServiceProviderLabel_4:I = 0x5
+.field static final TRANSACTION_getActiveWeatherServiceProviderLabel:I = 0x5
 
 .field static final TRANSACTION_lookupCity:I = 0x2
 

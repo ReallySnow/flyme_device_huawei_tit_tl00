@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 265
+    .line 254
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
@@ -37,22 +37,36 @@
 
 # virtual methods
 .method public createService()Landroid/os/BatteryManager;
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 268
-    new-instance v0, Landroid/os/BatteryManager;
+    .line 257
+    const-string/jumbo v2, "batterymanager"
 
-    invoke-direct {v0}, Landroid/os/BatteryManager;-><init>()V
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    return-object v0
+    move-result-object v0
+
+    .line 258
+    .local v0, "b":Landroid/os/IBinder;
+    invoke-static {v0}, Landroid/app/IBatteryService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IBatteryService;
+
+    move-result-object v1
+
+    .line 259
+    .local v1, "service":Landroid/app/IBatteryService;
+    new-instance v2, Landroid/os/BatteryManager;
+
+    invoke-direct {v2, v1}, Landroid/os/BatteryManager;-><init>(Landroid/app/IBatteryService;)V
+
+    return-object v2
 .end method
 
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
 
     .prologue
-    .line 267
+    .line 256
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$15;->createService()Landroid/os/BatteryManager;
 
     move-result-object v0

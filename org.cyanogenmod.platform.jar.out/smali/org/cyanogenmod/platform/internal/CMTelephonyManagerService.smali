@@ -182,19 +182,19 @@
     .locals 3
 
     .prologue
-    .line 350
+    .line 345
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->mContext:Landroid/content/Context;
 
-    .line 351
+    .line 346
     const-string/jumbo v1, "cyanogenmod.permission.MODIFY_MSIM_PHONE_STATE"
 
-    .line 352
+    .line 347
     const-string/jumbo v2, "CMTelephonyManagerService"
 
-    .line 350
+    .line 345
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 349
+    .line 344
     return-void
 .end method
 
@@ -202,19 +202,19 @@
     .locals 3
 
     .prologue
-    .line 344
+    .line 339
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->mContext:Landroid/content/Context;
 
-    .line 345
+    .line 340
     const-string/jumbo v1, "cyanogenmod.permission.READ_MSIM_PHONE_STATE"
 
-    .line 346
+    .line 341
     const-string/jumbo v2, "CMTelephonyManagerService"
 
-    .line 344
+    .line 339
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 343
+    .line 338
     return-void
 .end method
 
@@ -266,19 +266,19 @@
     .locals 4
 
     .prologue
-    .line 273
+    .line 268
     sget-boolean v1, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->localLOGD:Z
 
     if-eqz v1, :cond_0
 
-    .line 274
+    .line 269
     const-string/jumbo v1, "CMTelephonyManagerSrv"
 
     const-string/jumbo v2, "Checking if the network data connection is active"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 277
+    .line 272
     :cond_0
     iget-object v1, p0, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -286,13 +286,13 @@
 
     move-result v0
 
-    .line 279
+    .line 274
     .local v0, "dataEnabled":Z
     sget-boolean v1, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->localLOGD:Z
 
     if-eqz v1, :cond_1
 
-    .line 280
+    .line 275
     const-string/jumbo v1, "CMTelephonyManagerSrv"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -315,32 +315,103 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 283
+    .line 278
     :cond_1
     return v0
 .end method
 
 .method private isDataConnectionSelectedOnSub(I)Z
-    .locals 4
+    .locals 5
     .param p1, "subId"    # I
 
     .prologue
-    .line 249
+    const/4 v4, 0x0
+
+    .line 247
     invoke-static {p1}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
 
     move-result v0
 
-    .line 251
+    .line 249
     .local v0, "validSubscriptionId":Z
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3
 
-    .line 265
+    .line 250
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubId()I
+
+    move-result v1
+
+    if-ne p1, v1, :cond_1
+
+    .line 251
+    sget-boolean v1, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->localLOGD:Z
+
+    if-eqz v1, :cond_0
+
+    .line 252
+    const-string/jumbo v1, "CMTelephonyManagerSrv"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Data connection selected for subscription "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 254
+    :cond_0
     const/4 v1, 0x1
 
     return v1
 
-    .line 267
-    :cond_0
+    .line 256
+    :cond_1
+    sget-boolean v1, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->localLOGD:Z
+
+    if-eqz v1, :cond_2
+
+    .line 257
+    const-string/jumbo v1, "CMTelephonyManagerSrv"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Data connection not selected for subscription "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 259
+    :cond_2
+    return v4
+
+    .line 262
+    :cond_3
     const-string/jumbo v1, "CMTelephonyManagerSrv"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -363,10 +434,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 268
-    const/4 v1, 0x0
-
-    return v1
+    .line 263
+    return v4
 .end method
 
 .method private isSubActive(I)Z
@@ -534,12 +603,12 @@
     .param p1, "subId"    # I
 
     .prologue
-    .line 299
+    .line 294
     sget-boolean v1, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->localLOGD:Z
 
     if-eqz v1, :cond_0
 
-    .line 300
+    .line 295
     const-string/jumbo v1, "CMTelephonyManagerSrv"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -562,7 +631,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 303
+    .line 298
     :cond_0
     iget-object v1, p0, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->mContext:Landroid/content/Context;
 
@@ -570,11 +639,11 @@
 
     move-result-object v0
 
-    .line 304
+    .line 299
     .local v0, "subscriptionManager":Landroid/telephony/SubscriptionManager;
     invoke-virtual {v0, p1}, Landroid/telephony/SubscriptionManager;->setDefaultDataSubId(I)V
 
-    .line 298
+    .line 293
     return-void
 .end method
 
@@ -583,12 +652,12 @@
     .param p1, "state"    # Z
 
     .prologue
-    .line 287
+    .line 282
     sget-boolean v0, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->localLOGD:Z
 
     if-eqz v0, :cond_0
 
-    .line 288
+    .line 283
     const-string/jumbo v0, "CMTelephonyManagerSrv"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -611,20 +680,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 291
+    .line 286
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 292
+    .line 287
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->enableDataConnectivity()Z
 
-    .line 286
+    .line 281
     :goto_0
     return-void
 
-    .line 294
+    .line 289
     :cond_1
     iget-object v0, p0, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -638,12 +707,12 @@
     .param p1, "subId"    # I
 
     .prologue
-    .line 308
+    .line 303
     sget-boolean v1, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->localLOGD:Z
 
     if-eqz v1, :cond_0
 
-    .line 309
+    .line 304
     const-string/jumbo v1, "CMTelephonyManagerSrv"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -666,7 +735,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 312
+    .line 307
     :cond_0
     iget-object v1, p0, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->mContext:Landroid/content/Context;
 
@@ -674,11 +743,11 @@
 
     move-result-object v0
 
-    .line 322
+    .line 317
     .local v0, "subscriptionManager":Landroid/telephony/SubscriptionManager;
     invoke-virtual {v0, p1}, Landroid/telephony/SubscriptionManager;->setDefaultVoiceSubId(I)V
 
-    .line 307
+    .line 302
     return-void
 .end method
 
@@ -687,12 +756,12 @@
     .param p1, "subId"    # I
 
     .prologue
-    .line 326
+    .line 321
     sget-boolean v1, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->localLOGD:Z
 
     if-eqz v1, :cond_0
 
-    .line 327
+    .line 322
     const-string/jumbo v1, "CMTelephonyManagerSrv"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -715,7 +784,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 330
+    .line 325
     :cond_0
     iget-object v1, p0, Lorg/cyanogenmod/platform/internal/CMTelephonyManagerService;->mContext:Landroid/content/Context;
 
@@ -723,11 +792,11 @@
 
     move-result-object v0
 
-    .line 340
+    .line 335
     .local v0, "subscriptionManager":Landroid/telephony/SubscriptionManager;
     invoke-virtual {v0, p1}, Landroid/telephony/SubscriptionManager;->setDefaultSmsSubId(I)V
 
-    .line 325
+    .line 320
     return-void
 .end method
 
@@ -775,9 +844,22 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 234
+    .line 239
     :cond_0
+    if-eqz p2, :cond_1
+
+    .line 240
+    invoke-static {p1}, Landroid/telephony/SubscriptionManager;->activateSubId(I)V
+
+    .line 234
+    :goto_0
     return-void
+
+    .line 242
+    :cond_1
+    invoke-static {p1}, Landroid/telephony/SubscriptionManager;->deactivateSubId(I)V
+
+    goto :goto_0
 .end method
 
 

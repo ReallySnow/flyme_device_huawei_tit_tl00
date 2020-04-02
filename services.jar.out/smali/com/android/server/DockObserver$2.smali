@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/server/DockObserver;
 
     .prologue
-    .line 235
+    .line 228
     iput-object p1, p0, Lcom/android/server/DockObserver$2;->this$0:Lcom/android/server/DockObserver;
 
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
@@ -39,7 +39,7 @@
     .param p1, "event"    # Landroid/os/UEventObserver$UEvent;
 
     .prologue
-    .line 238
+    .line 231
     const-string/jumbo v1, "DockObserver"
 
     const/4 v2, 0x2
@@ -50,7 +50,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 239
+    .line 232
     const-string/jumbo v1, "DockObserver"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -77,7 +77,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 243
+    .line 236
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/android/server/DockObserver$2;->this$0:Lcom/android/server/DockObserver;
@@ -90,7 +90,7 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 244
+    .line 237
     :try_start_1
     iget-object v1, p0, Lcom/android/server/DockObserver$2;->this$0:Lcom/android/server/DockObserver;
 
@@ -111,11 +111,11 @@
     :try_start_2
     monitor-exit v2
 
-    .line 237
+    .line 230
     :goto_0
     return-void
 
-    .line 243
+    .line 236
     :catchall_0
     move-exception v1
 
@@ -125,11 +125,11 @@
     :try_end_2
     .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 246
+    .line 239
     :catch_0
     move-exception v0
 
-    .line 247
+    .line 240
     .local v0, "e":Ljava/lang/NumberFormatException;
     const-string/jumbo v1, "DockObserver"
 

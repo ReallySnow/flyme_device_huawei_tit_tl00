@@ -25,13 +25,13 @@
     .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
-    .line 570
+    .line 537
     iput-object p1, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
-    .line 571
+    .line 538
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 570
+    .line 537
     return-void
 .end method
 
@@ -42,12 +42,12 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 576
+    .line 543
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 586
+    .line 553
     const-string/jumbo v0, "SoundPool"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -72,10 +72,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 587
+    .line 554
     return-void
 
-    .line 578
+    .line 545
     :pswitch_0
     invoke-static {}, Landroid/media/SoundPool;->-get0()Z
 
@@ -113,7 +113,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 579
+    .line 546
     :cond_0
     iget-object v0, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
@@ -123,7 +123,7 @@
 
     monitor-enter v1
 
-    .line 580
+    .line 547
     :try_start_0
     iget-object v0, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
@@ -133,7 +133,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 581
+    .line 548
     iget-object v0, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
     invoke-static {v0}, Landroid/media/SoundPool;->-get2(Landroid/media/SoundPool;)Landroid/media/SoundPool$OnLoadCompleteListener;
@@ -153,10 +153,10 @@
     :cond_1
     monitor-exit v1
 
-    .line 575
+    .line 542
     return-void
 
-    .line 579
+    .line 546
     :catchall_0
     move-exception v0
 
@@ -164,7 +164,7 @@
 
     throw v0
 
-    .line 576
+    .line 543
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

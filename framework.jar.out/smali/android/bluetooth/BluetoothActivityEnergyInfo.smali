@@ -36,19 +36,17 @@
 
 
 # instance fields
-.field private mBluetoothStackState:I
+.field private final mBluetoothStackState:I
 
-.field private mControllerEnergyUsed:J
+.field private final mControllerEnergyUsed:J
 
-.field private mControllerIdleTimeMs:J
+.field private final mControllerIdleTimeMs:J
 
-.field private mControllerRxTimeMs:J
+.field private final mControllerRxTimeMs:J
 
-.field private mControllerTxTimeMs:J
+.field private final mControllerTxTimeMs:J
 
 .field private final mTimestamp:J
-
-.field private mUidTraffic:[Landroid/bluetooth/UidTraffic;
 
 
 # direct methods
@@ -56,15 +54,15 @@
     .locals 1
 
     .prologue
-    .line 79
+    .line 64
     new-instance v0, Landroid/bluetooth/BluetoothActivityEnergyInfo$1;
 
     invoke-direct {v0}, Landroid/bluetooth/BluetoothActivityEnergyInfo$1;-><init>()V
 
-    .line 78
+    .line 63
     sput-object v0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 30
+    .line 28
     return-void
 .end method
 
@@ -78,93 +76,28 @@
     .param p10, "energyUsed"    # J
 
     .prologue
-    .line 44
+    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
+    .line 43
     iput-wide p1, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mTimestamp:J
 
-    .line 47
+    .line 44
     iput p3, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mBluetoothStackState:I
 
-    .line 48
+    .line 45
     iput-wide p4, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerTxTimeMs:J
 
-    .line 49
+    .line 46
     iput-wide p6, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerRxTimeMs:J
 
-    .line 50
+    .line 47
     iput-wide p8, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerIdleTimeMs:J
 
-    .line 51
+    .line 48
     iput-wide p10, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerEnergyUsed:J
 
-    .line 45
-    return-void
-.end method
-
-.method constructor <init>(Landroid/os/Parcel;)V
-    .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
-
-    .prologue
-    .line 55
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 56
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mTimestamp:J
-
-    .line 57
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mBluetoothStackState:I
-
-    .line 58
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerTxTimeMs:J
-
-    .line 59
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerRxTimeMs:J
-
-    .line 60
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerIdleTimeMs:J
-
-    .line 61
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerEnergyUsed:J
-
-    .line 62
-    sget-object v0, Landroid/bluetooth/UidTraffic;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, [Landroid/bluetooth/UidTraffic;
-
-    iput-object v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mUidTraffic:[Landroid/bluetooth/UidTraffic;
-
-    .line 55
+    .line 42
     return-void
 .end method
 
@@ -174,7 +107,7 @@
     .locals 1
 
     .prologue
-    .line 101
+    .line 90
     const/4 v0, 0x0
 
     return v0
@@ -184,7 +117,7 @@
     .locals 1
 
     .prologue
-    .line 108
+    .line 97
     iget v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mBluetoothStackState:I
 
     return v0
@@ -194,7 +127,7 @@
     .locals 2
 
     .prologue
-    .line 137
+    .line 126
     iget-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerEnergyUsed:J
 
     return-wide v0
@@ -204,7 +137,7 @@
     .locals 2
 
     .prologue
-    .line 129
+    .line 118
     iget-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerIdleTimeMs:J
 
     return-wide v0
@@ -214,7 +147,7 @@
     .locals 2
 
     .prologue
-    .line 122
+    .line 111
     iget-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerRxTimeMs:J
 
     return-wide v0
@@ -224,7 +157,7 @@
     .locals 2
 
     .prologue
-    .line 115
+    .line 104
     iget-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerTxTimeMs:J
 
     return-wide v0
@@ -234,75 +167,57 @@
     .locals 2
 
     .prologue
-    .line 144
+    .line 133
     iget-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mTimestamp:J
 
     return-wide v0
-.end method
-
-.method public getUidTraffic()[Landroid/bluetooth/UidTraffic;
-    .locals 1
-
-    .prologue
-    .line 148
-    iget-object v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mUidTraffic:[Landroid/bluetooth/UidTraffic;
-
-    return-object v0
 .end method
 
 .method public isValid()Z
     .locals 6
 
     .prologue
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     const-wide/16 v4, 0x0
 
-    .line 159
+    .line 140
     iget-wide v2, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerTxTimeMs:J
 
     cmp-long v1, v2, v4
 
-    if-ltz v1, :cond_0
+    if-nez v1, :cond_0
 
-    .line 160
+    .line 141
     iget-wide v2, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerRxTimeMs:J
 
     cmp-long v1, v2, v4
 
-    if-ltz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 161
+    .line 140
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 142
+    :cond_1
     iget-wide v2, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerIdleTimeMs:J
 
     cmp-long v1, v2, v4
 
-    if-ltz v1, :cond_0
+    if-nez v1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
-    .line 159
-    :cond_0
-    return v0
-.end method
-
-.method public setUidTraffic([Landroid/bluetooth/UidTraffic;)V
-    .locals 0
-    .param p1, "traffic"    # [Landroid/bluetooth/UidTraffic;
-
-    .prologue
-    .line 152
-    iput-object p1, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mUidTraffic:[Landroid/bluetooth/UidTraffic;
-
-    .line 151
-    return-void
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 4
 
     .prologue
-    .line 67
+    .line 53
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -313,118 +228,98 @@
 
     move-result-object v0
 
-    .line 68
+    .line 54
     iget-wide v2, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mTimestamp:J
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 69
+    .line 55
     const-string/jumbo v1, " mBluetoothStackState="
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 69
+    .line 55
     iget v1, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mBluetoothStackState:I
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 70
+    .line 56
     const-string/jumbo v1, " mControllerTxTimeMs="
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 70
+    .line 56
     iget-wide v2, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerTxTimeMs:J
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 71
+    .line 57
     const-string/jumbo v1, " mControllerRxTimeMs="
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 71
+    .line 57
     iget-wide v2, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerRxTimeMs:J
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 72
+    .line 58
     const-string/jumbo v1, " mControllerIdleTimeMs="
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 72
+    .line 58
     iget-wide v2, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerIdleTimeMs:J
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 73
+    .line 59
     const-string/jumbo v1, " mControllerEnergyUsed="
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 73
+    .line 59
     iget-wide v2, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerEnergyUsed:J
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 74
-    const-string/jumbo v1, " mUidTraffic="
-
-    .line 67
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 74
-    iget-object v1, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mUidTraffic:[Landroid/bluetooth/UidTraffic;
-
-    invoke-static {v1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 67
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 75
+    .line 60
     const-string/jumbo v1, " }"
 
-    .line 67
+    .line 53
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -442,41 +337,36 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 91
+    .line 81
     iget-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mTimestamp:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 92
+    .line 82
     iget v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mBluetoothStackState:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 93
+    .line 83
     iget-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerTxTimeMs:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 94
+    .line 84
     iget-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerRxTimeMs:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 95
+    .line 85
     iget-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerIdleTimeMs:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 96
+    .line 86
     iget-wide v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mControllerEnergyUsed:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 97
-    iget-object v0, p0, Landroid/bluetooth/BluetoothActivityEnergyInfo;->mUidTraffic:[Landroid/bluetooth/UidTraffic;
-
-    invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
-
-    .line 90
+    .line 80
     return-void
 .end method

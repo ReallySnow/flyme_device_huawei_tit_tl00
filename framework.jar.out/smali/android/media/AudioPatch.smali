@@ -37,20 +37,6 @@
 
 
 # virtual methods
-.method public id()I
-    .locals 1
-
-    .prologue
-    .line 60
-    iget-object v0, p0, Landroid/media/AudioPatch;->mHandle:Landroid/media/AudioHandle;
-
-    invoke-virtual {v0}, Landroid/media/AudioHandle;->id()I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public sinks()[Landroid/media/AudioPortConfig;
     .locals 1
 
@@ -77,18 +63,18 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 65
+    .line 58
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 66
+    .line 59
     .local v0, "s":Ljava/lang/StringBuilder;
     const-string/jumbo v4, "mHandle: "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 67
+    .line 60
     iget-object v4, p0, Landroid/media/AudioPatch;->mHandle:Landroid/media/AudioHandle;
 
     invoke-virtual {v4}, Landroid/media/AudioHandle;->toString()Ljava/lang/String;
@@ -97,12 +83,12 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 69
+    .line 62
     const-string/jumbo v4, " mSources: {"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 70
+    .line 63
     iget-object v5, p0, Landroid/media/AudioPatch;->mSources:[Landroid/media/AudioPortConfig;
 
     array-length v6, v5
@@ -114,7 +100,7 @@
 
     aget-object v2, v5, v4
 
-    .line 71
+    .line 64
     .local v2, "source":Landroid/media/AudioPortConfig;
     invoke-virtual {v2}, Landroid/media/AudioPortConfig;->toString()Ljava/lang/String;
 
@@ -122,24 +108,24 @@
 
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 72
+    .line 65
     const-string/jumbo v7, ", "
 
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 70
+    .line 63
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 74
+    .line 67
     .end local v2    # "source":Landroid/media/AudioPortConfig;
     :cond_0
     const-string/jumbo v4, "} mSinks: {"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 75
+    .line 68
     iget-object v4, p0, Landroid/media/AudioPatch;->mSinks:[Landroid/media/AudioPortConfig;
 
     array-length v5, v4
@@ -149,7 +135,7 @@
 
     aget-object v1, v4, v3
 
-    .line 76
+    .line 69
     .local v1, "sink":Landroid/media/AudioPortConfig;
     invoke-virtual {v1}, Landroid/media/AudioPortConfig;->toString()Ljava/lang/String;
 
@@ -157,24 +143,24 @@
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 77
+    .line 70
     const-string/jumbo v6, ", "
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 75
+    .line 68
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 79
+    .line 72
     .end local v1    # "sink":Landroid/media/AudioPortConfig;
     :cond_1
     const-string/jumbo v3, "}"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 81
+    .line 74
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3

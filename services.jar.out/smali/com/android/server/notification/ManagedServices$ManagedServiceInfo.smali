@@ -45,30 +45,30 @@
     .param p7, "targetSdkVersion"    # I
 
     .prologue
-    .line 838
+    .line 637
     iput-object p1, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->this$0:Lcom/android/server/notification/ManagedServices;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 840
+    .line 639
     iput-object p2, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->service:Landroid/os/IInterface;
 
-    .line 841
+    .line 640
     iput-object p3, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->component:Landroid/content/ComponentName;
 
-    .line 842
+    .line 641
     iput p4, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
 
-    .line 843
+    .line 642
     iput-boolean p5, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->isSystem:Z
 
-    .line 844
+    .line 643
     iput-object p6, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->connection:Landroid/content/ServiceConnection;
 
-    .line 845
+    .line 644
     iput p7, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->targetSdkVersion:I
 
-    .line 839
+    .line 638
     return-void
 .end method
 
@@ -78,7 +78,7 @@
     .locals 3
 
     .prologue
-    .line 884
+    .line 674
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->this$0:Lcom/android/server/notification/ManagedServices;
 
     iget-boolean v0, v0, Lcom/android/server/notification/ManagedServices;->DEBUG:Z
@@ -93,7 +93,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 889
+    .line 679
     :cond_0
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->this$0:Lcom/android/server/notification/ManagedServices;
 
@@ -103,7 +103,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/server/notification/ManagedServices;->-wrap1(Lcom/android/server/notification/ManagedServices;Landroid/os/IInterface;I)Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
 
-    .line 883
+    .line 673
     return-void
 .end method
 
@@ -112,56 +112,48 @@
     .param p1, "nid"    # I
 
     .prologue
+    const/4 v3, 0x1
+
     const/4 v0, 0x0
 
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
-    const/4 v2, 0x1
-
-    .line 869
+    .line 660
     invoke-virtual {p0}, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->isEnabledForCurrentProfiles()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 870
+    .line 661
     return v0
 
-    .line 872
+    .line 663
     :cond_0
     iget v1, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v2, :cond_1
 
-    return v2
+    return v3
 
-    .line 873
+    .line 664
     :cond_1
-    iget-boolean v1, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->isSystem:Z
-
-    if-eqz v1, :cond_2
-
-    return v2
-
-    .line 874
-    :cond_2
-    if-eq p1, v3, :cond_3
+    if-eq p1, v2, :cond_2
 
     iget v1, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
 
-    if-ne p1, v1, :cond_4
+    if-ne p1, v1, :cond_3
 
+    :cond_2
+    return v3
+
+    .line 665
     :cond_3
-    return v2
-
-    .line 875
-    :cond_4
     invoke-virtual {p0}, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->supportsProfiles()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->this$0:Lcom/android/server/notification/ManagedServices;
 
@@ -173,25 +165,15 @@
 
     move-result v0
 
-    :cond_5
+    :cond_4
     return v0
-.end method
-
-.method public getOwner()Lcom/android/server/notification/ManagedServices;
-    .locals 1
-
-    .prologue
-    .line 853
-    iget-object v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->this$0:Lcom/android/server/notification/ManagedServices;
-
-    return-object v0
 .end method
 
 .method public isEnabledForCurrentProfiles()Z
     .locals 2
 
     .prologue
-    .line 894
+    .line 684
     iget-boolean v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->isSystem:Z
 
     if-eqz v0, :cond_0
@@ -200,7 +182,7 @@
 
     return v0
 
-    .line 895
+    .line 685
     :cond_0
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->connection:Landroid/content/ServiceConnection;
 
@@ -210,7 +192,7 @@
 
     return v0
 
-    .line 896
+    .line 686
     :cond_1
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->this$0:Lcom/android/server/notification/ManagedServices;
 
@@ -227,32 +209,11 @@
     return v0
 .end method
 
-.method public isGuest(Lcom/android/server/notification/ManagedServices;)Z
-    .locals 1
-    .param p1, "host"    # Lcom/android/server/notification/ManagedServices;
-
-    .prologue
-    .line 849
-    iget-object v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->this$0:Lcom/android/server/notification/ManagedServices;
-
-    if-eq v0, p1, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public supportsProfiles()Z
     .locals 2
 
     .prologue
-    .line 879
+    .line 669
     iget v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->targetSdkVersion:I
 
     const/16 v1, 0x15
@@ -276,116 +237,116 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 858
+    .line 649
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string/jumbo v2, "ManagedServiceInfo["
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 859
+    .line 650
     const-string/jumbo v2, "component="
 
-    .line 858
+    .line 649
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 859
+    .line 650
     iget-object v2, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->component:Landroid/content/ComponentName;
 
-    .line 858
+    .line 649
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 860
+    .line 651
     const-string/jumbo v2, ",userid="
 
-    .line 858
+    .line 649
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 860
+    .line 651
     iget v2, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
 
-    .line 858
+    .line 649
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 861
+    .line 652
     const-string/jumbo v2, ",isSystem="
 
-    .line 858
+    .line 649
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 861
+    .line 652
     iget-boolean v2, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->isSystem:Z
 
-    .line 858
+    .line 649
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 862
+    .line 653
     const-string/jumbo v2, ",targetSdkVersion="
 
-    .line 858
+    .line 649
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 862
+    .line 653
     iget v2, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->targetSdkVersion:I
 
-    .line 858
+    .line 649
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 863
+    .line 654
     const-string/jumbo v2, ",connection="
 
-    .line 858
+    .line 649
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 863
+    .line 654
     iget-object v2, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->connection:Landroid/content/ServiceConnection;
 
     if-nez v2, :cond_0
 
-    .line 858
+    .line 649
     :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 864
+    .line 655
     const-string/jumbo v1, ",service="
 
-    .line 858
+    .line 649
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 864
+    .line 655
     iget-object v1, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->service:Landroid/os/IInterface;
 
-    .line 858
+    .line 649
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 865
+    .line 656
     const/16 v1, 0x5d
 
-    .line 858
+    .line 649
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -396,7 +357,7 @@
 
     return-object v0
 
-    .line 863
+    .line 654
     :cond_0
     const-string/jumbo v0, "<connection>"
 

@@ -15,8 +15,6 @@
 
 
 # instance fields
-.field private final mSecondarySettingsUri:Landroid/net/Uri;
-
 .field private final mSecureSettingsUri:Landroid/net/Uri;
 
 .field final synthetic this$0:Lcom/android/server/notification/ManagedServices;
@@ -32,20 +30,18 @@
 .end method
 
 .method private constructor <init>(Lcom/android/server/notification/ManagedServices;Landroid/os/Handler;)V
-    .locals 2
+    .locals 1
     .param p1, "this$0"    # Lcom/android/server/notification/ManagedServices;
     .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    const/4 v1, 0x0
-
-    .line 795
+    .line 604
     iput-object p1, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->this$0:Lcom/android/server/notification/ManagedServices;
 
-    .line 796
+    .line 605
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 792
+    .line 602
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->this$0:Lcom/android/server/notification/ManagedServices;
 
     invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->-get0(Lcom/android/server/notification/ManagedServices;)Lcom/android/server/notification/ManagedServices$Config;
@@ -60,37 +56,8 @@
 
     iput-object v0, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->mSecureSettingsUri:Landroid/net/Uri;
 
-    .line 797
-    invoke-static {p1}, Lcom/android/server/notification/ManagedServices;->-get0(Lcom/android/server/notification/ManagedServices;)Lcom/android/server/notification/ManagedServices$Config;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices$Config;->secondarySettingName:Ljava/lang/String;
-
-    if-eqz v0, :cond_0
-
-    .line 798
-    invoke-static {p1}, Lcom/android/server/notification/ManagedServices;->-get0(Lcom/android/server/notification/ManagedServices;)Lcom/android/server/notification/ManagedServices$Config;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices$Config;->secondarySettingName:Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->mSecondarySettingsUri:Landroid/net/Uri;
-
-    .line 795
-    :goto_0
+    .line 604
     return-void
-
-    .line 800
-    :cond_0
-    iput-object v1, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->mSecondarySettingsUri:Landroid/net/Uri;
-
-    goto :goto_0
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/notification/ManagedServices;Landroid/os/Handler;Lcom/android/server/notification/ManagedServices$SettingsObserver;)V
@@ -105,16 +72,10 @@
 .end method
 
 .method private observe()V
-    .locals 5
+    .locals 4
 
     .prologue
-    const/4 v4, 0x0
-
-    const/4 v3, 0x0
-
-    const/4 v2, -0x1
-
-    .line 805
+    .line 609
     iget-object v1, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->this$0:Lcom/android/server/notification/ManagedServices;
 
     iget-object v1, v1, Lcom/android/server/notification/ManagedServices;->mContext:Landroid/content/Context;
@@ -123,27 +84,24 @@
 
     move-result-object v0
 
-    .line 806
+    .line 610
     .local v0, "resolver":Landroid/content/ContentResolver;
     iget-object v1, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->mSecureSettingsUri:Landroid/net/Uri;
 
-    invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    .line 611
+    const/4 v2, 0x0
 
-    .line 808
-    iget-object v1, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->mSecondarySettingsUri:Landroid/net/Uri;
+    const/4 v3, -0x1
 
-    if-eqz v1, :cond_0
+    .line 610
+    invoke-virtual {v0, v1, v2, p0, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    .line 809
-    iget-object v1, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->mSecondarySettingsUri:Landroid/net/Uri;
+    .line 612
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-direct {p0, v1}, Lcom/android/server/notification/ManagedServices$SettingsObserver;->update(Landroid/net/Uri;)V
 
-    .line 812
-    :cond_0
-    invoke-direct {p0, v4}, Lcom/android/server/notification/ManagedServices$SettingsObserver;->update(Landroid/net/Uri;)V
-
-    .line 804
+    .line 608
     return-void
 .end method
 
@@ -152,7 +110,7 @@
     .param p1, "uri"    # Landroid/net/Uri;
 
     .prologue
-    .line 821
+    .line 621
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->mSecureSettingsUri:Landroid/net/Uri;
@@ -161,19 +119,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
-
-    .line 822
-    iget-object v0, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->mSecondarySettingsUri:Landroid/net/Uri;
-
-    invoke-virtual {p1, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    .line 821
     if-eqz v0, :cond_2
 
-    .line 823
+    .line 622
     :cond_0
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->this$0:Lcom/android/server/notification/ManagedServices;
 
@@ -189,8 +137,22 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Setting changed: uri="
+    const-string/jumbo v2, "Setting changed: mSecureSettingsUri="
 
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->mSecureSettingsUri:Landroid/net/Uri;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    .line 623
+    const-string/jumbo v2, " / uri="
+
+    .line 622
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -205,20 +167,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 824
+    .line 624
     :cond_1
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->this$0:Lcom/android/server/notification/ManagedServices;
 
-    const/4 v1, 0x0
+    invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->-wrap3(Lcom/android/server/notification/ManagedServices;)V
 
-    invoke-static {v0, v1}, Lcom/android/server/notification/ManagedServices;->-wrap3(Lcom/android/server/notification/ManagedServices;Z)V
-
-    .line 825
-    iget-object v0, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->this$0:Lcom/android/server/notification/ManagedServices;
-
-    invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->-wrap4(Lcom/android/server/notification/ManagedServices;)V
-
-    .line 820
+    .line 620
     :cond_2
     return-void
 .end method
@@ -231,9 +186,9 @@
     .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
-    .line 817
+    .line 617
     invoke-direct {p0, p2}, Lcom/android/server/notification/ManagedServices$SettingsObserver;->update(Landroid/net/Uri;)V
 
-    .line 816
+    .line 616
     return-void
 .end method

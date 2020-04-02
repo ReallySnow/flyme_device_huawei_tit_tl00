@@ -41,7 +41,7 @@
     .locals 1
 
     .prologue
-    .line 206
+    .line 197
     const-class v0, Lcom/android/server/SystemServiceManager;
 
     invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -60,7 +60,7 @@
     .param p1, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 188
+    .line 179
     invoke-static {p1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
@@ -91,7 +91,7 @@
     .end annotation
 
     .prologue
-    .line 202
+    .line 193
     .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
@@ -130,7 +130,7 @@
     .param p1, "userHandle"    # I
 
     .prologue
-    .line 167
+    .line 158
     return-void
 .end method
 
@@ -151,7 +151,7 @@
     .param p1, "userHandle"    # I
 
     .prologue
-    .line 159
+    .line 150
     return-void
 .end method
 
@@ -160,16 +160,7 @@
     .param p1, "userHandle"    # I
 
     .prologue
-    .line 150
-    return-void
-.end method
-
-.method public onUnlockUser(I)V
-    .locals 0
-    .param p1, "userHandle"    # I
-
-    .prologue
-    .line 142
+    .line 141
     return-void
 .end method
 
@@ -179,12 +170,12 @@
     .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
-    .line 173
+    .line 164
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;Z)V
 
-    .line 172
+    .line 163
     return-void
 .end method
 
@@ -195,10 +186,10 @@
     .param p3, "allowIsolated"    # Z
 
     .prologue
-    .line 181
+    .line 172
     invoke-static {p1, p2, p3}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;Z)V
 
-    .line 180
+    .line 171
     return-void
 .end method
 
@@ -215,11 +206,11 @@
     .end annotation
 
     .prologue
-    .line 195
+    .line 186
     .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     .local p2, "service":Ljava/lang/Object;, "TT;"
     invoke-static {p1, p2}, Lcom/android/server/LocalServices;->addService(Ljava/lang/Class;Ljava/lang/Object;)V
 
-    .line 194
+    .line 185
     return-void
 .end method

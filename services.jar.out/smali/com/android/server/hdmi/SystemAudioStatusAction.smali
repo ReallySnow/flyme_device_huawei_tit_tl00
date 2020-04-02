@@ -49,12 +49,12 @@
     .param p1, "returnCode"    # I
 
     .prologue
-    .line 107
+    .line 109
     iget-object v1, p0, Lcom/android/server/hdmi/SystemAudioStatusAction;->mCallback:Landroid/hardware/hdmi/IHdmiControlCallback;
 
     if-eqz v1, :cond_0
 
-    .line 109
+    .line 111
     :try_start_0
     iget-object v1, p0, Lcom/android/server/hdmi/SystemAudioStatusAction;->mCallback:Landroid/hardware/hdmi/IHdmiControlCallback;
 
@@ -62,19 +62,19 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 114
+    .line 116
     :cond_0
     :goto_0
     invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioStatusAction;->finish()V
 
-    .line 106
+    .line 108
     return-void
 
-    .line 110
+    .line 112
     :catch_0
     move-exception v0
 
-    .line 111
+    .line 113
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "SystemAudioStatusAction"
 
@@ -92,12 +92,12 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 94
+    .line 96
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
     move-result-object v1
 
-    .line 95
+    .line 97
     .local v1, "params":[B
     aget-byte v3, v1, v5
 
@@ -109,14 +109,14 @@
 
     const/4 v0, 0x1
 
-    .line 96
+    .line 98
     .local v0, "mute":Z
     :goto_0
     aget-byte v3, v1, v5
 
     and-int/lit8 v2, v3, 0x7f
 
-    .line 97
+    .line 99
     .local v2, "volume":I
     invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioStatusAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
@@ -124,7 +124,7 @@
 
     invoke-virtual {v3, v0, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setAudioStatus(ZI)V
 
-    .line 99
+    .line 101
     invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioStatusAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     move-result-object v3
@@ -137,21 +137,21 @@
 
     if-nez v3, :cond_0
 
-    .line 101
+    .line 103
     iget v3, p0, Lcom/android/server/hdmi/SystemAudioStatusAction;->mAvrAddress:I
 
     const/16 v4, 0x43
 
     invoke-virtual {p0, v3, v4}, Lcom/android/server/hdmi/SystemAudioStatusAction;->sendUserControlPressedAndReleased(II)V
 
-    .line 103
+    .line 105
     :cond_0
     invoke-direct {p0, v5}, Lcom/android/server/hdmi/SystemAudioStatusAction;->finishWithCallback(I)V
 
-    .line 93
+    .line 95
     return-void
 
-    .line 95
+    .line 97
     .end local v0    # "mute":Z
     .end local v2    # "volume":I
     :cond_1
@@ -162,54 +162,53 @@
 .end method
 
 .method private handleSendGiveAudioStatusFailure()V
-    .locals 3
+    .locals 4
 
     .prologue
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     .line 69
     invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioStatusAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-    move-result-object v0
+    move-result-object v1
 
     const/4 v2, -0x1
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setAudioStatus(ZI)V
+    invoke-virtual {v1, v3, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setAudioStatus(ZI)V
 
     .line 71
-    iget v2, p0, Lcom/android/server/hdmi/SystemAudioStatusAction;->mAvrAddress:I
-
-    .line 72
     invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioStatusAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isSystemAudioActivated()Z
+    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->isSystemAudioActivated()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    move v0, v1
+    .line 72
+    const/16 v0, 0x66
 
+    .line 74
+    .local v0, "uiCommand":I
     :goto_0
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecKeycode;->getMuteKey(Z)I
+    iget v1, p0, Lcom/android/server/hdmi/SystemAudioStatusAction;->mAvrAddress:I
 
-    move-result v0
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/hdmi/SystemAudioStatusAction;->sendUserControlPressedAndReleased(II)V
 
-    .line 71
-    invoke-virtual {p0, v2, v0}, Lcom/android/server/hdmi/SystemAudioStatusAction;->sendUserControlPressedAndReleased(II)V
-
-    .line 75
-    invoke-direct {p0, v1}, Lcom/android/server/hdmi/SystemAudioStatusAction;->finishWithCallback(I)V
+    .line 77
+    invoke-direct {p0, v3}, Lcom/android/server/hdmi/SystemAudioStatusAction;->finishWithCallback(I)V
 
     .line 66
     return-void
 
-    .line 72
+    .line 73
+    .end local v0    # "uiCommand":I
     :cond_0
-    const/4 v0, 0x1
+    const/16 v0, 0x65
 
+    .restart local v0    # "uiCommand":I
     goto :goto_0
 .end method
 
@@ -247,19 +246,19 @@
     .param p1, "state"    # I
 
     .prologue
-    .line 119
+    .line 121
     iget v0, p0, Lcom/android/server/hdmi/SystemAudioStatusAction;->mState:I
 
     if-eq v0, p1, :cond_0
 
-    .line 120
+    .line 122
     return-void
 
-    .line 123
+    .line 125
     :cond_0
     invoke-direct {p0}, Lcom/android/server/hdmi/SystemAudioStatusAction;->handleSendGiveAudioStatusFailure()V
 
-    .line 118
+    .line 120
     return-void
 .end method
 
@@ -272,7 +271,7 @@
 
     const/4 v2, 0x0
 
-    .line 80
+    .line 82
     iget v0, p0, Lcom/android/server/hdmi/SystemAudioStatusAction;->mState:I
 
     if-ne v0, v3, :cond_0
@@ -285,11 +284,11 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 81
+    .line 83
     :cond_0
     return v2
 
-    .line 84
+    .line 86
     :cond_1
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getOpcode()I
 
@@ -297,17 +296,17 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 90
+    .line 92
     return v2
 
-    .line 86
+    .line 88
     :pswitch_0
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/SystemAudioStatusAction;->handleReportAudioStatus(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    .line 87
+    .line 89
     return v3
 
-    .line 84
+    .line 86
     nop
 
     :pswitch_data_0

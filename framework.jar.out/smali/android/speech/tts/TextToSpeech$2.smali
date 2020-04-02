@@ -49,7 +49,7 @@
     .param p5, "val$utteranceId"    # Ljava/lang/String;
 
     .prologue
-    .line 1098
+    .line 1088
     iput-object p1, p0, Landroid/speech/tts/TextToSpeech$2;->this$0:Landroid/speech/tts/TextToSpeech;
 
     iput-object p2, p0, Landroid/speech/tts/TextToSpeech$2;->val$text:Ljava/lang/CharSequence;
@@ -77,7 +77,7 @@
     .end annotation
 
     .prologue
-    .line 1101
+    .line 1091
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$2;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v0}, Landroid/speech/tts/TextToSpeech;->-get6(Landroid/speech/tts/TextToSpeech;)Ljava/util/Map;
@@ -92,11 +92,11 @@
 
     check-cast v2, Landroid/net/Uri;
 
-    .line 1102
+    .line 1092
     .local v2, "utteranceUri":Landroid/net/Uri;
     if-eqz v2, :cond_0
 
-    .line 1103
+    .line 1093
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$2;->this$0:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {v0}, Landroid/speech/tts/TextToSpeech;->-wrap1(Landroid/speech/tts/TextToSpeech;)Landroid/os/IBinder;
@@ -105,7 +105,7 @@
 
     iget v3, p0, Landroid/speech/tts/TextToSpeech$2;->val$queueMode:I
 
-    .line 1104
+    .line 1094
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$2;->this$0:Landroid/speech/tts/TextToSpeech;
 
     iget-object v4, p0, Landroid/speech/tts/TextToSpeech$2;->val$params:Landroid/os/Bundle;
@@ -118,7 +118,7 @@
 
     move-object v0, p1
 
-    .line 1103
+    .line 1093
     invoke-interface/range {v0 .. v5}, Landroid/speech/tts/ITextToSpeechService;->playAudio(Landroid/os/IBinder;Landroid/net/Uri;ILandroid/os/Bundle;Ljava/lang/String;)I
 
     move-result v0
@@ -129,7 +129,7 @@
 
     return-object v0
 
-    .line 1106
+    .line 1096
     :cond_0
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$2;->this$0:Landroid/speech/tts/TextToSpeech;
 
@@ -149,12 +149,12 @@
 
     move-result-object v7
 
-    .line 1107
+    .line 1097
     iget-object v8, p0, Landroid/speech/tts/TextToSpeech$2;->val$utteranceId:Ljava/lang/String;
 
     move-object v3, p1
 
-    .line 1106
+    .line 1096
     invoke-interface/range {v3 .. v8}, Landroid/speech/tts/ITextToSpeechService;->speak(Landroid/os/IBinder;Ljava/lang/CharSequence;ILandroid/os/Bundle;Ljava/lang/String;)I
 
     move-result v0
@@ -176,7 +176,7 @@
     .end annotation
 
     .prologue
-    .line 1100
+    .line 1090
     invoke-virtual {p0, p1}, Landroid/speech/tts/TextToSpeech$2;->run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Integer;
 
     move-result-object v0

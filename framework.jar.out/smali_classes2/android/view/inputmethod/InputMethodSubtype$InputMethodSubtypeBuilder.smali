@@ -27,8 +27,6 @@
 
 .field private mSubtypeId:I
 
-.field private mSubtypeLanguageTag:Ljava/lang/String;
-
 .field private mSubtypeLocale:Ljava/lang/String;
 
 .field private mSubtypeMode:Ljava/lang/String;
@@ -88,7 +86,7 @@
 .method static synthetic -get6(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeLanguageTag:Ljava/lang/String;
+    iget-object v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeLocale:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -96,20 +94,12 @@
 .method static synthetic -get7(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeLocale:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic -get8(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)Ljava/lang/String;
-    .locals 1
-
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeMode:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic -get9(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)I
+.method static synthetic -get8(Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;)I
     .locals 1
 
     iget v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeNameResId:I
@@ -195,48 +185,43 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 95
+    .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 110
+    .line 102
     iput-boolean v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mIsAuxiliary:Z
 
-    .line 124
+    .line 116
     iput-boolean v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mOverridesImplicitlyEnabledSubtype:Z
 
-    .line 136
+    .line 128
     iput-boolean v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mIsAsciiCapable:Z
 
-    .line 145
+    .line 137
     iput v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeIconResId:I
 
-    .line 157
+    .line 149
     iput v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeNameResId:I
 
-    .line 170
+    .line 162
     iput v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeId:I
 
-    .line 179
+    .line 171
     const-string/jumbo v0, ""
 
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeLocale:Ljava/lang/String;
 
-    .line 188
-    const-string/jumbo v0, ""
-
-    iput-object v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeLanguageTag:Ljava/lang/String;
-
-    .line 197
+    .line 180
     const-string/jumbo v0, ""
 
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeMode:Ljava/lang/String;
 
-    .line 207
+    .line 190
     const-string/jumbo v0, ""
 
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeExtraValue:Ljava/lang/String;
 
-    .line 95
+    .line 87
     return-void
 .end method
 
@@ -246,7 +231,7 @@
     .locals 2
 
     .prologue
-    .line 213
+    .line 196
     new-instance v0, Landroid/view/inputmethod/InputMethodSubtype;
 
     const/4 v1, 0x0
@@ -261,10 +246,10 @@
     .param p1, "isAsciiCapable"    # Z
 
     .prologue
-    .line 133
+    .line 125
     iput-boolean p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mIsAsciiCapable:Z
 
-    .line 134
+    .line 126
     return-object p0
 .end method
 
@@ -273,28 +258,10 @@
     .param p1, "isAuxiliary"    # Z
 
     .prologue
-    .line 107
+    .line 99
     iput-boolean p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mIsAuxiliary:Z
 
-    .line 108
-    return-object p0
-.end method
-
-.method public setLanguageTag(Ljava/lang/String;)Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
-    .locals 0
-    .param p1, "languageTag"    # Ljava/lang/String;
-
-    .prologue
-    .line 185
-    if-nez p1, :cond_0
-
-    const-string/jumbo p1, ""
-
-    .end local p1    # "languageTag":Ljava/lang/String;
-    :cond_0
-    iput-object p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeLanguageTag:Ljava/lang/String;
-
-    .line 186
+    .line 100
     return-object p0
 .end method
 
@@ -303,10 +270,10 @@
     .param p1, "overridesImplicitlyEnabledSubtype"    # Z
 
     .prologue
-    .line 121
+    .line 113
     iput-boolean p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mOverridesImplicitlyEnabledSubtype:Z
 
-    .line 122
+    .line 114
     return-object p0
 .end method
 
@@ -315,7 +282,7 @@
     .param p1, "subtypeExtraValue"    # Ljava/lang/String;
 
     .prologue
-    .line 204
+    .line 187
     if-nez p1, :cond_0
 
     const-string/jumbo p1, ""
@@ -324,7 +291,7 @@
     :cond_0
     iput-object p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeExtraValue:Ljava/lang/String;
 
-    .line 205
+    .line 188
     return-object p0
 .end method
 
@@ -333,10 +300,10 @@
     .param p1, "subtypeIconResId"    # I
 
     .prologue
-    .line 142
+    .line 134
     iput p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeIconResId:I
 
-    .line 143
+    .line 135
     return-object p0
 .end method
 
@@ -345,10 +312,10 @@
     .param p1, "subtypeId"    # I
 
     .prologue
-    .line 167
+    .line 159
     iput p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeId:I
 
-    .line 168
+    .line 160
     return-object p0
 .end method
 
@@ -357,7 +324,7 @@
     .param p1, "subtypeLocale"    # Ljava/lang/String;
 
     .prologue
-    .line 176
+    .line 168
     if-nez p1, :cond_0
 
     const-string/jumbo p1, ""
@@ -366,7 +333,7 @@
     :cond_0
     iput-object p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeLocale:Ljava/lang/String;
 
-    .line 177
+    .line 169
     return-object p0
 .end method
 
@@ -375,7 +342,7 @@
     .param p1, "subtypeMode"    # Ljava/lang/String;
 
     .prologue
-    .line 194
+    .line 177
     if-nez p1, :cond_0
 
     const-string/jumbo p1, ""
@@ -384,7 +351,7 @@
     :cond_0
     iput-object p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeMode:Ljava/lang/String;
 
-    .line 195
+    .line 178
     return-object p0
 .end method
 
@@ -393,9 +360,9 @@
     .param p1, "subtypeNameResId"    # I
 
     .prologue
-    .line 154
+    .line 146
     iput p1, p0, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;->mSubtypeNameResId:I
 
-    .line 155
+    .line 147
     return-object p0
 .end method

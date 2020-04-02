@@ -44,9 +44,9 @@
 
 .field final mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
-.field mService:Landroid/service/voice/IVoiceInteractionService;
+.field final mLock:Ljava/lang/Object;
 
-.field final mServiceStub:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
+.field mService:Landroid/service/voice/IVoiceInteractionService;
 
 .field final mSessionComponentName:Landroid/content/ComponentName;
 
@@ -56,11 +56,11 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;ILandroid/content/ComponentName;)V
+.method constructor <init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/Object;ILandroid/content/ComponentName;)V
     .locals 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "handler"    # Landroid/os/Handler;
-    .param p3, "stub"    # Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
+    .param p3, "lock"    # Ljava/lang/Object;
     .param p4, "userHandle"    # I
     .param p5, "service"    # Landroid/content/ComponentName;
 
@@ -69,49 +69,49 @@
 
     const/4 v6, 0x0
 
-    .line 112
+    .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 69
+    .line 65
     iput-boolean v7, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mBound:Z
 
-    .line 75
+    .line 71
     new-instance v3, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl$1;
 
     invoke-direct {v3, p0}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl$1;-><init>(Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;)V
 
     iput-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 94
+    .line 90
     new-instance v3, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl$2;
 
     invoke-direct {v3, p0}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl$2;-><init>(Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;)V
 
     iput-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mConnection:Landroid/content/ServiceConnection;
 
-    .line 115
+    .line 110
     iput-object p1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mContext:Landroid/content/Context;
 
-    .line 116
+    .line 111
     iput-object p2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mHandler:Landroid/os/Handler;
 
-    .line 117
-    iput-object p3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mServiceStub:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
+    .line 112
+    iput-object p3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mLock:Ljava/lang/Object;
 
-    .line 118
+    .line 113
     iput p4, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mUser:I
 
-    .line 119
+    .line 114
     iput-object p5, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mComponent:Landroid/content/ComponentName;
 
-    .line 120
+    .line 115
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mAm:Landroid/app/IActivityManager;
 
-    .line 123
+    .line 118
     :try_start_0
     new-instance v2, Landroid/service/voice/VoiceInteractionServiceInfo;
 
@@ -123,13 +123,14 @@
 
     invoke-direct {v2, v3, p5, v4}, Landroid/service/voice/VoiceInteractionServiceInfo;-><init>(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;I)V
     :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 132
+    .line 127
     .local v2, "info":Landroid/service/voice/VoiceInteractionServiceInfo;
     iput-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
-    .line 133
+    .line 128
     iget-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
     invoke-virtual {v3}, Landroid/service/voice/VoiceInteractionServiceInfo;->getParseError()Ljava/lang/String;
@@ -138,7 +139,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 134
+    .line 129
     const-string/jumbo v3, "VoiceInteractionServiceManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -167,25 +168,25 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 135
+    .line 130
     iput-object v6, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mSessionComponentName:Landroid/content/ComponentName;
 
-    .line 136
+    .line 131
     iput-object v6, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mIWindowManager:Landroid/view/IWindowManager;
 
-    .line 137
+    .line 132
     iput-boolean v7, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mValid:Z
 
-    .line 138
+    .line 133
     return-void
 
-    .line 124
+    .line 119
     .end local v2    # "info":Landroid/service/voice/VoiceInteractionServiceInfo;
     :catch_0
     move-exception v0
 
-    .line 125
-    .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .line 120
+    .local v0, "e":Landroid/util/AndroidException;
     const-string/jumbo v3, "VoiceInteractionServiceManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -208,81 +209,81 @@
 
     invoke-static {v3, v4, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 126
+    .line 121
     iput-object v6, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
-    .line 127
+    .line 122
     iput-object v6, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mSessionComponentName:Landroid/content/ComponentName;
 
-    .line 128
+    .line 123
     iput-object v6, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mIWindowManager:Landroid/view/IWindowManager;
 
-    .line 129
+    .line 124
     iput-boolean v7, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mValid:Z
 
-    .line 130
+    .line 125
     return-void
 
-    .line 140
-    .end local v0    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .line 135
+    .end local v0    # "e":Landroid/util/AndroidException;
     .restart local v2    # "info":Landroid/service/voice/VoiceInteractionServiceInfo;
     :cond_0
     const/4 v3, 0x1
 
     iput-boolean v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mValid:Z
 
-    .line 141
+    .line 136
     new-instance v3, Landroid/content/ComponentName;
 
     invoke-virtual {p5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 142
+    .line 137
     iget-object v5, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
     invoke-virtual {v5}, Landroid/service/voice/VoiceInteractionServiceInfo;->getSessionService()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 141
+    .line 136
     invoke-direct {v3, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     iput-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mSessionComponentName:Landroid/content/ComponentName;
 
-    .line 144
+    .line 139
     const-string/jumbo v3, "window"
 
     invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v3
 
-    .line 143
+    .line 138
     invoke-static {v3}, Landroid/view/IWindowManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/view/IWindowManager;
 
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mIWindowManager:Landroid/view/IWindowManager;
 
-    .line 145
+    .line 140
     new-instance v1, Landroid/content/IntentFilter;
 
     invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 146
+    .line 141
     .local v1, "filter":Landroid/content/IntentFilter;
     const-string/jumbo v3, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
     invoke-virtual {v1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 147
+    .line 142
     iget-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mContext:Landroid/content/Context;
 
     iget-object v4, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v3, v4, v1, v6, p2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    .line 114
+    .line 109
     return-void
 .end method
 
@@ -293,7 +294,7 @@
     .param p1, "token"    # Landroid/os/IBinder;
 
     .prologue
-    .line 220
+    .line 208
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
@@ -305,7 +306,7 @@
 
     if-eq p1, v1, :cond_1
 
-    .line 221
+    .line 209
     :cond_0
     const-string/jumbo v1, "VoiceInteractionServiceManager"
 
@@ -313,10 +314,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 222
+    .line 210
     return-void
 
-    .line 224
+    .line 212
     :cond_1
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mAm:Landroid/app/IActivityManager;
 
@@ -326,14 +327,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 218
+    .line 206
     return-void
 
-    .line 225
+    .line 213
     :catch_0
     move-exception v0
 
-    .line 226
+    .line 214
     .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -351,7 +352,7 @@
     .param p3, "interactor"    # Lcom/android/internal/app/IVoiceInteractor;
 
     .prologue
-    .line 176
+    .line 164
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     if-eqz v0, :cond_0
@@ -362,7 +363,7 @@
 
     if-eq p1, v0, :cond_1
 
-    .line 177
+    .line 165
     :cond_0
     const-string/jumbo v0, "VoiceInteractionServiceManager"
 
@@ -370,18 +371,18 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 178
+    .line 166
     const/4 v0, 0x0
 
     return v0
 
-    .line 180
+    .line 168
     :cond_1
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     invoke-virtual {v0, p2, p3}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->deliverNewSessionLocked(Landroid/service/voice/IVoiceInteractionSession;Lcom/android/internal/app/IVoiceInteractor;)Z
 
-    .line 181
+    .line 169
     const/4 v0, 0x1
 
     return v0
@@ -394,31 +395,31 @@
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 271
+    .line 255
     iget-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mValid:Z
 
     if-nez v0, :cond_1
 
-    .line 272
+    .line 256
     const-string/jumbo v0, "  NOT VALID: "
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 273
+    .line 257
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
     if-nez v0, :cond_0
 
-    .line 274
+    .line 258
     const-string/jumbo v0, "no info"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 278
+    .line 262
     :goto_0
     return-void
 
-    .line 276
+    .line 260
     :cond_0
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
@@ -430,7 +431,7 @@
 
     goto :goto_0
 
-    .line 280
+    .line 264
     :cond_1
     const-string/jumbo v0, "  mUser="
 
@@ -440,7 +441,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 281
+    .line 265
     const-string/jumbo v0, "  mComponent="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -453,7 +454,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 282
+    .line 266
     const-string/jumbo v0, "  Session service="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -466,12 +467,12 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 283
+    .line 267
     const-string/jumbo v0, "  Service info:"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 284
+    .line 268
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
     invoke-virtual {v0}, Landroid/service/voice/VoiceInteractionServiceInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
@@ -486,7 +487,29 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/pm/ServiceInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
-    .line 285
+    .line 269
+    const-string/jumbo v0, "  Application info:"
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 270
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
+
+    invoke-virtual {v0}, Landroid/service/voice/VoiceInteractionServiceInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
+
+    move-result-object v0
+
+    iget-object v0, v0, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    new-instance v1, Landroid/util/PrintWriterPrinter;
+
+    invoke-direct {v1, p2}, Landroid/util/PrintWriterPrinter;-><init>(Ljava/io/PrintWriter;)V
+
+    const-string/jumbo v2, "    "
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/pm/ApplicationInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
+
+    .line 271
     const-string/jumbo v0, "  Recognition service="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -499,7 +522,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 286
+    .line 272
     const-string/jumbo v0, "  Settings activity="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -512,7 +535,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 287
+    .line 273
     const-string/jumbo v0, "  Supports assist="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -525,12 +548,12 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
 
-    .line 288
+    .line 274
     const-string/jumbo v0, "  Supports launch from keyguard="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 289
+    .line 275
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
     invoke-virtual {v0}, Landroid/service/voice/VoiceInteractionServiceInfo;->getSupportsLaunchFromKeyguard()Z
@@ -539,17 +562,17 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
 
-    .line 290
+    .line 276
     iget v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mDisabledShowContext:I
 
     if-eqz v0, :cond_2
 
-    .line 291
+    .line 277
     const-string/jumbo v0, "  mDisabledShowContext="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 292
+    .line 278
     iget v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mDisabledShowContext:I
 
     invoke-static {v0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
@@ -558,7 +581,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 294
+    .line 280
     :cond_2
     const-string/jumbo v0, "  mBound="
 
@@ -576,42 +599,39 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    .line 295
+    .line 281
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     if-eqz v0, :cond_3
 
-    .line 296
+    .line 282
     const-string/jumbo v0, "  Active session:"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 297
+    .line 283
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     const-string/jumbo v1, "    "
 
     invoke-virtual {v0, v1, p2}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
 
-    .line 270
+    .line 254
     :cond_3
     return-void
 .end method
 
-.method public finishLocked(Landroid/os/IBinder;Z)V
+.method public finishLocked(Landroid/os/IBinder;)V
     .locals 2
     .param p1, "token"    # Landroid/os/IBinder;
-    .param p2, "finishTask"    # Z
 
     .prologue
     const/4 v1, 0x0
 
-    .line 231
+    .line 219
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     if-eqz v0, :cond_0
-
-    if-nez p2, :cond_1
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
@@ -619,7 +639,7 @@
 
     if-eq p1, v0, :cond_1
 
-    .line 232
+    .line 220
     :cond_0
     const-string/jumbo v0, "VoiceInteractionServiceManager"
 
@@ -627,19 +647,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 233
+    .line 221
     return-void
 
-    .line 235
+    .line 223
     :cond_1
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
-    invoke-virtual {v0, p2}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->cancelLocked(Z)V
+    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->cancelLocked()V
 
-    .line 236
+    .line 224
     iput-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
-    .line 230
+    .line 218
     return-void
 .end method
 
@@ -648,7 +668,7 @@
     .param p1, "callingUid"    # I
 
     .prologue
-    .line 249
+    .line 237
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
     invoke-virtual {v1}, Landroid/service/voice/VoiceInteractionServiceInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
@@ -659,11 +679,11 @@
 
     iget v0, v1, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    .line 250
+    .line 238
     .local v0, "activeUid":I
     if-eq p1, v0, :cond_0
 
-    .line 251
+    .line 239
     new-instance v1, Ljava/lang/SecurityException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -680,10 +700,10 @@
 
     move-result-object v2
 
-    .line 252
+    .line 240
     const-string/jumbo v3, " does not match active uid "
 
-    .line 251
+    .line 239
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -700,7 +720,7 @@
 
     throw v1
 
-    .line 254
+    .line 242
     :cond_0
     iget v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mDisabledShowContext:I
 
@@ -712,7 +732,7 @@
     .param p1, "callingUid"    # I
 
     .prologue
-    .line 258
+    .line 246
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
     invoke-virtual {v1}, Landroid/service/voice/VoiceInteractionServiceInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
@@ -723,11 +743,11 @@
 
     iget v0, v1, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    .line 259
+    .line 247
     .local v0, "activeUid":I
     if-eq p1, v0, :cond_0
 
-    .line 260
+    .line 248
     new-instance v1, Ljava/lang/SecurityException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -744,10 +764,10 @@
 
     move-result-object v2
 
-    .line 261
+    .line 249
     const-string/jumbo v3, " does not match active uid "
 
-    .line 260
+    .line 248
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -764,7 +784,7 @@
 
     throw v1
 
-    .line 263
+    .line 251
     :cond_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
@@ -789,12 +809,12 @@
     .locals 1
 
     .prologue
-    .line 168
+    .line 156
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     if-eqz v0, :cond_0
 
-    .line 169
+    .line 157
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     invoke-virtual {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->hideLocked()Z
@@ -803,7 +823,7 @@
 
     return v0
 
-    .line 171
+    .line 159
     :cond_0
     const/4 v0, 0x0
 
@@ -814,12 +834,12 @@
     .locals 4
 
     .prologue
-    .line 312
+    .line 298
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mService:Landroid/service/voice/IVoiceInteractionService;
 
     if-nez v1, :cond_0
 
-    .line 313
+    .line 299
     const-string/jumbo v1, "VoiceInteractionServiceManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -844,10 +864,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 314
+    .line 300
     return-void
 
-    .line 317
+    .line 303
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mService:Landroid/service/voice/IVoiceInteractionService;
@@ -856,15 +876,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 311
+    .line 297
     :goto_0
     return-void
 
-    .line 318
+    .line 304
     :catch_0
     move-exception v0
 
-    .line 319
+    .line 305
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "VoiceInteractionServiceManager"
 
@@ -879,12 +899,12 @@
     .locals 4
 
     .prologue
-    .line 348
+    .line 334
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mService:Landroid/service/voice/IVoiceInteractionService;
 
     if-nez v1, :cond_0
 
-    .line 349
+    .line 335
     const-string/jumbo v1, "VoiceInteractionServiceManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -909,10 +929,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 350
+    .line 336
     return-void
 
-    .line 353
+    .line 339
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mService:Landroid/service/voice/IVoiceInteractionService;
@@ -921,15 +941,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 347
+    .line 333
     :goto_0
     return-void
 
-    .line 354
+    .line 340
     :catch_0
     move-exception v0
 
-    .line 355
+    .line 341
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "VoiceInteractionServiceManager"
 
@@ -940,60 +960,30 @@
     goto :goto_0
 .end method
 
-.method public onSessionHidden(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
-    .locals 1
-    .param p1, "connection"    # Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
-
-    .prologue
-    .line 373
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mServiceStub:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
-
-    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;->onSessionHidden()V
-
-    .line 372
-    return-void
-.end method
-
-.method public onSessionShown(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
-    .locals 1
-    .param p1, "connection"    # Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
-
-    .prologue
-    .line 368
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mServiceStub:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
-
-    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;->onSessionShown()V
-
-    .line 367
-    return-void
-.end method
-
 .method public sessionConnectionGone(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
-    .locals 3
+    .locals 2
     .param p1, "connection"    # Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     .prologue
-    .line 361
-    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mServiceStub:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
+    .line 347
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 362
+    .line 348
     :try_start_0
     iget-object v0, p1, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mToken:Landroid/os/IBinder;
 
-    const/4 v2, 0x0
-
-    invoke-virtual {p0, v0, v2}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->finishLocked(Landroid/os/IBinder;Z)V
+    invoke-virtual {p0, v0}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->finishLocked(Landroid/os/IBinder;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
-    .line 360
+    .line 346
     return-void
 
-    .line 361
+    .line 347
     :catchall_0
     move-exception v0
 
@@ -1008,7 +998,7 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 240
+    .line 228
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
     invoke-virtual {v1}, Landroid/service/voice/VoiceInteractionServiceInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
@@ -1019,11 +1009,11 @@
 
     iget v0, v1, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    .line 241
+    .line 229
     .local v0, "activeUid":I
     if-eq p1, v0, :cond_0
 
-    .line 242
+    .line 230
     new-instance v1, Ljava/lang/SecurityException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1040,10 +1030,10 @@
 
     move-result-object v2
 
-    .line 243
+    .line 231
     const-string/jumbo v3, " does not match active uid "
 
-    .line 242
+    .line 230
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -1060,11 +1050,11 @@
 
     throw v1
 
-    .line 245
+    .line 233
     :cond_0
     iput p2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mDisabledShowContext:I
 
-    .line 239
+    .line 227
     return-void
 .end method
 
@@ -1074,7 +1064,7 @@
     .param p2, "keepAwake"    # Z
 
     .prologue
-    .line 208
+    .line 196
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
@@ -1086,7 +1076,7 @@
 
     if-eq p1, v1, :cond_1
 
-    .line 209
+    .line 197
     :cond_0
     const-string/jumbo v1, "VoiceInteractionServiceManager"
 
@@ -1094,10 +1084,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 210
+    .line 198
     return-void
 
-    .line 212
+    .line 200
     :cond_1
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mAm:Landroid/app/IActivityManager;
 
@@ -1109,14 +1099,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 206
+    .line 194
     return-void
 
-    .line 213
+    .line 201
     :catch_0
     move-exception v0
 
-    .line 214
+    .line 202
     .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -1135,24 +1125,23 @@
     .param p4, "activityToken"    # Landroid/os/IBinder;
 
     .prologue
-    .line 152
+    .line 147
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     if-nez v0, :cond_0
 
-    .line 153
+    .line 148
     new-instance v0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
-    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mServiceStub:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mLock:Ljava/lang/Object;
 
-    .line 154
     iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mSessionComponentName:Landroid/content/ComponentName;
 
+    .line 149
     iget v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mUser:I
 
     iget-object v4, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mContext:Landroid/content/Context;
 
-    .line 155
     iget-object v5, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
 
     invoke-virtual {v5}, Landroid/service/voice/VoiceInteractionServiceInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
@@ -1167,35 +1156,13 @@
 
     move-object v5, p0
 
-    .line 153
+    .line 148
     invoke-direct/range {v0 .. v7}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;-><init>(Ljava/lang/Object;Landroid/content/ComponentName;ILandroid/content/Context;Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$Callback;ILandroid/os/Handler;)V
 
     iput-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
-    .line 157
+    .line 151
     :cond_0
-    const/4 v6, 0x0
-
-    .line 158
-    .local v6, "activityTokens":Ljava/util/List;, "Ljava/util/List<Landroid/os/IBinder;>;"
-    if-nez p4, :cond_1
-
-    .line 160
-    const-class v0, Landroid/app/ActivityManagerInternal;
-
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/ActivityManagerInternal;
-
-    invoke-virtual {v0}, Landroid/app/ActivityManagerInternal;->getTopVisibleActivities()Ljava/util/List;
-
-    move-result-object v6
-
-    .line 163
-    .end local v6    # "activityTokens":Ljava/util/List;, "Ljava/util/List<Landroid/os/IBinder;>;"
-    :cond_1
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     iget v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mDisabledShowContext:I
@@ -1208,7 +1175,7 @@
 
     move-object v5, p4
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->showLocked(Landroid/os/Bundle;IILcom/android/internal/app/IVoiceInteractionSessionShowCallback;Landroid/os/IBinder;Ljava/util/List;)Z
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->showLocked(Landroid/os/Bundle;IILcom/android/internal/app/IVoiceInteractionSessionShowCallback;Landroid/os/IBinder;)Z
 
     move-result v0
 
@@ -1216,79 +1183,79 @@
 .end method
 
 .method shutdownLocked()V
-    .locals 4
+    .locals 3
 
     .prologue
-    const/4 v3, 0x0
-
     const/4 v2, 0x0
 
-    .line 326
+    .line 312
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     if-eqz v1, :cond_0
 
-    .line 327
+    .line 313
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
-    invoke-virtual {v1, v3}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->cancelLocked(Z)V
+    invoke-virtual {v1}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->cancelLocked()V
 
-    .line 328
+    .line 314
     iput-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
-    .line 331
+    .line 317
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mService:Landroid/service/voice/IVoiceInteractionService;
 
     if-eqz v1, :cond_1
 
-    .line 332
+    .line 318
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mService:Landroid/service/voice/IVoiceInteractionService;
 
     invoke-interface {v1}, Landroid/service/voice/IVoiceInteractionService;->shutdown()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 338
+    .line 324
     :cond_1
     :goto_0
     iget-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mBound:Z
 
     if-eqz v1, :cond_2
 
-    .line 339
+    .line 325
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mConnection:Landroid/content/ServiceConnection;
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    .line 340
-    iput-boolean v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mBound:Z
+    .line 326
+    const/4 v1, 0x0
 
-    .line 342
+    iput-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mBound:Z
+
+    .line 328
     :cond_2
     iget-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mValid:Z
 
     if-eqz v1, :cond_3
 
-    .line 343
+    .line 329
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 323
+    .line 309
     :cond_3
     return-void
 
-    .line 334
+    .line 320
     :catch_0
     move-exception v0
 
-    .line 335
+    .line 321
     .local v0, "e":Landroid/os/RemoteException;
     const-string/jumbo v1, "VoiceInteractionServiceManager"
 
@@ -1303,25 +1270,25 @@
     .locals 5
 
     .prologue
-    .line 302
+    .line 288
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "android.service.voice.VoiceInteractionService"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 303
+    .line 289
     .local v0, "intent":Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mComponent:Landroid/content/ComponentName;
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 304
+    .line 290
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mConnection:Landroid/content/ServiceConnection;
 
-    .line 305
+    .line 291
     new-instance v3, Landroid/os/UserHandle;
 
     iget v4, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mUser:I
@@ -1330,19 +1297,19 @@
 
     const v4, 0x4000001
 
-    .line 304
+    .line 290
     invoke-virtual {v1, v0, v2, v4, v3}, Landroid/content/Context;->bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
 
     move-result v1
 
     iput-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mBound:Z
 
-    .line 306
+    .line 292
     iget-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mBound:Z
 
     if-nez v1, :cond_0
 
-    .line 307
+    .line 293
     const-string/jumbo v1, "VoiceInteractionServiceManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1367,7 +1334,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 301
+    .line 287
     :cond_0
     return-void
 .end method
@@ -1381,7 +1348,7 @@
     .param p5, "resolvedType"    # Ljava/lang/String;
 
     .prologue
-    .line 187
+    .line 175
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
@@ -1395,7 +1362,7 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 188
+    .line 176
     :cond_0
     const-string/jumbo v1, "VoiceInteractionServiceManager"
 
@@ -1403,12 +1370,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 189
-    const/16 v1, -0x9
+    .line 177
+    const/4 v1, -0x6
 
     return v1
 
-    .line 191
+    .line 179
     :cond_1
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
@@ -1416,19 +1383,19 @@
 
     if-nez v1, :cond_2
 
-    .line 192
+    .line 180
     const-string/jumbo v1, "VoiceInteractionServiceManager"
 
     const-string/jumbo v2, "startVoiceActivity not allowed on hidden session"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 193
-    const/16 v1, -0xa
+    .line 181
+    const/4 v1, -0x6
 
     return v1
 
-    .line 195
+    .line 183
     :cond_2
     new-instance v5, Landroid/content/Intent;
 
@@ -1438,7 +1405,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 196
+    .line 184
     .end local p4    # "intent":Landroid/content/Intent;
     .local v5, "intent":Landroid/content/Intent;
     :try_start_1
@@ -1446,12 +1413,12 @@
 
     invoke-virtual {v5, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 197
+    .line 185
     const/high16 v1, 0x18000000
 
     invoke-virtual {v5, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 198
+    .line 186
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mAm:Landroid/app/IActivityManager;
 
     iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mComponent:Landroid/content/ComponentName;
@@ -1460,7 +1427,7 @@
 
     move-result-object v2
 
-    .line 199
+    .line 187
     iget-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
     iget-object v7, v3, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
@@ -1469,7 +1436,7 @@
 
     iget-object v8, v3, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mInteractor:Lcom/android/internal/app/IVoiceInteractor;
 
-    .line 200
+    .line 188
     iget v12, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mUser:I
 
     const/4 v9, 0x0
@@ -1484,7 +1451,7 @@
 
     move-object/from16 v6, p5
 
-    .line 198
+    .line 186
     invoke-interface/range {v1 .. v12}, Landroid/app/IActivityManager;->startVoiceActivity(Ljava/lang/String;IILandroid/content/Intent;Ljava/lang/String;Landroid/service/voice/IVoiceInteractionSession;Lcom/android/internal/app/IVoiceInteractor;ILandroid/app/ProfilerInfo;Landroid/os/Bundle;I)I
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
@@ -1493,13 +1460,13 @@
 
     return v1
 
-    .line 201
+    .line 189
     .end local v5    # "intent":Landroid/content/Intent;
     .restart local p4    # "intent":Landroid/content/Intent;
     :catch_0
     move-exception v13
 
-    .line 202
+    .line 190
     .local v13, "e":Landroid/os/RemoteException;
     :goto_0
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -1510,7 +1477,7 @@
 
     throw v1
 
-    .line 201
+    .line 189
     .end local v13    # "e":Landroid/os/RemoteException;
     .end local p4    # "intent":Landroid/content/Intent;
     .restart local v5    # "intent":Landroid/content/Intent;
@@ -1523,18 +1490,4 @@
     .end local v5    # "intent":Landroid/content/Intent;
     .restart local p4    # "intent":Landroid/content/Intent;
     goto :goto_0
-.end method
-
-.method public supportsLocalVoiceInteraction()Z
-    .locals 1
-
-    .prologue
-    .line 267
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mInfo:Landroid/service/voice/VoiceInteractionServiceInfo;
-
-    invoke-virtual {v0}, Landroid/service/voice/VoiceInteractionServiceInfo;->getSupportsLocalInteraction()Z
-
-    move-result v0
-
-    return v0
 .end method

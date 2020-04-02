@@ -1,22 +1,15 @@
-.class public Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;
+.class public final Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;
 .super Lcom/android/internal/telephony/CallTracker;
 .source "ImsPhoneCallTracker.java"
-
-# interfaces
-.implements Lcom/android/internal/telephony/imsphone/ImsPullCall;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$-void__init__com_android_internal_telephony_imsphone_ImsPhone_phone_LambdaImpl0;,
         Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$1;,
         Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$2;,
         Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$3;,
-        Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$4;,
-        Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$5;,
-        Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$PhoneStateListener;,
-        Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$SharedPreferenceProxy;
+        Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$4;
     }
 .end annotation
 
@@ -24,25 +17,13 @@
 # static fields
 .field private static final DBG:Z = true
 
-.field private static final EVENT_CHECK_FOR_WIFI_HANDOVER:I = 0x19
-
-.field private static final EVENT_DATA_ENABLED_CHANGED:I = 0x17
-
 .field private static final EVENT_DIAL_PENDINGMO:I = 0x14
 
 .field private static final EVENT_EXIT_ECBM_BEFORE_PENDINGMO:I = 0x15
 
-.field private static final EVENT_GET_IMS_SERVICE:I = 0x18
-
 .field private static final EVENT_HANGUP_PENDINGMO:I = 0x12
 
 .field private static final EVENT_RESUME_BACKGROUND:I = 0x13
-
-.field private static final EVENT_VT_DATA_USAGE_UPDATE:I = 0x16
-
-.field private static final FORCE_VERBOSE_STATE_LOGGING:Z = false
-
-.field private static final HANDOVER_TO_WIFI_TIMEOUT_MS:I = 0xea60
 
 .field static final LOG_TAG:Ljava/lang/String; = "ImsPhoneCallTracker"
 
@@ -50,27 +31,13 @@
 
 .field static final MAX_CONNECTIONS_PER_CALL:I = 0x5
 
-.field private static final NUM_IMS_SERVICE_RETRIES:I = 0xa
-
 .field private static final TIMEOUT_HANGUP_PENDINGMO:I = 0x1f4
-
-.field private static final TIME_BETWEEN_IMS_SERVICE_RETRIES_MS:I = 0x190
 
 .field private static final VERBOSE_STATE_LOGGING:Z
 
-.field static final VERBOSE_STATE_TAG:Ljava/lang/String; = "IPCTState"
-
 
 # instance fields
-.field private mAddPartResp:Landroid/os/Message;
-
-.field private mAddParticipantLock:Ljava/lang/Object;
-
-.field private mAllowAddCallDuringVideoCall:Z
-
-.field private mAllowEmergencyVideoCalls:Z
-
-.field public mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+.field final mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
 .field private mCallExpectedToResume:Lcom/android/ims/ImsCall;
 
@@ -89,17 +56,11 @@
 
 .field private mDesiredMute:Z
 
-.field private mDropVideoCallWhenAnsweringAudioCall:Z
+.field final mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-.field public mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-.field public mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-.field private mIgnoreDataEnabledChangedForVideoCalls:Z
+.field final mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
 .field private mImsCallListener:Lcom/android/ims/ImsCall$Listener;
-
-.field private mImsConfigListener:Lcom/android/ims/ImsConfigListener$Stub;
 
 .field private mImsConnectionStateListener:Lcom/android/ims/ImsConnectionStateListener;
 
@@ -109,37 +70,9 @@
 
 .field private mImsManager:Lcom/android/ims/ImsManager;
 
-.field private mImsReasonCodeMap:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map",
-            "<",
-            "Landroid/util/Pair",
-            "<",
-            "Ljava/lang/Integer;",
-            "Ljava/lang/String;",
-            ">;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private mImsServiceRetryCount:I
-
 .field private mImsUssdListener:Lcom/android/ims/ImsCall$Listener;
 
-.field private mIsDataEnabled:Z
-
 .field private mIsInEmergencyCall:Z
-
-.field private mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-.field private mNotifyHandoverVideoFromWifiToLTE:Z
-
-.field private mNotifyVtHandoverToWifiFail:Z
-
-.field private mOnHoldToneId:I
 
 .field private mOnHoldToneStarted:Z
 
@@ -153,42 +86,19 @@
 
 .field mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-.field private mPhoneStateListeners:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$PhoneStateListener;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private mReceiver:Landroid/content/BroadcastReceiver;
 
-.field public mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+.field final mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
 .field private mServiceId:I
 
-.field private mSharedPreferenceProxy:Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$SharedPreferenceProxy;
-
-.field private mShouldUpdateImsConfigOnDisconnect:Z
-
 .field private mSrvccState:Lcom/android/internal/telephony/Call$SrvccState;
 
-.field private mState:Lcom/android/internal/telephony/PhoneConstants$State;
-
-.field private mSupportDowngradeVtToAudio:Z
-
-.field private mSupportPauseVideo:Z
+.field mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
 .field private mSwitchingFgAndBgCalls:Z
 
 .field private mSyncHold:Ljava/lang/Object;
-
-.field private volatile mTotalVtDataUsage:J
-
-.field private mTreatDowngradedVideoCallsAsVideoCalls:Z
 
 .field private mUssdSession:Lcom/android/ims/ImsCall;
 
@@ -196,166 +106,13 @@
 
 .field private mVoiceCallStartedRegistrants:Landroid/os/RegistrantList;
 
-.field private final mVtDataUsageMap:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/Integer;",
-            "Ljava/lang/Long;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private pendingCallClirMode:I
 
 .field private pendingCallInEcm:Z
 
 
 # direct methods
-.method static synthetic -com_android_internal_telephony_imsphone_ImsPhoneCallTracker_lambda$1(Landroid/content/Context;)Landroid/content/SharedPreferences;
-    .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-
-    .prologue
-    .line 358
-    invoke-static {p0}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic -get0(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Landroid/os/Message;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAddPartResp:Landroid/os/Message;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAddParticipantLock:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic -get10(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-    return-object v0
-.end method
-
-.method static synthetic -get11(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mNotifyHandoverVideoFromWifiToLTE:Z
-
-    return v0
-.end method
-
-.method static synthetic -get12(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mNotifyVtHandoverToWifiFail:Z
-
-    return v0
-.end method
-
-.method static synthetic -get13(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mOnHoldToneId:I
-
-    return v0
-.end method
-
-.method static synthetic -get14(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mOnHoldToneStarted:Z
-
-    return v0
-.end method
-
-.method static synthetic -get15(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-
-    return-object v0
-.end method
-
-.method static synthetic -get16(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Landroid/os/Message;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingUssd:Landroid/os/Message;
-
-    return-object v0
-.end method
-
-.method static synthetic -get17(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
-
-    return v0
-.end method
-
-.method static synthetic -get18(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mShouldUpdateImsConfigOnDisconnect:Z
-
-    return v0
-.end method
-
-.method static synthetic -get19(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSwitchingFgAndBgCalls:Z
-
-    return v0
-.end method
-
-.method static synthetic -get2(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAllowAddCallDuringVideoCall:Z
-
-    return v0
-.end method
-
-.method static synthetic -get20(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSyncHold:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic -get21(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/ims/ImsCall;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mUssdSession:Lcom/android/ims/ImsCall;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAllowEmergencyVideoCalls:Z
-
-    return v0
-.end method
-
-.method static synthetic -get4(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/ims/ImsCall;
+.method static synthetic -get0(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/ims/ImsCall;
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mCallExpectedToResume:Lcom/android/ims/ImsCall;
@@ -363,7 +120,47 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/ims/ImsCall$Listener;
+.method static synthetic -get1(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Ljava/util/ArrayList;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
+
+    return-object v0
+.end method
+
+.method static synthetic -get10(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
+
+    return v0
+.end method
+
+.method static synthetic -get11(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSwitchingFgAndBgCalls:Z
+
+    return v0
+.end method
+
+.method static synthetic -get12(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSyncHold:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -get13(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/ims/ImsCall;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mUssdSession:Lcom/android/ims/ImsCall;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/ims/ImsCall$Listener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsCallListener:Lcom/android/ims/ImsCall$Listener;
@@ -371,7 +168,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)[Z
+.method static synthetic -get3(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)[Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
@@ -379,7 +176,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)[Ljava/lang/String;
+.method static synthetic -get4(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)[Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureStrings:[Ljava/lang/String;
@@ -387,7 +184,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/ims/ImsManager;
+.method static synthetic -get5(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/ims/ImsManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
@@ -395,7 +192,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/ims/ImsCall$Listener;
+.method static synthetic -get6(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/ims/ImsCall$Listener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsUssdListener:Lcom/android/ims/ImsCall$Listener;
@@ -403,15 +200,31 @@
     return-object v0
 .end method
 
-.method static synthetic -set0(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Landroid/os/Message;)Landroid/os/Message;
-    .locals 0
+.method static synthetic -get7(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Z
+    .locals 1
 
-    iput-object p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAddPartResp:Landroid/os/Message;
+    iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mOnHoldToneStarted:Z
 
-    return-object p1
+    return v0
 .end method
 
-.method static synthetic -set1(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;)Lcom/android/ims/ImsCall;
+.method static synthetic -get8(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+
+    return-object v0
+.end method
+
+.method static synthetic -get9(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Landroid/os/Message;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingUssd:Landroid/os/Message;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;)Lcom/android/ims/ImsCall;
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mCallExpectedToResume:Lcom/android/ims/ImsCall;
@@ -419,15 +232,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set2(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mOnHoldToneId:I
-
-    return p1
-.end method
-
-.method static synthetic -set3(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Z)Z
+.method static synthetic -set1(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mOnHoldToneStarted:Z
@@ -435,7 +240,7 @@
     return p1
 .end method
 
-.method static synthetic -set4(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+.method static synthetic -set2(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
@@ -443,7 +248,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set5(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Landroid/os/Message;)Landroid/os/Message;
+.method static synthetic -set3(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Landroid/os/Message;)Landroid/os/Message;
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingUssd:Landroid/os/Message;
@@ -451,15 +256,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set6(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mShouldUpdateImsConfigOnDisconnect:Z
-
-    return p1
-.end method
-
-.method static synthetic -set7(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Z)Z
+.method static synthetic -set4(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSwitchingFgAndBgCalls:Z
@@ -467,7 +264,7 @@
     return p1
 .end method
 
-.method static synthetic -set8(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;)Lcom/android/ims/ImsCall;
+.method static synthetic -set5(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;)Lcom/android/ims/ImsCall;
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mUssdSession:Lcom/android/ims/ImsCall;
@@ -475,68 +272,7 @@
     return-object p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)Z
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->isWifiConnected()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap1(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;Lcom/android/ims/ImsCall;)Z
-    .locals 1
-    .param p1, "activeCall"    # Lcom/android/ims/ImsCall;
-    .param p2, "incomingCall"    # Lcom/android/ims/ImsCall;
-
-    .prologue
-    invoke-direct {p0, p1, p2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->shouldDisconnectActiveCallOnAnswer(Lcom/android/ims/ImsCall;Lcom/android/ims/ImsCall;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap10(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;ZLandroid/os/Message;)V
-    .locals 0
-    .param p1, "success"    # Z
-    .param p2, "onComplete"    # Landroid/os/Message;
-
-    .prologue
-    invoke-direct {p0, p1, p2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendAddParticipantResponse(ZLandroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap11(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;Lcom/android/ims/ImsCall;)V
-    .locals 0
-    .param p1, "conn"    # Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    .param p2, "imsCall"    # Lcom/android/ims/ImsCall;
-
-    .prologue
-    invoke-direct {p0, p1, p2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setVideoCallProvider(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;Lcom/android/ims/ImsCall;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap12(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->switchAfterConferenceSuccess()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap13(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->updatePhoneState()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;)Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+.method static synthetic -wrap0(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;)Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     .locals 1
     .param p1, "imsCall"    # Lcom/android/ims/ImsCall;
 
@@ -548,7 +284,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap3(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsReasonInfo;)I
+.method static synthetic -wrap1(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsReasonInfo;)I
     .locals 1
     .param p1, "reasonInfo"    # Lcom/android/ims/ImsReasonInfo;
 
@@ -560,7 +296,15 @@
     return v0
 .end method
 
-.method static synthetic -wrap4(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
+.method static synthetic -wrap10(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->updatePhoneState()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap2(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
     .locals 0
     .param p1, "conn"    # Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
@@ -570,17 +314,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;I)V
-    .locals 0
-    .param p1, "subId"    # I
-
-    .prologue
-    invoke-direct {p0, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->cacheCarrierConfiguration(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap6(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
+.method static synthetic -wrap3(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->dialPendingMO()V
@@ -588,7 +322,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;Lcom/android/internal/telephony/Call$State;IZ)V
+.method static synthetic -wrap4(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getImsService()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap5(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;Lcom/android/internal/telephony/Call$State;IZ)V
     .locals 0
     .param p1, "imsCall"    # Lcom/android/ims/ImsCall;
     .param p2, "state"    # Lcom/android/internal/telephony/Call$State;
@@ -601,7 +343,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap8(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;Lcom/android/internal/telephony/Call$State;I)V
+.method static synthetic -wrap6(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/ims/ImsCall;Lcom/android/internal/telephony/Call$State;I)V
     .locals 0
     .param p1, "imsCall"    # Lcom/android/ims/ImsCall;
     .param p2, "state"    # Lcom/android/internal/telephony/Call$State;
@@ -613,7 +355,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap9(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
+.method static synthetic -wrap7(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
     .locals 0
     .param p1, "conn"    # Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
@@ -623,383 +365,260 @@
     return-void
 .end method
 
-.method static constructor <clinit>()V
-    .locals 2
+.method static synthetic -wrap8(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;Lcom/android/ims/ImsCall;)V
+    .locals 0
+    .param p1, "conn"    # Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    .param p2, "imsCall"    # Lcom/android/ims/ImsCall;
 
     .prologue
-    .line 117
-    const-string/jumbo v0, "IPCTState"
+    invoke-direct {p0, p1, p2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setVideoCallProvider(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;Lcom/android/ims/ImsCall;)V
 
-    const/4 v1, 0x2
-
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    .line 116
-    sput-boolean v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->VERBOSE_STATE_LOGGING:Z
-
-    .line 98
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/internal/telephony/imsphone/ImsPhone;)V
-    .locals 8
+.method static synthetic -wrap9(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->switchAfterConferenceSuccess()V
+
+    return-void
+.end method
+
+.method constructor <init>(Lcom/android/internal/telephony/imsphone/ImsPhone;)V
+    .locals 7
     .param p1, "phone"    # Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     .prologue
-    const/4 v2, 0x6
+    const/4 v3, 0x6
 
-    const/4 v7, 0x1
-
-    const/4 v6, -0x1
+    const/4 v6, 0x0
 
     const/4 v5, 0x0
 
-    const/4 v4, 0x0
-
-    .line 366
+    .line 211
     invoke-direct {p0}, Lcom/android/internal/telephony/CallTracker;-><init>()V
 
-    .line 120
-    new-array v1, v2, [Z
+    .line 91
+    new-array v2, v3, [Z
 
-    fill-array-data v1, :array_0
+    fill-array-data v2, :array_0
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
 
-    .line 121
-    new-array v1, v2, [Ljava/lang/String;
+    .line 92
+    new-array v2, v3, [Ljava/lang/String;
 
-    const-string/jumbo v2, "VoLTE"
+    const-string/jumbo v3, "VoLTE"
 
-    aput-object v2, v1, v4
+    aput-object v3, v2, v5
 
-    const-string/jumbo v2, "ViLTE"
+    const-string/jumbo v3, "ViLTE"
 
-    aput-object v2, v1, v7
+    const/4 v4, 0x1
 
-    const-string/jumbo v2, "VoWiFi"
+    aput-object v3, v2, v4
 
-    const/4 v3, 0x2
+    const-string/jumbo v3, "VoWiFi"
 
-    aput-object v2, v1, v3
+    const/4 v4, 0x2
 
-    const-string/jumbo v2, "ViWiFi"
+    aput-object v3, v2, v4
 
-    const/4 v3, 0x3
+    const-string/jumbo v3, "ViWiFi"
 
-    aput-object v2, v1, v3
+    const/4 v4, 0x3
 
-    .line 122
-    const-string/jumbo v2, "UTLTE"
+    aput-object v3, v2, v4
 
-    const/4 v3, 0x4
+    .line 93
+    const-string/jumbo v3, "UTLTE"
 
-    aput-object v2, v1, v3
+    const/4 v4, 0x4
 
-    const-string/jumbo v2, "UTWiFi"
+    aput-object v3, v2, v4
 
-    const/4 v3, 0x5
+    const-string/jumbo v3, "UTWiFi"
 
-    aput-object v2, v1, v3
+    const/4 v4, 0x5
 
-    .line 121
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureStrings:[Ljava/lang/String;
+    aput-object v3, v2, v4
 
-    .line 126
-    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$1;
+    .line 92
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureStrings:[Ljava/lang/String;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$1;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
+    .line 95
+    new-instance v2, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$1;
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mReceiver:Landroid/content/BroadcastReceiver;
+    invoke-direct {v2, p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$1;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
 
-    .line 232
-    new-instance v1, Ljava/util/ArrayList;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    .line 169
+    new-instance v2, Ljava/util/ArrayList;
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 233
-    new-instance v1, Landroid/os/RegistrantList;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Landroid/os/RegistrantList;-><init>()V
+    .line 170
+    new-instance v2, Landroid/os/RegistrantList;
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallEndedRegistrants:Landroid/os/RegistrantList;
+    invoke-direct {v2}, Landroid/os/RegistrantList;-><init>()V
 
-    .line 234
-    new-instance v1, Landroid/os/RegistrantList;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallEndedRegistrants:Landroid/os/RegistrantList;
 
-    invoke-direct {v1}, Landroid/os/RegistrantList;-><init>()V
+    .line 171
+    new-instance v2, Landroid/os/RegistrantList;
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallStartedRegistrants:Landroid/os/RegistrantList;
+    invoke-direct {v2}, Landroid/os/RegistrantList;-><init>()V
 
-    .line 236
-    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallStartedRegistrants:Landroid/os/RegistrantList;
 
-    const-string/jumbo v2, "RG"
+    .line 173
+    new-instance v2, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-direct {v1, p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Ljava/lang/String;)V
+    const-string/jumbo v3, "RG"
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    invoke-direct {v2, p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Ljava/lang/String;)V
 
-    .line 237
-    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    .line 238
-    const-string/jumbo v2, "FG"
+    .line 174
+    new-instance v2, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    .line 237
-    invoke-direct {v1, p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Ljava/lang/String;)V
+    const-string/jumbo v3, "FG"
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    invoke-direct {v2, p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Ljava/lang/String;)V
 
-    .line 239
-    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    .line 240
-    const-string/jumbo v2, "BG"
+    .line 175
+    new-instance v2, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    .line 239
-    invoke-direct {v1, p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Ljava/lang/String;)V
+    const-string/jumbo v3, "BG"
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    invoke-direct {v2, p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Ljava/lang/String;)V
 
-    .line 241
-    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    const-string/jumbo v2, "HO"
+    .line 176
+    new-instance v2, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-direct {v1, p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Ljava/lang/String;)V
+    const-string/jumbo v3, "HO"
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    invoke-direct {v2, p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Ljava/lang/String;)V
 
-    .line 245
-    new-instance v1, Ljava/util/HashMap;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+    .line 179
+    iput v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mClirMode:I
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVtDataUsageMap:Ljava/util/HashMap;
+    .line 180
+    new-instance v2, Ljava/lang/Object;
 
-    .line 246
-    const-wide/16 v2, 0x0
+    invoke-direct {v2}, Ljava/lang/Object;-><init>()V
 
-    iput-wide v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mTotalVtDataUsage:J
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSyncHold:Ljava/lang/Object;
 
-    .line 249
-    iput v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mClirMode:I
+    .line 182
+    iput-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mUssdSession:Lcom/android/ims/ImsCall;
 
-    .line 250
-    new-instance v1, Ljava/lang/Object;
+    .line 183
+    iput-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingUssd:Landroid/os/Message;
 
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+    .line 187
+    iput-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mDesiredMute:Z
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSyncHold:Ljava/lang/Object;
+    .line 188
+    iput-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mOnHoldToneStarted:Z
 
-    .line 252
-    iput-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mUssdSession:Lcom/android/ims/ImsCall;
+    .line 190
+    sget-object v2, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    .line 253
-    iput-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingUssd:Landroid/os/Message;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    .line 257
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mDesiredMute:Z
+    .line 193
+    const/4 v2, -0x1
 
-    .line 258
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mOnHoldToneStarted:Z
+    iput v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
 
-    .line 259
-    iput v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mOnHoldToneId:I
+    .line 195
+    sget-object v2, Lcom/android/internal/telephony/Call$SrvccState;->NONE:Lcom/android/internal/telephony/Call$SrvccState;
 
-    .line 261
-    sget-object v1, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSrvccState:Lcom/android/internal/telephony/Call$SrvccState;
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
+    .line 197
+    iput-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIsInEmergencyCall:Z
 
-    .line 265
-    iput v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
+    .line 202
+    iput-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallInEcm:Z
 
-    .line 267
-    sget-object v1, Lcom/android/internal/telephony/Call$SrvccState;->NONE:Lcom/android/internal/telephony/Call$SrvccState;
+    .line 203
+    iput-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSwitchingFgAndBgCalls:Z
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSrvccState:Lcom/android/internal/telephony/Call$SrvccState;
+    .line 204
+    iput-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mCallExpectedToResume:Lcom/android/ims/ImsCall;
 
-    .line 269
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIsInEmergencyCall:Z
+    .line 1175
+    new-instance v2, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$2;
 
-    .line 270
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIsDataEnabled:Z
+    invoke-direct {v2, p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$2;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
 
-    .line 275
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallInEcm:Z
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsCallListener:Lcom/android/ims/ImsCall$Listener;
 
-    .line 276
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSwitchingFgAndBgCalls:Z
+    .line 1553
+    new-instance v2, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$3;
 
-    .line 277
-    iput-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mCallExpectedToResume:Lcom/android/ims/ImsCall;
+    invoke-direct {v2, p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$3;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
 
-    .line 278
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAllowEmergencyVideoCalls:Z
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsUssdListener:Lcom/android/ims/ImsCall$Listener;
 
-    .line 279
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIgnoreDataEnabledChangedForVideoCalls:Z
+    .line 1617
+    new-instance v2, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$4;
 
-    .line 281
-    new-instance v1, Ljava/lang/Object;
+    invoke-direct {v2, p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$4;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
 
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+    .line 1616
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsConnectionStateListener:Lcom/android/ims/ImsConnectionStateListener;
 
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAddParticipantLock:Ljava/lang/Object;
-
-    .line 287
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhoneStateListeners:Ljava/util/List;
-
-    .line 293
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mTreatDowngradedVideoCallsAsVideoCalls:Z
-
-    .line 299
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mDropVideoCallWhenAnsweringAudioCall:Z
-
-    .line 305
-    iput-boolean v7, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAllowAddCallDuringVideoCall:Z
-
-    .line 311
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mNotifyVtHandoverToWifiFail:Z
-
-    .line 317
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSupportDowngradeVtToAudio:Z
-
-    .line 325
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mNotifyHandoverVideoFromWifiToLTE:Z
-
-    .line 332
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSupportPauseVideo:Z
-
-    .line 341
-    new-instance v1, Landroid/util/ArrayMap;
-
-    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
-
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsReasonCodeMap:Ljava/util/Map;
-
-    .line 352
-    iput-boolean v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mShouldUpdateImsConfigOnDisconnect:Z
-
-    .line 357
-    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$-void__init__com_android_internal_telephony_imsphone_ImsPhone_phone_LambdaImpl0;
-
-    invoke-direct {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$-void__init__com_android_internal_telephony_imsphone_ImsPhone_phone_LambdaImpl0;-><init>()V
-
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSharedPreferenceProxy:Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$SharedPreferenceProxy;
-
-    .line 1583
-    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$2;
-
-    invoke-direct {v1, p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$2;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
-
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsCallListener:Lcom/android/ims/ImsCall$Listener;
-
-    .line 2169
-    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$3;
-
-    invoke-direct {v1, p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$3;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
-
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsUssdListener:Lcom/android/ims/ImsCall$Listener;
-
-    .line 2234
-    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$4;
-
-    invoke-direct {v1, p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$4;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
-
-    .line 2233
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsConnectionStateListener:Lcom/android/ims/ImsConnectionStateListener;
-
-    .line 2351
-    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$5;
-
-    invoke-direct {v1, p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$5;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
-
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsConfigListener:Lcom/android/ims/ImsConfigListener$Stub;
-
-    .line 367
+    .line 212
     iput-object p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    .line 369
-    invoke-static {}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->getInstance()Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-    .line 371
+    .line 214
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 372
+    .line 215
     .local v0, "intentfilter":Landroid/content/IntentFilter;
-    const-string/jumbo v1, "com.android.ims.IMS_INCOMING_CALL"
+    const-string/jumbo v2, "com.android.ims.IMS_INCOMING_CALL"
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 373
-    const-string/jumbo v1, "android.telephony.action.CARRIER_CONFIG_CHANGED"
+    .line 216
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
 
-    .line 374
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+    move-result-object v2
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    move-result-object v1
+    invoke-virtual {v2, v3, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mReceiver:Landroid/content/BroadcastReceiver;
+    .line 218
+    new-instance v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$5;
 
-    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-direct {v1, p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$5;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;)V
 
-    .line 375
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+    .line 223
+    .local v1, "t":Ljava/lang/Thread;
+    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getSubId()I
-
-    move-result v1
-
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->cacheCarrierConfiguration(I)V
-
-    .line 377
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getDefaultPhone()Lcom/android/internal/telephony/Phone;
-
-    move-result-object v1
-
-    .line 378
-    const/16 v2, 0x17
-
-    .line 377
-    invoke-virtual {v1, p0, v2, v5}, Lcom/android/internal/telephony/Phone;->registerForDataEnabledChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-
-    .line 380
-    iput v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsServiceRetryCount:I
-
-    .line 383
-    const/16 v1, 0x18
-
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendEmptyMessage(I)Z
-
-    .line 366
+    .line 211
     return-void
 
-    .line 120
-    nop
-
+    .line 91
     :array_0
     .array-data 1
         0x0t
@@ -1018,37 +637,39 @@
     .prologue
     monitor-enter p0
 
-    .line 1368
+    .line 1014
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1369
+    .line 1015
     invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->isEmergency()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1370
+    .line 1016
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIsInEmergencyCall:Z
 
-    .line 1371
+    .line 1017
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+
+    iget-object v0, v0, Lcom/android/internal/telephony/imsphone/ImsPhone;->mDefaultPhone:Lcom/android/internal/telephony/PhoneBase;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhone;->sendEmergencyCallStateChange(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/PhoneBase;->sendEmergencyCallStateChange(Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
     monitor-exit p0
 
-    .line 1367
+    .line 1013
     return-void
 
     :catchall_0
@@ -1059,356 +680,22 @@
     throw v0
 .end method
 
-.method private cacheCarrierConfiguration(I)V
-    .locals 14
-    .param p1, "subId"    # I
-
-    .prologue
-    const/4 v9, 0x0
-
-    .line 642
-    iget-object v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v10}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    const-string/jumbo v11, "carrier_config"
-
-    invoke-virtual {v10, v11}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 641
-    check-cast v1, Landroid/telephony/CarrierConfigManager;
-
-    .line 643
-    .local v1, "carrierConfigManager":Landroid/telephony/CarrierConfigManager;
-    if-nez v1, :cond_0
-
-    .line 644
-    const-string/jumbo v9, "cacheCarrierConfiguration: No carrier config service found."
-
-    invoke-virtual {p0, v9}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    .line 645
-    return-void
-
-    .line 648
-    :cond_0
-    invoke-virtual {v1, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
-
-    move-result-object v0
-
-    .line 649
-    .local v0, "carrierConfig":Landroid/os/PersistableBundle;
-    if-nez v0, :cond_1
-
-    .line 650
-    const-string/jumbo v9, "cacheCarrierConfiguration: Empty carrier config."
-
-    invoke-virtual {p0, v9}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    .line 651
-    return-void
-
-    .line 655
-    :cond_1
-    const-string/jumbo v10, "allow_emergency_video_calls_bool"
-
-    invoke-virtual {v0, v10}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v10
-
-    .line 654
-    iput-boolean v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAllowEmergencyVideoCalls:Z
-
-    .line 658
-    const-string/jumbo v10, "treat_downgraded_video_calls_as_video_calls_bool"
-
-    .line 657
-    invoke-virtual {v0, v10}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v10
-
-    .line 656
-    iput-boolean v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mTreatDowngradedVideoCallsAsVideoCalls:Z
-
-    .line 661
-    const-string/jumbo v10, "drop_video_call_when_answering_audio_call_bool"
-
-    .line 660
-    invoke-virtual {v0, v10}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v10
-
-    .line 659
-    iput-boolean v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mDropVideoCallWhenAnsweringAudioCall:Z
-
-    .line 664
-    const-string/jumbo v10, "allow_add_call_during_video_call"
-
-    .line 663
-    invoke-virtual {v0, v10}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v10
-
-    .line 662
-    iput-boolean v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAllowAddCallDuringVideoCall:Z
-
-    .line 666
-    const-string/jumbo v10, "notify_vt_handover_to_wifi_failure_bool"
-
-    .line 665
-    invoke-virtual {v0, v10}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v10
-
-    iput-boolean v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mNotifyVtHandoverToWifiFail:Z
-
-    .line 668
-    const-string/jumbo v10, "support_downgrade_vt_to_audio_bool"
-
-    .line 667
-    invoke-virtual {v0, v10}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v10
-
-    iput-boolean v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSupportDowngradeVtToAudio:Z
-
-    .line 670
-    const-string/jumbo v10, "notify_vt_handover_to_wifi_failure_bool"
-
-    .line 669
-    invoke-virtual {v0, v10}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v10
-
-    iput-boolean v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mNotifyHandoverVideoFromWifiToLTE:Z
-
-    .line 672
-    const-string/jumbo v10, "ignore_data_enabled_changed_for_video_calls"
-
-    .line 671
-    invoke-virtual {v0, v10}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v10
-
-    iput-boolean v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIgnoreDataEnabledChangedForVideoCalls:Z
-
-    .line 674
-    const-string/jumbo v10, "support_pause_ims_video_calls_bool"
-
-    .line 673
-    invoke-virtual {v0, v10}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v10
-
-    iput-boolean v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSupportPauseVideo:Z
-
-    .line 677
-    const-string/jumbo v10, "ims_reasoninfo_mapping_string_array"
-
-    .line 676
-    invoke-virtual {v0, v10}, Landroid/os/PersistableBundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 678
-    .local v4, "mappings":[Ljava/lang/String;
-    if-eqz v4, :cond_3
-
-    array-length v10, v4
-
-    if-lez v10, :cond_3
-
-    .line 679
-    array-length v10, v4
-
-    :goto_0
-    if-ge v9, v10, :cond_4
-
-    aget-object v3, v4, v9
-
-    .line 680
-    .local v3, "mapping":Ljava/lang/String;
-    const-string/jumbo v11, "|"
-
-    invoke-static {v11}, Ljava/util/regex/Pattern;->quote(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v3, v11}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 681
-    .local v8, "values":[Ljava/lang/String;
-    array-length v11, v8
-
-    const/4 v12, 0x3
-
-    if-eq v11, v12, :cond_2
-
-    .line 679
-    :goto_1
-    add-int/lit8 v9, v9, 0x1
-
-    goto :goto_0
-
-    .line 686
-    :cond_2
-    const/4 v11, 0x0
-
-    :try_start_0
-    aget-object v11, v8, v11
-
-    invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    .line 687
-    .local v2, "fromCode":I
-    const/4 v11, 0x1
-
-    aget-object v5, v8, v11
-
-    .line 688
-    .local v5, "message":Ljava/lang/String;
-    const/4 v11, 0x2
-
-    aget-object v11, v8, v11
-
-    invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v7
-
-    .line 690
-    .local v7, "toCode":I
-    iget-object v11, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsReasonCodeMap:Ljava/util/Map;
-
-    new-instance v12, Landroid/util/Pair;
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v13
-
-    invoke-direct {v12, v13, v5}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v13
-
-    invoke-interface {v11, v12, v13}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 691
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "Loaded ImsReasonInfo mapping : fromCode = "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, " ; message = "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    .line 692
-    const-string/jumbo v12, " ; toCode = "
-
-    .line 691
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {p0, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_1
-
-    .line 693
-    .end local v2    # "fromCode":I
-    .end local v5    # "message":Ljava/lang/String;
-    .end local v7    # "toCode":I
-    :catch_0
-    move-exception v6
-
-    .line 694
-    .local v6, "nfe":Ljava/lang/NumberFormatException;
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "Invalid ImsReasonInfo mapping found: "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {p0, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    goto :goto_1
-
-    .line 698
-    .end local v3    # "mapping":Ljava/lang/String;
-    .end local v6    # "nfe":Ljava/lang/NumberFormatException;
-    .end local v8    # "values":[Ljava/lang/String;
-    :cond_3
-    const-string/jumbo v9, "No carrier ImsReasonInfo mappings defined."
-
-    invoke-virtual {p0, v9}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 640
-    :cond_4
-    return-void
-.end method
-
 .method private cleanseInstantLetteringMessage(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
     .param p1, "callSubject"    # Ljava/lang/String;
 
     .prologue
-    .line 2696
+    .line 1937
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
-    .line 2697
+    .line 1938
     return-object p1
 
-    .line 2702
+    .line 1943
     :cond_0
     iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
@@ -1422,17 +709,17 @@
 
     move-result-object v1
 
-    .line 2701
+    .line 1942
     check-cast v1, Landroid/telephony/CarrierConfigManager;
 
-    .line 2704
+    .line 1945
     .local v1, "configMgr":Landroid/telephony/CarrierConfigManager;
     if-nez v1, :cond_1
 
-    .line 2705
+    .line 1946
     return-object p1
 
-    .line 2708
+    .line 1949
     :cond_1
     iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
@@ -1444,23 +731,23 @@
 
     move-result-object v0
 
-    .line 2710
+    .line 1951
     .local v0, "carrierConfig":Landroid/os/PersistableBundle;
     if-nez v0, :cond_2
 
-    .line 2711
+    .line 1952
     return-object p1
 
-    .line 2716
+    .line 1957
     :cond_2
     const-string/jumbo v4, "carrier_instant_lettering_invalid_chars_string"
 
-    .line 2715
+    .line 1956
     invoke-virtual {v0, v4}, Landroid/os/PersistableBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 2717
+    .line 1958
     .local v3, "invalidCharacters":Ljava/lang/String;
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1468,23 +755,23 @@
 
     if-nez v4, :cond_3
 
-    .line 2718
+    .line 1959
     const-string/jumbo v4, ""
 
     invoke-virtual {p1, v3, v4}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2723
+    .line 1964
     :cond_3
     const-string/jumbo v4, "carrier_instant_lettering_escaped_chars_string"
 
-    .line 2722
+    .line 1963
     invoke-virtual {v0, v4}, Landroid/os/PersistableBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 2724
+    .line 1965
     .local v2, "escapedCharacters":Ljava/lang/String;
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1492,12 +779,12 @@
 
     if-nez v4, :cond_4
 
-    .line 2725
+    .line 1966
     invoke-direct {p0, v2, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->escapeChars(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2727
+    .line 1968
     :cond_4
     return-object p1
 .end method
@@ -1506,20 +793,20 @@
     .locals 4
 
     .prologue
-    .line 397
+    .line 227
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "com.android.ims.IMS_INCOMING_CALL"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 398
+    .line 228
     .local v0, "intent":Landroid/content/Intent;
     const/high16 v1, 0x10000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 399
+    .line 229
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
@@ -1528,10 +815,10 @@
 
     const/4 v2, 0x0
 
-    .line 400
+    .line 230
     const/high16 v3, 0x8000000
 
-    .line 399
+    .line 229
     invoke-static {v1, v2, v0, v3}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v1
@@ -1540,98 +827,110 @@
 .end method
 
 .method private dialInternal(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;IILandroid/os/Bundle;)V
-    .locals 16
+    .locals 15
     .param p1, "conn"    # Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     .param p2, "clirMode"    # I
     .param p3, "videoState"    # I
     .param p4, "intentExtras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 717
+    .line 439
     if-nez p1, :cond_0
 
-    .line 718
+    .line 440
     return-void
 
-    .line 721
+    .line 443
     :cond_0
-    const/4 v9, 0x0
-
-    .line 722
-    .local v9, "isConferenceUri":Z
-    const/4 v10, 0x0
-
-    .line 723
-    .local v10, "isSkipSchemaParsing":Z
     const/4 v8, 0x0
 
-    .line 725
-    .local v8, "isCallPull":Z
+    .line 444
+    .local v8, "isConferenceUri":Z
+    const/4 v9, 0x0
+
+    .line 445
+    .local v9, "isSkipSchemaParsing":Z
+    const/4 v7, 0x0
+
+    .line 447
+    .local v7, "isCallPull":Z
     if-eqz p4, :cond_1
 
-    .line 727
-    const-string/jumbo v13, "org.codeaurora.extra.DIAL_CONFERENCE_URI"
+    .line 449
+    const-string/jumbo v12, "org.codeaurora.extra.DIAL_CONFERENCE_URI"
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
-    .line 726
+    .line 448
     move-object/from16 v0, p4
 
-    invoke-virtual {v0, v13, v14}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v12, v13}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v8
+
+    .line 451
+    .local v8, "isConferenceUri":Z
+    const-string/jumbo v12, "org.codeaurora.extra.SKIP_SCHEMA_PARSING"
+
+    const/4 v13, 0x0
+
+    .line 450
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v12, v13}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v9
 
-    .line 729
-    .local v9, "isConferenceUri":Z
-    const-string/jumbo v13, "org.codeaurora.extra.SKIP_SCHEMA_PARSING"
+    .line 453
+    .local v9, "isSkipSchemaParsing":Z
+    const-string/jumbo v12, "org.codeaurora.extra.IS_CALL_PULL"
 
-    const/4 v14, 0x0
-
-    .line 728
-    move-object/from16 v0, p4
-
-    invoke-virtual {v0, v13, v14}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v10
-
-    .line 733
-    .end local v9    # "isConferenceUri":Z
-    .end local v10    # "isSkipSchemaParsing":Z
-    :cond_1
-    if-nez v9, :cond_2
-
-    if-eqz v10, :cond_6
-
-    .line 743
-    :cond_2
     const/4 v13, 0x0
 
-    move-object/from16 v0, p0
+    .line 452
+    move-object/from16 v0, p4
 
-    invoke-virtual {v0, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setMute(Z)V
+    invoke-virtual {v0, v12, v13}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    .line 744
+    move-result v7
+
+    .line 456
+    .end local v7    # "isCallPull":Z
+    .end local v8    # "isConferenceUri":Z
+    .end local v9    # "isSkipSchemaParsing":Z
+    :cond_1
+    if-nez v8, :cond_2
+
+    if-eqz v9, :cond_5
+
+    .line 466
+    :cond_2
+    const/4 v12, 0x0
+
+    invoke-virtual {p0, v12}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setMute(Z)V
+
+    .line 467
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getAddress()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-static {v13}, Landroid/telephony/PhoneNumberUtils;->isEmergencyNumber(Ljava/lang/String;)Z
+    invoke-static {v12}, Landroid/telephony/PhoneNumberUtils;->isEmergencyNumber(Ljava/lang/String;)Z
 
-    move-result v13
+    move-result v12
 
-    if-eqz v13, :cond_9
+    if-eqz v12, :cond_8
 
-    .line 745
-    const/4 v12, 0x2
+    .line 468
+    const/4 v11, 0x2
 
-    .line 746
-    .local v12, "serviceType":I
+    .line 469
+    .local v11, "serviceType":I
     :goto_0
     invoke-static/range {p3 .. p3}, Lcom/android/ims/ImsCallProfile;->getCallTypeFromVideoState(I)I
 
     move-result v2
 
-    .line 748
+    .line 471
     .local v2, "callType":I
     move-object/from16 v0, p1
 
@@ -1639,358 +938,241 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setVideoState(I)V
 
-    .line 751
-    const/4 v13, 0x1
+    .line 474
+    const/4 v12, 0x1
 
     :try_start_0
-    new-array v3, v13, [Ljava/lang/String;
+    new-array v3, v12, [Ljava/lang/String;
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getAddress()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
-    aput-object v13, v3, v14
+    aput-object v12, v3, v13
 
-    .line 752
+    .line 475
     .local v3, "callees":[Ljava/lang/String;
-    move-object/from16 v0, p0
+    iget-object v12, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
-    iget-object v13, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
+    iget v13, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
 
-    move-object/from16 v0, p0
+    invoke-virtual {v12, v13, v11, v2}, Lcom/android/ims/ImsManager;->createCallProfile(III)Lcom/android/ims/ImsCallProfile;
 
-    iget v14, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
+    move-result-object v10
 
-    invoke-virtual {v13, v14, v12, v2}, Lcom/android/ims/ImsManager;->createCallProfile(III)Lcom/android/ims/ImsCallProfile;
-
-    move-result-object v11
-
-    .line 754
-    .local v11, "profile":Lcom/android/ims/ImsCallProfile;
-    const-string/jumbo v13, "oir"
+    .line 477
+    .local v10, "profile":Lcom/android/ims/ImsCallProfile;
+    const-string/jumbo v12, "oir"
 
     move/from16 v0, p2
 
-    invoke-virtual {v11, v13, v0}, Lcom/android/ims/ImsCallProfile;->setCallExtraInt(Ljava/lang/String;I)V
+    invoke-virtual {v10, v12, v0}, Lcom/android/ims/ImsCallProfile;->setCallExtraInt(Ljava/lang/String;I)V
 
-    .line 755
-    const-string/jumbo v13, "isConferenceUri"
+    .line 478
+    const-string/jumbo v12, "isConferenceUri"
 
-    invoke-virtual {v11, v13, v9}, Lcom/android/ims/ImsCallProfile;->setCallExtraBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v10, v12, v8}, Lcom/android/ims/ImsCallProfile;->setCallExtraBoolean(Ljava/lang/String;Z)V
 
-    .line 760
-    if-eqz p4, :cond_5
+    .line 480
+    const-string/jumbo v12, "CallPull"
 
-    .line 761
+    invoke-virtual {v10, v12, v7}, Lcom/android/ims/ImsCallProfile;->setCallExtraBoolean(Ljava/lang/String;Z)V
+
+    .line 484
+    if-eqz p4, :cond_4
+
+    .line 485
+    const-string/jumbo v12, "android.telecom.extra.CALL_SUBJECT"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v12}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_3
+
+    .line 486
+    const-string/jumbo v12, "DisplayText"
+
+    .line 488
     const-string/jumbo v13, "android.telecom.extra.CALL_SUBJECT"
 
+    .line 487
     move-object/from16 v0, p4
 
-    invoke-virtual {v0, v13}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {v0, v13}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result v13
+    move-result-object v13
 
-    if-eqz v13, :cond_3
+    invoke-direct {p0, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->cleanseInstantLetteringMessage(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 762
-    const-string/jumbo v13, "DisplayText"
+    move-result-object v13
 
-    .line 764
-    const-string/jumbo v14, "android.telecom.extra.CALL_SUBJECT"
-
-    .line 763
+    .line 486
     move-object/from16 v0, p4
 
-    invoke-virtual {v0, v14}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v12, v13}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v14
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v14}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->cleanseInstantLetteringMessage(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v14
-
-    .line 762
-    move-object/from16 v0, p4
-
-    invoke-virtual {v0, v13, v14}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 767
+    .line 493
     :cond_3
-    const-string/jumbo v13, "org.codeaurora.extra.IS_CALL_PULL"
+    iget-object v12, v10, Lcom/android/ims/ImsCallProfile;->mCallExtras:Landroid/os/Bundle;
 
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p4
-
-    invoke-virtual {v0, v13, v14}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v8
-
-    .line 769
-    .local v8, "isCallPull":Z
-    const-string/jumbo v13, "CallPull"
+    const-string/jumbo v13, "OemCallExtras"
 
     move-object/from16 v0, p4
 
-    invoke-virtual {v0, v13}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {v12, v13, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    .line 770
-    iget-object v13, v11, Lcom/android/ims/ImsCallProfile;->mCallExtras:Landroid/os/Bundle;
-
-    const-string/jumbo v14, "CallPull"
-
-    .line 771
-    const-string/jumbo v15, "CallPull"
-
-    move-object/from16 v0, p4
-
-    invoke-virtual {v0, v15}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v15
-
-    .line 770
-    invoke-virtual {v13, v14, v15}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    .line 773
-    const-string/jumbo v13, "android.telephony.ImsExternalCallTracker.extra.EXTERNAL_CALL_ID"
-
-    .line 772
-    move-object/from16 v0, p4
-
-    invoke-virtual {v0, v13}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v4
-
-    .line 774
-    .local v4, "dialogId":I
-    const/4 v13, 0x1
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setIsPulledCall(Z)V
-
-    .line 775
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setPulledDialogId(I)V
-
-    .line 779
-    .end local v4    # "dialogId":I
+    .line 501
     :cond_4
-    iget-object v13, v11, Lcom/android/ims/ImsCallProfile;->mCallExtras:Landroid/os/Bundle;
+    iget-object v12, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
-    const-string/jumbo v14, "OemCallExtras"
+    iget v13, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
 
-    move-object/from16 v0, p4
+    .line 502
+    iget-object v14, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsCallListener:Lcom/android/ims/ImsCall$Listener;
 
-    invoke-virtual {v13, v14, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+    .line 501
+    invoke-virtual {v12, v13, v10, v3, v14}, Lcom/android/ims/ImsManager;->makeCall(ILcom/android/ims/ImsCallProfile;[Ljava/lang/String;Lcom/android/ims/ImsCall$Listener;)Lcom/android/ims/ImsCall;
 
-    .line 781
-    const-string/jumbo v13, "CallPull"
+    move-result-object v6
 
-    invoke-virtual {v11, v13, v8}, Lcom/android/ims/ImsCallProfile;->setCallExtraBoolean(Ljava/lang/String;Z)V
-
-    .line 789
-    .end local v8    # "isCallPull":Z
-    :cond_5
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
-
-    .line 790
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsCallListener:Lcom/android/ims/ImsCall$Listener;
-
-    .line 789
-    invoke-virtual {v13, v14, v11, v3, v15}, Lcom/android/ims/ImsManager;->makeCall(ILcom/android/ims/ImsCallProfile;[Ljava/lang/String;Lcom/android/ims/ImsCall$Listener;)Lcom/android/ims/ImsCall;
-
-    move-result-object v7
-
-    .line 791
-    .local v7, "imsCall":Lcom/android/ims/ImsCall;
+    .line 503
+    .local v6, "imsCall":Lcom/android/ims/ImsCall;
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v7}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setImsCall(Lcom/android/ims/ImsCall;)V
+    invoke-virtual {v0, v6}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setImsCall(Lcom/android/ims/ImsCall;)V
 
-    .line 793
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v14}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
-
-    move-result v14
-
-    .line 794
-    invoke-virtual {v7}, Lcom/android/ims/ImsCall;->getSession()Lcom/android/ims/internal/ImsCallSession;
-
-    move-result-object v15
-
-    .line 793
-    invoke-virtual {v13, v14, v15}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->writeOnImsCallStart(ILcom/android/ims/internal/ImsCallSession;)V
-
-    .line 796
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    invoke-direct {v0, v1, v7}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setVideoCallProvider(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;Lcom/android/ims/ImsCall;)V
-
-    .line 797
-    move-object/from16 v0, p0
-
-    iget-boolean v13, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAllowAddCallDuringVideoCall:Z
-
+    .line 505
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setAllowAddCallDuringVideoCall(Z)V
+    invoke-direct {p0, v0, v6}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setVideoCallProvider(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;Lcom/android/ims/ImsCall;)V
     :try_end_0
     .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 715
+    .line 437
     .end local v3    # "callees":[Ljava/lang/String;
-    .end local v7    # "imsCall":Lcom/android/ims/ImsCall;
-    .end local v11    # "profile":Lcom/android/ims/ImsCallProfile;
+    .end local v6    # "imsCall":Lcom/android/ims/ImsCall;
+    .end local v10    # "profile":Lcom/android/ims/ImsCallProfile;
     :goto_1
     return-void
 
-    .line 734
+    .line 456
     .end local v2    # "callType":I
-    .end local v12    # "serviceType":I
-    .local v8, "isCallPull":Z
+    .end local v11    # "serviceType":I
+    :cond_5
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getAddress()Ljava/lang/String;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_6
+
+    .line 457
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getAddress()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/String;->length()I
+
+    move-result v12
+
+    if-nez v12, :cond_7
+
+    .line 460
     :cond_6
-    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getAddress()Ljava/lang/String;
-
-    move-result-object v13
-
-    if-eqz v13, :cond_7
-
-    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getAddress()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/String;->length()I
-
-    move-result v13
-
-    if-nez v13, :cond_8
-
-    .line 737
-    :cond_7
     :goto_2
-    const/4 v13, 0x7
+    const/4 v12, 0x7
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setDisconnectCause(I)V
+    invoke-virtual {v0, v12}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setDisconnectCause(I)V
 
-    .line 738
-    const-wide/16 v14, 0x1f4
+    .line 461
+    const-wide/16 v12, 0x1f4
 
-    const/16 v13, 0x12
+    const/16 v14, 0x12
 
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v14, v12, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendEmptyMessageDelayed(IJ)Z
 
-    invoke-virtual {v0, v13, v14, v15}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendEmptyMessageDelayed(IJ)Z
-
-    .line 739
+    .line 462
     return-void
 
-    .line 735
-    :cond_8
+    .line 458
+    :cond_7
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getAddress()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    const/16 v14, 0x4e
+    const/16 v13, 0x4e
 
-    invoke-virtual {v13, v14}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v12, v13}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v13
+    move-result v12
 
-    if-ltz v13, :cond_2
+    if-ltz v12, :cond_2
 
     goto :goto_2
 
-    .line 745
-    :cond_9
-    const/4 v12, 0x1
+    .line 468
+    :cond_8
+    const/4 v11, 0x1
 
-    .restart local v12    # "serviceType":I
+    .restart local v11    # "serviceType":I
     goto/16 :goto_0
 
-    .line 798
-    .end local v8    # "isCallPull":Z
+    .line 506
     .restart local v2    # "callType":I
     :catch_0
-    move-exception v6
+    move-exception v5
 
-    .line 799
-    .local v6, "e":Lcom/android/ims/ImsException;
-    new-instance v13, Ljava/lang/StringBuilder;
+    .line 507
+    .local v5, "e":Lcom/android/ims/ImsException;
+    new-instance v12, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v14, "dialInternal : "
+    const-string/jumbo v13, "dialInternal : "
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v12}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    .line 800
-    const/16 v13, 0x24
+    .line 508
+    const/16 v12, 0x24
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setDisconnectCause(I)V
+    invoke-virtual {v0, v12}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setDisconnectCause(I)V
 
-    .line 801
-    const-wide/16 v14, 0x1f4
+    .line 509
+    const-wide/16 v12, 0x1f4
 
-    const/16 v13, 0x12
+    const/16 v14, 0x12
 
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v13, v14, v15}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p0, v14, v12, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_1
 
-    .line 802
-    .end local v6    # "e":Lcom/android/ims/ImsException;
+    .line 510
+    .end local v5    # "e":Lcom/android/ims/ImsException;
     :catch_1
-    move-exception v5
+    move-exception v4
 
-    .local v5, "e":Landroid/os/RemoteException;
+    .local v4, "e":Landroid/os/RemoteException;
     goto :goto_1
 .end method
 
@@ -1998,20 +1180,25 @@
     .locals 3
 
     .prologue
-    .line 1571
+    .line 1162
     invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->isPhoneInEcbMode()Z
 
     move-result v1
 
-    .line 1572
+    .line 1164
     .local v1, "isPhoneInEcmMode":Z
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->isEmergency()Z
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getOrigDialString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1163
+    invoke-static {v2}, Landroid/telephony/PhoneNumberUtils;->isEmergencyNumber(Ljava/lang/String;)Z
 
     move-result v0
 
-    .line 1573
+    .line 1165
     .local v0, "isEmergencyNumber":Z
     if-eqz v1, :cond_0
 
@@ -2019,17 +1206,17 @@
 
     if-eqz v0, :cond_1
 
-    .line 1574
+    .line 1166
     :cond_0
     const/16 v2, 0x14
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendEmptyMessage(I)Z
 
-    .line 1570
+    .line 1161
     :goto_0
     return-void
 
-    .line 1576
+    .line 1168
     :cond_1
     const/16 v2, 0x15
 
@@ -2042,7 +1229,7 @@
     .locals 5
 
     .prologue
-    .line 1088
+    .line 757
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2065,7 +1252,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1090
+    .line 759
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2092,14 +1279,14 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1092
+    .line 761
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getConnections()Ljava/util/List;
 
     move-result-object v1
 
-    .line 1093
+    .line 762
     .local v1, "l":Ljava/util/List;
     const/4 v0, 0x0
 
@@ -2112,7 +1299,7 @@
     :goto_0
     if-ge v0, v2, :cond_0
 
-    .line 1094
+    .line 763
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -2123,12 +1310,12 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1093
+    .line 762
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1097
+    .line 766
     :cond_0
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2156,14 +1343,14 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1099
+    .line 768
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getConnections()Ljava/util/List;
 
     move-result-object v1
 
-    .line 1100
+    .line 769
     const/4 v0, 0x0
 
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -2173,7 +1360,7 @@
     :goto_1
     if-ge v0, v2, :cond_1
 
-    .line 1101
+    .line 770
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -2184,12 +1371,12 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1100
+    .line 769
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 1104
+    .line 773
     :cond_1
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2217,14 +1404,14 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1106
+    .line 775
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getConnections()Ljava/util/List;
 
     move-result-object v1
 
-    .line 1107
+    .line 776
     const/4 v0, 0x0
 
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -2234,7 +1421,7 @@
     :goto_2
     if-ge v0, v2, :cond_2
 
-    .line 1108
+    .line 777
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -2245,12 +1432,12 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1107
+    .line 776
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
-    .line 1085
+    .line 754
     :cond_2
     return-void
 .end method
@@ -2261,12 +1448,12 @@
     .param p2, "source"    # Ljava/lang/String;
 
     .prologue
-    .line 2739
+    .line 1980
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 2740
+    .line 1981
     .local v1, "escaped":Ljava/lang/StringBuilder;
     invoke-virtual {p2}, Ljava/lang/String;->toCharArray()[C
 
@@ -2281,7 +1468,7 @@
 
     aget-char v0, v3, v2
 
-    .line 2741
+    .line 1982
     .local v0, "c":C
     invoke-static {v0}, Ljava/lang/Character;->toString(C)Ljava/lang/String;
 
@@ -2293,21 +1480,21 @@
 
     if-eqz v5, :cond_0
 
-    .line 2742
+    .line 1983
     const-string/jumbo v5, "\\"
 
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2744
+    .line 1985
     :cond_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 2740
+    .line 1981
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 2747
+    .line 1988
     .end local v0    # "c":C
     :cond_1
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -2324,7 +1511,7 @@
     .prologue
     monitor-enter p0
 
-    .line 1339
+    .line 984
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
 
@@ -2346,7 +1533,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    .line 1340
+    .line 985
     .local v0, "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getImsCall()Lcom/android/ims/ImsCall;
     :try_end_0
@@ -2358,10 +1545,10 @@
 
     monitor-exit p0
 
-    .line 1341
+    .line 986
     return-object v0
 
-    .line 1344
+    .line 989
     .end local v0    # "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     :cond_1
     const/4 v2, 0x0
@@ -2384,220 +1571,163 @@
     .param p1, "reasonInfo"    # Lcom/android/ims/ImsReasonInfo;
 
     .prologue
-    const/16 v2, 0xc
-
-    .line 1468
+    .line 1076
     const/16 v0, 0x24
 
-    .line 1471
+    .line 1079
     .local v0, "cause":I
-    invoke-direct {p0, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->maybeRemapReasonCode(Lcom/android/ims/ImsReasonInfo;)I
+    invoke-virtual {p1}, Lcom/android/ims/ImsReasonInfo;->getCode()I
 
     move-result v1
 
-    .line 1472
+    .line 1080
     .local v1, "code":I
     sparse-switch v1, :sswitch_data_0
 
-    .line 1556
+    .line 1147
     return v0
 
-    .line 1475
+    .line 1083
     :sswitch_0
     const/16 v2, 0x8
 
     return v2
 
-    .line 1478
+    .line 1086
     :sswitch_1
     const/4 v2, 0x4
 
     return v2
 
-    .line 1481
+    .line 1089
     :sswitch_2
     const/4 v2, 0x3
 
     return v2
 
-    .line 1487
+    .line 1092
     :sswitch_3
     const/16 v2, 0x10
 
     return v2
 
-    .line 1490
+    .line 1095
     :sswitch_4
     const/4 v2, 0x2
 
     return v2
 
-    .line 1493
+    .line 1103
     :sswitch_5
+    const/16 v2, 0xc
+
     return v2
 
-    .line 1500
+    .line 1108
     :sswitch_6
-    return v2
-
-    .line 1505
-    :sswitch_7
     const/16 v2, 0x9
 
     return v2
 
-    .line 1515
-    :sswitch_8
+    .line 1118
+    :sswitch_7
     const/16 v2, 0x12
 
     return v2
 
-    .line 1521
-    :sswitch_9
+    .line 1124
+    :sswitch_8
     const/16 v2, 0xd
 
     return v2
 
-    .line 1525
+    .line 1127
+    :sswitch_9
+    const/16 v2, 0x5e
+
+    return v2
+
+    .line 1130
     :sswitch_a
+    const/16 v2, 0x5f
+
+    return v2
+
+    .line 1133
+    :sswitch_b
     const/16 v2, 0x11
 
     return v2
 
-    .line 1528
-    :sswitch_b
+    .line 1136
+    :sswitch_c
     const/16 v2, 0x15
 
     return v2
 
-    .line 1531
-    :sswitch_c
-    const/16 v2, 0x66
-
-    return v2
-
-    .line 1534
+    .line 1139
     :sswitch_d
-    const/16 v2, 0x67
+    const/16 v2, 0x60
 
     return v2
 
-    .line 1537
+    .line 1142
     :sswitch_e
-    const/16 v2, 0x46
+    const/16 v2, 0x61
 
     return v2
 
-    .line 1540
-    :sswitch_f
-    const/16 v2, 0x34
-
-    return v2
-
-    .line 1543
-    :sswitch_10
-    const/16 v2, 0x33
-
-    return v2
-
-    .line 1546
-    :sswitch_11
-    const/16 v2, 0x35
-
-    return v2
-
-    .line 1549
-    :sswitch_12
-    const/16 v2, 0x36
-
-    return v2
-
-    .line 1552
-    :sswitch_13
-    const/16 v2, 0x37
-
-    return v2
-
-    .line 1472
-    nop
-
+    .line 1080
     :sswitch_data_0
     .sparse-switch
-        0x1f -> :sswitch_e
-        0x6a -> :sswitch_8
-        0x6f -> :sswitch_a
-        0x70 -> :sswitch_a
-        0x79 -> :sswitch_8
-        0x7a -> :sswitch_8
-        0x7b -> :sswitch_8
-        0x7c -> :sswitch_8
-        0x83 -> :sswitch_8
-        0x84 -> :sswitch_8
+        0x6a -> :sswitch_7
+        0x6f -> :sswitch_b
+        0x70 -> :sswitch_9
+        0x79 -> :sswitch_7
+        0x7a -> :sswitch_7
+        0x7b -> :sswitch_7
+        0x7c -> :sswitch_7
+        0x83 -> :sswitch_7
+        0x84 -> :sswitch_7
         0x8f -> :sswitch_3
-        0x90 -> :sswitch_8
-        0xc9 -> :sswitch_9
-        0xca -> :sswitch_9
-        0xcb -> :sswitch_9
-        0xf1 -> :sswitch_b
-        0x141 -> :sswitch_6
-        0x14b -> :sswitch_6
+        0x90 -> :sswitch_7
+        0xc9 -> :sswitch_8
+        0xca -> :sswitch_8
+        0xcb -> :sswitch_8
+        0xf1 -> :sswitch_c
+        0x141 -> :sswitch_5
+        0x14b -> :sswitch_5
         0x14c -> :sswitch_5
-        0x14d -> :sswitch_7
-        0x14f -> :sswitch_9
+        0x14d -> :sswitch_6
+        0x14f -> :sswitch_8
         0x151 -> :sswitch_0
         0x152 -> :sswitch_1
-        0x154 -> :sswitch_6
+        0x154 -> :sswitch_5
         0x155 -> :sswitch_0
-        0x160 -> :sswitch_7
-        0x162 -> :sswitch_7
-        0x169 -> :sswitch_6
-        0x16a -> :sswitch_6
-        0x16b -> :sswitch_c
-        0x16c -> :sswitch_d
+        0x160 -> :sswitch_6
+        0x162 -> :sswitch_6
+        0x169 -> :sswitch_5
+        0x16a -> :sswitch_5
+        0x16b -> :sswitch_d
+        0x16c -> :sswitch_e
         0x1f5 -> :sswitch_2
+        0x1f9 -> :sswitch_a
         0x1fe -> :sswitch_4
-        0x3f6 -> :sswitch_f
-        0x3f8 -> :sswitch_10
-        0x57b -> :sswitch_11
-        0x57c -> :sswitch_3
-        0x57d -> :sswitch_13
-        0x57e -> :sswitch_12
     .end sparse-switch
 .end method
 
-.method private getImsManagerIsNullException()Lcom/android/ims/ImsException;
-    .locals 3
-
-    .prologue
-    .line 2780
-    new-instance v0, Lcom/android/ims/ImsException;
-
-    const-string/jumbo v1, "no ims manager"
-
-    const/16 v2, 0x66
-
-    invoke-direct {v0, v1, v2}, Lcom/android/ims/ImsException;-><init>(Ljava/lang/String;I)V
-
-    return-object v0
-.end method
-
 .method private getImsService()V
-    .locals 8
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/android/ims/ImsException;
-        }
-    .end annotation
+    .locals 7
 
     .prologue
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    .line 404
+    .line 234
     const-string/jumbo v2, "getImsService"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 405
+    .line 235
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
@@ -2616,53 +1746,39 @@
 
     iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
-    .line 406
+    .line 237
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
-    .line 407
+    .line 238
     invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->createIncomingCallPendingIntent()Landroid/app/PendingIntent;
 
     move-result-object v3
 
-    .line 408
+    .line 239
     iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsConnectionStateListener:Lcom/android/ims/ImsConnectionStateListener;
 
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+    .line 237
+    const/4 v5, 0x1
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
-
-    move-result v5
-
-    .line 406
-    const/4 v6, 0x1
-
-    invoke-virtual {v2, v6, v3, v4, v5}, Lcom/android/ims/ImsManager;->open(ILandroid/app/PendingIntent;Lcom/android/ims/ImsConnectionStateListener;I)I
+    invoke-virtual {v2, v5, v3, v4}, Lcom/android/ims/ImsManager;->open(ILandroid/app/PendingIntent;Lcom/android/ims/ImsConnectionStateListener;)I
 
     move-result v2
 
     iput v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
 
-    .line 410
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsConfigListener:Lcom/android/ims/ImsConfigListener$Stub;
-
-    invoke-virtual {v2, v3}, Lcom/android/ims/ImsManager;->setImsConfigListener(Lcom/android/ims/ImsConfigListener;)V
-
-    .line 413
+    .line 242
     invoke-virtual {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getEcbmInterface()Lcom/android/ims/ImsEcbm;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getImsEcbmStateListener()Lcom/android/ims/ImsEcbmStateListener;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/internal/telephony/imsphone/ImsPhone;->mImsEcbmStateListener:Lcom/android/ims/ImsEcbmStateListener;
 
     invoke-virtual {v2, v3}, Lcom/android/ims/ImsEcbm;->setEcbmStateListener(Lcom/android/ims/ImsEcbmStateListener;)V
 
-    .line 414
+    .line 243
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->isInEcm()Z
@@ -2671,12 +1787,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 416
+    .line 245
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->exitEmergencyCallbackMode()V
 
-    .line 419
+    .line 248
     :cond_0
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
@@ -2688,19 +1804,19 @@
 
     move-result-object v2
 
-    .line 420
+    .line 249
     const-string/jumbo v3, "preferred_tty_mode"
 
-    .line 421
+    .line 250
     const/4 v4, 0x0
 
-    .line 418
+    .line 247
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
-    .line 422
-    .local v0, "mPreferredTtyMode":I
+    .line 251
+    .local v1, "mPreferredTtyMode":I
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
@@ -2711,34 +1827,47 @@
 
     iget v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
 
-    invoke-virtual {v2, v3, v4, v0, v7}, Lcom/android/ims/ImsManager;->setUiTTYMode(Landroid/content/Context;IILandroid/os/Message;)V
+    const/4 v5, 0x0
 
-    .line 424
-    invoke-virtual {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getMultiEndpointInterface()Lcom/android/ims/ImsMultiEndpoint;
+    invoke-virtual {v2, v3, v4, v1, v5}, Lcom/android/ims/ImsManager;->setUiTTYMode(Landroid/content/Context;IILandroid/os/Message;)V
+    :try_end_0
+    .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v1
-
-    .line 425
-    .local v1, "multiEndpoint":Lcom/android/ims/ImsMultiEndpoint;
-    if-eqz v1, :cond_1
-
-    .line 427
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getExternalCallTracker()Lcom/android/internal/telephony/imsphone/ImsExternalCallTracker;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsExternalCallTracker;->getExternalCallStateListener()Lcom/android/internal/telephony/imsphone/ImsExternalCallTracker$ExternalCallStateListener;
-
-    move-result-object v2
-
-    .line 426
-    invoke-virtual {v1, v2}, Lcom/android/ims/ImsMultiEndpoint;->setExternalCallStateListener(Lcom/android/ims/ImsExternalCallStateListener;)V
-
-    .line 403
-    :cond_1
+    .line 233
+    .end local v1    # "mPreferredTtyMode":I
+    :goto_0
     return-void
+
+    .line 253
+    :catch_0
+    move-exception v0
+
+    .line 254
+    .local v0, "e":Lcom/android/ims/ImsException;
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "getImsService: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
+
+    .line 256
+    iput-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
+
+    goto :goto_0
 .end method
 
 .method private handleEcmTimer(I)V
@@ -2746,15 +1875,15 @@
     .param p1, "action"    # I
 
     .prologue
-    .line 703
+    .line 425
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/telephony/imsphone/ImsPhone;->handleTimerInEmergencyCallbackMode(I)V
 
-    .line 704
+    .line 426
     packed-switch p1, :pswitch_data_0
 
-    .line 710
+    .line 432
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2775,11 +1904,11 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 702
+    .line 424
     :pswitch_0
     return-void
 
-    .line 704
+    .line 426
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -2791,10 +1920,10 @@
     .locals 0
 
     .prologue
-    .line 1081
+    .line 750
     invoke-virtual {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pollCallsWhenSafe()V
 
-    .line 1077
+    .line 746
     return-void
 .end method
 
@@ -2802,27 +1931,27 @@
     .locals 1
 
     .prologue
-    .line 1032
+    .line 711
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->clearDisconnected()V
 
-    .line 1033
+    .line 712
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->clearDisconnected()V
 
-    .line 1034
+    .line 713
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->clearDisconnected()V
 
-    .line 1035
+    .line 714
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->clearDisconnected()V
 
-    .line 1031
+    .line 710
     return-void
 .end method
 
@@ -2830,7 +1959,7 @@
     .locals 2
 
     .prologue
-    .line 1563
+    .line 1154
     const-string/jumbo v0, "ril.cdma.inecmmode"
 
     const/4 v1, 0x0
@@ -2842,738 +1971,6 @@
     return v0
 .end method
 
-.method private isWifiConnected()Z
-    .locals 6
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    .line 2965
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    .line 2966
-    const-string/jumbo v5, "connectivity"
-
-    .line 2965
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/ConnectivityManager;
-
-    .line 2967
-    .local v0, "cm":Landroid/net/ConnectivityManager;
-    if-eqz v0, :cond_1
-
-    .line 2968
-    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
-
-    move-result-object v1
-
-    .line 2969
-    .local v1, "ni":Landroid/net/NetworkInfo;
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnected()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    .line 2970
-    invoke-virtual {v1}, Landroid/net/NetworkInfo;->getType()I
-
-    move-result v4
-
-    if-ne v4, v2, :cond_0
-
-    :goto_0
-    return v2
-
-    :cond_0
-    move v2, v3
-
-    goto :goto_0
-
-    .line 2973
-    .end local v1    # "ni":Landroid/net/NetworkInfo;
-    :cond_1
-    return v3
-.end method
-
-.method private maybeRemapReasonCode(Lcom/android/ims/ImsReasonInfo;)I
-    .locals 5
-    .param p1, "reasonInfo"    # Lcom/android/ims/ImsReasonInfo;
-
-    .prologue
-    .line 1453
-    invoke-virtual {p1}, Lcom/android/ims/ImsReasonInfo;->getCode()I
-
-    move-result v0
-
-    .line 1455
-    .local v0, "code":I
-    new-instance v1, Landroid/util/Pair;
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {p1}, Lcom/android/ims/ImsReasonInfo;->getExtraMessage()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v1, v3, v4}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    .line 1457
-    .local v1, "toCheck":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsReasonCodeMap:Ljava/util/Map;
-
-    invoke-interface {v3, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 1458
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsReasonCodeMap:Ljava/util/Map;
-
-    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/Integer;
-
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    .line 1460
-    .local v2, "toCode":I
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "maybeRemapReasonCode : fromCode = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {p1}, Lcom/android/ims/ImsReasonInfo;->getCode()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " ; message = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    .line 1461
-    invoke-virtual {p1}, Lcom/android/ims/ImsReasonInfo;->getExtraMessage()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 1460
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    .line 1461
-    const-string/jumbo v4, " ; toCode = "
-
-    .line 1460
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 1462
-    return v2
-
-    .line 1464
-    .end local v2    # "toCode":I
-    :cond_0
-    return v0
-.end method
-
-.method private maybeSetVideoCallProvider(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;Lcom/android/ims/ImsCall;)V
-    .locals 4
-    .param p1, "conn"    # Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    .param p2, "imsCall"    # Lcom/android/ims/ImsCall;
-
-    .prologue
-    .line 1431
-    invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getVideoProvider()Landroid/telecom/Connection$VideoProvider;
-
-    move-result-object v0
-
-    .line 1432
-    .local v0, "connVideoProvider":Landroid/telecom/Connection$VideoProvider;
-    if-nez v0, :cond_0
-
-    invoke-virtual {p2}, Lcom/android/ims/ImsCall;->getCallSession()Lcom/android/ims/internal/ImsCallSession;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/ims/internal/ImsCallSession;->getVideoCallProvider()Lcom/android/ims/internal/IImsVideoCallProvider;
-
-    move-result-object v2
-
-    if-nez v2, :cond_1
-
-    .line 1433
-    :cond_0
-    return-void
-
-    .line 1437
-    :cond_1
-    :try_start_0
-    invoke-direct {p0, p1, p2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setVideoCallProvider(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;Lcom/android/ims/ImsCall;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 1430
-    :goto_0
-    return-void
-
-    .line 1438
-    :catch_0
-    move-exception v1
-
-    .line 1439
-    .local v1, "e":Landroid/os/RemoteException;
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "maybeSetVideoCallProvider: exception "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    goto :goto_0
-.end method
-
-.method private modifyVideoCall(Lcom/android/ims/ImsCall;I)V
-    .locals 5
-    .param p1, "imsCall"    # Lcom/android/ims/ImsCall;
-    .param p2, "newVideoState"    # I
-
-    .prologue
-    .line 2865
-    invoke-direct {p0, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->findConnection(Lcom/android/ims/ImsCall;)Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-
-    move-result-object v0
-
-    .line 2866
-    .local v0, "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    if-eqz v0, :cond_0
-
-    .line 2867
-    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getVideoState()I
-
-    move-result v1
-
-    .line 2868
-    .local v1, "oldVideoState":I
-    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getVideoProvider()Landroid/telecom/Connection$VideoProvider;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    .line 2869
-    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getVideoProvider()Landroid/telecom/Connection$VideoProvider;
-
-    move-result-object v2
-
-    .line 2870
-    new-instance v3, Landroid/telecom/VideoProfile;
-
-    invoke-direct {v3, v1}, Landroid/telecom/VideoProfile;-><init>(I)V
-
-    new-instance v4, Landroid/telecom/VideoProfile;
-
-    invoke-direct {v4, p2}, Landroid/telecom/VideoProfile;-><init>(I)V
-
-    .line 2869
-    invoke-virtual {v2, v3, v4}, Landroid/telecom/Connection$VideoProvider;->onSendSessionModifyRequest(Landroid/telecom/VideoProfile;Landroid/telecom/VideoProfile;)V
-
-    .line 2864
-    .end local v1    # "oldVideoState":I
-    :cond_0
-    return-void
-.end method
-
-.method private notifyPhoneStateChanged(Lcom/android/internal/telephony/PhoneConstants$State;Lcom/android/internal/telephony/PhoneConstants$State;)V
-    .locals 3
-    .param p1, "oldState"    # Lcom/android/internal/telephony/PhoneConstants$State;
-    .param p2, "newState"    # Lcom/android/internal/telephony/PhoneConstants$State;
-
-    .prologue
-    .line 2854
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhoneStateListeners:Ljava/util/List;
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, "listener$iterator":Ljava/util/Iterator;
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$PhoneStateListener;
-
-    .line 2855
-    .local v0, "listener":Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$PhoneStateListener;
-    invoke-interface {v0, p1, p2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$PhoneStateListener;->onPhoneStateChanged(Lcom/android/internal/telephony/PhoneConstants$State;Lcom/android/internal/telephony/PhoneConstants$State;)V
-
-    goto :goto_0
-
-    .line 2852
-    .end local v0    # "listener":Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$PhoneStateListener;
-    :cond_0
-    return-void
-.end method
-
-.method private onDataEnabledChanged(ZI)V
-    .locals 12
-    .param p1, "enabled"    # Z
-    .param p2, "reason"    # I
-
-    .prologue
-    const/4 v11, 0x3
-
-    const/4 v10, 0x1
-
-    const/4 v9, 0x0
-
-    const/4 v8, 0x0
-
-    const/4 v7, 0x2
-
-    .line 2883
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "onDataEnabledChanged: enabled="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ", reason="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p0, v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 2885
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v6}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
-
-    move-result v6
-
-    invoke-static {v5, v6}, Lcom/android/ims/ImsManager;->getInstance(Landroid/content/Context;I)Lcom/android/ims/ImsManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Lcom/android/ims/ImsManager;->setDataEnabled(Z)V
-
-    .line 2886
-    iput-boolean p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIsDataEnabled:Z
-
-    .line 2888
-    iget-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIgnoreDataEnabledChangedForVideoCalls:Z
-
-    if-eqz v5, :cond_1
-
-    .line 2889
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Ignore data "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    if-eqz p1, :cond_0
-
-    const-string/jumbo v5, "enabled"
-
-    :goto_0
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " due to carrier policy."
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p0, v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 2890
-    return-void
-
-    .line 2889
-    :cond_0
-    const-string/jumbo v5, "disabled"
-
-    goto :goto_0
-
-    .line 2893
-    :cond_1
-    if-nez p1, :cond_9
-
-    .line 2895
-    if-ne p2, v11, :cond_4
-
-    .line 2896
-    const/16 v4, 0x57d
-
-    .line 2907
-    .local v4, "reasonCode":I
-    :goto_1
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
-
-    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, "conn$iterator":Ljava/util/Iterator;
-    :cond_2
-    :goto_2
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_c
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-
-    .line 2908
-    .local v0, "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getImsCall()Lcom/android/ims/ImsCall;
-
-    move-result-object v3
-
-    .line 2909
-    .local v3, "imsCall":Lcom/android/ims/ImsCall;
-    if-eqz v3, :cond_2
-
-    invoke-virtual {v3}, Lcom/android/ims/ImsCall;->isVideoCall()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    invoke-virtual {v3}, Lcom/android/ims/ImsCall;->isWifiCall()Z
-
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    .line 2910
-    invoke-virtual {v0, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->hasCapabilities(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_7
-
-    .line 2916
-    const/16 v5, 0x57e
-
-    if-ne v4, v5, :cond_6
-
-    .line 2917
-    const-string/jumbo v5, "android.telephony.event.EVENT_DOWNGRADE_DATA_DISABLED"
-
-    invoke-virtual {v0, v5, v8}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->onConnectionEvent(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    .line 2923
-    :cond_3
-    :goto_3
-    invoke-direct {p0, v3, v9}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->modifyVideoCall(Lcom/android/ims/ImsCall;I)V
-
-    goto :goto_2
-
-    .line 2897
-    .end local v0    # "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    .end local v1    # "conn$iterator":Ljava/util/Iterator;
-    .end local v3    # "imsCall":Lcom/android/ims/ImsCall;
-    .end local v4    # "reasonCode":I
-    :cond_4
-    if-ne p2, v7, :cond_5
-
-    .line 2898
-    const/16 v4, 0x57e
-
-    .restart local v4    # "reasonCode":I
-    goto :goto_1
-
-    .line 2901
-    .end local v4    # "reasonCode":I
-    :cond_5
-    const/16 v4, 0x57e
-
-    .restart local v4    # "reasonCode":I
-    goto :goto_1
-
-    .line 2919
-    .restart local v0    # "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    .restart local v1    # "conn$iterator":Ljava/util/Iterator;
-    .restart local v3    # "imsCall":Lcom/android/ims/ImsCall;
-    :cond_6
-    const/16 v5, 0x57d
-
-    if-ne v4, v5, :cond_3
-
-    .line 2921
-    const-string/jumbo v5, "android.telephony.event.EVENT_DOWNGRADE_DATA_LIMIT_REACHED"
-
-    .line 2920
-    invoke-virtual {v0, v5, v8}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->onConnectionEvent(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    goto :goto_3
-
-    .line 2924
-    :cond_7
-    iget-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSupportPauseVideo:Z
-
-    if-eqz v5, :cond_8
-
-    .line 2926
-    iput-boolean v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mShouldUpdateImsConfigOnDisconnect:Z
-
-    .line 2927
-    invoke-virtual {v0, v7}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->pauseVideo(I)V
-
-    goto :goto_2
-
-    .line 2931
-    :cond_8
-    const/16 v5, 0x1f5
-
-    :try_start_0
-    invoke-virtual {v3, v5, v4}, Lcom/android/ims/ImsCall;->terminate(II)V
-    :try_end_0
-    .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_2
-
-    .line 2932
-    :catch_0
-    move-exception v2
-
-    .line 2933
-    .local v2, "ie":Lcom/android/ims/ImsException;
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Couldn\'t terminate call "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p0, v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    goto :goto_2
-
-    .line 2938
-    .end local v0    # "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    .end local v1    # "conn$iterator":Ljava/util/Iterator;
-    .end local v2    # "ie":Lcom/android/ims/ImsException;
-    .end local v3    # "imsCall":Lcom/android/ims/ImsCall;
-    .end local v4    # "reasonCode":I
-    :cond_9
-    iget-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSupportPauseVideo:Z
-
-    if-eqz v5, :cond_c
-
-    .line 2940
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
-
-    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .restart local v1    # "conn$iterator":Ljava/util/Iterator;
-    :cond_a
-    :goto_4
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_b
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-
-    .line 2943
-    .restart local v0    # "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "onDataEnabledChanged - resuming "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p0, v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 2944
-    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getVideoState()I
-
-    move-result v5
-
-    invoke-static {v5}, Landroid/telecom/VideoProfile;->isPaused(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a
-
-    .line 2945
-    invoke-virtual {v0, v7}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->wasVideoPausedFromSource(I)Z
-
-    move-result v5
-
-    .line 2944
-    if-eqz v5, :cond_a
-
-    .line 2948
-    invoke-virtual {v0, v7}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->resumeVideo(I)V
-
-    goto :goto_4
-
-    .line 2951
-    .end local v0    # "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    :cond_b
-    iput-boolean v9, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mShouldUpdateImsConfigOnDisconnect:Z
-
-    .line 2954
-    .end local v1    # "conn$iterator":Ljava/util/Iterator;
-    :cond_c
-    iget-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mShouldUpdateImsConfigOnDisconnect:Z
-
-    if-nez v5, :cond_d
-
-    .line 2957
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v6}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
-
-    move-result v6
-
-    invoke-static {v5, v6, v10}, Lcom/android/ims/ImsManager;->updateImsServiceConfig(Landroid/content/Context;IZ)V
-
-    .line 2881
-    :cond_d
-    return-void
-.end method
-
 .method private processCallStateChange(Lcom/android/ims/ImsCall;Lcom/android/internal/telephony/Call$State;I)V
     .locals 2
     .param p1, "imsCall"    # Lcom/android/ims/ImsCall;
@@ -3581,7 +1978,7 @@
     .param p3, "cause"    # I
 
     .prologue
-    .line 1376
+    .line 1022
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3622,12 +2019,12 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1381
+    .line 1027
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->processCallStateChange(Lcom/android/ims/ImsCall;Lcom/android/internal/telephony/Call$State;IZ)V
 
-    .line 1375
+    .line 1021
     return-void
 .end method
 
@@ -3639,7 +2036,7 @@
     .param p4, "ignoreState"    # Z
 
     .prologue
-    .line 1387
+    .line 1033
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -3664,10 +2061,10 @@
 
     move-result-object v2
 
-    .line 1388
+    .line 1034
     const-string/jumbo v3, " ignoreState="
 
-    .line 1387
+    .line 1033
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -3682,67 +2079,67 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1391
+    .line 1037
     if-nez p1, :cond_0
 
     return-void
 
-    .line 1393
+    .line 1039
     :cond_0
     const/4 v0, 0x0
 
-    .line 1394
+    .line 1040
     .local v0, "changed":Z
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->findConnection(Lcom/android/ims/ImsCall;)Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
     move-result-object v1
 
-    .line 1396
+    .line 1042
     .local v1, "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     if-nez v1, :cond_1
 
-    .line 1398
+    .line 1044
     return-void
 
-    .line 1406
+    .line 1052
     :cond_1
-    invoke-virtual {v1, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->updateMediaCapabilities(Lcom/android/ims/ImsCall;)Z
-
-    .line 1407
     if-eqz p4, :cond_2
 
-    .line 1408
+    .line 1053
     invoke-virtual {v1, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->updateAddressDisplay(Lcom/android/ims/ImsCall;)Z
 
-    .line 1409
+    .line 1054
     invoke-virtual {v1, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->updateExtras(Lcom/android/ims/ImsCall;)Z
 
-    .line 1411
-    invoke-direct {p0, v1, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->maybeSetVideoCallProvider(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;Lcom/android/ims/ImsCall;)V
+    .line 1055
+    invoke-virtual {v1, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->updateMediaCapabilities(Lcom/android/ims/ImsCall;)Z
 
-    .line 1412
+    .line 1056
+    invoke-virtual {v1, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->updateExtras(Lcom/android/ims/ImsCall;)Z
+
+    .line 1057
     return-void
 
-    .line 1415
+    .line 1060
     :cond_2
     invoke-virtual {v1, p1, p2}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->update(Lcom/android/ims/ImsCall;Lcom/android/internal/telephony/Call$State;)Z
 
     move-result v0
 
-    .line 1416
+    .line 1061
     .local v0, "changed":Z
     sget-object v2, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
 
     if-ne p2, v2, :cond_3
 
-    .line 1417
+    .line 1062
     invoke-virtual {v1, p3}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->onDisconnect(I)Z
 
     move-result v2
 
     if-nez v2, :cond_4
 
-    .line 1419
+    .line 1064
     .end local v0    # "changed":Z
     :goto_0
     invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getCall()Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
@@ -3751,14 +2148,14 @@
 
     invoke-virtual {v2, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->detach(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
 
-    .line 1420
+    .line 1065
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->removeConnection(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
 
-    .line 1423
+    .line 1068
     :cond_3
     if-eqz v0, :cond_6
 
-    .line 1424
+    .line 1069
     invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getCall()Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     move-result-object v2
@@ -3769,7 +2166,7 @@
 
     return-void
 
-    .line 1417
+    .line 1062
     .restart local v0    # "changed":Z
     :cond_4
     const/4 v0, 0x1
@@ -3777,17 +2174,17 @@
     .local v0, "changed":Z
     goto :goto_0
 
-    .line 1425
+    .line 1070
     .end local v0    # "changed":Z
     :cond_5
     invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->updatePhoneState()V
 
-    .line 1426
+    .line 1071
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->notifyPreciseCallStateChanged()V
 
-    .line 1385
+    .line 1031
     :cond_6
     return-void
 .end method
@@ -3799,21 +2196,21 @@
     .prologue
     monitor-enter p0
 
-    .line 1348
+    .line 993
     :try_start_0
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
 
     invoke-virtual {v3, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 1350
+    .line 995
     iget-boolean v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIsInEmergencyCall:Z
 
     if-eqz v3, :cond_2
 
-    .line 1351
+    .line 996
     const/4 v2, 0x0
 
-    .line 1353
+    .line 998
     .local v2, "isEmergencyCallInList":Z
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
 
@@ -3835,7 +2232,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    .line 1354
+    .line 999
     .local v0, "imsPhoneConnection":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     if-eqz v0, :cond_0
 
@@ -3845,25 +2242,27 @@
 
     if-eqz v3, :cond_0
 
-    .line 1355
+    .line 1000
     const/4 v2, 0x1
 
-    .line 1360
+    .line 1005
     .end local v0    # "imsPhoneConnection":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     :cond_1
     if-nez v2, :cond_2
 
-    .line 1361
+    .line 1006
     const/4 v3, 0x0
 
     iput-boolean v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIsInEmergencyCall:Z
 
-    .line 1362
+    .line 1007
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+
+    iget-object v3, v3, Lcom/android/internal/telephony/imsphone/ImsPhone;->mDefaultPhone:Lcom/android/internal/telephony/PhoneBase;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->sendEmergencyCallStateChange(Z)V
+    invoke-virtual {v3, v4}, Lcom/android/internal/telephony/PhoneBase;->sendEmergencyCallStateChange(Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -3872,7 +2271,7 @@
     :cond_2
     monitor-exit p0
 
-    .line 1347
+    .line 992
     return-void
 
     :catchall_0
@@ -3881,67 +2280,6 @@
     monitor-exit p0
 
     throw v3
-.end method
-
-.method private sendAddParticipantResponse(ZLandroid/os/Message;)V
-    .locals 4
-    .param p1, "success"    # Z
-    .param p2, "onComplete"    # Landroid/os/Message;
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 623
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "sendAddParticipantResponse : success = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    .line 624
-    if-nez p2, :cond_0
-
-    return-void
-
-    .line 626
-    :cond_0
-    const/4 v0, 0x0
-
-    .line 627
-    .local v0, "ex":Ljava/lang/Exception;
-    if-nez p1, :cond_1
-
-    .line 628
-    new-instance v0, Ljava/lang/Exception;
-
-    .end local v0    # "ex":Ljava/lang/Exception;
-    const-string/jumbo v1, "Add participant failed"
-
-    invoke-direct {v0, v1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
-
-    .line 631
-    :cond_1
-    invoke-static {p2, v3, v0}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
-
-    .line 632
-    invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
-
-    .line 622
-    return-void
 .end method
 
 .method private setVideoCallProvider(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;Lcom/android/ims/ImsCall;)V
@@ -3955,7 +2293,7 @@
     .end annotation
 
     .prologue
-    .line 2671
+    .line 1915
     invoke-virtual {p2}, Lcom/android/ims/ImsCall;->getCallSession()Lcom/android/ims/internal/ImsCallSession;
 
     move-result-object v2
@@ -3964,230 +2302,30 @@
 
     move-result-object v0
 
-    .line 2672
+    .line 1916
     .local v0, "imsVideoCallProvider":Lcom/android/ims/internal/IImsVideoCallProvider;
     if-eqz v0, :cond_0
 
-    .line 2674
+    .line 1918
     new-instance v1, Lcom/android/ims/internal/ImsVideoCallProviderWrapper;
 
     invoke-direct {v1, v0}, Lcom/android/ims/internal/ImsVideoCallProviderWrapper;-><init>(Lcom/android/ims/internal/IImsVideoCallProvider;)V
 
-    .line 2675
+    .line 1919
     .local v1, "imsVideoCallProviderWrapper":Lcom/android/ims/internal/ImsVideoCallProviderWrapper;
     invoke-virtual {p1, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setVideoProvider(Landroid/telecom/Connection$VideoProvider;)V
 
-    .line 2677
-    const/16 v2, 0x16
-
-    .line 2676
-    invoke-virtual {v1, p0, v2, p2}, Lcom/android/ims/internal/ImsVideoCallProviderWrapper;->registerForDataUsageUpdate(Landroid/os/Handler;ILjava/lang/Object;)V
-
-    .line 2678
-    invoke-virtual {v1, p1}, Lcom/android/ims/internal/ImsVideoCallProviderWrapper;->addImsVideoProviderCallback(Lcom/android/ims/internal/ImsVideoCallProviderWrapper$ImsVideoProviderWrapperCallback;)V
-
-    .line 2669
+    .line 1913
     .end local v1    # "imsVideoCallProviderWrapper":Lcom/android/ims/internal/ImsVideoCallProviderWrapper;
     :cond_0
     return-void
-.end method
-
-.method private shouldDisconnectActiveCallOnAnswer(Lcom/android/ims/ImsCall;Lcom/android/ims/ImsCall;)Z
-    .locals 7
-    .param p1, "activeCall"    # Lcom/android/ims/ImsCall;
-    .param p2, "incomingCall"    # Lcom/android/ims/ImsCall;
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 2799
-    iget-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mDropVideoCallWhenAnsweringAudioCall:Z
-
-    if-nez v5, :cond_0
-
-    .line 2800
-    return v4
-
-    .line 2803
-    :cond_0
-    invoke-virtual {p1}, Lcom/android/ims/ImsCall;->isVideoCall()Z
-
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    .line 2804
-    iget-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mTreatDowngradedVideoCallsAsVideoCalls:Z
-
-    if-eqz v5, :cond_3
-
-    invoke-virtual {p1}, Lcom/android/ims/ImsCall;->wasVideoCall()Z
-
-    move-result v1
-
-    .line 2805
-    :goto_0
-    invoke-virtual {p1}, Lcom/android/ims/ImsCall;->isWifiCall()Z
-
-    move-result v0
-
-    .line 2806
-    .local v0, "isActiveCallOnWifi":Z
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/ims/ImsManager;->isWfcEnabledByPlatform(Landroid/content/Context;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
-
-    .line 2807
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/ims/ImsManager;->isWfcEnabledByUser(Landroid/content/Context;)Z
-
-    move-result v3
-
-    .line 2808
-    :goto_1
-    invoke-virtual {p2}, Lcom/android/ims/ImsCall;->isVideoCall()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    const/4 v2, 0x0
-
-    .line 2809
-    .local v2, "isIncomingCallAudio":Z
-    :goto_2
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "shouldDisconnectActiveCallOnAnswer : isActiveCallVideo="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 2810
-    const-string/jumbo v6, " isActiveCallOnWifi="
-
-    .line 2809
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 2810
-    const-string/jumbo v6, " isIncomingCallAudio="
-
-    .line 2809
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 2811
-    const-string/jumbo v6, " isVowifiEnabled="
-
-    .line 2809
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p0, v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 2813
-    if-eqz v1, :cond_1
-
-    if-eqz v0, :cond_1
-
-    if-eqz v2, :cond_1
-
-    if-eqz v3, :cond_6
-
-    :cond_1
-    :goto_3
-    return v4
-
-    .line 2803
-    .end local v0    # "isActiveCallOnWifi":Z
-    .end local v2    # "isIncomingCallAudio":Z
-    :cond_2
-    const/4 v1, 0x1
-
-    .local v1, "isActiveCallVideo":Z
-    goto :goto_0
-
-    .line 2804
-    .end local v1    # "isActiveCallVideo":Z
-    :cond_3
-    const/4 v1, 0x0
-
-    .restart local v1    # "isActiveCallVideo":Z
-    goto :goto_0
-
-    .line 2806
-    .end local v1    # "isActiveCallVideo":Z
-    .restart local v0    # "isActiveCallOnWifi":Z
-    :cond_4
-    const/4 v3, 0x0
-
-    .local v3, "isVoWifiEnabled":Z
-    goto :goto_1
-
-    .line 2808
-    .end local v3    # "isVoWifiEnabled":Z
-    :cond_5
-    const/4 v2, 0x1
-
-    .restart local v2    # "isIncomingCallAudio":Z
-    goto :goto_2
-
-    .line 2813
-    :cond_6
-    const/4 v4, 0x1
-
-    goto :goto_3
 .end method
 
 .method private switchAfterConferenceSuccess()V
     .locals 2
 
     .prologue
-    .line 880
+    .line 567
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -4208,22 +2346,22 @@
 
     move-result-object v0
 
-    .line 881
+    .line 568
     const-string/jumbo v1, ", bg = "
 
-    .line 880
+    .line 567
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 881
+    .line 568
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
     move-result-object v1
 
-    .line 880
+    .line 567
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -4234,7 +2372,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 883
+    .line 570
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
@@ -4245,19 +2383,19 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 884
+    .line 571
     const-string/jumbo v0, "switchAfterConferenceSuccess"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 885
+    .line 572
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->switchWith(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
 
-    .line 879
+    .line 566
     :cond_0
     return-void
 .end method
@@ -4267,12 +2405,12 @@
     .param p1, "call"    # Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     .prologue
-    .line 2379
+    .line 1719
     iget-object v2, p1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mConnections:Ljava/util/ArrayList;
 
     if-eqz v2, :cond_0
 
-    .line 2380
+    .line 1720
     iget-object v2, p1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mConnections:Ljava/util/ArrayList;
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -4293,13 +2431,13 @@
 
     check-cast v0, Lcom/android/internal/telephony/Connection;
 
-    .line 2381
+    .line 1721
     .local v0, "c":Lcom/android/internal/telephony/Connection;
     iget-object v2, p1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mState:Lcom/android/internal/telephony/Call$State;
 
     iput-object v2, v0, Lcom/android/internal/telephony/Connection;->mPreHandoverState:Lcom/android/internal/telephony/Call$State;
 
-    .line 2382
+    .line 1722
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -4326,7 +2464,7 @@
 
     goto :goto_0
 
-    .line 2385
+    .line 1725
     .end local v0    # "c":Lcom/android/internal/telephony/Connection;
     .end local v1    # "c$iterator":Ljava/util/Iterator;
     :cond_0
@@ -4336,14 +2474,14 @@
 
     if-nez v2, :cond_2
 
-    .line 2386
+    .line 1726
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iget-object v3, p1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mConnections:Ljava/util/ArrayList;
 
     iput-object v3, v2, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mConnections:Ljava/util/ArrayList;
 
-    .line 2390
+    .line 1730
     :goto_1
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
@@ -4351,21 +2489,21 @@
 
     if-eqz v2, :cond_3
 
-    .line 2391
+    .line 1731
     invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v2
 
     if-eqz v2, :cond_1
 
-    .line 2392
+    .line 1732
     invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/android/ims/ImsCall;->close()V
 
-    .line 2394
+    .line 1734
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
@@ -4392,14 +2530,14 @@
     .restart local v0    # "c":Lcom/android/internal/telephony/Connection;
     move-object v2, v0
 
-    .line 2395
+    .line 1735
     check-cast v2, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v2, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->changeParent(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
 
-    .line 2396
+    .line 1736
     check-cast v0, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
     .end local v0    # "c":Lcom/android/internal/telephony/Connection;
@@ -4407,7 +2545,7 @@
 
     goto :goto_2
 
-    .line 2388
+    .line 1728
     .end local v1    # "c$iterator":Ljava/util/Iterator;
     :cond_2
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
@@ -4420,7 +2558,7 @@
 
     goto :goto_1
 
-    .line 2399
+    .line 1739
     :cond_3
     invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
@@ -4432,7 +2570,7 @@
 
     if-eqz v2, :cond_4
 
-    .line 2400
+    .line 1740
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -4455,368 +2593,190 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 2401
+    .line 1741
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iget-object v3, p1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mState:Lcom/android/internal/telephony/Call$State;
 
     iput-object v3, v2, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mState:Lcom/android/internal/telephony/Call$State;
 
-    .line 2403
+    .line 1743
     :cond_4
     iget-object v2, p1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mConnections:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
-    .line 2404
+    .line 1744
     sget-object v2, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
     iput-object v2, p1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mState:Lcom/android/internal/telephony/Call$State;
 
-    .line 2378
+    .line 1718
     return-void
 .end method
 
 .method private updatePhoneState()V
-    .locals 5
+    .locals 4
 
     .prologue
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    .line 1040
+    .line 719
+    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
+
+    .line 721
+    .local v0, "oldState":Lcom/android/internal/telephony/PhoneConstants$State;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+
+    invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isRinging()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 722
+    sget-object v1, Lcom/android/internal/telephony/PhoneConstants$State;->RINGING:Lcom/android/internal/telephony/PhoneConstants$State;
+
+    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
+
+    .line 730
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    .line 1042
-    .local v1, "oldState":Lcom/android/internal/telephony/PhoneConstants$State;
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    sget-object v2, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    if-eqz v2, :cond_2
+    if-ne v1, v2, :cond_4
 
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getState()Lcom/android/internal/telephony/Call$State;
+    if-eq v0, v1, :cond_4
 
-    move-result-object v2
+    .line 731
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallEndedRegistrants:Landroid/os/RegistrantList;
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
+    .line 732
+    new-instance v2, Landroid/os/AsyncResult;
 
-    move-result v2
+    invoke-direct {v2, v3, v3, v3}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
 
-    if-eqz v2, :cond_2
+    .line 731
+    invoke-virtual {v1, v2}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
-    const/4 v0, 0x0
-
-    .line 1044
-    .local v0, "isPendingMOIdle":Z
-    :goto_0
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isRinging()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    .line 1045
-    sget-object v2, Lcom/android/internal/telephony/PhoneConstants$State;->RINGING:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    .line 1053
-    :goto_1
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    sget-object v3, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    if-ne v2, v3, :cond_5
-
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    if-eq v1, v2, :cond_5
-
-    .line 1054
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallEndedRegistrants:Landroid/os/RegistrantList;
-
-    .line 1055
-    new-instance v3, Landroid/os/AsyncResult;
-
-    invoke-direct {v3, v4, v4, v4}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
-
-    .line 1054
-    invoke-virtual {v2, v3}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
-
-    .line 1062
+    .line 738
     :cond_0
-    :goto_2
-    new-instance v2, Ljava/lang/StringBuilder;
+    :goto_1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "updatePhoneState pendingMo = "
+    const-string/jumbo v2, "updatePhoneState oldState="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v1
 
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    if-nez v2, :cond_6
+    move-result-object v1
 
-    const-string/jumbo v2, "null"
+    const-string/jumbo v2, ", newState="
 
-    :goto_3
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    .line 1063
-    const-string/jumbo v3, ", fg= "
-
-    .line 1062
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 1063
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
-
-    move-result-object v3
-
-    .line 1062
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 1063
-    const-string/jumbo v3, "("
-
-    .line 1062
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 1064
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getConnections()Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    .line 1062
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 1064
-    const-string/jumbo v3, "), bg= "
-
-    .line 1062
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 1064
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
-
-    move-result-object v3
-
-    .line 1062
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 1065
-    const-string/jumbo v3, "("
-
-    .line 1062
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 1065
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getConnections()Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    .line 1062
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    .line 1065
-    const-string/jumbo v3, ")"
-
-    .line 1062
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 1066
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "updatePhoneState oldState="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ", newState="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 1069
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    if-eq v2, v1, :cond_1
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 1070
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->notifyPhoneStateChanged()V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 1071
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
+    move-result-object v1
 
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
+    .line 740
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    move-result v3
+    if-eq v1, v0, :cond_1
 
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
+    .line 741
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    invoke-virtual {v2, v3, v4}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->writePhoneState(ILcom/android/internal/telephony/PhoneConstants$State;)V
+    invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhone;->notifyPhoneStateChanged()V
 
-    .line 1072
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    invoke-direct {p0, v1, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->notifyPhoneStateChanged(Lcom/android/internal/telephony/PhoneConstants$State;Lcom/android/internal/telephony/PhoneConstants$State;)V
-
-    .line 1039
+    .line 718
     :cond_1
     return-void
 
-    .line 1042
-    .end local v0    # "isPendingMOIdle":Z
+    .line 723
     :cond_2
-    const/4 v0, 0x1
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    .restart local v0    # "isPendingMOIdle":Z
-    goto/16 :goto_0
+    if-nez v1, :cond_3
 
-    .line 1046
+    .line 724
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+
+    invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isIdle()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+
+    invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isIdle()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    .line 727
+    sget-object v1, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
+
+    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
+
+    goto :goto_0
+
+    .line 725
     :cond_3
-    if-eqz v0, :cond_4
+    sget-object v1, Lcom/android/internal/telephony/PhoneConstants$State;->OFFHOOK:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iput-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isIdle()Z
+    goto :goto_0
 
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isIdle()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    .line 1050
-    sget-object v2, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    goto/16 :goto_1
-
-    .line 1048
+    .line 733
     :cond_4
-    sget-object v2, Lcom/android/internal/telephony/PhoneConstants$State;->OFFHOOK:Lcom/android/internal/telephony/PhoneConstants$State;
+    sget-object v1, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
+    if-ne v0, v1, :cond_0
 
-    goto/16 :goto_1
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    .line 1056
-    :cond_5
-    sget-object v2, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
+    if-eq v0, v1, :cond_0
 
-    if-ne v1, v2, :cond_0
+    .line 734
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallStartedRegistrants:Landroid/os/RegistrantList;
 
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
+    .line 735
+    new-instance v2, Landroid/os/AsyncResult;
 
-    if-eq v1, v2, :cond_0
+    invoke-direct {v2, v3, v3, v3}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
 
-    .line 1057
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallStartedRegistrants:Landroid/os/RegistrantList;
+    .line 734
+    invoke-virtual {v1, v2}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
-    .line 1058
-    new-instance v3, Landroid/os/AsyncResult;
-
-    invoke-direct {v3, v4, v4, v4}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
-
-    .line 1057
-    invoke-virtual {v2, v3}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
-
-    goto/16 :goto_2
-
-    .line 1063
-    :cond_6
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-
-    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getState()Lcom/android/internal/telephony/Call$State;
-
-    move-result-object v2
-
-    goto/16 :goto_3
+    goto :goto_1
 .end method
 
 
 # virtual methods
-.method public acceptCall(I)V
-    .locals 9
+.method acceptCall(I)V
+    .locals 5
     .param p1, "videoState"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4825,284 +2785,178 @@
     .end annotation
 
     .prologue
-    const/4 v7, 0x0
+    const/4 v4, 0x0
 
-    .line 814
-    const-string/jumbo v5, "acceptCall"
+    .line 522
+    const-string/jumbo v2, "acceptCall"
 
-    invoke-virtual {p0, v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 816
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    .line 524
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
+    invoke-virtual {v2}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 817
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    .line 525
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
+    invoke-virtual {v2}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
 
-    move-result v5
+    move-result v2
 
-    .line 816
-    if-eqz v5, :cond_0
+    .line 524
+    if-eqz v2, :cond_0
 
-    .line 818
-    new-instance v5, Lcom/android/internal/telephony/CallStateException;
+    .line 526
+    new-instance v2, Lcom/android/internal/telephony/CallStateException;
 
-    const-string/jumbo v6, "cannot accept call"
+    const-string/jumbo v3, "cannot accept call"
 
-    invoke-direct {v5, v6}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
 
-    throw v5
+    throw v2
 
-    .line 821
+    .line 529
     :cond_0
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
-    move-result-object v5
+    move-result-object v2
 
-    sget-object v6, Lcom/android/internal/telephony/Call$State;->WAITING:Lcom/android/internal/telephony/Call$State;
+    sget-object v3, Lcom/android/internal/telephony/Call$State;->WAITING:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v5, v6, :cond_3
+    if-ne v2, v3, :cond_1
 
-    .line 822
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    .line 530
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
+    invoke-virtual {v2}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
 
-    move-result v5
+    move-result v2
 
-    .line 821
-    if-eqz v5, :cond_3
+    .line 529
+    if-eqz v2, :cond_1
 
-    .line 823
-    invoke-virtual {p0, v7}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setMute(Z)V
+    .line 531
+    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setMute(Z)V
 
-    .line 825
-    const/4 v1, 0x0
-
-    .line 826
-    .local v1, "answeringWillDisconnect":Z
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
-
-    move-result-object v0
-
-    .line 827
-    .local v0, "activeCall":Lcom/android/ims/ImsCall;
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
-
-    move-result-object v4
-
-    .line 828
-    .local v4, "ringingCall":Lcom/android/ims/ImsCall;
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->hasConnections()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->hasConnections()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    .line 830
-    invoke-direct {p0, v0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->shouldDisconnectActiveCallOnAnswer(Lcom/android/ims/ImsCall;Lcom/android/ims/ImsCall;)Z
-
-    move-result v1
-
-    .line 834
-    .end local v1    # "answeringWillDisconnect":Z
-    :cond_1
+    .line 533
     iput p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingCallVideoState:I
 
-    .line 836
-    if-eqz v1, :cond_2
+    .line 534
+    invoke-virtual {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->switchWaitingOrHoldingAndActive()V
 
-    .line 838
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->hangup()V
-
-    .line 840
-    :try_start_0
-    invoke-static {p1}, Lcom/android/ims/ImsCallProfile;->getCallTypeFromVideoState(I)I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Lcom/android/ims/ImsCall;->accept(I)V
-    :try_end_0
-    .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 813
-    .end local v0    # "activeCall":Lcom/android/ims/ImsCall;
-    .end local v4    # "ringingCall":Lcom/android/ims/ImsCall;
+    .line 521
     :goto_0
     return-void
 
-    .line 841
-    .restart local v0    # "activeCall":Lcom/android/ims/ImsCall;
-    .restart local v4    # "ringingCall":Lcom/android/ims/ImsCall;
-    :catch_0
-    move-exception v2
+    .line 535
+    :cond_1
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    .line 842
-    .local v2, "e":Lcom/android/ims/ImsException;
-    new-instance v5, Lcom/android/internal/telephony/CallStateException;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
-    const-string/jumbo v6, "cannot accept call"
+    move-result-object v2
 
-    invoke-direct {v5, v6}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v2}, Lcom/android/internal/telephony/Call$State;->isRinging()Z
 
-    throw v5
+    move-result v2
 
-    .line 845
-    .end local v2    # "e":Lcom/android/ims/ImsException;
-    :cond_2
-    invoke-virtual {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->switchWaitingOrHoldingAndActive()V
+    if-eqz v2, :cond_3
 
-    goto :goto_0
+    .line 536
+    const-string/jumbo v2, "acceptCall: incoming..."
 
-    .line 847
-    .end local v0    # "activeCall":Lcom/android/ims/ImsCall;
-    .end local v4    # "ringingCall":Lcom/android/ims/ImsCall;
-    :cond_3
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+    .line 538
+    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setMute(Z)V
 
-    move-result-object v5
+    .line 540
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/Call$State;->isRinging()Z
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
-    move-result v5
+    move-result-object v1
 
-    if-eqz v5, :cond_5
+    .line 541
+    .local v1, "imsCall":Lcom/android/ims/ImsCall;
+    if-eqz v1, :cond_2
 
-    .line 848
-    const-string/jumbo v5, "acceptCall: incoming..."
-
-    invoke-virtual {p0, v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 850
-    invoke-virtual {p0, v7}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->setMute(Z)V
-
-    .line 852
-    :try_start_1
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
-
-    move-result-object v3
-
-    .line 853
-    .local v3, "imsCall":Lcom/android/ims/ImsCall;
-    if-eqz v3, :cond_4
-
-    .line 854
+    .line 542
     invoke-static {p1}, Lcom/android/ims/ImsCallProfile;->getCallTypeFromVideoState(I)I
 
-    move-result v5
+    move-result v2
 
-    invoke-virtual {v3, v5}, Lcom/android/ims/ImsCall;->accept(I)V
-
-    .line 855
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-    iget-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v6}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
-
-    move-result v6
-
-    invoke-virtual {v3}, Lcom/android/ims/ImsCall;->getSession()Lcom/android/ims/internal/ImsCallSession;
-
-    move-result-object v7
-
-    .line 856
-    const/4 v8, 0x2
-
-    .line 855
-    invoke-virtual {v5, v6, v7, v8}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->writeOnImsCommand(ILcom/android/ims/internal/ImsCallSession;I)V
-    :try_end_1
-    .catch Lcom/android/ims/ImsException; {:try_start_1 .. :try_end_1} :catch_1
+    invoke-virtual {v1, v2}, Lcom/android/ims/ImsCall;->accept(I)V
+    :try_end_0
+    .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 860
-    .end local v3    # "imsCall":Lcom/android/ims/ImsCall;
-    :catch_1
-    move-exception v2
+    .line 546
+    .end local v1    # "imsCall":Lcom/android/ims/ImsCall;
+    :catch_0
+    move-exception v0
 
-    .line 861
-    .restart local v2    # "e":Lcom/android/ims/ImsException;
-    new-instance v5, Lcom/android/internal/telephony/CallStateException;
+    .line 547
+    .local v0, "e":Lcom/android/ims/ImsException;
+    new-instance v2, Lcom/android/internal/telephony/CallStateException;
 
-    const-string/jumbo v6, "cannot accept call"
+    const-string/jumbo v3, "cannot accept call"
 
-    invoke-direct {v5, v6}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
 
-    throw v5
+    throw v2
 
-    .line 858
-    .end local v2    # "e":Lcom/android/ims/ImsException;
-    .restart local v3    # "imsCall":Lcom/android/ims/ImsCall;
-    :cond_4
-    :try_start_2
-    new-instance v5, Lcom/android/internal/telephony/CallStateException;
+    .line 544
+    .end local v0    # "e":Lcom/android/ims/ImsException;
+    .restart local v1    # "imsCall":Lcom/android/ims/ImsCall;
+    :cond_2
+    :try_start_1
+    new-instance v2, Lcom/android/internal/telephony/CallStateException;
 
-    const-string/jumbo v6, "no valid ims call"
+    const-string/jumbo v3, "no valid ims call"
 
-    invoke-direct {v5, v6}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
 
-    throw v5
-    :try_end_2
-    .catch Lcom/android/ims/ImsException; {:try_start_2 .. :try_end_2} :catch_1
+    throw v2
+    :try_end_1
+    .catch Lcom/android/ims/ImsException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 864
-    .end local v3    # "imsCall":Lcom/android/ims/ImsCall;
-    :cond_5
-    new-instance v5, Lcom/android/internal/telephony/CallStateException;
+    .line 550
+    .end local v1    # "imsCall":Lcom/android/ims/ImsCall;
+    :cond_3
+    new-instance v2, Lcom/android/internal/telephony/CallStateException;
 
-    const-string/jumbo v6, "phone not ringing"
+    const-string/jumbo v3, "phone not ringing"
 
-    invoke-direct {v5, v6}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
 
-    throw v5
+    throw v2
 .end method
 
-.method public addParticipant(Ljava/lang/String;Landroid/os/Message;)V
-    .locals 8
+.method public addParticipant(Ljava/lang/String;)V
+    .locals 4
     .param p1, "dialString"    # Ljava/lang/String;
-    .param p2, "onComplete"    # Landroid/os/Message;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -5110,118 +2964,74 @@
     .end annotation
 
     .prologue
-    const/4 v7, 0x0
+    .line 406
+    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    const/4 v6, 0x0
+    if-eqz v3, :cond_2
 
-    .line 595
-    const/4 v3, 0x0
+    .line 407
+    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    .line 596
-    .local v3, "isSuccess":Z
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    if-eqz v4, :cond_3
-
-    .line 597
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
+    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v1
 
-    .line 598
+    .line 408
     .local v1, "imsCall":Lcom/android/ims/ImsCall;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
-    .line 599
-    const-string/jumbo v4, "addParticipant : No foreground ims call"
+    .line 409
+    const-string/jumbo v3, "addParticipant : No foreground ims call"
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
 
-    .line 616
+    .line 405
     .end local v1    # "imsCall":Lcom/android/ims/ImsCall;
     :goto_0
-    if-nez v3, :cond_0
-
-    if-eqz p2, :cond_0
-
-    .line 617
-    invoke-direct {p0, v7, p2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendAddParticipantResponse(ZLandroid/os/Message;)V
-
-    .line 618
-    iput-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAddPartResp:Landroid/os/Message;
-
-    .line 594
-    :cond_0
     return-void
 
-    .line 601
+    .line 411
     .restart local v1    # "imsCall":Lcom/android/ims/ImsCall;
-    :cond_1
+    :cond_0
     invoke-virtual {v1}, Lcom/android/ims/ImsCall;->getCallSession()Lcom/android/ims/internal/ImsCallSession;
 
     move-result-object v2
 
-    .line 602
+    .line 412
     .local v2, "imsCallSession":Lcom/android/ims/internal/ImsCallSession;
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
-    .line 603
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAddParticipantLock:Ljava/lang/Object;
-
-    monitor-enter v5
-
-    .line 604
-    :try_start_0
-    iput-object p2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAddPartResp:Landroid/os/Message;
-
-    .line 605
-    const/4 v4, 0x1
-
-    new-array v0, v4, [Ljava/lang/String;
-
-    const/4 v4, 0x0
-
-    aput-object p1, v0, v4
-
-    .line 606
-    .local v0, "callees":[Ljava/lang/String;
-    invoke-virtual {v2, v0}, Lcom/android/ims/internal/ImsCallSession;->inviteParticipants([Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 607
+    .line 413
     const/4 v3, 0x1
 
-    monitor-exit v5
+    new-array v0, v3, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    aput-object p1, v0, v3
+
+    .line 414
+    .local v0, "callees":[Ljava/lang/String;
+    invoke-virtual {v2, v0}, Lcom/android/ims/internal/ImsCallSession;->inviteParticipants([Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 603
+    .line 416
     .end local v0    # "callees":[Ljava/lang/String;
-    :catchall_0
-    move-exception v4
+    :cond_1
+    const-string/jumbo v3, "addParticipant : ImsCallSession does not exist"
 
-    monitor-exit v5
-
-    throw v4
-
-    .line 610
-    :cond_2
-    const-string/jumbo v4, "addParticipant : ImsCallSession does not exist"
-
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 614
+    .line 420
     .end local v1    # "imsCall":Lcom/android/ims/ImsCall;
     .end local v2    # "imsCallSession":Lcom/android/ims/internal/ImsCallSession;
-    :cond_3
-    const-string/jumbo v4, "addParticipant : Foreground call does not exist"
+    :cond_2
+    const-string/jumbo v3, "addParticipant : Foreground call does not exist"
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -5230,7 +3040,7 @@
     .locals 2
 
     .prologue
-    .line 1249
+    .line 908
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iget-object v0, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mConnections:Ljava/util/ArrayList;
@@ -5241,7 +3051,7 @@
 
     if-lez v0, :cond_0
 
-    .line 1250
+    .line 909
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -5252,12 +3062,12 @@
 
     move-result-object v0
 
-    .line 1251
+    .line 910
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iget-object v1, v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mConnections:Ljava/util/ArrayList;
 
-    .line 1250
+    .line 909
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -5268,35 +3078,30 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1252
+    .line 911
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iget-object v0, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->mConnections:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 1253
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
-
-    .line 1254
+    .line 912
     sget-object v0, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
 
     iput-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    .line 1248
+    .line 907
     :cond_0
     return-void
 .end method
 
-.method public canConference()Z
+.method canConference()Z
     .locals 3
 
     .prologue
     const/4 v0, 0x0
 
-    .line 999
+    .line 676
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
@@ -5307,7 +3112,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 1000
+    .line 677
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
@@ -5318,7 +3123,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 1001
+    .line 678
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isFull()Z
@@ -5327,12 +3132,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 999
+    .line 676
     :cond_0
     :goto_0
     return v0
 
-    .line 1002
+    .line 679
     :cond_1
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
@@ -5347,157 +3152,142 @@
     goto :goto_0
 .end method
 
-.method public canDial()Z
-    .locals 7
+.method canDial()Z
+    .locals 5
 
     .prologue
-    const/4 v3, 0x1
+    .line 685
+    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    const/4 v4, 0x0
+    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getServiceState()Landroid/telephony/ServiceState;
 
-    .line 1008
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+    move-result-object v3
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getServiceState()Landroid/telephony/ServiceState;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/telephony/ServiceState;->getState()I
+    invoke-virtual {v3}, Landroid/telephony/ServiceState;->getState()I
 
     move-result v2
 
-    .line 1010
+    .line 687
     .local v2, "serviceState":I
-    const-string/jumbo v5, "ro.telephony.disable-call"
+    const-string/jumbo v3, "ro.telephony.disable-call"
 
-    const-string/jumbo v6, "false"
+    const-string/jumbo v4, "false"
 
-    .line 1009
-    invoke-static {v5, v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .line 686
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1012
+    .line 689
     .local v0, "disableCall":Ljava/lang/String;
-    const/4 v5, 0x3
+    const/4 v3, 0x3
 
-    if-eq v2, v5, :cond_0
+    if-eq v2, v3, :cond_0
 
-    .line 1013
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    .line 690
+    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    if-nez v5, :cond_0
+    if-nez v3, :cond_0
 
-    .line 1014
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    .line 691
+    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isRinging()Z
+    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isRinging()Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_1
+    if-eqz v3, :cond_1
 
+    .line 689
     :cond_0
-    move v1, v4
+    const/4 v1, 0x0
 
-    .line 1019
+    .line 696
     .local v1, "ret":Z
     :goto_0
     return v1
 
-    .line 1015
+    .line 692
     .end local v1    # "ret":Z
     :cond_1
-    const-string/jumbo v5, "true"
+    const-string/jumbo v3, "true"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v3
 
-    if-nez v5, :cond_0
+    if-nez v3, :cond_0
 
-    .line 1016
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    .line 693
+    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
+    invoke-virtual {v3}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_2
+    if-eqz v3, :cond_2
 
-    .line 1017
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    .line 694
+    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
+    invoke-virtual {v3}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_2
+    if-eqz v3, :cond_3
 
-    move v3, v4
+    const/4 v1, 0x0
 
+    .restart local v1    # "ret":Z
+    goto :goto_0
+
+    .line 693
+    .end local v1    # "ret":Z
     :cond_2
-    move v1, v3
+    const/4 v1, 0x1
 
-    .line 1016
+    .restart local v1    # "ret":Z
+    goto :goto_0
+
+    .line 694
+    .end local v1    # "ret":Z
+    :cond_3
+    const/4 v1, 0x1
+
+    .restart local v1    # "ret":Z
     goto :goto_0
 .end method
 
-.method public canTransfer()Z
-    .locals 3
+.method canTransfer()Z
+    .locals 1
 
     .prologue
+    .line 704
     const/4 v0, 0x0
 
-    .line 1024
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
-
-    if-ne v1, v2, :cond_0
-
-    .line 1025
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/android/internal/telephony/Call$State;->HOLDING:Lcom/android/internal/telephony/Call$State;
-
-    if-ne v1, v2, :cond_0
-
-    const/4 v0, 0x1
-
-    .line 1024
-    :cond_0
     return v0
 .end method
 
-.method public cancelUSSD()V
+.method cancelUSSD()V
     .locals 3
 
     .prologue
-    .line 1329
+    .line 974
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mUssdSession:Lcom/android/ims/ImsCall;
 
     if-nez v1, :cond_0
 
     return-void
 
-    .line 1332
+    .line 977
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mUssdSession:Lcom/android/ims/ImsCall;
@@ -5508,11 +3298,11 @@
     :try_end_0
     .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1328
+    .line 973
     :goto_0
     return-void
 
-    .line 1333
+    .line 978
     :catch_0
     move-exception v0
 
@@ -5520,61 +3310,61 @@
     goto :goto_0
 .end method
 
-.method public clearDisconnected()V
+.method clearDisconnected()V
     .locals 1
 
     .prologue
-    .line 989
+    .line 666
     const-string/jumbo v0, "clearDisconnected"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 991
+    .line 668
     invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->internalClearDisconnected()V
 
-    .line 993
+    .line 670
     invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->updatePhoneState()V
 
-    .line 994
+    .line 671
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhone;->notifyPreciseCallStateChanged()V
 
-    .line 988
+    .line 665
     return-void
 .end method
 
-.method public conference()V
+.method conference()V
     .locals 14
 
     .prologue
     const-wide/16 v12, 0x0
 
-    .line 939
+    .line 616
     const-string/jumbo v10, "conference"
 
     invoke-virtual {p0, v10}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 941
+    .line 618
     iget-object v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v10}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v6
 
-    .line 942
+    .line 619
     .local v6, "fgImsCall":Lcom/android/ims/ImsCall;
     if-nez v6, :cond_0
 
-    .line 943
+    .line 620
     const-string/jumbo v10, "conference no foreground ims call"
 
     invoke-virtual {p0, v10}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 944
+    .line 621
     return-void
 
-    .line 947
+    .line 624
     :cond_0
     iget-object v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
@@ -5582,19 +3372,19 @@
 
     move-result-object v2
 
-    .line 948
+    .line 625
     .local v2, "bgImsCall":Lcom/android/ims/ImsCall;
     if-nez v2, :cond_1
 
-    .line 949
+    .line 626
     const-string/jumbo v10, "conference no background ims call"
 
     invoke-virtual {p0, v10}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 950
+    .line 627
     return-void
 
-    .line 955
+    .line 632
     :cond_1
     iget-object v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
@@ -5602,7 +3392,7 @@
 
     move-result-wide v8
 
-    .line 956
+    .line 633
     .local v8, "foregroundConnectTime":J
     iget-object v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
@@ -5610,7 +3400,7 @@
 
     move-result-wide v0
 
-    .line 958
+    .line 635
     .local v0, "backgroundConnectTime":J
     cmp-long v10, v8, v12
 
@@ -5620,26 +3410,26 @@
 
     if-lez v10, :cond_3
 
-    .line 959
+    .line 636
     iget-object v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v10}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getEarliestConnectTime()J
 
     move-result-wide v10
 
-    .line 960
+    .line 637
     iget-object v12, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v12}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getEarliestConnectTime()J
 
     move-result-wide v12
 
-    .line 959
+    .line 636
     invoke-static {v10, v11, v12, v13}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v4
 
-    .line 961
+    .line 638
     .local v4, "conferenceConnectTime":J
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -5661,7 +3451,7 @@
 
     invoke-virtual {p0, v10}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 970
+    .line 647
     :goto_0
     iget-object v10, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
@@ -5669,25 +3459,25 @@
 
     move-result-object v7
 
-    .line 971
+    .line 648
     .local v7, "foregroundConnection":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     if-eqz v7, :cond_2
 
-    .line 972
+    .line 649
     invoke-virtual {v7, v4, v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setConferenceConnectTime(J)V
 
-    .line 976
+    .line 653
     :cond_2
     :try_start_0
     invoke-virtual {v6, v2}, Lcom/android/ims/ImsCall;->merge(Lcom/android/ims/ImsCall;)V
     :try_end_0
     .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 938
+    .line 615
     :goto_1
     return-void
 
-    .line 962
+    .line 639
     .end local v4    # "conferenceConnectTime":J
     .end local v7    # "foregroundConnection":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     :cond_3
@@ -5695,7 +3485,7 @@
 
     if-lez v10, :cond_4
 
-    .line 963
+    .line 640
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
@@ -5716,13 +3506,13 @@
 
     invoke-virtual {p0, v10}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 964
+    .line 641
     move-wide v4, v8
 
     .restart local v4    # "conferenceConnectTime":J
     goto :goto_0
 
-    .line 966
+    .line 643
     .end local v4    # "conferenceConnectTime":J
     :cond_4
     new-instance v10, Ljava/lang/StringBuilder;
@@ -5745,18 +3535,18 @@
 
     invoke-virtual {p0, v10}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 967
+    .line 644
     move-wide v4, v0
 
     .restart local v4    # "conferenceConnectTime":J
     goto :goto_0
 
-    .line 977
+    .line 654
     .restart local v7    # "foregroundConnection":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     :catch_0
     move-exception v3
 
-    .line 978
+    .line 655
     .local v3, "e":Lcom/android/ims/ImsException;
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -5800,19 +3590,19 @@
     .prologue
     monitor-enter p0
 
-    .line 495
+    .line 314
     :try_start_0
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->isPhoneInEcbMode()Z
 
     move-result v15
 
-    .line 496
+    .line 315
     .local v15, "isPhoneInEcmMode":Z
     invoke-static/range {p1 .. p1}, Landroid/telephony/PhoneNumberUtils;->isEmergencyNumber(Ljava/lang/String;)Z
 
     move-result v9
 
-    .line 498
+    .line 317
     .local v9, "isEmergencyNumber":Z
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -5838,17 +3628,17 @@
 
     invoke-virtual {v0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 501
+    .line 320
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->clearDisconnected()V
 
-    .line 503
+    .line 322
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
     if-nez v4, :cond_0
 
-    .line 504
+    .line 323
     new-instance v4, Lcom/android/internal/telephony/CallStateException;
 
     const-string/jumbo v5, "service not available"
@@ -5868,7 +3658,7 @@
 
     throw v4
 
-    .line 507
+    .line 326
     .restart local v9    # "isEmergencyNumber":Z
     .restart local v15    # "isPhoneInEcmMode":Z
     :cond_0
@@ -5879,7 +3669,7 @@
 
     if-nez v4, :cond_1
 
-    .line 508
+    .line 327
     new-instance v4, Lcom/android/internal/telephony/CallStateException;
 
     const-string/jumbo v5, "cannot dial in current state"
@@ -5888,42 +3678,24 @@
 
     throw v4
 
-    .line 511
+    .line 330
     :cond_1
     if-eqz v15, :cond_2
 
     if-eqz v9, :cond_2
 
-    .line 512
+    .line 331
     const/4 v4, 0x1
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->handleEcmTimer(I)V
 
-    .line 517
+    .line 334
     :cond_2
-    if-eqz v9, :cond_3
-
-    invoke-static/range {p3 .. p3}, Landroid/telecom/VideoProfile;->isVideo(I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    .line 518
-    move-object/from16 v0, p0
-
-    iget-boolean v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mAllowEmergencyVideoCalls:Z
-
-    if-eqz v4, :cond_4
-
-    .line 523
-    :cond_3
-    :goto_0
     const/4 v14, 0x0
 
-    .line 528
+    .line 339
     .local v14, "holdBeforeDial":Z
     move-object/from16 v0, p0
 
@@ -5935,9 +3707,9 @@
 
     sget-object v5, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v4, v5, :cond_6
+    if-ne v4, v5, :cond_4
 
-    .line 529
+    .line 340
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
@@ -5948,9 +3720,9 @@
 
     sget-object v5, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
-    if-eq v4, v5, :cond_5
+    if-eq v4, v5, :cond_3
 
-    .line 531
+    .line 342
     new-instance v4, Lcom/android/internal/telephony/CallStateException;
 
     const-string/jumbo v5, "cannot dial in current state"
@@ -5959,51 +3731,36 @@
 
     throw v4
 
-    .line 519
-    .end local v14    # "holdBeforeDial":Z
-    :cond_4
-    const-string/jumbo v4, "dial: carrier does not support video emergency calls; downgrade to audio-only"
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    .line 520
-    const/16 p3, 0x0
-
-    goto :goto_0
-
-    .line 534
-    .restart local v14    # "holdBeforeDial":Z
-    :cond_5
+    .line 345
+    :cond_3
     const/4 v14, 0x1
 
-    .line 536
+    .line 347
     move/from16 v0, p3
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingCallVideoState:I
 
-    .line 537
+    .line 348
     move-object/from16 v0, p4
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
 
-    .line 538
+    .line 349
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->switchWaitingOrHoldingAndActive()V
 
-    .line 541
-    :cond_6
+    .line 352
+    :cond_4
     sget-object v13, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
-    .line 542
+    .line 353
     .local v13, "fgState":Lcom/android/internal/telephony/Call$State;
     sget-object v11, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
-    .line 544
+    .line 355
     .local v11, "bgState":Lcom/android/internal/telephony/Call$State;
     move/from16 v0, p2
 
@@ -6011,7 +3768,7 @@
 
     iput v0, v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mClirMode:I
 
-    .line 546
+    .line 357
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSyncHold:Ljava/lang/Object;
@@ -6022,10 +3779,10 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 547
-    if-eqz v14, :cond_8
+    .line 358
+    if-eqz v14, :cond_6
 
-    .line 548
+    .line 359
     :try_start_2
     move-object/from16 v0, p0
 
@@ -6035,7 +3792,7 @@
 
     move-result-object v13
 
-    .line 549
+    .line 360
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
@@ -6044,12 +3801,12 @@
 
     move-result-object v11
 
-    .line 552
+    .line 363
     sget-object v4, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v13, v4, :cond_7
+    if-ne v13, v4, :cond_5
 
-    .line 553
+    .line 364
     new-instance v4, Lcom/android/internal/telephony/CallStateException;
 
     const-string/jumbo v5, "cannot dial in current state"
@@ -6060,7 +3817,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 546
+    .line 357
     :catchall_1
     move-exception v4
 
@@ -6071,25 +3828,25 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 557
-    :cond_7
+    .line 368
+    :cond_5
     :try_start_4
     sget-object v4, Lcom/android/internal/telephony/Call$State;->HOLDING:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v11, v4, :cond_8
+    if-ne v11, v4, :cond_6
 
-    .line 558
+    .line 369
     const/4 v14, 0x0
 
-    .line 562
-    :cond_8
+    .line 373
+    :cond_6
     new-instance v4, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    .line 563
+    .line 374
     invoke-virtual/range {p0 .. p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->checkForTestEmergencyNumber(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
@@ -6102,14 +3859,14 @@
 
     move-object/from16 v10, p4
 
-    .line 562
-    invoke-direct/range {v4 .. v10}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;-><init>(Lcom/android/internal/telephony/Phone;Ljava/lang/String;Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/internal/telephony/imsphone/ImsPhoneCall;ZLandroid/os/Bundle;)V
+    .line 373
+    invoke-direct/range {v4 .. v10}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;-><init>(Lcom/android/internal/telephony/imsphone/ImsPhone;Ljava/lang/String;Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;Lcom/android/internal/telephony/imsphone/ImsPhoneCall;ZLandroid/os/Bundle;)V
 
     move-object/from16 v0, p0
 
     iput-object v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    .line 565
+    .line 376
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
@@ -6123,7 +3880,7 @@
     :try_start_5
     monitor-exit v16
 
-    .line 567
+    .line 378
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
@@ -6132,18 +3889,18 @@
 
     invoke-direct {v0, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->addConnection(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
 
-    .line 569
-    if-nez v14, :cond_a
+    .line 380
+    if-nez v14, :cond_8
 
-    .line 570
+    .line 381
+    if-eqz v15, :cond_7
+
     if-eqz v15, :cond_9
 
-    if-eqz v15, :cond_b
+    if-eqz v9, :cond_9
 
-    if-eqz v9, :cond_b
-
-    .line 571
-    :cond_9
+    .line 382
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
@@ -6158,19 +3915,19 @@
 
     invoke-direct {v0, v4, v1, v2, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->dialInternal(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;IILandroid/os/Bundle;)V
 
-    .line 587
-    :cond_a
-    :goto_1
+    .line 398
+    :cond_8
+    :goto_0
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->updatePhoneState()V
 
-    .line 588
+    .line 399
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->notifyPreciseCallStateChanged()V
 
-    .line 590
+    .line 401
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
@@ -6181,8 +3938,8 @@
 
     return-object v4
 
-    .line 574
-    :cond_b
+    .line 385
+    :cond_9
     :try_start_6
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getEcbmInterface()Lcom/android/ims/ImsEcbm;
 
@@ -6193,7 +3950,7 @@
     .catch Lcom/android/ims/ImsException; {:try_start_6 .. :try_end_6} :catch_0
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    .line 579
+    .line 390
     :try_start_7
     move-object/from16 v0, p0
 
@@ -6207,45 +3964,45 @@
 
     invoke-virtual {v4, v0, v5, v6}, Lcom/android/internal/telephony/imsphone/ImsPhone;->setOnEcbModeExitResponse(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 580
+    .line 391
     move/from16 v0, p2
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallClirMode:I
 
-    .line 581
+    .line 392
     move/from16 v0, p3
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingCallVideoState:I
 
-    .line 582
+    .line 393
     move-object/from16 v0, p4
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
 
-    .line 583
+    .line 394
     const/4 v4, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v4, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallInEcm:Z
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 575
+    .line 386
     :catch_0
     move-exception v12
 
-    .line 576
+    .line 387
     .local v12, "e":Lcom/android/ims/ImsException;
     invoke-virtual {v12}, Lcom/android/ims/ImsException;->printStackTrace()V
 
-    .line 577
+    .line 388
     new-instance v4, Lcom/android/internal/telephony/CallStateException;
 
     const-string/jumbo v5, "service not available"
@@ -6257,7 +4014,7 @@
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 .end method
 
-.method public dial(Ljava/lang/String;ILandroid/os/Bundle;)Lcom/android/internal/telephony/Connection;
+.method dial(Ljava/lang/String;ILandroid/os/Bundle;)Lcom/android/internal/telephony/Connection;
     .locals 4
     .param p1, "dialString"    # Ljava/lang/String;
     .param p2, "videoState"    # I
@@ -6269,129 +4026,69 @@
     .end annotation
 
     .prologue
-    .line 477
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSharedPreferenceProxy:Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$SharedPreferenceProxy;
-
-    if-eqz v2, :cond_0
-
+    .line 303
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getDefaultPhone()Lcom/android/internal/telephony/Phone;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
-
-    .line 478
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSharedPreferenceProxy:Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$SharedPreferenceProxy;
-
-    .line 479
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    .line 478
-    invoke-interface {v2, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$SharedPreferenceProxy;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    invoke-static {v2}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v1
 
-    .line 480
+    .line 304
     .local v1, "sp":Landroid/content/SharedPreferences;
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "clir_key"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "clir_key"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getDefaultPhone()Lcom/android/internal/telephony/Phone;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/Phone;->getPhoneId()I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 481
     const/4 v3, 0x0
 
-    .line 480
     invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 486
-    .end local v1    # "sp":Landroid/content/SharedPreferences;
+    .line 305
     .local v0, "oirMode":I
-    :goto_0
     invoke-virtual {p0, p1, v0, p2, p3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->dial(Ljava/lang/String;IILandroid/os/Bundle;)Lcom/android/internal/telephony/Connection;
 
     move-result-object v2
 
     return-object v2
-
-    .line 483
-    .end local v0    # "oirMode":I
-    :cond_0
-    const-string/jumbo v2, "dial; could not get default CLIR mode."
-
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    .line 484
-    const/4 v0, 0x0
-
-    .restart local v0    # "oirMode":I
-    goto :goto_0
 .end method
 
 .method public dispose()V
     .locals 2
 
     .prologue
-    .line 432
+    .line 261
     const-string/jumbo v0, "dispose"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 433
+    .line 262
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->dispose()V
 
-    .line 434
+    .line 263
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->dispose()V
 
-    .line 435
+    .line 264
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->dispose()V
 
-    .line 436
+    .line 265
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->dispose()V
 
-    .line 438
+    .line 267
     invoke-virtual {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->clearDisconnected()V
 
-    .line 439
+    .line 268
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getContext()Landroid/content/Context;
@@ -6402,546 +4099,264 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 440
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getDefaultPhone()Lcom/android/internal/telephony/Phone;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Lcom/android/internal/telephony/Phone;->unregisterForDataEnabledChanged(Landroid/os/Handler;)V
-
-    .line 441
-    const/16 v0, 0x18
-
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->removeMessages(I)V
-
-    .line 431
+    .line 260
     return-void
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 8
+    .locals 2
     .param p1, "fd"    # Ljava/io/FileDescriptor;
     .param p2, "pw"    # Ljava/io/PrintWriter;
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 2573
-    const-string/jumbo v4, "ImsPhoneCallTracker extends:"
+    .line 1861
+    const-string/jumbo v0, "ImsPhoneCallTracker extends:"
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2574
+    .line 1862
     invoke-super {p0, p1, p2, p3}, Lcom/android/internal/telephony/CallTracker;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
-    .line 2575
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1863
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " mVoiceCallEndedRegistrants="
+    const-string/jumbo v1, " mVoiceCallEndedRegistrants="
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallEndedRegistrants:Landroid/os/RegistrantList;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallEndedRegistrants:Landroid/os/RegistrantList;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2576
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1864
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " mVoiceCallStartedRegistrants="
+    const-string/jumbo v1, " mVoiceCallStartedRegistrants="
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallStartedRegistrants:Landroid/os/RegistrantList;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallStartedRegistrants:Landroid/os/RegistrantList;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2577
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1865
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " mRingingCall="
+    const-string/jumbo v1, " mRingingCall="
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2578
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1866
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " mForegroundCall="
+    const-string/jumbo v1, " mForegroundCall="
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2579
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1867
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " mBackgroundCall="
+    const-string/jumbo v1, " mBackgroundCall="
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2580
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1868
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " mHandoverCall="
+    const-string/jumbo v1, " mHandoverCall="
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2581
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1869
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " mPendingMO="
+    const-string/jumbo v1, " mPendingMO="
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2583
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1871
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " mPhone="
+    const-string/jumbo v1, " mPhone="
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2584
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1872
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " mDesiredMute="
+    const-string/jumbo v1, " mDesiredMute="
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-boolean v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mDesiredMute:Z
+    iget-boolean v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mDesiredMute:Z
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2585
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1873
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " mState="
+    const-string/jumbo v1, " mState="
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
+    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2586
-    const/4 v3, 0x0
-
-    .local v3, "i":I
-    :goto_0
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
-
-    array-length v4, v4
-
-    if-ge v3, v4, :cond_1
-
-    .line 2587
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, " "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureStrings:[Ljava/lang/String;
-
-    aget-object v5, v5, v3
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, ": "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 2588
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
-
-    aget-boolean v4, v4, v3
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v4, "enabled"
-
-    .line 2587
-    :goto_1
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 2586
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    .line 2588
-    :cond_0
-    const-string/jumbo v4, "disabled"
-
-    goto :goto_1
-
-    .line 2590
-    :cond_1
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, " mTotalVtDataUsage="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-wide v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mTotalVtDataUsage:J
-
-    invoke-virtual {v4, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 2591
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVtDataUsageMap:Ljava/util/HashMap;
-
-    invoke-virtual {v4}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    .local v2, "entry$iterator":Ljava/util/Iterator;
-    :goto_2
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/Map$Entry;
-
-    .line 2592
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Long;>;"
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "    id="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, " ,usage="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    goto :goto_2
-
-    .line 2595
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Long;>;"
-    :cond_2
-    invoke-virtual {p2}, Ljava/io/PrintWriter;->flush()V
-
-    .line 2596
-    const-string/jumbo v4, "++++++++++++++++++++++++++++++++"
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 2599
-    :try_start_0
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    if-eqz v4, :cond_3
-
-    .line 2600
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    invoke-virtual {v4, p1, p2, p3}, Lcom/android/ims/ImsManager;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 2606
-    :cond_3
-    :goto_3
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
-
-    if-eqz v4, :cond_4
-
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
-
-    move-result v4
-
-    if-lez v4, :cond_4
-
-    .line 2607
-    const-string/jumbo v4, "mConnections:"
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 2608
-    const/4 v3, 0x0
-
-    :goto_4
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
-
-    move-result v4
-
-    if-ge v3, v4, :cond_4
-
-    .line 2609
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "  ["
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "]: "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
-
-    invoke-virtual {v5, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 2608
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_4
-
-    .line 2602
-    :catch_0
-    move-exception v0
-
-    .line 2603
-    .local v0, "e":Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_3
-
-    .line 2572
-    .end local v0    # "e":Ljava/lang/Exception;
-    :cond_4
+    .line 1860
     return-void
 .end method
 
-.method public explicitCallTransfer()V
+.method explicitCallTransfer()V
     .locals 0
 
     .prologue
-    .line 983
+    .line 660
     return-void
 .end method
 
@@ -6949,17 +4364,17 @@
     .locals 1
 
     .prologue
-    .line 446
+    .line 273
     const-string/jumbo v0, "ImsPhoneCallTracker finalized"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 445
+    .line 272
     return-void
 .end method
 
 .method getEcbmInterface()Lcom/android/ims/ImsEcbm;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/ims/ImsException;
@@ -6967,19 +4382,23 @@
     .end annotation
 
     .prologue
-    .line 2620
+    .line 1882
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
     if-nez v1, :cond_0
 
-    .line 2621
-    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getImsManagerIsNullException()Lcom/android/ims/ImsException;
+    .line 1883
+    new-instance v1, Lcom/android/ims/ImsException;
 
-    move-result-object v1
+    const-string/jumbo v2, "no ims manager"
+
+    const/4 v3, 0x0
+
+    invoke-direct {v1, v2, v3}, Lcom/android/ims/ImsException;-><init>(Ljava/lang/String;I)V
 
     throw v1
 
-    .line 2624
+    .line 1886
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
@@ -6989,76 +4408,16 @@
 
     move-result-object v0
 
-    .line 2625
+    .line 1887
     .local v0, "ecbm":Lcom/android/ims/ImsEcbm;
     return-object v0
 .end method
 
-.method getMultiEndpointInterface()Lcom/android/ims/ImsMultiEndpoint;
-    .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/android/ims/ImsException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 2630
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    if-nez v1, :cond_0
-
-    .line 2631
-    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getImsManagerIsNullException()Lcom/android/ims/ImsException;
-
-    move-result-object v1
-
-    throw v1
-
-    .line 2635
-    :cond_0
-    :try_start_0
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    iget v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
-
-    invoke-virtual {v1, v2}, Lcom/android/ims/ImsManager;->getMultiEndpointInterface(I)Lcom/android/ims/ImsMultiEndpoint;
-    :try_end_0
-    .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    return-object v1
-
-    .line 2636
-    :catch_0
-    move-exception v0
-
-    .line 2637
-    .local v0, "e":Lcom/android/ims/ImsException;
-    invoke-virtual {v0}, Lcom/android/ims/ImsException;->getCode()I
-
-    move-result v1
-
-    const/16 v2, 0x386
-
-    if-ne v1, v2, :cond_1
-
-    .line 2638
-    return-object v3
-
-    .line 2640
-    :cond_1
-    throw v0
-.end method
-
-.method public getMute()Z
+.method getMute()Z
     .locals 1
 
     .prologue
-    .line 1135
+    .line 799
     iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mDesiredMute:Z
 
     return v0
@@ -7068,14 +4427,14 @@
     .locals 1
 
     .prologue
-    .line 2665
+    .line 1909
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
 
     return-object v0
 .end method
 
-.method public getUtInterface()Lcom/android/ims/ImsUtInterface;
-    .locals 3
+.method getUtInterface()Lcom/android/ims/ImsUtInterface;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/ims/ImsException;
@@ -7083,19 +4442,23 @@
     .end annotation
 
     .prologue
-    .line 2370
+    .line 1710
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
     if-nez v1, :cond_0
 
-    .line 2371
-    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getImsManagerIsNullException()Lcom/android/ims/ImsException;
+    .line 1711
+    new-instance v1, Lcom/android/ims/ImsException;
 
-    move-result-object v1
+    const-string/jumbo v2, "no ims manager"
+
+    const/4 v3, 0x0
+
+    invoke-direct {v1, v2, v3}, Lcom/android/ims/ImsException;-><init>(Ljava/lang/String;I)V
 
     throw v1
 
-    .line 2374
+    .line 1714
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
@@ -7105,701 +4468,241 @@
 
     move-result-object v0
 
-    .line 2375
+    .line 1715
     .local v0, "ut":Lcom/android/ims/ImsUtInterface;
     return-object v0
 .end method
 
-.method public getVtDataUsage()J
-    .locals 6
-
-    .prologue
-    .line 2825
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mState:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    sget-object v4, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
-
-    if-eq v3, v4, :cond_1
-
-    .line 2826
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mConnections:Ljava/util/ArrayList;
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, "conn$iterator":Ljava/util/Iterator;
-    :cond_0
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-
-    .line 2827
-    .local v0, "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getVideoProvider()Landroid/telecom/Connection$VideoProvider;
-
-    move-result-object v2
-
-    .line 2828
-    .local v2, "videoProvider":Landroid/telecom/Connection$VideoProvider;
-    if-eqz v2, :cond_0
-
-    .line 2829
-    invoke-virtual {v2}, Landroid/telecom/Connection$VideoProvider;->onRequestConnectionDataUsage()V
-
-    goto :goto_0
-
-    .line 2834
-    .end local v0    # "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    .end local v1    # "conn$iterator":Ljava/util/Iterator;
-    .end local v2    # "videoProvider":Landroid/telecom/Connection$VideoProvider;
-    :cond_1
-    iget-wide v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mTotalVtDataUsage:J
-
-    return-wide v4
-.end method
-
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 18
+    .locals 7
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 2426
-    new-instance v11, Ljava/lang/StringBuilder;
+    const/4 v6, 0x0
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    .line 1766
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v12, "handleMessage what="
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v3, "handleMessage what="
 
-    move-result-object v11
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p1
+    move-result-object v2
 
-    iget v12, v0, Landroid/os/Message;->what:I
+    iget v3, p1, Landroid/os/Message;->what:I
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v2
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v2
 
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
+    .line 1768
+    iget v2, p1, Landroid/os/Message;->what:I
 
-    .line 2428
-    move-object/from16 v0, p1
+    packed-switch v2, :pswitch_data_0
 
-    iget v11, v0, Landroid/os/Message;->what:I
-
-    packed-switch v11, :pswitch_data_0
-
-    .line 2424
+    .line 1764
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
-    .line 2430
+    .line 1770
     :pswitch_1
-    move-object/from16 v0, p0
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    if-eqz v2, :cond_1
 
-    if-eqz v11, :cond_1
+    .line 1771
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    .line 2431
-    move-object/from16 v0, p0
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->onDisconnect()Z
 
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    .line 1772
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    invoke-virtual {v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->onDisconnect()Z
+    invoke-direct {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->removeConnection(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
 
-    .line 2432
-    move-object/from16 v0, p0
+    .line 1773
+    iput-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->removeConnection(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
-
-    .line 2433
-    const/4 v11, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-
-    .line 2435
+    .line 1775
     :cond_1
-    const/4 v11, 0x0
+    iput-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
 
-    move-object/from16 v0, p0
+    .line 1776
+    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->updatePhoneState()V
 
-    iput-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
+    .line 1777
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    .line 2436
-    invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->updatePhoneState()V
-
-    .line 2437
-    move-object/from16 v0, p0
-
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v11}, Lcom/android/internal/telephony/imsphone/ImsPhone;->notifyPreciseCallStateChanged()V
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->notifyPreciseCallStateChanged()V
 
     goto :goto_0
 
-    .line 2441
+    .line 1781
     :pswitch_2
     :try_start_0
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->resumeWaitingOrHolding()V
+    invoke-virtual {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->resumeWaitingOrHolding()V
     :try_end_0
     .catch Lcom/android/internal/telephony/CallStateException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 2442
+    .line 1782
     :catch_0
-    move-exception v6
+    move-exception v1
 
-    .line 2444
-    .local v6, "e":Lcom/android/internal/telephony/CallStateException;
-    new-instance v11, Ljava/lang/StringBuilder;
+    .line 1784
+    .local v1, "e":Lcom/android/internal/telephony/CallStateException;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "handleMessage EVENT_RESUME_BACKGROUND exception="
+    const-string/jumbo v3, "handleMessage EVENT_RESUME_BACKGROUND exception="
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v2
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v2
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v2
 
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 2449
-    .end local v6    # "e":Lcom/android/internal/telephony/CallStateException;
+    .line 1789
+    .end local v1    # "e":Lcom/android/internal/telephony/CallStateException;
     :pswitch_3
-    move-object/from16 v0, p0
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    iget v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mClirMode:I
 
-    move-object/from16 v0, p0
+    iget v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingCallVideoState:I
 
-    iget v12, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mClirMode:I
+    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
 
-    move-object/from16 v0, p0
+    invoke-direct {p0, v2, v3, v4, v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->dialInternal(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;IILandroid/os/Bundle;)V
 
-    iget v13, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingCallVideoState:I
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v11, v12, v13, v14}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->dialInternal(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;IILandroid/os/Bundle;)V
-
-    .line 2450
-    const/4 v11, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
+    .line 1790
+    iput-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
 
     goto :goto_0
 
-    .line 2454
+    .line 1794
     :pswitch_4
-    move-object/from16 v0, p0
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    if-eqz v2, :cond_0
 
-    if-eqz v11, :cond_0
-
-    .line 2457
+    .line 1797
     :try_start_1
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getEcbmInterface()Lcom/android/ims/ImsEcbm;
+    invoke-virtual {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getEcbmInterface()Lcom/android/ims/ImsEcbm;
 
-    move-result-object v11
+    move-result-object v2
 
-    invoke-virtual {v11}, Lcom/android/ims/ImsEcbm;->exitEmergencyCallbackMode()V
+    invoke-virtual {v2}, Lcom/android/ims/ImsEcbm;->exitEmergencyCallbackMode()V
 
-    .line 2458
-    move-object/from16 v0, p0
+    .line 1798
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+    const/16 v3, 0xe
 
-    const/16 v12, 0xe
+    const/4 v4, 0x0
 
-    const/4 v13, 0x0
+    invoke-virtual {v2, p0, v3, v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->setOnEcbModeExitResponse(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    move-object/from16 v0, p0
+    .line 1799
+    iget v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mClirMode:I
 
-    invoke-virtual {v11, v0, v12, v13}, Lcom/android/internal/telephony/imsphone/ImsPhone;->setOnEcbModeExitResponse(Landroid/os/Handler;ILjava/lang/Object;)V
+    iput v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallClirMode:I
 
-    .line 2459
-    move-object/from16 v0, p0
+    .line 1800
+    const/4 v2, 0x1
 
-    iget v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mClirMode:I
-
-    move-object/from16 v0, p0
-
-    iput v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallClirMode:I
-
-    .line 2460
-    const/4 v11, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallInEcm:Z
+    iput-boolean v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallInEcm:Z
     :try_end_1
     .catch Lcom/android/ims/ImsException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 2461
+    .line 1801
     :catch_1
-    move-exception v5
+    move-exception v0
 
-    .line 2462
-    .local v5, "e":Lcom/android/ims/ImsException;
-    invoke-virtual {v5}, Lcom/android/ims/ImsException;->printStackTrace()V
+    .line 1802
+    .local v0, "e":Lcom/android/ims/ImsException;
+    invoke-virtual {v0}, Lcom/android/ims/ImsException;->printStackTrace()V
 
-    .line 2463
-    move-object/from16 v0, p0
+    .line 1803
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    const/16 v3, 0x24
 
-    const/16 v12, 0x24
+    invoke-virtual {v2, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setDisconnectCause(I)V
 
-    invoke-virtual {v11, v12}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->setDisconnectCause(I)V
+    .line 1804
+    const-wide/16 v2, 0x1f4
 
-    .line 2464
-    const-wide/16 v12, 0x1f4
+    const/16 v4, 0x12
 
-    const/16 v11, 0x12
+    invoke-virtual {p0, v4, v2, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendEmptyMessageDelayed(IJ)Z
 
-    move-object/from16 v0, p0
+    goto :goto_0
 
-    invoke-virtual {v0, v11, v12, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendEmptyMessageDelayed(IJ)Z
-
-    goto/16 :goto_0
-
-    .line 2471
-    .end local v5    # "e":Lcom/android/ims/ImsException;
+    .line 1811
+    .end local v0    # "e":Lcom/android/ims/ImsException;
     :pswitch_5
-    move-object/from16 v0, p0
+    iget-boolean v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallInEcm:Z
 
-    iget-boolean v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallInEcm:Z
+    if-eqz v2, :cond_2
 
-    if-eqz v11, :cond_2
+    .line 1812
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    .line 2472
-    move-object/from16 v0, p0
+    iget v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallClirMode:I
 
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
+    .line 1813
+    iget v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingCallVideoState:I
 
-    move-object/from16 v0, p0
+    iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
 
-    iget v12, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallClirMode:I
+    .line 1812
+    invoke-direct {p0, v2, v3, v4, v5}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->dialInternal(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;IILandroid/os/Bundle;)V
 
-    .line 2473
-    move-object/from16 v0, p0
+    .line 1814
+    iput-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
 
-    iget v13, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingCallVideoState:I
+    .line 1815
+    const/4 v2, 0x0
 
-    move-object/from16 v0, p0
+    iput-boolean v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallInEcm:Z
 
-    iget-object v14, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
-
-    .line 2472
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v11, v12, v13, v14}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->dialInternal(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;IILandroid/os/Bundle;)V
-
-    .line 2474
-    const/4 v11, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
-
-    .line 2475
-    const/4 v11, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->pendingCallInEcm:Z
-
-    .line 2477
+    .line 1817
     :cond_2
-    move-object/from16 v0, p0
+    iput-object v6, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingIntentExtras:Landroid/os/Bundle;
 
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+    .line 1818
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    move-object/from16 v0, p0
-
-    invoke-virtual {v11, v0}, Lcom/android/internal/telephony/imsphone/ImsPhone;->unsetOnEcbModeExitResponse(Landroid/os/Handler;)V
+    invoke-virtual {v2, p0}, Lcom/android/internal/telephony/imsphone/ImsPhone;->unsetOnEcbModeExitResponse(Landroid/os/Handler;)V
 
     goto/16 :goto_0
 
-    .line 2480
-    :pswitch_6
-    move-object/from16 v0, p1
-
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v2, Landroid/os/AsyncResult;
-
-    .line 2481
-    .local v2, "ar":Landroid/os/AsyncResult;
-    iget-object v3, v2, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
-
-    check-cast v3, Lcom/android/ims/ImsCall;
-
-    .line 2482
-    .local v3, "call":Lcom/android/ims/ImsCall;
-    iget-object v11, v2, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
-
-    check-cast v11, Ljava/lang/Long;
-
-    invoke-virtual {v11}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v12
-
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v10
-
-    .line 2483
-    .local v10, "usage":Ljava/lang/Long;
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "VT data usage update. usage = "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, ", imsCall = "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 2485
-    const-wide/16 v12, 0x0
-
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v8
-
-    .line 2486
-    .local v8, "oldUsage":Ljava/lang/Long;
-    move-object/from16 v0, p0
-
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVtDataUsageMap:Ljava/util/HashMap;
-
-    iget v12, v3, Lcom/android/ims/ImsCall;->uniqueId:I
-
-    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_3
-
-    .line 2487
-    move-object/from16 v0, p0
-
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVtDataUsageMap:Ljava/util/HashMap;
-
-    iget v12, v3, Lcom/android/ims/ImsCall;->uniqueId:I
-
-    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    .end local v8    # "oldUsage":Ljava/lang/Long;
-    check-cast v8, Ljava/lang/Long;
-
-    .line 2489
-    .restart local v8    # "oldUsage":Ljava/lang/Long;
-    :cond_3
-    move-object/from16 v0, p0
-
-    iget-wide v12, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mTotalVtDataUsage:J
-
-    invoke-virtual {v10}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v14
-
-    invoke-virtual {v8}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v16
-
-    sub-long v14, v14, v16
-
-    add-long/2addr v12, v14
-
-    move-object/from16 v0, p0
-
-    iput-wide v12, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mTotalVtDataUsage:J
-
-    .line 2490
-    move-object/from16 v0, p0
-
-    iget-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVtDataUsageMap:Ljava/util/HashMap;
-
-    iget v12, v3, Lcom/android/ims/ImsCall;->uniqueId:I
-
-    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-virtual {v11, v12, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto/16 :goto_0
-
-    .line 2493
-    .end local v2    # "ar":Landroid/os/AsyncResult;
-    .end local v3    # "call":Lcom/android/ims/ImsCall;
-    .end local v8    # "oldUsage":Ljava/lang/Long;
-    .end local v10    # "usage":Ljava/lang/Long;
-    :pswitch_7
-    move-object/from16 v0, p1
-
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v2, Landroid/os/AsyncResult;
-
-    .line 2494
-    .restart local v2    # "ar":Landroid/os/AsyncResult;
-    iget-object v11, v2, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
-
-    instance-of v11, v11, Landroid/util/Pair;
-
-    if-eqz v11, :cond_0
-
-    .line 2495
-    iget-object v9, v2, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
-
-    check-cast v9, Landroid/util/Pair;
-
-    .line 2496
-    .local v9, "p":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
-    iget-object v11, v9, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast v11, Ljava/lang/Boolean;
-
-    invoke-virtual {v11}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v12
-
-    iget-object v11, v9, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v11, Ljava/lang/Integer;
-
-    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
-
-    move-result v11
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v12, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->onDataEnabledChanged(ZI)V
-
-    goto/16 :goto_0
-
-    .line 2501
-    .end local v2    # "ar":Landroid/os/AsyncResult;
-    .end local v9    # "p":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Boolean;Ljava/lang/Integer;>;"
-    :pswitch_8
-    :try_start_2
-    invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getImsService()V
-    :try_end_2
-    .catch Lcom/android/ims/ImsException; {:try_start_2 .. :try_end_2} :catch_2
-
-    goto/16 :goto_0
-
-    .line 2502
-    :catch_2
-    move-exception v5
-
-    .line 2503
-    .restart local v5    # "e":Lcom/android/ims/ImsException;
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "getImsService: "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    .line 2505
-    const/4 v11, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-object v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    .line 2506
-    move-object/from16 v0, p0
-
-    iget v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsServiceRetryCount:I
-
-    const/16 v12, 0xa
-
-    if-ge v11, v12, :cond_4
-
-    .line 2507
-    const-string/jumbo v11, "getImsService: Retrying getting ImsService..."
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    .line 2509
-    const-wide/16 v12, 0x190
-
-    .line 2508
-    const/16 v11, 0x18
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v11, v12, v13}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->sendEmptyMessageDelayed(IJ)Z
-
-    .line 2510
-    move-object/from16 v0, p0
-
-    iget v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsServiceRetryCount:I
-
-    add-int/lit8 v11, v11, 0x1
-
-    move-object/from16 v0, p0
-
-    iput v11, v0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsServiceRetryCount:I
-
-    goto/16 :goto_0
-
-    .line 2515
-    :cond_4
-    const-string/jumbo v11, "getImsService: ImsService retrieval timeout... ImsService is unavailable."
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v11}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    .line 2521
-    .end local v5    # "e":Lcom/android/ims/ImsException;
-    :pswitch_9
-    move-object/from16 v0, p1
-
-    iget-object v11, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    instance-of v11, v11, Lcom/android/ims/ImsCall;
-
-    if-eqz v11, :cond_0
-
-    .line 2522
-    move-object/from16 v0, p1
-
-    iget-object v7, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v7, Lcom/android/ims/ImsCall;
-
-    .line 2523
-    .local v7, "imsCall":Lcom/android/ims/ImsCall;
-    invoke-virtual {v7}, Lcom/android/ims/ImsCall;->isWifiCall()Z
-
-    move-result v11
-
-    if-nez v11, :cond_0
-
-    .line 2525
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v7}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->findConnection(Lcom/android/ims/ImsCall;)Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-
-    move-result-object v4
-
-    .line 2526
-    .local v4, "conn":Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
-    if-eqz v4, :cond_0
-
-    .line 2527
-    invoke-virtual {v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->onHandoverToWifiFailed()V
-
-    goto/16 :goto_0
-
-    .line 2428
+    .line 1768
     nop
 
     :pswitch_data_0
@@ -7812,10 +4715,6 @@
         :pswitch_2
         :pswitch_3
         :pswitch_4
-        :pswitch_6
-        :pswitch_7
-        :pswitch_8
-        :pswitch_9
     .end packed-switch
 .end method
 
@@ -7824,12 +4723,12 @@
     .param p1, "ar"    # Landroid/os/AsyncResult;
 
     .prologue
-    .line 2615
+    .line 1877
     return-void
 .end method
 
-.method public hangup(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
-    .locals 7
+.method hangup(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
+    .locals 6
     .param p1, "call"    # Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -7838,12 +4737,12 @@
     .end annotation
 
     .prologue
-    .line 1187
+    .line 853
     const-string/jumbo v3, "hangup call"
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1189
+    .line 855
     invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getConnections()Ljava/util/List;
 
     move-result-object v3
@@ -7854,7 +4753,7 @@
 
     if-nez v3, :cond_0
 
-    .line 1190
+    .line 856
     new-instance v3, Lcom/android/internal/telephony/CallStateException;
 
     const-string/jumbo v4, "no connections"
@@ -7863,98 +4762,78 @@
 
     throw v3
 
-    .line 1193
+    .line 859
     :cond_0
     invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v1
 
-    .line 1194
+    .line 860
     .local v1, "imsCall":Lcom/android/ims/ImsCall;
     const/4 v2, 0x0
 
-    .line 1196
+    .line 862
     .local v2, "rejectCall":Z
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     if-ne p1, v3, :cond_2
 
-    .line 1197
+    .line 863
     const-string/jumbo v3, "(ringing) hangup incoming"
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1198
+    .line 864
     const/4 v2, 0x1
 
-    .line 1219
+    .line 885
     :goto_0
     invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->onHangupLocal()V
 
-    .line 1222
+    .line 888
     if-eqz v1, :cond_7
 
-    .line 1223
+    .line 889
     if-eqz v2, :cond_6
 
-    .line 1224
     const/16 v3, 0x1f8
 
     :try_start_0
     invoke-virtual {v1, v3}, Lcom/android/ims/ImsCall;->reject(I)V
-
-    .line 1225
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
-
-    move-result v4
-
-    invoke-virtual {v1}, Lcom/android/ims/ImsCall;->getSession()Lcom/android/ims/internal/ImsCallSession;
-
-    move-result-object v5
-
-    .line 1226
-    const/4 v6, 0x3
-
-    .line 1225
-    invoke-virtual {v3, v4, v5, v6}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->writeOnImsCommand(ILcom/android/ims/internal/ImsCallSession;I)V
     :try_end_0
     .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1245
+    .line 904
     :cond_1
     :goto_1
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhone;->notifyPreciseCallStateChanged()V
 
-    .line 1186
+    .line 852
     return-void
 
-    .line 1199
+    .line 865
     :cond_2
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     if-ne p1, v3, :cond_4
 
-    .line 1200
+    .line 866
     invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isDialingOrAlerting()Z
 
     move-result v3
 
     if-eqz v3, :cond_3
 
-    .line 1202
+    .line 868
     const-string/jumbo v3, "(foregnd) hangup dialing or alerting..."
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 1206
+    .line 872
     :cond_3
     const-string/jumbo v3, "(foregnd) hangup foreground"
 
@@ -7962,20 +4841,20 @@
 
     goto :goto_0
 
-    .line 1210
+    .line 876
     :cond_4
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     if-ne p1, v3, :cond_5
 
-    .line 1212
+    .line 878
     const-string/jumbo v3, "(backgnd) hangup waiting or background"
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 1215
+    .line 881
     :cond_5
     new-instance v3, Lcom/android/internal/telephony/CallStateException;
 
@@ -7993,10 +4872,10 @@
 
     move-result-object v4
 
-    .line 1216
+    .line 882
     const-string/jumbo v5, "does not belong to ImsPhoneCallTracker "
 
-    .line 1215
+    .line 881
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -8013,41 +4892,22 @@
 
     throw v3
 
-    .line 1228
+    .line 890
     :cond_6
     const/16 v3, 0x1f5
 
     :try_start_1
     invoke-virtual {v1, v3}, Lcom/android/ims/ImsCall;->terminate(I)V
-
-    .line 1229
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
-
-    move-result v4
-
-    invoke-virtual {v1}, Lcom/android/ims/ImsCall;->getSession()Lcom/android/ims/internal/ImsCallSession;
-
-    move-result-object v5
-
-    .line 1230
-    const/4 v6, 0x4
-
-    .line 1229
-    invoke-virtual {v3, v4, v5, v6}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->writeOnImsCommand(ILcom/android/ims/internal/ImsCallSession;I)V
     :try_end_1
     .catch Lcom/android/ims/ImsException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_1
 
-    .line 1241
+    .line 900
     :catch_0
     move-exception v0
 
-    .line 1242
+    .line 901
     .local v0, "e":Lcom/android/ims/ImsException;
     new-instance v3, Lcom/android/internal/telephony/CallStateException;
 
@@ -8059,7 +4919,7 @@
 
     throw v3
 
-    .line 1232
+    .line 891
     .end local v0    # "e":Lcom/android/ims/ImsException;
     :cond_7
     :try_start_2
@@ -8071,7 +4931,7 @@
 
     if-ne p1, v3, :cond_1
 
-    .line 1234
+    .line 893
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
     sget-object v4, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
@@ -8080,25 +4940,25 @@
 
     invoke-virtual {v3, v5, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->update(Lcom/android/ims/ImsCall;Lcom/android/internal/telephony/Call$State;)Z
 
-    .line 1235
+    .line 894
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->onDisconnect()Z
 
-    .line 1236
+    .line 895
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
     invoke-direct {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->removeConnection(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
 
-    .line 1237
+    .line 896
     const/4 v3, 0x0
 
     iput-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingMO:Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
 
-    .line 1238
+    .line 897
     invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->updatePhoneState()V
 
-    .line 1239
+    .line 898
     const/16 v3, 0x14
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->removeMessages(I)V
@@ -8108,7 +4968,7 @@
     goto/16 :goto_1
 .end method
 
-.method public hangup(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
+.method hangup(Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;)V
     .locals 3
     .param p1, "conn"    # Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;
     .annotation system Ldalvik/annotation/Throws;
@@ -8118,19 +4978,19 @@
     .end annotation
 
     .prologue
-    .line 1174
+    .line 839
     const-string/jumbo v0, "hangup connection"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1176
+    .line 841
     invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getOwner()Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;
 
     move-result-object v0
 
     if-eq v0, p0, :cond_0
 
-    .line 1177
+    .line 842
     new-instance v0, Lcom/android/internal/telephony/CallStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -8147,10 +5007,10 @@
 
     move-result-object v1
 
-    .line 1178
+    .line 843
     const-string/jumbo v2, "does not belong to ImsPhoneCallTracker "
 
-    .line 1177
+    .line 842
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8167,7 +5027,7 @@
 
     throw v0
 
-    .line 1181
+    .line 846
     :cond_0
     invoke-virtual {p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneConnection;->getCall()Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
@@ -8175,25 +5035,15 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->hangup(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
 
-    .line 1173
+    .line 838
     return-void
-.end method
-
-.method public isCarrierDowngradeOfVtCallSupported()Z
-    .locals 1
-
-    .prologue
-    .line 2980
-    iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSupportDowngradeVtToAudio:Z
-
-    return v0
 .end method
 
 .method public isInEmergencyCall()Z
     .locals 1
 
     .prologue
-    .line 2647
+    .line 1891
     iget-boolean v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mIsInEmergencyCall:Z
 
     return v0
@@ -8203,7 +5053,7 @@
     .locals 2
 
     .prologue
-    .line 2683
+    .line 1924
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
 
     const/4 v1, 0x4
@@ -8212,14 +5062,14 @@
 
     if-nez v0, :cond_0
 
-    .line 2684
+    .line 1925
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
 
     const/4 v1, 0x5
 
     aget-boolean v0, v0, v1
 
-    .line 2683
+    .line 1924
     :goto_0
     return v0
 
@@ -8235,21 +5085,21 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 2659
+    .line 1903
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
 
     aget-boolean v1, v1, v0
 
     if-nez v1, :cond_0
 
-    .line 2660
+    .line 1904
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
 
     const/4 v1, 0x3
 
     aget-boolean v0, v0, v1
 
-    .line 2659
+    .line 1903
     :cond_0
     return v0
 .end method
@@ -8258,7 +5108,7 @@
     .locals 2
 
     .prologue
-    .line 2651
+    .line 1895
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
 
     const/4 v1, 0x0
@@ -8272,7 +5122,7 @@
     .locals 2
 
     .prologue
-    .line 2655
+    .line 1899
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsFeatureEnabled:[Z
 
     const/4 v1, 0x2
@@ -8287,7 +5137,7 @@
     .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 2537
+    .line 1825
     const-string/jumbo v0, "ImsPhoneCallTracker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -8310,104 +5160,15 @@
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2536
+    .line 1824
     return-void
 .end method
 
 .method logState()V
-    .locals 3
+    .locals 0
 
     .prologue
-    .line 2550
-    sget-boolean v1, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->VERBOSE_STATE_LOGGING:Z
-
-    if-nez v1, :cond_0
-
-    .line 2551
-    return-void
-
-    .line 2554
-    :cond_0
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 2555
-    .local v0, "sb":Ljava/lang/StringBuilder;
-    const-string/jumbo v1, "Current IMS PhoneCall State:\n"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 2556
-    const-string/jumbo v1, " Foreground: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 2557
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    .line 2558
-    const-string/jumbo v1, "\n"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 2559
-    const-string/jumbo v1, " Background: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 2560
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    .line 2561
-    const-string/jumbo v1, "\n"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 2562
-    const-string/jumbo v1, " Ringing: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 2563
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    .line 2564
-    const-string/jumbo v1, "\n"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 2565
-    const-string/jumbo v1, " Handover: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 2566
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mHandoverCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    .line 2567
-    const-string/jumbo v1, "\n"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 2568
-    const-string/jumbo v1, "ImsPhoneCallTracker"
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2549
+    .line 1839
     return-void
 .end method
 
@@ -8416,7 +5177,7 @@
     .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 2541
+    .line 1829
     const-string/jumbo v0, "ImsPhoneCallTracker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -8439,7 +5200,7 @@
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2540
+    .line 1828
     return-void
 .end method
 
@@ -8448,7 +5209,7 @@
     .param p1, "state"    # Lcom/android/internal/telephony/Call$SrvccState;
 
     .prologue
-    .line 2409
+    .line 1749
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -8469,107 +5230,34 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 2411
+    .line 1751
     iput-object p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSrvccState:Lcom/android/internal/telephony/Call$SrvccState;
 
-    .line 2413
+    .line 1753
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSrvccState:Lcom/android/internal/telephony/Call$SrvccState;
 
     sget-object v1, Lcom/android/internal/telephony/Call$SrvccState;->COMPLETED:Lcom/android/internal/telephony/Call$SrvccState;
 
     if-ne v0, v1, :cond_0
 
-    .line 2414
+    .line 1754
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->transferHandoverConnections(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
 
-    .line 2415
+    .line 1755
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->transferHandoverConnections(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
 
-    .line 2416
+    .line 1756
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->transferHandoverConnections(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
 
-    .line 2408
+    .line 1748
     :cond_0
     return-void
-.end method
-
-.method public pullExternalCall(Ljava/lang/String;II)V
-    .locals 5
-    .param p1, "number"    # Ljava/lang/String;
-    .param p2, "videoState"    # I
-    .param p3, "dialogId"    # I
-
-    .prologue
-    .line 2768
-    new-instance v2, Landroid/os/Bundle;
-
-    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
-
-    .line 2769
-    .local v2, "extras":Landroid/os/Bundle;
-    const-string/jumbo v3, "CallPull"
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v2, v3, v4}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    .line 2770
-    const-string/jumbo v3, "android.telephony.ImsExternalCallTracker.extra.EXTERNAL_CALL_ID"
-
-    invoke-virtual {v2, v3, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 2772
-    :try_start_0
-    invoke-virtual {p0, p1, p2, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->dial(Ljava/lang/String;ILandroid/os/Bundle;)Lcom/android/internal/telephony/Connection;
-
-    move-result-object v0
-
-    .line 2773
-    .local v0, "connection":Lcom/android/internal/telephony/Connection;
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v3, v0}, Lcom/android/internal/telephony/imsphone/ImsPhone;->notifyUnknownConnection(Lcom/android/internal/telephony/Connection;)V
-    :try_end_0
-    .catch Lcom/android/internal/telephony/CallStateException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 2767
-    .end local v0    # "connection":Lcom/android/internal/telephony/Connection;
-    :goto_0
-    return-void
-
-    .line 2774
-    :catch_0
-    move-exception v1
-
-    .line 2775
-    .local v1, "e":Lcom/android/internal/telephony/CallStateException;
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "pullExternalCall failed - "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
-
-    goto :goto_0
 .end method
 
 .method public registerForVoiceCallEnded(Landroid/os/Handler;ILjava/lang/Object;)V
@@ -8579,18 +5267,18 @@
     .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
-    .line 465
+    .line 292
     new-instance v0, Landroid/os/Registrant;
 
     invoke-direct {v0, p1, p2, p3}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 466
+    .line 293
     .local v0, "r":Landroid/os/Registrant;
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallEndedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
 
-    .line 464
+    .line 291
     return-void
 .end method
 
@@ -8601,36 +5289,22 @@
     .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
-    .line 454
+    .line 281
     new-instance v0, Landroid/os/Registrant;
 
     invoke-direct {v0, p1, p2, p3}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 455
+    .line 282
     .local v0, "r":Landroid/os/Registrant;
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallStartedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
 
-    .line 453
+    .line 280
     return-void
 .end method
 
-.method public registerPhoneStateListener(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$PhoneStateListener;)V
-    .locals 1
-    .param p1, "listener"    # Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$PhoneStateListener;
-
-    .prologue
-    .line 2838
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhoneStateListeners:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 2837
-    return-void
-.end method
-
-.method public rejectCall()V
+.method rejectCall()V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -8639,12 +5313,12 @@
     .end annotation
 
     .prologue
-    .line 869
+    .line 556
     const-string/jumbo v0, "rejectCall"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 871
+    .line 558
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
@@ -8657,15 +5331,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 872
+    .line 559
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->hangup(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
 
-    .line 868
+    .line 555
     return-void
 
-    .line 874
+    .line 561
     :cond_0
     new-instance v0, Lcom/android/internal/telephony/CallStateException;
 
@@ -8677,7 +5351,7 @@
 .end method
 
 .method resumeWaitingOrHolding()V
-    .locals 6
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -8685,12 +5359,12 @@
     .end annotation
 
     .prologue
-    .line 1260
+    .line 918
     const-string/jumbo v2, "resumeWaitingOrHolding"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1263
+    .line 921
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
@@ -8704,45 +5378,25 @@
 
     if-eqz v2, :cond_1
 
-    .line 1266
+    .line 924
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v1
 
-    .line 1267
+    .line 925
     .local v1, "imsCall":Lcom/android/ims/ImsCall;
     if-eqz v1, :cond_0
 
-    .line 1268
     invoke-virtual {v1}, Lcom/android/ims/ImsCall;->resume()V
 
-    .line 1269
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
-
-    move-result v3
-
-    invoke-virtual {v1}, Lcom/android/ims/ImsCall;->getSession()Lcom/android/ims/internal/ImsCallSession;
-
-    move-result-object v4
-
-    .line 1270
-    const/4 v5, 0x6
-
-    .line 1269
-    invoke-virtual {v2, v3, v4, v5}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->writeOnImsCommand(ILcom/android/ims/internal/ImsCallSession;I)V
-
-    .line 1259
+    .line 917
     :cond_0
     :goto_0
     return-void
 
-    .line 1272
+    .line 926
     .end local v1    # "imsCall":Lcom/android/ims/ImsCall;
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
@@ -8755,56 +5409,37 @@
 
     if-ne v2, v3, :cond_2
 
-    .line 1274
+    .line 928
     iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v1
 
-    .line 1275
+    .line 929
     .restart local v1    # "imsCall":Lcom/android/ims/ImsCall;
     if-eqz v1, :cond_0
 
-    .line 1277
+    .line 931
     iget v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPendingCallVideoState:I
 
     invoke-static {v2}, Lcom/android/ims/ImsCallProfile;->getCallTypeFromVideoState(I)I
 
     move-result v2
 
-    .line 1276
+    .line 930
     invoke-virtual {v1, v2}, Lcom/android/ims/ImsCall;->accept(I)V
-
-    .line 1278
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
-
-    move-result v3
-
-    invoke-virtual {v1}, Lcom/android/ims/ImsCall;->getSession()Lcom/android/ims/internal/ImsCallSession;
-
-    move-result-object v4
-
-    .line 1279
-    const/4 v5, 0x2
-
-    .line 1278
-    invoke-virtual {v2, v3, v4, v5}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->writeOnImsCommand(ILcom/android/ims/internal/ImsCallSession;I)V
     :try_end_0
     .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 1293
+    .line 941
     .end local v1    # "imsCall":Lcom/android/ims/ImsCall;
     :catch_0
     move-exception v0
 
-    .line 1294
+    .line 942
     .local v0, "e":Lcom/android/ims/ImsException;
     new-instance v2, Lcom/android/internal/telephony/CallStateException;
 
@@ -8816,7 +5451,7 @@
 
     throw v2
 
-    .line 1286
+    .line 938
     .end local v0    # "e":Lcom/android/ims/ImsException;
     :cond_2
     :try_start_1
@@ -8826,122 +5461,84 @@
 
     move-result-object v1
 
-    .line 1287
+    .line 939
     .restart local v1    # "imsCall":Lcom/android/ims/ImsCall;
     if-eqz v1, :cond_0
 
-    .line 1288
     invoke-virtual {v1}, Lcom/android/ims/ImsCall;->resume()V
-
-    .line 1289
-    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
-
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
-
-    move-result v3
-
-    invoke-virtual {v1}, Lcom/android/ims/ImsCall;->getSession()Lcom/android/ims/internal/ImsCallSession;
-
-    move-result-object v4
-
-    .line 1290
-    const/4 v5, 0x6
-
-    .line 1289
-    invoke-virtual {v2, v3, v4, v5}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->writeOnImsCommand(ILcom/android/ims/internal/ImsCallSession;I)V
     :try_end_1
     .catch Lcom/android/ims/ImsException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
 .end method
 
-.method public sendDtmf(CLandroid/os/Message;)V
+.method sendDtmf(CLandroid/os/Message;)V
     .locals 2
     .param p1, "c"    # C
     .param p2, "result"    # Landroid/os/Message;
 
     .prologue
-    .line 1139
+    .line 803
     const-string/jumbo v1, "sendDtmf"
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1141
+    .line 805
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v0
 
-    .line 1142
+    .line 806
     .local v0, "imscall":Lcom/android/ims/ImsCall;
     if-eqz v0, :cond_0
 
-    .line 1143
+    .line 807
     invoke-virtual {v0, p1, p2}, Lcom/android/ims/ImsCall;->sendDtmf(CLandroid/os/Message;)V
 
-    .line 1138
+    .line 802
     :cond_0
     return-void
 .end method
 
-.method public sendUSSD(Ljava/lang/String;Landroid/os/Message;)V
+.method sendUSSD(Ljava/lang/String;Landroid/os/Message;)V
     .locals 7
     .param p1, "ussdString"    # Ljava/lang/String;
     .param p2, "response"    # Landroid/os/Message;
 
     .prologue
-    .line 1299
+    .line 948
     const-string/jumbo v3, "sendUSSD"
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1302
+    .line 951
     :try_start_0
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mUssdSession:Lcom/android/ims/ImsCall;
 
     if-eqz v3, :cond_0
 
-    .line 1303
+    .line 952
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mUssdSession:Lcom/android/ims/ImsCall;
 
     invoke-virtual {v3, p1}, Lcom/android/ims/ImsCall;->sendUssd(Ljava/lang/String;)V
 
-    .line 1304
+    .line 953
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
     invoke-static {p2, v3, v4}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
-    .line 1305
+    .line 954
     invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1306
+    .line 955
     return-void
 
-    .line 1309
+    .line 958
     :cond_0
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    if-nez v3, :cond_1
-
-    .line 1310
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getImsManagerIsNullException()Lcom/android/ims/ImsException;
-
-    move-result-object v4
-
-    invoke-virtual {v3, p2, v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->sendErrorResponse(Landroid/os/Message;Ljava/lang/Throwable;)V
-
-    .line 1311
-    return-void
-
-    .line 1314
-    :cond_1
     const/4 v3, 0x1
 
     new-array v0, v3, [Ljava/lang/String;
@@ -8950,41 +5547,41 @@
 
     aput-object p1, v0, v3
 
-    .line 1315
+    .line 959
     .local v0, "callees":[Ljava/lang/String;
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
     iget v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
 
-    .line 1316
+    .line 960
     const/4 v5, 0x1
 
     const/4 v6, 0x2
 
-    .line 1315
+    .line 959
     invoke-virtual {v3, v4, v5, v6}, Lcom/android/ims/ImsManager;->createCallProfile(III)Lcom/android/ims/ImsCallProfile;
 
     move-result-object v2
 
-    .line 1317
+    .line 961
     .local v2, "profile":Lcom/android/ims/ImsCallProfile;
     const-string/jumbo v3, "dialstring"
 
-    .line 1318
+    .line 962
     const/4 v4, 0x2
 
-    .line 1317
+    .line 961
     invoke-virtual {v2, v3, v4}, Lcom/android/ims/ImsCallProfile;->setCallExtraInt(Ljava/lang/String;I)V
 
-    .line 1320
+    .line 964
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
     iget v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mServiceId:I
 
-    .line 1321
+    .line 965
     iget-object v5, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsUssdListener:Lcom/android/ims/ImsCall$Listener;
 
-    .line 1320
+    .line 964
     invoke-virtual {v3, v4, v2, v0, v5}, Lcom/android/ims/ImsManager;->makeCall(ILcom/android/ims/ImsCallProfile;[Ljava/lang/String;Lcom/android/ims/ImsCall$Listener;)Lcom/android/ims/ImsCall;
 
     move-result-object v3
@@ -8993,17 +5590,17 @@
     :try_end_0
     .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1298
+    .line 947
     .end local v0    # "callees":[Ljava/lang/String;
     .end local v2    # "profile":Lcom/android/ims/ImsCallProfile;
     :goto_0
     return-void
 
-    .line 1322
+    .line 966
     :catch_0
     move-exception v1
 
-    .line 1323
+    .line 967
     .local v1, "e":Lcom/android/ims/ImsException;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -9025,7 +5622,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
 
-    .line 1324
+    .line 968
     iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v3, p2, v1}, Lcom/android/internal/telephony/imsphone/ImsPhone;->sendErrorResponse(Landroid/os/Message;Ljava/lang/Throwable;)V
@@ -9033,60 +5630,30 @@
     goto :goto_0
 .end method
 
-.method public setMute(Z)V
+.method setMute(Z)V
     .locals 1
     .param p1, "mute"    # Z
 
     .prologue
-    .line 1130
+    .line 794
     iput-boolean p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mDesiredMute:Z
 
-    .line 1131
+    .line 795
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->setMute(Z)V
 
-    .line 1129
+    .line 793
     return-void
 .end method
 
-.method public setSharedPreferenceProxy(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$SharedPreferenceProxy;)V
-    .locals 0
-    .param p1, "sharedPreferenceProxy"    # Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$SharedPreferenceProxy;
-
-    .prologue
-    .line 393
-    iput-object p1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSharedPreferenceProxy:Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$SharedPreferenceProxy;
-
-    .line 392
-    return-void
-.end method
-
-.method public setUiTTYMode(ILandroid/os/Message;)V
+.method setUiTTYMode(ILandroid/os/Message;)V
     .locals 4
     .param p1, "uiTtyMode"    # I
     .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
-    .line 1116
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
-
-    if-nez v1, :cond_0
-
-    .line 1117
-    iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    invoke-direct {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->getImsManagerIsNullException()Lcom/android/ims/ImsException;
-
-    move-result-object v2
-
-    invoke-virtual {v1, p2, v2}, Lcom/android/internal/telephony/imsphone/ImsPhone;->sendErrorResponse(Landroid/os/Message;Ljava/lang/Throwable;)V
-
-    .line 1118
-    return-void
-
-    .line 1122
-    :cond_0
+    .line 786
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mImsManager:Lcom/android/ims/ImsManager;
 
@@ -9102,15 +5669,15 @@
     :try_end_0
     .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1115
+    .line 784
     :goto_0
     return-void
 
-    .line 1123
+    .line 787
     :catch_0
     move-exception v0
 
-    .line 1124
+    .line 788
     .local v0, "e":Lcom/android/ims/ImsException;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -9132,7 +5699,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->loge(Ljava/lang/String;)V
 
-    .line 1125
+    .line 789
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     invoke-virtual {v1, p2, v0}, Lcom/android/internal/telephony/imsphone/ImsPhone;->sendErrorResponse(Landroid/os/Message;Ljava/lang/Throwable;)V
@@ -9140,35 +5707,35 @@
     goto :goto_0
 .end method
 
-.method public startDtmf(C)V
+.method startDtmf(C)V
     .locals 2
     .param p1, "c"    # C
 
     .prologue
-    .line 1149
+    .line 813
     const-string/jumbo v1, "startDtmf"
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1151
+    .line 815
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v0
 
-    .line 1152
+    .line 816
     .local v0, "imscall":Lcom/android/ims/ImsCall;
     if-eqz v0, :cond_0
 
-    .line 1153
+    .line 817
     invoke-virtual {v0, p1}, Lcom/android/ims/ImsCall;->startDtmf(C)V
 
-    .line 1148
+    .line 812
     :goto_0
     return-void
 
-    .line 1155
+    .line 819
     :cond_0
     const-string/jumbo v1, "startDtmf : no foreground call"
 
@@ -9177,34 +5744,34 @@
     goto :goto_0
 .end method
 
-.method public stopDtmf()V
+.method stopDtmf()V
     .locals 2
 
     .prologue
-    .line 1161
+    .line 825
     const-string/jumbo v1, "stopDtmf"
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 1163
+    .line 827
     iget-object v1, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v0
 
-    .line 1164
+    .line 828
     .local v0, "imscall":Lcom/android/ims/ImsCall;
     if-eqz v0, :cond_0
 
-    .line 1165
+    .line 829
     invoke-virtual {v0}, Lcom/android/ims/ImsCall;->stopDtmf()V
 
-    .line 1160
+    .line 824
     :goto_0
     return-void
 
-    .line 1167
+    .line 831
     :cond_0
     const-string/jumbo v1, "stopDtmf : no foreground call"
 
@@ -9213,8 +5780,8 @@
     goto :goto_0
 .end method
 
-.method public switchWaitingOrHoldingAndActive()V
-    .locals 7
+.method switchWaitingOrHoldingAndActive()V
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;
@@ -9222,235 +5789,149 @@
     .end annotation
 
     .prologue
-    .line 890
-    const-string/jumbo v3, "switchWaitingOrHoldingAndActive"
+    .line 578
+    const-string/jumbo v2, "switchWaitingOrHoldingAndActive"
 
-    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
 
-    .line 892
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    .line 580
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
-    move-result-object v3
+    move-result-object v2
 
-    sget-object v4, Lcom/android/internal/telephony/Call$State;->INCOMING:Lcom/android/internal/telephony/Call$State;
+    sget-object v3, Lcom/android/internal/telephony/Call$State;->INCOMING:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v3, v4, :cond_0
+    if-ne v2, v3, :cond_0
 
-    .line 893
-    new-instance v3, Lcom/android/internal/telephony/CallStateException;
+    .line 581
+    new-instance v2, Lcom/android/internal/telephony/CallStateException;
 
-    const-string/jumbo v4, "cannot be in the incoming state"
+    const-string/jumbo v3, "cannot be in the incoming state"
 
-    invoke-direct {v3, v4}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v2
 
-    .line 896
+    .line 584
     :cond_0
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
-    move-result-object v3
+    move-result-object v2
 
-    sget-object v4, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
+    sget-object v3, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v3, v4, :cond_6
+    if-ne v2, v3, :cond_3
 
-    .line 897
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    .line 585
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
     move-result-object v1
 
-    .line 898
+    .line 586
     .local v1, "imsCall":Lcom/android/ims/ImsCall;
     if-nez v1, :cond_1
 
-    .line 899
-    new-instance v3, Lcom/android/internal/telephony/CallStateException;
+    .line 587
+    new-instance v2, Lcom/android/internal/telephony/CallStateException;
 
-    const-string/jumbo v4, "no ims call"
+    const-string/jumbo v3, "no ims call"
 
-    invoke-direct {v3, v4}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v2
 
-    .line 904
+    .line 592
     :cond_1
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
-
-    move-result-object v3
-
-    if-nez v3, :cond_4
-
-    .line 905
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    if-eqz v3, :cond_4
-
-    .line 906
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/android/internal/telephony/Call$State;->WAITING:Lcom/android/internal/telephony/Call$State;
-
-    if-ne v3, v4, :cond_3
-
     const/4 v2, 0x1
 
-    .line 908
-    .local v2, "switchingWithWaitingCall":Z
-    :goto_0
-    const/4 v3, 0x1
+    iput-boolean v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSwitchingFgAndBgCalls:Z
 
-    iput-boolean v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSwitchingFgAndBgCalls:Z
+    .line 593
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    .line 909
-    if-eqz v2, :cond_5
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
 
-    .line 910
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mRingingCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    move-result-object v2
 
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
+    iput-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mCallExpectedToResume:Lcom/android/ims/ImsCall;
 
-    move-result-object v3
+    .line 594
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    iput-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mCallExpectedToResume:Lcom/android/ims/ImsCall;
+    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    .line 914
-    :goto_1
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    invoke-virtual {v2, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->switchWith(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
 
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v3, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->switchWith(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
-
-    .line 919
+    .line 599
     :try_start_0
     invoke-virtual {v1}, Lcom/android/ims/ImsCall;->hold()V
 
-    .line 920
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mMetrics:Lcom/android/internal/telephony/metrics/TelephonyMetrics;
+    .line 602
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mCallExpectedToResume:Lcom/android/ims/ImsCall;
 
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhone:Lcom/android/internal/telephony/imsphone/ImsPhone;
+    if-nez v2, :cond_2
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getPhoneId()I
+    .line 603
+    const/4 v2, 0x0
 
-    move-result v4
-
-    invoke-virtual {v1}, Lcom/android/ims/ImsCall;->getSession()Lcom/android/ims/internal/ImsCallSession;
-
-    move-result-object v5
-
-    .line 921
-    const/4 v6, 0x5
-
-    .line 920
-    invoke-virtual {v3, v4, v5, v6}, Lcom/android/internal/telephony/metrics/TelephonyMetrics;->writeOnImsCommand(ILcom/android/ims/internal/ImsCallSession;I)V
-
-    .line 924
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mCallExpectedToResume:Lcom/android/ims/ImsCall;
-
-    if-nez v3, :cond_2
-
-    .line 925
-    const-string/jumbo v3, "mCallExpectedToResume is null"
-
-    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->log(Ljava/lang/String;)V
-
-    .line 926
-    const/4 v3, 0x0
-
-    iput-boolean v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSwitchingFgAndBgCalls:Z
+    iput-boolean v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mSwitchingFgAndBgCalls:Z
     :try_end_0
     .catch Lcom/android/ims/ImsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 889
+    .line 577
     .end local v1    # "imsCall":Lcom/android/ims/ImsCall;
-    .end local v2    # "switchingWithWaitingCall":Z
     :cond_2
-    :goto_2
+    :goto_0
     return-void
 
-    .line 906
+    .line 605
     .restart local v1    # "imsCall":Lcom/android/ims/ImsCall;
-    :cond_3
-    const/4 v2, 0x0
-
-    .restart local v2    # "switchingWithWaitingCall":Z
-    goto :goto_0
-
-    .line 904
-    .end local v2    # "switchingWithWaitingCall":Z
-    :cond_4
-    const/4 v2, 0x0
-
-    .restart local v2    # "switchingWithWaitingCall":Z
-    goto :goto_0
-
-    .line 912
-    :cond_5
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getImsCall()Lcom/android/ims/ImsCall;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mCallExpectedToResume:Lcom/android/ims/ImsCall;
-
-    goto :goto_1
-
-    .line 928
     :catch_0
     move-exception v0
 
-    .line 929
+    .line 606
     .local v0, "e":Lcom/android/ims/ImsException;
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mForegroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    iget-object v4, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    invoke-virtual {v3, v4}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->switchWith(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
+    invoke-virtual {v2, v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->switchWith(Lcom/android/internal/telephony/imsphone/ImsPhoneCall;)V
 
-    .line 930
-    new-instance v3, Lcom/android/internal/telephony/CallStateException;
+    .line 607
+    new-instance v2, Lcom/android/internal/telephony/CallStateException;
 
     invoke-virtual {v0}, Lcom/android/ims/ImsException;->getMessage()Ljava/lang/String;
 
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    .line 932
-    .end local v0    # "e":Lcom/android/ims/ImsException;
-    .end local v1    # "imsCall":Lcom/android/ims/ImsCall;
-    .end local v2    # "switchingWithWaitingCall":Z
-    :cond_6
-    iget-object v3, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    invoke-virtual {v3}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
-
     move-result-object v3
 
-    sget-object v4, Lcom/android/internal/telephony/Call$State;->HOLDING:Lcom/android/internal/telephony/Call$State;
+    invoke-direct {v2, v3}, Lcom/android/internal/telephony/CallStateException;-><init>(Ljava/lang/String;)V
 
-    if-ne v3, v4, :cond_2
+    throw v2
 
-    .line 933
+    .line 609
+    .end local v0    # "e":Lcom/android/ims/ImsException;
+    .end local v1    # "imsCall":Lcom/android/ims/ImsCall;
+    :cond_3
+    iget-object v2, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mBackgroundCall:Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+
+    invoke-virtual {v2}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/internal/telephony/Call$State;->HOLDING:Lcom/android/internal/telephony/Call$State;
+
+    if-ne v2, v3, :cond_2
+
+    .line 610
     invoke-virtual {p0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->resumeWaitingOrHolding()V
 
-    goto :goto_2
+    goto :goto_0
 .end method
 
 .method public unregisterForVoiceCallEnded(Landroid/os/Handler;)V
@@ -9458,12 +5939,12 @@
     .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
-    .line 471
+    .line 298
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallEndedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 470
+    .line 297
     return-void
 .end method
 
@@ -9472,25 +5953,11 @@
     .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
-    .line 460
+    .line 287
     iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mVoiceCallStartedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 459
-    return-void
-.end method
-
-.method public unregisterPhoneStateListener(Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$PhoneStateListener;)V
-    .locals 1
-    .param p1, "listener"    # Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker$PhoneStateListener;
-
-    .prologue
-    .line 2842
-    iget-object v0, p0, Lcom/android/internal/telephony/imsphone/ImsPhoneCallTracker;->mPhoneStateListeners:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
-
-    .line 2841
+    .line 286
     return-void
 .end method

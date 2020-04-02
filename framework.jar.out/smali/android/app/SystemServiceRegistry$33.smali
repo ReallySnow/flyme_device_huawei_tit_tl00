@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/os/storage/StorageManager;",
+        "Landroid/telephony/TelephonyManager;",
         ">;"
     }
 .end annotation
@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 426
+    .line 412
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,25 +36,19 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/os/storage/StorageManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/telephony/TelephonyManager;
     .locals 2
     .param p1, "ctx"    # Landroid/app/ContextImpl;
 
     .prologue
-    .line 429
-    new-instance v0, Landroid/os/storage/StorageManager;
+    .line 415
+    new-instance v0, Landroid/telephony/TelephonyManager;
 
-    iget-object v1, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
-
-    invoke-virtual {v1}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    invoke-direct {v0, p1, v1}, Landroid/os/storage/StorageManager;-><init>(Landroid/content/Context;Landroid/os/Looper;)V
+    invoke-direct {v0, v1}, Landroid/telephony/TelephonyManager;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
@@ -64,8 +58,8 @@
     .param p1, "ctx"    # Landroid/app/ContextImpl;
 
     .prologue
-    .line 428
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$33;->createService(Landroid/app/ContextImpl;)Landroid/os/storage/StorageManager;
+    .line 414
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$33;->createService(Landroid/app/ContextImpl;)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
 

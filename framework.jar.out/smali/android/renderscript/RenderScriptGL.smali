@@ -65,10 +65,13 @@
     .line 180
     invoke-virtual/range {p0 .. p0}, Landroid/renderscript/RenderScriptGL;->nDeviceCreate()J
 
-    move-result-wide v4
+    move-result-wide v2
+
+    move-object/from16 v0, p0
+
+    iput-wide v2, v0, Landroid/renderscript/RenderScriptGL;->mDev:J
 
     .line 181
-    .local v4, "device":J
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -81,8 +84,13 @@
 
     move/from16 v19, v0
 
-    .line 183
+    .line 182
     .local v19, "dpi":I
+    move-object/from16 v0, p0
+
+    iget-wide v4, v0, Landroid/renderscript/RenderScriptGL;->mDev:J
+
+    .line 183
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/renderscript/RenderScriptGL;->mSurfaceConfig:Landroid/renderscript/RenderScriptGL$SurfaceConfig;
@@ -178,9 +186,9 @@
 
     iget-wide v2, v0, Landroid/renderscript/RenderScriptGL;->mContext:J
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v4, 0x0
 
-    cmp-long v2, v2, v8
+    cmp-long v2, v2, v4
 
     if-nez v2, :cond_0
 

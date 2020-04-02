@@ -27,7 +27,7 @@
     .param p1, "this$1"    # Lcom/android/server/policy/StatusBarController$1;
 
     .prologue
-    .line 78
+    .line 90
     iput-object p1, p0, Lcom/android/server/policy/StatusBarController$1$3;->this$1:Lcom/android/server/policy/StatusBarController$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,26 +38,58 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 5
 
     .prologue
-    .line 81
-    iget-object v1, p0, Lcom/android/server/policy/StatusBarController$1$3;->this$1:Lcom/android/server/policy/StatusBarController$1;
+    const/4 v4, 0x0
 
-    iget-object v1, v1, Lcom/android/server/policy/StatusBarController$1;->this$0:Lcom/android/server/policy/StatusBarController;
+    .line 94
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/policy/StatusBarController$1$3;->this$1:Lcom/android/server/policy/StatusBarController$1;
 
-    invoke-virtual {v1}, Lcom/android/server/policy/StatusBarController;->getStatusBarInternal()Lcom/android/server/statusbar/StatusBarManagerInternal;
+    iget-object v2, v2, Lcom/android/server/policy/StatusBarController$1;->this$0:Lcom/android/server/policy/StatusBarController;
 
-    move-result-object v0
+    invoke-virtual {v2}, Lcom/android/server/policy/StatusBarController;->getStatusBarService()Lcom/android/internal/statusbar/IStatusBarService;
 
-    .line 82
-    .local v0, "statusbar":Lcom/android/server/statusbar/StatusBarManagerInternal;
-    if-eqz v0, :cond_0
+    move-result-object v1
 
-    .line 83
-    invoke-interface {v0}, Lcom/android/server/statusbar/StatusBarManagerInternal;->appTransitionCancelled()V
+    .line 95
+    .local v1, "statusbar":Lcom/android/internal/statusbar/IStatusBarService;
+    if-eqz v1, :cond_0
 
-    .line 80
+    .line 96
+    invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBarService;->appTransitionCancelled()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 92
+    .end local v1    # "statusbar":Lcom/android/internal/statusbar/IStatusBarService;
     :cond_0
+    :goto_0
     return-void
+
+    .line 98
+    :catch_0
+    move-exception v0
+
+    .line 99
+    .local v0, "e":Landroid/os/RemoteException;
+    iget-object v2, p0, Lcom/android/server/policy/StatusBarController$1$3;->this$1:Lcom/android/server/policy/StatusBarController$1;
+
+    iget-object v2, v2, Lcom/android/server/policy/StatusBarController$1;->this$0:Lcom/android/server/policy/StatusBarController;
+
+    iget-object v2, v2, Lcom/android/server/policy/StatusBarController;->mTag:Ljava/lang/String;
+
+    const-string/jumbo v3, "RemoteException when app transition is cancelled"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 101
+    iget-object v2, p0, Lcom/android/server/policy/StatusBarController$1$3;->this$1:Lcom/android/server/policy/StatusBarController$1;
+
+    iget-object v2, v2, Lcom/android/server/policy/StatusBarController$1;->this$0:Lcom/android/server/policy/StatusBarController;
+
+    iput-object v4, v2, Lcom/android/server/policy/StatusBarController;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
+
+    goto :goto_0
 .end method

@@ -13,6 +13,8 @@
 
 
 # static fields
+.field public static final EXTRA_WIPE_MEDIA:Ljava/lang/String; = "wipe_media"
+
 .field private static final TAG:Ljava/lang/String; = "MasterClear"
 
 
@@ -37,7 +39,7 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 39
+    .line 42
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -50,7 +52,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 40
+    .line 43
     const-string/jumbo v1, "google.com"
 
     const-string/jumbo v2, "from"
@@ -89,16 +91,16 @@
 
     invoke-virtual {p2, v1, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v4
+    move-result v5
 
-    .local v4, "shutdown":Z
+    .local v5, "shutdown":Z
     const-string v1, "android.intent.extra.REASON"
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    .local v5, "reason":Ljava/lang/String;
+    .local v6, "reason":Ljava/lang/String;
     const-string v1, "android.intent.extra.WIPE_EXTERNAL_STORAGE"
 
     invoke-virtual {p2, v1, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
@@ -106,13 +108,6 @@
     move-result v7
 
     .local v7, "wipeExternalStorage":Z
-    const-string v1, "android.intent.extra.FORCE_MASTER_CLEAR"
-
-    invoke-virtual {p2, v1, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v6
-
-    .local v6, "forceWipe":Z
     const-string v1, "MasterClear"
 
     const-string v2, "!!! FACTORY RESET !!!"
@@ -125,15 +120,17 @@
 
     move-object v1, p0
 
-    move-object v3, p1
+    move-object v3, p2
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/MasterClearReceiver$1;-><init>(Lcom/android/server/MasterClearReceiver;Ljava/lang/String;Landroid/content/Context;ZLjava/lang/String;Z)V
+    move-object v4, p1
 
-    .line 68
+    invoke-direct/range {v0 .. v6}, Lcom/android/server/MasterClearReceiver$1;-><init>(Lcom/android/server/MasterClearReceiver;Ljava/lang/String;Landroid/content/Intent;Landroid/content/Context;ZLjava/lang/String;)V
+
+    .line 71
     .local v0, "thr":Ljava/lang/Thread;
     if-eqz v7, :cond_1
 
-    .line 70
+    .line 73
     new-instance v1, Lcom/android/server/MasterClearReceiver$WipeAdoptableDisksTask;
 
     invoke-direct {v1, p0, p1, v0}, Lcom/android/server/MasterClearReceiver$WipeAdoptableDisksTask;-><init>(Lcom/android/server/MasterClearReceiver;Landroid/content/Context;Ljava/lang/Thread;)V
@@ -142,11 +139,11 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/MasterClearReceiver$WipeAdoptableDisksTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 38
+    .line 41
     :goto_0
     return-void
 
-    .line 72
+    .line 75
     :cond_1
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 

@@ -47,14 +47,6 @@
     .end annotation
 .end method
 
-.method public abstract requestCustomPrinterIcon(Landroid/print/PrinterId;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract setClient(Landroid/printservice/IPrintServiceClient;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

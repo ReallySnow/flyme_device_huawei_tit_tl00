@@ -24,7 +24,7 @@
     .param p1, "this$1"    # Landroid/media/MediaRouter$Static;
 
     .prologue
-    .line 578
+    .line 573
     iput-object p1, p0, Landroid/media/MediaRouter$Static$Client;->this$1:Landroid/media/MediaRouter$Static;
 
     invoke-direct {p0}, Landroid/media/IMediaRouterClient$Stub;-><init>()V
@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 581
+    .line 576
     iget-object v0, p0, Landroid/media/MediaRouter$Static$Client;->this$1:Landroid/media/MediaRouter$Static;
 
     iget-object v0, v0, Landroid/media/MediaRouter$Static;->mHandler:Landroid/os/Handler;
@@ -49,6 +49,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 580
+    .line 575
     return-void
 .end method

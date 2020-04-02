@@ -27,13 +27,13 @@
     .param p1, "remote"    # Landroid/os/IBinder;
 
     .prologue
-    .line 100
+    .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 102
+    .line 89
     iput-object p1, p0, Landroid/hardware/soundtrigger/IRecognitionStatusCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    .line 100
+    .line 87
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 106
+    .line 93
     iget-object v0, p0, Landroid/hardware/soundtrigger/IRecognitionStatusCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     return-object v0
@@ -53,145 +53,13 @@
     .locals 1
 
     .prologue
-    .line 110
+    .line 97
     const-string/jumbo v0, "android.hardware.soundtrigger.IRecognitionStatusCallback"
 
     return-object v0
 .end method
 
-.method public onError(I)V
-    .locals 5
-    .param p1, "status"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 169
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 171
-    .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
-    const-string/jumbo v1, "android.hardware.soundtrigger.IRecognitionStatusCallback"
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 172
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 173
-    iget-object v1, p0, Landroid/hardware/soundtrigger/IRecognitionStatusCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v2, 0x3
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 176
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 167
-    return-void
-
-    .line 175
-    :catchall_0
-    move-exception v1
-
-    .line 176
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 175
-    throw v1
-.end method
-
-.method public onGenericSoundTriggerDetected(Landroid/hardware/soundtrigger/SoundTrigger$GenericRecognitionEvent;)V
-    .locals 5
-    .param p1, "recognitionEvent"    # Landroid/hardware/soundtrigger/SoundTrigger$GenericRecognitionEvent;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 146
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 148
-    .local v0, "_data":Landroid/os/Parcel;
-    :try_start_0
-    const-string/jumbo v1, "android.hardware.soundtrigger.IRecognitionStatusCallback"
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 149
-    if-eqz p1, :cond_0
-
-    .line 150
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 151
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/hardware/soundtrigger/SoundTrigger$GenericRecognitionEvent;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 156
-    :goto_0
-    iget-object v1, p0, Landroid/hardware/soundtrigger/IRecognitionStatusCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v2, 0x2
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 159
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 144
-    return-void
-
-    .line 154
-    :cond_0
-    const/4 v1, 0x0
-
-    :try_start_1
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    .line 158
-    :catchall_0
-    move-exception v1
-
-    .line 159
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 158
-    throw v1
-.end method
-
-.method public onKeyphraseDetected(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;)V
+.method public onDetected(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;)V
     .locals 5
     .param p1, "recognitionEvent"    # Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;
     .annotation system Ldalvik/annotation/Throws;
@@ -201,32 +69,32 @@
     .end annotation
 
     .prologue
-    .line 121
+    .line 106
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 123
+    .line 108
     .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string/jumbo v1, "android.hardware.soundtrigger.IRecognitionStatusCallback"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 124
+    .line 109
     if-eqz p1, :cond_0
 
-    .line 125
+    .line 110
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 126
+    .line 111
     const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1}, Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionEvent;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 131
+    .line 116
     :goto_0
     iget-object v1, p0, Landroid/hardware/soundtrigger/IRecognitionStatusCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -240,13 +108,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 134
+    .line 119
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 119
+    .line 104
     return-void
 
-    .line 129
+    .line 114
     :cond_0
     const/4 v1, 0x0
 
@@ -257,14 +125,69 @@
 
     goto :goto_0
 
-    .line 133
+    .line 118
     :catchall_0
     move-exception v1
 
-    .line 134
+    .line 119
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
+    .line 118
+    throw v1
+.end method
+
+.method public onError(I)V
+    .locals 5
+    .param p1, "status"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 129
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 131
+    .local v0, "_data":Landroid/os/Parcel;
+    :try_start_0
+    const-string/jumbo v1, "android.hardware.soundtrigger.IRecognitionStatusCallback"
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 132
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
     .line 133
+    iget-object v1, p0, Landroid/hardware/soundtrigger/IRecognitionStatusCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v2, 0x2
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 136
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 127
+    return-void
+
+    .line 135
+    :catchall_0
+    move-exception v1
+
+    .line 136
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 135
     throw v1
 .end method
 
@@ -277,22 +200,22 @@
     .end annotation
 
     .prologue
-    .line 184
+    .line 144
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 186
+    .line 146
     .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string/jumbo v1, "android.hardware.soundtrigger.IRecognitionStatusCallback"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 187
+    .line 147
     iget-object v1, p0, Landroid/hardware/soundtrigger/IRecognitionStatusCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v2, 0x4
+    const/4 v2, 0x3
 
     const/4 v3, 0x0
 
@@ -302,20 +225,20 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 190
+    .line 150
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 182
+    .line 142
     return-void
 
-    .line 189
+    .line 149
     :catchall_0
     move-exception v1
 
-    .line 190
+    .line 150
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 189
+    .line 149
     throw v1
 .end method
 
@@ -328,22 +251,22 @@
     .end annotation
 
     .prologue
-    .line 198
+    .line 158
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 200
+    .line 160
     .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string/jumbo v1, "android.hardware.soundtrigger.IRecognitionStatusCallback"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 201
+    .line 161
     iget-object v1, p0, Landroid/hardware/soundtrigger/IRecognitionStatusCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v2, 0x5
+    const/4 v2, 0x4
 
     const/4 v3, 0x0
 
@@ -353,19 +276,19 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 204
+    .line 164
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 196
+    .line 156
     return-void
 
-    .line 203
+    .line 163
     :catchall_0
     move-exception v1
 
-    .line 204
+    .line 164
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 203
+    .line 163
     throw v1
 .end method

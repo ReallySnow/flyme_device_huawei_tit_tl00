@@ -39,8 +39,6 @@
 
 .field public statIrqTime:I
 
-.field public statPlatformIdleState:Ljava/lang/String;
-
 .field public statSoftIrqTime:I
 
 .field public statSystemTime:I
@@ -57,13 +55,13 @@
     .locals 0
 
     .prologue
-    .line 1123
+    .line 1001
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1124
+    .line 1002
     invoke-virtual {p0}, Landroid/os/BatteryStats$HistoryStepDetails;->clear()V
 
-    .line 1123
+    .line 1001
     return-void
 .end method
 
@@ -77,24 +75,24 @@
 
     const/4 v0, 0x0
 
-    .line 1128
+    .line 1006
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->systemTime:I
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->userTime:I
 
-    .line 1129
+    .line 1007
     iput v1, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUid3:I
 
     iput v1, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUid2:I
 
     iput v1, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUid1:I
 
-    .line 1131
+    .line 1009
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuSTime3:I
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUTime3:I
 
-    .line 1130
+    .line 1008
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuSTime2:I
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUTime2:I
@@ -103,7 +101,7 @@
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUTime1:I
 
-    .line 1127
+    .line 1005
     return-void
 .end method
 
@@ -112,133 +110,126 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 1156
+    .line 1033
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->userTime:I
 
-    .line 1157
+    .line 1034
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->systemTime:I
 
-    .line 1158
+    .line 1035
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUid1:I
 
-    .line 1159
+    .line 1036
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUTime1:I
 
-    .line 1160
+    .line 1037
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuSTime1:I
 
-    .line 1161
+    .line 1038
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUid2:I
 
-    .line 1162
+    .line 1039
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUTime2:I
 
-    .line 1163
+    .line 1040
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuSTime2:I
 
-    .line 1164
+    .line 1041
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUid3:I
 
-    .line 1165
+    .line 1042
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUTime3:I
 
-    .line 1166
+    .line 1043
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuSTime3:I
 
-    .line 1167
+    .line 1044
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statUserTime:I
 
-    .line 1168
+    .line 1045
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statSystemTime:I
 
-    .line 1169
+    .line 1046
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statIOWaitTime:I
 
-    .line 1170
+    .line 1047
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statIrqTime:I
 
-    .line 1171
+    .line 1048
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statSoftIrqTime:I
 
-    .line 1172
+    .line 1049
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statIdlTime:I
 
-    .line 1173
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statPlatformIdleState:Ljava/lang/String;
-
-    .line 1155
+    .line 1032
     return-void
 .end method
 
@@ -247,96 +238,91 @@
     .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
-    .line 1135
+    .line 1013
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->userTime:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1136
+    .line 1014
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->systemTime:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1137
+    .line 1015
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUid1:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1138
+    .line 1016
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUTime1:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1139
+    .line 1017
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuSTime1:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1140
+    .line 1018
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUid2:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1141
+    .line 1019
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUTime2:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1142
+    .line 1020
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuSTime2:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1143
+    .line 1021
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUid3:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1144
+    .line 1022
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuUTime3:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1145
+    .line 1023
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->appCpuSTime3:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1146
+    .line 1024
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statUserTime:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1147
+    .line 1025
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statSystemTime:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1148
+    .line 1026
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statIOWaitTime:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1149
+    .line 1027
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statIrqTime:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1150
+    .line 1028
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statSoftIrqTime:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1151
+    .line 1029
     iget v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statIdlTime:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1152
-    iget-object v0, p0, Landroid/os/BatteryStats$HistoryStepDetails;->statPlatformIdleState:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 1134
+    .line 1012
     return-void
 .end method

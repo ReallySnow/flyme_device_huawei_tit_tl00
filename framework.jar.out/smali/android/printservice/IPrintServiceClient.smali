@@ -41,14 +41,6 @@
     .end annotation
 .end method
 
-.method public abstract onCustomPrinterIconLoaded(Landroid/print/PrinterId;Landroid/graphics/drawable/Icon;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract onPrintersAdded(Landroid/content/pm/ParceledListSlice;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -74,30 +66,6 @@
 .end method
 
 .method public abstract setPrintJobTag(Landroid/print/PrintJobId;Ljava/lang/String;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setProgress(Landroid/print/PrintJobId;F)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setStatus(Landroid/print/PrintJobId;Ljava/lang/CharSequence;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setStatusRes(Landroid/print/PrintJobId;ILjava/lang/CharSequence;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

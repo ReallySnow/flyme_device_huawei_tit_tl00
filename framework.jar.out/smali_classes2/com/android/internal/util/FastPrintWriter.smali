@@ -41,12 +41,12 @@
     .param p1, "pr"    # Landroid/util/Printer;
 
     .prologue
-    .line 199
+    .line 198
     const/16 v0, 0x200
 
     invoke-direct {p0, p1, v0}, Lcom/android/internal/util/FastPrintWriter;-><init>(Landroid/util/Printer;I)V
 
-    .line 198
+    .line 197
     return-void
 .end method
 
@@ -60,17 +60,17 @@
 
     const/4 v1, 0x0
 
-    .line 216
+    .line 215
     new-instance v0, Lcom/android/internal/util/FastPrintWriter$DummyWriter;
 
     invoke-direct {v0, v1}, Lcom/android/internal/util/FastPrintWriter$DummyWriter;-><init>(Lcom/android/internal/util/FastPrintWriter$DummyWriter;)V
 
     invoke-direct {p0, v0, v2}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;Z)V
 
-    .line 217
+    .line 216
     if-nez p1, :cond_0
 
-    .line 218
+    .line 217
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "pr is null"
@@ -79,41 +79,41 @@
 
     throw v0
 
-    .line 220
+    .line 219
     :cond_0
     iput p2, p0, Lcom/android/internal/util/FastPrintWriter;->mBufferLen:I
 
-    .line 221
+    .line 220
     new-array v0, p2, [C
 
     iput-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->mText:[C
 
-    .line 222
+    .line 221
     iput-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mBytes:Ljava/nio/ByteBuffer;
 
-    .line 223
+    .line 222
     iput-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mOutputStream:Ljava/io/OutputStream;
 
-    .line 224
+    .line 223
     iput-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mWriter:Ljava/io/Writer;
 
-    .line 225
+    .line 224
     iput-object p1, p0, Lcom/android/internal/util/FastPrintWriter;->mPrinter:Landroid/util/Printer;
 
-    .line 226
+    .line 225
     iput-boolean v2, p0, Lcom/android/internal/util/FastPrintWriter;->mAutoFlush:Z
 
-    .line 227
+    .line 226
     invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->mSeparator:Ljava/lang/String;
 
-    .line 228
+    .line 227
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->initDefaultEncoder()V
 
-    .line 215
+    .line 214
     return-void
 .end method
 
@@ -122,14 +122,14 @@
     .param p1, "out"    # Ljava/io/OutputStream;
 
     .prologue
-    .line 65
+    .line 64
     const/4 v0, 0x0
 
     const/16 v1, 0x2000
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/OutputStream;ZI)V
 
-    .line 64
+    .line 63
     return-void
 .end method
 
@@ -139,12 +139,12 @@
     .param p2, "autoFlush"    # Z
 
     .prologue
-    .line 83
+    .line 82
     const/16 v0, 0x2000
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/OutputStream;ZI)V
 
-    .line 82
+    .line 81
     return-void
 .end method
 
@@ -157,17 +157,17 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 104
+    .line 103
     new-instance v0, Lcom/android/internal/util/FastPrintWriter$DummyWriter;
 
     invoke-direct {v0, v1}, Lcom/android/internal/util/FastPrintWriter$DummyWriter;-><init>(Lcom/android/internal/util/FastPrintWriter$DummyWriter;)V
 
     invoke-direct {p0, v0, p2}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;Z)V
 
-    .line 105
+    .line 104
     if-nez p1, :cond_0
 
-    .line 106
+    .line 105
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "out is null"
@@ -176,16 +176,16 @@
 
     throw v0
 
-    .line 108
+    .line 107
     :cond_0
     iput p3, p0, Lcom/android/internal/util/FastPrintWriter;->mBufferLen:I
 
-    .line 109
+    .line 108
     new-array v0, p3, [C
 
     iput-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->mText:[C
 
-    .line 110
+    .line 109
     iget v0, p0, Lcom/android/internal/util/FastPrintWriter;->mBufferLen:I
 
     invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
@@ -194,29 +194,29 @@
 
     iput-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->mBytes:Ljava/nio/ByteBuffer;
 
-    .line 111
+    .line 110
     iput-object p1, p0, Lcom/android/internal/util/FastPrintWriter;->mOutputStream:Ljava/io/OutputStream;
 
-    .line 112
+    .line 111
     iput-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mWriter:Ljava/io/Writer;
 
-    .line 113
+    .line 112
     iput-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mPrinter:Landroid/util/Printer;
 
-    .line 114
+    .line 113
     iput-boolean p2, p0, Lcom/android/internal/util/FastPrintWriter;->mAutoFlush:Z
 
-    .line 115
+    .line 114
     invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->mSeparator:Ljava/lang/String;
 
-    .line 116
+    .line 115
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->initDefaultEncoder()V
 
-    .line 103
+    .line 102
     return-void
 .end method
 
@@ -225,14 +225,14 @@
     .param p1, "wr"    # Ljava/io/Writer;
 
     .prologue
-    .line 134
+    .line 133
     const/4 v0, 0x0
 
     const/16 v1, 0x2000
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;ZI)V
 
-    .line 133
+    .line 132
     return-void
 .end method
 
@@ -242,12 +242,12 @@
     .param p2, "autoFlush"    # Z
 
     .prologue
-    .line 152
+    .line 151
     const/16 v0, 0x2000
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;ZI)V
 
-    .line 151
+    .line 150
     return-void
 .end method
 
@@ -260,17 +260,17 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 173
+    .line 172
     new-instance v0, Lcom/android/internal/util/FastPrintWriter$DummyWriter;
 
     invoke-direct {v0, v1}, Lcom/android/internal/util/FastPrintWriter$DummyWriter;-><init>(Lcom/android/internal/util/FastPrintWriter$DummyWriter;)V
 
     invoke-direct {p0, v0, p2}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;Z)V
 
-    .line 174
+    .line 173
     if-nez p1, :cond_0
 
-    .line 175
+    .line 174
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "wr is null"
@@ -279,41 +279,41 @@
 
     throw v0
 
-    .line 177
+    .line 176
     :cond_0
     iput p3, p0, Lcom/android/internal/util/FastPrintWriter;->mBufferLen:I
 
-    .line 178
+    .line 177
     new-array v0, p3, [C
 
     iput-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->mText:[C
 
-    .line 179
+    .line 178
     iput-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mBytes:Ljava/nio/ByteBuffer;
 
-    .line 180
+    .line 179
     iput-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mOutputStream:Ljava/io/OutputStream;
 
-    .line 181
+    .line 180
     iput-object p1, p0, Lcom/android/internal/util/FastPrintWriter;->mWriter:Ljava/io/Writer;
 
-    .line 182
+    .line 181
     iput-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mPrinter:Landroid/util/Printer;
 
-    .line 183
+    .line 182
     iput-boolean p2, p0, Lcom/android/internal/util/FastPrintWriter;->mAutoFlush:Z
 
-    .line 184
+    .line 183
     invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->mSeparator:Ljava/lang/String;
 
-    .line 185
+    .line 184
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->initDefaultEncoder()V
 
-    .line 172
+    .line 171
     return-void
 .end method
 
@@ -327,10 +327,10 @@
     .end annotation
 
     .prologue
-    .line 282
+    .line 281
     iget v0, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    .line 283
+    .line 282
     .local v0, "pos":I
     iget v1, p0, Lcom/android/internal/util/FastPrintWriter;->mBufferLen:I
 
@@ -338,24 +338,24 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 284
+    .line 283
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->flushLocked()V
 
-    .line 285
+    .line 284
     iget v0, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    .line 287
+    .line 286
     :cond_0
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mText:[C
 
     aput-char p1, v1, v0
 
-    .line 288
+    .line 287
     add-int/lit8 v1, v0, 0x1
 
     iput v1, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    .line 281
+    .line 280
     return-void
 .end method
 
@@ -371,25 +371,25 @@
     .end annotation
 
     .prologue
-    .line 292
+    .line 291
     iget v0, p0, Lcom/android/internal/util/FastPrintWriter;->mBufferLen:I
 
-    .line 293
+    .line 292
     .local v0, "BUFFER_LEN":I
     if-le p3, v0, :cond_2
 
-    .line 294
+    .line 293
     add-int v1, p2, p3
 
-    .line 295
+    .line 294
     .local v1, "end":I
     :goto_0
     if-ge p2, v1, :cond_1
 
-    .line 296
+    .line 295
     add-int v2, p2, v0
 
-    .line 297
+    .line 296
     .local v2, "next":I
     if-ge v2, v1, :cond_0
 
@@ -398,40 +398,40 @@
     :goto_1
     invoke-direct {p0, p1, p2, v4}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(Ljava/lang/String;II)V
 
-    .line 298
+    .line 297
     move p2, v2
 
     goto :goto_0
 
-    .line 297
+    .line 296
     :cond_0
     sub-int v4, v1, p2
 
     goto :goto_1
 
-    .line 300
+    .line 299
     .end local v2    # "next":I
     :cond_1
     return-void
 
-    .line 302
+    .line 301
     .end local v1    # "end":I
     :cond_2
     iget v3, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    .line 303
+    .line 302
     .local v3, "pos":I
     add-int v4, v3, p3
 
     if-le v4, v0, :cond_3
 
-    .line 304
+    .line 303
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->flushLocked()V
 
-    .line 305
+    .line 304
     iget v3, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    .line 307
+    .line 306
     :cond_3
     add-int v4, p2, p3
 
@@ -439,12 +439,12 @@
 
     invoke-virtual {p1, p2, v4, v5, v3}, Ljava/lang/String;->getChars(II[CI)V
 
-    .line 308
+    .line 307
     add-int v4, v3, p3
 
     iput v4, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    .line 291
+    .line 290
     return-void
 .end method
 
@@ -460,25 +460,25 @@
     .end annotation
 
     .prologue
-    .line 312
+    .line 311
     iget v0, p0, Lcom/android/internal/util/FastPrintWriter;->mBufferLen:I
 
-    .line 313
+    .line 312
     .local v0, "BUFFER_LEN":I
     if-le p3, v0, :cond_2
 
-    .line 314
+    .line 313
     add-int v1, p2, p3
 
-    .line 315
+    .line 314
     .local v1, "end":I
     :goto_0
     if-ge p2, v1, :cond_1
 
-    .line 316
+    .line 315
     add-int v2, p2, v0
 
-    .line 317
+    .line 316
     .local v2, "next":I
     if-ge v2, v1, :cond_0
 
@@ -487,51 +487,51 @@
     :goto_1
     invoke-direct {p0, p1, p2, v4}, Lcom/android/internal/util/FastPrintWriter;->appendLocked([CII)V
 
-    .line 318
+    .line 317
     move p2, v2
 
     goto :goto_0
 
-    .line 317
+    .line 316
     :cond_0
     sub-int v4, v1, p2
 
     goto :goto_1
 
-    .line 320
+    .line 319
     .end local v2    # "next":I
     :cond_1
     return-void
 
-    .line 322
+    .line 321
     .end local v1    # "end":I
     :cond_2
     iget v3, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    .line 323
+    .line 322
     .local v3, "pos":I
     add-int v4, v3, p3
 
     if-le v4, v0, :cond_3
 
-    .line 324
+    .line 323
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->flushLocked()V
 
-    .line 325
+    .line 324
     iget v3, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    .line 327
+    .line 326
     :cond_3
     iget-object v4, p0, Lcom/android/internal/util/FastPrintWriter;->mText:[C
 
     invoke-static {p1, p2, v4, v3, p3}, Ljava/lang/System;->arraycopy([CI[CII)V
 
-    .line 328
+    .line 327
     add-int v4, v3, p3
 
     iput v4, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    .line 311
+    .line 310
     return-void
 .end method
 
@@ -547,11 +547,6 @@
     const/4 v3, 0x0
 
     .line 332
-    iget-boolean v1, p0, Lcom/android/internal/util/FastPrintWriter;->mIoError:Z
-
-    if-nez v1, :cond_0
-
-    .line 334
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mBytes:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->position()I
@@ -561,12 +556,12 @@
     .local v0, "position":I
     if-lez v0, :cond_0
 
-    .line 335
+    .line 333
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mBytes:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
-    .line 336
+    .line 334
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mOutputStream:Ljava/io/OutputStream;
 
     iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->mBytes:Ljava/nio/ByteBuffer;
@@ -577,13 +572,12 @@
 
     invoke-virtual {v1, v2, v3, v0}, Ljava/io/OutputStream;->write([BII)V
 
-    .line 337
+    .line 335
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mBytes:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
-    .line 331
-    .end local v0    # "position":I
+    .line 330
     :cond_0
     return-void
 .end method
@@ -601,17 +595,17 @@
 
     const/4 v9, 0x0
 
-    .line 344
+    .line 341
     iget v5, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    if-lez v5, :cond_3
+    if-lez v5, :cond_2
 
-    .line 345
+    .line 342
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mOutputStream:Ljava/io/OutputStream;
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_3
 
-    .line 346
+    .line 343
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mText:[C
 
     iget v6, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
@@ -620,7 +614,7 @@
 
     move-result-object v0
 
-    .line 347
+    .line 344
     .local v0, "charBuffer":Ljava/nio/CharBuffer;
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mCharset:Ljava/nio/charset/CharsetEncoder;
 
@@ -630,21 +624,16 @@
 
     move-result-object v3
 
-    .line 348
+    .line 346
     .local v3, "result":Ljava/nio/charset/CoderResult;
     :goto_0
-    iget-boolean v5, p0, Lcom/android/internal/util/FastPrintWriter;->mIoError:Z
-
-    if-nez v5, :cond_1
-
-    .line 349
     invoke-virtual {v3}, Ljava/nio/charset/CoderResult;->isError()Z
 
     move-result v5
 
     if-eqz v5, :cond_0
 
-    .line 350
+    .line 347
     new-instance v5, Ljava/io/IOException;
 
     invoke-virtual {v3}, Ljava/nio/charset/CoderResult;->toString()Ljava/lang/String;
@@ -655,7 +644,7 @@
 
     throw v5
 
-    .line 351
+    .line 348
     :cond_0
     invoke-virtual {v3}, Ljava/nio/charset/CoderResult;->isOverflow()Z
 
@@ -663,10 +652,10 @@
 
     if-eqz v5, :cond_1
 
-    .line 352
+    .line 349
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->flushBytesLocked()V
 
-    .line 353
+    .line 350
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mCharset:Ljava/nio/charset/CharsetEncoder;
 
     iget-object v6, p0, Lcom/android/internal/util/FastPrintWriter;->mBytes:Ljava/nio/ByteBuffer;
@@ -677,43 +666,32 @@
 
     goto :goto_0
 
-    .line 358
+    .line 355
     :cond_1
-    iget-boolean v5, p0, Lcom/android/internal/util/FastPrintWriter;->mIoError:Z
-
-    if-nez v5, :cond_2
-
-    .line 359
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->flushBytesLocked()V
 
-    .line 360
+    .line 356
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mOutputStream:Ljava/io/OutputStream;
 
     invoke-virtual {v5}, Ljava/io/OutputStream;->flush()V
 
-    .line 381
+    .line 374
     .end local v0    # "charBuffer":Ljava/nio/CharBuffer;
     .end local v3    # "result":Ljava/nio/charset/CoderResult;
-    :cond_2
     :goto_1
     iput v9, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    .line 342
-    :cond_3
+    .line 339
+    :cond_2
     return-void
 
-    .line 362
-    :cond_4
+    .line 357
+    :cond_3
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mWriter:Ljava/io/Writer;
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_4
 
-    .line 363
-    iget-boolean v5, p0, Lcom/android/internal/util/FastPrintWriter;->mIoError:Z
-
-    if-nez v5, :cond_2
-
-    .line 364
+    .line 358
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mWriter:Ljava/io/Writer;
 
     iget-object v6, p0, Lcom/android/internal/util/FastPrintWriter;->mText:[C
@@ -722,18 +700,18 @@
 
     invoke-virtual {v5, v6, v9, v7}, Ljava/io/Writer;->write([CII)V
 
-    .line 365
+    .line 359
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mWriter:Ljava/io/Writer;
 
     invoke-virtual {v5}, Ljava/io/Writer;->flush()V
 
     goto :goto_1
 
-    .line 368
-    :cond_5
+    .line 361
+    :cond_4
     const/4 v2, 0x0
 
-    .line 369
+    .line 362
     .local v2, "nonEolOff":I
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mSeparator:Ljava/lang/String;
 
@@ -741,18 +719,18 @@
 
     move-result v4
 
-    .line 370
+    .line 363
     .local v4, "sepLen":I
     iget v5, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    if-ge v4, v5, :cond_6
+    if-ge v4, v5, :cond_5
 
     move v1, v4
 
-    .line 371
+    .line 364
     .local v1, "len":I
     :goto_2
-    if-ge v2, v1, :cond_7
+    if-ge v2, v1, :cond_6
 
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mText:[C
 
@@ -764,7 +742,7 @@
 
     aget-char v5, v5, v6
 
-    .line 372
+    .line 365
     iget-object v6, p0, Lcom/android/internal/util/FastPrintWriter;->mSeparator:Ljava/lang/String;
 
     iget-object v7, p0, Lcom/android/internal/util/FastPrintWriter;->mSeparator:Ljava/lang/String;
@@ -781,29 +759,29 @@
 
     move-result v6
 
-    .line 371
-    if-ne v5, v6, :cond_7
+    .line 364
+    if-ne v5, v6, :cond_6
 
-    .line 373
+    .line 366
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    .line 370
+    .line 363
     .end local v1    # "len":I
-    :cond_6
+    :cond_5
     iget v1, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
     .restart local v1    # "len":I
     goto :goto_2
 
-    .line 375
-    :cond_7
+    .line 368
+    :cond_6
     iget v5, p0, Lcom/android/internal/util/FastPrintWriter;->mPos:I
 
-    if-lt v2, v5, :cond_8
+    if-lt v2, v5, :cond_7
 
-    .line 376
+    .line 369
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mPrinter:Landroid/util/Printer;
 
     const-string/jumbo v6, ""
@@ -812,8 +790,8 @@
 
     goto :goto_1
 
-    .line 378
-    :cond_8
+    .line 371
+    :cond_7
     iget-object v5, p0, Lcom/android/internal/util/FastPrintWriter;->mPrinter:Landroid/util/Printer;
 
     new-instance v6, Ljava/lang/String;
@@ -835,7 +813,7 @@
     .locals 2
 
     .prologue
-    .line 276
+    .line 275
     invoke-static {}, Ljava/nio/charset/Charset;->defaultCharset()Ljava/nio/charset/Charset;
 
     move-result-object v0
@@ -846,21 +824,21 @@
 
     iput-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->mCharset:Ljava/nio/charset/CharsetEncoder;
 
-    .line 277
+    .line 276
     iget-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->mCharset:Ljava/nio/charset/CharsetEncoder;
 
     sget-object v1, Ljava/nio/charset/CodingErrorAction;->REPLACE:Ljava/nio/charset/CodingErrorAction;
 
     invoke-virtual {v0, v1}, Ljava/nio/charset/CharsetEncoder;->onMalformedInput(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetEncoder;
 
-    .line 278
+    .line 277
     iget-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->mCharset:Ljava/nio/charset/CharsetEncoder;
 
     sget-object v1, Ljava/nio/charset/CodingErrorAction;->REPLACE:Ljava/nio/charset/CodingErrorAction;
 
     invoke-virtual {v0, v1}, Ljava/nio/charset/CharsetEncoder;->onUnmappableCharacter(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetEncoder;
 
-    .line 275
+    .line 274
     return-void
 .end method
 
@@ -874,7 +852,7 @@
     .end annotation
 
     .prologue
-    .line 233
+    .line 232
     :try_start_0
     invoke-static {p1}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
@@ -888,28 +866,28 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 237
+    .line 236
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mCharset:Ljava/nio/charset/CharsetEncoder;
 
     sget-object v2, Ljava/nio/charset/CodingErrorAction;->REPLACE:Ljava/nio/charset/CodingErrorAction;
 
     invoke-virtual {v1, v2}, Ljava/nio/charset/CharsetEncoder;->onMalformedInput(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetEncoder;
 
-    .line 238
+    .line 237
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mCharset:Ljava/nio/charset/CharsetEncoder;
 
     sget-object v2, Ljava/nio/charset/CodingErrorAction;->REPLACE:Ljava/nio/charset/CodingErrorAction;
 
     invoke-virtual {v1, v2}, Ljava/nio/charset/CharsetEncoder;->onUnmappableCharacter(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetEncoder;
 
-    .line 231
+    .line 230
     return-void
 
-    .line 234
+    .line 233
     :catch_0
     move-exception v0
 
-    .line 235
+    .line 234
     .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/io/UnsupportedEncodingException;
 
@@ -927,13 +905,13 @@
     .param p3, "end"    # I
 
     .prologue
-    .line 679
+    .line 654
     if-nez p1, :cond_0
 
-    .line 680
+    .line 655
     const-string/jumbo p1, "null"
 
-    .line 682
+    .line 657
     :cond_0
     invoke-interface {p1, p2, p3}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
@@ -943,7 +921,7 @@
 
     move-result-object v0
 
-    .line 683
+    .line 658
     .local v0, "output":Ljava/lang/String;
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -953,43 +931,23 @@
 
     invoke-virtual {p0, v0, v2, v1}, Lcom/android/internal/util/FastPrintWriter;->write(Ljava/lang/String;II)V
 
-    .line 684
+    .line 659
     return-object p0
-.end method
-
-.method public bridge synthetic append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
-    .locals 1
-    .param p1, "csq"    # Ljava/lang/CharSequence;
-    .param p2, "start"    # I
-    .param p3, "end"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 678
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/internal/util/FastPrintWriter;->append(Ljava/lang/CharSequence;II)Ljava/io/PrintWriter;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public checkError()Z
     .locals 2
 
     .prologue
-    .line 250
+    .line 249
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->flush()V
 
-    .line 251
+    .line 250
     iget-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 252
+    .line 251
     :try_start_0
     iget-boolean v1, p0, Lcom/android/internal/util/FastPrintWriter;->mIoError:Z
     :try_end_0
@@ -999,7 +957,7 @@
 
     return v1
 
-    .line 251
+    .line 250
     :catchall_0
     move-exception v1
 
@@ -1012,12 +970,12 @@
     .locals 2
 
     .prologue
-    .line 261
+    .line 260
     iget-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 262
+    .line 261
     const/4 v1, 0x0
 
     :try_start_0
@@ -1027,10 +985,10 @@
 
     monitor-exit v0
 
-    .line 260
+    .line 259
     return-void
 
-    .line 261
+    .line 260
     :catchall_0
     move-exception v1
 
@@ -1040,24 +998,24 @@
 .end method
 
 .method public close()V
-    .locals 4
+    .locals 3
 
     .prologue
-    .line 411
+    .line 401
     iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 413
+    .line 403
     :try_start_0
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->flushLocked()V
 
-    .line 414
+    .line 404
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mOutputStream:Ljava/io/OutputStream;
 
     if-eqz v1, :cond_1
 
-    .line 415
+    .line 405
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mOutputStream:Ljava/io/OutputStream;
 
     invoke-virtual {v1}, Ljava/io/OutputStream;->close()V
@@ -1069,17 +1027,17 @@
     :goto_0
     monitor-exit v2
 
-    .line 410
+    .line 400
     return-void
 
-    .line 416
+    .line 406
     :cond_1
     :try_start_1
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mWriter:Ljava/io/Writer;
 
     if-eqz v1, :cond_0
 
-    .line 417
+    .line 407
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mWriter:Ljava/io/Writer;
 
     invoke-virtual {v1}, Ljava/io/Writer;->close()V
@@ -1089,27 +1047,20 @@
 
     goto :goto_0
 
-    .line 419
+    .line 409
     :catch_0
     move-exception v0
 
-    .line 420
+    .line 410
     .local v0, "e":Ljava/io/IOException;
     :try_start_2
-    const-string/jumbo v1, "FastPrintWriter"
-
-    const-string/jumbo v3, "Write failure"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 421
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
-    .line 411
+    .line 401
     .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v1
@@ -1120,29 +1071,24 @@
 .end method
 
 .method public flush()V
-    .locals 4
+    .locals 3
 
     .prologue
-    .line 392
+    .line 385
     iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 394
+    .line 387
     :try_start_0
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->flushLocked()V
 
-    .line 395
-    iget-boolean v1, p0, Lcom/android/internal/util/FastPrintWriter;->mIoError:Z
-
-    if-nez v1, :cond_0
-
-    .line 396
+    .line 388
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mOutputStream:Ljava/io/OutputStream;
 
     if-eqz v1, :cond_1
 
-    .line 397
+    .line 389
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mOutputStream:Ljava/io/OutputStream;
 
     invoke-virtual {v1}, Ljava/io/OutputStream;->flush()V
@@ -1154,17 +1100,17 @@
     :goto_0
     monitor-exit v2
 
-    .line 391
+    .line 384
     return-void
 
-    .line 398
+    .line 390
     :cond_1
     :try_start_1
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mWriter:Ljava/io/Writer;
 
     if-eqz v1, :cond_0
 
-    .line 399
+    .line 391
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mWriter:Ljava/io/Writer;
 
     invoke-virtual {v1}, Ljava/io/Writer;->flush()V
@@ -1174,27 +1120,20 @@
 
     goto :goto_0
 
-    .line 402
+    .line 393
     :catch_0
     move-exception v0
 
-    .line 403
+    .line 394
     .local v0, "e":Ljava/io/IOException;
     :try_start_2
-    const-string/jumbo v1, "FastPrintWriter"
-
-    const-string/jumbo v3, "Write failure"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 404
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
-    .line 392
+    .line 385
     .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v1
@@ -1205,16 +1144,16 @@
 .end method
 
 .method public print(C)V
-    .locals 4
+    .locals 3
     .param p1, "ch"    # C
 
     .prologue
-    .line 454
-    iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
+    .line 441
+    iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
 
-    .line 456
+    .line 443
     :try_start_0
     invoke-direct {p0, p1}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(C)V
     :try_end_0
@@ -1222,39 +1161,26 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
-    monitor-exit v2
+    monitor-exit v1
 
-    .line 453
+    .line 440
     return-void
 
-    .line 457
+    .line 444
     :catch_0
     move-exception v0
 
-    .line 458
     .local v0, "e":Ljava/io/IOException;
-    :try_start_1
-    const-string/jumbo v1, "FastPrintWriter"
-
-    const-string/jumbo v3, "Write failure"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 459
-    invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
     goto :goto_0
 
-    .line 454
+    .line 441
     .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
-    move-exception v1
+    move-exception v2
 
-    monitor-exit v2
+    monitor-exit v1
 
-    throw v1
+    throw v2
 .end method
 
 .method public print(I)V
@@ -1262,19 +1188,19 @@
     .param p1, "inum"    # I
 
     .prologue
-    .line 492
+    .line 476
     if-nez p1, :cond_0
 
-    .line 493
+    .line 477
     const-string/jumbo v0, "0"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/util/FastPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 491
+    .line 475
     :goto_0
     return-void
 
-    .line 495
+    .line 479
     :cond_0
     invoke-super {p0, p1}, Ljava/io/PrintWriter;->print(I)V
 
@@ -1286,23 +1212,23 @@
     .param p1, "lnum"    # J
 
     .prologue
-    .line 501
+    .line 485
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-nez v0, :cond_0
 
-    .line 502
+    .line 486
     const-string/jumbo v0, "0"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/util/FastPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 500
+    .line 484
     :goto_0
     return-void
 
-    .line 504
+    .line 488
     :cond_0
     invoke-super {p0, p1, p2}, Ljava/io/PrintWriter;->print(J)V
 
@@ -1316,23 +1242,23 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 476
+    .line 461
     if-nez p1, :cond_0
 
-    .line 477
+    .line 462
     check-cast v1, Ljava/lang/Object;
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 479
+    .line 464
     :cond_0
     iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 481
+    .line 466
     :try_start_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -1348,30 +1274,23 @@
     :goto_0
     monitor-exit v2
 
-    .line 475
+    .line 460
     return-void
 
-    .line 482
+    .line 467
     :catch_0
     move-exception v0
 
-    .line 483
+    .line 468
     .local v0, "e":Ljava/io/IOException;
     :try_start_1
-    const-string/jumbo v1, "FastPrintWriter"
-
-    const-string/jumbo v3, "Write failure"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 484
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    .line 479
+    .line 464
     .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v1
@@ -1386,12 +1305,12 @@
     .param p1, "charArray"    # [C
 
     .prologue
-    .line 435
+    .line 424
     iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 437
+    .line 426
     :try_start_0
     array-length v1, p1
 
@@ -1405,49 +1324,35 @@
     :goto_0
     monitor-exit v2
 
-    .line 434
+    .line 423
     return-void
 
-    .line 438
-    :catch_0
-    move-exception v0
-
-    .line 439
-    .local v0, "e":Ljava/io/IOException;
-    :try_start_1
-    const-string/jumbo v1, "FastPrintWriter"
-
-    const-string/jumbo v3, "Write failure"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 440
-    invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    .line 435
-    .end local v0    # "e":Ljava/io/IOException;
+    .line 424
     :catchall_0
     move-exception v1
 
     monitor-exit v2
 
     throw v1
+
+    .line 427
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Ljava/io/IOException;
+    goto :goto_0
 .end method
 
 .method public println()V
     .locals 5
 
     .prologue
-    .line 512
+    .line 496
     iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 514
+    .line 498
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->mSeparator:Ljava/lang/String;
 
@@ -1461,12 +1366,12 @@
 
     invoke-direct {p0, v1, v4, v3}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(Ljava/lang/String;II)V
 
-    .line 515
+    .line 499
     iget-boolean v1, p0, Lcom/android/internal/util/FastPrintWriter;->mAutoFlush:Z
 
     if-eqz v1, :cond_0
 
-    .line 516
+    .line 500
     invoke-direct {p0}, Lcom/android/internal/util/FastPrintWriter;->flushLocked()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
@@ -1476,30 +1381,23 @@
     :goto_0
     monitor-exit v2
 
-    .line 511
+    .line 495
     return-void
 
-    .line 518
+    .line 502
     :catch_0
     move-exception v0
 
-    .line 519
+    .line 503
     .local v0, "e":Ljava/io/IOException;
     :try_start_1
-    const-string/jumbo v1, "FastPrintWriter"
-
-    const-string/jumbo v3, "Write failure"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 520
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    .line 512
+    .line 496
     .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v1
@@ -1514,13 +1412,13 @@
     .param p1, "c"    # C
 
     .prologue
-    .line 557
+    .line 540
     invoke-virtual {p0, p1}, Lcom/android/internal/util/FastPrintWriter;->print(C)V
 
-    .line 558
+    .line 541
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->println()V
 
-    .line 556
+    .line 539
     return-void
 .end method
 
@@ -1529,19 +1427,19 @@
     .param p1, "inum"    # I
 
     .prologue
-    .line 527
+    .line 510
     if-nez p1, :cond_0
 
-    .line 528
+    .line 511
     const-string/jumbo v0, "0"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/util/FastPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 526
+    .line 509
     :goto_0
     return-void
 
-    .line 530
+    .line 513
     :cond_0
     invoke-super {p0, p1}, Ljava/io/PrintWriter;->println(I)V
 
@@ -1553,23 +1451,23 @@
     .param p1, "lnum"    # J
 
     .prologue
-    .line 536
+    .line 519
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-nez v0, :cond_0
 
-    .line 537
+    .line 520
     const-string/jumbo v0, "0"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/util/FastPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 535
+    .line 518
     :goto_0
     return-void
 
-    .line 539
+    .line 522
     :cond_0
     invoke-super {p0, p1, p2}, Ljava/io/PrintWriter;->println(J)V
 
@@ -1581,13 +1479,13 @@
     .param p1, "chars"    # [C
 
     .prologue
-    .line 548
+    .line 531
     invoke-virtual {p0, p1}, Lcom/android/internal/util/FastPrintWriter;->print([C)V
 
-    .line 549
+    .line 532
     invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->println()V
 
-    .line 547
+    .line 530
     return-void
 .end method
 
@@ -1595,12 +1493,12 @@
     .locals 2
 
     .prologue
-    .line 270
+    .line 269
     iget-object v0, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 271
+    .line 270
     const/4 v1, 0x1
 
     :try_start_0
@@ -1610,10 +1508,10 @@
 
     monitor-exit v0
 
-    .line 269
+    .line 268
     return-void
 
-    .line 270
+    .line 269
     :catchall_0
     move-exception v1
 
@@ -1623,58 +1521,45 @@
 .end method
 
 .method public write(I)V
-    .locals 4
+    .locals 3
     .param p1, "oneChar"    # I
 
     .prologue
-    .line 602
-    iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
+    .line 583
+    iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
 
-    .line 604
-    int-to-char v1, p1
+    .line 585
+    int-to-char v2, p1
 
     :try_start_0
-    invoke-direct {p0, v1}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(C)V
+    invoke-direct {p0, v2}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(C)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
-    monitor-exit v2
+    monitor-exit v1
 
-    .line 601
+    .line 582
     return-void
 
-    .line 605
+    .line 586
     :catch_0
     move-exception v0
 
-    .line 606
     .local v0, "e":Ljava/io/IOException;
-    :try_start_1
-    const-string/jumbo v1, "FastPrintWriter"
-
-    const-string/jumbo v3, "Write failure"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 607
-    invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
     goto :goto_0
 
-    .line 602
+    .line 583
     .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
-    move-exception v1
+    move-exception v2
 
-    monitor-exit v2
+    monitor-exit v1
 
-    throw v1
+    throw v2
 .end method
 
 .method public write(Ljava/lang/String;)V
@@ -1682,12 +1567,12 @@
     .param p1, "str"    # Ljava/lang/String;
 
     .prologue
-    .line 620
+    .line 599
     iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 622
+    .line 601
     :try_start_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -1703,52 +1588,38 @@
     :goto_0
     monitor-exit v2
 
-    .line 619
+    .line 598
     return-void
 
-    .line 623
-    :catch_0
-    move-exception v0
-
-    .line 624
-    .local v0, "e":Ljava/io/IOException;
-    :try_start_1
-    const-string/jumbo v1, "FastPrintWriter"
-
-    const-string/jumbo v3, "Write failure"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 625
-    invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    .line 620
-    .end local v0    # "e":Ljava/io/IOException;
+    .line 599
     :catchall_0
     move-exception v1
 
     monitor-exit v2
 
     throw v1
+
+    .line 602
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Ljava/io/IOException;
+    goto :goto_0
 .end method
 
 .method public write(Ljava/lang/String;II)V
-    .locals 4
+    .locals 3
     .param p1, "str"    # Ljava/lang/String;
     .param p2, "offset"    # I
     .param p3, "count"    # I
 
     .prologue
-    .line 646
-    iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
+    .line 623
+    iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
 
-    .line 648
+    .line 625
     :try_start_0
     invoke-direct {p0, p1, p2, p3}, Lcom/android/internal/util/FastPrintWriter;->appendLocked(Ljava/lang/String;II)V
     :try_end_0
@@ -1756,54 +1627,41 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
-    monitor-exit v2
+    monitor-exit v1
 
-    .line 645
+    .line 622
     return-void
 
-    .line 649
+    .line 626
     :catch_0
     move-exception v0
 
-    .line 650
     .local v0, "e":Ljava/io/IOException;
-    :try_start_1
-    const-string/jumbo v1, "FastPrintWriter"
-
-    const-string/jumbo v3, "Write failure"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 651
-    invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
     goto :goto_0
 
-    .line 646
+    .line 623
     .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
-    move-exception v1
+    move-exception v2
 
-    monitor-exit v2
+    monitor-exit v1
 
-    throw v1
+    throw v2
 .end method
 
 .method public write([CII)V
-    .locals 4
+    .locals 3
     .param p1, "buf"    # [C
     .param p2, "offset"    # I
     .param p3, "count"    # I
 
     .prologue
-    .line 580
-    iget-object v2, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
+    .line 563
+    iget-object v1, p0, Lcom/android/internal/util/FastPrintWriter;->lock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
 
-    .line 582
+    .line 565
     :try_start_0
     invoke-direct {p0, p1, p2, p3}, Lcom/android/internal/util/FastPrintWriter;->appendLocked([CII)V
     :try_end_0
@@ -1811,37 +1669,24 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
-    monitor-exit v2
+    monitor-exit v1
 
-    .line 579
+    .line 562
     return-void
 
-    .line 583
+    .line 566
     :catch_0
     move-exception v0
 
-    .line 584
     .local v0, "e":Ljava/io/IOException;
-    :try_start_1
-    const-string/jumbo v1, "FastPrintWriter"
-
-    const-string/jumbo v3, "Write failure"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 585
-    invoke-virtual {p0}, Lcom/android/internal/util/FastPrintWriter;->setError()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
     goto :goto_0
 
-    .line 580
+    .line 563
     .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
-    move-exception v1
+    move-exception v2
 
-    monitor-exit v2
+    monitor-exit v1
 
-    throw v1
+    throw v2
 .end method

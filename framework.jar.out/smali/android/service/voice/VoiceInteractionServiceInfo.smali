@@ -22,8 +22,6 @@
 
 .field private mSupportsLaunchFromKeyguard:Z
 
-.field private mSupportsLocalInteraction:Z
-
 
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;)V
@@ -37,7 +35,7 @@
     .end annotation
 
     .prologue
-    .line 52
+    .line 51
     const/16 v0, 0x80
 
     invoke-virtual {p1, p2, v0}, Landroid/content/pm/PackageManager;->getServiceInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
@@ -46,30 +44,39 @@
 
     invoke-direct {p0, p1, v0}, Landroid/service/voice/VoiceInteractionServiceInfo;-><init>(Landroid/content/pm/PackageManager;Landroid/content/pm/ServiceInfo;)V
 
-    .line 51
+    .line 50
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;I)V
-    .locals 1
+    .locals 2
     .param p1, "pm"    # Landroid/content/pm/PackageManager;
     .param p2, "comp"    # Landroid/content/ComponentName;
     .param p3, "userHandle"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;
+            Landroid/content/pm/PackageManager$NameNotFoundException;,
+            Landroid/os/RemoteException;
         }
     .end annotation
 
     .prologue
+    .line 56
+    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
+
+    move-result-object v0
+
     .line 57
-    invoke-static {p2, p3}, Landroid/service/voice/VoiceInteractionServiceInfo;->getServiceInfoOrThrow(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
+    const/16 v1, 0x80
+
+    .line 56
+    invoke-interface {v0, p2, v1, p3}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ServiceInfo;
 
     move-result-object v0
 
     invoke-direct {p0, p1, v0}, Landroid/service/voice/VoiceInteractionServiceInfo;-><init>(Landroid/content/pm/PackageManager;Landroid/content/pm/ServiceInfo;)V
 
-    .line 56
+    .line 55
     return-void
 .end method
 
@@ -83,21 +90,21 @@
 
     const/4 v11, 0x1
 
-    .line 77
+    .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 78
+    .line 61
     if-nez p2, :cond_0
 
-    .line 79
+    .line 62
     const-string/jumbo v9, "Service not available"
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mParseError:Ljava/lang/String;
 
-    .line 80
+    .line 63
     return-void
 
-    .line 82
+    .line 65
     :cond_0
     const-string/jumbo v9, "android.permission.BIND_VOICE_INTERACTION"
 
@@ -109,19 +116,19 @@
 
     if-nez v9, :cond_1
 
-    .line 83
+    .line 66
     const-string/jumbo v9, "Service does not require permission android.permission.BIND_VOICE_INTERACTION"
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mParseError:Ljava/lang/String;
 
-    .line 85
+    .line 68
     return-void
 
-    .line 88
+    .line 71
     :cond_1
     const/4 v6, 0x0
 
-    .line 90
+    .line 73
     .local v6, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     const-string/jumbo v9, "android.voice_interaction"
@@ -130,11 +137,11 @@
 
     move-result-object v6
 
-    .line 91
+    .line 74
     .local v6, "parser":Landroid/content/res/XmlResourceParser;
     if-nez v6, :cond_3
 
-    .line 92
+    .line 75
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -145,10 +152,10 @@
 
     move-result-object v9
 
-    .line 93
+    .line 76
     iget-object v10, p2, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
-    .line 92
+    .line 75
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v9
@@ -164,16 +171,16 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 150
+    .line 131
     if-eqz v6, :cond_2
 
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 94
+    .line 77
     :cond_2
     return-void
 
-    .line 97
+    .line 80
     :cond_3
     :try_start_1
     iget-object v9, p2, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -182,13 +189,13 @@
 
     move-result-object v7
 
-    .line 99
+    .line 82
     .local v7, "res":Landroid/content/res/Resources;
     invoke-static {v6}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v1
 
-    .line 102
+    .line 85
     .local v1, "attrs":Landroid/util/AttributeSet;
     :cond_4
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->next()I
@@ -198,16 +205,16 @@
     .local v8, "type":I
     if-eq v8, v11, :cond_5
 
-    .line 103
+    .line 86
     if-ne v8, v12, :cond_4
 
-    .line 106
+    .line 89
     :cond_5
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 107
+    .line 90
     .local v5, "nodeName":Ljava/lang/String;
     const-string/jumbo v9, "voice-interaction-service"
 
@@ -217,7 +224,7 @@
 
     if-nez v9, :cond_7
 
-    .line 108
+    .line 91
     const-string/jumbo v9, "Meta-data does not start with voice-interaction-service tag"
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mParseError:Ljava/lang/String;
@@ -227,104 +234,91 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 150
+    .line 131
     if-eqz v6, :cond_6
 
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 109
+    .line 92
     :cond_6
     return-void
 
-    .line 113
+    .line 96
     :cond_7
     :try_start_2
     sget-object v9, Lcom/android/internal/R$styleable;->VoiceInteractionService:[I
 
-    .line 112
+    .line 95
     invoke-virtual {v7, v1, v9}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 115
+    .line 98
     .local v0, "array":Landroid/content/res/TypedArray;
     const/4 v9, 0x1
 
-    .line 114
+    .line 97
     invoke-virtual {v0, v9}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v9
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSessionService:Ljava/lang/String;
 
-    .line 117
+    .line 100
     const/4 v9, 0x2
 
-    .line 116
+    .line 99
     invoke-virtual {v0, v9}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v9
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mRecognitionService:Ljava/lang/String;
 
-    .line 119
+    .line 102
     const/4 v9, 0x0
 
-    .line 118
+    .line 101
     invoke-virtual {v0, v9}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v9
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSettingsActivity:Ljava/lang/String;
 
-    .line 121
+    .line 104
     const/4 v9, 0x3
 
-    .line 122
+    .line 105
     const/4 v10, 0x0
 
-    .line 120
+    .line 103
     invoke-virtual {v0, v9, v10}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v9
 
     iput-boolean v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSupportsAssist:Z
 
-    .line 123
+    .line 106
     const/4 v9, 0x4
 
-    .line 125
+    .line 108
     const/4 v10, 0x0
 
-    .line 123
+    .line 106
     invoke-virtual {v0, v9, v10}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v9
 
     iput-boolean v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSupportsLaunchFromKeyguard:Z
 
-    .line 126
-    const/4 v9, 0x5
-
-    .line 127
-    const/4 v10, 0x0
-
-    .line 126
-    invoke-virtual {v0, v9, v10}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-
-    move-result v9
-
-    iput-boolean v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSupportsLocalInteraction:Z
-
-    .line 128
+    .line 109
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 129
+    .line 110
     iget-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSessionService:Ljava/lang/String;
 
     if-nez v9, :cond_9
 
-    .line 130
+    .line 111
     const-string/jumbo v9, "No sessionService specified"
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mParseError:Ljava/lang/String;
@@ -334,23 +328,23 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 150
+    .line 131
     if-eqz v6, :cond_8
 
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 131
+    .line 112
     :cond_8
     return-void
 
-    .line 133
+    .line 114
     :cond_9
     :try_start_3
     iget-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mRecognitionService:Ljava/lang/String;
 
     if-nez v9, :cond_b
 
-    .line 134
+    .line 115
     const-string/jumbo v9, "No recognitionService specified"
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mParseError:Ljava/lang/String;
@@ -360,29 +354,29 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 150
+    .line 131
     if-eqz v6, :cond_a
 
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 135
+    .line 116
     :cond_a
     return-void
 
-    .line 150
+    .line 131
     :cond_b
     if-eqz v6, :cond_c
 
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 152
+    .line 133
     :cond_c
     iput-object p2, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mServiceInfo:Landroid/content/pm/ServiceInfo;
 
-    .line 77
+    .line 60
     return-void
 
-    .line 145
+    .line 126
     .end local v0    # "array":Landroid/content/res/TypedArray;
     .end local v1    # "attrs":Landroid/util/AttributeSet;
     .end local v5    # "nodeName":Ljava/lang/String;
@@ -392,7 +386,7 @@
     :catch_0
     move-exception v2
 
-    .line 146
+    .line 127
     .local v2, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_4
     new-instance v9, Ljava/lang/StringBuilder;
@@ -415,7 +409,7 @@
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mParseError:Ljava/lang/String;
 
-    .line 147
+    .line 128
     const-string/jumbo v9, "VoiceInteractionServiceInfo"
 
     const-string/jumbo v10, "error parsing voice interaction service meta-data"
@@ -424,21 +418,21 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 150
+    .line 131
     if-eqz v6, :cond_d
 
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 148
+    .line 129
     :cond_d
     return-void
 
-    .line 141
+    .line 122
     .end local v2    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :catch_1
     move-exception v3
 
-    .line 142
+    .line 123
     .local v3, "e":Ljava/io/IOException;
     :try_start_5
     new-instance v9, Ljava/lang/StringBuilder;
@@ -461,7 +455,7 @@
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mParseError:Ljava/lang/String;
 
-    .line 143
+    .line 124
     const-string/jumbo v9, "VoiceInteractionServiceInfo"
 
     const-string/jumbo v10, "error parsing voice interaction service meta-data"
@@ -470,21 +464,21 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 150
+    .line 131
     if-eqz v6, :cond_e
 
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 144
+    .line 125
     :cond_e
     return-void
 
-    .line 137
+    .line 118
     .end local v3    # "e":Ljava/io/IOException;
     :catch_2
     move-exception v4
 
-    .line 138
+    .line 119
     .local v4, "e":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_6
     new-instance v9, Ljava/lang/StringBuilder;
@@ -507,7 +501,7 @@
 
     iput-object v9, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mParseError:Ljava/lang/String;
 
-    .line 139
+    .line 120
     const-string/jumbo v9, "VoiceInteractionServiceInfo"
 
     const-string/jumbo v10, "error parsing voice interaction service meta-data"
@@ -516,80 +510,28 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    .line 150
+    .line 131
     if-eqz v6, :cond_f
 
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 140
+    .line 121
     :cond_f
     return-void
 
-    .line 149
+    .line 130
     .end local v4    # "e":Lorg/xmlpull/v1/XmlPullParserException;
     :catchall_0
     move-exception v9
 
-    .line 150
+    .line 131
     if-eqz v6, :cond_10
 
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 149
+    .line 130
     :cond_10
     throw v9
-.end method
-
-.method static getServiceInfoOrThrow(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
-    .locals 4
-    .param p0, "comp"    # Landroid/content/ComponentName;
-    .param p1, "userHandle"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;
-        }
-    .end annotation
-
-    .prologue
-    .line 63
-    :try_start_0
-    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
-
-    move-result-object v2
-
-    .line 64
-    const v3, 0x100c0080
-
-    .line 63
-    invoke-interface {v2, p0, v3, p1}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ServiceInfo;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 69
-    .local v1, "si":Landroid/content/pm/ServiceInfo;
-    if-eqz v1, :cond_0
-
-    .line 70
-    return-object v1
-
-    .line 72
-    .end local v1    # "si":Landroid/content/pm/ServiceInfo;
-    :catch_0
-    move-exception v0
-
-    .line 74
-    :cond_0
-    new-instance v2, Landroid/content/pm/PackageManager$NameNotFoundException;
-
-    invoke-virtual {p0}, Landroid/content/ComponentName;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Landroid/content/pm/PackageManager$NameNotFoundException;-><init>(Ljava/lang/String;)V
-
-    throw v2
 .end method
 
 
@@ -598,7 +540,7 @@
     .locals 1
 
     .prologue
-    .line 156
+    .line 137
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mParseError:Ljava/lang/String;
 
     return-object v0
@@ -608,7 +550,7 @@
     .locals 1
 
     .prologue
-    .line 168
+    .line 149
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mRecognitionService:Ljava/lang/String;
 
     return-object v0
@@ -618,7 +560,7 @@
     .locals 1
 
     .prologue
-    .line 160
+    .line 141
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mServiceInfo:Landroid/content/pm/ServiceInfo;
 
     return-object v0
@@ -628,7 +570,7 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 145
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSessionService:Ljava/lang/String;
 
     return-object v0
@@ -638,7 +580,7 @@
     .locals 1
 
     .prologue
-    .line 172
+    .line 153
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSettingsActivity:Ljava/lang/String;
 
     return-object v0
@@ -648,7 +590,7 @@
     .locals 1
 
     .prologue
-    .line 176
+    .line 157
     iget-boolean v0, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSupportsAssist:Z
 
     return v0
@@ -658,18 +600,8 @@
     .locals 1
 
     .prologue
-    .line 180
+    .line 161
     iget-boolean v0, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSupportsLaunchFromKeyguard:Z
-
-    return v0
-.end method
-
-.method public getSupportsLocalInteraction()Z
-    .locals 1
-
-    .prologue
-    .line 184
-    iget-boolean v0, p0, Landroid/service/voice/VoiceInteractionServiceInfo;->mSupportsLocalInteraction:Z
 
     return v0
 .end method

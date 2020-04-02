@@ -41,7 +41,7 @@
     .locals 1
 
     .prologue
-    .line 2786
+    .line 2521
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$Lifecycle;->mService:Lcom/android/server/am/ActivityManagerService;
 
     return-object v0
@@ -51,11 +51,11 @@
     .locals 1
 
     .prologue
-    .line 2782
+    .line 2517
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$Lifecycle;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->-wrap15(Lcom/android/server/am/ActivityManagerService;)V
+    invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->-wrap13(Lcom/android/server/am/ActivityManagerService;)V
 
-    .line 2781
+    .line 2516
     return-void
 .end method

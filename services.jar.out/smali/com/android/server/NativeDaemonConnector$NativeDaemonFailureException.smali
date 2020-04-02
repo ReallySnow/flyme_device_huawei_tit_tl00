@@ -21,9 +21,9 @@
     .param p2, "event"    # Lcom/android/server/NativeDaemonEvent;
 
     .prologue
-    .line 553
+    .line 492
     invoke-direct {p0, p1, p2}, Lcom/android/server/NativeDaemonConnectorException;-><init>(Ljava/lang/String;Lcom/android/server/NativeDaemonEvent;)V
 
-    .line 552
+    .line 491
     return-void
 .end method

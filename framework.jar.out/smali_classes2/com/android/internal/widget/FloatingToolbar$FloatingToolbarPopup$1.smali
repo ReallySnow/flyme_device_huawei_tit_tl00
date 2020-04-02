@@ -3,7 +3,7 @@
 .source "FloatingToolbar.java"
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;
+.implements Landroid/view/animation/Animation$AnimationListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .param p1, "this$1"    # Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     .prologue
-    .line 355
+    .line 294
     iput-object p1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$1;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,37 +37,45 @@
 
 
 # virtual methods
-.method public onComputeInternalInsets(Landroid/view/ViewTreeObserver$InternalInsetsInfo;)V
+.method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 2
-    .param p1, "info"    # Landroid/view/ViewTreeObserver$InternalInsetsInfo;
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .prologue
-    .line 358
-    iget-object v0, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->contentInsets:Landroid/graphics/Rect;
+    .line 300
+    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$1;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
+    invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-wrap5(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
 
-    .line 359
-    iget-object v0, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->visibleInsets:Landroid/graphics/Rect;
+    .line 301
+    iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$1;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
 
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
+    invoke-static {v0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get2(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;
 
-    .line 360
-    iget-object v0, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->touchableRegion:Landroid/graphics/Region;
+    move-result-object v0
 
-    iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$1;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;
+    const/4 v1, 0x1
 
-    invoke-static {v1}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->-get15(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)Landroid/graphics/Region;
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;->fadeIn(Z)V
 
-    move-result-object v1
+    .line 299
+    return-void
+.end method
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Region;->set(Landroid/graphics/Region;)Z
+.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
+    .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .line 361
-    const/4 v0, 0x3
+    .prologue
+    .line 305
+    return-void
+.end method
 
-    invoke-virtual {p1, v0}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
+.method public onAnimationStart(Landroid/view/animation/Animation;)V
+    .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .line 357
+    .prologue
+    .line 296
     return-void
 .end method

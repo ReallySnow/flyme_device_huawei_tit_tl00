@@ -3,7 +3,7 @@
 .source "ResolverActivity.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/view/View$OnLongClickListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .param p1, "this$0"    # Lcom/android/internal/app/ResolverActivity;
 
     .prologue
-    .line 352
+    .line 310
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,49 +37,43 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public onLongClick(Landroid/view/View;)Z
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
     .prologue
-    .line 355
+    .line 313
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-static {v1}, Lcom/android/internal/app/ResolverActivity;->-get0(Lcom/android/internal/app/ResolverActivity;)Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getOtherProfile()Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
+    invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getFilteredItem()Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
     move-result-object v0
 
-    .line 356
-    .local v0, "dri":Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
+    .line 315
+    .local v0, "filteredItem":Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
     if-nez v0, :cond_0
 
-    .line 357
-    return-void
+    .line 316
+    const/4 v1, 0x0
 
-    .line 361
+    return v1
+
+    .line 319
     :cond_0
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    const/4 v2, -0x1
+    invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
-    invoke-static {v1, v2}, Lcom/android/internal/app/ResolverActivity;->-set2(Lcom/android/internal/app/ResolverActivity;I)I
+    move-result-object v2
 
-    .line 363
-    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
+    invoke-virtual {v1, v2}, Lcom/android/internal/app/ResolverActivity;->showAppDetails(Landroid/content/pm/ResolveInfo;)V
 
-    const/4 v2, 0x0
+    .line 320
+    const/4 v1, 0x1
 
-    invoke-virtual {v1, v0, v2}, Lcom/android/internal/app/ResolverActivity;->onTargetSelected(Lcom/android/internal/app/ResolverActivity$TargetInfo;Z)Z
-
-    .line 364
-    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
-
-    invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity;->finish()V
-
-    .line 354
-    return-void
+    return v1
 .end method

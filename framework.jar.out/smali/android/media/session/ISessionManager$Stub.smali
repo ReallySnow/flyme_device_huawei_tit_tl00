@@ -28,13 +28,13 @@
 
 .field static final TRANSACTION_addSessionsListener:I = 0x5
 
-.field static final TRANSACTION_createSession_0:I = 0x1
+.field static final TRANSACTION_createSession:I = 0x1
 
 .field static final TRANSACTION_dispatchAdjustVolume:I = 0x4
 
 .field static final TRANSACTION_dispatchMediaKeyEvent:I = 0x3
 
-.field static final TRANSACTION_getSessions_1:I = 0x2
+.field static final TRANSACTION_getSessions:I = 0x2
 
 .field static final TRANSACTION_isGlobalPriorityActive:I = 0x8
 
@@ -370,9 +370,11 @@
     :cond_3
     const/4 v11, 0x0
 
+    .restart local v11    # "_arg1":Z
     goto :goto_3
 
     .line 100
+    .end local v11    # "_arg1":Z
     :sswitch_4
     const-string/jumbo v18, "android.media.session.ISessionManager"
 

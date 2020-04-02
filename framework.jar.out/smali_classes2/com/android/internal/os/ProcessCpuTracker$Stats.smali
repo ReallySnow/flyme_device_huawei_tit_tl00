@@ -98,16 +98,16 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 247
+    .line 236
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 248
+    .line 237
     iput p1, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->pid:I
 
-    .line 249
+    .line 238
     if-gez p2, :cond_1
 
-    .line 250
+    .line 239
     new-instance v0, Ljava/io/File;
 
     const-string/jumbo v2, "/proc"
@@ -120,7 +120,7 @@
 
     invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 251
+    .line 240
     .local v0, "procDir":Ljava/io/File;
     new-instance v2, Ljava/io/File;
 
@@ -134,7 +134,7 @@
 
     iput-object v2, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->statFile:Ljava/lang/String;
 
-    .line 252
+    .line 241
     new-instance v2, Ljava/io/File;
 
     const-string/jumbo v3, "cmdline"
@@ -147,7 +147,7 @@
 
     iput-object v2, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->cmdlineFile:Ljava/lang/String;
 
-    .line 253
+    .line 242
     new-instance v2, Ljava/io/File;
 
     const-string/jumbo v3, "task"
@@ -160,24 +160,24 @@
 
     iput-object v2, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->threadsDir:Ljava/lang/String;
 
-    .line 254
+    .line 243
     if-eqz p3, :cond_0
 
-    .line 255
+    .line 244
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v2, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->threadStats:Ljava/util/ArrayList;
 
-    .line 256
+    .line 245
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v2, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->workingThreads:Ljava/util/ArrayList;
 
-    .line 272
+    .line 261
     :goto_0
     iget-object v2, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->statFile:Ljava/lang/String;
 
@@ -191,19 +191,19 @@
 
     iput v2, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->uid:I
 
-    .line 247
+    .line 236
     return-void
 
-    .line 258
+    .line 247
     :cond_0
     iput-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->threadStats:Ljava/util/ArrayList;
 
-    .line 259
+    .line 248
     iput-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->workingThreads:Ljava/util/ArrayList;
 
     goto :goto_0
 
-    .line 262
+    .line 251
     .end local v0    # "procDir":Ljava/io/File;
     :cond_1
     new-instance v0, Ljava/io/File;
@@ -216,11 +216,11 @@
 
     invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 264
+    .line 253
     .restart local v0    # "procDir":Ljava/io/File;
     new-instance v1, Ljava/io/File;
 
-    .line 265
+    .line 254
     new-instance v2, Ljava/io/File;
 
     const-string/jumbo v3, "task"
@@ -233,10 +233,10 @@
 
     move-result-object v3
 
-    .line 264
+    .line 253
     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 266
+    .line 255
     .local v1, "taskDir":Ljava/io/File;
     new-instance v2, Ljava/io/File;
 
@@ -250,16 +250,16 @@
 
     iput-object v2, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->statFile:Ljava/lang/String;
 
-    .line 267
+    .line 256
     iput-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->cmdlineFile:Ljava/lang/String;
 
-    .line 268
+    .line 257
     iput-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->threadsDir:Ljava/lang/String;
 
-    .line 269
+    .line 258
     iput-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->threadStats:Ljava/util/ArrayList;
 
-    .line 270
+    .line 259
     iput-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->workingThreads:Ljava/util/ArrayList;
 
     goto :goto_0

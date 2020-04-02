@@ -12,8 +12,6 @@
 
 .field private mIndentBuilder:Ljava/lang/StringBuilder;
 
-.field private mSingleChar:[C
-
 .field private final mSingleIndent:Ljava/lang/String;
 
 .field private final mWrapLength:I
@@ -26,25 +24,23 @@
     .param p2, "singleIndent"    # Ljava/lang/String;
 
     .prologue
-    .line 51
+    .line 49
     const/4 v0, -0x1
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;I)V
 
-    .line 50
+    .line 48
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;Ljava/lang/String;I)V
-    .locals 2
+    .locals 1
     .param p1, "writer"    # Ljava/io/Writer;
     .param p2, "singleIndent"    # Ljava/lang/String;
     .param p3, "wrapLength"    # I
 
     .prologue
-    const/4 v1, 0x1
-
-    .line 55
+    .line 53
     invoke-direct {p0, p1}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
 
     .line 36
@@ -55,20 +51,17 @@
     iput-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mIndentBuilder:Ljava/lang/StringBuilder;
 
     .line 46
-    iput-boolean v1, p0, Lcom/android/internal/util/IndentingPrintWriter;->mEmptyLine:Z
+    const/4 v0, 0x1
 
-    .line 48
-    new-array v0, v1, [C
-
-    iput-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mSingleChar:[C
-
-    .line 56
-    iput-object p2, p0, Lcom/android/internal/util/IndentingPrintWriter;->mSingleIndent:Ljava/lang/String;
-
-    .line 57
-    iput p3, p0, Lcom/android/internal/util/IndentingPrintWriter;->mWrapLength:I
+    iput-boolean v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mEmptyLine:Z
 
     .line 54
+    iput-object p2, p0, Lcom/android/internal/util/IndentingPrintWriter;->mSingleIndent:Ljava/lang/String;
+
+    .line 55
+    iput p3, p0, Lcom/android/internal/util/IndentingPrintWriter;->mWrapLength:I
+
+    .line 52
     return-void
 .end method
 
@@ -78,15 +71,15 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 145
+    .line 125
     iget-boolean v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mEmptyLine:Z
 
     if-eqz v0, :cond_1
 
-    .line 146
+    .line 126
     iput-boolean v2, p0, Lcom/android/internal/util/IndentingPrintWriter;->mEmptyLine:Z
 
-    .line 147
+    .line 127
     iget-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mIndentBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
@@ -95,12 +88,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 148
+    .line 128
     iget-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentIndent:[C
 
     if-nez v0, :cond_0
 
-    .line 149
+    .line 129
     iget-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mIndentBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -113,7 +106,7 @@
 
     iput-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentIndent:[C
 
-    .line 151
+    .line 131
     :cond_0
     iget-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentIndent:[C
 
@@ -123,7 +116,7 @@
 
     invoke-super {p0, v0, v2, v1}, Ljava/io/PrintWriter;->write([CII)V
 
-    .line 144
+    .line 124
     :cond_1
     return-void
 .end method
@@ -134,7 +127,7 @@
     .locals 3
 
     .prologue
-    .line 66
+    .line 64
     iget-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mIndentBuilder:Ljava/lang/StringBuilder;
 
     iget-object v1, p0, Lcom/android/internal/util/IndentingPrintWriter;->mSingleIndent:Ljava/lang/String;
@@ -147,12 +140,12 @@
 
     invoke-virtual {v0, v2, v1}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    .line 67
+    .line 65
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentIndent:[C
 
-    .line 65
+    .line 63
     return-void
 .end method
 
@@ -160,19 +153,19 @@
     .locals 2
 
     .prologue
-    .line 61
+    .line 59
     iget-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mIndentBuilder:Ljava/lang/StringBuilder;
 
     iget-object v1, p0, Lcom/android/internal/util/IndentingPrintWriter;->mSingleIndent:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 62
+    .line 60
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentIndent:[C
 
-    .line 60
+    .line 58
     return-void
 .end method
 
@@ -182,7 +175,7 @@
     .param p2, "value"    # I
 
     .prologue
-    .line 79
+    .line 77
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -217,7 +210,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 78
+    .line 76
     return-void
 .end method
 
@@ -227,7 +220,7 @@
     .param p2, "value"    # Ljava/lang/Object;
 
     .prologue
-    .line 71
+    .line 69
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -262,7 +255,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 70
+    .line 68
     return-void
 .end method
 
@@ -272,7 +265,7 @@
     .param p2, "value"    # [Ljava/lang/Object;
 
     .prologue
-    .line 75
+    .line 73
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -307,70 +300,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 74
-    return-void
-.end method
-
-.method public println()V
-    .locals 1
-
-    .prologue
-    .line 84
-    const/16 v0, 0xa
-
-    invoke-virtual {p0, v0}, Lcom/android/internal/util/IndentingPrintWriter;->write(I)V
-
-    .line 83
-    return-void
-.end method
-
-.method public write(I)V
-    .locals 3
-    .param p1, "c"    # I
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 89
-    iget-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mSingleChar:[C
-
-    int-to-char v1, p1
-
-    aput-char v1, v0, v2
-
-    .line 90
-    iget-object v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mSingleChar:[C
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p0, v0, v2, v1}, Lcom/android/internal/util/IndentingPrintWriter;->write([CII)V
-
-    .line 88
-    return-void
-.end method
-
-.method public write(Ljava/lang/String;II)V
-    .locals 3
-    .param p1, "s"    # Ljava/lang/String;
-    .param p2, "off"    # I
-    .param p3, "len"    # I
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 95
-    new-array v0, p3, [C
-
-    .line 96
-    .local v0, "buf":[C
-    sub-int v1, p3, p2
-
-    invoke-virtual {p1, p2, v1, v0, v2}, Ljava/lang/String;->getChars(II[CI)V
-
-    .line 97
-    invoke-virtual {p0, v0, v2, p3}, Lcom/android/internal/util/IndentingPrintWriter;->write([CII)V
-
-    .line 94
+    .line 72
     return-void
 .end method
 
@@ -387,42 +317,42 @@
 
     const/4 v8, 0x0
 
-    .line 102
+    .line 82
     iget-object v6, p0, Lcom/android/internal/util/IndentingPrintWriter;->mIndentBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->length()I
 
     move-result v2
 
-    .line 103
+    .line 83
     .local v2, "indentLength":I
     add-int v0, p2, p3
 
-    .line 104
+    .line 84
     .local v0, "bufferEnd":I
     move v5, p2
 
-    .line 105
+    .line 85
     .local v5, "lineStart":I
     move v3, p2
 
     .local v3, "lineEnd":I
     move v4, v3
 
-    .line 108
+    .line 88
     .end local v3    # "lineEnd":I
     .local v4, "lineEnd":I
     :goto_0
     if-ge v4, v0, :cond_3
 
-    .line 109
+    .line 89
     add-int/lit8 v3, v4, 0x1
 
     .end local v4    # "lineEnd":I
     .restart local v3    # "lineEnd":I
     aget-char v1, p1, v4
 
-    .line 110
+    .line 90
     .local v1, "ch":C
     iget v6, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentLength:I
 
@@ -430,27 +360,27 @@
 
     iput v6, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentLength:I
 
-    .line 111
+    .line 91
     if-ne v1, v10, :cond_0
 
-    .line 112
+    .line 92
     invoke-direct {p0}, Lcom/android/internal/util/IndentingPrintWriter;->maybeWriteIndent()V
 
-    .line 113
+    .line 93
     sub-int v6, v3, v5
 
     invoke-super {p0, p1, v5, v6}, Ljava/io/PrintWriter;->write([CII)V
 
-    .line 114
+    .line 94
     move v5, v3
 
-    .line 115
+    .line 95
     iput-boolean v9, p0, Lcom/android/internal/util/IndentingPrintWriter;->mEmptyLine:Z
 
-    .line 116
+    .line 96
     iput v8, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentLength:I
 
-    .line 120
+    .line 100
     :cond_0
     iget v6, p0, Lcom/android/internal/util/IndentingPrintWriter;->mWrapLength:I
 
@@ -464,18 +394,18 @@
 
     if-lt v6, v7, :cond_1
 
-    .line 121
+    .line 101
     iget-boolean v6, p0, Lcom/android/internal/util/IndentingPrintWriter;->mEmptyLine:Z
 
     if-nez v6, :cond_2
 
-    .line 123
+    .line 103
     invoke-super {p0, v10}, Ljava/io/PrintWriter;->write(I)V
 
-    .line 124
+    .line 104
     iput-boolean v9, p0, Lcom/android/internal/util/IndentingPrintWriter;->mEmptyLine:Z
 
-    .line 125
+    .line 105
     sub-int v6, v3, v5
 
     iput v6, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentLength:I
@@ -488,47 +418,47 @@
     .restart local v4    # "lineEnd":I
     goto :goto_0
 
-    .line 128
+    .line 108
     .end local v4    # "lineEnd":I
     .restart local v3    # "lineEnd":I
     :cond_2
     invoke-direct {p0}, Lcom/android/internal/util/IndentingPrintWriter;->maybeWriteIndent()V
 
-    .line 129
+    .line 109
     sub-int v6, v3, v5
 
     invoke-super {p0, p1, v5, v6}, Ljava/io/PrintWriter;->write([CII)V
 
-    .line 130
+    .line 110
     invoke-super {p0, v10}, Ljava/io/PrintWriter;->write(I)V
 
-    .line 131
+    .line 111
     iput-boolean v9, p0, Lcom/android/internal/util/IndentingPrintWriter;->mEmptyLine:Z
 
-    .line 132
+    .line 112
     move v5, v3
 
-    .line 133
+    .line 113
     iput v8, p0, Lcom/android/internal/util/IndentingPrintWriter;->mCurrentLength:I
 
     goto :goto_1
 
-    .line 138
+    .line 118
     .end local v1    # "ch":C
     .end local v3    # "lineEnd":I
     .restart local v4    # "lineEnd":I
     :cond_3
     if-eq v5, v4, :cond_4
 
-    .line 139
+    .line 119
     invoke-direct {p0}, Lcom/android/internal/util/IndentingPrintWriter;->maybeWriteIndent()V
 
-    .line 140
+    .line 120
     sub-int v6, v4, v5
 
     invoke-super {p0, p1, v5, v6}, Ljava/io/PrintWriter;->write([CII)V
 
-    .line 101
+    .line 81
     :cond_4
     return-void
 .end method

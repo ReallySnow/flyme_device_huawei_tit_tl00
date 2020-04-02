@@ -16,8 +16,6 @@
 
 .field private static final DEBUG:Z = false
 
-.field private static final FULL_BACKUP_SIZE_QUOTA:J = 0x1900000L
-
 .field private static final FULL_DATA_DIR:Ljava/lang/String; = "_full"
 
 .field private static final INCREMENTAL_DIR:Ljava/lang/String; = "_delta"
@@ -50,8 +48,6 @@
 
 .field private mFullBackupOutputStream:Ljava/io/BufferedOutputStream;
 
-.field private mFullBackupSize:J
-
 .field private mFullRestoreBuffer:[B
 
 .field private mFullRestoreSocketStream:Ljava/io/FileOutputStream;
@@ -80,7 +76,7 @@
     .locals 1
 
     .prologue
-    .line 425
+    .line 414
     const/16 v0, 0x8
 
     new-array v0, v0, [J
@@ -89,10 +85,10 @@
 
     sput-object v0, Lcom/android/internal/backup/LocalTransport;->POSSIBLE_SETS:[J
 
-    .line 54
+    .line 55
     return-void
 
-    .line 425
+    .line 414
     :array_0
     .array-data 8
         0x2
@@ -114,7 +110,7 @@
     .line 107
     invoke-direct {p0}, Landroid/app/backup/BackupTransport;-><init>()V
 
-    .line 77
+    .line 75
     new-instance v0, Ljava/io/File;
 
     invoke-static {}, Landroid/os/Environment;->getDownloadCacheDirectory()Ljava/io/File;
@@ -127,7 +123,7 @@
 
     iput-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mDataDir:Ljava/io/File;
 
-    .line 78
+    .line 76
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mDataDir:Ljava/io/File;
@@ -142,7 +138,7 @@
 
     iput-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mCurrentSetDir:Ljava/io/File;
 
-    .line 79
+    .line 77
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mCurrentSetDir:Ljava/io/File;
@@ -153,7 +149,7 @@
 
     iput-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mCurrentSetIncrementalDir:Ljava/io/File;
 
-    .line 80
+    .line 78
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mCurrentSetDir:Ljava/io/File;
@@ -164,12 +160,12 @@
 
     iput-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mCurrentSetFullDir:Ljava/io/File;
 
-    .line 82
+    .line 80
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackages:[Landroid/content/pm/PackageInfo;
 
-    .line 83
+    .line 81
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackage:I
@@ -204,12 +200,12 @@
 
     const/4 v3, 0x0
 
-    .line 583
+    .line 572
     invoke-virtual {p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object v0
 
-    .line 584
+    .line 573
     .local v0, "allFiles":[Ljava/io/File;
     if-eqz v0, :cond_0
 
@@ -217,17 +213,17 @@
 
     if-nez v4, :cond_1
 
-    .line 585
+    .line 574
     :cond_0
     return-object v5
 
-    .line 589
+    .line 578
     :cond_1
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 590
+    .line 579
     .local v1, "contents":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/backup/LocalTransport$DecodedFilename;>;"
     array-length v4, v0
 
@@ -236,7 +232,7 @@
 
     aget-object v2, v0, v3
 
-    .line 591
+    .line 580
     .local v2, "f":Ljava/io/File;
     new-instance v5, Lcom/android/internal/backup/LocalTransport$DecodedFilename;
 
@@ -244,17 +240,17 @@
 
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 590
+    .line 579
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 593
+    .line 582
     .end local v2    # "f":Ljava/io/File;
     :cond_2
     invoke-static {v1}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
-    .line 594
+    .line 583
     return-object v1
 .end method
 
@@ -309,15 +305,50 @@
 .end method
 
 .method private makeDataDirs()V
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 102
+    .line 99
     iget-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mCurrentSetDir:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
+    .line 100
+    iget-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mCurrentSetDir:Ljava/io/File;
+
+    invoke-static {v0}, Landroid/os/SELinux;->restorecon(Ljava/io/File;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 101
+    const-string/jumbo v0, "LocalTransport"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "SELinux restorecon failed for "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/internal/backup/LocalTransport;->mCurrentSetDir:Ljava/io/File;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     .line 103
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mCurrentSetFullDir:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
@@ -327,7 +358,7 @@
 
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 101
+    .line 98
     return-void
 .end method
 
@@ -337,21 +368,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 610
+    .line 599
     iget-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mCurFullRestoreStream:Ljava/io/FileInputStream;
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    .line 611
+    .line 600
     iput-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mCurFullRestoreStream:Ljava/io/FileInputStream;
 
-    .line 612
+    .line 601
     iput-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mFullRestoreSocketStream:Ljava/io/FileOutputStream;
 
-    .line 613
+    .line 602
     iput-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mFullRestoreBuffer:[B
 
-    .line 609
+    .line 598
     return-void
 .end method
 
@@ -468,14 +499,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 705
+    .line 694
     iget v0, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreType:I
 
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_0
 
-    .line 706
+    .line 695
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "abortFullRestore() but not currently restoring"
@@ -484,14 +515,14 @@
 
     throw v0
 
-    .line 708
+    .line 697
     :cond_0
     invoke-direct {p0}, Lcom/android/internal/backup/LocalTransport;->resetFullRestoreState()V
 
-    .line 709
+    .line 698
     iput v2, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreType:I
 
-    .line 710
+    .line 699
     return v2
 .end method
 
@@ -499,28 +530,28 @@
     .locals 2
 
     .prologue
-    .line 416
+    .line 405
     iget-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mFullTargetPackage:Ljava/lang/String;
 
     invoke-direct {p0, v1}, Lcom/android/internal/backup/LocalTransport;->tarballFile(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
-    .line 417
+    .line 406
     .local v0, "archive":Ljava/io/File;
     invoke-direct {p0}, Lcom/android/internal/backup/LocalTransport;->tearDownFullBackup()I
 
-    .line 418
+    .line 407
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 419
+    .line 408
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    .line 412
+    .line 401
     :cond_0
     return-void
 .end method
@@ -530,40 +561,30 @@
     .param p1, "size"    # J
 
     .prologue
-    .line 317
-    const/4 v0, 0x0
-
-    .line 319
-    .local v0, "result":I
+    .line 318
     const-wide/16 v2, 0x0
 
     cmp-long v1, p1, v2
 
-    if-gtz v1, :cond_2
+    if-lez v1, :cond_1
 
-    .line 320
-    const/16 v0, -0x3ea
+    const/4 v0, 0x0
+
+    .line 319
+    .local v0, "result":I
+    :goto_0
+    if-eqz v0, :cond_0
 
     .line 324
     :cond_0
-    :goto_0
-    if-eqz v0, :cond_1
-
-    .line 329
-    :cond_1
     return v0
 
-    .line 321
-    :cond_2
-    const-wide/32 v2, 0x1900000
+    .line 318
+    .end local v0    # "result":I
+    :cond_1
+    const/16 v0, -0x3ea
 
-    cmp-long v1, p1, v2
-
-    if-lez v1, :cond_0
-
-    .line 322
-    const/16 v0, -0x3ed
-
+    .restart local v0    # "result":I
     goto :goto_0
 .end method
 
@@ -723,23 +744,23 @@
     .locals 2
 
     .prologue
-    .line 600
+    .line 589
     iget v0, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreType:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
 
-    .line 601
+    .line 590
     invoke-direct {p0}, Lcom/android/internal/backup/LocalTransport;->resetFullRestoreState()V
 
-    .line 603
+    .line 592
     :cond_0
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreType:I
 
-    .line 598
+    .line 587
     return-void
 .end method
 
@@ -747,7 +768,7 @@
     .locals 13
 
     .prologue
-    .line 429
+    .line 418
     sget-object v5, Lcom/android/internal/backup/LocalTransport;->POSSIBLE_SETS:[J
 
     array-length v5, v5
@@ -756,11 +777,11 @@
 
     new-array v1, v5, [J
 
-    .line 430
+    .line 419
     .local v1, "existing":[J
     const/4 v3, 0x0
 
-    .line 433
+    .line 422
     .local v3, "num":I
     sget-object v8, Lcom/android/internal/backup/LocalTransport;->POSSIBLE_SETS:[J
 
@@ -777,7 +798,7 @@
 
     aget-wide v6, v8, v5
 
-    .line 434
+    .line 423
     .local v6, "token":J
     new-instance v10, Ljava/io/File;
 
@@ -795,14 +816,14 @@
 
     if-eqz v10, :cond_2
 
-    .line 435
+    .line 424
     add-int/lit8 v3, v4, 0x1
 
     .end local v4    # "num":I
     .restart local v3    # "num":I
     aput-wide v6, v1, v4
 
-    .line 433
+    .line 422
     :goto_1
     add-int/lit8 v5, v5, 0x1
 
@@ -812,7 +833,7 @@
     .restart local v4    # "num":I
     goto :goto_0
 
-    .line 439
+    .line 428
     .end local v6    # "token":J
     :cond_0
     add-int/lit8 v3, v4, 0x1
@@ -823,10 +844,10 @@
 
     aput-wide v8, v1, v4
 
-    .line 441
+    .line 430
     new-array v0, v3, [Landroid/app/backup/RestoreSet;
 
-    .line 442
+    .line 431
     .local v0, "available":[Landroid/app/backup/RestoreSet;
     const/4 v2, 0x0
 
@@ -836,7 +857,7 @@
 
     if-ge v2, v5, :cond_1
 
-    .line 443
+    .line 432
     new-instance v5, Landroid/app/backup/RestoreSet;
 
     const-string/jumbo v8, "Local disk image"
@@ -849,12 +870,12 @@
 
     aput-object v5, v0, v2
 
-    .line 442
+    .line 431
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    .line 445
+    .line 434
     :cond_1
     return-object v0
 
@@ -871,31 +892,11 @@
     goto :goto_1
 .end method
 
-.method public getBackupQuota(Ljava/lang/String;Z)J
-    .locals 2
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "isFullBackup"    # Z
-
-    .prologue
-    .line 715
-    if-eqz p2, :cond_0
-
-    const-wide/32 v0, 0x1900000
-
-    :goto_0
-    return-wide v0
-
-    :cond_0
-    const-wide v0, 0x7fffffffffffffffL
-
-    goto :goto_0
-.end method
-
 .method public getCurrentRestoreSet()J
     .locals 2
 
     .prologue
-    .line 451
+    .line 440
     const-wide/16 v0, 0x1
 
     return-wide v0
@@ -906,14 +907,14 @@
     .param p1, "socket"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
-    .line 640
+    .line 629
     iget v4, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreType:I
 
     const/4 v5, 0x2
 
     if-eq v4, v5, :cond_0
 
-    .line 641
+    .line 630
     new-instance v4, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v5, "Asked for full restore data for non-stream package"
@@ -922,13 +923,13 @@
 
     throw v4
 
-    .line 645
+    .line 634
     :cond_0
     iget-object v4, p0, Lcom/android/internal/backup/LocalTransport;->mCurFullRestoreStream:Ljava/io/FileInputStream;
 
     if-nez v4, :cond_1
 
-    .line 646
+    .line 635
     iget-object v4, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackages:[Landroid/content/pm/PackageInfo;
 
     iget v5, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackage:I
@@ -937,7 +938,7 @@
 
     iget-object v3, v4, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    .line 648
+    .line 637
     .local v3, "name":Ljava/lang/String;
     new-instance v0, Ljava/io/File;
 
@@ -945,7 +946,7 @@
 
     invoke-direct {v0, v4, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 650
+    .line 639
     .local v0, "dataset":Ljava/io/File;
     :try_start_0
     new-instance v4, Ljava/io/FileInputStream;
@@ -956,7 +957,7 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 657
+    .line 646
     new-instance v4, Ljava/io/FileOutputStream;
 
     invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
@@ -967,14 +968,14 @@
 
     iput-object v4, p0, Lcom/android/internal/backup/LocalTransport;->mFullRestoreSocketStream:Ljava/io/FileOutputStream;
 
-    .line 658
+    .line 647
     const/16 v4, 0x800
 
     new-array v4, v4, [B
 
     iput-object v4, p0, Lcom/android/internal/backup/LocalTransport;->mFullRestoreBuffer:[B
 
-    .line 663
+    .line 652
     .end local v0    # "dataset":Ljava/io/File;
     .end local v3    # "name":Ljava/lang/String;
     :cond_1
@@ -990,25 +991,25 @@
 
     move-result v2
 
-    .line 664
+    .line 653
     .local v2, "nRead":I
     if-gez v2, :cond_2
 
-    .line 666
+    .line 655
     const/4 v2, -0x1
 
-    .line 687
+    .line 676
     :goto_0
     return v2
 
-    .line 651
+    .line 640
     .end local v2    # "nRead":I
     .restart local v0    # "dataset":Ljava/io/File;
     .restart local v3    # "name":Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 654
+    .line 643
     .local v1, "e":Ljava/io/IOException;
     const-string/jumbo v4, "LocalTransport"
 
@@ -1032,12 +1033,12 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 655
+    .line 644
     const/16 v4, -0x3ea
 
     return v4
 
-    .line 667
+    .line 656
     .end local v0    # "dataset":Ljava/io/File;
     .end local v1    # "e":Ljava/io/IOException;
     .end local v3    # "name":Ljava/lang/String;
@@ -1045,7 +1046,7 @@
     :cond_2
     if-nez v2, :cond_3
 
-    .line 671
+    .line 660
     :try_start_2
     const-string/jumbo v4, "LocalTransport"
 
@@ -1053,12 +1054,12 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 672
+    .line 661
     const/4 v2, -0x1
 
     goto :goto_0
 
-    .line 677
+    .line 666
     :cond_3
     iget-object v4, p0, Lcom/android/internal/backup/LocalTransport;->mFullRestoreSocketStream:Ljava/io/FileOutputStream;
 
@@ -1073,18 +1074,18 @@
 
     goto :goto_0
 
-    .line 679
+    .line 668
     .end local v2    # "nRead":I
     :catch_1
     move-exception v1
 
-    .line 680
+    .line 669
     .restart local v1    # "e":Ljava/io/IOException;
     const/16 v4, -0x3e8
 
     return v4
 
-    .line 681
+    .line 670
     .end local v1    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v4
@@ -1097,7 +1098,7 @@
     .param p1, "outFd"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
-    .line 520
+    .line 509
     iget-object v10, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackages:[Landroid/content/pm/PackageInfo;
 
     if-nez v10, :cond_0
@@ -1110,7 +1111,7 @@
 
     throw v10
 
-    .line 521
+    .line 510
     :cond_0
     iget v10, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackage:I
 
@@ -1124,7 +1125,7 @@
 
     throw v10
 
-    .line 522
+    .line 511
     :cond_1
     iget v10, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreType:I
 
@@ -1132,7 +1133,7 @@
 
     if-eq v10, v11, :cond_2
 
-    .line 523
+    .line 512
     new-instance v10, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v11, "getRestoreData(fd) for non-key/value dataset"
@@ -1141,13 +1142,13 @@
 
     throw v10
 
-    .line 525
+    .line 514
     :cond_2
     new-instance v8, Ljava/io/File;
 
     iget-object v10, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreSetIncrementalDir:Ljava/io/File;
 
-    .line 526
+    .line 515
     iget-object v11, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackages:[Landroid/content/pm/PackageInfo;
 
     iget v12, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackage:I
@@ -1156,20 +1157,20 @@
 
     iget-object v11, v11, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    .line 525
+    .line 514
     invoke-direct {v8, v10, v11}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 533
+    .line 522
     .local v8, "packageDir":Ljava/io/File;
     invoke-direct {p0, v8}, Lcom/android/internal/backup/LocalTransport;->contentsByKey(Ljava/io/File;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 534
+    .line 523
     .local v0, "blobs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/backup/LocalTransport$DecodedFilename;>;"
     if-nez v0, :cond_3
 
-    .line 535
+    .line 524
     const-string/jumbo v10, "LocalTransport"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -1192,12 +1193,12 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 536
+    .line 525
     const/16 v10, -0x3e8
 
     return v10
 
-    .line 541
+    .line 530
     :cond_3
     new-instance v7, Landroid/app/backup/BackupDataOutput;
 
@@ -1207,7 +1208,7 @@
 
     invoke-direct {v7, v10}, Landroid/app/backup/BackupDataOutput;-><init>(Ljava/io/FileDescriptor;)V
 
-    .line 543
+    .line 532
     .local v7, "out":Landroid/app/backup/BackupDataOutput;
     :try_start_0
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -1228,11 +1229,11 @@
 
     check-cast v5, Lcom/android/internal/backup/LocalTransport$DecodedFilename;
 
-    .line 544
+    .line 533
     .local v5, "keyEntry":Lcom/android/internal/backup/LocalTransport$DecodedFilename;
     iget-object v3, v5, Lcom/android/internal/backup/LocalTransport$DecodedFilename;->file:Ljava/io/File;
 
-    .line 545
+    .line 534
     .local v3, "f":Ljava/io/File;
     new-instance v4, Ljava/io/FileInputStream;
 
@@ -1240,7 +1241,7 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 547
+    .line 536
     .local v4, "in":Ljava/io/FileInputStream;
     :try_start_1
     invoke-virtual {v3}, Ljava/io/File;->length()J
@@ -1249,25 +1250,25 @@
 
     long-to-int v9, v10
 
-    .line 548
+    .line 537
     .local v9, "size":I
     new-array v1, v9, [B
 
-    .line 549
+    .line 538
     .local v1, "buf":[B
     invoke-virtual {v4, v1}, Ljava/io/FileInputStream;->read([B)I
 
-    .line 551
+    .line 540
     iget-object v10, v5, Lcom/android/internal/backup/LocalTransport$DecodedFilename;->key:Ljava/lang/String;
 
     invoke-virtual {v7, v10, v9}, Landroid/app/backup/BackupDataOutput;->writeEntityHeader(Ljava/lang/String;I)I
 
-    .line 552
+    .line 541
     invoke-virtual {v7, v1, v9}, Landroid/app/backup/BackupDataOutput;->writeEntityData([BI)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 554
+    .line 543
     :try_start_2
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
     :try_end_2
@@ -1275,7 +1276,7 @@
 
     goto :goto_0
 
-    .line 558
+    .line 547
     .end local v1    # "buf":[B
     .end local v3    # "f":Ljava/io/File;
     .end local v4    # "in":Ljava/io/FileInputStream;
@@ -1285,7 +1286,7 @@
     :catch_0
     move-exception v2
 
-    .line 559
+    .line 548
     .local v2, "e":Ljava/io/IOException;
     const-string/jumbo v10, "LocalTransport"
 
@@ -1293,12 +1294,12 @@
 
     invoke-static {v10, v11, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 560
+    .line 549
     const/16 v10, -0x3e8
 
     return v10
 
-    .line 553
+    .line 542
     .end local v2    # "e":Ljava/io/IOException;
     .restart local v3    # "f":Ljava/io/File;
     .restart local v4    # "in":Ljava/io/FileInputStream;
@@ -1307,16 +1308,16 @@
     :catchall_0
     move-exception v10
 
-    .line 554
+    .line 543
     :try_start_3
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
 
-    .line 553
+    .line 542
     throw v10
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 557
+    .line 546
     .end local v3    # "f":Ljava/io/File;
     .end local v4    # "in":Ljava/io/FileInputStream;
     .end local v5    # "keyEntry":Lcom/android/internal/backup/LocalTransport$DecodedFilename;
@@ -1372,7 +1373,7 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 472
+    .line 461
     iget-object v4, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackages:[Landroid/content/pm/PackageInfo;
 
     if-nez v4, :cond_0
@@ -1385,11 +1386,11 @@
 
     throw v4
 
-    .line 474
+    .line 463
     :cond_0
     const/4 v1, 0x0
 
-    .line 475
+    .line 464
     .local v1, "found":Z
     :cond_1
     iget v4, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackage:I
@@ -1404,7 +1405,7 @@
 
     if-ge v4, v5, :cond_4
 
-    .line 476
+    .line 465
     iget-object v4, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackages:[Landroid/content/pm/PackageInfo;
 
     iget v5, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackage:I
@@ -1413,7 +1414,7 @@
 
     iget-object v3, v4, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    .line 480
+    .line 469
     .local v3, "name":Ljava/lang/String;
     new-instance v4, Ljava/io/File;
 
@@ -1425,7 +1426,7 @@
 
     move-result-object v0
 
-    .line 481
+    .line 470
     .local v0, "contents":[Ljava/lang/String;
     if-eqz v0, :cond_2
 
@@ -1433,26 +1434,26 @@
 
     if-lez v4, :cond_2
 
-    .line 486
+    .line 475
     const/4 v4, 0x1
 
     iput v4, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreType:I
 
-    .line 487
+    .line 476
     const/4 v1, 0x1
 
-    .line 490
+    .line 479
     :cond_2
     if-nez v1, :cond_3
 
-    .line 492
+    .line 481
     new-instance v2, Ljava/io/File;
 
     iget-object v4, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreSetFullDir:Ljava/io/File;
 
     invoke-direct {v2, v4, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 493
+    .line 482
     .local v2, "maybeFullData":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->length()J
 
@@ -1464,23 +1465,23 @@
 
     if-lez v4, :cond_3
 
-    .line 498
+    .line 487
     const/4 v4, 0x2
 
     iput v4, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreType:I
 
-    .line 499
+    .line 488
     iput-object v8, p0, Lcom/android/internal/backup/LocalTransport;->mCurFullRestoreStream:Ljava/io/FileInputStream;
 
-    .line 500
+    .line 489
     const/4 v1, 0x1
 
-    .line 504
+    .line 493
     .end local v2    # "maybeFullData":Ljava/io/File;
     :cond_3
     if-eqz v1, :cond_1
 
-    .line 505
+    .line 494
     new-instance v4, Landroid/app/backup/RestoreDescription;
 
     iget v5, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreType:I
@@ -1489,7 +1490,7 @@
 
     return-object v4
 
-    .line 515
+    .line 504
     .end local v0    # "contents":[Ljava/lang/String;
     .end local v3    # "name":Ljava/lang/String;
     :cond_4
@@ -1603,7 +1604,7 @@
     move v2, v4
 
     .line 200
-    new-array v1, v4, [B
+    new-array v1, v2, [B
 
     .line 202
     :cond_1
@@ -1737,36 +1738,31 @@
 .end method
 
 .method public performFullBackup(Landroid/content/pm/PackageInfo;Landroid/os/ParcelFileDescriptor;)I
-    .locals 5
+    .locals 4
     .param p1, "targetPackage"    # Landroid/content/pm/PackageInfo;
     .param p2, "socket"    # Landroid/os/ParcelFileDescriptor;
 
     .prologue
-    const/16 v4, -0x3e8
+    const/16 v3, -0x3e8
 
-    .line 334
+    .line 329
     iget-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mSocket:Landroid/os/ParcelFileDescriptor;
 
     if-eqz v1, :cond_0
 
-    .line 335
+    .line 330
     const-string/jumbo v1, "LocalTransport"
 
     const-string/jumbo v2, "Attempt to initiate full backup while one is in progress"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 336
-    return v4
+    .line 331
+    return v3
 
-    .line 347
+    .line 342
     :cond_0
-    const-wide/16 v2, 0x0
-
     :try_start_0
-    iput-wide v2, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupSize:J
-
-    .line 348
     invoke-virtual {p2}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v1
@@ -1777,7 +1773,7 @@
 
     iput-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mSocket:Landroid/os/ParcelFileDescriptor;
 
-    .line 349
+    .line 343
     new-instance v1, Ljava/io/FileInputStream;
 
     iget-object v2, p0, Lcom/android/internal/backup/LocalTransport;->mSocket:Landroid/os/ParcelFileDescriptor;
@@ -1792,28 +1788,28 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 355
+    .line 349
     iget-object v1, p1, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
     iput-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mFullTargetPackage:Ljava/lang/String;
 
-    .line 356
+    .line 350
     const/16 v1, 0x1000
 
     new-array v1, v1, [B
 
     iput-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupBuffer:[B
 
-    .line 358
+    .line 352
     const/4 v1, 0x0
 
     return v1
 
-    .line 350
+    .line 344
     :catch_0
     move-exception v0
 
-    .line 351
+    .line 345
     .local v0, "e":Ljava/io/IOException;
     const-string/jumbo v1, "LocalTransport"
 
@@ -1821,8 +1817,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 352
-    return v4
+    .line 346
+    return v3
 .end method
 
 .method public requestBackupTime()J
@@ -1846,73 +1842,49 @@
 .end method
 
 .method public sendBackupData(I)I
-    .locals 12
+    .locals 11
     .param p1, "numBytes"    # I
 
     .prologue
-    const/16 v11, -0x3e8
+    const/16 v10, -0x3e8
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
-    .line 363
+    .line 357
     iget-object v6, p0, Lcom/android/internal/backup/LocalTransport;->mSocket:Landroid/os/ParcelFileDescriptor;
 
     if-nez v6, :cond_0
 
-    .line 364
+    .line 358
     const-string/jumbo v6, "LocalTransport"
 
     const-string/jumbo v7, "Attempted sendBackupData before performFullBackup"
 
     invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 365
-    return v11
+    .line 359
+    return v10
 
-    .line 368
+    .line 362
     :cond_0
-    iget-wide v6, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupSize:J
-
-    int-to-long v8, p1
-
-    add-long/2addr v6, v8
-
-    iput-wide v6, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupSize:J
-
-    .line 369
-    iget-wide v6, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupSize:J
-
-    const-wide/32 v8, 0x1900000
-
-    cmp-long v6, v6, v8
-
-    if-lez v6, :cond_1
-
-    .line 370
-    const/16 v6, -0x3ed
-
-    return v6
-
-    .line 373
-    :cond_1
     iget-object v6, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupBuffer:[B
 
     array-length v6, v6
 
-    if-le p1, v6, :cond_2
+    if-le p1, v6, :cond_1
 
-    .line 374
+    .line 363
     new-array v6, p1, [B
 
     iput-object v6, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupBuffer:[B
 
-    .line 377
-    :cond_2
+    .line 366
+    :cond_1
     iget-object v6, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupOutputStream:Ljava/io/BufferedOutputStream;
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_2
 
-    .line 380
+    .line 369
     :try_start_0
     iget-object v6, p0, Lcom/android/internal/backup/LocalTransport;->mFullTargetPackage:Ljava/lang/String;
 
@@ -1920,7 +1892,7 @@
 
     move-result-object v4
 
-    .line 381
+    .line 370
     .local v4, "tarball":Ljava/io/File;
     new-instance v5, Ljava/io/FileOutputStream;
 
@@ -1928,7 +1900,7 @@
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 385
+    .line 374
     .local v5, "tarstream":Ljava/io/FileOutputStream;
     new-instance v6, Ljava/io/BufferedOutputStream;
 
@@ -1936,18 +1908,18 @@
 
     iput-object v6, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupOutputStream:Ljava/io/BufferedOutputStream;
 
-    .line 388
+    .line 377
     .end local v4    # "tarball":Ljava/io/File;
     .end local v5    # "tarstream":Ljava/io/FileOutputStream;
-    :cond_3
+    :cond_2
     move v0, p1
 
-    .line 389
+    .line 378
     .local v0, "bytesLeft":I
     :goto_0
-    if-lez v0, :cond_5
+    if-lez v0, :cond_4
 
-    .line 391
+    .line 380
     :try_start_1
     iget-object v6, p0, Lcom/android/internal/backup/LocalTransport;->mSocketInputStream:Ljava/io/FileInputStream;
 
@@ -1959,35 +1931,35 @@
 
     move-result v3
 
-    .line 392
+    .line 381
     .local v3, "nRead":I
-    if-gez v3, :cond_4
+    if-gez v3, :cond_3
 
-    .line 394
+    .line 383
     const-string/jumbo v6, "LocalTransport"
 
     const-string/jumbo v7, "Unexpected EOD; failing backup"
 
     invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 395
-    return v11
+    .line 384
+    return v10
 
-    .line 382
+    .line 371
     .end local v0    # "bytesLeft":I
     .end local v3    # "nRead":I
     :catch_0
     move-exception v1
 
-    .line 383
+    .line 372
     .local v1, "e":Ljava/io/FileNotFoundException;
-    return v11
+    return v10
 
-    .line 397
+    .line 386
     .end local v1    # "e":Ljava/io/FileNotFoundException;
     .restart local v0    # "bytesLeft":I
     .restart local v3    # "nRead":I
-    :cond_4
+    :cond_3
     iget-object v6, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupOutputStream:Ljava/io/BufferedOutputStream;
 
     iget-object v7, p0, Lcom/android/internal/backup/LocalTransport;->mFullBackupBuffer:[B
@@ -1998,17 +1970,17 @@
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 398
+    .line 387
     sub-int/2addr v0, v3
 
     goto :goto_0
 
-    .line 399
+    .line 388
     .end local v3    # "nRead":I
     :catch_1
     move-exception v2
 
-    .line 400
+    .line 389
     .local v2, "e":Ljava/io/IOException;
     const-string/jumbo v6, "LocalTransport"
 
@@ -2034,13 +2006,13 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 401
-    return v11
-
-    .line 407
-    .end local v2    # "e":Ljava/io/IOException;
-    :cond_5
+    .line 390
     return v10
+
+    .line 396
+    .end local v2    # "e":Ljava/io/IOException;
+    :cond_4
+    return v9
 .end method
 
 .method public startRestore(J[Landroid/content/pm/PackageInfo;)I
@@ -2049,15 +2021,15 @@
     .param p3, "packages"    # [Landroid/content/pm/PackageInfo;
 
     .prologue
-    .line 458
+    .line 447
     iput-object p3, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackages:[Landroid/content/pm/PackageInfo;
 
-    .line 459
+    .line 448
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/backup/LocalTransport;->mRestorePackage:I
 
-    .line 460
+    .line 449
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mDataDir:Ljava/io/File;
@@ -2070,7 +2042,7 @@
 
     iput-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreSetDir:Ljava/io/File;
 
-    .line 461
+    .line 450
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreSetDir:Ljava/io/File;
@@ -2081,7 +2053,7 @@
 
     iput-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreSetIncrementalDir:Ljava/io/File;
 
-    .line 462
+    .line 451
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreSetDir:Ljava/io/File;
@@ -2092,7 +2064,7 @@
 
     iput-object v0, p0, Lcom/android/internal/backup/LocalTransport;->mRestoreSetFullDir:Ljava/io/File;
 
-    .line 463
+    .line 452
     const/4 v0, 0x0
 
     return v0

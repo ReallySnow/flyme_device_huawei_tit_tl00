@@ -1,9 +1,6 @@
 .class Landroid/widget/AdapterViewFlipper$2;
-.super Ljava/lang/Object;
+.super Landroid/os/Handler;
 .source "AdapterViewFlipper.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -27,21 +24,29 @@
     .param p1, "this$0"    # Landroid/widget/AdapterViewFlipper;
 
     .prologue
-    .line 276
+    .line 282
     iput-object p1, p0, Landroid/widget/AdapterViewFlipper$2;->this$0:Landroid/widget/AdapterViewFlipper;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 279
+    .line 285
+    iget v0, p1, Landroid/os/Message;->what:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    .line 286
     iget-object v0, p0, Landroid/widget/AdapterViewFlipper$2;->this$0:Landroid/widget/AdapterViewFlipper;
 
     invoke-static {v0}, Landroid/widget/AdapterViewFlipper;->-get0(Landroid/widget/AdapterViewFlipper;)Z
@@ -50,12 +55,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 280
+    .line 287
     iget-object v0, p0, Landroid/widget/AdapterViewFlipper$2;->this$0:Landroid/widget/AdapterViewFlipper;
 
     invoke-virtual {v0}, Landroid/widget/AdapterViewFlipper;->showNext()V
 
-    .line 278
+    .line 284
     :cond_0
     return-void
 .end method

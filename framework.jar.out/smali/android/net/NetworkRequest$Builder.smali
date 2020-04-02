@@ -23,17 +23,17 @@
     .locals 1
 
     .prologue
-    .line 137
+    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 132
+    .line 75
     new-instance v0, Landroid/net/NetworkCapabilities;
 
     invoke-direct {v0}, Landroid/net/NetworkCapabilities;-><init>()V
 
     iput-object v0, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
-    .line 137
+    .line 80
     return-void
 .end method
 
@@ -44,12 +44,12 @@
     .param p1, "capability"    # I
 
     .prologue
-    .line 165
+    .line 108
     iget-object v0, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
     invoke-virtual {v0, p1}, Landroid/net/NetworkCapabilities;->addCapability(I)Landroid/net/NetworkCapabilities;
 
-    .line 166
+    .line 109
     return-object p0
 .end method
 
@@ -58,44 +58,40 @@
     .param p1, "transportType"    # I
 
     .prologue
-    .line 203
+    .line 146
     iget-object v0, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
     invoke-virtual {v0, p1}, Landroid/net/NetworkCapabilities;->addTransportType(I)Landroid/net/NetworkCapabilities;
 
-    .line 204
+    .line 147
     return-object p0
 .end method
 
 .method public build()Landroid/net/NetworkRequest;
-    .locals 5
+    .locals 4
 
     .prologue
-    .line 147
+    .line 90
     new-instance v0, Landroid/net/NetworkCapabilities;
 
     iget-object v1, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
     invoke-direct {v0, v1}, Landroid/net/NetworkCapabilities;-><init>(Landroid/net/NetworkCapabilities;)V
 
-    .line 148
+    .line 91
     .local v0, "nc":Landroid/net/NetworkCapabilities;
     invoke-virtual {v0}, Landroid/net/NetworkCapabilities;->maybeMarkCapabilitiesRestricted()V
 
-    .line 149
+    .line 92
     new-instance v1, Landroid/net/NetworkRequest;
 
-    .line 150
-    sget-object v2, Landroid/net/NetworkRequest$Type;->NONE:Landroid/net/NetworkRequest$Type;
+    const/4 v2, -0x1
 
-    .line 149
-    const/4 v3, -0x1
+    .line 93
+    const/4 v3, 0x0
 
-    .line 150
-    const/4 v4, 0x0
-
-    .line 149
-    invoke-direct {v1, v0, v3, v4, v2}, Landroid/net/NetworkRequest;-><init>(Landroid/net/NetworkCapabilities;IILandroid/net/NetworkRequest$Type;)V
+    .line 92
+    invoke-direct {v1, v0, v2, v3}, Landroid/net/NetworkRequest;-><init>(Landroid/net/NetworkCapabilities;II)V
 
     return-object v1
 .end method
@@ -104,12 +100,12 @@
     .locals 1
 
     .prologue
-    .line 188
+    .line 131
     iget-object v0, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
     invoke-virtual {v0}, Landroid/net/NetworkCapabilities;->clearAll()V
 
-    .line 189
+    .line 132
     return-object p0
 .end method
 
@@ -118,12 +114,12 @@
     .param p1, "capability"    # I
 
     .prologue
-    .line 176
+    .line 119
     iget-object v0, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
     invoke-virtual {v0, p1}, Landroid/net/NetworkCapabilities;->removeCapability(I)Landroid/net/NetworkCapabilities;
 
-    .line 177
+    .line 120
     return-object p0
 .end method
 
@@ -132,12 +128,12 @@
     .param p1, "transportType"    # I
 
     .prologue
-    .line 214
+    .line 157
     iget-object v0, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
     invoke-virtual {v0, p1}, Landroid/net/NetworkCapabilities;->removeTransportType(I)Landroid/net/NetworkCapabilities;
 
-    .line 215
+    .line 158
     return-object p0
 .end method
 
@@ -146,12 +142,12 @@
     .param p1, "downKbps"    # I
 
     .prologue
-    .line 229
+    .line 172
     iget-object v0, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
     invoke-virtual {v0, p1}, Landroid/net/NetworkCapabilities;->setLinkDownstreamBandwidthKbps(I)V
 
-    .line 230
+    .line 173
     return-object p0
 .end method
 
@@ -160,45 +156,26 @@
     .param p1, "upKbps"    # I
 
     .prologue
-    .line 222
+    .line 165
     iget-object v0, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
     invoke-virtual {v0, p1}, Landroid/net/NetworkCapabilities;->setLinkUpstreamBandwidthKbps(I)V
 
-    .line 223
+    .line 166
     return-object p0
 .end method
 
 .method public setNetworkSpecifier(Ljava/lang/String;)Landroid/net/NetworkRequest$Builder;
-    .locals 2
+    .locals 1
     .param p1, "networkSpecifier"    # Ljava/lang/String;
 
     .prologue
-    .line 248
-    const-string/jumbo v0, "*"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 249
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v1, "Invalid network specifier - must not be \'*\'"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 252
-    :cond_0
+    .line 191
     iget-object v0, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
-    invoke-virtual {v0, p1}, Landroid/net/NetworkCapabilities;->setNetworkSpecifier(Ljava/lang/String;)Landroid/net/NetworkCapabilities;
+    invoke-virtual {v0, p1}, Landroid/net/NetworkCapabilities;->setNetworkSpecifier(Ljava/lang/String;)V
 
-    .line 253
+    .line 192
     return-object p0
 .end method
 
@@ -207,11 +184,11 @@
     .param p1, "signalStrength"    # I
 
     .prologue
-    .line 270
+    .line 209
     iget-object v0, p0, Landroid/net/NetworkRequest$Builder;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
     invoke-virtual {v0, p1}, Landroid/net/NetworkCapabilities;->setSignalStrength(I)V
 
-    .line 271
+    .line 210
     return-object p0
 .end method

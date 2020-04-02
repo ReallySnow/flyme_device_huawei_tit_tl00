@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/hardware/display/DisplayManagerGlobal$DisplayListenerDelegate;,
         Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;,
+        Landroid/hardware/display/DisplayManagerGlobal$DisplayListenerDelegate;,
         Landroid/hardware/display/DisplayManagerGlobal$VirtualDisplayCallback;,
         Landroid/hardware/display/DisplayManagerGlobal$VirtualDisplayCallbackDelegate;
     }
@@ -118,14 +118,14 @@
     .param p1, "listener"    # Landroid/hardware/display/DisplayManager$DisplayListener;
 
     .prologue
-    .line 223
+    .line 225
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDisplayListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 224
+    .line 226
     .local v1, "numListeners":I
     const/4 v0, 0x0
 
@@ -133,7 +133,7 @@
     :goto_0
     if-ge v0, v1, :cond_1
 
-    .line 225
+    .line 227
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDisplayListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -146,16 +146,16 @@
 
     if-ne v2, p1, :cond_0
 
-    .line 226
+    .line 228
     return v0
 
-    .line 224
+    .line 226
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 229
+    .line 231
     :cond_1
     const/4 v2, -0x1
 
@@ -224,12 +224,12 @@
     .param p2, "event"    # I
 
     .prologue
-    .line 244
+    .line 247
     iget-object v3, p0, Landroid/hardware/display/DisplayManagerGlobal;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 253
+    .line 256
     :try_start_0
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDisplayListeners:Ljava/util/ArrayList;
 
@@ -237,7 +237,7 @@
 
     move-result v1
 
-    .line 254
+    .line 257
     .local v1, "numListeners":I
     const/4 v0, 0x0
 
@@ -245,7 +245,7 @@
     :goto_0
     if-ge v0, v1, :cond_0
 
-    .line 255
+    .line 258
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDisplayListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -258,7 +258,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 254
+    .line 257
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -266,10 +266,10 @@
     :cond_0
     monitor-exit v3
 
-    .line 243
+    .line 246
     return-void
 
-    .line 244
+    .line 247
     .end local v0    # "i":I
     .end local v1    # "numListeners":I
     :catchall_0
@@ -281,24 +281,24 @@
 .end method
 
 .method private registerCallbackIfNeededLocked()V
-    .locals 3
+    .locals 4
 
     .prologue
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    .line 233
+    .line 235
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mCallback:Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;
 
     if-nez v1, :cond_0
 
-    .line 234
+    .line 236
     new-instance v1, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;
 
-    invoke-direct {v1, p0, v2}, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;-><init>(Landroid/hardware/display/DisplayManagerGlobal;Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;)V
+    invoke-direct {v1, p0, v3}, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;-><init>(Landroid/hardware/display/DisplayManagerGlobal;Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;)V
 
     iput-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mCallback:Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;
 
-    .line 236
+    .line 238
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -308,34 +308,40 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 232
+    .line 234
     :cond_0
+    :goto_0
     return-void
 
-    .line 237
+    .line 239
     :catch_0
     move-exception v0
 
-    .line 238
+    .line 240
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "Failed to register callback with display manager service."
 
-    throw v1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 241
+    iput-object v3, p0, Landroid/hardware/display/DisplayManagerGlobal;->mCallback:Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public connectWifiDisplay(Ljava/lang/String;)V
-    .locals 3
+    .locals 4
     .param p1, "deviceAddress"    # Ljava/lang/String;
 
     .prologue
-    .line 290
+    .line 293
     if-nez p1, :cond_0
 
-    .line 291
+    .line 294
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "deviceAddress must not be null"
@@ -344,7 +350,7 @@
 
     throw v1
 
-    .line 295
+    .line 298
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
@@ -353,20 +359,45 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 289
+    .line 292
+    :goto_0
     return-void
 
-    .line 296
+    .line 299
     :catch_0
     move-exception v0
 
-    .line 297
+    .line 300
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    throw v1
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Failed to connect to Wifi display "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "."
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public createVirtualDisplay(Landroid/content/Context;Landroid/media/projection/MediaProjection;Ljava/lang/String;IIILandroid/view/Surface;ILandroid/hardware/display/VirtualDisplay$Callback;Landroid/os/Handler;)Landroid/hardware/display/VirtualDisplay;
@@ -383,14 +414,14 @@
     .param p10, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 368
+    .line 373
     invoke-static/range {p3 .. p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 369
+    .line 374
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v5, "name must be non-null and non-empty"
@@ -399,13 +430,13 @@
 
     throw v2
 
-    .line 371
+    .line 376
     :cond_0
     if-lez p4, :cond_1
 
     if-gtz p5, :cond_2
 
-    .line 372
+    .line 377
     :cond_1
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -415,11 +446,11 @@
 
     throw v2
 
-    .line 371
+    .line 376
     :cond_2
     if-lez p6, :cond_1
 
-    .line 376
+    .line 381
     new-instance v3, Landroid/hardware/display/DisplayManagerGlobal$VirtualDisplayCallback;
 
     move-object/from16 v0, p9
@@ -428,7 +459,7 @@
 
     invoke-direct {v3, v0, v1}, Landroid/hardware/display/DisplayManagerGlobal$VirtualDisplayCallback;-><init>(Landroid/hardware/display/VirtualDisplay$Callback;Landroid/os/Handler;)V
 
-    .line 377
+    .line 382
     .local v3, "callbackWrapper":Landroid/hardware/display/DisplayManagerGlobal$VirtualDisplayCallback;
     if-eqz p2, :cond_3
 
@@ -436,12 +467,12 @@
 
     move-result-object v4
 
-    .line 380
+    .line 385
     :goto_0
     :try_start_0
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
-    .line 381
+    .line 386
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v5
@@ -458,18 +489,18 @@
 
     move/from16 v11, p8
 
-    .line 380
+    .line 385
     invoke-interface/range {v2 .. v11}, Landroid/hardware/display/IDisplayManager;->createVirtualDisplay(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/media/projection/IMediaProjection;Ljava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;I)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v13
 
-    .line 385
+    .line 391
     .local v13, "displayId":I
     if-gez v13, :cond_4
 
-    .line 386
+    .line 392
     const-string/jumbo v2, "DisplayManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -494,12 +525,12 @@
 
     invoke-static {v2, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 387
+    .line 393
     const/4 v2, 0x0
 
     return-object v2
 
-    .line 377
+    .line 382
     .end local v13    # "displayId":I
     :cond_3
     const/4 v4, 0x0
@@ -507,20 +538,43 @@
     .local v4, "projectionToken":Landroid/media/projection/IMediaProjection;
     goto :goto_0
 
-    .line 382
+    .line 387
     .end local v4    # "projectionToken":Landroid/media/projection/IMediaProjection;
     :catch_0
     move-exception v14
 
-    .line 383
+    .line 388
     .local v14, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v14}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v2, "DisplayManager"
 
-    move-result-object v2
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    throw v2
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Could not create virtual display: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v2, v5, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 389
+    const/4 v2, 0x0
+
+    return-object v2
+
+    .line 395
     .end local v14    # "ex":Landroid/os/RemoteException;
     .restart local v13    # "displayId":I
     :cond_4
@@ -528,11 +582,11 @@
 
     move-result-object v12
 
-    .line 390
+    .line 396
     .local v12, "display":Landroid/view/Display;
     if-nez v12, :cond_5
 
-    .line 391
+    .line 397
     const-string/jumbo v2, "DisplayManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -557,7 +611,7 @@
 
     invoke-static {v2, v5}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 394
+    .line 400
     :try_start_1
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -565,25 +619,13 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 398
+    .line 403
+    :goto_1
     const/4 v2, 0x0
 
     return-object v2
 
-    .line 395
-    :catch_1
-    move-exception v14
-
-    .line 396
-    .restart local v14    # "ex":Landroid/os/RemoteException;
-    invoke-virtual {v14}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
-
-    move-result-object v2
-
-    throw v2
-
-    .line 400
-    .end local v14    # "ex":Landroid/os/RemoteException;
+    .line 405
     :cond_5
     new-instance v2, Landroid/hardware/display/VirtualDisplay;
 
@@ -592,13 +634,20 @@
     invoke-direct {v2, p0, v12, v3, v0}, Landroid/hardware/display/VirtualDisplay;-><init>(Landroid/hardware/display/DisplayManagerGlobal;Landroid/view/Display;Landroid/hardware/display/IVirtualDisplayCallback;Landroid/view/Surface;)V
 
     return-object v2
+
+    .line 401
+    :catch_1
+    move-exception v14
+
+    .restart local v14    # "ex":Landroid/os/RemoteException;
+    goto :goto_1
 .end method
 
 .method public disconnectWifiDisplay()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 319
+    .line 322
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -606,20 +655,23 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 317
+    .line 320
+    :goto_0
     return-void
 
-    .line 320
+    .line 323
     :catch_0
     move-exception v0
 
-    .line 321
+    .line 324
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "Failed to disconnect from Wifi display."
 
-    throw v1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public forgetWifiDisplay(Ljava/lang/String;)V
@@ -627,10 +679,10 @@
     .param p1, "deviceAddress"    # Ljava/lang/String;
 
     .prologue
-    .line 338
+    .line 342
     if-nez p1, :cond_0
 
-    .line 339
+    .line 343
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "deviceAddress must not be null"
@@ -639,7 +691,7 @@
 
     throw v1
 
-    .line 343
+    .line 347
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
@@ -648,20 +700,23 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 337
+    .line 341
+    :goto_0
     return-void
 
-    .line 344
+    .line 348
     :catch_0
     move-exception v0
 
-    .line 345
+    .line 349
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "Failed to forget Wifi display."
 
-    throw v1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public getCompatibleDisplay(ILandroid/view/DisplayAdjustments;)Landroid/view/Display;
@@ -672,19 +727,19 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 176
+    .line 178
     invoke-virtual {p0, p1}, Landroid/hardware/display/DisplayManagerGlobal;->getDisplayInfo(I)Landroid/view/DisplayInfo;
 
     move-result-object v0
 
-    .line 177
+    .line 179
     .local v0, "displayInfo":Landroid/view/DisplayInfo;
     if-nez v0, :cond_0
 
-    .line 178
+    .line 180
     return-object v1
 
-    .line 180
+    .line 182
     :cond_0
     new-instance v1, Landroid/view/Display;
 
@@ -694,10 +749,12 @@
 .end method
 
 .method public getDisplayIds()[I
-    .locals 4
+    .locals 5
 
     .prologue
-    .line 146
+    const/4 v4, 0x0
+
+    .line 147
     :try_start_0
     iget-object v3, p0, Landroid/hardware/display/DisplayManagerGlobal;->mLock:Ljava/lang/Object;
 
@@ -705,7 +762,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 153
+    .line 154
     :try_start_1
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -713,7 +770,7 @@
 
     move-result-object v0
 
-    .line 157
+    .line 158
     .local v0, "displayIds":[I
     invoke-direct {p0}, Landroid/hardware/display/DisplayManagerGlobal;->registerCallbackIfNeededLocked()V
     :try_end_1
@@ -722,10 +779,10 @@
     :try_start_2
     monitor-exit v3
 
-    .line 158
+    .line 159
     return-object v0
 
-    .line 146
+    .line 147
     .end local v0    # "displayIds":[I
     :catchall_0
     move-exception v2
@@ -736,17 +793,26 @@
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 160
+    .line 161
     :catch_0
     move-exception v1
 
-    .line 161
+    .line 162
     .local v1, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v2, "DisplayManager"
 
-    move-result-object v2
+    const-string/jumbo v3, "Could not get display ids from display manager."
 
-    throw v2
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 163
+    const/4 v2, 0x1
+
+    new-array v2, v2, [I
+
+    aput v4, v2, v4
+
+    return-object v2
 .end method
 
 .method public getDisplayInfo(I)Landroid/view/DisplayInfo;
@@ -816,11 +882,14 @@
 
     .line 135
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v2, "DisplayManager"
 
-    move-result-object v2
+    const-string/jumbo v3, "Could not get display information from display manager."
 
-    throw v2
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 136
+    return-object v4
 .end method
 
 .method public getRealDisplay(I)Landroid/view/Display;
@@ -828,7 +897,7 @@
     .param p1, "displayId"    # I
 
     .prologue
-    .line 190
+    .line 192
     sget-object v0, Landroid/view/DisplayAdjustments;->DEFAULT_DISPLAY_ADJUSTMENTS:Landroid/view/DisplayAdjustments;
 
     invoke-virtual {p0, p1, v0}, Landroid/hardware/display/DisplayManagerGlobal;->getCompatibleDisplay(ILandroid/view/DisplayAdjustments;)Landroid/view/Display;
@@ -839,10 +908,10 @@
 .end method
 
 .method public getWifiDisplayStatus()Landroid/hardware/display/WifiDisplayStatus;
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 351
+    .line 355
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -854,24 +923,31 @@
 
     return-object v1
 
-    .line 352
+    .line 356
     :catch_0
     move-exception v0
 
-    .line 353
+    .line 357
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "Failed to get Wifi display status."
 
-    throw v1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 358
+    new-instance v1, Landroid/hardware/display/WifiDisplayStatus;
+
+    invoke-direct {v1}, Landroid/hardware/display/WifiDisplayStatus;-><init>()V
+
+    return-object v1
 .end method
 
 .method public pauseWifiDisplay()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 303
+    .line 306
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -879,20 +955,23 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 301
+    .line 304
+    :goto_0
     return-void
 
-    .line 304
+    .line 307
     :catch_0
     move-exception v0
 
-    .line 305
+    .line 308
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "Failed to pause Wifi display."
 
-    throw v1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;)V
@@ -901,10 +980,10 @@
     .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 194
+    .line 196
     if-nez p1, :cond_0
 
-    .line 195
+    .line 197
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "listener must not be null"
@@ -913,23 +992,23 @@
 
     throw v1
 
-    .line 198
+    .line 200
     :cond_0
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 199
+    .line 201
     :try_start_0
     invoke-direct {p0, p1}, Landroid/hardware/display/DisplayManagerGlobal;->findDisplayListenerLocked(Landroid/hardware/display/DisplayManager$DisplayListener;)I
 
     move-result v0
 
-    .line 200
+    .line 202
     .local v0, "index":I
     if-gez v0, :cond_1
 
-    .line 201
+    .line 203
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDisplayListeners:Ljava/util/ArrayList;
 
     new-instance v3, Landroid/hardware/display/DisplayManagerGlobal$DisplayListenerDelegate;
@@ -938,7 +1017,7 @@
 
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 202
+    .line 204
     invoke-direct {p0}, Landroid/hardware/display/DisplayManagerGlobal;->registerCallbackIfNeededLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -946,10 +1025,10 @@
     :cond_1
     monitor-exit v2
 
-    .line 193
+    .line 195
     return-void
 
-    .line 198
+    .line 200
     .end local v0    # "index":I
     :catchall_0
     move-exception v1
@@ -960,11 +1039,11 @@
 .end method
 
 .method public releaseVirtualDisplay(Landroid/hardware/display/IVirtualDisplayCallback;)V
-    .locals 2
+    .locals 3
     .param p1, "token"    # Landroid/hardware/display/IVirtualDisplayCallback;
 
     .prologue
-    .line 422
+    .line 427
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -972,32 +1051,35 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 420
+    .line 425
+    :goto_0
     return-void
 
-    .line 423
+    .line 428
     :catch_0
     move-exception v0
 
-    .line 424
+    .line 429
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "Failed to release virtual display."
 
-    throw v1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public renameWifiDisplay(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .locals 4
     .param p1, "deviceAddress"    # Ljava/lang/String;
     .param p2, "alias"    # Ljava/lang/String;
 
     .prologue
-    .line 326
+    .line 329
     if-nez p1, :cond_0
 
-    .line 327
+    .line 330
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "deviceAddress must not be null"
@@ -1006,7 +1088,7 @@
 
     throw v1
 
-    .line 331
+    .line 334
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
@@ -1015,61 +1097,103 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 325
+    .line 328
+    :goto_0
     return-void
 
-    .line 332
+    .line 335
     :catch_0
     move-exception v0
 
-    .line 333
+    .line 336
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    throw v1
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Failed to rename Wifi display "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    .line 337
+    const-string/jumbo v3, " with alias "
+
+    .line 336
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    .line 337
+    const-string/jumbo v3, "."
+
+    .line 336
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
-.method public requestColorMode(II)V
-    .locals 2
+.method public requestColorTransform(II)V
+    .locals 3
     .param p1, "displayId"    # I
-    .param p2, "colorMode"    # I
+    .param p2, "colorTransformId"    # I
 
     .prologue
-    .line 359
+    .line 364
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/hardware/display/IDisplayManager;->requestColorMode(II)V
+    invoke-interface {v1, p1, p2}, Landroid/hardware/display/IDisplayManager;->requestColorTransform(II)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 357
+    .line 362
+    :goto_0
     return-void
 
-    .line 360
+    .line 365
     :catch_0
     move-exception v0
 
-    .line 361
+    .line 366
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "Failed to request color transform."
 
-    throw v1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public resizeVirtualDisplay(Landroid/hardware/display/IVirtualDisplayCallback;III)V
-    .locals 2
+    .locals 3
     .param p1, "token"    # Landroid/hardware/display/IVirtualDisplayCallback;
     .param p2, "width"    # I
     .param p3, "height"    # I
     .param p4, "densityDpi"    # I
 
     .prologue
-    .line 414
+    .line 419
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -1077,27 +1201,30 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 412
+    .line 417
+    :goto_0
     return-void
 
-    .line 415
+    .line 420
     :catch_0
     move-exception v0
 
-    .line 416
+    .line 421
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "Failed to resize virtual display."
 
-    throw v1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public resumeWifiDisplay()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 311
+    .line 314
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -1105,29 +1232,32 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 309
+    .line 312
+    :goto_0
     return-void
 
-    .line 312
+    .line 315
     :catch_0
     move-exception v0
 
-    .line 313
+    .line 316
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "Failed to resume Wifi display."
 
-    throw v1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public setVirtualDisplaySurface(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/view/Surface;)V
-    .locals 2
+    .locals 3
     .param p1, "token"    # Landroid/hardware/display/IVirtualDisplayCallback;
     .param p2, "surface"    # Landroid/view/Surface;
 
     .prologue
-    .line 405
+    .line 410
     :try_start_0
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -1135,32 +1265,35 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 403
+    .line 408
+    :goto_0
     return-void
 
-    .line 406
+    .line 411
     :catch_0
     move-exception v0
 
-    .line 407
+    .line 412
     .local v0, "ex":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v2, "Failed to set virtual display surface."
 
-    throw v1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public startWifiDisplayScan()V
     .locals 4
 
     .prologue
-    .line 261
+    .line 264
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 262
+    .line 265
     :try_start_0
     iget v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mWifiDisplayScanNestCount:I
 
@@ -1170,12 +1303,12 @@
 
     if-nez v1, :cond_0
 
-    .line 263
+    .line 266
     invoke-direct {p0}, Landroid/hardware/display/DisplayManagerGlobal;->registerCallbackIfNeededLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 265
+    .line 268
     :try_start_1
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -1185,27 +1318,30 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_0
+    :goto_0
     monitor-exit v2
 
-    .line 260
+    .line 263
     return-void
 
-    .line 266
+    .line 269
     :catch_0
     move-exception v0
 
-    .line 267
+    .line 270
     .local v0, "ex":Landroid/os/RemoteException;
     :try_start_2
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v3, "Failed to scan for Wifi displays."
 
-    throw v1
+    invoke-static {v1, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 261
+    goto :goto_0
+
+    .line 264
     .end local v0    # "ex":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
@@ -1219,12 +1355,12 @@
     .locals 5
 
     .prologue
-    .line 274
+    .line 277
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 275
+    .line 278
     :try_start_0
     iget v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mWifiDisplayScanNestCount:I
 
@@ -1236,7 +1372,7 @@
 
     if-nez v1, :cond_1
 
-    .line 277
+    .line 280
     :try_start_1
     iget-object v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDm:Landroid/hardware/display/IDisplayManager;
 
@@ -1249,25 +1385,27 @@
     :goto_0
     monitor-exit v2
 
-    .line 273
+    .line 276
     return-void
 
-    .line 278
+    .line 281
     :catch_0
     move-exception v0
 
-    .line 279
+    .line 282
     .local v0, "ex":Landroid/os/RemoteException;
     :try_start_2
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "DisplayManager"
 
-    move-result-object v1
+    const-string/jumbo v3, "Failed to scan for Wifi displays."
 
-    throw v1
+    invoke-static {v1, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 274
+    goto :goto_0
+
+    .line 277
     .end local v0    # "ex":Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
@@ -1276,14 +1414,14 @@
 
     throw v1
 
-    .line 281
+    .line 284
     :cond_1
     :try_start_3
     iget v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mWifiDisplayScanNestCount:I
 
     if-gez v1, :cond_0
 
-    .line 282
+    .line 285
     const-string/jumbo v1, "DisplayManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1296,10 +1434,10 @@
 
     move-result-object v3
 
-    .line 283
+    .line 286
     iget v4, p0, Landroid/hardware/display/DisplayManagerGlobal;->mWifiDisplayScanNestCount:I
 
-    .line 282
+    .line 285
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -1310,7 +1448,7 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 284
+    .line 287
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/hardware/display/DisplayManagerGlobal;->mWifiDisplayScanNestCount:I
@@ -1325,10 +1463,10 @@
     .param p1, "listener"    # Landroid/hardware/display/DisplayManager$DisplayListener;
 
     .prologue
-    .line 208
+    .line 210
     if-nez p1, :cond_0
 
-    .line 209
+    .line 211
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "listener must not be null"
@@ -1337,23 +1475,23 @@
 
     throw v2
 
-    .line 212
+    .line 214
     :cond_0
     iget-object v3, p0, Landroid/hardware/display/DisplayManagerGlobal;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 213
+    .line 215
     :try_start_0
     invoke-direct {p0, p1}, Landroid/hardware/display/DisplayManagerGlobal;->findDisplayListenerLocked(Landroid/hardware/display/DisplayManager$DisplayListener;)I
 
     move-result v1
 
-    .line 214
+    .line 216
     .local v1, "index":I
     if-ltz v1, :cond_1
 
-    .line 215
+    .line 217
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDisplayListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1362,11 +1500,11 @@
 
     check-cast v0, Landroid/hardware/display/DisplayManagerGlobal$DisplayListenerDelegate;
 
-    .line 216
+    .line 218
     .local v0, "d":Landroid/hardware/display/DisplayManagerGlobal$DisplayListenerDelegate;
     invoke-virtual {v0}, Landroid/hardware/display/DisplayManagerGlobal$DisplayListenerDelegate;->clearEvents()V
 
-    .line 217
+    .line 219
     iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal;->mDisplayListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
@@ -1377,10 +1515,10 @@
     :cond_1
     monitor-exit v3
 
-    .line 207
+    .line 209
     return-void
 
-    .line 212
+    .line 214
     .end local v1    # "index":I
     :catchall_0
     move-exception v2

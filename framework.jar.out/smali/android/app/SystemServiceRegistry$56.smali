@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/hardware/ConsumerIrManager;",
+        "Landroid/media/session/MediaSessionManager;",
         ">;"
     }
 .end annotation
@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 617
+    .line 599
     invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
@@ -36,15 +36,15 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/hardware/ConsumerIrManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/media/session/MediaSessionManager;
     .locals 1
     .param p1, "ctx"    # Landroid/app/ContextImpl;
 
     .prologue
-    .line 620
-    new-instance v0, Landroid/hardware/ConsumerIrManager;
+    .line 602
+    new-instance v0, Landroid/media/session/MediaSessionManager;
 
-    invoke-direct {v0, p1}, Landroid/hardware/ConsumerIrManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Landroid/media/session/MediaSessionManager;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
@@ -54,8 +54,8 @@
     .param p1, "ctx"    # Landroid/app/ContextImpl;
 
     .prologue
-    .line 619
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$56;->createService(Landroid/app/ContextImpl;)Landroid/hardware/ConsumerIrManager;
+    .line 601
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$56;->createService(Landroid/app/ContextImpl;)Landroid/media/session/MediaSessionManager;
 
     move-result-object v0
 

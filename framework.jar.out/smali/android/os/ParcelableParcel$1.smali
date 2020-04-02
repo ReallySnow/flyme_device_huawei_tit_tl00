@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 68
+    .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,7 +45,7 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 70
+    .line 64
     new-instance v0, Landroid/os/ParcelableParcel;
 
     const/4 v1, 0x0
@@ -61,7 +61,7 @@
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .prologue
-    .line 74
+    .line 68
     new-instance v0, Landroid/os/ParcelableParcel;
 
     invoke-direct {v0, p1, p2}, Landroid/os/ParcelableParcel;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
@@ -74,7 +74,7 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 69
+    .line 63
     invoke-virtual {p0, p1}, Landroid/os/ParcelableParcel$1;->createFromParcel(Landroid/os/Parcel;)Landroid/os/ParcelableParcel;
 
     move-result-object v0
@@ -88,7 +88,7 @@
     .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .prologue
-    .line 73
+    .line 67
     invoke-virtual {p0, p1, p2}, Landroid/os/ParcelableParcel$1;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/os/ParcelableParcel;
 
     move-result-object v0
@@ -101,7 +101,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 78
+    .line 72
     new-array v0, p1, [Landroid/os/ParcelableParcel;
 
     return-object v0
@@ -112,7 +112,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 77
+    .line 71
     invoke-virtual {p0, p1}, Landroid/os/ParcelableParcel$1;->newArray(I)[Landroid/os/ParcelableParcel;
 
     move-result-object v0

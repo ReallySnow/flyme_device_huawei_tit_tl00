@@ -73,10 +73,14 @@
 
     .line 123
     .local v8, "endIndex":I
-    add-int/lit8 v5, p1, 0x1
+    add-int/lit8 v6, v5, 0x1
 
+    .end local v5    # "curIndex":I
+    .local v6, "curIndex":I
     :try_start_0
-    aget-byte v0, p0, p1
+    aget-byte v0, p0, v5
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     and-int/lit16 v9, v0, 0xff
 
@@ -89,7 +93,7 @@
 
     .line 145
     .local v1, "tag":I
-    and-int/lit16 v0, v9, 0x80
+    and-int/lit16 v0, v1, 0x80
 
     if-eqz v0, :cond_2
 
@@ -98,18 +102,15 @@
     .line 146
     .local v2, "cr":Z
     :goto_0
-    and-int/lit16 v1, v9, -0x81
-
-    move v6, v5
+    and-int/lit16 v1, v1, -0x81
 
     .line 152
-    .end local v5    # "curIndex":I
-    .local v6, "curIndex":I
     :goto_1
     add-int/lit8 v5, v6, 0x1
 
     .end local v6    # "curIndex":I
     .restart local v5    # "curIndex":I
+    :try_start_1
     aget-byte v0, p0, v6
 
     and-int/lit16 v9, v0, 0xff
@@ -129,6 +130,8 @@
     move-object v4, p0
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/telephony/cat/ComprehensionTlv;-><init>(IZI[BI)V
+    :try_end_1
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_1
 
     return-object v0
 
@@ -136,7 +139,10 @@
     .end local v1    # "tag":I
     .end local v2    # "cr":Z
     .end local v3    # "length":I
+    .end local v5    # "curIndex":I
+    .restart local v6    # "curIndex":I
     :sswitch_0
+    :try_start_2
     const-string/jumbo v0, "CAT     "
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -177,7 +183,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -206,18 +212,16 @@
 
     .line 136
     :sswitch_1
-    aget-byte v0, p0, v5
+    aget-byte v0, p0, v6
 
     and-int/lit16 v0, v0, 0xff
 
     shl-int/lit8 v0, v0, 0x8
 
     .line 137
-    add-int/lit8 v4, v5, 0x1
+    add-int/lit8 v4, v6, 0x1
 
     aget-byte v4, p0, v4
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
 
     and-int/lit16 v4, v4, 0xff
 
@@ -242,8 +246,10 @@
     and-int/2addr v1, v0
 
     .line 140
-    add-int/lit8 v5, v5, 0x2
+    add-int/lit8 v5, v6, 0x2
 
+    .end local v6    # "curIndex":I
+    .restart local v5    # "curIndex":I
     move v6, v5
 
     .line 141
@@ -253,8 +259,6 @@
 
     .line 138
     .end local v2    # "cr":Z
-    .end local v6    # "curIndex":I
-    .restart local v5    # "curIndex":I
     :cond_1
     const/4 v2, 0x0
 
@@ -270,6 +274,8 @@
     goto :goto_0
 
     .line 155
+    .end local v6    # "curIndex":I
+    .restart local v5    # "curIndex":I
     :cond_3
     const/16 v0, 0x81
 
@@ -280,7 +286,6 @@
 
     .end local v5    # "curIndex":I
     .restart local v6    # "curIndex":I
-    :try_start_1
     aget-byte v0, p0, v5
 
     and-int/lit16 v3, v0, 0xff
@@ -358,11 +363,14 @@
     invoke-direct {v0, v4, v10}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;Ljava/lang/String;)V
 
     throw v0
-    :try_end_1
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_2
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 197
+    .end local v1    # "tag":I
+    .end local v2    # "cr":Z
     .end local v3    # "length":I
+    .end local v9    # "temp":I
     :catch_0
     move-exception v7
 
@@ -370,10 +378,7 @@
     move v5, v6
 
     .line 198
-    .end local v1    # "tag":I
-    .end local v2    # "cr":Z
     .end local v6    # "curIndex":I
-    .end local v9    # "temp":I
     .restart local v5    # "curIndex":I
     :goto_4
     new-instance v0, Lcom/android/internal/telephony/cat/ResultException;
@@ -439,7 +444,7 @@
     if-ne v9, v0, :cond_5
 
     .line 165
-    :try_start_2
+    :try_start_3
     aget-byte v0, p0, v5
 
     and-int/lit16 v0, v0, 0xff
@@ -536,10 +541,7 @@
     throw v0
 
     .line 197
-    .end local v1    # "tag":I
-    .end local v2    # "cr":Z
     .end local v3    # "length":I
-    .end local v9    # "temp":I
     :catch_1
     move-exception v7
 
@@ -548,9 +550,6 @@
 
     .line 175
     .end local v7    # "e":Ljava/lang/IndexOutOfBoundsException;
-    .restart local v1    # "tag":I
-    .restart local v2    # "cr":Z
-    .restart local v9    # "temp":I
     :cond_5
     const/16 v0, 0x83
 
@@ -730,8 +729,8 @@
     invoke-direct {v0, v4, v10}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;Ljava/lang/String;)V
 
     throw v0
-    :try_end_2
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_3
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_3 .. :try_end_3} :catch_1
 
     .end local v5    # "curIndex":I
     .restart local v3    # "length":I
@@ -744,8 +743,6 @@
     goto/16 :goto_2
 
     .line 124
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0

@@ -44,7 +44,7 @@
 
 .field public static final EVENT_CONNECTIVITY_CHANGED:I = 0x9
 
-.field public static final EVENT_COUNT:I = 0x15
+.field public static final EVENT_COUNT:I = 0x13
 
 .field public static final EVENT_FLAG_FINISH:I = 0x4000
 
@@ -61,12 +61,6 @@
 .field public static final EVENT_JOB_FINISH:I = 0x4006
 
 .field public static final EVENT_JOB_START:I = 0x8006
-
-.field public static final EVENT_LONG_WAKE_LOCK:I = 0x14
-
-.field public static final EVENT_LONG_WAKE_LOCK_FINISH:I = 0x4014
-
-.field public static final EVENT_LONG_WAKE_LOCK_START:I = 0x8014
 
 .field public static final EVENT_NONE:I = 0x0
 
@@ -118,8 +112,6 @@
 
 .field public static final EVENT_USER_RUNNING_START:I = 0x8007
 
-.field public static final EVENT_WAKEUP_AP:I = 0x13
-
 .field public static final EVENT_WAKE_LOCK:I = 0x5
 
 .field public static final EVENT_WAKE_LOCK_FINISH:I = 0x4005
@@ -128,27 +120,23 @@
 
 .field public static final MOST_INTERESTING_STATES:I = 0x180000
 
-.field public static final MOST_INTERESTING_STATES2:I = -0x68400000
+.field public static final MOST_INTERESTING_STATES2:I = -0x68800000
 
 .field public static final SETTLE_TO_ZERO_STATES:I = -0x190000
 
-.field public static final SETTLE_TO_ZERO_STATES2:I = 0x683f0000
+.field public static final SETTLE_TO_ZERO_STATES2:I = 0x687f0000
 
-.field public static final STATE2_BLUETOOTH_ON_FLAG:I = 0x400000
+.field public static final STATE2_BLUETOOTH_ON_FLAG:I = 0x800000
 
-.field public static final STATE2_BLUETOOTH_SCAN_FLAG:I = 0x100000
+.field public static final STATE2_CAMERA_FLAG:I = 0x400000
 
-.field public static final STATE2_CAMERA_FLAG:I = 0x200000
+.field public static final STATE2_CHARGING_FLAG:I = 0x2000000
 
-.field public static final STATE2_CHARGING_FLAG:I = 0x1000000
-
-.field public static final STATE2_DEVICE_IDLE_MASK:I = 0x6000000
-
-.field public static final STATE2_DEVICE_IDLE_SHIFT:I = 0x19
+.field public static final STATE2_DEVICE_IDLE_FLAG:I = 0x4000000
 
 .field public static final STATE2_FLASHLIGHT_FLAG:I = 0x8000000
 
-.field public static final STATE2_PHONE_IN_CALL_FLAG:I = 0x800000
+.field public static final STATE2_PHONE_IN_CALL_FLAG:I = 0x1000000
 
 .field public static final STATE2_POWER_SAVE_FLAG:I = -0x80000000
 
@@ -194,8 +182,6 @@
 
 .field public static final STATE_PHONE_STATE_SHIFT:I = 0x6
 
-.field private static final STATE_RESERVED_0:I = 0x1000000
-
 .field public static final STATE_SCREEN_ON_FLAG:I = 0x100000
 
 .field public static final STATE_SENSOR_ON_FLAG:I = 0x800000
@@ -212,8 +198,6 @@
 
 
 # instance fields
-.field public batteryChargeUAh:I
-
 .field public batteryHealth:B
 
 .field public batteryLevel:B
@@ -262,36 +246,36 @@
     .locals 1
 
     .prologue
-    .line 1389
+    .line 1249
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1191
+    .line 1067
     const/4 v0, -0x1
 
     iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
-    .line 1385
+    .line 1245
     new-instance v0, Landroid/os/BatteryStats$HistoryTag;
 
     invoke-direct {v0}, Landroid/os/BatteryStats$HistoryTag;-><init>()V
 
     iput-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->localWakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1386
+    .line 1246
     new-instance v0, Landroid/os/BatteryStats$HistoryTag;
 
     invoke-direct {v0}, Landroid/os/BatteryStats$HistoryTag;-><init>()V
 
     iput-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->localWakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1387
+    .line 1247
     new-instance v0, Landroid/os/BatteryStats$HistoryTag;
 
     invoke-direct {v0}, Landroid/os/BatteryStats$HistoryTag;-><init>()V
 
     iput-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->localEventTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1389
+    .line 1249
     return-void
 .end method
 
@@ -301,47 +285,47 @@
     .param p3, "src"    # Landroid/os/Parcel;
 
     .prologue
-    .line 1392
+    .line 1252
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1191
+    .line 1067
     const/4 v0, -0x1
 
     iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
-    .line 1385
+    .line 1245
     new-instance v0, Landroid/os/BatteryStats$HistoryTag;
 
     invoke-direct {v0}, Landroid/os/BatteryStats$HistoryTag;-><init>()V
 
     iput-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->localWakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1386
+    .line 1246
     new-instance v0, Landroid/os/BatteryStats$HistoryTag;
 
     invoke-direct {v0}, Landroid/os/BatteryStats$HistoryTag;-><init>()V
 
     iput-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->localWakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1387
+    .line 1247
     new-instance v0, Landroid/os/BatteryStats$HistoryTag;
 
     invoke-direct {v0}, Landroid/os/BatteryStats$HistoryTag;-><init>()V
 
     iput-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->localEventTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1393
+    .line 1253
     iput-wide p1, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
-    .line 1394
+    .line 1254
     const/4 v0, 0x2
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryItem;->numReadInts:I
 
-    .line 1395
+    .line 1255
     invoke-virtual {p0, p3}, Landroid/os/BatteryStats$HistoryItem;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 1392
+    .line 1252
     return-void
 .end method
 
@@ -352,131 +336,126 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1507
+    .line 1364
     iget-byte v0, p1, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
     iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
-    .line 1508
+    .line 1365
     iget-byte v0, p1, Landroid/os/BatteryStats$HistoryItem;->batteryStatus:B
 
     iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryStatus:B
 
-    .line 1509
+    .line 1366
     iget-byte v0, p1, Landroid/os/BatteryStats$HistoryItem;->batteryHealth:B
 
     iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryHealth:B
 
-    .line 1510
+    .line 1367
     iget-byte v0, p1, Landroid/os/BatteryStats$HistoryItem;->batteryPlugType:B
 
     iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryPlugType:B
 
-    .line 1511
+    .line 1368
     iget-short v0, p1, Landroid/os/BatteryStats$HistoryItem;->batteryTemperature:S
 
     iput-short v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryTemperature:S
 
-    .line 1512
+    .line 1369
     iget-char v0, p1, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
     iput-char v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
-    .line 1513
-    iget v0, p1, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
-
-    iput v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
-
-    .line 1514
+    .line 1370
     iget v0, p1, Landroid/os/BatteryStats$HistoryItem;->states:I
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    .line 1515
+    .line 1371
     iget v0, p1, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
-    .line 1516
+    .line 1372
     iget-object v0, p1, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     if-eqz v0, :cond_0
 
-    .line 1517
+    .line 1373
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->localWakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     iput-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1518
+    .line 1374
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     iget-object v1, p1, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     invoke-virtual {v0, v1}, Landroid/os/BatteryStats$HistoryTag;->setTo(Landroid/os/BatteryStats$HistoryTag;)V
 
-    .line 1522
+    .line 1378
     :goto_0
     iget-object v0, p1, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     if-eqz v0, :cond_1
 
-    .line 1523
+    .line 1379
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->localWakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     iput-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1524
+    .line 1380
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     iget-object v1, p1, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     invoke-virtual {v0, v1}, Landroid/os/BatteryStats$HistoryTag;->setTo(Landroid/os/BatteryStats$HistoryTag;)V
 
-    .line 1528
+    .line 1384
     :goto_1
     iget v0, p1, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
     iput v0, p0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
-    .line 1529
+    .line 1385
     iget-object v0, p1, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
     if-eqz v0, :cond_2
 
-    .line 1530
+    .line 1386
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->localEventTag:Landroid/os/BatteryStats$HistoryTag;
 
     iput-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1531
+    .line 1387
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
     iget-object v1, p1, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
     invoke-virtual {v0, v1}, Landroid/os/BatteryStats$HistoryTag;->setTo(Landroid/os/BatteryStats$HistoryTag;)V
 
-    .line 1535
+    .line 1391
     :goto_2
     iget-wide v0, p1, Landroid/os/BatteryStats$HistoryItem;->currentTime:J
 
     iput-wide v0, p0, Landroid/os/BatteryStats$HistoryItem;->currentTime:J
 
-    .line 1506
+    .line 1363
     return-void
 
-    .line 1520
+    .line 1376
     :cond_0
     iput-object v2, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     goto :goto_0
 
-    .line 1526
+    .line 1382
     :cond_1
     iput-object v2, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     goto :goto_1
 
-    .line 1533
+    .line 1389
     :cond_2
     iput-object v2, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
@@ -493,56 +472,53 @@
 
     const/4 v2, 0x0
 
-    .line 1477
+    .line 1335
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
-    .line 1478
+    .line 1336
     const/4 v0, -0x1
 
     iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
-    .line 1479
+    .line 1337
     iput-byte v2, p0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
-    .line 1480
+    .line 1338
     iput-byte v2, p0, Landroid/os/BatteryStats$HistoryItem;->batteryStatus:B
 
-    .line 1481
+    .line 1339
     iput-byte v2, p0, Landroid/os/BatteryStats$HistoryItem;->batteryHealth:B
 
-    .line 1482
+    .line 1340
     iput-byte v2, p0, Landroid/os/BatteryStats$HistoryItem;->batteryPlugType:B
 
-    .line 1483
+    .line 1341
     iput-short v2, p0, Landroid/os/BatteryStats$HistoryItem;->batteryTemperature:S
 
-    .line 1484
+    .line 1342
     iput-char v2, p0, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
-    .line 1485
-    iput v2, p0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
-
-    .line 1486
+    .line 1343
     iput v2, p0, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    .line 1487
+    .line 1344
     iput v2, p0, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
-    .line 1488
+    .line 1345
     iput-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1489
+    .line 1346
     iput-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1490
+    .line 1347
     iput v2, p0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
-    .line 1491
+    .line 1348
     iput-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1476
+    .line 1334
     return-void
 .end method
 
@@ -550,7 +526,7 @@
     .locals 1
 
     .prologue
-    .line 1399
+    .line 1259
     const/4 v0, 0x0
 
     return v0
@@ -562,7 +538,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1197
+    .line 1073
     iget-byte v1, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
     if-nez v1, :cond_0
@@ -584,18 +560,18 @@
 
     const/4 v4, 0x0
 
-    .line 1435
+    .line 1294
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
     move-result v2
 
-    .line 1436
+    .line 1295
     .local v2, "start":I
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 1437
+    .line 1296
     .local v0, "bat":I
     and-int/lit16 v3, v0, 0xff
 
@@ -603,7 +579,7 @@
 
     iput-byte v3, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
-    .line 1438
+    .line 1297
     shr-int/lit8 v3, v0, 0x8
 
     and-int/lit16 v3, v3, 0xff
@@ -612,7 +588,7 @@
 
     iput-byte v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
-    .line 1439
+    .line 1298
     shr-int/lit8 v3, v0, 0x10
 
     and-int/lit8 v3, v3, 0xf
@@ -621,7 +597,7 @@
 
     iput-byte v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryStatus:B
 
-    .line 1440
+    .line 1299
     shr-int/lit8 v3, v0, 0x14
 
     and-int/lit8 v3, v3, 0xf
@@ -630,7 +606,7 @@
 
     iput-byte v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryHealth:B
 
-    .line 1441
+    .line 1300
     shr-int/lit8 v3, v0, 0x18
 
     and-int/lit8 v3, v3, 0xf
@@ -639,12 +615,12 @@
 
     iput-byte v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryPlugType:B
 
-    .line 1442
+    .line 1301
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 1443
+    .line 1302
     .local v1, "bat2":I
     and-int v3, v1, v6
 
@@ -652,7 +628,7 @@
 
     iput-short v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryTemperature:S
 
-    .line 1444
+    .line 1303
     shr-int/lit8 v3, v1, 0x10
 
     and-int/2addr v3, v6
@@ -661,45 +637,38 @@
 
     iput-char v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
-    .line 1445
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
-
-    .line 1446
+    .line 1304
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     iput v3, p0, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    .line 1447
+    .line 1305
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     iput v3, p0, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
-    .line 1448
+    .line 1306
     const/high16 v3, 0x10000000
 
     and-int/2addr v3, v0
 
     if-eqz v3, :cond_1
 
-    .line 1449
+    .line 1307
     iget-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->localWakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     iput-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1450
+    .line 1308
     iget-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     invoke-virtual {v3, p1}, Landroid/os/BatteryStats$HistoryTag;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 1454
+    .line 1312
     :goto_0
     const/high16 v3, 0x20000000
 
@@ -707,17 +676,17 @@
 
     if-eqz v3, :cond_2
 
-    .line 1455
+    .line 1313
     iget-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->localWakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     iput-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1456
+    .line 1314
     iget-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     invoke-virtual {v3, p1}, Landroid/os/BatteryStats$HistoryTag;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 1460
+    .line 1318
     :goto_1
     const/high16 v3, 0x40000000    # 2.0f
 
@@ -725,24 +694,24 @@
 
     if-eqz v3, :cond_3
 
-    .line 1461
+    .line 1319
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     iput v3, p0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
-    .line 1462
+    .line 1320
     iget-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->localEventTag:Landroid/os/BatteryStats$HistoryTag;
 
     iput-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
-    .line 1463
+    .line 1321
     iget-object v3, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
     invoke-virtual {v3, p1}, Landroid/os/BatteryStats$HistoryTag;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 1468
+    .line 1326
     :goto_2
     iget-byte v3, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
@@ -756,7 +725,7 @@
 
     if-ne v3, v4, :cond_4
 
-    .line 1469
+    .line 1327
     :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
@@ -764,7 +733,7 @@
 
     iput-wide v4, p0, Landroid/os/BatteryStats$HistoryItem;->currentTime:J
 
-    .line 1473
+    .line 1331
     :goto_3
     iget v3, p0, Landroid/os/BatteryStats$HistoryItem;->numReadInts:I
 
@@ -780,31 +749,31 @@
 
     iput v3, p0, Landroid/os/BatteryStats$HistoryItem;->numReadInts:I
 
-    .line 1434
+    .line 1293
     return-void
 
-    .line 1452
+    .line 1310
     :cond_1
     iput-object v5, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     goto :goto_0
 
-    .line 1458
+    .line 1316
     :cond_2
     iput-object v5, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     goto :goto_1
 
-    .line 1465
+    .line 1323
     :cond_3
     iput v4, p0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
-    .line 1466
+    .line 1324
     iput-object v5, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
     goto :goto_2
 
-    .line 1471
+    .line 1329
     :cond_4
     const-wide/16 v4, 0x0
 
@@ -820,7 +789,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1552
+    .line 1407
     invoke-virtual {p0, p1}, Landroid/os/BatteryStats$HistoryItem;->sameNonEvent(Landroid/os/BatteryStats$HistoryItem;)Z
 
     move-result v0
@@ -833,11 +802,11 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 1553
+    .line 1408
     :cond_0
     return v2
 
-    .line 1555
+    .line 1410
     :cond_1
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
@@ -845,7 +814,7 @@
 
     if-eq v0, v1, :cond_4
 
-    .line 1556
+    .line 1411
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     if-eqz v0, :cond_2
@@ -854,11 +823,11 @@
 
     if-nez v0, :cond_3
 
-    .line 1557
+    .line 1412
     :cond_2
     return v2
 
-    .line 1559
+    .line 1414
     :cond_3
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
@@ -870,10 +839,10 @@
 
     if-nez v0, :cond_4
 
-    .line 1560
+    .line 1415
     return v2
 
-    .line 1563
+    .line 1418
     :cond_4
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
@@ -881,7 +850,7 @@
 
     if-eq v0, v1, :cond_7
 
-    .line 1564
+    .line 1419
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     if-eqz v0, :cond_5
@@ -890,11 +859,11 @@
 
     if-nez v0, :cond_6
 
-    .line 1565
+    .line 1420
     :cond_5
     return v2
 
-    .line 1567
+    .line 1422
     :cond_6
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
@@ -906,10 +875,10 @@
 
     if-nez v0, :cond_7
 
-    .line 1568
+    .line 1423
     return v2
 
-    .line 1571
+    .line 1426
     :cond_7
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
@@ -917,7 +886,7 @@
 
     if-eq v0, v1, :cond_a
 
-    .line 1572
+    .line 1427
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
     if-eqz v0, :cond_8
@@ -926,11 +895,11 @@
 
     if-nez v0, :cond_9
 
-    .line 1573
+    .line 1428
     :cond_8
     return v2
 
-    .line 1575
+    .line 1430
     :cond_9
     iget-object v0, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
@@ -942,10 +911,10 @@
 
     if-nez v0, :cond_a
 
-    .line 1576
+    .line 1431
     return v2
 
-    .line 1579
+    .line 1434
     :cond_a
     const/4 v0, 0x1
 
@@ -959,70 +928,63 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1539
+    .line 1395
     iget-byte v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
     iget-byte v2, p1, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
     if-ne v1, v2, :cond_0
 
-    .line 1540
+    .line 1396
     iget-byte v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryStatus:B
 
     iget-byte v2, p1, Landroid/os/BatteryStats$HistoryItem;->batteryStatus:B
 
     if-ne v1, v2, :cond_0
 
-    .line 1541
+    .line 1397
     iget-byte v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryHealth:B
 
     iget-byte v2, p1, Landroid/os/BatteryStats$HistoryItem;->batteryHealth:B
 
     if-ne v1, v2, :cond_0
 
-    .line 1542
+    .line 1398
     iget-byte v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryPlugType:B
 
     iget-byte v2, p1, Landroid/os/BatteryStats$HistoryItem;->batteryPlugType:B
 
     if-ne v1, v2, :cond_0
 
-    .line 1543
+    .line 1399
     iget-short v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryTemperature:S
 
     iget-short v2, p1, Landroid/os/BatteryStats$HistoryItem;->batteryTemperature:S
 
     if-ne v1, v2, :cond_0
 
-    .line 1544
+    .line 1400
     iget-char v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
     iget-char v2, p1, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
     if-ne v1, v2, :cond_0
 
-    .line 1545
-    iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
-
-    iget v2, p1, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
-
-    if-ne v1, v2, :cond_0
-
-    .line 1546
+    .line 1401
     iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->states:I
 
     iget v2, p1, Landroid/os/BatteryStats$HistoryItem;->states:I
 
     if-ne v1, v2, :cond_0
 
-    .line 1547
+    .line 1402
     iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
     iget v2, p1, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
     if-ne v1, v2, :cond_0
 
-    .line 1548
+    .line 1403
     iget-wide v2, p0, Landroid/os/BatteryStats$HistoryItem;->currentTime:J
 
     iget-wide v4, p1, Landroid/os/BatteryStats$HistoryItem;->currentTime:J
@@ -1033,7 +995,7 @@
 
     const/4 v0, 0x1
 
-    .line 1539
+    .line 1395
     :cond_0
     return v0
 .end method
@@ -1045,16 +1007,16 @@
     .param p4, "o"    # Landroid/os/BatteryStats$HistoryItem;
 
     .prologue
-    .line 1501
+    .line 1358
     iput-wide p1, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
-    .line 1502
+    .line 1359
     iput-byte p3, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
-    .line 1503
+    .line 1360
     invoke-direct {p0, p4}, Landroid/os/BatteryStats$HistoryItem;->setToCommon(Landroid/os/BatteryStats$HistoryItem;)V
 
-    .line 1500
+    .line 1357
     return-void
 .end method
 
@@ -1063,20 +1025,20 @@
     .param p1, "o"    # Landroid/os/BatteryStats$HistoryItem;
 
     .prologue
-    .line 1495
+    .line 1352
     iget-wide v0, p1, Landroid/os/BatteryStats$HistoryItem;->time:J
 
     iput-wide v0, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
-    .line 1496
+    .line 1353
     iget-byte v0, p1, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
     iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
-    .line 1497
+    .line 1354
     invoke-direct {p0, p1}, Landroid/os/BatteryStats$HistoryItem;->setToCommon(Landroid/os/BatteryStats$HistoryItem;)V
 
-    .line 1494
+    .line 1351
     return-void
 .end method
 
@@ -1088,17 +1050,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1403
+    .line 1263
     iget-wide v4, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
     invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 1404
+    .line 1264
     iget-byte v1, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
     and-int/lit16 v1, v1, 0xff
 
-    .line 1405
+    .line 1265
     iget-byte v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
     shl-int/lit8 v3, v3, 0x8
@@ -1107,10 +1069,10 @@
 
     and-int/2addr v3, v4
 
-    .line 1404
+    .line 1264
     or-int/2addr v1, v3
 
-    .line 1406
+    .line 1266
     iget-byte v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryStatus:B
 
     shl-int/lit8 v3, v3, 0x10
@@ -1119,10 +1081,10 @@
 
     and-int/2addr v3, v4
 
-    .line 1404
+    .line 1264
     or-int/2addr v1, v3
 
-    .line 1407
+    .line 1267
     iget-byte v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryHealth:B
 
     shl-int/lit8 v3, v3, 0x14
@@ -1131,10 +1093,10 @@
 
     and-int/2addr v3, v4
 
-    .line 1404
+    .line 1264
     or-int/2addr v1, v3
 
-    .line 1408
+    .line 1268
     iget-byte v3, p0, Landroid/os/BatteryStats$HistoryItem;->batteryPlugType:B
 
     shl-int/lit8 v3, v3, 0x18
@@ -1143,54 +1105,54 @@
 
     and-int/2addr v3, v4
 
-    .line 1404
+    .line 1264
     or-int/2addr v3, v1
 
-    .line 1409
+    .line 1269
     iget-object v1, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     if-eqz v1, :cond_6
 
     const/high16 v1, 0x10000000
 
-    .line 1404
+    .line 1264
     :goto_0
     or-int/2addr v3, v1
 
-    .line 1410
+    .line 1270
     iget-object v1, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     if-eqz v1, :cond_7
 
     const/high16 v1, 0x20000000
 
-    .line 1404
+    .line 1264
     :goto_1
     or-int/2addr v1, v3
 
-    .line 1411
+    .line 1271
     iget v3, p0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
     if-eqz v3, :cond_0
 
     const/high16 v2, 0x40000000    # 2.0f
 
-    .line 1404
+    .line 1264
     :cond_0
     or-int v0, v1, v2
 
-    .line 1412
+    .line 1272
     .local v0, "bat":I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1413
+    .line 1273
     iget-short v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryTemperature:S
 
     const v2, 0xffff
 
     and-int/2addr v1, v2
 
-    .line 1414
+    .line 1274
     iget-char v2, p0, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
     shl-int/lit8 v2, v2, 0x10
@@ -1199,65 +1161,60 @@
 
     and-int/2addr v2, v3
 
-    .line 1413
+    .line 1273
     or-int v0, v1, v2
 
-    .line 1415
+    .line 1275
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1416
-    iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
-
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 1417
+    .line 1276
     iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->states:I
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1418
+    .line 1277
     iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1419
+    .line 1278
     iget-object v1, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     if-eqz v1, :cond_1
 
-    .line 1420
+    .line 1279
     iget-object v1, p0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
     invoke-virtual {v1, p1, p2}, Landroid/os/BatteryStats$HistoryTag;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 1422
+    .line 1281
     :cond_1
     iget-object v1, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     if-eqz v1, :cond_2
 
-    .line 1423
+    .line 1282
     iget-object v1, p0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
     invoke-virtual {v1, p1, p2}, Landroid/os/BatteryStats$HistoryTag;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 1425
+    .line 1284
     :cond_2
     iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
     if-eqz v1, :cond_3
 
-    .line 1426
+    .line 1285
     iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1427
+    .line 1286
     iget-object v1, p0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
     invoke-virtual {v1, p1, p2}, Landroid/os/BatteryStats$HistoryTag;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 1429
+    .line 1288
     :cond_3
     iget-byte v1, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
@@ -1271,13 +1228,13 @@
 
     if-ne v1, v2, :cond_5
 
-    .line 1430
+    .line 1289
     :cond_4
     iget-wide v2, p0, Landroid/os/BatteryStats$HistoryItem;->currentTime:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 1402
+    .line 1262
     :cond_5
     return-void
 
@@ -1285,12 +1242,12 @@
     :cond_6
     move v1, v2
 
-    .line 1409
+    .line 1269
     goto :goto_0
 
     :cond_7
     move v1, v2
 
-    .line 1410
+    .line 1270
     goto :goto_1
 .end method

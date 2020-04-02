@@ -12,9 +12,7 @@
 
 
 # static fields
-.field private static final sMarshalLock:Ljava/lang/Object;
-
-.field private static final sMarshalerMap:Ljava/util/HashMap;
+.field private static sMarshalerMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -27,7 +25,7 @@
     .end annotation
 .end field
 
-.field private static final sRegisteredMarshalQueryables:Ljava/util/List;
+.field private static sRegisteredMarshalQueryables:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -44,27 +42,20 @@
     .locals 1
 
     .prologue
-    .line 134
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    sput-object v0, Landroid/hardware/camera2/marshal/MarshalRegistry;->sMarshalLock:Ljava/lang/Object;
-
-    .line 137
+    .line 129
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 136
+    .line 128
     sput-object v0, Landroid/hardware/camera2/marshal/MarshalRegistry;->sRegisteredMarshalQueryables:Ljava/util/List;
 
-    .line 139
+    .line 131
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 138
+    .line 130
     sput-object v0, Landroid/hardware/camera2/marshal/MarshalRegistry;->sMarshalerMap:Ljava/util/HashMap;
 
     .line 28
@@ -75,10 +66,10 @@
     .locals 1
 
     .prologue
-    .line 141
+    .line 133
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 142
+    .line 134
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -87,7 +78,7 @@
 .end method
 
 .method public static getMarshaler(Landroid/hardware/camera2/utils/TypeReference;I)Landroid/hardware/camera2/marshal/Marshaler;
-    .locals 9
+    .locals 8
     .param p1, "nativeType"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,17 +95,11 @@
     .prologue
     .line 59
     .local p0, "typeToken":Landroid/hardware/camera2/utils/TypeReference;, "Landroid/hardware/camera2/utils/TypeReference<TT;>;"
-    sget-object v6, Landroid/hardware/camera2/marshal/MarshalRegistry;->sMarshalLock:Ljava/lang/Object;
-
-    monitor-enter v6
-
-    .line 62
-    :try_start_0
     new-instance v1, Landroid/hardware/camera2/marshal/MarshalRegistry$MarshalToken;
 
     invoke-direct {v1, p0, p1}, Landroid/hardware/camera2/marshal/MarshalRegistry$MarshalToken;-><init>(Landroid/hardware/camera2/utils/TypeReference;I)V
 
-    .line 69
+    .line 66
     .local v1, "marshalToken":Landroid/hardware/camera2/marshal/MarshalRegistry$MarshalToken;, "Landroid/hardware/camera2/marshal/MarshalRegistry$MarshalToken<TT;>;"
     sget-object v5, Landroid/hardware/camera2/marshal/MarshalRegistry;->sMarshalerMap:Ljava/util/HashMap;
 
@@ -124,11 +109,8 @@
 
     check-cast v2, Landroid/hardware/camera2/marshal/Marshaler;
 
-    .line 71
+    .line 68
     .local v2, "marshaler":Landroid/hardware/camera2/marshal/Marshaler;, "Landroid/hardware/camera2/marshal/Marshaler<TT;>;"
-    if-nez v2, :cond_4
-
-    .line 73
     sget-object v5, Landroid/hardware/camera2/marshal/MarshalRegistry;->sRegisteredMarshalQueryables:Ljava/util/List;
 
     invoke-interface {v5}, Ljava/util/List;->size()I
@@ -137,32 +119,20 @@
 
     if-nez v5, :cond_0
 
-    .line 74
+    .line 69
     new-instance v5, Ljava/lang/AssertionError;
 
-    const-string/jumbo v7, "No available query marshalers registered"
+    const-string/jumbo v6, "No available query marshalers registered"
 
-    invoke-direct {v5, v7}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
-
-    throw v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 59
-    .end local v1    # "marshalToken":Landroid/hardware/camera2/marshal/MarshalRegistry$MarshalToken;, "Landroid/hardware/camera2/marshal/MarshalRegistry$MarshalToken<TT;>;"
-    .end local v2    # "marshaler":Landroid/hardware/camera2/marshal/Marshaler;, "Landroid/hardware/camera2/marshal/Marshaler<TT;>;"
-    :catchall_0
-    move-exception v5
-
-    monitor-exit v6
+    invoke-direct {v5, v6}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
     throw v5
 
-    .line 78
-    .restart local v1    # "marshalToken":Landroid/hardware/camera2/marshal/MarshalRegistry$MarshalToken;, "Landroid/hardware/camera2/marshal/MarshalRegistry$MarshalToken<TT;>;"
-    .restart local v2    # "marshaler":Landroid/hardware/camera2/marshal/Marshaler;, "Landroid/hardware/camera2/marshal/Marshaler<TT;>;"
+    .line 72
     :cond_0
-    :try_start_1
+    if-nez v2, :cond_4
+
+    .line 74
     sget-object v5, Landroid/hardware/camera2/marshal/MarshalRegistry;->sRegisteredMarshalQueryables:Ljava/util/List;
 
     invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
@@ -183,92 +153,88 @@
 
     check-cast v3, Landroid/hardware/camera2/marshal/MarshalQueryable;
 
-    .line 80
+    .line 76
     .local v3, "potentialMarshaler":Landroid/hardware/camera2/marshal/MarshalQueryable;, "Landroid/hardware/camera2/marshal/MarshalQueryable<*>;"
     move-object v0, v3
 
-    .line 83
+    .line 79
     .local v0, "castedPotential":Landroid/hardware/camera2/marshal/MarshalQueryable;, "Landroid/hardware/camera2/marshal/MarshalQueryable<TT;>;"
-    invoke-interface {v3, p0, p1}, Landroid/hardware/camera2/marshal/MarshalQueryable;->isTypeMappingSupported(Landroid/hardware/camera2/utils/TypeReference;I)Z
+    invoke-interface {v0, p0, p1}, Landroid/hardware/camera2/marshal/MarshalQueryable;->isTypeMappingSupported(Landroid/hardware/camera2/utils/TypeReference;I)Z
 
     move-result v5
 
     if-eqz v5, :cond_1
 
-    .line 84
-    invoke-interface {v3, p0, p1}, Landroid/hardware/camera2/marshal/MarshalQueryable;->createMarshaler(Landroid/hardware/camera2/utils/TypeReference;I)Landroid/hardware/camera2/marshal/Marshaler;
+    .line 80
+    invoke-interface {v0, p0, p1}, Landroid/hardware/camera2/marshal/MarshalQueryable;->createMarshaler(Landroid/hardware/camera2/utils/TypeReference;I)Landroid/hardware/camera2/marshal/Marshaler;
 
     move-result-object v2
 
-    .line 89
+    .line 85
     .end local v0    # "castedPotential":Landroid/hardware/camera2/marshal/MarshalQueryable;, "Landroid/hardware/camera2/marshal/MarshalQueryable<TT;>;"
     .end local v3    # "potentialMarshaler":Landroid/hardware/camera2/marshal/MarshalQueryable;, "Landroid/hardware/camera2/marshal/MarshalQueryable<*>;"
     :cond_2
     if-nez v2, :cond_3
 
-    .line 90
+    .line 86
     new-instance v5, Ljava/lang/UnsupportedOperationException;
 
-    .line 91
-    new-instance v7, Ljava/lang/StringBuilder;
+    .line 87
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "Could not find marshaler that matches the requested combination of type reference "
+    const-string/jumbo v7, "Could not find marshaler that matches the requested combination of type reference "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    .line 93
-    const-string/jumbo v8, " and native type "
+    .line 89
+    const-string/jumbo v7, " and native type "
 
-    .line 91
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 87
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
-
-    .line 94
-    invoke-static {p1}, Landroid/hardware/camera2/marshal/MarshalHelpers;->toStringNativeType(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 91
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
+    move-result-object v6
 
     .line 90
-    invoke-direct {v5, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-static {p1}, Landroid/hardware/camera2/marshal/MarshalHelpers;->toStringNativeType(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 87
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    .line 86
+    invoke-direct {v5, v6}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw v5
 
-    .line 98
+    .line 94
     :cond_3
     sget-object v5, Landroid/hardware/camera2/marshal/MarshalRegistry;->sMarshalerMap:Ljava/util/HashMap;
 
     invoke-virtual {v5, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 97
     .end local v4    # "potentialMarshaler$iterator":Ljava/util/Iterator;
     :cond_4
-    monitor-exit v6
-
-    .line 101
     return-object v2
 .end method
 
 .method public static registerMarshalQueryable(Landroid/hardware/camera2/marshal/MarshalQueryable;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -282,28 +248,10 @@
     .prologue
     .line 40
     .local p0, "queryable":Landroid/hardware/camera2/marshal/MarshalQueryable;, "Landroid/hardware/camera2/marshal/MarshalQueryable<TT;>;"
-    sget-object v1, Landroid/hardware/camera2/marshal/MarshalRegistry;->sMarshalLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    .line 41
-    :try_start_0
     sget-object v0, Landroid/hardware/camera2/marshal/MarshalRegistry;->sRegisteredMarshalQueryables:Ljava/util/List;
 
     invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
 
     .line 39
     return-void
-
-    .line 40
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method

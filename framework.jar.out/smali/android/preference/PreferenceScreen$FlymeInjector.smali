@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 337
+    .line 303
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,7 +38,7 @@
     .param p1, "listView"    # Landroid/widget/ListView;
 
     .prologue
-    .line 423
+    .line 389
     invoke-virtual {p0}, Landroid/preference/PreferenceScreen;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -49,33 +49,33 @@
 
     if-eqz v2, :cond_0
 
-    .line 424
+    .line 390
     invoke-virtual {p1}, Landroid/widget/ListView;->applyMeizuPartitionStyle()V
 
-    .line 426
+    .line 392
     const/4 v2, 0x1
 
     invoke-virtual {p1, v2}, Landroid/widget/ListView;->setDividerInSide(Z)V
 
-    .line 427
+    .line 393
     new-instance v0, Landroid/preference/PreferenceScreen$FlymeInjector$FlymeDividerFilter;
 
     invoke-direct {v0, p0}, Landroid/preference/PreferenceScreen$FlymeInjector$FlymeDividerFilter;-><init>(Landroid/preference/PreferenceScreen;)V
 
-    .line 428
+    .line 394
     .local v0, "dividerFilter":Landroid/preference/PreferenceScreen$FlymeInjector$FlymeDividerFilter;
     invoke-virtual {p1, v0}, Landroid/widget/ListView;->setDividerFilterListener(Landroid/widget/ListView$DividerFilter;)V
 
-    .line 429
+    .line 395
     new-instance v1, Landroid/preference/PreferenceScreen$FlymeInjector$FlymeDividerPadding;
 
     invoke-direct {v1, p0}, Landroid/preference/PreferenceScreen$FlymeInjector$FlymeDividerPadding;-><init>(Landroid/preference/PreferenceScreen;)V
 
-    .line 431
+    .line 397
     .local v1, "dividerPadding":Landroid/preference/PreferenceScreen$FlymeInjector$FlymeDividerPadding;
     invoke-virtual {p1, v1}, Landroid/widget/ListView;->setDividerPadding(Landroid/widget/ListView$DividerPadding;)V
 
-    .line 422
+    .line 388
     .end local v0    # "dividerFilter":Landroid/preference/PreferenceScreen$FlymeInjector$FlymeDividerFilter;
     .end local v1    # "dividerPadding":Landroid/preference/PreferenceScreen$FlymeInjector$FlymeDividerPadding;
     :cond_0
@@ -87,12 +87,12 @@
     .param p0, "preferenceScreen"    # Landroid/preference/PreferenceScreen;
 
     .prologue
-    .line 418
+    .line 384
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/preference/PreferenceScreen;->mFlymeShowBottomDivider:Z
 
-    .line 417
+    .line 383
     return-void
 .end method
 
@@ -104,7 +104,7 @@
     .param p3, "position"    # I
 
     .prologue
-    .line 437
+    .line 403
     invoke-virtual {p0}, Landroid/preference/PreferenceScreen;->getRootAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v1
@@ -115,10 +115,10 @@
 
     check-cast v0, Landroid/preference/Preference;
 
-    .line 438
+    .line 404
     .local v0, "preference":Landroid/preference/Preference;
     invoke-virtual {v0, p2}, Landroid/preference/Preference;->setPreferenceView(Landroid/view/View;)V
 
-    .line 436
+    .line 402
     return-void
 .end method

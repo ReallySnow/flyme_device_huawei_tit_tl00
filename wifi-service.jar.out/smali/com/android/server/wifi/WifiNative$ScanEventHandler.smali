@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract onFullScanResult(Landroid/net/wifi/ScanResult;I)V
+.method public abstract onFullScanResult(Landroid/net/wifi/ScanResult;)V
 .end method
 
 .method public abstract onScanPaused([Landroid/net/wifi/WifiScanner$ScanData;)V
@@ -24,5 +24,8 @@
 .method public abstract onScanRestarted()V
 .end method
 
-.method public abstract onScanStatus(I)V
+.method public abstract onScanResultsAvailable()V
+.end method
+
+.method public abstract onScanStatus()V
 .end method

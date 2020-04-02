@@ -278,36 +278,42 @@
     .param p1, "error"    # I
 
     .prologue
-    const/4 v1, 0x1
-
-    const/4 v0, 0x0
-
     .line 177
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_1
 
-    const/4 v2, 0x6
+    const/4 v1, 0x6
 
-    if-ge p1, v2, :cond_0
+    if-ge p1, v1, :cond_1
 
-    move v0, v1
+    const/4 v0, 0x1
 
     .line 178
     .local v0, "rval":Z
-    :cond_0
-    if-eqz v0, :cond_1
+    :goto_0
+    if-eqz v0, :cond_0
 
     .line 179
-    iget v2, p0, Landroid/net/http/SslError;->mErrors:I
+    iget v1, p0, Landroid/net/http/SslError;->mErrors:I
 
-    shl-int/2addr v1, p1
+    const/4 v2, 0x1
+
+    shl-int/2addr v2, p1
 
     or-int/2addr v1, v2
 
     iput v1, p0, Landroid/net/http/SslError;->mErrors:I
 
     .line 182
-    :cond_1
+    :cond_0
     return v0
+
+    .line 177
+    .end local v0    # "rval":Z
+    :cond_1
+    const/4 v0, 0x0
+
+    .restart local v0    # "rval":Z
+    goto :goto_0
 .end method
 
 .method public getCertificate()Landroid/net/http/SslCertificate;
@@ -391,28 +397,26 @@
     .param p1, "error"    # I
 
     .prologue
-    const/4 v1, 0x1
-
-    const/4 v0, 0x0
-
     .line 191
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_1
 
-    const/4 v2, 0x6
+    const/4 v1, 0x6
 
-    if-ge p1, v2, :cond_0
+    if-ge p1, v1, :cond_1
 
-    move v0, v1
+    const/4 v0, 0x1
 
     .line 192
     .local v0, "rval":Z
-    :cond_0
-    if-eqz v0, :cond_1
+    :goto_0
+    if-eqz v0, :cond_0
 
     .line 193
-    iget v2, p0, Landroid/net/http/SslError;->mErrors:I
+    iget v1, p0, Landroid/net/http/SslError;->mErrors:I
 
-    shl-int/2addr v1, p1
+    const/4 v2, 0x1
+
+    shl-int/2addr v2, p1
 
     and-int/2addr v1, v2
 
@@ -421,18 +425,23 @@
     const/4 v0, 0x1
 
     .line 196
-    .end local v0    # "rval":Z
-    :cond_1
-    :goto_0
+    :cond_0
+    :goto_1
     return v0
 
-    .line 193
+    .line 191
+    .end local v0    # "rval":Z
+    :cond_1
+    const/4 v0, 0x0
+
     .restart local v0    # "rval":Z
+    goto :goto_0
+
+    .line 193
     :cond_2
     const/4 v0, 0x0
 
-    .local v0, "rval":Z
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public toString()Ljava/lang/String;

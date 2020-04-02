@@ -1996,6 +1996,7 @@
 
     goto :goto_3
 
+    .line 103
     .end local v5    # "count":I
     .end local v8    # "i":I
     .end local v9    # "index":I
@@ -2012,10 +2013,11 @@
     :cond_1
     move/from16 v18, v29
 
-    .line 103
+    .restart local v18    # "scale":F
     goto :goto_0
 
     .line 108
+    .end local v18    # "scale":F
     :cond_2
     div-float v4, v7, v6
 
@@ -2057,14 +2059,16 @@
 
     goto :goto_1
 
+    .line 113
     .end local v18    # "scale":F
     :cond_4
     move/from16 v18, v29
 
-    .line 113
+    .restart local v18    # "scale":F
     goto :goto_4
 
     .line 117
+    .end local v18    # "scale":F
     :cond_5
     cmpl-float v33, v28, v29
 
