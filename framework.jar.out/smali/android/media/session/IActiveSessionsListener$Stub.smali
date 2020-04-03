@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.media.session.IActiveSessionsListener"
 
-.field static final TRANSACTION_onActiveSessionsChanged:I = 0x1
+.field static final TRANSACTION_onActiveSessionsChanged_0:I = 0x1
 
 
 # direct methods

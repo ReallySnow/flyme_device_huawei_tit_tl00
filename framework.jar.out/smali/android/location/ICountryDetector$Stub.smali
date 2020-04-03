@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.location.ICountryDetector"
 
-.field static final TRANSACTION_addCountryListener:I = 0x2
+.field static final TRANSACTION_addCountryListener_1:I = 0x2
 
-.field static final TRANSACTION_detectCountry:I = 0x1
+.field static final TRANSACTION_detectCountry_0:I = 0x1
 
 .field static final TRANSACTION_removeCountryListener:I = 0x3
 

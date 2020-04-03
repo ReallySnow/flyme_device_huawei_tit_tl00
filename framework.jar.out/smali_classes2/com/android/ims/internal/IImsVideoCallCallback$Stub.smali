@@ -34,11 +34,11 @@
 
 .field static final TRANSACTION_changeVideoQuality:I = 0x7
 
-.field static final TRANSACTION_handleCallSessionEvent:I = 0x3
+.field static final TRANSACTION_handleCallSessionEvent_2:I = 0x3
 
-.field static final TRANSACTION_receiveSessionModifyRequest_0:I = 0x1
+.field static final TRANSACTION_receiveSessionModifyRequest:I = 0x1
 
-.field static final TRANSACTION_receiveSessionModifyResponse:I = 0x2
+.field static final TRANSACTION_receiveSessionModifyResponse_1:I = 0x2
 
 
 # direct methods

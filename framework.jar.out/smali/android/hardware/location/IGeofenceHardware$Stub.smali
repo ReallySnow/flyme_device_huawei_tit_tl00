@@ -42,7 +42,7 @@
 
 .field static final TRANSACTION_setFusedGeofenceHardware:I = 0x2
 
-.field static final TRANSACTION_setGpsGeofenceHardware:I = 0x1
+.field static final TRANSACTION_setGpsGeofenceHardware_0:I = 0x1
 
 .field static final TRANSACTION_unregisterForMonitorStateChangeCallback:I = 0xa
 

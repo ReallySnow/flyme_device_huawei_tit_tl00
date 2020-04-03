@@ -27,24 +27,24 @@
     .locals 1
 
     .prologue
-    .line 1037
+    .line 1045
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/net/Uri;-><init>(Landroid/net/Uri;)V
 
-    .line 1076
+    .line 1084
     invoke-static {}, Landroid/net/Uri;->-get1()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->host:Ljava/lang/String;
 
-    .line 1102
+    .line 1110
     const/4 v0, -0x2
 
     iput v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->port:I
 
-    .line 1037
+    .line 1045
     return-void
 .end method
 
@@ -61,12 +61,12 @@
     .locals 1
 
     .prologue
-    .line 1054
+    .line 1062
     iget-object v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->userInfo:Landroid/net/Uri$Part;
 
     if-nez v0, :cond_0
 
-    .line 1055
+    .line 1063
     invoke-direct {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->parseUserInfo()Ljava/lang/String;
 
     move-result-object v0
@@ -77,11 +77,11 @@
 
     iput-object v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->userInfo:Landroid/net/Uri$Part;
 
-    .line 1054
+    .line 1062
     :goto_0
     return-object v0
 
-    .line 1055
+    .line 1063
     :cond_0
     iget-object v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->userInfo:Landroid/net/Uri$Part;
 
@@ -94,27 +94,27 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 1086
+    .line 1094
     invoke-virtual {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->getEncodedAuthority()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1087
+    .line 1095
     .local v0, "authority":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 1088
+    .line 1096
     return-object v4
 
-    .line 1092
+    .line 1100
     :cond_0
     const/16 v4, 0x40
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v0, v4}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v3
 
-    .line 1093
+    .line 1101
     .local v3, "userInfoSeparator":I
     const/16 v4, 0x3a
 
@@ -122,20 +122,20 @@
 
     move-result v2
 
-    .line 1095
+    .line 1103
     .local v2, "portSeparator":I
     const/4 v4, -0x1
 
     if-ne v2, v4, :cond_1
 
-    .line 1096
+    .line 1104
     add-int/lit8 v4, v3, 0x1
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 1099
+    .line 1107
     .local v1, "encodedHost":Ljava/lang/String;
     :goto_0
     invoke-static {v1}, Landroid/net/Uri$AbstractHierarchicalUri;->decode(Ljava/lang/String;)Ljava/lang/String;
@@ -144,7 +144,7 @@
 
     return-object v4
 
-    .line 1097
+    .line 1105
     .end local v1    # "encodedHost":Ljava/lang/String;
     :cond_1
     add-int/lit8 v4, v3, 0x1
@@ -153,7 +153,6 @@
 
     move-result-object v1
 
-    .restart local v1    # "encodedHost":Ljava/lang/String;
     goto :goto_0
 .end method
 
@@ -163,27 +162,27 @@
     .prologue
     const/4 v7, -0x1
 
-    .line 1111
+    .line 1119
     invoke-virtual {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->getEncodedAuthority()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1112
+    .line 1120
     .local v0, "authority":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 1113
+    .line 1121
     return v7
 
-    .line 1118
+    .line 1126
     :cond_0
     const/16 v5, 0x40
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v0, v5}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v4
 
-    .line 1119
+    .line 1127
     .local v4, "userInfoSeparator":I
     const/16 v5, 0x3a
 
@@ -191,14 +190,14 @@
 
     move-result v2
 
-    .line 1121
+    .line 1129
     .local v2, "portSeparator":I
     if-ne v2, v7, :cond_1
 
-    .line 1122
+    .line 1130
     return v7
 
-    .line 1125
+    .line 1133
     :cond_1
     add-int/lit8 v5, v2, 0x1
 
@@ -210,7 +209,7 @@
 
     move-result-object v3
 
-    .line 1127
+    .line 1135
     .local v3, "portString":Ljava/lang/String;
     :try_start_0
     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -221,11 +220,11 @@
 
     return v5
 
-    .line 1128
+    .line 1136
     :catch_0
     move-exception v1
 
-    .line 1129
+    .line 1137
     .local v1, "e":Ljava/lang/NumberFormatException;
     invoke-static {}, Landroid/net/Uri;->-get0()Ljava/lang/String;
 
@@ -235,7 +234,7 @@
 
     invoke-static {v5, v6, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1130
+    .line 1138
     return v7
 .end method
 
@@ -245,27 +244,27 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1063
+    .line 1071
     invoke-virtual {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->getEncodedAuthority()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1064
+    .line 1072
     .local v0, "authority":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 1065
+    .line 1073
     return-object v2
 
-    .line 1068
+    .line 1076
     :cond_0
     const/16 v3, 0x40
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v0, v3}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v1
 
-    .line 1069
+    .line 1077
     .local v1, "end":I
     const/4 v3, -0x1
 
@@ -290,7 +289,7 @@
     .locals 1
 
     .prologue
-    .line 1059
+    .line 1067
     invoke-direct {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->getUserInfoPart()Landroid/net/Uri$Part;
 
     move-result-object v0
@@ -306,7 +305,7 @@
     .locals 3
 
     .prologue
-    .line 1080
+    .line 1088
     iget-object v1, p0, Landroid/net/Uri$AbstractHierarchicalUri;->host:Ljava/lang/String;
 
     invoke-static {}, Landroid/net/Uri;->-get1()Ljava/lang/String;
@@ -317,7 +316,7 @@
 
     const/4 v0, 0x1
 
-    .line 1081
+    .line 1089
     .local v0, "cached":Z
     :goto_0
     if-eqz v0, :cond_1
@@ -327,15 +326,15 @@
     :goto_1
     return-object v1
 
-    .line 1080
+    .line 1088
     .end local v0    # "cached":Z
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0    # "cached":Z
     goto :goto_0
 
-    .line 1082
+    .line 1090
+    .restart local v0    # "cached":Z
     :cond_1
     invoke-direct {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->parseHost()Ljava/lang/String;
 
@@ -350,27 +349,27 @@
     .locals 3
 
     .prologue
-    .line 1043
+    .line 1051
     invoke-virtual {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->getPathSegments()Ljava/util/List;
 
     move-result-object v0
 
-    .line 1044
+    .line 1052
     .local v0, "segments":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    .line 1045
+    .line 1053
     .local v1, "size":I
     if-nez v1, :cond_0
 
-    .line 1046
+    .line 1054
     const/4 v2, 0x0
 
     return-object v2
 
-    .line 1048
+    .line 1056
     :cond_0
     add-int/lit8 v2, v1, -0x1
 
@@ -387,25 +386,25 @@
     .locals 2
 
     .prologue
-    .line 1105
+    .line 1113
     iget v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->port:I
 
     const/4 v1, -0x2
 
     if-ne v0, v1, :cond_0
 
-    .line 1106
+    .line 1114
     invoke-direct {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->parsePort()I
 
     move-result v0
 
     iput v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->port:I
 
-    .line 1105
+    .line 1113
     :goto_0
     return v0
 
-    .line 1107
+    .line 1115
     :cond_0
     iget v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->port:I
 
@@ -416,7 +415,7 @@
     .locals 1
 
     .prologue
-    .line 1073
+    .line 1081
     invoke-direct {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->getUserInfoPart()Landroid/net/Uri$Part;
 
     move-result-object v0

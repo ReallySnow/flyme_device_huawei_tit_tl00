@@ -30,15 +30,15 @@
 
 .field static final TRANSACTION_onAttach:I = 0x1
 
-.field static final TRANSACTION_onDetach:I = 0x6
+.field static final TRANSACTION_onDetach_5:I = 0x6
 
-.field static final TRANSACTION_onPause:I = 0x4
+.field static final TRANSACTION_onPause_3:I = 0x4
 
-.field static final TRANSACTION_onResume:I = 0x3
+.field static final TRANSACTION_onResume_2:I = 0x3
 
 .field static final TRANSACTION_onStart:I = 0x2
 
-.field static final TRANSACTION_onStop:I = 0x5
+.field static final TRANSACTION_onStop_4:I = 0x5
 
 
 # direct methods

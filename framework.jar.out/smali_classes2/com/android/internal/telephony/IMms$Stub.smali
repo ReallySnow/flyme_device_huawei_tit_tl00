@@ -36,9 +36,9 @@
 
 .field static final TRANSACTION_deleteStoredMessage:I = 0x6
 
-.field static final TRANSACTION_downloadMessage:I = 0x2
+.field static final TRANSACTION_downloadMessage_1:I = 0x2
 
-.field static final TRANSACTION_getAutoPersisting_13:I = 0xe
+.field static final TRANSACTION_getAutoPersisting:I = 0xe
 
 .field static final TRANSACTION_getCarrierConfigValues:I = 0x3
 
@@ -46,7 +46,7 @@
 
 .field static final TRANSACTION_importTextMessage:I = 0x4
 
-.field static final TRANSACTION_sendMessage:I = 0x1
+.field static final TRANSACTION_sendMessage_0:I = 0x1
 
 .field static final TRANSACTION_sendStoredMessage:I = 0xc
 
@@ -595,10 +595,10 @@
     :cond_8
     const/16 v27, 0x0
 
-    .restart local v27    # "_arg6":Z
     goto :goto_8
 
     .line 156
+    .restart local v27    # "_arg6":Z
     .restart local v46    # "_result":Landroid/net/Uri;
     :cond_9
     const/4 v6, 0x0
@@ -682,7 +682,7 @@
 
     const/16 v26, 0x1
 
-    .restart local v26    # "_arg5":Z
+    .local v26, "_arg5":Z
     :goto_c
     move-object/from16 v28, p0
 
@@ -752,10 +752,10 @@
     :cond_c
     const/16 v26, 0x0
 
-    .restart local v26    # "_arg5":Z
     goto :goto_c
 
     .line 187
+    .restart local v26    # "_arg5":Z
     .restart local v46    # "_result":Landroid/net/Uri;
     :cond_d
     const/4 v6, 0x0
@@ -1091,10 +1091,10 @@
     :cond_14
     const/16 v45, 0x0
 
-    .restart local v45    # "_arg2":Z
     goto :goto_14
 
     .line 255
+    .restart local v45    # "_arg2":Z
     .restart local v48    # "_result":Z
     :cond_15
     const/4 v6, 0x0
@@ -1449,12 +1449,10 @@
     :cond_1c
     const/16 v41, 0x0
 
-    .restart local v41    # "_arg1":Z
     goto :goto_1c
 
     .line 346
     .end local v20    # "_arg0":Ljava/lang/String;
-    .end local v41    # "_arg1":Z
     :sswitch_e
     const-string/jumbo v6, "com.android.internal.telephony.IMms"
 

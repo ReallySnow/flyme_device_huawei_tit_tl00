@@ -42,10 +42,10 @@
     .param p3, "allowEmptyList"    # Z
 
     .prologue
-    .line 393
+    .line 394
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 395
+    .line 396
     new-instance v0, Landroid/util/ArraySet;
 
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -56,13 +56,13 @@
 
     iput-object v0, p0, Lcyanogenmod/providers/CMSettings$DelimitedListValidator;->mValidValueSet:Landroid/util/ArraySet;
 
-    .line 396
+    .line 397
     iput-object p2, p0, Lcyanogenmod/providers/CMSettings$DelimitedListValidator;->mDelimiter:Ljava/lang/String;
 
-    .line 397
+    .line 398
     iput-boolean p3, p0, Lcyanogenmod/providers/CMSettings$DelimitedListValidator;->mAllowEmptyList:Z
 
-    .line 394
+    .line 395
     return-void
 .end method
 
@@ -77,12 +77,12 @@
 
     const/4 v4, 0x0
 
-    .line 402
+    .line 403
     new-instance v2, Landroid/util/ArraySet;
 
     invoke-direct {v2}, Landroid/util/ArraySet;-><init>()V
 
-    .line 403
+    .line 404
     .local v2, "values":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -90,7 +90,7 @@
 
     if-nez v5, :cond_1
 
-    .line 404
+    .line 405
     iget-object v5, p0, Lcyanogenmod/providers/CMSettings$DelimitedListValidator;->mDelimiter:Ljava/lang/String;
 
     invoke-static {v5}, Ljava/util/regex/Pattern;->quote(Ljava/lang/String;)Ljava/lang/String;
@@ -101,7 +101,7 @@
 
     move-result-object v0
 
-    .line 405
+    .line 406
     .local v0, "array":[Ljava/lang/String;
     array-length v6, v0
 
@@ -112,7 +112,7 @@
 
     aget-object v1, v0, v5
 
-    .line 406
+    .line 407
     .local v1, "item":Ljava/lang/String;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -120,19 +120,19 @@
 
     if-eqz v7, :cond_0
 
-    .line 405
+    .line 406
     :goto_1
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
-    .line 409
+    .line 410
     :cond_0
     invoke-virtual {v2, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    .line 412
+    .line 413
     .end local v0    # "array":[Ljava/lang/String;
     .end local v1    # "item":Ljava/lang/String;
     :cond_1
@@ -142,12 +142,12 @@
 
     if-lez v5, :cond_3
 
-    .line 413
+    .line 414
     iget-object v5, p0, Lcyanogenmod/providers/CMSettings$DelimitedListValidator;->mValidValueSet:Landroid/util/ArraySet;
 
     invoke-virtual {v2, v5}, Landroid/util/ArraySet;->removeAll(Landroid/util/ArraySet;)Z
 
-    .line 416
+    .line 417
     invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
 
     move-result v5
@@ -162,16 +162,16 @@
 
     goto :goto_2
 
-    .line 417
+    .line 418
     :cond_3
     iget-boolean v5, p0, Lcyanogenmod/providers/CMSettings$DelimitedListValidator;->mAllowEmptyList:Z
 
     if-eqz v5, :cond_4
 
-    .line 418
+    .line 419
     return v3
 
-    .line 421
+    .line 422
     :cond_4
     return v4
 .end method

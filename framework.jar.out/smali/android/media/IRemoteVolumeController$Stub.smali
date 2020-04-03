@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_remoteVolumeChanged:I = 0x1
 
-.field static final TRANSACTION_updateRemoteController:I = 0x2
+.field static final TRANSACTION_updateRemoteController_1:I = 0x2
 
 
 # direct methods

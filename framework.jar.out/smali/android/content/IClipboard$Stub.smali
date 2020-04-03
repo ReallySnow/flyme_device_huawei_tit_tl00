@@ -28,9 +28,9 @@
 
 .field static final TRANSACTION_addPrimaryClipChangedListener:I = 0x5
 
-.field static final TRANSACTION_getPrimaryClip:I = 0x2
+.field static final TRANSACTION_getPrimaryClipDescription_2:I = 0x3
 
-.field static final TRANSACTION_getPrimaryClipDescription:I = 0x3
+.field static final TRANSACTION_getPrimaryClip_1:I = 0x2
 
 .field static final TRANSACTION_hasClipboardText:I = 0x7
 

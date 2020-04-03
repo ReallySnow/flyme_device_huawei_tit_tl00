@@ -209,10 +209,10 @@
     .param p1, "payload"    # [B
 
     .prologue
-    .line 124
+    .line 126
     iput-object p1, p0, Lcom/android/internal/widget/VerifyCredentialResponse;->mPayload:[B
 
-    .line 123
+    .line 125
     return-void
 .end method
 
@@ -221,10 +221,10 @@
     .param p1, "timeout"    # I
 
     .prologue
-    .line 120
+    .line 122
     iput p1, p0, Lcom/android/internal/widget/VerifyCredentialResponse;->mTimeout:I
 
-    .line 119
+    .line 121
     return-void
 .end method
 
@@ -234,7 +234,7 @@
     .locals 1
 
     .prologue
-    .line 104
+    .line 106
     const/4 v0, 0x0
 
     return v0
@@ -244,7 +244,7 @@
     .locals 1
 
     .prologue
-    .line 108
+    .line 110
     iget-object v0, p0, Lcom/android/internal/widget/VerifyCredentialResponse;->mPayload:[B
 
     return-object v0
@@ -254,7 +254,7 @@
     .locals 1
 
     .prologue
-    .line 116
+    .line 118
     iget v0, p0, Lcom/android/internal/widget/VerifyCredentialResponse;->mResponseCode:I
 
     return v0
@@ -264,18 +264,20 @@
     .locals 1
 
     .prologue
-    .line 112
+    .line 114
     iget v0, p0, Lcom/android/internal/widget/VerifyCredentialResponse;->mTimeout:I
 
     return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+    .locals 3
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
     .prologue
+    const/4 v2, 0x0
+
     .line 91
     iget v0, p0, Lcom/android/internal/widget/VerifyCredentialResponse;->mResponseCode:I
 
@@ -307,7 +309,7 @@
     .line 95
     iget-object v0, p0, Lcom/android/internal/widget/VerifyCredentialResponse;->mPayload:[B
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     .line 96
     iget-object v0, p0, Lcom/android/internal/widget/VerifyCredentialResponse;->mPayload:[B
@@ -320,6 +322,12 @@
     iget-object v0, p0, Lcom/android/internal/widget/VerifyCredentialResponse;->mPayload:[B
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    goto :goto_0
+
+    .line 99
+    :cond_2
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 .end method

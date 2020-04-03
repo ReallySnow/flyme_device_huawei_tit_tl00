@@ -28,9 +28,9 @@
 
 .field static final TRANSACTION_getClientDefaultLanguage:I = 0x8
 
-.field static final TRANSACTION_getDefaultVoiceNameFor_14:I = 0xf
+.field static final TRANSACTION_getDefaultVoiceNameFor:I = 0xf
 
-.field static final TRANSACTION_getFeaturesForLanguage_9:I = 0xa
+.field static final TRANSACTION_getFeaturesForLanguage:I = 0xa
 
 .field static final TRANSACTION_getLanguage:I = 0x7
 
@@ -50,11 +50,11 @@
 
 .field static final TRANSACTION_setCallback:I = 0xc
 
-.field static final TRANSACTION_speak:I = 0x1
+.field static final TRANSACTION_speak_0:I = 0x1
 
 .field static final TRANSACTION_stop:I = 0x6
 
-.field static final TRANSACTION_synthesizeToFileDescriptor:I = 0x2
+.field static final TRANSACTION_synthesizeToFileDescriptor_1:I = 0x2
 
 
 # direct methods

@@ -28,9 +28,9 @@
 
 .field static final TRANSACTION_disconnect_0:I = 0x1
 
-.field static final TRANSACTION_getConnectedDevices_2:I = 0x3
+.field static final TRANSACTION_getConnectedDevices:I = 0x3
 
-.field static final TRANSACTION_getConnectionState_1:I = 0x2
+.field static final TRANSACTION_getConnectionState:I = 0x2
 
 .field static final TRANSACTION_getDevicesMatchingConnectionStates:I = 0x4
 

@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/internal/location/GpsNetInitiatedHandler;
 
     .prologue
-    .line 194
+    .line 198
     iput-object p1, p0, Lcom/android/internal/location/GpsNetInitiatedHandler$2;->this$0:Lcom/android/internal/location/GpsNetInitiatedHandler;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -35,14 +35,20 @@
 
 # virtual methods
 .method public onCallStateChanged(ILjava/lang/String;)V
-    .locals 4
+    .locals 5
     .param p1, "state"    # I
     .param p2, "incomingNumber"    # Ljava/lang/String;
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    .line 197
+    .line 201
+    invoke-static {}, Lcom/android/internal/location/GpsNetInitiatedHandler;->-get0()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     const-string/jumbo v0, "GpsNetInitiatedHandler"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,15 +71,34 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 199
-    if-nez p1, :cond_0
+    .line 203
+    :cond_0
+    if-nez p1, :cond_1
 
-    .line 200
+    .line 204
     iget-object v0, p0, Lcom/android/internal/location/GpsNetInitiatedHandler$2;->this$0:Lcom/android/internal/location/GpsNetInitiatedHandler;
 
-    invoke-virtual {v0, v3}, Lcom/android/internal/location/GpsNetInitiatedHandler;->setInEmergency(Z)V
+    invoke-static {v0}, Lcom/android/internal/location/GpsNetInitiatedHandler;->-get1(Lcom/android/internal/location/GpsNetInitiatedHandler;)Z
 
-    .line 196
-    :cond_0
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 205
+    iget-object v0, p0, Lcom/android/internal/location/GpsNetInitiatedHandler$2;->this$0:Lcom/android/internal/location/GpsNetInitiatedHandler;
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    invoke-static {v0, v2, v3}, Lcom/android/internal/location/GpsNetInitiatedHandler;->-set0(Lcom/android/internal/location/GpsNetInitiatedHandler;J)J
+
+    .line 206
+    iget-object v0, p0, Lcom/android/internal/location/GpsNetInitiatedHandler$2;->this$0:Lcom/android/internal/location/GpsNetInitiatedHandler;
+
+    invoke-static {v0, v4}, Lcom/android/internal/location/GpsNetInitiatedHandler;->-set1(Lcom/android/internal/location/GpsNetInitiatedHandler;Z)Z
+
+    .line 200
+    :cond_1
     return-void
 .end method

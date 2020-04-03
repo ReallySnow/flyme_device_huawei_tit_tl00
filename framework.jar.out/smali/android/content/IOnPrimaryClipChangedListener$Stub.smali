@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.content.IOnPrimaryClipChangedListener"
 
-.field static final TRANSACTION_dispatchPrimaryClipChanged_0:I = 0x1
+.field static final TRANSACTION_dispatchPrimaryClipChanged:I = 0x1
 
 
 # direct methods

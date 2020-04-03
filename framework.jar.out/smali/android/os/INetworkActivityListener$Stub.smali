@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.os.INetworkActivityListener"
 
-.field static final TRANSACTION_onNetworkActive_0:I = 0x1
+.field static final TRANSACTION_onNetworkActive:I = 0x1
 
 
 # direct methods

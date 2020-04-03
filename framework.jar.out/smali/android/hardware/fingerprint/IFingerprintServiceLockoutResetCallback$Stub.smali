@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.fingerprint.IFingerprintServiceLockoutResetCallback"
 
-.field static final TRANSACTION_onLockoutReset:I = 0x1
+.field static final TRANSACTION_onLockoutReset_0:I = 0x1
 
 
 # direct methods

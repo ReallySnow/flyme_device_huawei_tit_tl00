@@ -28,19 +28,19 @@
 
 .field static final TRANSACTION_acceptCall:I = 0xe
 
-.field static final TRANSACTION_acceptIncomingConnect:I = 0x3
-
-.field static final TRANSACTION_connect:I = 0x1
+.field static final TRANSACTION_acceptIncomingConnect_2:I = 0x3
 
 .field static final TRANSACTION_connectAudio:I = 0x1a
+
+.field static final TRANSACTION_connect_0:I = 0x1
 
 .field static final TRANSACTION_dial:I = 0x15
 
 .field static final TRANSACTION_dialMemory:I = 0x16
 
-.field static final TRANSACTION_disconnect:I = 0x2
-
 .field static final TRANSACTION_disconnectAudio:I = 0x1b
+
+.field static final TRANSACTION_disconnect_1:I = 0x2
 
 .field static final TRANSACTION_enterPrivateMode:I = 0x12
 
@@ -50,7 +50,7 @@
 
 .field static final TRANSACTION_getAudioState:I = 0x19
 
-.field static final TRANSACTION_getConnectedDevices:I = 0x5
+.field static final TRANSACTION_getConnectedDevices_4:I = 0x5
 
 .field static final TRANSACTION_getConnectionState:I = 0x7
 
@@ -72,7 +72,7 @@
 
 .field static final TRANSACTION_rejectCall:I = 0x10
 
-.field static final TRANSACTION_rejectIncomingConnect:I = 0x4
+.field static final TRANSACTION_rejectIncomingConnect_3:I = 0x4
 
 .field static final TRANSACTION_sendDTMF:I = 0x17
 
@@ -1796,11 +1796,9 @@
     :cond_2c
     const/4 v1, 0x0
 
-    .restart local v1    # "_arg0":Z
     goto :goto_2c
 
     .line 460
-    .end local v1    # "_arg0":Z
     :sswitch_1d
     const-string/jumbo v11, "android.bluetooth.IBluetoothHeadsetClient"
 

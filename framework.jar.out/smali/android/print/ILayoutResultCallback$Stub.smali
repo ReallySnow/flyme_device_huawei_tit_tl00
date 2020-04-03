@@ -32,7 +32,7 @@
 
 .field static final TRANSACTION_onLayoutFinished:I = 0x2
 
-.field static final TRANSACTION_onLayoutStarted:I = 0x1
+.field static final TRANSACTION_onLayoutStarted_0:I = 0x1
 
 
 # direct methods

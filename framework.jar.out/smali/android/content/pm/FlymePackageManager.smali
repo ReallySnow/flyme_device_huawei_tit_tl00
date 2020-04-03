@@ -16,34 +16,16 @@
 
 .field private final mLockobjectInstall:Ljava/lang/Object;
 
-
-# direct methods
-.method static synthetic -get0(Landroid/content/pm/FlymePackageManager;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic -set0(Landroid/content/pm/FlymePackageManager;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/content/pm/FlymePackageManager;->installResult:I
-
-    return p1
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 32
+    .line 29
     const/4 v0, 0x0
 
     sput-object v0, Landroid/content/pm/FlymePackageManager;->mFpm:Landroid/content/pm/FlymePackageManager;
 
-    .line 31
+    .line 28
     return-void
 .end method
 
@@ -52,29 +34,24 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     new-instance v1, Ljava/lang/Object;
 
     invoke-direct {v1}, Ljava/lang/Object;-><init>()V
 
     iput-object v1, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
 
-    .line 35
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/content/pm/FlymePackageManager;->installResult:I
 
-    .line 38
-    const-string/jumbo v1, "flyme_packagemanager"
+    const-string v1, "flyme_packagemanager"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 39
     .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/content/pm/IFlymePackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IFlymePackageManager;
 
@@ -82,10 +59,9 @@
 
     sput-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
-    .line 40
     iput-object p1, p0, Landroid/content/pm/FlymePackageManager;->mContext:Landroid/content/Context;
 
-    .line 37
+    .line 31
     return-void
 .end method
 
@@ -94,17 +70,17 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 44
+    .line 37
     sget-object v0, Landroid/content/pm/FlymePackageManager;->mFpm:Landroid/content/pm/FlymePackageManager;
 
     if-nez v0, :cond_3
 
-    .line 45
+    .line 38
     const-class v1, Landroid/content/pm/FlymePackageManager;
 
     monitor-enter v1
 
-    .line 46
+    .line 39
     :try_start_0
     sget-object v0, Landroid/content/pm/FlymePackageManager;->mFpm:Landroid/content/pm/FlymePackageManager;
 
@@ -114,7 +90,7 @@
 
     if-nez v0, :cond_1
 
-    .line 47
+    .line 40
     :cond_0
     new-instance v0, Landroid/content/pm/FlymePackageManager;
 
@@ -122,13 +98,13 @@
 
     sput-object v0, Landroid/content/pm/FlymePackageManager;->mFpm:Landroid/content/pm/FlymePackageManager;
 
-    .line 49
+    .line 42
     :cond_1
     sget-object v0, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
     if-nez v0, :cond_2
 
-    .line 50
+    .line 43
     const/4 v0, 0x0
 
     sput-object v0, Landroid/content/pm/FlymePackageManager;->mFpm:Landroid/content/pm/FlymePackageManager;
@@ -138,13 +114,13 @@
     :cond_2
     monitor-exit v1
 
-    .line 54
+    .line 47
     :cond_3
     sget-object v0, Landroid/content/pm/FlymePackageManager;->mFpm:Landroid/content/pm/FlymePackageManager;
 
     return-object v0
 
-    .line 45
+    .line 38
     :catchall_0
     move-exception v0
 
@@ -156,170 +132,212 @@
 
 # virtual methods
 .method public backupData(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 8
+    .locals 9
     .param p1, "source"    # Ljava/lang/String;
     .param p2, "target"    # Ljava/lang/String;
 
     .prologue
-    .line 58
-    new-instance v5, Ljava/lang/StringBuffer;
+    new-instance v4, Ljava/lang/StringBuffer;
 
-    invoke-direct {v5}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 59
-    .local v5, "sB":Ljava/lang/StringBuffer;
-    const-string/jumbo v1, "/data/media/"
+    .local v4, "sB":Ljava/lang/StringBuffer;
+    const-string v1, "/data/media/"
 
-    .line 60
     .local v1, "locBegin":Ljava/lang/String;
-    const-string/jumbo v4, "/storage/emulated/"
+    const-string v3, "/storage/emulated/"
 
-    .line 61
-    .local v4, "locTmp":Ljava/lang/String;
-    const-string/jumbo v3, "/storage/"
+    .local v3, "locTmp":Ljava/lang/String;
+    const/4 v6, 0x0
 
-    .line 62
-    .local v3, "locSdcard1":Ljava/lang/String;
-    const-string/jumbo v6, "/data/media/"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 63
+    .local v6, "transferTarget":Z
     if-eqz p2, :cond_0
 
-    const-string/jumbo v6, "/storage/emulated/"
+    const-string v7, "/storage/"
 
-    invoke-virtual {p2, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p2, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_0
+    if-eqz v7, :cond_0
 
-    .line 64
-    const-string/jumbo v6, "/storage/emulated/"
+    new-instance v7, Ljava/io/File;
 
-    invoke-virtual {v6}, Ljava/lang/String;->length()I
+    invoke-direct {v7, p2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-result v6
-
-    invoke-virtual {p2, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 65
-    .local v2, "locEnd":Ljava/lang/String;
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 67
-    :try_start_0
-    sget-object v6, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-interface {v6, p1, v7}, Landroid/content/pm/IFlymePackageManager;->backupData(Ljava/lang/String;Ljava/lang/String;)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_2
+    invoke-static {v7}, Landroid/os/Environment;->isExternalStorageRemovable(Ljava/io/File;)Z
 
     move-result v6
 
-    return v6
-
-    .line 71
-    .end local v2    # "locEnd":Ljava/lang/String;
+    .end local v6    # "transferTarget":Z
     :cond_0
+    const/4 v5, 0x0
+
+    .local v5, "transferSource":Z
     if-eqz p1, :cond_1
 
-    const-string/jumbo v6, "/storage/emulated/"
+    const-string v7, "/storage/"
 
-    invoke-virtual {p1, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_1
 
-    .line 72
-    const-string/jumbo v6, "/storage/emulated/"
+    new-instance v7, Ljava/io/File;
 
-    invoke-virtual {v6}, Ljava/lang/String;->length()I
+    invoke-direct {v7, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-result v6
+    invoke-static {v7}, Landroid/os/Environment;->isExternalStorageRemovable(Ljava/io/File;)Z
 
-    invoke-virtual {p1, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    move-result v5
+
+    .end local v5    # "transferSource":Z
+    :cond_1
+    const-string v7, "/data/media/"
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    if-eqz p2, :cond_4
+
+    const-string v7, "/storage/emulated/"
+
+    invoke-virtual {p2, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_2
+
+    if-eqz v6, :cond_4
+
+    :cond_2
+    const-string v7, "/storage/emulated/"
+
+    invoke-virtual {v7}, Ljava/lang/String;->length()I
+
+    move-result v7
+
+    invoke-virtual {p2, v7}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 73
-    .restart local v2    # "locEnd":Ljava/lang/String;
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    .local v2, "locEnd":Ljava/lang/String;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 75
-    :try_start_1
-    sget-object v6, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+    if-eqz v6, :cond_3
 
-    invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    :try_start_0
+    sget-object v7, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
-    move-result-object v7
+    invoke-interface {v7, p1, p2}, Landroid/content/pm/IFlymePackageManager;->backupData(Ljava/lang/String;Ljava/lang/String;)Z
 
-    invoke-interface {v6, v7, p2}, Landroid/content/pm/IFlymePackageManager;->backupData(Ljava/lang/String;Ljava/lang/String;)Z
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+    move-result v7
 
-    move-result v6
+    return v7
 
-    return v6
+    :cond_3
+    const-string v7, "/storage/emulated/"
 
-    .line 79
+    invoke-virtual {p2, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_7
+
+    sget-object v7, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-interface {v7, p1, v8}, Landroid/content/pm/IFlymePackageManager;->backupData(Ljava/lang/String;Ljava/lang/String;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result v7
+
+    return v7
+
     .end local v2    # "locEnd":Ljava/lang/String;
-    :cond_1
-    if-eqz p2, :cond_2
+    :cond_4
+    if-eqz p2, :cond_7
 
-    const-string/jumbo v6, "/storage/"
+    const-string v7, "/storage/emulated/"
 
-    invoke-virtual {p2, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_2
+    if-nez v7, :cond_5
 
-    .line 81
-    :try_start_2
-    sget-object v6, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+    if-eqz v5, :cond_7
 
-    invoke-interface {v6, p1, p2}, Landroid/content/pm/IFlymePackageManager;->backupData(Ljava/lang/String;Ljava/lang/String;)Z
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    :cond_5
+    const-string v7, "/storage/emulated/"
 
-    move-result v6
+    invoke-virtual {v7}, Ljava/lang/String;->length()I
 
-    return v6
+    move-result v7
 
-    .line 82
+    invoke-virtual {p1, v7}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    .restart local v2    # "locEnd":Ljava/lang/String;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    if-eqz v5, :cond_6
+
+    :try_start_1
+    sget-object v7, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+
+    invoke-interface {v7, p1, p2}, Landroid/content/pm/IFlymePackageManager;->backupData(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v7
+
+    return v7
+
+    :cond_6
+    const-string v7, "/storage/emulated/"
+
+    invoke-virtual {p1, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_7
+
+    sget-object v7, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-interface {v7, v8, p2}, Landroid/content/pm/IFlymePackageManager;->backupData(Ljava/lang/String;Ljava/lang/String;)Z
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result v7
+
+    return v7
+
+    .line 68
     :catch_0
     move-exception v0
 
-    .line 86
-    :cond_2
+    .line 72
+    .end local v2    # "locEnd":Ljava/lang/String;
+    :cond_7
     :goto_0
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    return v6
+    return v7
 
-    .line 76
+    .line 60
     .restart local v2    # "locEnd":Ljava/lang/String;
     :catch_1
     move-exception v0
 
     .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
-
-    .line 68
-    .end local v0    # "e":Landroid/os/RemoteException;
-    :catch_2
-    move-exception v0
-
-    .restart local v0    # "e":Landroid/os/RemoteException;
     goto :goto_0
 .end method
 
@@ -329,7 +347,7 @@
     .param p2, "state"    # Z
 
     .prologue
-    .line 149
+    .line 135
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -341,11 +359,11 @@
 
     return v1
 
-    .line 150
+    .line 136
     :catch_0
     move-exception v0
 
-    .line 153
+    .line 139
     .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -358,7 +376,7 @@
     .param p2, "state"    # Z
 
     .prologue
-    .line 203
+    .line 189
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -370,11 +388,11 @@
 
     return v1
 
-    .line 204
+    .line 190
     :catch_0
     move-exception v0
 
-    .line 207
+    .line 193
     .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -394,7 +412,7 @@
     .end annotation
 
     .prologue
-    .line 134
+    .line 120
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -406,11 +424,11 @@
 
     return-object v1
 
-    .line 135
+    .line 121
     :catch_0
     move-exception v0
 
-    .line 138
+    .line 124
     .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -430,7 +448,7 @@
     .end annotation
 
     .prologue
-    .line 116
+    .line 102
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -442,11 +460,11 @@
 
     return-object v1
 
-    .line 117
+    .line 103
     :catch_0
     move-exception v0
 
-    .line 120
+    .line 106
     .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -466,7 +484,7 @@
     .end annotation
 
     .prologue
-    .line 186
+    .line 172
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -478,11 +496,11 @@
 
     return-object v1
 
-    .line 187
+    .line 173
     :catch_0
     move-exception v0
 
-    .line 190
+    .line 176
     .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -494,7 +512,7 @@
     .param p1, "pkgName"    # Ljava/lang/String;
 
     .prologue
-    .line 125
+    .line 111
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -506,11 +524,11 @@
 
     return v1
 
-    .line 126
+    .line 112
     :catch_0
     move-exception v0
 
-    .line 129
+    .line 115
     .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -523,7 +541,7 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 107
+    .line 93
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -535,11 +553,11 @@
 
     return-object v1
 
-    .line 108
+    .line 94
     :catch_0
     move-exception v0
 
-    .line 111
+    .line 97
     .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -550,7 +568,7 @@
     .locals 2
 
     .prologue
-    .line 169
+    .line 155
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -562,181 +580,15 @@
 
     return v1
 
-    .line 170
+    .line 156
     :catch_0
     move-exception v0
 
-    .line 173
+    .line 159
     .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     return v1
-.end method
-
-.method public getSystemAppPath(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p1, "pkgname"    # Ljava/lang/String;
-
-    .prologue
-    .line 223
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public getSystemAppRecord()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 219
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public installPackage(Ljava/lang/String;)I
-    .locals 9
-    .param p1, "packageName"    # Ljava/lang/String;
-
-    .prologue
-    .line 238
-    invoke-virtual {p0, p1}, Landroid/content/pm/FlymePackageManager;->isMzApp(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_0
-
-    .line 239
-    const/4 v6, -0x1
-
-    return v6
-
-    .line 241
-    :cond_0
-    invoke-virtual {p0, p1}, Landroid/content/pm/FlymePackageManager;->getSystemAppPath(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 242
-    .local v2, "mayInstalled":Ljava/lang/String;
-    if-eqz v2, :cond_3
-
-    .line 243
-    new-instance v1, Ljava/io/File;
-
-    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .line 244
-    .local v1, "installApk":Ljava/io/File;
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    .line 245
-    const/4 v6, -0x2
-
-    return v6
-
-    .line 247
-    :cond_1
-    invoke-static {v1}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
-
-    move-result-object v5
-
-    .line 248
-    .local v5, "uri":Landroid/net/Uri;
-    new-instance v3, Landroid/content/pm/FlymePackageManager$1;
-
-    invoke-direct {v3, p0}, Landroid/content/pm/FlymePackageManager$1;-><init>(Landroid/content/pm/FlymePackageManager;)V
-
-    .line 260
-    .local v3, "packageInstallObserver":Landroid/app/PackageInstallObserver;
-    iget-object v7, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
-
-    monitor-enter v7
-
-    .line 262
-    :try_start_0
-    iget-object v6, p0, Landroid/content/pm/FlymePackageManager;->mContext:Landroid/content/Context;
-
-    if-eqz v6, :cond_2
-
-    .line 263
-    iget-object v6, p0, Landroid/content/pm/FlymePackageManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v4
-
-    .line 264
-    .local v4, "packageManager":Landroid/content/pm/PackageManager;
-    const-string/jumbo v6, "FlymePackageManager"
-
-    const/4 v8, 0x2
-
-    invoke-virtual {v4, v5, v3, v8, v6}, Landroid/content/pm/PackageManager;->installPackage(Landroid/net/Uri;Landroid/app/PackageInstallObserver;ILjava/lang/String;)V
-
-    .line 265
-    iget-object v6, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
-
-    invoke-virtual {v6}, Ljava/lang/Object;->wait()V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .end local v4    # "packageManager":Landroid/content/pm/PackageManager;
-    :cond_2
-    :goto_0
-    monitor-exit v7
-
-    .line 271
-    .end local v1    # "installApk":Ljava/io/File;
-    .end local v3    # "packageInstallObserver":Landroid/app/PackageInstallObserver;
-    .end local v5    # "uri":Landroid/net/Uri;
-    :cond_3
-    iget v6, p0, Landroid/content/pm/FlymePackageManager;->installResult:I
-
-    return v6
-
-    .line 260
-    .restart local v1    # "installApk":Ljava/io/File;
-    .restart local v3    # "packageInstallObserver":Landroid/app/PackageInstallObserver;
-    .restart local v5    # "uri":Landroid/net/Uri;
-    :catchall_0
-    move-exception v6
-
-    monitor-exit v7
-
-    throw v6
-
-    .line 267
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Ljava/lang/InterruptedException;
-    goto :goto_0
-.end method
-
-.method public isMzApp(Ljava/lang/String;)Z
-    .locals 1
-    .param p1, "pkg"    # Ljava/lang/String;
-
-    .prologue
-    .line 227
-    const/4 v0, 0x0
-
-    return v0
 .end method
 
 .method public resetVersion(Ljava/lang/String;)V
@@ -744,7 +596,7 @@
     .param p1, "pkgName"    # Ljava/lang/String;
 
     .prologue
-    .line 99
+    .line 85
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -752,11 +604,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 97
+    .line 83
     :goto_0
     return-void
 
-    .line 100
+    .line 86
     :catch_0
     move-exception v0
 
@@ -777,7 +629,7 @@
     .end annotation
 
     .prologue
-    .line 142
+    .line 128
     .local p1, "packageSet":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
@@ -786,11 +638,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 140
+    .line 126
     :goto_0
     return-void
 
-    .line 143
+    .line 129
     :catch_0
     move-exception v0
 
@@ -805,7 +657,7 @@
     .param p3, "level"    # I
 
     .prologue
-    .line 213
+    .line 199
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -813,11 +665,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 211
+    .line 197
     :goto_0
     return-void
 
-    .line 214
+    .line 200
     :catch_0
     move-exception v0
 
@@ -838,7 +690,7 @@
     .end annotation
 
     .prologue
-    .line 195
+    .line 181
     .local p1, "packageSet":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
@@ -847,11 +699,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 193
+    .line 179
     :goto_0
     return-void
 
-    .line 196
+    .line 182
     :catch_0
     move-exception v0
 
@@ -865,7 +717,7 @@
     .param p2, "binder"    # Landroid/os/Binder;
 
     .prologue
-    .line 178
+    .line 164
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -873,11 +725,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 176
+    .line 162
     :goto_0
     return-void
 
-    .line 179
+    .line 165
     :catch_0
     move-exception v0
 
@@ -889,7 +741,7 @@
     .locals 2
 
     .prologue
-    .line 159
+    .line 145
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -897,11 +749,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 157
+    .line 143
     :goto_0
     return-void
 
-    .line 161
+    .line 147
     :catch_0
     move-exception v0
 
@@ -914,7 +766,7 @@
     .param p1, "pkgName"    # Ljava/lang/String;
 
     .prologue
-    .line 91
+    .line 77
     :try_start_0
     sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
 
@@ -922,14 +774,319 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 89
+    .line 75
     :goto_0
     return-void
 
-    .line 92
+    .line 78
     :catch_0
     move-exception v0
 
     .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
+.end method
+
+
+# direct methods
+.method static synthetic -get0(Landroid/content/pm/FlymePackageManager;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Landroid/content/pm/FlymePackageManager;I)I
+    .locals 0
+
+    iput p1, p0, Landroid/content/pm/FlymePackageManager;->installResult:I
+
+    return p1
+.end method
+
+.method public getSystemAppPath(Ljava/lang/String;)Ljava/lang/String;
+    .locals 3
+    .param p1, "pkgname"    # Ljava/lang/String;
+
+    .prologue
+    :try_start_0
+    sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v2
+
+    invoke-interface {v1, p1, v2}, Landroid/content/pm/IFlymePackageManager;->getSystemAppPath(Ljava/lang/String;I)Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+.method public getSystemAppRecord()Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    :try_start_0
+    sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v2
+
+    invoke-interface {v1, v2}, Landroid/content/pm/IFlymePackageManager;->getSystemAppRecord(I)Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+.method public getkeyguarActivitylist()Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    :try_start_0
+    sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+
+    invoke-interface {v1}, Landroid/content/pm/IFlymePackageManager;->getkeyguarActivitylist()Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+.method public installPackage(Ljava/lang/String;)I
+    .locals 9
+    .param p1, "packageName"    # Ljava/lang/String;
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/content/pm/FlymePackageManager;->isMzApp(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_0
+
+    const/4 v6, -0x1
+
+    return v6
+
+    :cond_0
+    invoke-virtual {p0, p1}, Landroid/content/pm/FlymePackageManager;->getSystemAppPath(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .local v2, "mayInstalled":Ljava/lang/String;
+    if-eqz v2, :cond_3
+
+    new-instance v1, Ljava/io/File;
+
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .local v1, "installApk":Ljava/io/File;
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    const/4 v6, -0x2
+
+    return v6
+
+    :cond_1
+    invoke-static {v1}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    .local v5, "uri":Landroid/net/Uri;
+    new-instance v3, Landroid/content/pm/FlymePackageManager$1;
+
+    invoke-direct {v3, p0}, Landroid/content/pm/FlymePackageManager$1;-><init>(Landroid/content/pm/FlymePackageManager;)V
+
+    .local v3, "packageInstallObserver":Landroid/app/PackageInstallObserver;
+    iget-object v7, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
+
+    monitor-enter v7
+
+    :try_start_0
+    iget-object v6, p0, Landroid/content/pm/FlymePackageManager;->mContext:Landroid/content/Context;
+
+    if-eqz v6, :cond_2
+
+    iget-object v6, p0, Landroid/content/pm/FlymePackageManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    .local v4, "packageManager":Landroid/content/pm/PackageManager;
+    const-string v6, "FlymePackageManager"
+
+    const/4 v8, 0x2
+
+    invoke-virtual {v4, v5, v3, v8, v6}, Landroid/content/pm/PackageManager;->installPackage(Landroid/net/Uri;Landroid/app/PackageInstallObserver;ILjava/lang/String;)V
+
+    iget-object v6, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
+
+    invoke-virtual {v6}, Ljava/lang/Object;->wait()V
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .end local v4    # "packageManager":Landroid/content/pm/PackageManager;
+    :cond_2
+    :goto_0
+    monitor-exit v7
+
+    .end local v1    # "installApk":Ljava/io/File;
+    .end local v3    # "packageInstallObserver":Landroid/app/PackageInstallObserver;
+    .end local v5    # "uri":Landroid/net/Uri;
+    :cond_3
+    iget v6, p0, Landroid/content/pm/FlymePackageManager;->installResult:I
+
+    return v6
+
+    .restart local v1    # "installApk":Ljava/io/File;
+    .restart local v3    # "packageInstallObserver":Landroid/app/PackageInstallObserver;
+    .restart local v5    # "uri":Landroid/net/Uri;
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Ljava/lang/InterruptedException;
+    :try_start_1
+    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    .end local v0    # "e":Ljava/lang/InterruptedException;
+    :catchall_0
+    move-exception v6
+
+    monitor-exit v7
+
+    throw v6
+.end method
+
+.method public isMzApp(Ljava/lang/String;)Z
+    .locals 2
+    .param p1, "pkg"    # Ljava/lang/String;
+
+    .prologue
+    :try_start_0
+    sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+
+    invoke-interface {v1, p1}, Landroid/content/pm/IFlymePackageManager;->isMzApp(Ljava/lang/String;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method public setkeyguardActivitylist(Landroid/content/ComponentName;Z)V
+    .locals 2
+    .param p1, "componentName"    # Landroid/content/ComponentName;
+    .param p2, "shouldClear"    # Z
+
+    .prologue
+    :try_start_0
+    sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/content/pm/IFlymePackageManager;->setkeyguardActivitylist(Landroid/content/ComponentName;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    goto :goto_0
+.end method
+
+.method public updateMultiOpenAppData(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 2
+    .param p1, "source"    # Ljava/lang/String;
+    .param p2, "target"    # Ljava/lang/String;
+
+    .prologue
+    :try_start_0
+    sget-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/content/pm/IFlymePackageManager;->updateMultiOpenAppData(Ljava/lang/String;Ljava/lang/String;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    const/4 v1, 0x0
+
+    return v1
 .end method

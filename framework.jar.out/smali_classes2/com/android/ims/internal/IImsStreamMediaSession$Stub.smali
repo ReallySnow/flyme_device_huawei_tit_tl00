@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.ims.internal.IImsStreamMediaSession"
 
-.field static final TRANSACTION_close_0:I = 0x1
+.field static final TRANSACTION_close:I = 0x1
 
 
 # direct methods

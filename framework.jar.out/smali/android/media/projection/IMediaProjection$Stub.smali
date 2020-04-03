@@ -28,17 +28,17 @@
 
 .field static final TRANSACTION_applyVirtualDisplayFlags:I = 0x6
 
-.field static final TRANSACTION_canProjectAudio:I = 0x3
+.field static final TRANSACTION_canProjectAudio_2:I = 0x3
 
 .field static final TRANSACTION_canProjectSecureVideo:I = 0x5
 
-.field static final TRANSACTION_canProjectVideo:I = 0x4
+.field static final TRANSACTION_canProjectVideo_3:I = 0x4
 
 .field static final TRANSACTION_registerCallback:I = 0x7
 
-.field static final TRANSACTION_start:I = 0x1
+.field static final TRANSACTION_start_0:I = 0x1
 
-.field static final TRANSACTION_stop:I = 0x2
+.field static final TRANSACTION_stop_1:I = 0x2
 
 .field static final TRANSACTION_unregisterCallback:I = 0x8
 

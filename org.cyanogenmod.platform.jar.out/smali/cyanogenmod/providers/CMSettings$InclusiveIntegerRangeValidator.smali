@@ -30,16 +30,16 @@
     .param p2, "max"    # I
 
     .prologue
-    .line 352
+    .line 353
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 353
+    .line 354
     iput p1, p0, Lcyanogenmod/providers/CMSettings$InclusiveIntegerRangeValidator;->mMin:I
 
-    .line 354
+    .line 355
     iput p2, p0, Lcyanogenmod/providers/CMSettings$InclusiveIntegerRangeValidator;->mMax:I
 
-    .line 352
+    .line 353
     return-void
 .end method
 
@@ -52,13 +52,13 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 360
+    .line 361
     :try_start_0
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 361
+    .line 362
     .local v1, "intValue":I
     iget v3, p0, Lcyanogenmod/providers/CMSettings$InclusiveIntegerRangeValidator;->mMin:I
 
@@ -75,12 +75,12 @@
     :cond_0
     return v2
 
-    .line 362
+    .line 363
     .end local v1    # "intValue":I
     :catch_0
     move-exception v0
 
-    .line 363
+    .line 364
     .local v0, "e":Ljava/lang/NumberFormatException;
     return v2
 .end method

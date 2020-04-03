@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.IInstrumentationWatcher"
 
-.field static final TRANSACTION_instrumentationFinished:I = 0x2
+.field static final TRANSACTION_instrumentationFinished_1:I = 0x2
 
-.field static final TRANSACTION_instrumentationStatus:I = 0x1
+.field static final TRANSACTION_instrumentationStatus_0:I = 0x1
 
 
 # direct methods

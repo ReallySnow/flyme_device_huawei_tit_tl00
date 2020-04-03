@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "cyanogenmod.hardware.ILiveDisplayService"
 
-.field static final TRANSACTION_getColorAdjustment:I = 0x4
+.field static final TRANSACTION_getColorAdjustment_3:I = 0x4
 
 .field static final TRANSACTION_getColorTemperature:I = 0x10
 
@@ -36,13 +36,13 @@
 
 .field static final TRANSACTION_getDefaultPictureAdjustment:I = 0x14
 
-.field static final TRANSACTION_getMode:I = 0x2
+.field static final TRANSACTION_getMode_1:I = 0x2
 
 .field static final TRANSACTION_getNightColorTemperature:I = 0xe
 
 .field static final TRANSACTION_getPictureAdjustment:I = 0x13
 
-.field static final TRANSACTION_isAutoContrastEnabled:I = 0x6
+.field static final TRANSACTION_isAutoContrastEnabled_5:I = 0x6
 
 .field static final TRANSACTION_isAutomaticOutdoorModeEnabled:I = 0x11
 
@@ -56,13 +56,13 @@
 
 .field static final TRANSACTION_setCABCEnabled:I = 0x9
 
-.field static final TRANSACTION_setColorAdjustment:I = 0x5
+.field static final TRANSACTION_setColorAdjustment_4:I = 0x5
 
 .field static final TRANSACTION_setColorEnhancementEnabled:I = 0xb
 
 .field static final TRANSACTION_setDayColorTemperature:I = 0xd
 
-.field static final TRANSACTION_setMode:I = 0x3
+.field static final TRANSACTION_setMode_2:I = 0x3
 
 .field static final TRANSACTION_setNightColorTemperature:I = 0xf
 
@@ -430,10 +430,10 @@
     :cond_4
     const/4 v2, 0x0
 
-    .restart local v2    # "_arg0":Z
     goto :goto_4
 
     .line 204
+    .restart local v2    # "_arg0":Z
     .restart local v7    # "_result":Z
     :cond_5
     const/4 v9, 0x0
@@ -522,10 +522,10 @@
     :cond_7
     const/4 v2, 0x0
 
-    .restart local v2    # "_arg0":Z
     goto :goto_7
 
     .line 222
+    .restart local v2    # "_arg0":Z
     .restart local v7    # "_result":Z
     :cond_8
     const/4 v9, 0x0
@@ -614,10 +614,10 @@
     :cond_a
     const/4 v2, 0x0
 
-    .restart local v2    # "_arg0":Z
     goto :goto_a
 
     .line 240
+    .restart local v2    # "_arg0":Z
     .restart local v7    # "_result":Z
     :cond_b
     const/4 v9, 0x0
@@ -862,10 +862,10 @@
     :cond_f
     const/4 v2, 0x0
 
-    .restart local v2    # "_arg0":Z
     goto :goto_f
 
     .line 302
+    .restart local v2    # "_arg0":Z
     .restart local v7    # "_result":Z
     :cond_10
     const/4 v9, 0x0

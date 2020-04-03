@@ -26,11 +26,11 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.display.IVirtualDisplayCallback"
 
-.field static final TRANSACTION_onPaused_0:I = 0x1
+.field static final TRANSACTION_onPaused:I = 0x1
 
-.field static final TRANSACTION_onResumed:I = 0x2
+.field static final TRANSACTION_onResumed_1:I = 0x2
 
-.field static final TRANSACTION_onStopped:I = 0x3
+.field static final TRANSACTION_onStopped_2:I = 0x3
 
 
 # direct methods

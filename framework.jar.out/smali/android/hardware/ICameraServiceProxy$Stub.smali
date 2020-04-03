@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_notifyCameraState:I = 0x2
 
-.field static final TRANSACTION_pingForUserUpdate_0:I = 0x1
+.field static final TRANSACTION_pingForUserUpdate:I = 0x1
 
 
 # direct methods

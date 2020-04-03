@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.location.IActivityRecognitionHardwareSink"
 
-.field static final TRANSACTION_onActivityChanged:I = 0x1
+.field static final TRANSACTION_onActivityChanged_0:I = 0x1
 
 
 # direct methods

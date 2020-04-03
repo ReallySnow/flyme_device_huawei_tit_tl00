@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.media.midi.IMidiDeviceListener"
 
-.field static final TRANSACTION_onDeviceAdded:I = 0x1
+.field static final TRANSACTION_onDeviceAdded_0:I = 0x1
 
-.field static final TRANSACTION_onDeviceRemoved:I = 0x2
+.field static final TRANSACTION_onDeviceRemoved_1:I = 0x2
 
 .field static final TRANSACTION_onDeviceStatusChanged:I = 0x3
 

@@ -34,7 +34,7 @@
 
 .field static final TRANSACTION_getVideoQuality:I = 0x8
 
-.field static final TRANSACTION_getVolteProvisioned_6:I = 0x7
+.field static final TRANSACTION_getVolteProvisioned:I = 0x7
 
 .field static final TRANSACTION_setFeatureValue:I = 0x6
 

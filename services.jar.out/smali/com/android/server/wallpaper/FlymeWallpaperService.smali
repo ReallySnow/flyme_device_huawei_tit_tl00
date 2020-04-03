@@ -14,7 +14,9 @@
 # static fields
 .field public static DEBUG:Z = false
 
-.field static final LOCK_WALLPAPER:Ljava/lang/String; = "lock_wallpaper"
+.field static final LOCK_WALLPAPER:Ljava/lang/String; = "wallpaper_lock_orig"
+
+.field static final OLD_LOCK_WALLPAPER:Ljava/lang/String; = "lock_wallpaper"
 
 .field public static final SMART_WALLPAPER_TARGET:Ljava/lang/String; = "smart_wallpaper_target"
 
@@ -248,24 +250,19 @@
 
     if-eqz v4, :cond_0
 
-    .line 322
     new-instance v1, Ljava/io/File;
 
     invoke-static {v6}, Lcom/android/server/wallpaper/FlymeWallpaperService;->getWallpaperDir(I)Ljava/io/File;
 
     move-result-object v4
 
-    .line 323
-    const-string/jumbo v5, "lock_wallpaper"
+    const-string v5, "wallpaper_lock_orig"
 
-    .line 322
     invoke-direct {v1, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 324
     .local v1, "newWallpaper":Ljava/io/File;
     invoke-virtual {v3, v1}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    .line 326
     .end local v1    # "newWallpaper":Ljava/io/File;
     :cond_0
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
@@ -572,20 +569,16 @@
 
     invoke-virtual {v5, p1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
 
-    .line 97
     new-instance v2, Ljava/io/File;
 
     invoke-static {v4}, Lcom/android/server/wallpaper/FlymeWallpaperService;->getWallpaperDir(I)Ljava/io/File;
 
     move-result-object v5
 
-    .line 98
-    const-string/jumbo v7, "lock_wallpaper"
+    const-string v7, "wallpaper_lock_orig"
 
-    .line 97
     invoke-direct {v2, v5, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 100
     .local v2, "f":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
     :try_end_1
@@ -667,115 +660,125 @@
 .end method
 
 .method public loadSettingsOfLockWallpaperLocked(I)V
-    .locals 23
+    .locals 24
     .param p1, "userId"    # I
 
     .prologue
     .line 233
-    sget-boolean v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->DEBUG:Z
+    sget-boolean v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->DEBUG:Z
 
-    if-eqz v20, :cond_0
+    if-eqz v21, :cond_0
 
     .line 234
-    sget-object v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v21, "loadSettingsOflockWallpaperLocked"
+    const-string/jumbo v22, "loadSettingsOflockWallpaperLocked"
 
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 235
     :cond_0
     invoke-direct/range {p0 .. p1}, Lcom/android/server/wallpaper/FlymeWallpaperService;->makeJournaledFileForLockWallpaper(I)Lcom/android/internal/util/JournaledFile;
 
-    move-result-object v11
+    move-result-object v12
 
     .line 236
-    .local v11, "journal":Lcom/android/internal/util/JournaledFile;
-    const/4 v13, 0x0
+    .local v12, "journal":Lcom/android/internal/util/JournaledFile;
+    const/4 v14, 0x0
 
     .line 237
-    .local v13, "stream":Ljava/io/FileInputStream;
-    invoke-virtual {v11}, Lcom/android/internal/util/JournaledFile;->chooseForRead()Ljava/io/File;
+    .local v14, "stream":Ljava/io/FileInputStream;
+    invoke-virtual {v12}, Lcom/android/internal/util/JournaledFile;->chooseForRead()Ljava/io/File;
 
-    move-result-object v10
+    move-result-object v11
 
     .line 238
-    .local v10, "file":Ljava/io/File;
-    invoke-virtual {v10}, Ljava/io/File;->exists()Z
+    .local v11, "file":Ljava/io/File;
+    invoke-virtual {v11}, Ljava/io/File;->exists()Z
 
-    move-result v20
+    move-result v21
 
-    if-nez v20, :cond_1
+    if-nez v21, :cond_1
 
     .line 241
     invoke-direct/range {p0 .. p0}, Lcom/android/server/wallpaper/FlymeWallpaperService;->migrateFromOldLock()V
 
     .line 243
     :cond_1
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/wallpaper/FlymeWallpaperService;->updateLockWallpaperIfUpgradeFromOldSystem()V
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/wallpaper/FlymeWallpaperService;->mRealWallpaperManager:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v20 .. v20}, Lcom/android/server/wallpaper/WallpaperManagerService;->mzGetWallpaperMap()Landroid/util/SparseArray;
+    invoke-virtual/range {v21 .. v21}, Lcom/android/server/wallpaper/WallpaperManagerService;->mzGetWallpaperMap()Landroid/util/SparseArray;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
+    check-cast v19, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
     .line 245
-    .local v18, "wallpaper":Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
-    if-nez v18, :cond_2
+    .local v19, "wallpaper":Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
+    if-nez v19, :cond_2
 
     .line 246
-    new-instance v18, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
+    new-instance v19, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
-    .end local v18    # "wallpaper":Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
-    move-object/from16 v0, v18
+    .end local v19    # "wallpaper":Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
+    const/16 v21, 0x0
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v19
 
     move/from16 v1, p1
 
-    invoke-direct {v0, v1}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;-><init>(I)V
+    move-object/from16 v2, v21
+
+    move-object/from16 v3, v22
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;-><init>(ILjava/lang/String;Ljava/lang/String;)V
 
     .line 247
-    .restart local v18    # "wallpaper":Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
+    .restart local v19    # "wallpaper":Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/wallpaper/FlymeWallpaperService;->mRealWallpaperManager:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v20 .. v20}, Lcom/android/server/wallpaper/WallpaperManagerService;->mzGetWallpaperMap()Landroid/util/SparseArray;
+    invoke-virtual/range {v21 .. v21}, Lcom/android/server/wallpaper/WallpaperManagerService;->mzGetWallpaperMap()Landroid/util/SparseArray;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move/from16 v1, p1
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v19
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 250
     :cond_2
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
     .line 252
-    .local v15, "success":Z
+    .local v16, "success":Z
     :try_start_0
-    new-instance v14, Ljava/io/FileInputStream;
+    new-instance v15, Ljava/io/FileInputStream;
 
-    invoke-direct {v14, v10}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    invoke-direct {v15, v11}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_4
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_3
@@ -784,266 +787,266 @@
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 253
-    .local v14, "stream":Ljava/io/FileInputStream;
+    .local v15, "stream":Ljava/io/FileInputStream;
     :try_start_1
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
-    .end local v13    # "stream":Ljava/io/FileInputStream;
-    move-result-object v12
+    .end local v14    # "stream":Ljava/io/FileInputStream;
+    move-result-object v13
 
     .line 254
-    .local v12, "parser":Lorg/xmlpull/v1/XmlPullParser;
-    const/16 v20, 0x0
+    .local v13, "parser":Lorg/xmlpull/v1/XmlPullParser;
+    const/16 v21, 0x0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    invoke-interface {v12, v14, v0}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
+    invoke-interface {v13, v15, v0}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
     .line 258
     :cond_3
-    invoke-interface {v12}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+    invoke-interface {v13}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result v17
+    move-result v18
 
     .line 259
-    .local v17, "type":I
-    const/16 v20, 0x2
+    .local v18, "type":I
+    const/16 v21, 0x2
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    move/from16 v1, v20
+    move/from16 v1, v21
 
     if-ne v0, v1, :cond_4
 
     .line 260
-    invoke-interface {v12}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+    invoke-interface {v13}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v17
 
     .line 261
-    .local v16, "tag":Ljava/lang/String;
-    const-string/jumbo v20, "lwp"
+    .local v17, "tag":Ljava/lang/String;
+    const-string/jumbo v21, "lwp"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_4
+    if-eqz v21, :cond_4
 
     .line 262
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
     .line 264
-    const-string/jumbo v21, "width"
+    const-string/jumbo v22, "width"
 
     .line 263
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    invoke-interface {v12, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v13, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
     .line 262
-    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v21
+    move-result v22
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     iput v0, v1, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mWidthOfLockWallpaper:I
 
     .line 265
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
     .line 267
-    const-string/jumbo v21, "height"
+    const-string/jumbo v22, "height"
 
     .line 266
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    invoke-interface {v12, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v13, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
     .line 265
-    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v21
+    move-result v22
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     iput v0, v1, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mHeightOfLockWallpaper:I
 
     .line 268
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
     .line 269
-    const-string/jumbo v21, "name"
+    const-string/jumbo v22, "name"
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
     .line 268
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v22
+
+    invoke-interface {v13, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v22
+
     move-object/from16 v0, v22
 
     move-object/from16 v1, v21
 
-    invoke-interface {v12, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v20
-
     iput-object v0, v1, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mNameOfLockWallpaper:Ljava/lang/String;
 
     .line 271
-    sget-boolean v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->DEBUG:Z
+    sget-boolean v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->DEBUG:Z
 
-    if-eqz v20, :cond_4
+    if-eqz v21, :cond_4
 
     .line 272
-    sget-object v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
 
     .line 273
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "mWidthOfLockWallpaper:"
+    const-string/jumbo v23, "mWidthOfLockWallpaper:"
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
     .line 274
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     iget v0, v0, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mWidthOfLockWallpaper:I
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
     .line 273
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
     .line 272
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 275
-    sget-object v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
 
     .line 276
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "mHeightOfLockWallpaper:"
+    const-string/jumbo v23, "mHeightOfLockWallpaper:"
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
     .line 277
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     iget v0, v0, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mHeightOfLockWallpaper:I
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
     .line 276
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
     .line 275
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 278
-    sget-object v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "mNameOfLockWallpaper:"
+    const-string/jumbo v23, "mNameOfLockWallpaper:"
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
     .line 279
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     iget-object v0, v0, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mNameOfLockWallpaper:Ljava/lang/String;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
     .line 278
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_6
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_7
@@ -1052,81 +1055,81 @@
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_a
 
     .line 283
-    .end local v16    # "tag":Ljava/lang/String;
+    .end local v17    # "tag":Ljava/lang/String;
     :cond_4
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    move/from16 v1, v20
+    move/from16 v1, v21
 
     if-ne v0, v1, :cond_3
 
     .line 284
-    const/4 v15, 0x1
+    const/16 v16, 0x1
 
-    move-object v13, v14
+    move-object v14, v15
 
     .line 297
-    .end local v12    # "parser":Lorg/xmlpull/v1/XmlPullParser;
-    .end local v14    # "stream":Ljava/io/FileInputStream;
-    .end local v17    # "type":I
+    .end local v13    # "parser":Lorg/xmlpull/v1/XmlPullParser;
+    .end local v15    # "stream":Ljava/io/FileInputStream;
+    .end local v18    # "type":I
     :goto_0
-    if-eqz v13, :cond_5
+    if-eqz v14, :cond_5
 
     .line 298
     :try_start_2
-    invoke-virtual {v13}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v14}, Ljava/io/FileInputStream;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_5
 
     .line 303
     :cond_5
     :goto_1
-    if-nez v15, :cond_6
+    if-nez v16, :cond_6
 
     .line 304
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    const/16 v21, -0x1
+    const/16 v22, -0x1
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     iput v0, v1, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mWidthOfLockWallpaper:I
 
     .line 305
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    const/16 v21, -0x1
+    const/16 v22, -0x1
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     iput v0, v1, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mHeightOfLockWallpaper:I
 
     .line 306
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    const-string/jumbo v21, ""
+    const-string/jumbo v22, ""
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     iput-object v0, v1, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mNameOfLockWallpaper:Ljava/lang/String;
 
@@ -1136,79 +1139,79 @@
 
     iget-object v0, v0, Lcom/android/server/wallpaper/FlymeWallpaperService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    const-string/jumbo v21, "window"
+    const-string/jumbo v22, "window"
 
-    invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual/range {v21 .. v22}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v19
+    move-result-object v20
 
-    check-cast v19, Landroid/view/WindowManager;
+    check-cast v20, Landroid/view/WindowManager;
 
     .line 310
-    .local v19, "wm":Landroid/view/WindowManager;
-    invoke-interface/range {v19 .. v19}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+    .local v20, "wm":Landroid/view/WindowManager;
+    invoke-interface/range {v20 .. v20}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    move-result-object v3
+    move-result-object v4
 
     .line 311
-    .local v3, "d":Landroid/view/Display;
-    new-instance v4, Landroid/util/DisplayMetrics;
+    .local v4, "d":Landroid/view/Display;
+    new-instance v5, Landroid/util/DisplayMetrics;
 
-    invoke-direct {v4}, Landroid/util/DisplayMetrics;-><init>()V
+    invoke-direct {v5}, Landroid/util/DisplayMetrics;-><init>()V
 
     .line 312
-    .local v4, "dm":Landroid/util/DisplayMetrics;
-    invoke-virtual {v3, v4}, Landroid/view/Display;->getRealMetrics(Landroid/util/DisplayMetrics;)V
+    .local v5, "dm":Landroid/util/DisplayMetrics;
+    invoke-virtual {v4, v5}, Landroid/view/Display;->getRealMetrics(Landroid/util/DisplayMetrics;)V
 
     .line 313
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    iget v0, v4, Landroid/util/DisplayMetrics;->widthPixels:I
-
-    move/from16 v21, v0
-
-    iget v0, v4, Landroid/util/DisplayMetrics;->heightPixels:I
+    iget v0, v5, Landroid/util/DisplayMetrics;->widthPixels:I
 
     move/from16 v22, v0
 
-    invoke-static/range {v21 .. v22}, Ljava/lang/Math;->min(II)I
+    iget v0, v5, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    move-result v21
+    move/from16 v23, v0
 
-    move/from16 v0, v21
+    invoke-static/range {v22 .. v23}, Ljava/lang/Math;->min(II)I
 
-    move-object/from16 v1, v20
+    move-result v22
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, v21
 
     iput v0, v1, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mWidthOfLockWallpaper:I
 
     .line 314
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mFlymeData:Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    iget v0, v4, Landroid/util/DisplayMetrics;->widthPixels:I
-
-    move/from16 v21, v0
-
-    iget v0, v4, Landroid/util/DisplayMetrics;->heightPixels:I
+    iget v0, v5, Landroid/util/DisplayMetrics;->widthPixels:I
 
     move/from16 v22, v0
 
-    invoke-static/range {v21 .. v22}, Ljava/lang/Math;->max(II)I
+    iget v0, v5, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    move-result v21
+    move/from16 v23, v0
 
-    move/from16 v0, v21
+    invoke-static/range {v22 .. v23}, Ljava/lang/Math;->max(II)I
 
-    move-object/from16 v1, v20
+    move-result v22
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, v21
 
     iput v0, v1, Lcom/android/server/wallpaper/FlymeWallpaperService$FlymeWallpaperData;->mHeightOfLockWallpaper:I
 
@@ -1216,322 +1219,322 @@
     return-void
 
     .line 293
-    .end local v3    # "d":Landroid/view/Display;
-    .end local v4    # "dm":Landroid/util/DisplayMetrics;
-    .end local v19    # "wm":Landroid/view/WindowManager;
-    .restart local v13    # "stream":Ljava/io/FileInputStream;
+    .end local v4    # "d":Landroid/view/Display;
+    .end local v5    # "dm":Landroid/util/DisplayMetrics;
+    .end local v20    # "wm":Landroid/view/WindowManager;
+    .restart local v14    # "stream":Ljava/io/FileInputStream;
     :catch_0
-    move-exception v6
+    move-exception v7
 
     .line 294
-    .end local v13    # "stream":Ljava/io/FileInputStream;
-    .local v6, "e":Ljava/lang/IndexOutOfBoundsException;
+    .end local v14    # "stream":Ljava/io/FileInputStream;
+    .local v7, "e":Ljava/lang/IndexOutOfBoundsException;
     :goto_2
-    sget-object v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "failed parsing "
+    const-string/jumbo v23, "failed parsing "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    const-string/jumbo v22, " "
+    const-string/jumbo v23, " "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     .line 291
-    .end local v6    # "e":Ljava/lang/IndexOutOfBoundsException;
-    .restart local v13    # "stream":Ljava/io/FileInputStream;
+    .end local v7    # "e":Ljava/lang/IndexOutOfBoundsException;
+    .restart local v14    # "stream":Ljava/io/FileInputStream;
     :catch_1
-    move-exception v5
+    move-exception v6
 
     .line 292
-    .end local v13    # "stream":Ljava/io/FileInputStream;
-    .local v5, "e":Ljava/io/IOException;
+    .end local v14    # "stream":Ljava/io/FileInputStream;
+    .local v6, "e":Ljava/io/IOException;
     :goto_3
-    sget-object v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "failed parsing "
+    const-string/jumbo v23, "failed parsing "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    const-string/jumbo v22, " "
+    const-string/jumbo v23, " "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     .line 289
-    .end local v5    # "e":Ljava/io/IOException;
-    .restart local v13    # "stream":Ljava/io/FileInputStream;
+    .end local v6    # "e":Ljava/io/IOException;
+    .restart local v14    # "stream":Ljava/io/FileInputStream;
     :catch_2
-    move-exception v9
+    move-exception v10
 
     .line 290
-    .end local v13    # "stream":Ljava/io/FileInputStream;
-    .local v9, "e":Lorg/xmlpull/v1/XmlPullParserException;
+    .end local v14    # "stream":Ljava/io/FileInputStream;
+    .local v10, "e":Lorg/xmlpull/v1/XmlPullParserException;
     :goto_4
-    sget-object v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "failed parsing "
+    const-string/jumbo v23, "failed parsing "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    const-string/jumbo v23, " "
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    const-string/jumbo v22, " "
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v22
 
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     .line 287
-    .end local v9    # "e":Lorg/xmlpull/v1/XmlPullParserException;
-    .restart local v13    # "stream":Ljava/io/FileInputStream;
+    .end local v10    # "e":Lorg/xmlpull/v1/XmlPullParserException;
+    .restart local v14    # "stream":Ljava/io/FileInputStream;
     :catch_3
-    move-exception v8
+    move-exception v9
 
     .line 288
-    .end local v13    # "stream":Ljava/io/FileInputStream;
-    .local v8, "e":Ljava/lang/NumberFormatException;
+    .end local v14    # "stream":Ljava/io/FileInputStream;
+    .local v9, "e":Ljava/lang/NumberFormatException;
     :goto_5
-    sget-object v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "failed parsing "
+    const-string/jumbo v23, "failed parsing "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    const-string/jumbo v22, " "
+    const-string/jumbo v23, " "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     .line 285
-    .end local v8    # "e":Ljava/lang/NumberFormatException;
-    .restart local v13    # "stream":Ljava/io/FileInputStream;
+    .end local v9    # "e":Ljava/lang/NumberFormatException;
+    .restart local v14    # "stream":Ljava/io/FileInputStream;
     :catch_4
-    move-exception v7
+    move-exception v8
 
     .line 286
-    .end local v13    # "stream":Ljava/io/FileInputStream;
-    .local v7, "e":Ljava/lang/NullPointerException;
+    .end local v14    # "stream":Ljava/io/FileInputStream;
+    .local v8, "e":Ljava/lang/NullPointerException;
     :goto_6
-    sget-object v20, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/wallpaper/FlymeWallpaperService;->TAG:Ljava/lang/String;
 
-    new-instance v21, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "failed parsing "
+    const-string/jumbo v23, "failed parsing "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    const-string/jumbo v22, " "
+    const-string/jumbo v23, " "
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-static/range {v20 .. v21}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     .line 300
-    .end local v7    # "e":Ljava/lang/NullPointerException;
+    .end local v8    # "e":Ljava/lang/NullPointerException;
     :catch_5
-    move-exception v5
+    move-exception v6
 
-    .restart local v5    # "e":Ljava/io/IOException;
+    .restart local v6    # "e":Ljava/io/IOException;
     goto/16 :goto_1
 
     .line 285
-    .end local v5    # "e":Ljava/io/IOException;
-    .restart local v14    # "stream":Ljava/io/FileInputStream;
+    .end local v6    # "e":Ljava/io/IOException;
+    .restart local v15    # "stream":Ljava/io/FileInputStream;
     :catch_6
-    move-exception v7
+    move-exception v8
 
-    .restart local v7    # "e":Ljava/lang/NullPointerException;
-    move-object v13, v14
+    .restart local v8    # "e":Ljava/lang/NullPointerException;
+    move-object v14, v15
 
-    .end local v14    # "stream":Ljava/io/FileInputStream;
-    .local v13, "stream":Ljava/io/FileInputStream;
+    .end local v15    # "stream":Ljava/io/FileInputStream;
+    .local v14, "stream":Ljava/io/FileInputStream;
     goto :goto_6
 
     .line 287
-    .end local v7    # "e":Ljava/lang/NullPointerException;
-    .end local v13    # "stream":Ljava/io/FileInputStream;
-    .restart local v14    # "stream":Ljava/io/FileInputStream;
-    :catch_7
-    move-exception v8
-
-    .restart local v8    # "e":Ljava/lang/NumberFormatException;
-    move-object v13, v14
-
+    .end local v8    # "e":Ljava/lang/NullPointerException;
     .end local v14    # "stream":Ljava/io/FileInputStream;
-    .restart local v13    # "stream":Ljava/io/FileInputStream;
+    .restart local v15    # "stream":Ljava/io/FileInputStream;
+    :catch_7
+    move-exception v9
+
+    .restart local v9    # "e":Ljava/lang/NumberFormatException;
+    move-object v14, v15
+
+    .end local v15    # "stream":Ljava/io/FileInputStream;
+    .restart local v14    # "stream":Ljava/io/FileInputStream;
     goto :goto_5
 
     .line 289
-    .end local v8    # "e":Ljava/lang/NumberFormatException;
-    .end local v13    # "stream":Ljava/io/FileInputStream;
-    .restart local v14    # "stream":Ljava/io/FileInputStream;
-    :catch_8
-    move-exception v9
-
-    .restart local v9    # "e":Lorg/xmlpull/v1/XmlPullParserException;
-    move-object v13, v14
-
+    .end local v9    # "e":Ljava/lang/NumberFormatException;
     .end local v14    # "stream":Ljava/io/FileInputStream;
-    .restart local v13    # "stream":Ljava/io/FileInputStream;
+    .restart local v15    # "stream":Ljava/io/FileInputStream;
+    :catch_8
+    move-exception v10
+
+    .restart local v10    # "e":Lorg/xmlpull/v1/XmlPullParserException;
+    move-object v14, v15
+
+    .end local v15    # "stream":Ljava/io/FileInputStream;
+    .restart local v14    # "stream":Ljava/io/FileInputStream;
     goto/16 :goto_4
 
     .line 291
-    .end local v9    # "e":Lorg/xmlpull/v1/XmlPullParserException;
-    .end local v13    # "stream":Ljava/io/FileInputStream;
-    .restart local v14    # "stream":Ljava/io/FileInputStream;
-    :catch_9
-    move-exception v5
-
-    .restart local v5    # "e":Ljava/io/IOException;
-    move-object v13, v14
-
+    .end local v10    # "e":Lorg/xmlpull/v1/XmlPullParserException;
     .end local v14    # "stream":Ljava/io/FileInputStream;
-    .restart local v13    # "stream":Ljava/io/FileInputStream;
+    .restart local v15    # "stream":Ljava/io/FileInputStream;
+    :catch_9
+    move-exception v6
+
+    .restart local v6    # "e":Ljava/io/IOException;
+    move-object v14, v15
+
+    .end local v15    # "stream":Ljava/io/FileInputStream;
+    .restart local v14    # "stream":Ljava/io/FileInputStream;
     goto/16 :goto_3
 
     .line 293
-    .end local v5    # "e":Ljava/io/IOException;
-    .end local v13    # "stream":Ljava/io/FileInputStream;
-    .restart local v14    # "stream":Ljava/io/FileInputStream;
-    :catch_a
-    move-exception v6
-
-    .restart local v6    # "e":Ljava/lang/IndexOutOfBoundsException;
-    move-object v13, v14
-
+    .end local v6    # "e":Ljava/io/IOException;
     .end local v14    # "stream":Ljava/io/FileInputStream;
-    .restart local v13    # "stream":Ljava/io/FileInputStream;
+    .restart local v15    # "stream":Ljava/io/FileInputStream;
+    :catch_a
+    move-exception v7
+
+    .restart local v7    # "e":Ljava/lang/IndexOutOfBoundsException;
+    move-object v14, v15
+
+    .end local v15    # "stream":Ljava/io/FileInputStream;
+    .restart local v14    # "stream":Ljava/io/FileInputStream;
     goto/16 :goto_2
 .end method
 
@@ -1645,30 +1648,23 @@
 
     move-result-object v2
 
-    .line 351
-    const-string/jumbo v4, "lock_wallpaper"
+    const-string v4, "wallpaper_lock_orig"
 
-    .line 350
     invoke-direct {v0, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 352
     .local v0, "wallpaperFile":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    .line 353
     new-instance v1, Ljava/io/File;
 
     invoke-static {p1}, Lcom/android/server/wallpaper/FlymeWallpaperService;->getWallpaperDir(I)Ljava/io/File;
 
     move-result-object v2
 
-    .line 354
-    const-string/jumbo v4, "lock_wallpaper_info.xml"
+    const-string v4, "lock_wallpaper_info.xml"
 
-    .line 353
     invoke-direct {v1, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 355
     .local v1, "wallpaperInfoFile":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
     :try_end_0
@@ -1973,43 +1969,34 @@
 
     if-nez v4, :cond_1
 
-    .line 153
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 155
     invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 156
     const/16 v5, 0x1f9
 
-    .line 157
     const/4 v6, -0x1
 
     const/4 v7, -0x1
 
-    .line 154
     invoke-static {v4, v5, v6, v7}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
 
-    .line 159
     :cond_1
     new-instance v3, Ljava/io/File;
 
-    const-string/jumbo v4, "lock_wallpaper"
+    const-string v4, "wallpaper_lock_orig"
 
     invoke-direct {v3, v0, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 161
     .local v3, "file":Ljava/io/File;
     const/high16 v4, 0x3c000000    # 0.0078125f
 
-    .line 160
     invoke-static {v3, v4}, Landroid/os/ParcelFileDescriptor;->open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v2
 
-    .line 162
     .local v2, "fd":Landroid/os/ParcelFileDescriptor;
     invoke-static {v3}, Landroid/os/SELinux;->restorecon(Ljava/io/File;)Z
 
@@ -2046,4 +2033,45 @@
 
     .line 170
     return-object v8
+.end method
+
+.method private updateLockWallpaperIfUpgradeFromOldSystem()V
+    .locals 5
+
+    .prologue
+    const/4 v4, 0x0
+
+    new-instance v1, Ljava/io/File;
+
+    invoke-static {v4}, Lcom/android/server/wallpaper/FlymeWallpaperService;->getWallpaperDir(I)Ljava/io/File;
+
+    move-result-object v2
+
+    const-string v3, "lock_wallpaper"
+
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .local v1, "oldSystemWallpaper":Ljava/io/File;
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-static {v4}, Lcom/android/server/wallpaper/FlymeWallpaperService;->getWallpaperDir(I)Ljava/io/File;
+
+    move-result-object v2
+
+    const-string v3, "wallpaper_lock_orig"
+
+    invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .local v0, "newSystemWallpaper":Ljava/io/File;
+    invoke-virtual {v1, v0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+
+    .end local v0    # "newSystemWallpaper":Ljava/io/File;
+    :cond_0
+    return-void
 .end method

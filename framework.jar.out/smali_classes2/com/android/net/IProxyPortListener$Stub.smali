@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.net.IProxyPortListener"
 
-.field static final TRANSACTION_setProxyPort_0:I = 0x1
+.field static final TRANSACTION_setProxyPort:I = 0x1
 
 
 # direct methods

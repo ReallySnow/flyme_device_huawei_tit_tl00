@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.media.midi.IMidiDeviceOpenCallback"
 
-.field static final TRANSACTION_onDeviceOpened:I = 0x1
+.field static final TRANSACTION_onDeviceOpened_0:I = 0x1
 
 
 # direct methods

@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_onCreated:I = 0x1
 
-.field static final TRANSACTION_onStatusChanged:I = 0x2
+.field static final TRANSACTION_onStatusChanged_1:I = 0x2
 
 
 # direct methods

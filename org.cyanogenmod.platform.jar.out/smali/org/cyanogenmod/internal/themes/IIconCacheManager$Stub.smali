@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "org.cyanogenmod.internal.themes.IIconCacheManager"
 
-.field static final TRANSACTION_cacheComposedIcon:I = 0x1
+.field static final TRANSACTION_cacheComposedIcon_0:I = 0x1
 
 
 # direct methods

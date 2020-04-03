@@ -41,14 +41,14 @@
     .end annotation
 
     .prologue
-    .line 2437
+    .line 2456
     .local p1, "pageViews":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     invoke-direct {p0}, Lcom/android/internal/widget/PagerAdapter;-><init>()V
 
-    .line 2438
+    .line 2457
     iput-object p1, p0, Lcom/android/internal/app/MzResolverActivity$ViewPagerAdapter;->pageViews:Ljava/util/List;
 
-    .line 2436
+    .line 2455
     return-void
 .end method
 
@@ -61,7 +61,7 @@
     .param p3, "arg2"    # Ljava/lang/Object;
 
     .prologue
-    .line 2458
+    .line 2477
     check-cast p1, Lcom/android/internal/widget/ViewPager;
 
     .end local p1    # "arg0":Landroid/view/View;
@@ -75,7 +75,7 @@
 
     invoke-virtual {p1, v0}, Lcom/android/internal/widget/ViewPager;->removeView(Landroid/view/View;)V
 
-    .line 2457
+    .line 2476
     return-void
 .end method
 
@@ -83,7 +83,7 @@
     .locals 1
 
     .prologue
-    .line 2443
+    .line 2462
     iget-object v0, p0, Lcom/android/internal/app/MzResolverActivity$ViewPagerAdapter;->pageViews:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -98,7 +98,7 @@
     .param p1, "object"    # Ljava/lang/Object;
 
     .prologue
-    .line 2453
+    .line 2472
     invoke-super {p0, p1}, Lcom/android/internal/widget/PagerAdapter;->getItemPosition(Ljava/lang/Object;)I
 
     move-result v0
@@ -112,7 +112,7 @@
     .param p2, "arg1"    # I
 
     .prologue
-    .line 2466
+    .line 2485
     check-cast p1, Lcom/android/internal/widget/ViewPager;
 
     .end local p1    # "arg0":Landroid/view/View;
@@ -126,7 +126,7 @@
 
     invoke-virtual {p1, v0}, Lcom/android/internal/widget/ViewPager;->addView(Landroid/view/View;)V
 
-    .line 2467
+    .line 2486
     iget-object v0, p0, Lcom/android/internal/app/MzResolverActivity$ViewPagerAdapter;->pageViews:Ljava/util/List;
 
     invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -142,7 +142,7 @@
     .param p2, "arg1"    # Ljava/lang/Object;
 
     .prologue
-    .line 2448
+    .line 2467
     if-ne p1, p2, :cond_0
 
     const/4 v0, 0x1

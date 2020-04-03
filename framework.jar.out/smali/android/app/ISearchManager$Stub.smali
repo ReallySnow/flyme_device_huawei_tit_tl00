@@ -38,7 +38,7 @@
 
 .field static final TRANSACTION_launchAssist:I = 0x6
 
-.field static final TRANSACTION_launchLegacyAssist:I = 0x7
+.field static final TRANSACTION_launchLegacyAssist_6:I = 0x7
 
 
 # direct methods

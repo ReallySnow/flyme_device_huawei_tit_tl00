@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.ICamera"
 
-.field static final TRANSACTION_disconnect_0:I = 0x1
+.field static final TRANSACTION_disconnect:I = 0x1
 
 
 # direct methods

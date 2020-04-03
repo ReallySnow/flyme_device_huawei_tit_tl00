@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_getConfigForSubId:I = 0x1
 
-.field static final TRANSACTION_notifyConfigChangedForSubId:I = 0x2
+.field static final TRANSACTION_notifyConfigChangedForSubId_1:I = 0x2
 
 .field static final TRANSACTION_updateConfigForPhoneId:I = 0x3
 

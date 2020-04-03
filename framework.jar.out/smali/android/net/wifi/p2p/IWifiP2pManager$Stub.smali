@@ -26,11 +26,11 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.net.wifi.p2p.IWifiP2pManager"
 
-.field static final TRANSACTION_getMessenger_0:I = 0x1
+.field static final TRANSACTION_getMessenger:I = 0x1
 
 .field static final TRANSACTION_getP2pStateMachineMessenger:I = 0x2
 
-.field static final TRANSACTION_setMiracastMode:I = 0x3
+.field static final TRANSACTION_setMiracastMode_2:I = 0x3
 
 
 # direct methods

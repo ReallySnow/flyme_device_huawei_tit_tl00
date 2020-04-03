@@ -30,7 +30,7 @@
 
 .field static final TRANSACTION_getAvailableRestoreSets:I = 0x1
 
-.field static final TRANSACTION_restoreAll_1:I = 0x2
+.field static final TRANSACTION_restoreAll:I = 0x2
 
 .field static final TRANSACTION_restorePackage_3:I = 0x4
 

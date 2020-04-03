@@ -25,15 +25,15 @@
     .param p2, "otherState"    # Lcom/android/internal/util/State;
 
     .prologue
-    .line 608
+    .line 601
     iput-object p1, p0, Landroid/net/dhcp/DhcpClient$WaitBeforeRenewalState;->this$0:Landroid/net/dhcp/DhcpClient;
 
-    .line 609
+    .line 602
     invoke-direct {p0, p1}, Landroid/net/dhcp/DhcpClient$WaitBeforeOtherState;-><init>(Landroid/net/dhcp/DhcpClient;)V
 
-    .line 610
+    .line 603
     iput-object p2, p0, Landroid/net/dhcp/DhcpClient$WaitBeforeRenewalState;->mOtherState:Lcom/android/internal/util/State;
 
-    .line 608
+    .line 601
     return-void
 .end method

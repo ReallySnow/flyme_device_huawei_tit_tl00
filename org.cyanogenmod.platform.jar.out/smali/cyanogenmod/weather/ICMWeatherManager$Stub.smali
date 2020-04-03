@@ -30,13 +30,13 @@
 
 .field static final TRANSACTION_getActiveWeatherServiceProviderLabel:I = 0x5
 
-.field static final TRANSACTION_lookupCity:I = 0x2
+.field static final TRANSACTION_lookupCity_1:I = 0x2
 
 .field static final TRANSACTION_registerWeatherServiceProviderChangeListener:I = 0x3
 
 .field static final TRANSACTION_unregisterWeatherServiceProviderChangeListener:I = 0x4
 
-.field static final TRANSACTION_updateWeather:I = 0x1
+.field static final TRANSACTION_updateWeather_0:I = 0x1
 
 
 # direct methods

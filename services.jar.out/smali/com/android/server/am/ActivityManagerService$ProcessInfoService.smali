@@ -24,29 +24,49 @@
     .param p1, "activityManagerService"    # Lcom/android/server/am/ActivityManagerService;
 
     .prologue
-    .line 7316
+    .line 7837
     invoke-direct {p0}, Landroid/os/IProcessInfoService$Stub;-><init>()V
 
-    .line 7317
+    .line 7838
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$ProcessInfoService;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
-    .line 7316
+    .line 7837
     return-void
 .end method
 
 
 # virtual methods
-.method public getProcessStatesFromPids([I[I)V
+.method public getProcessStatesAndOomScoresFromPids([I[I[I)V
     .locals 1
+    .param p1, "pids"    # [I
+    .param p2, "states"    # [I
+    .param p3, "scores"    # [I
+
+    .prologue
+    .line 7850
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$ProcessInfoService;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/am/ActivityManagerService;->getProcessStatesAndOomScoresForPIDs([I[I[I)V
+
+    .line 7849
+    return-void
+.end method
+
+.method public getProcessStatesFromPids([I[I)V
+    .locals 2
     .param p1, "pids"    # [I
     .param p2, "states"    # [I
 
     .prologue
-    .line 7322
+    .line 7843
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$ProcessInfoService;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/am/ActivityManagerService;->getProcessStatesForPIDs([I[I)V
+    .line 7844
+    const/4 v1, 0x0
 
-    .line 7321
+    .line 7843
+    invoke-virtual {v0, p1, p2, v1}, Lcom/android/server/am/ActivityManagerService;->getProcessStatesAndOomScoresForPIDs([I[I[I)V
+
+    .line 7842
     return-void
 .end method

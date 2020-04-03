@@ -26,11 +26,11 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.location.ILocationListener"
 
-.field static final TRANSACTION_onLocationChanged:I = 0x1
+.field static final TRANSACTION_onLocationChanged_0:I = 0x1
 
-.field static final TRANSACTION_onProviderDisabled:I = 0x4
+.field static final TRANSACTION_onProviderDisabled_3:I = 0x4
 
-.field static final TRANSACTION_onProviderEnabled:I = 0x3
+.field static final TRANSACTION_onProviderEnabled_2:I = 0x3
 
 .field static final TRANSACTION_onStatusChanged:I = 0x2
 

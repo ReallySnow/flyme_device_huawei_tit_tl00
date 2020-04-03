@@ -34,7 +34,7 @@
 
 .field static final TRANSACTION_onGeofenceResume:I = 0x5
 
-.field static final TRANSACTION_onGeofenceTransition:I = 0x1
+.field static final TRANSACTION_onGeofenceTransition_0:I = 0x1
 
 
 # direct methods

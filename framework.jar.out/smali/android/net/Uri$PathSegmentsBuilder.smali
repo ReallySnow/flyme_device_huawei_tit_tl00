@@ -25,15 +25,15 @@
     .locals 1
 
     .prologue
-    .line 1003
+    .line 1011
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1006
+    .line 1014
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/net/Uri$PathSegmentsBuilder;->size:I
 
-    .line 1003
+    .line 1011
     return-void
 .end method
 
@@ -46,19 +46,19 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1009
+    .line 1017
     iget-object v1, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;
 
     if-nez v1, :cond_1
 
-    .line 1010
+    .line 1018
     const/4 v1, 0x4
 
     new-array v1, v1, [Ljava/lang/String;
 
     iput-object v1, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;
 
-    .line 1017
+    .line 1025
     :cond_0
     :goto_0
     iget-object v1, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;
@@ -71,10 +71,10 @@
 
     aput-object p1, v1, v2
 
-    .line 1008
+    .line 1016
     return-void
 
-    .line 1011
+    .line 1019
     :cond_1
     iget v1, p0, Landroid/net/Uri$PathSegmentsBuilder;->size:I
 
@@ -86,7 +86,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 1012
+    .line 1020
     iget-object v1, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;
 
     array-length v1, v1
@@ -95,7 +95,7 @@
 
     new-array v0, v1, [Ljava/lang/String;
 
-    .line 1013
+    .line 1021
     .local v0, "expanded":[Ljava/lang/String;
     iget-object v1, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;
 
@@ -105,7 +105,7 @@
 
     invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1014
+    .line 1022
     iput-object v0, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;
 
     goto :goto_0
@@ -117,17 +117,17 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1021
+    .line 1029
     iget-object v0, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;
 
     if-nez v0, :cond_0
 
-    .line 1022
+    .line 1030
     sget-object v0, Landroid/net/Uri$PathSegments;->EMPTY:Landroid/net/Uri$PathSegments;
 
     return-object v0
 
-    .line 1026
+    .line 1034
     :cond_0
     :try_start_0
     new-instance v0, Landroid/net/Uri$PathSegments;
@@ -140,19 +140,19 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1029
+    .line 1037
     iput-object v3, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;
 
-    .line 1026
+    .line 1034
     return-object v0
 
-    .line 1027
+    .line 1035
     :catchall_0
     move-exception v0
 
-    .line 1029
+    .line 1037
     iput-object v3, p0, Landroid/net/Uri$PathSegmentsBuilder;->segments:[Ljava/lang/String;
 
-    .line 1027
+    .line 1035
     throw v0
 .end method

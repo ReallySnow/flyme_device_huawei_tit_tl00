@@ -1,30 +1,35 @@
-## Here is an example for PHP
-##
-syntax "php" "\.php[2345s~]?$"
+## Here is an example for PHP.
 
-## php markings
+syntax php "\.ph(p[23457s~]?|tml)$"
+magic "PHP script"
+comment "//"
+
+# PHP markings.
 color brightgreen "(<\?(php)?|\?>)"
 
-## functions
-color white "\<[a-z_]*\("
+# Function names.
+color white "\<[A-Za-z_][A-Za-z_0-9]*\("
+# Variable names.
+color cyan "\$[A-Za-z_][A-Za-z_0-9]*"
 
-## types
-color green "\<(var|float|global|double|bool|char|int|enum|const)\>"
+# Types.
+color green "\<(array|bool|callable|const|float|global|int|object|string|var)\>"
 
-## structure
-color brightyellow "\<(class|new|private|public|function|for|foreach|if|while|do|else|elseif|case|default|switch)\>"
+# Directives and structure.
+color brightcyan "\<(abstract|as|class|clone|(end)?declare|extends|function|implements|include(_once)?|inst(ance|ead)of|interface|namespace|new|private|protected|public|require(_once)?|static|trait|use|yield)\>"
+color brightcyan "\<(case|catch|default|do|echo|else(if)?|end(for(each)?|if|switch|while)|final(ly)?|for(each)?|if|print|switch|throw|try|while)\>"
+# Operators.
+color brightcyan "\<(and|or|xor)\>"
 
-## control flow
-color magenta "\<(goto|continue|break|return)\>"
+# Control flow.
+color magenta "\<(break|continue|goto|return)\>"
 
-## strings
-color brightyellow "<[^=       ]*>" ""(\.|[^"])*""
+# Strings.
+color brightyellow ""(\.|[^"])*"" "'(\.|[^'])*'"
 
-## comments
-color brightblue "//.*"
+# Comments.
+color brightblue "(^|[[:space:]]+)//.*"
 color brightblue start="/\*" end="\*/"
-#color blue start="<" end=">"
-#color red "&[^;[[:space:]]]*;"
 
-## Trailing whitespace
+# Trailing whitespace.
 color ,green "[[:space:]]+$"

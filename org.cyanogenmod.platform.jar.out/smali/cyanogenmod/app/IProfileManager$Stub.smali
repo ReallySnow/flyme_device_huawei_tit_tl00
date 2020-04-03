@@ -28,9 +28,9 @@
 
 .field static final TRANSACTION_addNotificationGroup:I = 0xe
 
-.field static final TRANSACTION_addProfile:I = 0x4
+.field static final TRANSACTION_addProfile_3:I = 0x4
 
-.field static final TRANSACTION_getActiveProfile:I = 0x3
+.field static final TRANSACTION_getActiveProfile_2:I = 0x3
 
 .field static final TRANSACTION_getNotificationGroup:I = 0x12
 
@@ -58,9 +58,9 @@
 
 .field static final TRANSACTION_resetAll:I = 0x13
 
-.field static final TRANSACTION_setActiveProfile:I = 0x1
+.field static final TRANSACTION_setActiveProfileByName_1:I = 0x2
 
-.field static final TRANSACTION_setActiveProfileByName:I = 0x2
+.field static final TRANSACTION_setActiveProfile_0:I = 0x1
 
 .field static final TRANSACTION_updateNotificationGroup:I = 0x10
 

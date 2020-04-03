@@ -10,7 +10,6 @@
     <string name="unknownName">Nekonata</string>
     <string name="untitled">&lt;Sentitola></string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="adb_active_custom_tile_net">Reto</string>
     <string name="byteShort">B</string>
     <string name="kilobyteShort">kB</string>
     <string name="megabyteShort">MB</string>
@@ -24,8 +23,6 @@
     <string name="passwordIncorrect">Malĝusta pasvorto.</string>
     <string name="imei">IMEI</string>
     <string name="meid">MEID</string>
-    <string name="wfcSpnFormat">%s</string>
-    <string name="wfcDataSpnFormat">%s</string>
     <string name="me">Mi</string>
     <string name="global_actions_toggle_airplane_mode">Aviadila reĝimo</string>
     <string name="global_action_settings">Agordoj</string>
@@ -35,6 +32,7 @@
     <string name="permgrouplab_calendar">Kalendaro</string>
     <string name="permgrouplab_microphone">Mikrofono</string>
     <string name="permgrouplab_phone">Telefono</string>
+    <string name="permgroupdesc_phone">Telefono</string>
     <string name="permlab_killBackgroundProcesses">fermi aliajn aplikaĵojn</string>
     <string name="permlab_readContacts">legi viajn kontaktojn</string>
     <string name="phoneTypeCustom">Propra</string>
@@ -59,12 +57,44 @@
     <string name="lockscreen_unlock_label">Malŝlosi</string>
     <string name="keyguard_accessibility_widget_empty_slot">Malplena</string>
     <string name="granularity_label_word">vorto</string>
-    <string name="hour_ampm" formatted="false">%-l%P</string>
-    <string name="hour_cap_ampm" formatted="false">%-l%p</string>
     <string name="autofill_address_name_separator">" "</string>
     <string name="autofill_address_summary_separator">", "</string>
-    <string name="autofill_country_re">country|location|国|国家</string>
-    <string name="autofill_username_re">user.?name|user.?id|vollständiger.?name|用户名</string>
+    <string name="autofill_region_ignored_re">province|region|other</string>
+    <string name="autofill_company_re">company|business|organization|organisation|department</string>
+    <string name="autofill_address_line_1_re">address.?line|address1|addr1|street</string>
+    <string name="autofill_address_line_1_label_re">address</string>
+    <string name="autofill_address_line_2_re">address.?line2|address2|addr2|street|suite|unit</string>
+    <string name="autofill_address_line_3_re">address.?line3|address3|addr3|street|line3</string>
+    <string name="autofill_country_re">country|location</string>
+    <string name="autofill_zip_code_re">zip|postal|post code|pcode|^1z$</string>
+    <string name="autofill_zip_4_re">zip|^-$|post2</string>
+    <string name="autofill_city_re">city|town</string>
+    <string name="autofill_address_type_use_my_re">use my</string>
+    <string name="autofill_billing_designator_re">bill</string>
+    <string name="autofill_shipping_designator_re">ship</string>
+    <string name="autofill_name_re">^name|full.?name|your.?name|customer.?name|firstandlastname</string>
+    <string name="autofill_name_specific_re">^name</string>
+    <string name="autofill_first_name_re">irst.*name|initials|fname|first$</string>
+    <string name="autofill_middle_initial_re">middle.*initial|m\\.i\\.|mi$</string>
+    <string name="autofill_middle_name_re">middle.*name|mname|middle$</string>
+    <string name="autofill_last_name_re">last.*name|lname|surname|last$</string>
+    <string name="autofill_phone_re">phone</string>
+    <string name="autofill_area_code_re">area.*code|acode|area</string>
+    <string name="autofill_phone_prefix_re">prefix</string>
+    <string name="autofill_phone_suffix_re">suffix</string>
+    <string name="autofill_phone_extension_re">ext</string>
+    <string name="autofill_name_on_card_re">card.?holder|name.?on.?card|ccname|owner</string>
+    <string name="autofill_name_on_card_contextual_re">name</string>
+    <string name="autofill_card_cvc_re">verification|card identification|cvn|security code|cvv code|cvc</string>
+    <string name="autofill_card_number_re">number|card.?#|card.?no|ccnum</string>
+    <string name="autofill_expiration_month_re">expir|exp.*month|exp.*date|ccmonth</string>
+    <string name="autofill_expiration_date_re">exp|^/|year</string>
+    <string name="autofill_card_ignored_re">^card</string>
+    <string name="autofill_fax_re">fax</string>
+    <string name="autofill_country_code_re">country.*code|ccode|_cc</string>
+    <string name="autofill_area_code_notext_re">^\\($</string>
+    <string name="autofill_phone_prefix_separator_re">^-$|^\\)$</string>
+    <string name="autofill_phone_suffix_separator_re">^-$</string>
     <string name="save_password_never">Neniam</string>
     <string name="menu_delete_shortcut_label">forigi</string>
     <string name="searchview_description_search">Serĉi</string>
@@ -83,12 +113,14 @@
     <string name="deleteText">Forigi</string>
     <string name="loading">Ŝarĝado…</string>
     <string name="whichViewApplication">Malfermi per</string>
+    <string name="whichEditApplicationLabel">Redakti</string>
+    <string name="whichSendApplicationLabel">Konigi</string>
+    <string name="whichSendToApplicationLabel">Sendi</string>
     <string name="sms_control_yes">Permesi</string>
     <string name="sms_control_no">Malpermesi</string>
     <string name="sms_short_code_confirm_allow">Sendi</string>
     <string name="sms_short_code_confirm_deny">Nuligi</string>
     <string name="date_time_set">Agordi</string>
-    <string name="hardware">Aparataro</string>
     <string name="ext_media_status_removed">Forigita</string>
     <string name="ime_action_go">Ek</string>
     <string name="ime_action_search">Serĉi</string>
@@ -96,6 +128,7 @@
     <string name="allow">Permesi</string>
     <string name="deny">Malpermesi</string>
     <string name="accessibility_binding_label">Alirebleco</string>
+    <string name="alternate_eri_file">/data/eri.xml</string>
     <string name="upload_file">Elekti dosieron</string>
     <string name="share">Konigi</string>
     <string name="gpsVerifYes">Jes</string>
@@ -104,8 +137,8 @@
     <string name="keyboardview_keycode_delete">Forigi</string>
     <string name="action_bar_home_description_format">%1$s, %2$s</string>
     <string name="storage_sd_card">SD-karto</string>
+    <string name="extract_edit_menu_button">Redakti</string>
     <string name="fingerprints">Fingrospuroj:</string>
-    <string name="list_delimeter">", "</string>
     <string name="activity_resolver_use_always">Ĉiam</string>
     <string name="default_audio_route_name">Telefono</string>
     <string name="default_audio_route_category_name">Sistemo</string>
@@ -117,4 +150,6 @@
     <string name="error_message_title">Eraro</string>
     <string name="write_fail_reason_cancelled">Nuligita</string>
     <string name="reason_unknown">nekonata</string>
+    <string name="locale_search_menu">Serĉi</string>
+    <string name="demo_user_inactivity_timeout_left_button">Nuligi</string>
 </resources>

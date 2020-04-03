@@ -28,13 +28,13 @@
 
 .field static final TRANSACTION_adjustVolume:I = 0x6
 
-.field static final TRANSACTION_connect:I = 0x3
+.field static final TRANSACTION_connect_2:I = 0x3
 
 .field static final TRANSACTION_disconnect:I = 0x4
 
-.field static final TRANSACTION_setCallback_0:I = 0x1
+.field static final TRANSACTION_setCallback:I = 0x1
 
-.field static final TRANSACTION_setDiscoveryMode:I = 0x2
+.field static final TRANSACTION_setDiscoveryMode_1:I = 0x2
 
 .field static final TRANSACTION_setVolume:I = 0x5
 

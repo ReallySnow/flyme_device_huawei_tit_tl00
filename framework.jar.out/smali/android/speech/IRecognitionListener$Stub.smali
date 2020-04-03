@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.speech.IRecognitionListener"
 
-.field static final TRANSACTION_onBeginningOfSpeech:I = 0x2
+.field static final TRANSACTION_onBeginningOfSpeech_1:I = 0x2
 
-.field static final TRANSACTION_onBufferReceived:I = 0x4
+.field static final TRANSACTION_onBufferReceived_3:I = 0x4
 
 .field static final TRANSACTION_onEndOfSpeech:I = 0x5
 
@@ -42,7 +42,7 @@
 
 .field static final TRANSACTION_onResults:I = 0x7
 
-.field static final TRANSACTION_onRmsChanged:I = 0x3
+.field static final TRANSACTION_onRmsChanged_2:I = 0x3
 
 
 # direct methods

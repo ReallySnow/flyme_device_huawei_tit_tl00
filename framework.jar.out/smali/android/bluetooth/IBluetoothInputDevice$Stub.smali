@@ -28,13 +28,13 @@
 
 .field static final TRANSACTION_connect:I = 0x1
 
-.field static final TRANSACTION_disconnect:I = 0x2
+.field static final TRANSACTION_disconnect_1:I = 0x2
 
-.field static final TRANSACTION_getConnectedDevices:I = 0x3
+.field static final TRANSACTION_getConnectedDevices_2:I = 0x3
 
-.field static final TRANSACTION_getConnectionState:I = 0x5
+.field static final TRANSACTION_getConnectionState_4:I = 0x5
 
-.field static final TRANSACTION_getDevicesMatchingConnectionStates:I = 0x4
+.field static final TRANSACTION_getDevicesMatchingConnectionStates_3:I = 0x4
 
 .field static final TRANSACTION_getIdleTime:I = 0xe
 

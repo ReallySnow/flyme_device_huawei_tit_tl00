@@ -28,9 +28,9 @@
 
 .field static final TRANSACTION_createLocalApprovalIntent:I = 0x5
 
-.field static final TRANSACTION_getApplicationRestrictions:I = 0x1
+.field static final TRANSACTION_getApplicationRestrictions_0:I = 0x1
 
-.field static final TRANSACTION_hasRestrictionsProvider:I = 0x2
+.field static final TRANSACTION_hasRestrictionsProvider_1:I = 0x2
 
 .field static final TRANSACTION_notifyPermissionResponse:I = 0x4
 

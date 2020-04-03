@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.media.projection.IMediaProjectionCallback"
 
-.field static final TRANSACTION_onStop_0:I = 0x1
+.field static final TRANSACTION_onStop:I = 0x1
 
 
 # direct methods

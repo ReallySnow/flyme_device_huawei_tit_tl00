@@ -28,9 +28,9 @@
 
 .field static final TRANSACTION_createBeamShareData:I = 0x1
 
-.field static final TRANSACTION_onNdefPushComplete:I = 0x2
+.field static final TRANSACTION_onNdefPushComplete_1:I = 0x2
 
-.field static final TRANSACTION_onTagDiscovered:I = 0x3
+.field static final TRANSACTION_onTagDiscovered_2:I = 0x3
 
 
 # direct methods

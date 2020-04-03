@@ -26,15 +26,15 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.bluetooth.IBluetoothPbap"
 
-.field static final TRANSACTION_connect:I = 0x3
+.field static final TRANSACTION_connect_2:I = 0x3
 
-.field static final TRANSACTION_disconnect:I = 0x4
+.field static final TRANSACTION_disconnect_3:I = 0x4
 
 .field static final TRANSACTION_getClient:I = 0x2
 
-.field static final TRANSACTION_getState_0:I = 0x1
+.field static final TRANSACTION_getState:I = 0x1
 
-.field static final TRANSACTION_isConnected:I = 0x5
+.field static final TRANSACTION_isConnected_4:I = 0x5
 
 
 # direct methods

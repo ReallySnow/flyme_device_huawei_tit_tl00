@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.app.IVoiceInteractorRequest"
 
-.field static final TRANSACTION_cancel_0:I = 0x1
+.field static final TRANSACTION_cancel:I = 0x1
 
 
 # direct methods

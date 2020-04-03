@@ -26,19 +26,19 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.backup.IFullBackupRestoreObserver"
 
-.field static final TRANSACTION_onBackupPackage_1:I = 0x2
+.field static final TRANSACTION_onBackupPackage:I = 0x2
 
 .field static final TRANSACTION_onEndBackup:I = 0x3
 
-.field static final TRANSACTION_onEndRestore:I = 0x6
+.field static final TRANSACTION_onEndRestore_5:I = 0x6
 
-.field static final TRANSACTION_onRestorePackage_4:I = 0x5
+.field static final TRANSACTION_onRestorePackage:I = 0x5
 
-.field static final TRANSACTION_onStartBackup_0:I = 0x1
+.field static final TRANSACTION_onStartBackup:I = 0x1
 
 .field static final TRANSACTION_onStartRestore:I = 0x4
 
-.field static final TRANSACTION_onTimeout:I = 0x7
+.field static final TRANSACTION_onTimeout_6:I = 0x7
 
 
 # direct methods

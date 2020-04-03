@@ -14,22 +14,12 @@
 .end annotation
 
 
-# static fields
-.field public static final dexopt_icon:I = 0x3f0b0003
-
-.field public static final dexopt_message:I = 0x3f0b0001
-
-.field public static final dexopt_message_detail:I = 0x3f0b0002
-
-.field public static final dexopt_progress:I = 0x3f0b0000
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 131
+    .line 189
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

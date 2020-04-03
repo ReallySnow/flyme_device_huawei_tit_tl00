@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "cyanogenmod.app.suggest.IAppSuggestProvider"
 
-.field static final TRANSACTION_getSuggestions:I = 0x2
+.field static final TRANSACTION_getSuggestions_1:I = 0x2
 
 .field static final TRANSACTION_handles:I = 0x1
 

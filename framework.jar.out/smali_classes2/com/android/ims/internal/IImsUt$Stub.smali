@@ -26,23 +26,23 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.ims.internal.IImsUt"
 
-.field static final TRANSACTION_close:I = 0x1
+.field static final TRANSACTION_close_0:I = 0x1
 
 .field static final TRANSACTION_queryCFForServiceClass:I = 0x12
 
-.field static final TRANSACTION_queryCLIP:I = 0x6
+.field static final TRANSACTION_queryCLIP_5:I = 0x6
 
-.field static final TRANSACTION_queryCLIR:I = 0x5
+.field static final TRANSACTION_queryCLIR_4:I = 0x5
 
 .field static final TRANSACTION_queryCOLP:I = 0x8
 
-.field static final TRANSACTION_queryCOLR:I = 0x7
+.field static final TRANSACTION_queryCOLR_6:I = 0x7
 
-.field static final TRANSACTION_queryCallBarring:I = 0x2
+.field static final TRANSACTION_queryCallBarring_1:I = 0x2
 
-.field static final TRANSACTION_queryCallForward:I = 0x3
+.field static final TRANSACTION_queryCallForward_2:I = 0x3
 
-.field static final TRANSACTION_queryCallWaiting:I = 0x4
+.field static final TRANSACTION_queryCallWaiting_3:I = 0x4
 
 .field static final TRANSACTION_setListener:I = 0x11
 
@@ -684,7 +684,7 @@
     const/4 v9, 0x1
 
     .line 193
-    .restart local v9    # "_arg0":Z
+    .local v9, "_arg0":Z
     :goto_2
     invoke-virtual {p0, v9}, Lcom/android/ims/internal/IImsUt$Stub;->updateCLIP(Z)I
 
@@ -710,11 +710,9 @@
     :cond_2
     const/4 v9, 0x0
 
-    .restart local v9    # "_arg0":Z
     goto :goto_2
 
     .line 200
-    .end local v9    # "_arg0":Z
     :sswitch_f
     const-string/jumbo v1, "com.android.ims.internal.IImsUt"
 
@@ -793,11 +791,9 @@
     :cond_3
     const/4 v9, 0x0
 
-    .restart local v9    # "_arg0":Z
     goto :goto_3
 
     .line 220
-    .end local v9    # "_arg0":Z
     :sswitch_11
     const-string/jumbo v1, "com.android.ims.internal.IImsUt"
 

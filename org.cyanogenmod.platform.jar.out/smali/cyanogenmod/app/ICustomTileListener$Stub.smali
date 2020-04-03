@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "cyanogenmod.app.ICustomTileListener"
 
-.field static final TRANSACTION_onCustomTilePosted:I = 0x2
+.field static final TRANSACTION_onCustomTilePosted_1:I = 0x2
 
 .field static final TRANSACTION_onCustomTileRemoved:I = 0x3
 
@@ -162,19 +162,19 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lorg/cyanogenmod/internal/statusbar/IStatusBarCustomTileHolder$Stub;->asInterface(Landroid/os/IBinder;)Lorg/cyanogenmod/internal/statusbar/IStatusBarCustomTileHolder;
+    invoke-static {v1}, Lcyanogenmod/app/IStatusBarCustomTileHolder$Stub;->asInterface(Landroid/os/IBinder;)Lcyanogenmod/app/IStatusBarCustomTileHolder;
 
     move-result-object v0
 
     .line 75
-    .local v0, "_arg0":Lorg/cyanogenmod/internal/statusbar/IStatusBarCustomTileHolder;
-    invoke-virtual {p0, v0}, Lcyanogenmod/app/ICustomTileListener$Stub;->onCustomTilePosted(Lorg/cyanogenmod/internal/statusbar/IStatusBarCustomTileHolder;)V
+    .local v0, "_arg0":Lcyanogenmod/app/IStatusBarCustomTileHolder;
+    invoke-virtual {p0, v0}, Lcyanogenmod/app/ICustomTileListener$Stub;->onCustomTilePosted(Lcyanogenmod/app/IStatusBarCustomTileHolder;)V
 
     .line 76
     return v2
 
     .line 80
-    .end local v0    # "_arg0":Lorg/cyanogenmod/internal/statusbar/IStatusBarCustomTileHolder;
+    .end local v0    # "_arg0":Lcyanogenmod/app/IStatusBarCustomTileHolder;
     :sswitch_3
     const-string/jumbo v1, "cyanogenmod.app.ICustomTileListener"
 
@@ -185,13 +185,13 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lorg/cyanogenmod/internal/statusbar/IStatusBarCustomTileHolder$Stub;->asInterface(Landroid/os/IBinder;)Lorg/cyanogenmod/internal/statusbar/IStatusBarCustomTileHolder;
+    invoke-static {v1}, Lcyanogenmod/app/IStatusBarCustomTileHolder$Stub;->asInterface(Landroid/os/IBinder;)Lcyanogenmod/app/IStatusBarCustomTileHolder;
 
     move-result-object v0
 
     .line 83
-    .restart local v0    # "_arg0":Lorg/cyanogenmod/internal/statusbar/IStatusBarCustomTileHolder;
-    invoke-virtual {p0, v0}, Lcyanogenmod/app/ICustomTileListener$Stub;->onCustomTileRemoved(Lorg/cyanogenmod/internal/statusbar/IStatusBarCustomTileHolder;)V
+    .restart local v0    # "_arg0":Lcyanogenmod/app/IStatusBarCustomTileHolder;
+    invoke-virtual {p0, v0}, Lcyanogenmod/app/ICustomTileListener$Stub;->onCustomTileRemoved(Lcyanogenmod/app/IStatusBarCustomTileHolder;)V
 
     .line 84
     return v2

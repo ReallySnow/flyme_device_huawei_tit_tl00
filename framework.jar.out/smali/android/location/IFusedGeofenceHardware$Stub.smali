@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.location.IFusedGeofenceHardware"
 
-.field static final TRANSACTION_addGeofences:I = 0x2
+.field static final TRANSACTION_addGeofences_1:I = 0x2
 
 .field static final TRANSACTION_isSupported:I = 0x1
 
@@ -34,7 +34,7 @@
 
 .field static final TRANSACTION_pauseMonitoringGeofence:I = 0x4
 
-.field static final TRANSACTION_removeGeofences:I = 0x3
+.field static final TRANSACTION_removeGeofences_2:I = 0x3
 
 .field static final TRANSACTION_resumeMonitoringGeofence:I = 0x5
 

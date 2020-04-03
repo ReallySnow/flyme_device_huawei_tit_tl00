@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.content.IIntentReceiver"
 
-.field static final TRANSACTION_performReceive:I = 0x1
+.field static final TRANSACTION_performReceive_0:I = 0x1
 
 
 # direct methods

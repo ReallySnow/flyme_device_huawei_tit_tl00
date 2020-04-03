@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.widget.IRemoteViewsFactory"
 
-.field static final TRANSACTION_getCount:I = 0x4
+.field static final TRANSACTION_getCount_3:I = 0x4
 
 .field static final TRANSACTION_getItemId:I = 0x8
 
@@ -42,9 +42,9 @@
 
 .field static final TRANSACTION_onDataSetChanged:I = 0x1
 
-.field static final TRANSACTION_onDataSetChangedAsync:I = 0x2
+.field static final TRANSACTION_onDataSetChangedAsync_1:I = 0x2
 
-.field static final TRANSACTION_onDestroy:I = 0x3
+.field static final TRANSACTION_onDestroy_2:I = 0x3
 
 
 # direct methods

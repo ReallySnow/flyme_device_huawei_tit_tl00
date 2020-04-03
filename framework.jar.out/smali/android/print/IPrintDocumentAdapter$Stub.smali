@@ -32,7 +32,7 @@
 
 .field static final TRANSACTION_layout:I = 0x3
 
-.field static final TRANSACTION_setObserver:I = 0x1
+.field static final TRANSACTION_setObserver_0:I = 0x1
 
 .field static final TRANSACTION_start:I = 0x2
 

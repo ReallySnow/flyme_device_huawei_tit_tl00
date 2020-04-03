@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "cyanogenmod.app.ILiveLockScreenManager"
 
-.field static final TRANSACTION_cancelLiveLockScreen:I = 0x2
+.field static final TRANSACTION_cancelLiveLockScreen_1:I = 0x2
 
-.field static final TRANSACTION_enqueueLiveLockScreen:I = 0x1
+.field static final TRANSACTION_enqueueLiveLockScreen_0:I = 0x1
 
 .field static final TRANSACTION_getCurrentLiveLockScreen:I = 0x3
 
@@ -422,11 +422,9 @@
     :cond_4
     const/4 v8, 0x0
 
-    .restart local v8    # "_arg0":Z
     goto :goto_4
 
     .line 205
-    .end local v8    # "_arg0":Z
     :sswitch_7
     const-string/jumbo v0, "cyanogenmod.app.ILiveLockScreenManager"
 

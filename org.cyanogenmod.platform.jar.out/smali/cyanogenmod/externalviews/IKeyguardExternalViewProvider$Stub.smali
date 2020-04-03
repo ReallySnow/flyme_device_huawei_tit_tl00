@@ -28,15 +28,15 @@
 
 .field static final TRANSACTION_alterWindow:I = 0xa
 
-.field static final TRANSACTION_onAttach:I = 0x1
+.field static final TRANSACTION_onAttach_0:I = 0x1
 
 .field static final TRANSACTION_onBouncerShowing:I = 0x5
 
-.field static final TRANSACTION_onDetach:I = 0x2
+.field static final TRANSACTION_onDetach_1:I = 0x2
 
-.field static final TRANSACTION_onKeyguardDismissed:I = 0x4
+.field static final TRANSACTION_onKeyguardDismissed_3:I = 0x4
 
-.field static final TRANSACTION_onKeyguardShowing:I = 0x3
+.field static final TRANSACTION_onKeyguardShowing_2:I = 0x3
 
 .field static final TRANSACTION_onLockscreenSlideOffsetChanged:I = 0xb
 
@@ -220,11 +220,9 @@
     :cond_0
     const/4 v10, 0x0
 
-    .restart local v10    # "_arg0":Z
     goto :goto_0
 
     .line 114
-    .end local v10    # "_arg0":Z
     :sswitch_4
     const-string/jumbo v0, "cyanogenmod.externalviews.IKeyguardExternalViewProvider"
 
@@ -268,11 +266,9 @@
     :cond_1
     const/4 v10, 0x0
 
-    .restart local v10    # "_arg0":Z
     goto :goto_1
 
     .line 128
-    .end local v10    # "_arg0":Z
     :sswitch_6
     const-string/jumbo v0, "cyanogenmod.externalviews.IKeyguardExternalViewProvider"
 

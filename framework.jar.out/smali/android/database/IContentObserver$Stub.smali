@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.database.IContentObserver"
 
-.field static final TRANSACTION_onChange:I = 0x1
+.field static final TRANSACTION_onChange_0:I = 0x1
 
 
 # direct methods

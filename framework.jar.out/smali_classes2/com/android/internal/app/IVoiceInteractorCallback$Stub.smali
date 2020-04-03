@@ -34,7 +34,7 @@
 
 .field static final TRANSACTION_deliverCompleteVoiceResult:I = 0x3
 
-.field static final TRANSACTION_deliverConfirmationResult:I = 0x1
+.field static final TRANSACTION_deliverConfirmationResult_0:I = 0x1
 
 .field static final TRANSACTION_deliverPickOptionResult:I = 0x2
 

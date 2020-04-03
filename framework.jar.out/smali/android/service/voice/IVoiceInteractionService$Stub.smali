@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_launchVoiceAssistFromKeyguard:I = 0x4
 
-.field static final TRANSACTION_ready_0:I = 0x1
+.field static final TRANSACTION_ready:I = 0x1
 
 .field static final TRANSACTION_shutdown:I = 0x3
 

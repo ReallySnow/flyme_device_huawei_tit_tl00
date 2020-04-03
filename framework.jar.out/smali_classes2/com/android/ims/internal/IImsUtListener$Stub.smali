@@ -38,7 +38,7 @@
 
 .field static final TRANSACTION_utConfigurationUpdateFailed:I = 0x2
 
-.field static final TRANSACTION_utConfigurationUpdated:I = 0x1
+.field static final TRANSACTION_utConfigurationUpdated_0:I = 0x1
 
 
 # direct methods

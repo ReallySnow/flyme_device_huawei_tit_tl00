@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.content.pm.IPackageInstallObserver2"
 
-.field static final TRANSACTION_onPackageInstalled_1:I = 0x2
+.field static final TRANSACTION_onPackageInstalled:I = 0x2
 
-.field static final TRANSACTION_onUserActionRequired:I = 0x1
+.field static final TRANSACTION_onUserActionRequired_0:I = 0x1
 
 
 # direct methods

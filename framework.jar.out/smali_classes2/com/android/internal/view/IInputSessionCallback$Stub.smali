@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.view.IInputSessionCallback"
 
-.field static final TRANSACTION_sessionCreated:I = 0x1
+.field static final TRANSACTION_sessionCreated_0:I = 0x1
 
 
 # direct methods

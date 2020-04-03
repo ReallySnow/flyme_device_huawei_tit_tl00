@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.telecom.IVideoProvider"
 
-.field static final TRANSACTION_addVideoCallback:I = 0x1
+.field static final TRANSACTION_addVideoCallback_0:I = 0x1
 
-.field static final TRANSACTION_removeVideoCallback:I = 0x2
+.field static final TRANSACTION_removeVideoCallback_1:I = 0x2
 
 .field static final TRANSACTION_requestCallDataUsage:I = 0xb
 

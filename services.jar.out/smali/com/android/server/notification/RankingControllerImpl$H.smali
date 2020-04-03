@@ -53,16 +53,19 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
+    .line 73
     :try_start_0
     iget v4, p1, Landroid/os/Message;->what:I
 
     packed-switch v4, :pswitch_data_0
 
+    .line 71
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
+    .line 75
     :pswitch_1
     iget-object v4, p0, Lcom/android/server/notification/RankingControllerImpl$H;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
@@ -82,16 +85,19 @@
 
     move-result-object v4
 
+    .line 77
     const/4 v6, 0x0
 
     const/4 v7, 0x0
 
     const/4 v8, 0x0
 
+    .line 76
     invoke-virtual {v4, v6, v7, v8}, Lcom/flyme/server/notfication/DatabaseHelper;->queryDaily(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v2
 
+    .line 78
     .local v2, "list":Ljava/util/List;, "Ljava/util/List<Lmeizu/notification/RankingDaily;>;"
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -147,6 +153,7 @@
 
     throw v4
 
+    .line 115
     :catch_0
     move-exception v3
 
@@ -161,7 +168,7 @@
 
     goto :goto_0
 
-    .line 85
+    .line 87
     .end local v1    # "RankingDaily$iterator":Ljava/util/Iterator;
     .end local v2    # "list":Ljava/util/List;, "Ljava/util/List<Lmeizu/notification/RankingDaily;>;"
     :pswitch_2
@@ -169,9 +176,11 @@
 
     check-cast v0, Lmeizu/notification/RankingDaily;
 
+    .line 88
     .restart local v0    # "RankingDaily":Lmeizu/notification/RankingDaily;
     if-eqz v0, :cond_0
 
+    .line 89
     iget-object v4, p0, Lcom/android/server/notification/RankingControllerImpl$H;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
     const/4 v5, 0x1
@@ -180,72 +189,94 @@
 
     goto :goto_0
 
+    .line 94
     .end local v0    # "RankingDaily":Lmeizu/notification/RankingDaily;
     :pswitch_3
     iget-object v5, p0, Lcom/android/server/notification/RankingControllerImpl$H;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
+    .line 96
     iget-object v6, p0, Lcom/android/server/notification/RankingControllerImpl$H;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
+    .line 97
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Lcom/android/server/notification/NotificationRecord;
 
+    .line 98
     const/4 v7, 0x1
 
+    .line 96
     invoke-static {v6, v4, v7}, Lcom/android/server/notification/RankingControllerImpl;->-wrap1(Lcom/android/server/notification/RankingControllerImpl;Lcom/android/server/notification/NotificationRecord;I)Lmeizu/notification/RankingDaily;
 
     move-result-object v4
 
+    .line 95
     const/4 v6, 0x1
 
+    .line 94
     invoke-static {v5, v6, v4}, Lcom/android/server/notification/RankingControllerImpl;->-wrap4(Lcom/android/server/notification/RankingControllerImpl;ILmeizu/notification/RankingDaily;)V
 
     goto :goto_0
 
+    .line 101
     :pswitch_4
     iget-object v5, p0, Lcom/android/server/notification/RankingControllerImpl$H;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
+    .line 103
     iget-object v6, p0, Lcom/android/server/notification/RankingControllerImpl$H;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
+    .line 104
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Lcom/android/server/notification/NotificationRecord;
 
+    .line 105
     const/4 v7, 0x2
 
+    .line 103
     invoke-static {v6, v4, v7}, Lcom/android/server/notification/RankingControllerImpl;->-wrap1(Lcom/android/server/notification/RankingControllerImpl;Lcom/android/server/notification/NotificationRecord;I)Lmeizu/notification/RankingDaily;
 
     move-result-object v4
 
+    .line 102
     const/4 v6, 0x2
 
+    .line 101
     invoke-static {v5, v6, v4}, Lcom/android/server/notification/RankingControllerImpl;->-wrap4(Lcom/android/server/notification/RankingControllerImpl;ILmeizu/notification/RankingDaily;)V
 
     goto :goto_0
 
+    .line 108
     :pswitch_5
     iget-object v5, p0, Lcom/android/server/notification/RankingControllerImpl$H;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
+    .line 110
     iget-object v6, p0, Lcom/android/server/notification/RankingControllerImpl$H;->this$0:Lcom/android/server/notification/RankingControllerImpl;
 
+    .line 111
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Lcom/android/server/notification/NotificationRecord;
 
+    .line 112
     const/4 v7, 0x3
 
+    .line 110
     invoke-static {v6, v4, v7}, Lcom/android/server/notification/RankingControllerImpl;->-wrap1(Lcom/android/server/notification/RankingControllerImpl;Lcom/android/server/notification/NotificationRecord;I)Lmeizu/notification/RankingDaily;
 
     move-result-object v4
 
+    .line 109
     const/4 v6, 0x3
 
+    .line 108
     invoke-static {v5, v6, v4}, Lcom/android/server/notification/RankingControllerImpl;->-wrap4(Lcom/android/server/notification/RankingControllerImpl;ILmeizu/notification/RankingDaily;)V
     :try_end_2
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_0
 
     goto/16 :goto_0
 
+    .line 73
     nop
 
     :pswitch_data_0

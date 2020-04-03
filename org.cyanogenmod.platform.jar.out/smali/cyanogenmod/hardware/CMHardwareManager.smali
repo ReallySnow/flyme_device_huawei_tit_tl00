@@ -62,6 +62,8 @@
 
 .field public static final FEATURE_THERMAL_MONITOR:I = 0x8000
 
+.field public static final FEATURE_TOUCHSCREEN_GESTURES:I = 0x80000
+
 .field public static final FEATURE_TOUCH_HOVERING:I = 0x800
 
 .field public static final FEATURE_UNIQUE_DEVICE_ID:I = 0x10000
@@ -108,12 +110,12 @@
 
     const/4 v3, 0x1
 
-    .line 148
+    .line 182
     const/16 v0, 0x8
 
     new-array v0, v0, [Ljava/lang/Integer;
 
-    .line 149
+    .line 183
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -122,14 +124,14 @@
 
     aput-object v1, v0, v2
 
-    .line 150
+    .line 184
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
     aput-object v1, v0, v3
 
-    .line 151
+    .line 185
     const/16 v1, 0x10
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -138,7 +140,7 @@
 
     aput-object v1, v0, v4
 
-    .line 152
+    .line 186
     const/16 v1, 0x20
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -149,7 +151,7 @@
 
     aput-object v1, v0, v2
 
-    .line 153
+    .line 187
     const/16 v1, 0x100
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -160,7 +162,7 @@
 
     aput-object v1, v0, v2
 
-    .line 154
+    .line 188
     const/16 v1, 0x800
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -171,7 +173,7 @@
 
     aput-object v1, v0, v2
 
-    .line 155
+    .line 189
     const/16 v1, 0x1000
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -182,7 +184,7 @@
 
     aput-object v1, v0, v2
 
-    .line 156
+    .line 190
     const v1, 0x8000
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -193,14 +195,14 @@
 
     aput-object v1, v0, v2
 
-    .line 148
+    .line 182
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
 
     sput-object v0, Lcyanogenmod/hardware/CMHardwareManager;->BOOLEAN_FEATURES:Ljava/util/List;
 
-    .line 42
+    .line 46
     return-void
 .end method
 
@@ -209,22 +211,22 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 164
+    .line 198
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 165
+    .line 199
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 166
+    .line 200
     .local v0, "appContext":Landroid/content/Context;
     if-eqz v0, :cond_1
 
-    .line 167
+    .line 201
     iput-object v0, p0, Lcyanogenmod/hardware/CMHardwareManager;->mContext:Landroid/content/Context;
 
-    .line 171
+    .line 205
     :goto_0
     invoke-static {}, Lcyanogenmod/hardware/CMHardwareManager;->getService()Lcyanogenmod/hardware/ICMHardwareService;
 
@@ -232,40 +234,40 @@
 
     sput-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
-    .line 173
+    .line 207
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 174
+    .line 208
     const-string/jumbo v2, "org.cyanogenmod.hardware"
 
-    .line 173
+    .line 207
     invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 174
+    .line 208
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    .line 164
+    .line 198
     :cond_0
     :goto_1
     return-void
 
-    .line 169
+    .line 203
     :cond_1
     iput-object p1, p0, Lcyanogenmod/hardware/CMHardwareManager;->mContext:Landroid/content/Context;
 
     goto :goto_0
 
-    .line 175
+    .line 209
     :cond_2
     const-string/jumbo v1, "CMHardwareManager"
 
@@ -280,24 +282,24 @@
     .locals 2
 
     .prologue
-    .line 941
+    .line 1005
     sget-object v0, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     if-nez v0, :cond_0
 
-    .line 942
+    .line 1006
     const-string/jumbo v0, "CMHardwareManager"
 
     const-string/jumbo v1, "not connected to CMHardwareManagerService"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 943
+    .line 1007
     const/4 v0, 0x0
 
     return v0
 
-    .line 945
+    .line 1009
     :cond_0
     const/4 v0, 0x1
 
@@ -311,18 +313,18 @@
     .param p3, "defaultValue"    # I
 
     .prologue
-    .line 278
+    .line 332
     if-eqz p1, :cond_0
 
     array-length v0, p1
 
     if-gt v0, p2, :cond_1
 
-    .line 279
+    .line 333
     :cond_0
     return p3
 
-    .line 282
+    .line 336
     :cond_1
     aget v0, p1, p2
 
@@ -333,7 +335,7 @@
     .locals 2
 
     .prologue
-    .line 396
+    .line 450
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -341,7 +343,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 397
+    .line 451
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getDisplayColorCalibration()[I
@@ -352,11 +354,11 @@
 
     return-object v1
 
-    .line 399
+    .line 453
     :catch_0
     move-exception v0
 
-    .line 401
+    .line 455
     :cond_0
     const/4 v1, 0x0
 
@@ -368,7 +370,7 @@
     .param p1, "idx"    # I
 
     .prologue
-    .line 604
+    .line 658
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -376,7 +378,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 605
+    .line 659
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1}, Lcyanogenmod/hardware/ICMHardwareService;->getDisplayGammaCalibration(I)[I
@@ -387,11 +389,11 @@
 
     return-object v1
 
-    .line 607
+    .line 661
     :catch_0
     move-exception v0
 
-    .line 609
+    .line 663
     :cond_0
     const/4 v1, 0x0
 
@@ -403,19 +405,19 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 187
+    .line 221
     sget-object v0, Lcyanogenmod/hardware/CMHardwareManager;->sCMHardwareManagerInstance:Lcyanogenmod/hardware/CMHardwareManager;
 
     if-nez v0, :cond_0
 
-    .line 188
+    .line 222
     new-instance v0, Lcyanogenmod/hardware/CMHardwareManager;
 
     invoke-direct {v0, p0}, Lcyanogenmod/hardware/CMHardwareManager;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lcyanogenmod/hardware/CMHardwareManager;->sCMHardwareManagerInstance:Lcyanogenmod/hardware/CMHardwareManager;
 
-    .line 190
+    .line 224
     :cond_0
     sget-object v0, Lcyanogenmod/hardware/CMHardwareManager;->sCMHardwareManagerInstance:Lcyanogenmod/hardware/CMHardwareManager;
 
@@ -428,17 +430,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 195
+    .line 229
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     if-eqz v1, :cond_0
 
-    .line 196
+    .line 230
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     return-object v1
 
-    .line 198
+    .line 232
     :cond_0
     const-string/jumbo v1, "cmhardware"
 
@@ -446,23 +448,23 @@
 
     move-result-object v0
 
-    .line 199
+    .line 233
     .local v0, "b":Landroid/os/IBinder;
     if-eqz v0, :cond_1
 
-    .line 200
+    .line 234
     invoke-static {v0}, Lcyanogenmod/hardware/ICMHardwareService$Stub;->asInterface(Landroid/os/IBinder;)Lcyanogenmod/hardware/ICMHardwareService;
 
     move-result-object v1
 
     sput-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
-    .line 201
+    .line 235
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     return-object v1
 
-    .line 203
+    .line 237
     :cond_1
     return-object v2
 .end method
@@ -471,7 +473,7 @@
     .locals 2
 
     .prologue
-    .line 308
+    .line 362
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -479,7 +481,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 309
+    .line 363
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getVibratorIntensity()[I
@@ -490,11 +492,11 @@
 
     return-object v1
 
-    .line 311
+    .line 365
     :catch_0
     move-exception v0
 
-    .line 313
+    .line 367
     :cond_0
     const/4 v1, 0x0
 
@@ -508,7 +510,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 573
+    .line 627
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -516,7 +518,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 574
+    .line 628
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     const/4 v2, 0x0
@@ -529,11 +531,11 @@
 
     return v1
 
-    .line 576
+    .line 630
     :catch_0
     move-exception v0
 
-    .line 578
+    .line 632
     :cond_0
     const/4 v1, 0x0
 
@@ -545,7 +547,7 @@
     .param p1, "feature"    # I
 
     .prologue
-    .line 240
+    .line 294
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->BOOLEAN_FEATURES:Ljava/util/List;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -558,7 +560,7 @@
 
     if-nez v1, :cond_0
 
-    .line 241
+    .line 295
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -583,7 +585,7 @@
 
     throw v1
 
-    .line 245
+    .line 299
     :cond_0
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
@@ -592,7 +594,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 246
+    .line 300
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1}, Lcyanogenmod/hardware/ICMHardwareService;->get(I)Z
@@ -603,11 +605,11 @@
 
     return v1
 
-    .line 248
+    .line 302
     :catch_0
     move-exception v0
 
-    .line 250
+    .line 304
     :cond_1
     const/4 v1, 0x0
 
@@ -618,7 +620,7 @@
     .locals 2
 
     .prologue
-    .line 842
+    .line 906
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -626,7 +628,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 843
+    .line 907
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getColorBalance()I
@@ -637,11 +639,11 @@
 
     return v1
 
-    .line 845
+    .line 909
     :catch_0
     move-exception v0
 
-    .line 847
+    .line 911
     :cond_0
     const/4 v1, 0x0
 
@@ -661,14 +663,14 @@
     .end annotation
 
     .prologue
-    .line 825
+    .line 889
     const/4 v2, 0x0
 
-    .line 826
+    .line 890
     .local v2, "min":I
     const/4 v1, 0x0
 
-    .line 828
+    .line 892
     .local v1, "max":I
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
@@ -677,14 +679,14 @@
 
     if-eqz v3, :cond_0
 
-    .line 829
+    .line 893
     sget-object v3, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v3}, Lcyanogenmod/hardware/ICMHardwareService;->getColorBalanceMin()I
 
     move-result v2
 
-    .line 830
+    .line 894
     sget-object v3, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v3}, Lcyanogenmod/hardware/ICMHardwareService;->getColorBalanceMax()I
@@ -693,7 +695,7 @@
 
     move-result v1
 
-    .line 834
+    .line 898
     :cond_0
     :goto_0
     new-instance v3, Landroid/util/Range;
@@ -710,7 +712,7 @@
 
     return-object v3
 
-    .line 832
+    .line 896
     :catch_0
     move-exception v0
 
@@ -722,7 +724,7 @@
     .locals 2
 
     .prologue
-    .line 787
+    .line 851
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -730,7 +732,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 788
+    .line 852
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getCurrentDisplayMode()Lcyanogenmod/hardware/DisplayMode;
@@ -741,11 +743,11 @@
 
     return-object v1
 
-    .line 790
+    .line 854
     :catch_0
     move-exception v0
 
-    .line 792
+    .line 856
     :cond_0
     const/4 v1, 0x0
 
@@ -756,7 +758,7 @@
     .locals 2
 
     .prologue
-    .line 800
+    .line 864
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -764,7 +766,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 801
+    .line 865
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getDefaultDisplayMode()Lcyanogenmod/hardware/DisplayMode;
@@ -775,11 +777,11 @@
 
     return-object v1
 
-    .line 803
+    .line 867
     :catch_0
     move-exception v0
 
-    .line 805
+    .line 869
     :cond_0
     const/4 v1, 0x0
 
@@ -790,7 +792,7 @@
     .locals 2
 
     .prologue
-    .line 889
+    .line 953
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -798,7 +800,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 890
+    .line 954
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getDefaultPictureAdjustment()Lcyanogenmod/hardware/HSIC;
@@ -809,11 +811,11 @@
 
     return-object v1
 
-    .line 892
+    .line 956
     :catch_0
     move-exception v0
 
-    .line 894
+    .line 958
     :cond_0
     const/4 v1, 0x0
 
@@ -828,12 +830,12 @@
 
     const/4 v2, 0x3
 
-    .line 408
+    .line 462
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getDisplayColorCalibrationArray()[I
 
     move-result-object v0
 
-    .line 409
+    .line 463
     .local v0, "arr":[I
     if-eqz v0, :cond_0
 
@@ -841,11 +843,11 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 410
+    .line 464
     :cond_0
     return-object v3
 
-    .line 412
+    .line 466
     :cond_1
     invoke-static {v0, v2}, Ljava/util/Arrays;->copyOf([II)[I
 
@@ -858,7 +860,7 @@
     .locals 3
 
     .prologue
-    .line 419
+    .line 473
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getDisplayColorCalibrationArray()[I
 
     move-result-object v0
@@ -878,7 +880,7 @@
     .locals 3
 
     .prologue
-    .line 433
+    .line 487
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getDisplayColorCalibrationArray()[I
 
     move-result-object v0
@@ -898,7 +900,7 @@
     .locals 3
 
     .prologue
-    .line 426
+    .line 480
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getDisplayColorCalibrationArray()[I
 
     move-result-object v0
@@ -925,12 +927,12 @@
 
     const/4 v2, 0x3
 
-    .line 633
+    .line 691
     invoke-direct {p0, p1}, Lcyanogenmod/hardware/CMHardwareManager;->getDisplayGammaCalibrationArray(I)[I
 
     move-result-object v0
 
-    .line 634
+    .line 692
     .local v0, "arr":[I
     if-eqz v0, :cond_0
 
@@ -938,11 +940,11 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 635
+    .line 693
     :cond_0
     return-object v3
 
-    .line 637
+    .line 695
     :cond_1
     invoke-static {v0, v2}, Ljava/util/Arrays;->copyOf([II)[I
 
@@ -959,7 +961,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 653
+    .line 715
     invoke-direct {p0, v2}, Lcyanogenmod/hardware/CMHardwareManager;->getDisplayGammaCalibrationArray(I)[I
 
     move-result-object v0
@@ -981,7 +983,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 645
+    .line 705
     invoke-direct {p0, v2}, Lcyanogenmod/hardware/CMHardwareManager;->getDisplayGammaCalibrationArray(I)[I
 
     move-result-object v0
@@ -999,7 +1001,7 @@
     .locals 2
 
     .prologue
-    .line 774
+    .line 838
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1007,7 +1009,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 775
+    .line 839
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getDisplayModes()[Lcyanogenmod/hardware/DisplayMode;
@@ -1018,11 +1020,11 @@
 
     return-object v1
 
-    .line 777
+    .line 841
     :catch_0
     move-exception v0
 
-    .line 779
+    .line 843
     :cond_0
     const/4 v1, 0x0
 
@@ -1033,7 +1035,7 @@
     .locals 2
 
     .prologue
-    .line 695
+    .line 759
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1041,7 +1043,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 696
+    .line 760
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getLtoDestination()Ljava/lang/String;
@@ -1052,11 +1054,11 @@
 
     return-object v1
 
-    .line 698
+    .line 762
     :catch_0
     move-exception v0
 
-    .line 700
+    .line 764
     :cond_0
     const/4 v1, 0x0
 
@@ -1067,7 +1069,7 @@
     .locals 4
 
     .prologue
-    .line 708
+    .line 772
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1075,7 +1077,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 709
+    .line 773
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getLtoDownloadInterval()J
@@ -1086,11 +1088,11 @@
 
     return-wide v2
 
-    .line 711
+    .line 775
     :catch_0
     move-exception v0
 
-    .line 713
+    .line 777
     :cond_0
     const-wide/16 v2, 0x0
 
@@ -1101,7 +1103,7 @@
     .locals 2
 
     .prologue
-    .line 682
+    .line 746
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1109,7 +1111,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 683
+    .line 747
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getLtoSource()Ljava/lang/String;
@@ -1120,11 +1122,11 @@
 
     return-object v1
 
-    .line 685
+    .line 749
     :catch_0
     move-exception v0
 
-    .line 687
+    .line 751
     :cond_0
     const/4 v1, 0x0
 
@@ -1137,7 +1139,7 @@
     .end annotation
 
     .prologue
-    .line 618
+    .line 674
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1145,7 +1147,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 619
+    .line 675
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getNumGammaControls()I
@@ -1156,11 +1158,11 @@
 
     return v1
 
-    .line 621
+    .line 677
     :catch_0
     move-exception v0
 
-    .line 623
+    .line 679
     :cond_0
     const/4 v1, 0x0
 
@@ -1171,7 +1173,7 @@
     .locals 2
 
     .prologue
-    .line 874
+    .line 938
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1179,7 +1181,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 875
+    .line 939
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getPictureAdjustment()Lcyanogenmod/hardware/HSIC;
@@ -1190,11 +1192,11 @@
 
     return-object v1
 
-    .line 877
+    .line 941
     :catch_0
     move-exception v0
 
-    .line 879
+    .line 943
     :cond_0
     const/4 v1, 0x0
 
@@ -1216,7 +1218,7 @@
     .end annotation
 
     .prologue
-    .line 920
+    .line 984
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1224,14 +1226,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 921
+    .line 985
     sget-object v2, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v2}, Lcyanogenmod/hardware/ICMHardwareService;->getPictureAdjustmentRanges()[F
 
     move-result-object v1
 
-    .line 922
+    .line 986
     .local v1, "ranges":[F
     array-length v2, v1
 
@@ -1239,7 +1241,7 @@
 
     if-le v2, v3, :cond_1
 
-    .line 923
+    .line 987
     const/4 v2, 0x5
 
     new-array v3, v2, [Landroid/util/Range;
@@ -1268,7 +1270,7 @@
 
     aput-object v2, v3, v4
 
-    .line 924
+    .line 988
     new-instance v2, Landroid/util/Range;
 
     const/4 v4, 0x2
@@ -1293,7 +1295,7 @@
 
     aput-object v2, v3, v4
 
-    .line 925
+    .line 989
     new-instance v2, Landroid/util/Range;
 
     const/4 v4, 0x4
@@ -1318,7 +1320,7 @@
 
     aput-object v2, v3, v4
 
-    .line 926
+    .line 990
     new-instance v2, Landroid/util/Range;
 
     const/4 v4, 0x6
@@ -1343,14 +1345,14 @@
 
     aput-object v2, v3, v4
 
-    .line 927
+    .line 991
     array-length v2, v1
 
     const/16 v4, 0x9
 
     if-le v2, v4, :cond_0
 
-    .line 928
+    .line 992
     new-instance v2, Landroid/util/Range;
 
     const/16 v4, 0x8
@@ -1371,20 +1373,20 @@
 
     invoke-direct {v2, v4, v5}, Landroid/util/Range;-><init>(Ljava/lang/Comparable;Ljava/lang/Comparable;)V
 
-    .line 927
+    .line 991
     :goto_0
     const/4 v4, 0x4
 
     aput-object v2, v3, v4
 
-    .line 923
+    .line 987
     invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v2
 
     return-object v2
 
-    .line 929
+    .line 993
     :cond_0
     new-instance v2, Landroid/util/Range;
 
@@ -1406,12 +1408,12 @@
 
     goto :goto_0
 
-    .line 932
+    .line 996
     .end local v1    # "ranges":[F
     :catch_0
     move-exception v0
 
-    .line 934
+    .line 998
     :cond_1
     const/4 v2, 0x0
 
@@ -1422,7 +1424,7 @@
     .locals 2
 
     .prologue
-    .line 721
+    .line 785
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1430,7 +1432,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 722
+    .line 786
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getSerialNumber()Ljava/lang/String;
@@ -1441,11 +1443,11 @@
 
     return-object v1
 
-    .line 724
+    .line 788
     :catch_0
     move-exception v0
 
-    .line 726
+    .line 790
     :cond_0
     const/4 v1, 0x0
 
@@ -1456,7 +1458,7 @@
     .locals 2
 
     .prologue
-    .line 211
+    .line 245
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1464,7 +1466,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 212
+    .line 246
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getSupportedFeatures()I
@@ -1475,11 +1477,11 @@
 
     return v1
 
-    .line 214
+    .line 248
     :catch_0
     move-exception v0
 
-    .line 216
+    .line 250
     :cond_0
     const/4 v1, 0x0
 
@@ -1490,7 +1492,7 @@
     .locals 2
 
     .prologue
-    .line 953
+    .line 1017
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1498,7 +1500,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 954
+    .line 1018
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getThermalState()I
@@ -1509,22 +1511,22 @@
 
     return v1
 
-    .line 956
+    .line 1020
     :catch_0
     move-exception v0
 
-    .line 958
+    .line 1022
     :cond_0
     const/4 v1, -0x1
 
     return v1
 .end method
 
-.method public getUniqueDeviceId()Ljava/lang/String;
+.method public getTouchscreenGestures()[Lcyanogenmod/hardware/TouchscreenGesture;
     .locals 2
 
     .prologue
-    .line 734
+    .line 1058
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1532,7 +1534,41 @@
 
     if-eqz v1, :cond_0
 
-    .line 735
+    .line 1059
+    sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
+
+    invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getTouchscreenGestures()[Lcyanogenmod/hardware/TouchscreenGesture;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    .line 1061
+    :catch_0
+    move-exception v0
+
+    .line 1063
+    :cond_0
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+.method public getUniqueDeviceId()Ljava/lang/String;
+    .locals 2
+
+    .prologue
+    .line 798
+    :try_start_0
+    invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 799
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->getUniqueDeviceId()Ljava/lang/String;
@@ -1543,11 +1579,11 @@
 
     return-object v1
 
-    .line 737
+    .line 801
     :catch_0
     move-exception v0
 
-    .line 739
+    .line 803
     :cond_0
     const/4 v1, 0x0
 
@@ -1558,7 +1594,7 @@
     .locals 3
 
     .prologue
-    .line 327
+    .line 381
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getVibratorIntensityArray()[I
 
     move-result-object v0
@@ -1580,7 +1616,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 320
+    .line 374
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getVibratorIntensityArray()[I
 
     move-result-object v0
@@ -1596,7 +1632,7 @@
     .locals 3
 
     .prologue
-    .line 341
+    .line 395
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getVibratorIntensityArray()[I
 
     move-result-object v0
@@ -1616,7 +1652,7 @@
     .locals 3
 
     .prologue
-    .line 334
+    .line 388
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getVibratorIntensityArray()[I
 
     move-result-object v0
@@ -1636,7 +1672,7 @@
     .locals 3
 
     .prologue
-    .line 348
+    .line 402
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getVibratorIntensityArray()[I
 
     move-result-object v0
@@ -1656,7 +1692,7 @@
     .locals 2
 
     .prologue
-    .line 761
+    .line 825
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1664,7 +1700,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 762
+    .line 826
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->isSunlightEnhancementSelfManaged()Z
@@ -1675,11 +1711,11 @@
 
     return v1
 
-    .line 764
+    .line 828
     :catch_0
     move-exception v0
 
-    .line 766
+    .line 830
     :cond_0
     const/4 v1, 0x0
 
@@ -1691,7 +1727,7 @@
     .param p1, "feature"    # I
 
     .prologue
-    .line 227
+    .line 261
     invoke-virtual {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getSupportedFeatures()I
 
     move-result v0
@@ -1711,12 +1747,89 @@
     goto :goto_0
 .end method
 
+.method public isSupported(Ljava/lang/String;)Z
+    .locals 5
+    .param p1, "feature"    # Ljava/lang/String;
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 270
+    const-string/jumbo v2, "FEATURE_"
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 271
+    return v4
+
+    .line 274
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Lcyanogenmod/hardware/CMHardwareManager;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v1
+
+    .line 275
+    .local v1, "f":Ljava/lang/reflect/Field;
+    if-eqz v1, :cond_1
+
+    .line 276
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Lcyanogenmod/hardware/CMHardwareManager;->isSupported(I)Z
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    .line 278
+    .end local v1    # "f":Ljava/lang/reflect/Field;
+    :catch_0
+    move-exception v0
+
+    .line 279
+    .local v0, "e":Ljava/lang/ReflectiveOperationException;
+    const-string/jumbo v2, "CMHardwareManager"
+
+    invoke-virtual {v0}, Ljava/lang/ReflectiveOperationException;->getMessage()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 282
+    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
+    :cond_1
+    return v4
+.end method
+
 .method public readPersistentBytes(Ljava/lang/String;)[B
     .locals 2
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 558
+    .line 612
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1724,7 +1837,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 559
+    .line 613
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1}, Lcyanogenmod/hardware/ICMHardwareService;->readPersistentBytes(Ljava/lang/String;)[B
@@ -1735,11 +1848,11 @@
 
     return-object v1
 
-    .line 561
+    .line 615
     :catch_0
     move-exception v0
 
-    .line 563
+    .line 617
     :cond_0
     const/4 v1, 0x0
 
@@ -1751,7 +1864,7 @@
     .param p1, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 539
+    .line 593
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1759,18 +1872,18 @@
 
     if-eqz v2, :cond_0
 
-    .line 540
+    .line 594
     sget-object v2, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v2, p1}, Lcyanogenmod/hardware/ICMHardwareService;->readPersistentBytes(Ljava/lang/String;)[B
 
     move-result-object v0
 
-    .line 541
+    .line 595
     .local v0, "bytes":[B
     if-eqz v0, :cond_0
 
-    .line 542
+    .line 596
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
@@ -1783,12 +1896,12 @@
 
     return v2
 
-    .line 545
+    .line 599
     .end local v0    # "bytes":[B
     :catch_0
     move-exception v1
 
-    .line 547
+    .line 601
     :cond_0
     const/4 v2, 0x0
 
@@ -1802,7 +1915,7 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 518
+    .line 572
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1810,18 +1923,18 @@
 
     if-eqz v3, :cond_0
 
-    .line 519
+    .line 573
     sget-object v3, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v3, p1}, Lcyanogenmod/hardware/ICMHardwareService;->readPersistentBytes(Ljava/lang/String;)[B
 
     move-result-object v0
 
-    .line 520
+    .line 574
     .local v0, "bytes":[B
     if-eqz v0, :cond_0
 
-    .line 521
+    .line 575
     new-instance v3, Ljava/lang/String;
 
     const-string/jumbo v4, "UTF-8"
@@ -1833,12 +1946,12 @@
 
     return-object v3
 
-    .line 525
+    .line 579
     .end local v0    # "bytes":[B
     :catch_0
     move-exception v2
 
-    .line 526
+    .line 580
     .local v2, "e":Ljava/io/UnsupportedEncodingException;
     const-string/jumbo v3, "CMHardwareManager"
 
@@ -1848,13 +1961,13 @@
 
     invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 528
+    .line 582
     .end local v2    # "e":Ljava/io/UnsupportedEncodingException;
     :cond_0
     :goto_0
     return-object v5
 
-    .line 524
+    .line 578
     :catch_1
     move-exception v1
 
@@ -1867,7 +1980,7 @@
     .param p1, "thermalCallback"    # Lcyanogenmod/hardware/ThermalListenerCallback;
 
     .prologue
-    .line 967
+    .line 1031
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1875,7 +1988,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 968
+    .line 1032
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1}, Lcyanogenmod/hardware/ICMHardwareService;->registerThermalListener(Lcyanogenmod/hardware/IThermalListenerCallback;)Z
@@ -1886,11 +1999,11 @@
 
     return v1
 
-    .line 970
+    .line 1034
     :catch_0
     move-exception v0
 
-    .line 972
+    .line 1036
     :cond_0
     const/4 v1, 0x0
 
@@ -1901,7 +2014,7 @@
     .locals 2
 
     .prologue
-    .line 748
+    .line 812
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -1909,7 +2022,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 749
+    .line 813
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1}, Lcyanogenmod/hardware/ICMHardwareService;->requireAdaptiveBacklightForSunlightEnhancement()Z
@@ -1920,11 +2033,11 @@
 
     return v1
 
-    .line 751
+    .line 815
     :catch_0
     move-exception v0
 
-    .line 753
+    .line 817
     :cond_0
     const/4 v1, 0x0
 
@@ -1937,7 +2050,7 @@
     .param p2, "enable"    # Z
 
     .prologue
-    .line 264
+    .line 318
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->BOOLEAN_FEATURES:Ljava/util/List;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1950,7 +2063,7 @@
 
     if-nez v1, :cond_0
 
-    .line 265
+    .line 319
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1975,7 +2088,7 @@
 
     throw v1
 
-    .line 269
+    .line 323
     :cond_0
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
@@ -1984,7 +2097,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 270
+    .line 324
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1, p2}, Lcyanogenmod/hardware/ICMHardwareService;->set(IZ)Z
@@ -1995,11 +2108,11 @@
 
     return v1
 
-    .line 272
+    .line 326
     :catch_0
     move-exception v0
 
-    .line 274
+    .line 328
     :cond_1
     const/4 v1, 0x0
 
@@ -2011,7 +2124,7 @@
     .param p1, "value"    # I
 
     .prologue
-    .line 859
+    .line 923
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -2019,7 +2132,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 860
+    .line 924
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1}, Lcyanogenmod/hardware/ICMHardwareService;->setColorBalance(I)Z
@@ -2030,11 +2143,11 @@
 
     return v1
 
-    .line 862
+    .line 926
     :catch_0
     move-exception v0
 
-    .line 864
+    .line 928
     :cond_0
     const/4 v1, 0x0
 
@@ -2046,7 +2159,7 @@
     .param p1, "rgb"    # [I
 
     .prologue
-    .line 447
+    .line 501
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -2054,7 +2167,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 448
+    .line 502
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1}, Lcyanogenmod/hardware/ICMHardwareService;->setDisplayColorCalibration([I)Z
@@ -2065,11 +2178,11 @@
 
     return v1
 
-    .line 450
+    .line 504
     :catch_0
     move-exception v0
 
-    .line 452
+    .line 506
     :cond_0
     const/4 v1, 0x0
 
@@ -2084,7 +2197,7 @@
     .end annotation
 
     .prologue
-    .line 669
+    .line 733
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -2092,7 +2205,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 670
+    .line 734
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1, p2}, Lcyanogenmod/hardware/ICMHardwareService;->setDisplayGammaCalibration(I[I)Z
@@ -2103,11 +2216,11 @@
 
     return v1
 
-    .line 672
+    .line 736
     :catch_0
     move-exception v0
 
-    .line 674
+    .line 738
     :cond_0
     const/4 v1, 0x0
 
@@ -2120,7 +2233,7 @@
     .param p2, "makeDefault"    # Z
 
     .prologue
-    .line 813
+    .line 877
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -2128,7 +2241,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 814
+    .line 878
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1, p2}, Lcyanogenmod/hardware/ICMHardwareService;->setDisplayMode(Lcyanogenmod/hardware/DisplayMode;Z)Z
@@ -2139,11 +2252,11 @@
 
     return v1
 
-    .line 816
+    .line 880
     :catch_0
     move-exception v0
 
-    .line 818
+    .line 882
     :cond_0
     const/4 v1, 0x0
 
@@ -2155,7 +2268,7 @@
     .param p1, "hsic"    # Lcyanogenmod/hardware/HSIC;
 
     .prologue
-    .line 905
+    .line 969
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -2163,7 +2276,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 906
+    .line 970
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1}, Lcyanogenmod/hardware/ICMHardwareService;->setPictureAdjustment(Lcyanogenmod/hardware/HSIC;)Z
@@ -2174,11 +2287,47 @@
 
     return v1
 
-    .line 908
+    .line 972
     :catch_0
     move-exception v0
 
-    .line 910
+    .line 974
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method public setTouchscreenGestureEnabled(Lcyanogenmod/hardware/TouchscreenGesture;Z)Z
+    .locals 2
+    .param p1, "gesture"    # Lcyanogenmod/hardware/TouchscreenGesture;
+    .param p2, "state"    # Z
+
+    .prologue
+    .line 1072
+    :try_start_0
+    invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 1073
+    sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
+
+    invoke-interface {v1, p1, p2}, Lcyanogenmod/hardware/ICMHardwareService;->setTouchscreenGestureEnabled(Lcyanogenmod/hardware/TouchscreenGesture;Z)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    .line 1075
+    :catch_0
+    move-exception v0
+
+    .line 1077
     :cond_0
     const/4 v1, 0x0
 
@@ -2190,7 +2339,7 @@
     .param p1, "intensity"    # I
 
     .prologue
-    .line 361
+    .line 415
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -2198,7 +2347,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 362
+    .line 416
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1}, Lcyanogenmod/hardware/ICMHardwareService;->setVibratorIntensity(I)Z
@@ -2209,11 +2358,11 @@
 
     return v1
 
-    .line 364
+    .line 418
     :catch_0
     move-exception v0
 
-    .line 366
+    .line 420
     :cond_0
     const/4 v1, 0x0
 
@@ -2225,7 +2374,7 @@
     .param p1, "thermalCallback"    # Lcyanogenmod/hardware/ThermalListenerCallback;
 
     .prologue
-    .line 981
+    .line 1045
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -2233,7 +2382,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 982
+    .line 1046
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1}, Lcyanogenmod/hardware/ICMHardwareService;->unRegisterThermalListener(Lcyanogenmod/hardware/IThermalListenerCallback;)Z
@@ -2244,11 +2393,11 @@
 
     return v1
 
-    .line 984
+    .line 1048
     :catch_0
     move-exception v0
 
-    .line 986
+    .line 1050
     :cond_0
     const/4 v1, 0x0
 
@@ -2261,7 +2410,7 @@
     .param p2, "value"    # [B
 
     .prologue
-    .line 502
+    .line 556
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -2269,7 +2418,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 503
+    .line 557
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
     invoke-interface {v1, p1, p2}, Lcyanogenmod/hardware/ICMHardwareService;->writePersistentBytes(Ljava/lang/String;[B)Z
@@ -2280,11 +2429,11 @@
 
     return v1
 
-    .line 505
+    .line 559
     :catch_0
     move-exception v0
 
-    .line 507
+    .line 561
     :cond_0
     const/4 v1, 0x0
 
@@ -2297,7 +2446,7 @@
     .param p2, "value"    # I
 
     .prologue
-    .line 484
+    .line 538
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -2305,10 +2454,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 485
+    .line 539
     sget-object v1, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
-    .line 486
+    .line 540
     const/4 v2, 0x4
 
     invoke-static {v2}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
@@ -2323,7 +2472,7 @@
 
     move-result-object v2
 
-    .line 485
+    .line 539
     invoke-interface {v1, p1, v2}, Lcyanogenmod/hardware/ICMHardwareService;->writePersistentBytes(Ljava/lang/String;[B)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
@@ -2332,11 +2481,11 @@
 
     return v1
 
-    .line 488
+    .line 542
     :catch_0
     move-exception v0
 
-    .line 490
+    .line 544
     :cond_0
     const/4 v1, 0x0
 
@@ -2351,7 +2500,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 464
+    .line 518
     :try_start_0
     invoke-direct {p0}, Lcyanogenmod/hardware/CMHardwareManager;->checkService()Z
 
@@ -2359,13 +2508,13 @@
 
     if-eqz v3, :cond_1
 
-    .line 465
+    .line 519
     sget-object v3, Lcyanogenmod/hardware/CMHardwareManager;->sService:Lcyanogenmod/hardware/ICMHardwareService;
 
-    .line 466
+    .line 520
     if-nez p2, :cond_0
 
-    .line 465
+    .line 519
     :goto_0
     invoke-interface {v3, p1, v2}, Lcyanogenmod/hardware/ICMHardwareService;->writePersistentBytes(Ljava/lang/String;[B)Z
 
@@ -2373,7 +2522,7 @@
 
     return v2
 
-    .line 466
+    .line 520
     :cond_0
     const-string/jumbo v2, "UTF-8"
 
@@ -2386,11 +2535,11 @@
 
     goto :goto_0
 
-    .line 469
+    .line 523
     :catch_0
     move-exception v1
 
-    .line 470
+    .line 524
     .local v1, "e":Ljava/io/UnsupportedEncodingException;
     const-string/jumbo v2, "CMHardwareManager"
 
@@ -2400,7 +2549,7 @@
 
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 472
+    .line 526
     .end local v1    # "e":Ljava/io/UnsupportedEncodingException;
     :cond_1
     :goto_1
@@ -2408,7 +2557,7 @@
 
     return v2
 
-    .line 468
+    .line 522
     :catch_1
     move-exception v0
 

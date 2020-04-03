@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_onError:I = 0x1
 
-.field static final TRANSACTION_onResult:I = 0x2
+.field static final TRANSACTION_onResult_1:I = 0x2
 
 
 # direct methods

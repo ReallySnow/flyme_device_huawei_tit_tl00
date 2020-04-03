@@ -4,8 +4,6 @@
 
 
 # static fields
-.field public static final MEIZU_FLAG_AOD_Display:I = 0x400
-
 .field public static final MEIZU_FLAG_DISABLE_HIDING_ON_FULL_SCREEN:I = 0x800
 
 .field public static final MEIZU_FLAG_INTERCEPT_HOME_KEY:I = 0x20
@@ -13,8 +11,6 @@
 .field public static final MEIZU_FLAG_SHOW_HOLSTER_MODE:I = 0x200
 
 .field public static final MEIZU_FLAG_SHOW_NORMAL_TOAST:I = 0x40
-
-.field public static final TYPE_AOD_DISPLAY:I = 0x7fd
 
 .field public static final TYPE_GESTURE_PANEL:I = 0x7f9
 
@@ -48,22 +44,22 @@
     .param p2, "o"    # Landroid/view/MeizuLayoutParams;
 
     .prologue
-    .line 50
+    .line 44
     iget v0, p0, Landroid/view/MeizuLayoutParams;->flags:I
 
     iget v1, p2, Landroid/view/MeizuLayoutParams;->flags:I
 
     if-eq v0, v1, :cond_0
 
-    .line 51
+    .line 45
     iget v0, p2, Landroid/view/MeizuLayoutParams;->flags:I
 
     iput v0, p0, Landroid/view/MeizuLayoutParams;->flags:I
 
-    .line 52
+    .line 46
     or-int/lit8 p1, p1, 0x10
 
-    .line 54
+    .line 48
     :cond_0
     return p1
 .end method
@@ -73,14 +69,14 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 47
+    .line 41
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/MeizuLayoutParams;->flags:I
 
-    .line 46
+    .line 40
     return-void
 .end method
 
@@ -89,12 +85,12 @@
     .param p1, "sb"    # Ljava/lang/StringBuilder;
 
     .prologue
-    .line 58
+    .line 52
     const-string/jumbo v0, "Meizu WM.LayoutParams [ "
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 59
+    .line 53
     const-string/jumbo v0, "flags=0x"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -109,12 +105,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 60
+    .line 54
     const-string/jumbo v0, "] "
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 57
+    .line 51
     return-void
 .end method
 
@@ -123,11 +119,11 @@
     .param p1, "out"    # Landroid/os/Parcel;
 
     .prologue
-    .line 44
+    .line 38
     iget v0, p0, Landroid/view/MeizuLayoutParams;->flags:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 43
+    .line 37
     return-void
 .end method

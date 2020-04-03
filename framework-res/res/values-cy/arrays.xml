@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Cartref</item>
+        <item>Gwaith</item>
+        <item>Arall</item>
+        <item>Addasedig</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Gwaith</item>
+        <item>Arall</item>
+        <item>Addasedig</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Cartref</item>
+        <item>Symudol</item>
+        <item>Gwaith</item>
+        <item>Ffacs gwaith</item>
+        <item>Ffacs cartref</item>
+        <item>Dyfais galw</item>
+        <item>Arall</item>
+        <item>Addasedig</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Cartref</item>
+        <item>Gwaith</item>
+        <item>Arall</item>
+        <item>Addasedig</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>I wneud galwadau ac anfon negeseuon dros Wi-Fi, rhaid yn gyntaf gofyn i dy ddarparwr gwasanaeth gosod y gwasanaeth hwn. Yna, tro alwadau Wi-Fi ymlaen eto yn y Gosodiadau.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>Cofrestra gyda dy ddarparwr</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>Galwadau Wi-Fi %s</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>Cartref</item>
+        <item>Gwaith</item>
+        <item>Arall</item>
+        <item>Addasedig</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>data symudol</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ether-rwyd</item>
+        <item>VPN</item>
+    </string-array>
+</resources>

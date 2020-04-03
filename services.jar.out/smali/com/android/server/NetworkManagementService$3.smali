@@ -1,14 +1,11 @@
 .class Lcom/android/server/NetworkManagementService$3;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "NetworkManagementService.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/NetworkManagementService;->addIdleTimer(Ljava/lang/String;II)V
+    value = Lcom/android/server/NetworkManagementService;->systemReady()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,50 +17,34 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/NetworkManagementService;
 
-.field final synthetic val$type:I
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/NetworkManagementService;I)V
+.method constructor <init>(Lcom/android/server/NetworkManagementService;)V
     .locals 0
     .param p1, "this$0"    # Lcom/android/server/NetworkManagementService;
-    .param p2, "val$type"    # I
 
     .prologue
-    .line 1630
+    .line 393
     iput-object p1, p0, Lcom/android/server/NetworkManagementService$3;->this$0:Lcom/android/server/NetworkManagementService;
 
-    iput p2, p0, Lcom/android/server/NetworkManagementService$3;->val$type:I
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 7
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 1632
-    iget-object v1, p0, Lcom/android/server/NetworkManagementService$3;->this$0:Lcom/android/server/NetworkManagementService;
+    .line 396
+    iget-object v0, p0, Lcom/android/server/NetworkManagementService$3;->this$0:Lcom/android/server/NetworkManagementService;
 
-    iget v2, p0, Lcom/android/server/NetworkManagementService$3;->val$type:I
+    invoke-static {v0}, Lcom/android/server/NetworkManagementService;->-wrap14(Lcom/android/server/NetworkManagementService;)V
 
-    .line 1633
-    sget v3, Landroid/telephony/DataConnectionRealTimeInfo;->DC_POWER_STATE_HIGH:I
-
-    .line 1634
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtimeNanos()J
-
-    move-result-wide v4
-
-    const/4 v6, 0x0
-
-    .line 1632
-    invoke-static/range {v1 .. v6}, Lcom/android/server/NetworkManagementService;->-wrap3(Lcom/android/server/NetworkManagementService;IIJZ)V
-
-    .line 1631
+    .line 395
     return-void
 .end method

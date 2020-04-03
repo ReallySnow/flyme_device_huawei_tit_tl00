@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_cancelLiveLockScreen:I = 0x2
 
-.field static final TRANSACTION_enqueueLiveLockScreen:I = 0x1
+.field static final TRANSACTION_enqueueLiveLockScreen_0:I = 0x1
 
 .field static final TRANSACTION_getCurrentLiveLockScreen:I = 0x3
 

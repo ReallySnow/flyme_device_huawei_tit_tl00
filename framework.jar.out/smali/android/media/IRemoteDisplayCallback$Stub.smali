@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.media.IRemoteDisplayCallback"
 
-.field static final TRANSACTION_onStateChanged_0:I = 0x1
+.field static final TRANSACTION_onStateChanged:I = 0x1
 
 
 # direct methods

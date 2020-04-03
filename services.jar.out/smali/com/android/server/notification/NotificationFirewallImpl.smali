@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/notification/NotificationFirewallImpl$StatusBarNotificationHolder;,
-        Lcom/android/server/notification/NotificationFirewallImpl$H;
+        Lcom/android/server/notification/NotificationFirewallImpl$H;,
+        Lcom/android/server/notification/NotificationFirewallImpl$StatusBarNotificationHolder;
     }
 .end annotation
 
@@ -100,22 +100,22 @@
     .locals 1
 
     .prologue
-    .line 31
+    .line 33
     const-string/jumbo v0, "NotificationFirewall"
 
     sput-object v0, Lcom/android/server/notification/NotificationFirewallImpl;->TAG:Ljava/lang/String;
 
-    .line 35
+    .line 37
     const-string/jumbo v0, "com.meizu.notification.FILTER"
 
     sput-object v0, Lcom/android/server/notification/NotificationFirewallImpl;->FILTER_ACTION_NAME:Ljava/lang/String;
 
-    .line 36
+    .line 38
     const-string/jumbo v0, "com.flyme.systemuitools"
 
     sput-object v0, Lcom/android/server/notification/NotificationFirewallImpl;->SYSTEM_UI_TOOLS:Ljava/lang/String;
 
-    .line 30
+    .line 32
     return-void
 .end method
 
@@ -123,17 +123,17 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
+    .line 44
     new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 43
+    .line 45
     iget-object v0, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->newCondition()Ljava/util/concurrent/locks/Condition;
@@ -142,20 +142,108 @@
 
     iput-object v0, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mCondition:Ljava/util/concurrent/locks/Condition;
 
-    .line 44
+    .line 46
     const/16 v0, 0x7d0
 
     iput v0, p0, Lcom/android/server/notification/NotificationFirewallImpl;->INTERCEPT_NOTIFICATION_TIME_OUT:I
 
-    .line 30
+    .line 32
     return-void
+.end method
+
+.method private hasRemoteInput(Landroid/service/notification/StatusBarNotification;)Z
+    .locals 11
+    .param p1, "sbn"    # Landroid/service/notification/StatusBarNotification;
+
+    .prologue
+    const/4 v5, 0x0
+
+    .line 196
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+
+    move-result-object v4
+
+    iget-object v1, v4, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
+
+    .line 197
+    .local v1, "actions":[Landroid/app/Notification$Action;
+    const/4 v2, 0x0
+
+    .line 198
+    .local v2, "hasRemoteInput":Z
+    if-eqz v1, :cond_2
+
+    .line 199
+    array-length v7, v1
+
+    move v6, v5
+
+    :goto_0
+    if-ge v6, v7, :cond_2
+
+    aget-object v0, v1, v6
+
+    .line 200
+    .local v0, "a":Landroid/app/Notification$Action;
+    invoke-virtual {v0}, Landroid/app/Notification$Action;->getRemoteInputs()[Landroid/app/RemoteInput;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    .line 201
+    invoke-virtual {v0}, Landroid/app/Notification$Action;->getRemoteInputs()[Landroid/app/RemoteInput;
+
+    move-result-object v8
+
+    array-length v9, v8
+
+    move v4, v5
+
+    :goto_1
+    if-ge v4, v9, :cond_0
+
+    aget-object v3, v8, v4
+
+    .line 202
+    .local v3, "ri":Landroid/app/RemoteInput;
+    invoke-virtual {v3}, Landroid/app/RemoteInput;->getAllowFreeFormInput()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_1
+
+    .line 203
+    const/4 v2, 0x1
+
+    .line 199
+    .end local v3    # "ri":Landroid/app/RemoteInput;
+    :cond_0
+    add-int/lit8 v4, v6, 0x1
+
+    move v6, v4
+
+    goto :goto_0
+
+    .line 201
+    .restart local v3    # "ri":Landroid/app/RemoteInput;
+    :cond_1
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_1
+
+    .line 210
+    .end local v0    # "a":Landroid/app/Notification$Action;
+    .end local v3    # "ri":Landroid/app/RemoteInput;
+    :cond_2
+    return v2
 .end method
 
 .method private startService()V
     .locals 5
 
     .prologue
-    .line 84
+    .line 86
     :try_start_0
     new-instance v0, Landroid/content/Intent;
 
@@ -163,13 +251,13 @@
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 85
+    .line 87
     .local v0, "intent":Landroid/content/Intent;
     sget-object v2, Lcom/android/server/notification/NotificationFirewallImpl;->SYSTEM_UI_TOOLS:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 86
+    .line 88
     iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mContext:Landroid/content/Context;
 
     iget-object v3, p0, Lcom/android/server/notification/NotificationFirewallImpl;->conn:Landroid/content/ServiceConnection;
@@ -180,12 +268,12 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 82
+    .line 84
     .end local v0    # "intent":Landroid/content/Intent;
     :goto_0
     return-void
 
-    .line 87
+    .line 89
     :catch_0
     move-exception v1
 
@@ -200,13 +288,13 @@
     .param p1, "preDaily"    # Lmeizu/notification/RankingDaily;
 
     .prologue
-    .line 181
+    .line 186
     :try_start_0
     iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
 
     if-eqz v2, :cond_0
 
-    .line 182
+    .line 187
     iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
 
     invoke-interface {v2, p1}, Lmeizu/notification/INotificationFilterService;->decreaseScore(Lmeizu/notification/RankingDaily;)F
@@ -218,18 +306,18 @@
 
     return v2
 
-    .line 184
+    .line 189
     :catch_0
     move-exception v0
 
-    .line 187
+    .line 192
     :cond_0
     :goto_0
     iget v2, p1, Lmeizu/notification/RankingDaily;->score:F
 
     return v2
 
-    .line 185
+    .line 190
     :catch_1
     move-exception v1
 
@@ -244,13 +332,13 @@
     .param p3, "categoryPriority"    # I
 
     .prologue
-    .line 193
+    .line 216
     :try_start_0
     iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
 
     if-eqz v2, :cond_0
 
-    .line 194
+    .line 217
     iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
 
     invoke-interface {v2, p1, p2, p3}, Lmeizu/notification/INotificationFilterService;->getRankingScoreBase(Ljava/lang/String;II)F
@@ -262,18 +350,18 @@
 
     return v2
 
-    .line 196
+    .line 219
     :catch_0
     move-exception v0
 
-    .line 199
+    .line 222
     :cond_0
     :goto_0
     const/high16 v2, 0x42340000    # 45.0f
 
     return v2
 
-    .line 197
+    .line 220
     :catch_1
     move-exception v1
 
@@ -286,13 +374,13 @@
     .param p1, "preDaily"    # Lmeizu/notification/RankingDaily;
 
     .prologue
-    .line 169
+    .line 174
     :try_start_0
     iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
 
     if-eqz v2, :cond_0
 
-    .line 170
+    .line 175
     iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
 
     invoke-interface {v2, p1}, Lmeizu/notification/INotificationFilterService;->increaseScore(Lmeizu/notification/RankingDaily;)F
@@ -304,18 +392,18 @@
 
     return v2
 
-    .line 172
+    .line 177
     :catch_0
     move-exception v0
 
-    .line 175
+    .line 180
     :cond_0
     :goto_0
     iget v2, p1, Lmeizu/notification/RankingDaily;->score:F
 
     return v2
 
-    .line 173
+    .line 178
     :catch_1
     move-exception v1
 
@@ -329,138 +417,192 @@
     .param p2, "looper"    # Landroid/os/Looper;
 
     .prologue
-    .line 64
+    .line 66
     iput-object p1, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mContext:Landroid/content/Context;
 
-    .line 65
+    .line 67
     new-instance v0, Lcom/android/server/notification/NotificationFirewallImpl$H;
 
     invoke-direct {v0, p0, p2}, Lcom/android/server/notification/NotificationFirewallImpl$H;-><init>(Lcom/android/server/notification/NotificationFirewallImpl;Landroid/os/Looper;)V
 
     iput-object v0, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mHandler:Landroid/os/Handler;
 
-    .line 66
+    .line 68
     new-instance v0, Lcom/android/server/notification/NotificationFirewallImpl$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/notification/NotificationFirewallImpl$1;-><init>(Lcom/android/server/notification/NotificationFirewallImpl;)V
 
     iput-object v0, p0, Lcom/android/server/notification/NotificationFirewallImpl;->conn:Landroid/content/ServiceConnection;
 
-    .line 79
+    .line 81
     invoke-direct {p0}, Lcom/android/server/notification/NotificationFirewallImpl;->startService()V
 
-    .line 63
+    .line 65
     return-void
 .end method
 
-.method public interceptNotification(Landroid/service/notification/StatusBarNotification;ZZ)Z
-    .locals 11
+.method public offsetScore(Lmeizu/notification/RankingDaily;J)F
+    .locals 4
+    .param p1, "preDaily"    # Lmeizu/notification/RankingDaily;
+    .param p2, "postDate"    # J
+
+    .prologue
+    .line 228
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
+
+    if-eqz v2, :cond_0
+
+    .line 229
+    iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
+
+    invoke-interface {v2, p1, p2, p3}, Lmeizu/notification/INotificationFilterService;->offsetScore(Lmeizu/notification/RankingDaily;J)F
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    :cond_0
+    :goto_0
+    iget v2, p1, Lmeizu/notification/RankingDaily;->score:F
+
+    return v2
+
+    :catch_1
+    move-exception v1
+
+    .local v1, "throwable":Ljava/lang/Throwable;
+    goto :goto_0
+.end method
+
+.method public interceptNotification(Landroid/service/notification/StatusBarNotification;ZZZ)I
+    .locals 9
     .param p1, "sbn"    # Landroid/service/notification/StatusBarNotification;
     .param p2, "isSystemNotification"    # Z
     .param p3, "isSystemApp"    # Z
+    .param p4, "isClearable"    # Z
 
     .prologue
-    const/4 v5, 0x1
-
-    const/4 v6, 0x0
-
-    .line 126
     const/4 v1, 0x0
 
-    .line 127
     .local v1, "intercept":Z
-    invoke-static {}, Landroid/os/BuildExt;->isProductInternational()Z
+    iget-object v5, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
 
-    move-result v7
+    if-eqz v5, :cond_0
 
-    if-eqz v7, :cond_0
+    iget-object v5, p1, Landroid/service/notification/StatusBarNotification;->mFlymeFilter:Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;
 
-    .line 128
-    return v6
+    iget-boolean v5, v5, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->disableAuthorityManagement:Z
 
-    .line 131
-    :cond_0
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+    if-nez v5, :cond_0
 
-    move-result-object v7
+    if-eqz p4, :cond_0
+
+    sget-object v5, Lcom/android/server/notification/CloudNotificationHelper;->TOOLS_PACKAGE_NAME:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-static {v7, v8}, Lcom/android/server/notification/CloudNotificationHelper;->getGreenChannelType(Landroid/app/Notification;Ljava/lang/String;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_1
+    if-eqz v5, :cond_1
 
-    return v6
+    const/4 v5, -0x1
+
+    return v5
+
+    :cond_0
+    const/4 v5, -0x1
+
+    return v5
 
     :cond_1
-    iget-object v7, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    if-eqz v7, :cond_2
+    move-result-object v5
 
-    if-eqz p2, :cond_3
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
-    .end local v1    # "intercept":Z
+    move-result-object v6
+
+    invoke-static {v5, v6}, Lcom/android/server/notification/CloudNotificationHelper;->getGreenChannelType(Landroid/app/Notification;Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    const/4 v5, -0x1
+
+    return v5
+
     :cond_2
-    :goto_0
-    return v1
+    invoke-direct {p0, p1}, Lcom/android/server/notification/NotificationFirewallImpl;->hasRemoteInput(Landroid/service/notification/StatusBarNotification;)Z
 
-    .restart local v1    # "intercept":Z
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    const/4 v5, -0x1
+
+    return v5
+
     :cond_3
     :try_start_0
-    iget-object v7, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
+    iget-object v5, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    const-wide/16 v8, 0x7d0
+    const-wide/16 v6, 0x7d0
 
-    sget-object v10, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v8, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v7, v8, v9, v10}, Ljava/util/concurrent/locks/ReentrantLock;->tryLock(JLjava/util/concurrent/TimeUnit;)Z
+    invoke-virtual {v5, v6, v7, v8}, Ljava/util/concurrent/locks/ReentrantLock;->tryLock(JLjava/util/concurrent/TimeUnit;)Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_4
+    if-eqz v5, :cond_4
 
-    .line 134
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
-    iput-object v7, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mNotificationKey:Ljava/lang/String;
+    iput-object v5, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mNotificationKey:Ljava/lang/String;
 
-    .line 135
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
-    iput-object v7, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mResult:Lmeizu/notification/FilterResult;
+    iput-object v5, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mResult:Lmeizu/notification/FilterResult;
 
-    .line 136
-    iget-object v7, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mHandler:Landroid/os/Handler;
+    iget-object v5, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mHandler:Landroid/os/Handler;
 
-    const/4 v8, 0x1
+    const/4 v6, 0x1
 
-    invoke-virtual {v7, v8}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 137
-    iget-object v7, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mHandler:Landroid/os/Handler;
+    iget-object v6, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mHandler:Landroid/os/Handler;
 
     if-eqz p3, :cond_5
 
-    :goto_1
-    const/4 v6, 0x1
+    const/4 v5, 0x1
+
+    :goto_0
+    const/4 v7, 0x1
 
     const/4 v8, 0x0
 
-    invoke-virtual {v7, v6, v8, v5, p1}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v6, v7, v8, v5, p1}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v2
 
-    .line 138
     .local v2, "message":Landroid/os/Message;
     iget-object v5, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v5, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 139
     iget-object v5, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mCondition:Ljava/util/concurrent/locks/Condition;
 
     const-wide/16 v6, 0x7d0
@@ -469,10 +611,8 @@
 
     invoke-interface {v5, v6, v7, v8}, Ljava/util/concurrent/locks/Condition;->await(JLjava/util/concurrent/TimeUnit;)Z
 
-    .line 140
     iget-object v3, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mResult:Lmeizu/notification/FilterResult;
 
-    .line 141
     .local v3, "result":Lmeizu/notification/FilterResult;
     if-eqz v3, :cond_4
 
@@ -566,88 +706,65 @@
 
     invoke-virtual {v5}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    goto/16 :goto_0
+    :goto_1
+    iget-object v5, p1, Landroid/service/notification/StatusBarNotification;->mFlymeFilter:Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;
+
+    iget-boolean v5, v5, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->shouldAffectIntercept:Z
+
+    if-eqz v5, :cond_7
+
+    if-eqz v1, :cond_6
+
+    const/4 v5, 0x1
+
+    :goto_2
+    return v5
 
     .restart local v1    # "intercept":Z
     :cond_5
-    move v5, v6
+    const/4 v5, 0x0
 
-    .line 137
-    goto :goto_1
+    goto :goto_0
 
-    .line 158
     :catch_0
     move-exception v4
 
-    .line 160
     .local v4, "throwable":Ljava/lang/Throwable;
     iget-object v5, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v5}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    goto/16 :goto_0
+    goto :goto_1
 
-    .line 157
     .end local v4    # "throwable":Ljava/lang/Throwable;
     :catch_1
     move-exception v0
 
-    .line 160
     .local v0, "e":Ljava/lang/InterruptedException;
     iget-object v5, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v5}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    goto/16 :goto_0
+    goto :goto_1
 
-    .line 159
     .end local v0    # "e":Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v5
 
-    .line 160
     iget-object v6, p0, Lcom/android/server/notification/NotificationFirewallImpl;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v6}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 159
     throw v5
-.end method
 
-.method public offsetScore(Lmeizu/notification/RankingDaily;J)F
-    .locals 4
-    .param p1, "preDaily"    # Lmeizu/notification/RankingDaily;
-    .param p2, "postDate"    # J
+    .end local v1    # "intercept":Z
+    :cond_6
+    const/4 v5, 0x0
 
-    .prologue
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
+    goto :goto_2
 
-    if-eqz v2, :cond_0
+    :cond_7
+    const/4 v5, -0x1
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationFirewallImpl;->remoteService:Lmeizu/notification/INotificationFilterService;
-
-    invoke-interface {v2, p1, p2, p3}, Lmeizu/notification/INotificationFilterService;->offsetScore(Lmeizu/notification/RankingDaily;J)F
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
-
-    move-result v2
-
-    return v2
-
-    :catch_0
-    move-exception v0
-
-    :cond_0
-    :goto_0
-    iget v2, p1, Lmeizu/notification/RankingDaily;->score:F
-
-    return v2
-
-    :catch_1
-    move-exception v1
-
-    .local v1, "throwable":Ljava/lang/Throwable;
-    goto :goto_0
+    goto :goto_2
 .end method

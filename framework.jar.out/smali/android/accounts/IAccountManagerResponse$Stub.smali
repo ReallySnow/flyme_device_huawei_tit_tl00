@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.accounts.IAccountManagerResponse"
 
-.field static final TRANSACTION_onError:I = 0x2
+.field static final TRANSACTION_onError_1:I = 0x2
 
 .field static final TRANSACTION_onResult:I = 0x1
 

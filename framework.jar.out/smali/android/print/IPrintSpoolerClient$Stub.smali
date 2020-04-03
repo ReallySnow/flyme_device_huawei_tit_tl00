@@ -26,11 +26,11 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.print.IPrintSpoolerClient"
 
-.field static final TRANSACTION_onAllPrintJobsForServiceHandled:I = 0x2
+.field static final TRANSACTION_onAllPrintJobsForServiceHandled_1:I = 0x2
 
 .field static final TRANSACTION_onAllPrintJobsHandled:I = 0x3
 
-.field static final TRANSACTION_onPrintJobQueued:I = 0x1
+.field static final TRANSACTION_onPrintJobQueued_0:I = 0x1
 
 .field static final TRANSACTION_onPrintJobStateChanged:I = 0x4
 

@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.IActivityContainer"
 
-.field static final TRANSACTION_attachToDisplay:I = 0x1
+.field static final TRANSACTION_attachToDisplay_0:I = 0x1
 
 .field static final TRANSACTION_getDisplayId:I = 0x5
 

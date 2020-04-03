@@ -203,6 +203,8 @@
 
 .field public static final MZ_DO_NOT_DISTURB_END_TIME_MINUTE:Ljava/lang/String; = "mz_do_not_disturb_end_time_minutes"
 
+.field public static final MZ_DO_NOT_DISTURB_INTERRUPTION_FILTER:Ljava/lang/String; = "mz_do_not_disturb_interruption_filter"
+
 .field public static final MZ_DO_NOT_DISTURB_IS_WORKING:Ljava/lang/String; = "mz_do_not_disturb_is_working"
 
 .field public static final MZ_DO_NOT_DISTURB_PRE_PULSE_STATE:Ljava/lang/String; = "mz_do_not_disturb_pre_pulse_state"
@@ -214,6 +216,8 @@
 .field public static final MZ_DO_NOT_DISTURB_REMIND_REPEATING_COMING_CALL:Ljava/lang/String; = "mz_do_not_disturb_remind_repeating_coming _call"
 
 .field public static final MZ_DO_NOT_DISTURB_REPEAT_DAYS:Ljava/lang/String; = "mz_do_not_disturb_repeat_days"
+
+.field public static final MZ_DO_NOT_DISTURB_RULE_BACKUP:Ljava/lang/String; = "mz_do_not_disturb_rule_backup"
 
 .field public static final MZ_DO_NOT_DISTURB_SCREEN_NOT_WAKEUP_BY_NOTIFICATION:Ljava/lang/String; = "mz_do_not_disturb_screen_not_wakeup_by_notification"
 
@@ -440,6 +444,8 @@
 
 .field public static final SCREEN_LUX_PREFERED:Ljava/lang/String; = "prefer_screen_lux"
 
+.field public static final SHOW_NAVIGATION_BAR:Ljava/lang/String; = "mz_show_navigation_bar"
+
 .field public static final SNS_ENALBE:Ljava/lang/String; = "sns_enable"
 
 .field public static final SOUND_SPDIF:Ljava/lang/String; = "sound_spdif"
@@ -451,6 +457,32 @@
 .field public static final SPAM_CALL_FILTER_FROM_CLOUD_LEVEL:Ljava/lang/String; = "spam_call_filter_from_cloud_level"
 
 .field public static final STATUSBAR_BATTERY_PERCENT:Ljava/lang/String; = "statusbar_battery_percent"
+
+.field public static final SUBSCREEN_CAMERA:Ljava/lang/String; = "subscreen_camera"
+
+.field public static final SUBSCREEN_DOUBLE_CLICK_WAKEUP:Ljava/lang/String; = "subscreen_double_click_wakeup"
+
+.field public static final SUBSCREEN_PEDOMETER:Ljava/lang/String; = "subscreen_pedometer"
+
+.field public static final SUBSCREEN_SCREEN_CAPTURE:Ljava/lang/String; = "subscreen_screen_capture"
+
+.field public static final SUBSCREEN_SCREEN_NOTIFICATION:Ljava/lang/String; = "subscreen_notification"
+
+.field public static final SUBSCREEN_SCREEN_NOTIFICATION_INCOMING_CALL:Ljava/lang/String; = "subscreen_notification_incoming_call"
+
+.field public static final SUBSCREEN_SCREEN_NOTIFICATION_PHONE_STATUS:Ljava/lang/String; = "subscreen_notification_phone_status"
+
+.field public static final SUBSCREEN_SCREEN_NOTIFICATION_REMIND:Ljava/lang/String; = "subscreen_notification_remind"
+
+.field public static final SUBSCREEN_SCREEN_NOTIFICATION_SOURCE:Ljava/lang/String; = "subscreen_notification_source"
+
+.field public static final SUBSCREEN_SWITCH:Ljava/lang/String; = "subscreen_switch"
+
+.field public static final SUBSCREEN_TAKE_PHOTO:Ljava/lang/String; = "subscreen_take_photo"
+
+.field public static final SUBSCREEN_TURN_OVER_TO_WAKE:Ljava/lang/String; = "subscreen_turn_over_to_wake"
+
+.field public static final SUBSCREEN_WEATHER:Ljava/lang/String; = "subscreen_weather"
 
 .field public static final SUB_DISPLAY_SCREEN_BRIGHTNESS:Ljava/lang/String; = "sub_display_screen_brightness"
 
@@ -803,6 +835,12 @@
     sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
 
     const-string v1, "cpu_l"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "home_double_click"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 

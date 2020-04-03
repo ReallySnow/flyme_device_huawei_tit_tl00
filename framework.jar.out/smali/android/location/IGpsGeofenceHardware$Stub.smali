@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.location.IGpsGeofenceHardware"
 
-.field static final TRANSACTION_addCircularHardwareGeofence:I = 0x2
+.field static final TRANSACTION_addCircularHardwareGeofence_1:I = 0x2
 
-.field static final TRANSACTION_isHardwareGeofenceSupported_0:I = 0x1
+.field static final TRANSACTION_isHardwareGeofenceSupported:I = 0x1
 
 .field static final TRANSACTION_pauseHardwareGeofence:I = 0x4
 

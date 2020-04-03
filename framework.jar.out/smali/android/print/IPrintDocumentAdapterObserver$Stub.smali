@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.print.IPrintDocumentAdapterObserver"
 
-.field static final TRANSACTION_onDestroy_0:I = 0x1
+.field static final TRANSACTION_onDestroy:I = 0x1
 
 
 # direct methods

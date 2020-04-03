@@ -30,9 +30,9 @@
 
 .field static final TRANSACTION_cancelRequest:I = 0x5
 
-.field static final TRANSACTION_processCityNameLookupRequest:I = 0x2
+.field static final TRANSACTION_processCityNameLookupRequest_1:I = 0x2
 
-.field static final TRANSACTION_processWeatherUpdateRequest:I = 0x1
+.field static final TRANSACTION_processWeatherUpdateRequest_0:I = 0x1
 
 .field static final TRANSACTION_setServiceClient:I = 0x3
 

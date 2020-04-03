@@ -1783,12 +1783,10 @@
     :cond_17
     const/4 v9, 0x0
 
-    .restart local v9    # "_arg1":Z
     goto :goto_17
 
     .line 497
     .end local v1    # "_arg0":Lcom/android/ims/internal/IImsCallSession;
-    .end local v9    # "_arg1":Z
     :sswitch_1e
     const-string/jumbo v14, "com.android.ims.internal.IImsCallSessionListener"
 

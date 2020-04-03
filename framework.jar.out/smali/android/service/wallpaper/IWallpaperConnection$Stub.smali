@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.service.wallpaper.IWallpaperConnection"
 
-.field static final TRANSACTION_attachEngine:I = 0x1
+.field static final TRANSACTION_attachEngine_0:I = 0x1
 
 .field static final TRANSACTION_engineShown:I = 0x2
 

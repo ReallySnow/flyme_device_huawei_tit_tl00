@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.job.IJobService"
 
-.field static final TRANSACTION_startJob:I = 0x1
+.field static final TRANSACTION_startJob_0:I = 0x1
 
-.field static final TRANSACTION_stopJob:I = 0x2
+.field static final TRANSACTION_stopJob_1:I = 0x2
 
 
 # direct methods

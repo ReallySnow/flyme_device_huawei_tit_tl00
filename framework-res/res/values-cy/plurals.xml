@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">"Mae gennyt %d cais yn weddill cyn i'r SIM cael ei gloi."</item>
+        <item quantity="zero">"Mae gennyt %d ceisiadau yn weddill cyn i'r SIM cael ei gloi."</item>
+        <item quantity="one">"Mae gennyt %d cais yn weddill cyn i'r SIM cael ei gloi."</item>
+        <item quantity="two">"Mae gennyt %d gais yn weddill cyn i'r SIM cael ei gloi."</item>
+        <item quantity="few">"Mae gennyt %d chais yn weddill cyn i'r SIM cael ei gloi."</item>
+        <item quantity="many">"Mae gennyt %d cais yn weddill cyn i'r SIM cael ei gloi."</item>
+    </plurals>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="other">Awdurdod tystysgrifau wedi eu gosod</item>
+        <item quantity="zero">Awdurdodau tystysgrifau wedi eu gosod</item>
+        <item quantity="one">Awdurdod tystysgrifau wedi ei osod</item>
+        <item quantity="two">Awdurdod tystysgrifau wedi eu gosod</item>
+        <item quantity="few">Awdurdod tystysgrifau wedi eu gosod</item>
+        <item quantity="many">Awdurdod tystysgrifau wedi eu gosod</item>
+    </plurals>
+    <plurals name="bugreport_countdown">
+        <item quantity="other">Caiff sgrinlun ar gyfer adroddiad gwall ei dynnu ymhen %d eiliad.</item>
+        <item quantity="zero">Caiff sgrinlun ar gyfer adroddiad gwall ei dynnu ymhen %d eiliadau.</item>
+        <item quantity="one">Caiff sgrinlun ar gyfer adroddiad gwall ei dynnu ymhen %d eiliad.</item>
+        <item quantity="two">Caiff sgrinlun ar gyfer adroddiad gwall ei dynnu ymhen %d eiliad.</item>
+        <item quantity="few">Caiff sgrinlun ar gyfer adroddiad gwall ei dynnu ymhen %d eiliad.</item>
+        <item quantity="many">Caiff sgrinlun ar gyfer adroddiad gwall ei dynnu ymhen %d eiliad.</item>
+    </plurals>
+    <plurals name="last_num_days">
+        <item quantity="other">Y %d diwrnod diwethaf</item>
+        <item quantity="zero">Y %d diwrnodau diwethaf</item>
+        <item quantity="one">Yr %d diwrnod diwethaf</item>
+        <item quantity="two">Y %d ddiwrnod diwethaf</item>
+        <item quantity="few">Y %d diwrnod diwethaf</item>
+        <item quantity="many">Y %d diwrnod diwethaf</item>
+    </plurals>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d eiliad</item>
+        <item quantity="zero">%d eiliadau</item>
+        <item quantity="one">1 eiliad</item>
+        <item quantity="two">%d eiliad</item>
+        <item quantity="few">%d eiliad</item>
+        <item quantity="many">%d eiliad</item>
+    </plurals>
+    <plurals name="duration_minutes">
+        <item quantity="other">%d munud</item>
+        <item quantity="zero">%d munudau</item>
+        <item quantity="one">1 munud</item>
+        <item quantity="two">%d funud</item>
+        <item quantity="few">%d munud</item>
+        <item quantity="many">%d munud</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%d awr</item>
+        <item quantity="zero">%d oriau</item>
+        <item quantity="one">1 awr</item>
+        <item quantity="two">%d awr</item>
+        <item quantity="few">%d awr</item>
+        <item quantity="many">%d awr</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest">
+        <item quantity="other">%dm</item>
+        <item quantity="zero">%dm</item>
+        <item quantity="one">%dm</item>
+        <item quantity="two">%dm</item>
+        <item quantity="few">%dm</item>
+        <item quantity="many">%dm</item>
+    </plurals>
+    <plurals name="duration_hours_shortest">
+        <item quantity="other">%da</item>
+        <item quantity="zero">%da</item>
+        <item quantity="one">%da</item>
+        <item quantity="two">%da</item>
+        <item quantity="few">%da</item>
+        <item quantity="many">%da</item>
+    </plurals>
+    <plurals name="duration_days_shortest">
+        <item quantity="other">%dd</item>
+        <item quantity="zero">%dd</item>
+        <item quantity="one">%dd</item>
+        <item quantity="two">%dd</item>
+        <item quantity="few">%dd</item>
+        <item quantity="many">%dd</item>
+    </plurals>
+    <plurals name="duration_years_shortest">
+        <item quantity="other">%db</item>
+        <item quantity="zero">%db</item>
+        <item quantity="one">%db</item>
+        <item quantity="two">%db</item>
+        <item quantity="few">%db</item>
+        <item quantity="many">%db</item>
+    </plurals>
+    <plurals name="duration_minutes_shortest_future">
+        <item quantity="other">ymhen %dm</item>
+        <item quantity="zero">ymhen %dm</item>
+        <item quantity="one">ymhen %dm</item>
+        <item quantity="two">ymhen %dm</item>
+        <item quantity="few">ymhen %dm</item>
+        <item quantity="many">ymhen %dm</item>
+    </plurals>
+    <plurals name="duration_hours_shortest_future">
+        <item quantity="other">ymhen %da</item>
+        <item quantity="zero">ymhen %da</item>
+        <item quantity="one">ymhen %da</item>
+        <item quantity="two">ymhen %da</item>
+        <item quantity="few">ymhen %da</item>
+        <item quantity="many">ymhen %da</item>
+    </plurals>
+    <plurals name="duration_days_shortest_future">
+        <item quantity="other">ymhen %dd</item>
+        <item quantity="zero">ymhen %dd</item>
+        <item quantity="one">ymhen %dd</item>
+        <item quantity="two">ymhen %dd</item>
+        <item quantity="few">ymhen %dd</item>
+        <item quantity="many">ymhen %dd</item>
+    </plurals>
+    <plurals name="duration_years_shortest_future">
+        <item quantity="other">ymhen %db</item>
+        <item quantity="zero">ymhen %db</item>
+        <item quantity="one">ymhen %db</item>
+        <item quantity="two">ymhen %db</item>
+        <item quantity="few">ymhen %db</item>
+        <item quantity="many">ymhen %db</item>
+    </plurals>
+    <plurals name="duration_minutes_relative">
+        <item quantity="other">%d munud yn ôl</item>
+        <item quantity="zero">%d munudau yn ôl</item>
+        <item quantity="one">%d munud yn ôl</item>
+        <item quantity="two">%d funud yn ôl</item>
+        <item quantity="few">%d munud yn ôl</item>
+        <item quantity="many">%d munud yn ôl</item>
+    </plurals>
+    <plurals name="duration_hours_relative">
+        <item quantity="other">%d awr yn ôl</item>
+        <item quantity="zero">%d oriau yn ôl</item>
+        <item quantity="one">%d awr yn ôl</item>
+        <item quantity="two">%d awr yn ôl</item>
+        <item quantity="few">%d awr yn ôl</item>
+        <item quantity="many">%d awr yn ôl</item>
+    </plurals>
+    <plurals name="duration_days_relative">
+        <item quantity="other">%d diwrnod yn ôl</item>
+        <item quantity="zero">%d diwrnodau yn ôl</item>
+        <item quantity="one">%d diwrnod yn ôl</item>
+        <item quantity="two">%d ddiwrnod yn ôl</item>
+        <item quantity="few">%d diwrnod yn ôl</item>
+        <item quantity="many">%d diwrnod yn ôl</item>
+    </plurals>
+    <plurals name="duration_years_relative">
+        <item quantity="other">%d mlynedd yn ôl</item>
+        <item quantity="zero">%d blynyddoedd yn ôl</item>
+        <item quantity="one">%d flwyddyn yn ôl</item>
+        <item quantity="two">%d flynedd yn ôl</item>
+        <item quantity="few">%d blynedd yn ôl</item>
+        <item quantity="many">%d blynedd yn ôl</item>
+    </plurals>
+    <plurals name="duration_minutes_relative_future">
+        <item quantity="other">ymhen %d munud</item>
+        <item quantity="zero">ymhen %d munudau</item>
+        <item quantity="one">ymhen %d munud</item>
+        <item quantity="two">ymhen %d funud</item>
+        <item quantity="few">ymhen %d munud</item>
+        <item quantity="many">ymhen %d munud</item>
+    </plurals>
+    <plurals name="duration_hours_relative_future">
+        <item quantity="other">ymhen %d awr</item>
+        <item quantity="zero">ymhen %d oriau</item>
+        <item quantity="one">ymhen %d awr</item>
+        <item quantity="two">ymhen %d awr</item>
+        <item quantity="few">ymhen %d awr</item>
+        <item quantity="many">ymhen %d awr</item>
+    </plurals>
+    <plurals name="duration_days_relative_future">
+        <item quantity="other">ymhen %d diwrnod</item>
+        <item quantity="zero">ymhen %d diwrnodau</item>
+        <item quantity="one">ymhen %d diwrnod</item>
+        <item quantity="two">ymhen %d ddiwrnod</item>
+        <item quantity="few">ymhen %d diwrnod</item>
+        <item quantity="many">ymhen %d diwrnod</item>
+    </plurals>
+    <plurals name="duration_years_relative_future">
+        <item quantity="other">ymhen %d mlynedd</item>
+        <item quantity="zero">ymhen %d blynyddoedd</item>
+        <item quantity="one">ymhen %d flwyddyn</item>
+        <item quantity="two">ymhen %d flynedd</item>
+        <item quantity="few">ymhen %d blynedd</item>
+        <item quantity="many">ymhen %d blynedd</item>
+    </plurals>
+    <plurals name="wifi_available">
+        <item quantity="other">Rhwydweithiau Wi-Fi ar gael</item>
+        <item quantity="zero">Dim rhwydweithiau Wi-Fi ar gael</item>
+        <item quantity="one">Rhwydwaith Wi-Fi ar gael</item>
+        <item quantity="two">Rhwydweithiau Wi-Fi ar gael</item>
+        <item quantity="few">Rhwydweithiau Wi-Fi ar gael</item>
+        <item quantity="many">Rhwydweithiau Wi-Fi ar gael</item>
+    </plurals>
+    <plurals name="wifi_available_detailed">
+        <item quantity="other">Rhwydweithiau Wi-Fi agored ar gael</item>
+        <item quantity="zero">Dim rhwydweithiau Wi-Fi agored ar gael</item>
+        <item quantity="one">Rhwydwaith Wi-Fi agored ar gael</item>
+        <item quantity="two">Rhwydweithiau Wi-Fi agored ar gael</item>
+        <item quantity="few">Rhwydweithiau Wi-Fi agored ar gael</item>
+        <item quantity="many">Rhwydweithiau Wi-Fi agored ar gael</item>
+    </plurals>
+    <plurals name="matches_found">
+        <item quantity="other">%1$d o %2$d</item>
+        <item quantity="zero">%1$d o %2$d</item>
+        <item quantity="one">1 yn cyd-fynd</item>
+        <item quantity="two">%1$d o %2$d</item>
+        <item quantity="few">%1$d o %2$d</item>
+        <item quantity="many">%1$d o %2$d</item>
+    </plurals>
+    <plurals name="restr_pin_countdown">
+        <item quantity="other">Rho gynnig arall arni ymhen %d eiliad</item>
+        <item quantity="zero">Rho gynnig arall arni ymhen %d eiliadau</item>
+        <item quantity="one">Rho gynnig arall arni ymhen 1 eiliad</item>
+        <item quantity="two">Rho gynnig arall arni ymhen %d eiliad</item>
+        <item quantity="few">Rho gynnig arall arni ymhen %d eiliad</item>
+        <item quantity="many">Rho gynnig arall arni ymhen %d eiliad</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary">
+        <item quantity="other">Am %1$d munud (nes %2$s)</item>
+        <item quantity="zero">Am %1$d munudau (nes %2$s)</item>
+        <item quantity="one">Am un funud (nes %2$s)</item>
+        <item quantity="two">Am %1$d funud (nes %2$s)</item>
+        <item quantity="few">Am %1$d munud (nes %2$s)</item>
+        <item quantity="many">Am %1$d munud (nes %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_summary_short">
+        <item quantity="other">Am %1$d mun (nes %2$s)</item>
+        <item quantity="zero">Am %1$d mun (nes %2$s)</item>
+        <item quantity="one">Am 1 mun (nes %2$s)</item>
+        <item quantity="two">Am %1$d fun (nes %2$s)</item>
+        <item quantity="few">Am %1$d mun (nes %2$s)</item>
+        <item quantity="many">Am %1$d mun (nes %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary">
+        <item quantity="other">Am %1$d awr (nes %2$s)</item>
+        <item quantity="zero">Am %1$d oriau (nes %2$s)</item>
+        <item quantity="one">Am awr (nes %2$s)</item>
+        <item quantity="two">Am %1$d awr (nes %2$s)</item>
+        <item quantity="few">Am %1$d awr (nes %2$s)</item>
+        <item quantity="many">Am %1$d awr (nes %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_summary_short">
+        <item quantity="other">Am %1$d awr (nes %2$s)</item>
+        <item quantity="zero">Am %1$d awr (nes %2$s)</item>
+        <item quantity="one">Am awr (nes %2$s)</item>
+        <item quantity="two">Am %1$d awr (nes %2$s)</item>
+        <item quantity="few">Am %1$d awr (nes %2$s)</item>
+        <item quantity="many">Am %1$d awr (nes %2$s)</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes">
+        <item quantity="other">Am %d munud</item>
+        <item quantity="zero">Am %d munudau</item>
+        <item quantity="one">Am funud</item>
+        <item quantity="two">Am %d funud</item>
+        <item quantity="few">Am %d munud</item>
+        <item quantity="many">Am %d munud</item>
+    </plurals>
+    <plurals name="zen_mode_duration_minutes_short">
+        <item quantity="other">Am %d munud</item>
+        <item quantity="zero">Am %d munudau</item>
+        <item quantity="one">Am funud</item>
+        <item quantity="two">Am %d funud</item>
+        <item quantity="few">Am %d munud</item>
+        <item quantity="many">Am %d munud</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours">
+        <item quantity="other">Am %d awr</item>
+        <item quantity="zero">Am %d oriau</item>
+        <item quantity="one">Am awr</item>
+        <item quantity="two">Am %d awr</item>
+        <item quantity="few">Am %d awr</item>
+        <item quantity="many">Am %d awr</item>
+    </plurals>
+    <plurals name="zen_mode_duration_hours_short">
+        <item quantity="other">Am %d awr</item>
+        <item quantity="zero">Am %d oriau</item>
+        <item quantity="one">Am 1 awr</item>
+        <item quantity="two">Am %d awr</item>
+        <item quantity="few">Am %d awr</item>
+        <item quantity="many">Am %d awr</item>
+    </plurals>
+    <plurals name="selected_count">
+        <item quantity="other">"%1$d wedi'u dewis"</item>
+        <item quantity="zero">"%1$d wedi'u dewis"</item>
+        <item quantity="one">"%1$d wedi'i dewis"</item>
+        <item quantity="two">"%1$d wedi'u dewis"</item>
+        <item quantity="few">"%1$d wedi'u dewis"</item>
+        <item quantity="many">"%1$d wedi'u dewis"</item>
+    </plurals>
+</resources>

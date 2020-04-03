@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.content.pm.IPackageDeleteObserver2"
 
-.field static final TRANSACTION_onPackageDeleted:I = 0x2
+.field static final TRANSACTION_onPackageDeleted_1:I = 0x2
 
 .field static final TRANSACTION_onUserActionRequired:I = 0x1
 

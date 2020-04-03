@@ -375,12 +375,12 @@
 
     sparse-switch v2, :sswitch_data_0
 
-    .line 726
+    .line 730
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 729
+    .line 733
     :cond_0
     :sswitch_0
     add-int/lit8 v2, p1, 0x3
@@ -391,7 +391,7 @@
 
     return-object v2
 
-    .line 731
+    .line 735
     .end local v0    # "end":I
     :cond_1
     const/4 v2, 0x0
@@ -406,6 +406,7 @@
         0x23 -> :sswitch_0
         0x2f -> :sswitch_0
         0x3f -> :sswitch_0
+        0x5c -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -486,10 +487,10 @@
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0    # "schemeOnly":Z
     goto :goto_0
 
     .line 627
+    .restart local v0    # "schemeOnly":Z
     :cond_1
     add-int/lit8 v3, v1, 0x1
 
@@ -522,18 +523,18 @@
     .prologue
     const/16 v4, 0x2f
 
-    .line 745
+    .line 749
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    .line 749
+    .line 753
     .local v0, "length":I
     add-int/lit8 v3, p1, 0x2
 
     if-le v0, v3, :cond_0
 
-    .line 750
+    .line 754
     add-int/lit8 v3, p1, 0x1
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
@@ -542,7 +543,7 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 751
+    .line 755
     add-int/lit8 v3, p1, 0x2
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
@@ -551,61 +552,61 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 753
+    .line 757
     add-int/lit8 v2, p1, 0x3
 
-    .line 754
+    .line 758
     .local v2, "pathStart":I
     :goto_0
     if-ge v2, v0, :cond_1
 
-    .line 755
+    .line 759
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
 
     sparse-switch v3, :sswitch_data_0
 
-    .line 762
+    .line 770
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 758
+    .line 762
     :sswitch_0
     const-string/jumbo v3, ""
 
     return-object v3
 
-    .line 766
+    .line 774
     .end local v2    # "pathStart":I
     :cond_0
     add-int/lit8 v2, p1, 0x1
 
-    .line 770
+    .line 778
     .restart local v2    # "pathStart":I
     :cond_1
     :sswitch_1
     move v1, v2
 
-    .line 771
+    .line 779
     .local v1, "pathEnd":I
     :goto_1
     if-ge v1, v0, :cond_2
 
-    .line 772
+    .line 780
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
 
     sparse-switch v3, :sswitch_data_1
 
-    .line 777
+    .line 785
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 780
+    .line 788
     :cond_2
     :sswitch_2
     invoke-virtual {p0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -614,15 +615,16 @@
 
     return-object v3
 
-    .line 755
+    .line 759
     :sswitch_data_0
     .sparse-switch
         0x23 -> :sswitch_0
         0x2f -> :sswitch_1
         0x3f -> :sswitch_0
+        0x5c -> :sswitch_1
     .end sparse-switch
 
-    .line 772
+    .line 780
     :sswitch_data_1
     .sparse-switch
         0x23 -> :sswitch_2
@@ -801,102 +803,102 @@
     .locals 2
 
     .prologue
-    .line 784
+    .line 792
     invoke-virtual {p0}, Landroid/net/Uri$StringUri;->isHierarchical()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 785
+    .line 793
     new-instance v0, Landroid/net/Uri$Builder;
 
     invoke-direct {v0}, Landroid/net/Uri$Builder;-><init>()V
 
-    .line 786
+    .line 794
     invoke-virtual {p0}, Landroid/net/Uri$StringUri;->getScheme()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 785
+    .line 793
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->scheme(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
-    .line 787
+    .line 795
     invoke-direct {p0}, Landroid/net/Uri$StringUri;->getAuthorityPart()Landroid/net/Uri$Part;
 
     move-result-object v1
 
-    .line 785
+    .line 793
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->authority(Landroid/net/Uri$Part;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
-    .line 788
+    .line 796
     invoke-direct {p0}, Landroid/net/Uri$StringUri;->getPathPart()Landroid/net/Uri$PathPart;
 
     move-result-object v1
 
-    .line 785
+    .line 793
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->path(Landroid/net/Uri$PathPart;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
-    .line 789
+    .line 797
     invoke-direct {p0}, Landroid/net/Uri$StringUri;->getQueryPart()Landroid/net/Uri$Part;
 
     move-result-object v1
 
-    .line 785
+    .line 793
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->query(Landroid/net/Uri$Part;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
-    .line 790
+    .line 798
     invoke-direct {p0}, Landroid/net/Uri$StringUri;->getFragmentPart()Landroid/net/Uri$Part;
 
     move-result-object v1
 
-    .line 785
+    .line 793
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->fragment(Landroid/net/Uri$Part;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
     return-object v0
 
-    .line 792
+    .line 800
     :cond_0
     new-instance v0, Landroid/net/Uri$Builder;
 
     invoke-direct {v0}, Landroid/net/Uri$Builder;-><init>()V
 
-    .line 793
+    .line 801
     invoke-virtual {p0}, Landroid/net/Uri$StringUri;->getScheme()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 792
+    .line 800
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->scheme(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
-    .line 794
+    .line 802
     invoke-direct {p0}, Landroid/net/Uri$StringUri;->getSsp()Landroid/net/Uri$Part;
 
     move-result-object v1
 
-    .line 792
+    .line 800
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->opaquePart(Landroid/net/Uri$Part;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
-    .line 795
+    .line 803
     invoke-direct {p0}, Landroid/net/Uri$StringUri;->getFragmentPart()Landroid/net/Uri$Part;
 
     move-result-object v1
 
-    .line 792
+    .line 800
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->fragment(Landroid/net/Uri$Part;)Landroid/net/Uri$Builder;
 
     move-result-object v0
@@ -1113,10 +1115,10 @@
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0    # "cached":Z
     goto :goto_0
 
     .line 541
+    .restart local v0    # "cached":Z
     :cond_1
     invoke-direct {p0}, Landroid/net/Uri$StringUri;->parseScheme()Ljava/lang/String;
 

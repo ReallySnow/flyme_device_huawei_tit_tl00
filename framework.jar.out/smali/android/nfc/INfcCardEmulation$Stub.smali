@@ -32,7 +32,7 @@
 
 .field static final TRANSACTION_isDefaultServiceForAid:I = 0x2
 
-.field static final TRANSACTION_isDefaultServiceForCategory:I = 0x1
+.field static final TRANSACTION_isDefaultServiceForCategory_0:I = 0x1
 
 .field static final TRANSACTION_registerAidGroupForService:I = 0x5
 

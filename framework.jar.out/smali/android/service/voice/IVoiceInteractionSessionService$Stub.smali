@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.service.voice.IVoiceInteractionSessionService"
 
-.field static final TRANSACTION_newSession:I = 0x1
+.field static final TRANSACTION_newSession_0:I = 0x1
 
 
 # direct methods

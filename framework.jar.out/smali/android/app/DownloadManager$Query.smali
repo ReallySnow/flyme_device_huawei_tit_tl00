@@ -21,6 +21,8 @@
 
 
 # instance fields
+.field private mFilterString:Ljava/lang/String;
+
 .field private mIds:[J
 
 .field private mOnlyIncludeVisibleInDownloadsUi:Z
@@ -39,31 +41,34 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 770
+    .line 829
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 783
+    .line 842
     iput-object v0, p0, Landroid/app/DownloadManager$Query;->mIds:[J
 
-    .line 784
+    .line 843
     iput-object v0, p0, Landroid/app/DownloadManager$Query;->mStatusFlags:Ljava/lang/Integer;
 
-    .line 785
+    .line 844
+    iput-object v0, p0, Landroid/app/DownloadManager$Query;->mFilterString:Ljava/lang/String;
+
+    .line 845
     const-string/jumbo v0, "lastmod"
 
     iput-object v0, p0, Landroid/app/DownloadManager$Query;->mOrderByColumn:Ljava/lang/String;
 
-    .line 786
+    .line 846
     const/4 v0, 0x2
 
     iput v0, p0, Landroid/app/DownloadManager$Query;->mOrderDirection:I
 
-    .line 787
+    .line 847
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/app/DownloadManager$Query;->mOnlyIncludeVisibleInDownloadsUi:Z
 
-    .line 770
+    .line 829
     return-void
 .end method
 
@@ -83,17 +88,17 @@
     .end annotation
 
     .prologue
-    .line 902
+    .line 984
     .local p2, "parts":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Ljava/lang/String;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 903
+    .line 985
     .local v0, "builder":Ljava/lang/StringBuilder;
     const/4 v1, 0x1
 
-    .line 904
+    .line 986
     .local v1, "first":Z
     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -113,23 +118,23 @@
 
     check-cast v2, Ljava/lang/String;
 
-    .line 905
+    .line 987
     .local v2, "part":Ljava/lang/String;
     if-nez v1, :cond_0
 
-    .line 906
+    .line 988
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 908
+    .line 990
     :cond_0
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 909
+    .line 991
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 911
+    .line 993
     .end local v2    # "part":Ljava/lang/String;
     :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -145,7 +150,7 @@
     .param p2, "value"    # I
 
     .prologue
-    .line 915
+    .line 997
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -191,7 +196,7 @@
     .param p2, "direction"    # I
 
     .prologue
-    .line 832
+    .line 903
     const/4 v0, 0x1
 
     if-eq p2, v0, :cond_0
@@ -200,7 +205,7 @@
 
     if-eq p2, v0, :cond_0
 
-    .line 833
+    .line 904
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -225,7 +230,7 @@
 
     throw v0
 
-    .line 836
+    .line 907
     :cond_0
     const-string/jumbo v0, "last_modified_timestamp"
 
@@ -235,19 +240,19 @@
 
     if-eqz v0, :cond_1
 
-    .line 837
+    .line 908
     const-string/jumbo v0, "lastmod"
 
     iput-object v0, p0, Landroid/app/DownloadManager$Query;->mOrderByColumn:Ljava/lang/String;
 
-    .line 843
+    .line 914
     :goto_0
     iput p2, p0, Landroid/app/DownloadManager$Query;->mOrderDirection:I
 
-    .line 844
+    .line 915
     return-object p0
 
-    .line 838
+    .line 909
     :cond_1
     const-string/jumbo v0, "total_size"
 
@@ -257,14 +262,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 839
+    .line 910
     const-string/jumbo v0, "total_bytes"
 
     iput-object v0, p0, Landroid/app/DownloadManager$Query;->mOrderByColumn:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 841
+    .line 912
     :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -292,32 +297,54 @@
 .end method
 
 .method runQuery(Landroid/content/ContentResolver;[Ljava/lang/String;Landroid/net/Uri;)Landroid/database/Cursor;
-    .locals 10
+    .locals 11
     .param p1, "resolver"    # Landroid/content/ContentResolver;
     .param p2, "projection"    # [Ljava/lang/String;
     .param p3, "baseUri"    # Landroid/net/Uri;
 
     .prologue
-    .line 853
-    move-object v1, p3
+    .line 924
+    move-object v9, p3
 
-    .line 854
-    .local v1, "uri":Landroid/net/Uri;
+    .line 925
+    .local v9, "uri":Landroid/net/Uri;
     new-instance v8, Ljava/util/ArrayList;
 
     invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
-    .line 855
+    .line 926
     .local v8, "selectionParts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v4, 0x0
 
-    .line 857
+    .line 928
     .local v4, "selectionArgs":[Ljava/lang/String;
+    iget-object v0, p0, Landroid/app/DownloadManager$Query;->mIds:[J
+
+    if-nez v0, :cond_9
+
+    const/4 v10, 0x0
+
+    .line 929
+    .local v10, "whereArgsCount":I
+    :goto_0
+    iget-object v0, p0, Landroid/app/DownloadManager$Query;->mFilterString:Ljava/lang/String;
+
+    if-nez v0, :cond_a
+
+    .line 930
+    :goto_1
+    new-array v4, v10, [Ljava/lang/String;
+
+    .line 932
+    .local v4, "selectionArgs":[Ljava/lang/String;
+    if-lez v10, :cond_1
+
+    .line 933
     iget-object v0, p0, Landroid/app/DownloadManager$Query;->mIds:[J
 
     if-eqz v0, :cond_0
 
-    .line 858
+    .line 934
     iget-object v0, p0, Landroid/app/DownloadManager$Query;->mIds:[J
 
     invoke-static {v0}, Landroid/app/DownloadManager;->getWhereClauseForIds([J)Ljava/lang/String;
@@ -326,26 +353,67 @@
 
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 859
+    .line 935
     iget-object v0, p0, Landroid/app/DownloadManager$Query;->mIds:[J
 
-    invoke-static {v0}, Landroid/app/DownloadManager;->getWhereArgsForIds([J)[Ljava/lang/String;
+    invoke-static {v0, v4}, Landroid/app/DownloadManager;->getWhereArgsForIds([J[Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v4
-
-    .line 862
-    .end local v4    # "selectionArgs":[Ljava/lang/String;
+    .line 938
     :cond_0
+    iget-object v0, p0, Landroid/app/DownloadManager$Query;->mFilterString:Ljava/lang/String;
+
+    if-eqz v0, :cond_1
+
+    .line 939
+    const-string/jumbo v0, "title LIKE ?"
+
+    invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 940
+    array-length v0, v4
+
+    add-int/lit8 v0, v0, -0x1
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "%"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/app/DownloadManager$Query;->mFilterString:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "%"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    aput-object v1, v4, v0
+
+    .line 944
+    :cond_1
     iget-object v0, p0, Landroid/app/DownloadManager$Query;->mStatusFlags:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
-    .line 863
+    .line 945
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    .line 864
+    .line 946
     .local v7, "parts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v0, p0, Landroid/app/DownloadManager$Query;->mStatusFlags:Ljava/lang/Integer;
 
@@ -355,21 +423,21 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    .line 865
+    .line 947
     const-string/jumbo v0, "="
 
-    const/16 v2, 0xbe
+    const/16 v1, 0xbe
 
-    invoke-direct {p0, v0, v2}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-direct {p0, v0, v1}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 867
-    :cond_1
+    .line 949
+    :cond_2
     iget-object v0, p0, Landroid/app/DownloadManager$Query;->mStatusFlags:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -378,21 +446,21 @@
 
     and-int/lit8 v0, v0, 0x2
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    .line 868
+    .line 950
     const-string/jumbo v0, "="
 
-    const/16 v2, 0xc0
+    const/16 v1, 0xc0
 
-    invoke-direct {p0, v0, v2}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-direct {p0, v0, v1}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 870
-    :cond_2
+    .line 952
+    :cond_3
     iget-object v0, p0, Landroid/app/DownloadManager$Query;->mStatusFlags:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -401,65 +469,65 @@
 
     and-int/lit8 v0, v0, 0x4
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    .line 871
+    .line 953
     const-string/jumbo v0, "="
 
-    const/16 v2, 0xc1
+    const/16 v1, 0xc1
 
-    invoke-direct {p0, v0, v2}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-direct {p0, v0, v1}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 872
+    .line 954
     const-string/jumbo v0, "="
 
-    const/16 v2, 0xc2
+    const/16 v1, 0xc2
 
-    invoke-direct {p0, v0, v2}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-direct {p0, v0, v1}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 873
+    .line 955
     const-string/jumbo v0, "="
 
-    const/16 v2, 0xc3
+    const/16 v1, 0xc3
 
-    invoke-direct {p0, v0, v2}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-direct {p0, v0, v1}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 874
+    .line 956
     const-string/jumbo v0, "="
 
-    const/16 v2, 0xc4
+    const/16 v1, 0xc4
 
-    invoke-direct {p0, v0, v2}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-direct {p0, v0, v1}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 875
+    .line 957
     const-string/jumbo v0, "="
 
-    const/16 v2, 0xc5
+    const/16 v1, 0xc5
 
-    invoke-direct {p0, v0, v2}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-direct {p0, v0, v1}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 877
-    :cond_3
+    .line 959
+    :cond_4
     iget-object v0, p0, Landroid/app/DownloadManager$Query;->mStatusFlags:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -468,21 +536,21 @@
 
     and-int/lit8 v0, v0, 0x8
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
-    .line 878
+    .line 960
     const-string/jumbo v0, "="
 
-    const/16 v2, 0xc8
+    const/16 v1, 0xc8
 
-    invoke-direct {p0, v0, v2}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-direct {p0, v0, v1}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 880
-    :cond_4
+    .line 962
+    :cond_5
     iget-object v0, p0, Landroid/app/DownloadManager$Query;->mStatusFlags:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -491,58 +559,58 @@
 
     and-int/lit8 v0, v0, 0x10
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
-    .line 881
+    .line 963
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "("
+    const-string/jumbo v1, "("
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v2, ">="
-
-    const/16 v9, 0x190
-
-    invoke-direct {p0, v2, v9}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 882
-    const-string/jumbo v2, " AND "
+    const-string/jumbo v1, ">="
 
-    .line 881
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v2, 0x190
 
-    move-result-object v0
+    invoke-direct {p0, v1, v2}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
 
-    .line 882
-    const-string/jumbo v2, "<"
+    move-result-object v1
 
-    const/16 v9, 0x258
-
-    invoke-direct {p0, v2, v9}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 881
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 882
-    const-string/jumbo v2, ")"
+    .line 964
+    const-string/jumbo v1, " AND "
 
-    .line 881
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 963
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    .line 964
+    const-string/jumbo v1, "<"
+
+    const/16 v2, 0x258
+
+    invoke-direct {p0, v1, v2}, Landroid/app/DownloadManager$Query;->statusClause(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 963
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    .line 964
+    const-string/jumbo v1, ")"
+
+    .line 963
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -552,8 +620,8 @@
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 884
-    :cond_5
+    .line 966
+    :cond_6
     const-string/jumbo v0, " OR "
 
     invoke-direct {p0, v0, v7}, Landroid/app/DownloadManager$Query;->joinStrings(Ljava/lang/String;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -562,57 +630,57 @@
 
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 887
+    .line 969
     .end local v7    # "parts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :cond_6
+    :cond_7
     iget-boolean v0, p0, Landroid/app/DownloadManager$Query;->mOnlyIncludeVisibleInDownloadsUi:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    .line 888
+    .line 970
     const-string/jumbo v0, "is_visible_in_downloads_ui != \'0\'"
 
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 892
-    :cond_7
+    .line 974
+    :cond_8
     const-string/jumbo v0, "deleted != \'1\'"
 
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 894
+    .line 976
     const-string/jumbo v0, " AND "
 
     invoke-direct {p0, v0, v8}, Landroid/app/DownloadManager$Query;->joinStrings(Ljava/lang/String;Ljava/lang/Iterable;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 895
+    .line 977
     .local v3, "selection":Ljava/lang/String;
     iget v0, p0, Landroid/app/DownloadManager$Query;->mOrderDirection:I
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-ne v0, v2, :cond_8
+    if-ne v0, v1, :cond_b
 
     const-string/jumbo v6, "ASC"
 
-    .line 896
+    .line 978
     .local v6, "orderDirection":Ljava/lang/String;
-    :goto_0
+    :goto_2
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, p0, Landroid/app/DownloadManager$Query;->mOrderByColumn:Ljava/lang/String;
+    iget-object v1, p0, Landroid/app/DownloadManager$Query;->mOrderByColumn:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    const-string/jumbo v2, " "
+    const-string/jumbo v1, " "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -627,23 +695,45 @@
     .local v5, "orderBy":Ljava/lang/String;
     move-object v0, p1
 
+    move-object v1, p3
+
     move-object v2, p2
 
-    .line 898
+    .line 980
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v0
 
     return-object v0
 
-    .line 895
+    .line 928
+    .end local v3    # "selection":Ljava/lang/String;
     .end local v5    # "orderBy":Ljava/lang/String;
     .end local v6    # "orderDirection":Ljava/lang/String;
-    :cond_8
+    .end local v10    # "whereArgsCount":I
+    .local v4, "selectionArgs":[Ljava/lang/String;
+    :cond_9
+    iget-object v0, p0, Landroid/app/DownloadManager$Query;->mIds:[J
+
+    array-length v10, v0
+
+    .restart local v10    # "whereArgsCount":I
+    goto/16 :goto_0
+
+    .line 929
+    :cond_a
+    add-int/lit8 v10, v10, 0x1
+
+    goto/16 :goto_1
+
+    .line 977
+    .restart local v3    # "selection":Ljava/lang/String;
+    .local v4, "selectionArgs":[Ljava/lang/String;
+    :cond_b
     const-string/jumbo v6, "DESC"
 
     .restart local v6    # "orderDirection":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_2
 .end method
 
 .method public varargs setFilterById([J)Landroid/app/DownloadManager$Query;
@@ -651,10 +741,10 @@
     .param p1, "ids"    # [J
 
     .prologue
-    .line 794
+    .line 854
     iput-object p1, p0, Landroid/app/DownloadManager$Query;->mIds:[J
 
-    .line 795
+    .line 855
     return-object p0
 .end method
 
@@ -663,14 +753,26 @@
     .param p1, "flags"    # I
 
     .prologue
-    .line 804
+    .line 875
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/app/DownloadManager$Query;->mStatusFlags:Ljava/lang/Integer;
 
-    .line 805
+    .line 876
+    return-object p0
+.end method
+
+.method public setFilterByString(Ljava/lang/String;)Landroid/app/DownloadManager$Query;
+    .locals 0
+    .param p1, "filter"    # Ljava/lang/String;
+
+    .prologue
+    .line 865
+    iput-object p1, p0, Landroid/app/DownloadManager$Query;->mFilterString:Ljava/lang/String;
+
+    .line 866
     return-object p0
 .end method
 
@@ -679,9 +781,9 @@
     .param p1, "value"    # Z
 
     .prologue
-    .line 817
+    .line 888
     iput-boolean p1, p0, Landroid/app/DownloadManager$Query;->mOnlyIncludeVisibleInDownloadsUi:Z
 
-    .line 818
+    .line 889
     return-object p0
 .end method

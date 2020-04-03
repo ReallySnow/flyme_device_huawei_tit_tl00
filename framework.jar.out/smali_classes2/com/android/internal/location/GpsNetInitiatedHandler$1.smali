@@ -24,7 +24,7 @@
     .param p1, "this$0"    # Lcom/android/internal/location/GpsNetInitiatedHandler;
 
     .prologue
-    .line 144
+    .line 152
     iput-object p1, p0, Lcom/android/internal/location/GpsNetInitiatedHandler$1;->this$0:Lcom/android/internal/location/GpsNetInitiatedHandler;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 147
+    .line 155
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 148
+    .line 156
     .local v0, "action":Ljava/lang/String;
     const-string/jumbo v2, "android.intent.action.NEW_OUTGOING_CALL"
 
@@ -55,14 +55,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 149
+    .line 157
     const-string/jumbo v2, "android.intent.extra.PHONE_NUMBER"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 160
+    .line 164
     .local v1, "phoneNumber":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/internal/location/GpsNetInitiatedHandler$1;->this$0:Lcom/android/internal/location/GpsNetInitiatedHandler;
 
@@ -70,9 +70,15 @@
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/location/GpsNetInitiatedHandler;->setInEmergency(Z)V
+    invoke-static {v2, v3}, Lcom/android/internal/location/GpsNetInitiatedHandler;->-set1(Lcom/android/internal/location/GpsNetInitiatedHandler;Z)Z
 
-    .line 161
+    .line 165
+    invoke-static {}, Lcom/android/internal/location/GpsNetInitiatedHandler;->-get0()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
     const-string/jumbo v2, "GpsNetInitiatedHandler"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -101,13 +107,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 146
+    .line 154
     .end local v1    # "phoneNumber":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
-    .line 162
+    .line 166
     :cond_1
     const-string/jumbo v2, "android.location.MODE_CHANGED"
 
@@ -117,12 +123,18 @@
 
     if-eqz v2, :cond_0
 
-    .line 163
+    .line 167
     iget-object v2, p0, Lcom/android/internal/location/GpsNetInitiatedHandler$1;->this$0:Lcom/android/internal/location/GpsNetInitiatedHandler;
 
     invoke-virtual {v2}, Lcom/android/internal/location/GpsNetInitiatedHandler;->updateLocationMode()V
 
-    .line 164
+    .line 168
+    invoke-static {}, Lcom/android/internal/location/GpsNetInitiatedHandler;->-get0()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
     const-string/jumbo v2, "GpsNetInitiatedHandler"
 
     new-instance v3, Ljava/lang/StringBuilder;

@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "cyanogenmod.weather.IWeatherServiceProviderChangeListener"
 
-.field static final TRANSACTION_onWeatherServiceProviderChanged_0:I = 0x1
+.field static final TRANSACTION_onWeatherServiceProviderChanged:I = 0x1
 
 
 # direct methods

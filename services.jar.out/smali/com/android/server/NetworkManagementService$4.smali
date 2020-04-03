@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/NetworkManagementService;->removeIdleTimer(Ljava/lang/String;)V
+    value = Lcom/android/server/NetworkManagementService;->addIdleTimer(Ljava/lang/String;II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/NetworkManagementService;
 
-.field final synthetic val$params:Lcom/android/server/NetworkManagementService$IdleTimerParams;
+.field final synthetic val$type:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/NetworkManagementService;Lcom/android/server/NetworkManagementService$IdleTimerParams;)V
+.method constructor <init>(Lcom/android/server/NetworkManagementService;I)V
     .locals 0
     .param p1, "this$0"    # Lcom/android/server/NetworkManagementService;
-    .param p2, "val$params"    # Lcom/android/server/NetworkManagementService$IdleTimerParams;
+    .param p2, "val$type"    # I
 
     .prologue
-    .line 1659
+    .line 1759
     iput-object p1, p0, Lcom/android/server/NetworkManagementService$4;->this$0:Lcom/android/server/NetworkManagementService;
 
-    iput-object p2, p0, Lcom/android/server/NetworkManagementService$4;->val$params:Lcom/android/server/NetworkManagementService$IdleTimerParams;
+    iput p2, p0, Lcom/android/server/NetworkManagementService$4;->val$type:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,29 +43,30 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 8
 
     .prologue
-    .line 1661
+    .line 1761
     iget-object v1, p0, Lcom/android/server/NetworkManagementService$4;->this$0:Lcom/android/server/NetworkManagementService;
 
-    iget-object v0, p0, Lcom/android/server/NetworkManagementService$4;->val$params:Lcom/android/server/NetworkManagementService$IdleTimerParams;
+    iget v2, p0, Lcom/android/server/NetworkManagementService$4;->val$type:I
 
-    iget v2, v0, Lcom/android/server/NetworkManagementService$IdleTimerParams;->type:I
-
-    .line 1662
-    sget v3, Landroid/telephony/DataConnectionRealTimeInfo;->DC_POWER_STATE_LOW:I
-
-    .line 1663
+    .line 1763
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtimeNanos()J
 
     move-result-wide v4
 
-    const/4 v6, 0x0
+    .line 1762
+    const/4 v3, 0x3
 
-    .line 1661
-    invoke-static/range {v1 .. v6}, Lcom/android/server/NetworkManagementService;->-wrap3(Lcom/android/server/NetworkManagementService;IIJZ)V
+    .line 1763
+    const/4 v6, -0x1
 
-    .line 1660
+    const/4 v7, 0x0
+
+    .line 1761
+    invoke-static/range {v1 .. v7}, Lcom/android/server/NetworkManagementService;->-wrap4(Lcom/android/server/NetworkManagementService;IIJIZ)V
+
+    .line 1760
     return-void
 .end method

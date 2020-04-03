@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.IUserSwitchObserver"
 
-.field static final TRANSACTION_onForegroundProfileSwitch:I = 0x3
+.field static final TRANSACTION_onForegroundProfileSwitch_2:I = 0x3
 
-.field static final TRANSACTION_onUserSwitchComplete:I = 0x2
+.field static final TRANSACTION_onUserSwitchComplete_1:I = 0x2
 
 .field static final TRANSACTION_onUserSwitching:I = 0x1
 

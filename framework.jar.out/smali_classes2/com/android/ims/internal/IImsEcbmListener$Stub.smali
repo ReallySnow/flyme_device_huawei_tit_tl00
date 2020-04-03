@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_enteredECBM_0:I = 0x1
 
-.field static final TRANSACTION_exitedECBM_1:I = 0x2
+.field static final TRANSACTION_exitedECBM:I = 0x2
 
 
 # direct methods

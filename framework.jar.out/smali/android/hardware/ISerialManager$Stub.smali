@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.ISerialManager"
 
-.field static final TRANSACTION_getSerialPorts_0:I = 0x1
+.field static final TRANSACTION_getSerialPorts:I = 0x1
 
-.field static final TRANSACTION_openSerialPort:I = 0x2
+.field static final TRANSACTION_openSerialPort_1:I = 0x2
 
 
 # direct methods

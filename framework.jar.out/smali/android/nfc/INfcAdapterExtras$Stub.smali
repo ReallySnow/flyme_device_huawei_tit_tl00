@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_authenticate:I = 0x6
 
-.field static final TRANSACTION_close:I = 0x2
+.field static final TRANSACTION_close_1:I = 0x2
 
 .field static final TRANSACTION_getCardEmulationRoute:I = 0x4
 
@@ -38,7 +38,7 @@
 
 .field static final TRANSACTION_setCardEmulationRoute:I = 0x5
 
-.field static final TRANSACTION_transceive:I = 0x3
+.field static final TRANSACTION_transceive_2:I = 0x3
 
 
 # direct methods

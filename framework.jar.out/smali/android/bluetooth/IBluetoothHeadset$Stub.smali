@@ -36,9 +36,9 @@
 
 .field static final TRANSACTION_disableWBS:I = 0x1a
 
-.field static final TRANSACTION_disconnect:I = 0x2
-
 .field static final TRANSACTION_disconnectAudio:I = 0x12
+
+.field static final TRANSACTION_disconnect_1:I = 0x2
 
 .field static final TRANSACTION_enableWBS:I = 0x19
 
@@ -48,11 +48,11 @@
 
 .field static final TRANSACTION_getBatteryUsageHint:I = 0xc
 
-.field static final TRANSACTION_getConnectedDevices:I = 0x3
+.field static final TRANSACTION_getConnectedDevices_2:I = 0x3
 
-.field static final TRANSACTION_getConnectionState:I = 0x5
+.field static final TRANSACTION_getConnectionState_4:I = 0x5
 
-.field static final TRANSACTION_getDevicesMatchingConnectionStates:I = 0x4
+.field static final TRANSACTION_getDevicesMatchingConnectionStates_3:I = 0x4
 
 .field static final TRANSACTION_getPriority:I = 0x7
 
@@ -68,7 +68,7 @@
 
 .field static final TRANSACTION_setAudioRouteAllowed:I = 0x13
 
-.field static final TRANSACTION_setPriority:I = 0x6
+.field static final TRANSACTION_setPriority_5:I = 0x6
 
 .field static final TRANSACTION_startScoUsingVirtualVoiceCall:I = 0x15
 
@@ -1337,11 +1337,9 @@
     :cond_19
     const/16 v19, 0x0
 
-    .restart local v19    # "_arg0":Z
     goto :goto_19
 
     .line 304
-    .end local v19    # "_arg0":Z
     :sswitch_14
     const-string/jumbo v4, "android.bluetooth.IBluetoothHeadset"
 

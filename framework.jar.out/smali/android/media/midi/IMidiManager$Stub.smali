@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.media.midi.IMidiManager"
 
-.field static final TRANSACTION_closeDevice:I = 0x6
+.field static final TRANSACTION_closeDevice_5:I = 0x6
 
 .field static final TRANSACTION_getDeviceStatus:I = 0xa
 
@@ -34,9 +34,9 @@
 
 .field static final TRANSACTION_getServiceDeviceInfo:I = 0x9
 
-.field static final TRANSACTION_openBluetoothDevice:I = 0x5
+.field static final TRANSACTION_openBluetoothDevice_4:I = 0x5
 
-.field static final TRANSACTION_openDevice:I = 0x4
+.field static final TRANSACTION_openDevice_3:I = 0x4
 
 .field static final TRANSACTION_registerDeviceServer:I = 0x7
 
@@ -46,7 +46,7 @@
 
 .field static final TRANSACTION_unregisterDeviceServer:I = 0x8
 
-.field static final TRANSACTION_unregisterListener:I = 0x3
+.field static final TRANSACTION_unregisterListener_2:I = 0x3
 
 
 # direct methods

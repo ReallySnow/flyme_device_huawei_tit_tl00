@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.app.IVoiceInteractionSessionShowCallback"
 
-.field static final TRANSACTION_onFailed_0:I = 0x1
+.field static final TRANSACTION_onFailed:I = 0x1
 
 .field static final TRANSACTION_onShown:I = 0x2
 

@@ -30,11 +30,11 @@
 
 .field static final TRANSACTION_displaySafeVolumeWarning:I = 0x1
 
-.field static final TRANSACTION_masterMuteChanged:I = 0x3
+.field static final TRANSACTION_masterMuteChanged_2:I = 0x3
 
 .field static final TRANSACTION_setLayoutDirection:I = 0x4
 
-.field static final TRANSACTION_volumeChanged:I = 0x2
+.field static final TRANSACTION_volumeChanged_1:I = 0x2
 
 
 # direct methods

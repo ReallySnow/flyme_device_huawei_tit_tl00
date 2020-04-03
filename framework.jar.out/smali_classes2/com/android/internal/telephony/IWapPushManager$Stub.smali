@@ -26,11 +26,11 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.telephony.IWapPushManager"
 
-.field static final TRANSACTION_addPackage:I = 0x2
+.field static final TRANSACTION_addPackage_1:I = 0x2
 
 .field static final TRANSACTION_deletePackage:I = 0x4
 
-.field static final TRANSACTION_processMessage:I = 0x1
+.field static final TRANSACTION_processMessage_0:I = 0x1
 
 .field static final TRANSACTION_updatePackage:I = 0x3
 
@@ -300,10 +300,10 @@
     :cond_2
     const/4 v7, 0x0
 
-    .restart local v7    # "_arg6":Z
     goto :goto_2
 
     .line 83
+    .restart local v7    # "_arg6":Z
     .restart local v10    # "_result":Z
     :cond_3
     const/4 v0, 0x0
@@ -414,10 +414,10 @@
     :cond_5
     const/4 v7, 0x0
 
-    .restart local v7    # "_arg6":Z
     goto :goto_5
 
     .line 105
+    .restart local v7    # "_arg6":Z
     .restart local v10    # "_result":Z
     :cond_6
     const/4 v0, 0x0

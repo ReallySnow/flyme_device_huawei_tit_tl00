@@ -40,7 +40,7 @@
 
 .field static final TRANSACTION_getMainChannelFd:I = 0x6
 
-.field static final TRANSACTION_registerAppConfiguration:I = 0x1
+.field static final TRANSACTION_registerAppConfiguration_0:I = 0x1
 
 .field static final TRANSACTION_unregisterAppConfiguration:I = 0x2
 

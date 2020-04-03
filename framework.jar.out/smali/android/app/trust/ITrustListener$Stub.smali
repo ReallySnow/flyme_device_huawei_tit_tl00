@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_onTrustChanged:I = 0x1
 
-.field static final TRANSACTION_onTrustManagedChanged:I = 0x2
+.field static final TRANSACTION_onTrustManagedChanged_1:I = 0x2
 
 
 # direct methods

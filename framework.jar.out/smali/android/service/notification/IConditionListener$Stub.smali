@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.service.notification.IConditionListener"
 
-.field static final TRANSACTION_onConditionsReceived:I = 0x1
+.field static final TRANSACTION_onConditionsReceived_0:I = 0x1
 
 
 # direct methods
